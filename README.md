@@ -10,4 +10,8 @@ An opinionated set of AngularJS directives used to build rich and interactive we
 ## BossyUI Goals
 1. 100% AngularJS, no JQuery dependencies.
 2. Lightweight directives.
-3. 100% themeable.   
+3. 100% themeable.
+
+## Contributing
+
+Interested in contributing? Checkout our [contributing guide](/CONTRIBUTING.md).
