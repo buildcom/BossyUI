@@ -1,7 +1,7 @@
 Contributing Guide
 ==================
 
-Let's build something awesome. We can make it happen with your help.
+Let's build something awesome. We can make it happen with your help. We use the [fork & pull model](https://help.github.com/articles/using-pull-requests#fork--pull) to accept new code into the project. If you aren't familiar with that workflow, Github's [Using Pull Requests](https://help.github.com/articles/using-pull-requests) article is a great primer.
 
 ## Getting Involved
 
