@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jasonmerino/BossyUI.git"
+    "url": "https://github.com/buildcom/BossyUI.git"
   },
   "keywords": [
     "angular.js"
@@ -16,7 +16,7 @@
   "author": "BOS",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jasonmerino/BossyUI/issues"
+    "url": "https://github.com/buildcom/BossyUI/issues"
   },
   "dependencies": {
     "gulp": "~3.8.6",
