@@ -1,13 +1,5 @@
+# Project
 *node_modules*
-.idea/.name
-.idea/BossyUI.iml
-.idea/encodings.xml
-.idea/jsLibraryMappings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/workspace.xml
-.idea/scopes/scope_settings.xml
 demo/bower_components/angular/.bower.json
 demo/bower_components/angular/angular-csp.css
 demo/bower_components/angular/angular.js
@@ -16,3 +8,9 @@ demo/bower_components/angular/angular.min.js.gzip
 demo/bower_components/angular/angular.min.js.map
 demo/bower_components/angular/bower.json
 demo/bower_components/angular/README.md
+
+# Editor
+.idea/*
+
+# System
+.DS_Store
