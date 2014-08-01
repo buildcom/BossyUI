@@ -1,4 +1,5 @@
 Built with LOVE by:
 
-Geoff Lawson <jeffwithg@gmail.com>
-Jason Merino <jasonmerino@gmail.com>
+Geoff Lawson <geoff.lawson@build.com>
+Jason Merino <jason.merino@build.com>
+Dan Green <dan.green@build.com>
