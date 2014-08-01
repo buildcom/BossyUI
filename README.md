@@ -3,7 +3,7 @@
 BossyUI
 =======
 
-Created with LOVE by Build.com Open Source Consortium - fostering a collaboration between Chico students and Chico, CA software companies on open source projects.  Sponsered by Build.com
+Created with LOVE by Build.com Open Source Consortium - fostering a collaboration between CSU Chico students and Chico, CA software companies on open source projects.  Sponsored by Build.com
 
 ## BossyUI
 
