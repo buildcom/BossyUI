@@ -3,3 +3,4 @@ Built with LOVE by:
 Geoff Lawson <jeffwithg@gmail.com>
 Jason Merino <jasonmerino@gmail.com>
 Dan Green <dan.green@build.com>
+Dan Sluis <daniel@lulus.com>
