@@ -15,7 +15,7 @@
 
 var bossy = angular.module('bossy', []);
 
-bossy.directive('bossyForm', function ($compile) {
+bossy.directive('bossyForm', function ($compile,$http) {
     var _schema,
         _data,
         _itemTemplate = {
@@ -32,7 +32,22 @@ bossy.directive('bossyForm', function ($compile) {
 
     function setData(data) {
         if (angular.isString(data)) {
-            //TODO: go get data from url
+
+            $http.get( data )
+                .success( function( data ) {
+                    if( angular.isObject( data ) ) {
+                        _data = data;
+                    }
+                    else {
+                        //TODO: replace error message with online doc link like ng errors
+                        console.error('directive.bossyForm: GET request to url did not produce data object');
+                    }
+                })
+                .error( function(response_data, status) {
+                    //TODO: replace error message with online doc link like ng errors
+                    console.error('directive.bossyForm: GET request to url "' + data + '" failed with status "' + status + '"');
+                });
+            
             console.log('is string');
         }
         else if (angular.isObject(data)) {
@@ -46,7 +61,21 @@ bossy.directive('bossyForm', function ($compile) {
 
     function setSchema(schema) {
         if (angular.isString(schema)) {
-            //TODO: go get schema from url and return object
+            
+            $http.get( schema )
+                .success( function( data ) {
+                    if( angular.isObject( data ) ) {
+                        _schema = schema;
+                    }
+                    else {
+                        //TODO: replace error message with online doc link like ng errors
+                        console.error('directive.bossyForm: GET request to url did not produce schema object');
+                    }
+                })
+                .error( function(data, status) {
+                    //TODO: replace error message with online doc link like ng errors
+                    console.error('directive.bossyForm: GET request to url "' + schema + '" failed with status "' + status + '"');
+                });
             console.log('is string');
         }
         else if (angular.isObject(schema)) {
