@@ -21,17 +21,6 @@
   "dependencies": {
     "gulp": "~3.8.6",
     "bower": "~1.3.8",
-    "karma": "~0.12.19",
-    "chai": "~1.9.1",
-    "underscore": "~1.6.0",
-    "karma-phantomjs-launcher": "~0.1.4",
-    "gulp-webpack": "~0.3.0",
-    "angular": "~1.2.19"
-  },
-  "devDependencies": {
-    "karma-chrome-launcher": "~0.1.4",
-    "mocha": "~1.21.3",
-    "karma-mocha": "~0.1.6",
-    "karma-firefox-launcher": "~0.1.3"
+    "karma": "~0.12.19"
   }
 }
