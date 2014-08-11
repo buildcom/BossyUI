@@ -1,5 +1,8 @@
 {
 	"paths": {
-		"scripts": ["src/**/*.js"]
+		"scripts": [
+            "src/bossy.js",
+            "src/bossy.*.js"
+        ]
 	}
 }
