@@ -4,13 +4,13 @@ angular.module('bossy.form', [])
             _data,
             _itemTemplate = {
                 number: function () {
-                    return '<input type="number" />'
+                    return '<input type="number" />';
                 },
                 text: function () {
-                    return '<input type="text" />'
+                    return '<input type="text" />';
                 },
                 textArea: function () {
-                    return '<textarea></textarea>'
+                    return '<textarea></textarea>';
                 }
             };
 
@@ -39,11 +39,11 @@ angular.module('bossy.form', [])
                             break;
                         case 'number' || 'integer':
                             console.log(fullKey + ' is number or integer');
-                            template += _itemTemplate['number']();
+                            template += _itemTemplate.number();
                             break;
                         case 'string':
                             console.log(fullKey + ' is string');
-                            template += _itemTemplate['text']();
+                            template += _itemTemplate.text();
                             break;
                     }
                 }
