@@ -29,7 +29,7 @@ angular.module('bossy.form', [])
         }
 
         function buildTemplate(schemaPart, parentKey) {
-            var template = '<form style="width: 40%">',
+            var template = '',
                 fullKey = '';
             angular.forEach(schemaPart, function(value, key) {                
                 if (value.type) {
@@ -54,7 +54,7 @@ angular.module('bossy.form', [])
                 }
             });
 
-            return template +'</form>';
+            return template;
         }
 
         return {
@@ -62,12 +62,14 @@ angular.module('bossy.form', [])
             replace: true,
             template: '',
             scope: {
-                options:"=" //Create scope isolation with bi-directional binding
+                options:"=", //Create scope isolation with bi-directional binding,
+                title: "="
             },
             link: function (scope, element, attributes) {
                 setData(scope.options.data);
                 setSchema(scope.options.schema);
-                element.html(buildTemplate(_schema));
+                element.html('<form style="width: 40%; margin:0 auto">'+
+            '<h4 class="text-center text-uppercase well">{{title}}</h4>'+buildTemplate(_schema)+'</form>');
                 $compile(element.contents())(scope);
             }
         };
