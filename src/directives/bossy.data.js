@@ -1,4 +1,4 @@
-angular.module('bossy.data', [])
+angular.module('app.factory.bossy.data', [])
     .factory('$data', function () {
 
         function _getData (data) {

@@ -1,4 +1,4 @@
-angular.module('bossy.schema', [])
+angular.module('app.factory.bossy.schema', [])
     .factory('$schema', function () {
 
         function _getSchema (schema) {
