@@ -13,8 +13,8 @@
 
 //TODO: need layout, labels
 var bossy = angular.module('bossy', [
-        'bossy.data',
-        'bossy.schema',
-        'bossy.form'
+        'app.factory.bossy.data',
+        'app.factory.bossy.schema',
+        'app.directive.bossy.form'
     ]
 );

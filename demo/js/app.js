@@ -17,16 +17,24 @@ angular.module('demoApp', ['bossy'])
                     type: 'object', // json object type (json-schema.org)
                     properties: {
                         street: {
-                            type: 'string'
+                            type: 'string',
+                            title: 'Street'
                         },
                         locality: {
-                            type: 'string'
+                            type: 'string',
+                            title: 'Location'
                         },
                         region: {
-                            type: 'string'
+                            type: 'string',
+                            title: 'Region'
                         },
                         postalCode: {
-                            type: 'string'
+                            type: 'string',
+                            title: 'Zip Code'
+                        },
+                        business: {
+                            type: 'boolean',
+                            title: 'Businuess'
                         }
                     }
                 }

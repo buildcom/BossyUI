@@ -2,7 +2,10 @@
 	"paths": {
 		"scripts": [
             "src/bossy.js",
-            "src/bossy.*.js"
+            "src/directives/bossy.*.js"
+        ],
+        "scss":[
+        	"src/scss/*.scss"
         ]
 	}
 }

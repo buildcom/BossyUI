@@ -3,4 +3,6 @@ var gulp = require('gulp'),
 
 module.exports = function() {
 	gulp.watch(config.paths.scripts, ['copy']);
+	gulp.watch(config.paths.scripts, ['build']);
+	gulp.watch(config.paths.scss, ['compass']);
 };
