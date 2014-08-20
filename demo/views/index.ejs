@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+      <meta charset="UTF-8">
+      <title><%= title %></title>
+      <script src="bower_components/angular/angular.js"></script>
+      <script src="bossy/bossy.all.js"></script>
+      <script src="/javascripts/demo.js"></script>
+      <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body ng-app="demoApp">
+    <h1><%= title %></h1>
+    <div class="container theme-showcase">
+        <div class="bs-callout bs-callout-info">
+            <h1>AngularJS Custom Directives</h1>
+            <h3>Bossy Form directive using angular.js</h3>
+        </div>
+        <xmp>
+            Example: <bossy-form options="options" title="'This is my bossy form'"></bossy-form>
+        </xmp>
+        <div style="border: 1px solid #666" ng-controller="DemoBossyFormCtrl" class="">
+            <bossy-form options="options" title="'This is my bossy form'"></bossy-form>
+        </div>
+    </div>
+  </body>
+</html>
