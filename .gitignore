@@ -17,3 +17,9 @@ demo/bower_components/angular/README.md
 
 # Compass
 .sass-cache
+build/js/bossy.all.js
+demo/bossy/bossy.all.js
+demo/bossy/bossy.data.js
+demo/bossy/bossy.form.js
+demo/bossy/bossy.js
+demo/bossy/bossy.schema.js
