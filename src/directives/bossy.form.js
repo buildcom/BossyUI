@@ -9,8 +9,8 @@ angular.module('app.directive.bossy.form', [])
                 number: function () {
                     return '<input type="number"/>';
                 },
-                text: function (obj, key) {
-                    return '<bossy-input title="\''+obj.title+'\'" value="\''+_data.address[key]+'\'"></bossy-input>';                    
+                text: function (obj, key, is_required) {
+                    return '<bossy-input title="\''+obj.title+'\'" value="\''+_data.address[key]+'\'"' + ( is_required ? ' required' : '' ) + '></bossy-input>';                    
                 },
                 textArea: function () {
                     return '<textarea></textarea>';
@@ -28,7 +28,7 @@ angular.module('app.directive.bossy.form', [])
             _schema = $schema.getSchema(schema);
         }
 
-        function buildTemplate(schemaPart, parentKey) {
+        function buildTemplate(schemaPart, parentKey, required) {
             var template = '',
                 fullKey = '';
             angular.forEach(schemaPart, function(value, key) {                
@@ -36,7 +36,8 @@ angular.module('app.directive.bossy.form', [])
                     console.log(fullKey + ' is '+ value.type);
                     switch (value.type) {
                         case 'object':
-                            template += buildTemplate(value.properties, fullKey);
+                            var required_list = typeof( value.required ) !== 'undefined' ? value.required : null;
+                            template += buildTemplate(value.properties, fullKey, required_list );
                             break;
                         case 'array':
                             template += buildTemplate(value.items.properties, fullKey);
@@ -45,14 +46,18 @@ angular.module('app.directive.bossy.form', [])
                             template += _itemTemplate.number(value);
                             break;
                         case 'string':
-                            template += _itemTemplate.text(value, key);
+                            var is_required = false;
+                            if( required && required.indexOf(key) !== -1 ) {
+                                is_required = true;
+                            }
+                            template += _itemTemplate.text(value, key, is_required);
                             break;
                         case 'boolean':
                             template += _itemTemplate.checkbox(value);
                             break;
                     }
                 }
-            });
+            }, this);
 
             return template;
         }
@@ -68,7 +73,7 @@ angular.module('app.directive.bossy.form', [])
             link: function (scope, element, attributes) {
                 setData(scope.options.data);
                 setSchema(scope.options.schema);
-                element.html('<form style="width: 40%; margin:0 auto">'+
+                element.html('<form style="width: 40%; margin:0 auto" novalidate>'+
             '<h4 class="text-center text-uppercase well">{{title}}</h4>'+buildTemplate(_schema)+'</form>');
                 $compile(element.contents())(scope);
             }
