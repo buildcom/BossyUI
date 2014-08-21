@@ -6,6 +6,9 @@
         ],
         "scss":[
         	"src/scss/*.scss"
+        ],
+        "css" :[
+        	"src/css/*.css"
         ]
 	}
 }
