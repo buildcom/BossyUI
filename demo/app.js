@@ -54,8 +54,4 @@ app.use(function(err, req, res, next) {
     });
 });
 
-
-// run server
-app.listen(port, function() {
-  console.log("Listening on " + port);
-});
+module.exports = app;
