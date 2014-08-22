@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "postinstall": "bower cache clean && bower install"
+    "postinstall": "bower cache clean && bower install && gulp build"
   },
   "engines": {
     "node": "0.10.x"
