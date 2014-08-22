@@ -1,9 +1,10 @@
 {
-  "name": "application-name",
+  "name": "bossy-ui-demo",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "postinstall": "bower install && gulp build"
   },
   "dependencies": {
     "express": "~4.0.0",
