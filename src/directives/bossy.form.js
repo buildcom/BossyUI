@@ -10,7 +10,7 @@ angular.module('app.directive.bossy.form', [])
                     return '<input type="number"/>';
                 },
                 text: function (obj, key, is_required) {
-                    return '<bossy-input title="\''+obj.title+'\'" value="\''+_data.address[key]+'\'"' + ( is_required ? ' required' : '' ) + '></bossy-input>';                    
+                    return '<bossy-input title="\''+obj.title+'\'" value="\''+_data.address[key]+'\'"' + ( is_required ? ' required' : '' ) + '></bossy-input>';
                 },
                 textArea: function () {
                     return '<textarea></textarea>';
@@ -31,7 +31,7 @@ angular.module('app.directive.bossy.form', [])
         function buildTemplate(schemaPart, parentKey, required) {
             var template = '',
                 fullKey = '';
-            angular.forEach(schemaPart, function(value, key) {                
+            angular.forEach(schemaPart, function(value, key) {
                 if (value.type) {
                     console.log(fullKey + ' is '+ value.type);
                     switch (value.type) {

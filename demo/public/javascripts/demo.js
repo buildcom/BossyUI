@@ -34,7 +34,10 @@ angular.module('demoApp', ['bossy'])
                         },
                         business: {
                             type: 'boolean',
-                            title: 'Businuess'
+                            title: 'Business'
+                        },
+                        submit: {
+                            title: 'Submit'
                         }
                     }
                 }
