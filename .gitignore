@@ -1,25 +1,14 @@
 # Project
-*node_modules*
-demo/bower_components/angular/.bower.json
-demo/bower_components/angular/angular-csp.css
-demo/bower_components/angular/angular.js
-demo/bower_components/angular/angular.min.js
-demo/bower_components/angular/angular.min.js.gzip
-demo/bower_components/angular/angular.min.js.map
-demo/bower_components/angular/bower.json
-demo/bower_components/angular/README.md
+node_modules
+demo/public/bower_components
+demo/public/javascripts/bossy.all.js
+build
 
 # Editor
-.idea/*
+.idea/
 
 # System
 .DS_Store
 
 # Compass
 .sass-cache
-build/js/bossy.all.js
-demo/bossy/bossy.all.js
-demo/bossy/bossy.data.js
-demo/bossy/bossy.form.js
-demo/bossy/bossy.js
-demo/bossy/bossy.schema.js
