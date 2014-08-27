@@ -4,6 +4,6 @@ var gulp = require('gulp'),
 module.exports = function() {
 
 	return gulp
-		.src(config.paths.scripts.concat(config.paths.css))
-		.pipe(gulp.dest('demo/bossy'));
+		.src(config.paths.css)
+		.pipe(gulp.dest('demo/public/stylesheets'));
 };

@@ -12,7 +12,7 @@ angular.module('app.directive.bossy.form', [])
                 text: function (obj, key, is_required) {
                     return '<bossy-input title="\''+obj.title+'\'" value="\''+_data.address[key]+'\'"' + ( is_required ? ' required' : '' ) + '></bossy-input>';                    
                 },
-                textArea: function () {
+                textArea: function () { 
                     return '<textarea></textarea>';
                 },
                 checkbox: function(obj){
