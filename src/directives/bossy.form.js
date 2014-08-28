@@ -10,7 +10,7 @@ angular.module('app.directive.bossy.form', [])
                     return '<input type="number"/>';
                 },
                 text: function (obj, key, is_required) {
-                    return '<bossy-input title="\''+obj.title+'\'" value="\''+_data.address[key]+'\'"' + ( is_required ? ' required' : '' ) + '></bossy-input>';                    
+                    return '<bossy-input title="\''+obj.title+'\'" type="\''+ obj.input_type +'\'" value="\''+_data.address[key]+'\'"' + ( is_required ? ' required' : '' ) + '></bossy-input>';                    
                 },
                 textArea: function () {
                     return '<textarea></textarea>';

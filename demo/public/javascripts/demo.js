@@ -18,23 +18,28 @@ angular.module('demoApp', ['bossy'])
                     properties: {
                         street: {
                             type: 'string',
-                            title: 'Street'
+                            title: 'Street',
+                            input_type: "text"
                         },
                         locality: {
                             type: 'string',
-                            title: 'Location'
+                            title: 'Location',
+                            input_type: "text"
                         },
                         region: {
                             type: 'string',
-                            title: 'Region'
+                            title: 'Region',
+                            input_type: "text"
                         },
                         postalCode: {
                             type: 'string',
-                            title: 'Zip Code'
+                            title: 'Zip Code',
+                            input_type: "number"
                         },
                         business: {
                             type: 'boolean',
-                            title: 'Businuess'
+                            title: 'Businuess',
+                            input_type: "text"
                         }
                     }
                 }
