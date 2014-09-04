@@ -13,6 +13,5 @@ angular.module('app.directive.bossy.input', [])
 				type: "="
 			},
 			template: $templateCache.get('bossy-input.html')
-
 		};
     });
