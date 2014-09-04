@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "postinstall": "bower install && gulp build"
+    "postinstall": "bower install"
   },
   "dependencies": {
     "body-parser": "~1.0.0",
