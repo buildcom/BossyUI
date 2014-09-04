@@ -2,6 +2,9 @@ angular.module('app.directive.bossy.form', [])
     .run(function($templateCache){
         $templateCache.put('bossy-input.html', 'templates/bossy-input.html');
     })
+    .controller('bossyFormController', ['$scope', function($scope){
+        // Add additional event handling
+    }])
     .directive('bossyForm', function ($compile, $http, $schema, $data) {
         var _schema,
             _data,
@@ -68,12 +71,12 @@ angular.module('app.directive.bossy.form', [])
             scope: {
                 options:"=", //Create scope isolation with bi-directional binding,
                 title: "="
-            },
+            },            
             link: function (scope, element, attributes) {
                 setData(scope.options.data);
                 setSchema(scope.options.schema);
                 element.html(
-                    '<form novalidate class="{{options.theme}}">'+
+                    '<form ng-controller="bossyFormController" novalidate class="{{options.theme}}">'+
                     '<div class="banner page-header"><h3>{{options.header}}</h3></div>'+                    
                         buildTemplate(_schema)+
                     '<div class="page-footer"><h3>{{options.footer}}</h3></div>'+
