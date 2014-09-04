@@ -10,9 +10,9 @@ angular.module('app.directive.bossy.form', [])
                     return '<input type="number"/>';
                 },
                 text: function (obj, key, is_required) {
-                    return '<bossy-input title="\''+obj.title+'\'" value="\''+_data.address[key]+'\'"' + ( is_required ? ' required' : '' ) + '></bossy-input>';                    
+                    return '<bossy-input title="\''+obj.title+'\'" type="\''+ obj.input_type +'\'" value="\''+_data.address[key]+'\'"' + ( is_required ? ' required' : '' ) + '></bossy-input>';                    
                 },
-                textArea: function () {
+                textArea: function () { 
                     return '<textarea></textarea>';
                 },
                 checkbox: function(obj){
@@ -57,8 +57,7 @@ angular.module('app.directive.bossy.form', [])
                             break;
                     }
                 }
-            }, this);
-
+            }, this);            
             return template;
         }
 
@@ -73,8 +72,13 @@ angular.module('app.directive.bossy.form', [])
             link: function (scope, element, attributes) {
                 setData(scope.options.data);
                 setSchema(scope.options.schema);
-                element.html('<form style="width: 40%; margin:0 auto" novalidate>'+
-            '<h4 class="text-center text-uppercase well">{{title}}</h4>'+buildTemplate(_schema)+'</form>');
+                element.html(
+                    '<form novalidate class="{{options.theme}}">'+
+                    '<div class="banner page-header"><h3>{{options.header}}</h3></div>'+                    
+                        buildTemplate(_schema)+
+                    '<div class="page-footer"><h3>{{options.footer}}</h3></div>'+
+                    '</form>'
+                );
                 $compile(element.contents())(scope);
             }
         };
