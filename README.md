@@ -17,3 +17,7 @@ An opinionated set of AngularJS directives used to build rich and interactive we
 ## Contributing
 
 Interested in contributing? Checkout our [contributing guide](/CONTRIBUTING.md).
+
+## Demo Page
+
+[Examples](http://bossy-ui-demo.herokuapp.com) of bossy directives 
