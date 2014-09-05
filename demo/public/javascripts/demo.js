@@ -11,7 +11,7 @@ angular.module('demoApp', ['bossy'])
 
     .controller('DemoBossyFormCtrl', function ($scope) {
 
-        $scope.options = {
+        $scope.config = {
             schema: {
                 address: {
                     type: 'object', // json object type (json-schema.org)
@@ -53,11 +53,9 @@ angular.module('demoApp', ['bossy'])
                     business: false
                 }
             },
-            showLabels: true,
-            header: 'This is header',
-            footer: 'This is footer',
-            theme: 'green',
-            button: 'Save'
+            options: {
+                button: 'Next'
+            }
         };
     })
 
