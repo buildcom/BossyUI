@@ -75,7 +75,8 @@ angular.module('app.directive.bossy.form', [])
                 element.html(
                     '<form novalidate class="{{options.theme}}">'+
                     '<div class="banner page-header"><h3>{{options.header}}</h3></div>'+
-                        buildTemplate(_schema)+
+                        buildTemplate(_schema) +
+                        '<button ng-if="options.button">{{options.button}}</button>' +
                     '<div class="page-footer"><h3>{{options.footer}}</h3></div>'+
                     '</form>'
                 );
