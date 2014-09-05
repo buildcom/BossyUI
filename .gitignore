@@ -1,7 +1,6 @@
 # Project
 node_modules
 demo/public/bower_components
-demo/public/javascripts/bossy.all.js
 build
 
 # Editor

@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "postinstall": "bower install && gulp build"
+    "postinstall": "bower cache clean && bower install"
+  },
+  "engines": {
+    "node": "0.10.x"
   },
   "dependencies": {
     "body-parser": "~1.0.0",
