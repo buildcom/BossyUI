@@ -5,6 +5,13 @@ angular.module('app.directive.bossy.form', [])
     .directive('bossyForm', function ($compile, $http, $schema, $data) {
         var _schema,
             _data,
+            _options = {
+                showLabels: true,
+                header: 'This is header',
+                footer: 'This is footer',
+                theme: 'green',
+                button: 'Save'
+            },
             _itemTemplate = {
                 number: function () {
                     return '<input type="number"/>';
@@ -66,18 +73,19 @@ angular.module('app.directive.bossy.form', [])
             replace: true,
             template: '',
             scope: {
-                options:"=", //Create scope isolation with bi-directional binding,
-                title: "="
+                config:'=', //Create scope isolation with bi-directional binding,
+                title: '='
             },
             link: function (scope, element, attributes) {
-                setData(scope.options.data);
-                setSchema(scope.options.schema);
+                scope.config.options = angular.extend(_options, scope.config.options);
+                setData(scope.config.data);
+                setSchema(scope.config.schema);
                 element.html(
-                    '<form novalidate class="{{options.theme}}">'+
-                    '<div class="banner page-header"><h3>{{options.header}}</h3></div>'+
+                    '<form novalidate class="{{config.options.theme}}">'+
+                    '<div class="banner page-header"><h3>{{config.options.header}}</h3></div>'+
                         buildTemplate(_schema) +
-                        '<button ng-if="options.button">{{options.button}}</button>' +
-                    '<div class="page-footer"><h3>{{options.footer}}</h3></div>'+
+                        '<button ng-if="config.options.button">{{config.options.button}}</button>' +
+                    '<div class="page-footer"><h3>{{config.options.footer}}</h3></div>'+
                     '</form>'
                 );
                 $compile(element.contents())(scope);

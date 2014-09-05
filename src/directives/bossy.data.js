@@ -37,6 +37,6 @@ angular.module('app.factory.bossy.data', [])
 
         return {
             getData: _getData
-        }
+        };
     })
 ;
