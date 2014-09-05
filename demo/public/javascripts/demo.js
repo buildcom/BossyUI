@@ -19,27 +19,27 @@ angular.module('demoApp', ['bossy'])
                         street: {
                             type: 'string',
                             title: 'Street',
-                            input_type: "text"
+                            input_type: 'text'
                         },
                         locality: {
                             type: 'string',
                             title: 'Location',
-                            input_type: "text"
+                            input_type: 'text'
                         },
                         region: {
                             type: 'string',
                             title: 'Region',
-                            input_type: "text"
+                            input_type: 'text'
                         },
                         postalCode: {
                             type: 'string',
                             title: 'Zip Code',
-                            input_type: "text"
+                            input_type: 'text'
                         },
                         business: {
                             type: 'boolean',
-                            title: 'Businuess',
-                            input_type: "text"
+                            title: 'Business',
+                            input_type: 'text'
                         }
                     }
                 }
@@ -54,9 +54,10 @@ angular.module('demoApp', ['bossy'])
                 }
             },
             showLabels: true,
-            header: "This is header",
-            footer: "This is footer",
-            theme: "green"
+            header: 'This is header',
+            footer: 'This is footer',
+            theme: 'green',
+            button: 'Save'
         };
     })
 

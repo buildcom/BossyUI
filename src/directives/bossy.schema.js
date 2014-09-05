@@ -20,7 +20,7 @@ angular.module('app.factory.bossy.schema', [])
             $http.get( schema )
                 .success( function( data ) {
                     if( angular.isObject( data ) ) {
-                        deferred.resolve(data);;
+                        deferred.resolve(data);
                     }
                     else {
                         //TODO: replace error message with online doc link like ng errors
@@ -37,6 +37,6 @@ angular.module('app.factory.bossy.schema', [])
 
         return {
             getSchema: _getSchema
-        }
+        };
     })
 ;

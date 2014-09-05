@@ -10,9 +10,9 @@ angular.module('app.directive.bossy.form', [])
                     return '<input type="number"/>';
                 },
                 text: function (obj, key, is_required) {
-                    return '<bossy-input title="\''+obj.title+'\'" type="\''+ obj.input_type +'\'" value="\''+_data.address[key]+'\'"' + ( is_required ? ' required' : '' ) + '></bossy-input>';                    
+                    return '<bossy-input title="\''+obj.title+'\'" type="\''+ obj.input_type +'\'" value="\''+_data.address[key]+'\'"' + ( is_required ? ' required' : '' ) + '></bossy-input>';
                 },
-                textArea: function () { 
+                textArea: function () {
                     return '<textarea></textarea>';
                 },
                 checkbox: function(obj){
@@ -31,7 +31,7 @@ angular.module('app.directive.bossy.form', [])
         function buildTemplate(schemaPart, parentKey, required) {
             var template = '',
                 fullKey = '';
-            angular.forEach(schemaPart, function(value, key) {                
+            angular.forEach(schemaPart, function(value, key) {
                 if (value.type) {
                     console.log(fullKey + ' is '+ value.type);
                     switch (value.type) {
@@ -57,7 +57,7 @@ angular.module('app.directive.bossy.form', [])
                             break;
                     }
                 }
-            }, this);            
+            }, this);
             return template;
         }
 
@@ -74,8 +74,9 @@ angular.module('app.directive.bossy.form', [])
                 setSchema(scope.options.schema);
                 element.html(
                     '<form novalidate class="{{options.theme}}">'+
-                    '<div class="banner page-header"><h3>{{options.header}}</h3></div>'+                    
-                        buildTemplate(_schema)+
+                    '<div class="banner page-header"><h3>{{options.header}}</h3></div>'+
+                        buildTemplate(_schema) +
+                        '<button ng-if="options.button">{{options.button}}</button>' +
                     '<div class="page-footer"><h3>{{options.footer}}</h3></div>'+
                     '</form>'
                 );
