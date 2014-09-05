@@ -16,7 +16,6 @@ var bossy = angular.module('bossy', [
         'app.factory.bossy.data',
         'app.factory.bossy.schema',
         'app.directive.bossy.form',
-        'app.directive.bossy.input',
-        'app.directive.bossy.button'
+        'app.directive.bossy.input'
     ]
 );
