@@ -8,14 +8,21 @@ angular.module('app.directive.bossy.form', [])
     .directive('bossyForm', function ($compile, $http, $schema, $data) {
         var _schema,
             _data,
+            _options = {
+                showLabels: true,
+                header: 'This is header',
+                footer: 'This is footer',
+                theme: 'green',
+                button: 'Save'
+            },
             _itemTemplate = {
                 number: function () {
                     return '<input type="number"/>';
                 },
                 text: function (obj, key, is_required) {
-                    return '<bossy-input title="\''+obj.title+'\'" type="\''+ obj.input_type +'\'" value="\''+_data.address[key]+'\'"' + ( is_required ? ' required' : '' ) + '></bossy-input>';                    
+                    return '<bossy-input title="\''+obj.title+'\'" type="\''+ obj.input_type +'\'" value="\''+_data.address[key]+'\'"' + ( is_required ? ' required' : '' ) + '></bossy-input>';
                 },
-                textArea: function () { 
+                textArea: function () {
                     return '<textarea></textarea>';
                 },
                 checkbox: function(obj){
@@ -34,7 +41,7 @@ angular.module('app.directive.bossy.form', [])
         function buildTemplate(schemaPart, parentKey, required) {
             var template = '',
                 fullKey = '';
-            angular.forEach(schemaPart, function(value, key) {                
+            angular.forEach(schemaPart, function(value, key) {
                 if (value.type) {
                     console.log(fullKey + ' is '+ value.type);
                     switch (value.type) {
@@ -60,7 +67,7 @@ angular.module('app.directive.bossy.form', [])
                             break;
                     }
                 }
-            }, this);            
+            }, this);
             return template;
         }
 
@@ -69,17 +76,19 @@ angular.module('app.directive.bossy.form', [])
             replace: true,
             template: '',
             scope: {
-                options:"=", //Create scope isolation with bi-directional binding,
-                title: "="
-            },            
+                config:'=', //Create scope isolation with bi-directional binding,
+                title: '='
+            },
             link: function (scope, element, attributes) {
-                setData(scope.options.data);
-                setSchema(scope.options.schema);
+                scope.config.options = angular.extend(_options, scope.config.options);
+                setData(scope.config.data);
+                setSchema(scope.config.schema);
                 element.html(
-                    '<form ng-controller="bossyFormController" novalidate class="{{options.theme}}">'+
-                    '<div class="banner page-header"><h3>{{options.header}}</h3></div>'+                    
-                        buildTemplate(_schema)+
-                    '<div class="page-footer"><h3>{{options.footer}}</h3></div>'+
+                    '<form novalidate class="{{config.options.theme}}">'+
+                    '<div class="banner page-header"><h3>{{config.options.header}}</h3></div>'+
+                        buildTemplate(_schema) +
+                        '<button ng-if="config.options.button">{{config.options.button}}</button>' +
+                    '<div class="page-footer"><h3>{{config.options.footer}}</h3></div>'+
                     '</form>'
                 );
                 $compile(element.contents())(scope);
