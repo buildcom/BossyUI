@@ -1,5 +1,5 @@
 angular.module('app.factory.bossy.data', [])
-    .factory('$data', function () {
+    .factory('$data', ['$q','$http',function ($q,$http) {
 
         function _getData (data) {
             if (angular.isString(data)) {
@@ -8,16 +8,19 @@ angular.module('app.factory.bossy.data', [])
             else if (angular.isObject(data)) {
                 return data;
             }
+            else if (angular.isFunction(data)) {
+                return _getData( data.call($scope) );
+            }
             else {
                 //TODO: replace error message with online doc link like ng errors
                 console.error('directive.bossyForm: no data url or object given');
             }
         }
 
-        function _getRemoteData($q) {
+        function _getRemoteData(data) {
             var deferred = $q.defer();
 
-            $http.get( data )
+            $http.get( data, { responseType: 'json' } )
                 .success( function( data ) {
                     if( angular.isObject( data ) ) {
                         deferred.resolve(data);
@@ -38,5 +41,5 @@ angular.module('app.factory.bossy.data', [])
         return {
             getData: _getData
         };
-    })
+    }])
 ;
