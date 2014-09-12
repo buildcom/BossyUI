@@ -9,7 +9,8 @@ angular.module('app.directive.bossy.input', [])
 			scope: {
 				title: "=",
 				value: "=",
-				type: "="
+				type: "=",
+				required: "="
 			},
 			template: $templateCache.get('bossy-input.html')
 		};

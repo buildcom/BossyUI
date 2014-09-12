@@ -28,7 +28,13 @@ angular.module('app.directive.bossy.form', [])
             };
 
         function setData(data) {
-            _data = $data.getData(data);
+            var result = $data.getData(data);
+            if( angular.isFunction( result.then ) && angular.isFunction( result.catch ) && angular.isFunction( result.finally ) ) {
+                return result;
+            } else {
+                _data = result;
+            }
+            
         }
 
         function setSchema(schema) {
@@ -78,17 +84,46 @@ angular.module('app.directive.bossy.form', [])
             },
             link: function (scope, element, attributes) {
                 scope.config.options = angular.extend(_options, scope.config.options);
-                setData(scope.config.data);
+
+                var promise = setData(scope.config.data);
                 setSchema(scope.config.schema);
-                element.html(
-                    '<form novalidate class="{{config.options.theme}}">'+
-                    '<div class="banner page-header"><h3>{{config.options.header}}</h3></div>'+
-                        buildTemplate(_schema) +
-                        '<button ng-if="config.options.button">{{config.options.button}}</button>' +
-                    '<div class="page-footer"><h3>{{config.options.footer}}</h3></div>'+
-                    '</form>'
-                );
-                $compile(element.contents())(scope);
+                if( promise ) {
+                    //todo: set directive to loading state
+                    promise.then(
+                        function(result) {
+                            //todo: set directive to loaded state
+                            _data = result;
+                            element.html(
+                                '<form novalidate class="{{config.options.theme}}">'+
+                                '<div class="banner page-header"><h3>{{config.options.header}}</h3></div>'+
+                                    buildTemplate(_schema) +
+                                    '<button ng-if="config.options.button">{{config.options.button}}</button>' +
+                                '<div class="page-footer"><h3>{{config.options.footer}}</h3></div>'+
+                                '</form>'
+                            );
+                            $compile(element.contents())(scope);
+                        },
+                        function(reason) {
+                            //todo: set directive to error state
+                        });
+                    element.html(
+                        '<form novalidate class="{{config.options.theme}}">LOADING...</form>'
+                    );
+                    $compile(element.contents())(scope);
+                }
+                else {
+                    element.html(
+                        '<form novalidate class="{{config.options.theme}}">'+
+                        '<div class="banner page-header"><h3>{{config.options.header}}</h3></div>'+
+                            buildTemplate(_schema) +
+                            '<button ng-if="config.options.button">{{config.options.button}}</button>' +
+                        '<div class="page-footer"><h3>{{config.options.footer}}</h3></div>'+
+                        '</form>'
+                    );
+                    $compile(element.contents())(scope);
+                }
+                
+                
             }
         };
 
