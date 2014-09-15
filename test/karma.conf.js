@@ -1,11 +1,11 @@
 // Karma configuration
-// Generated on Fri Sep 12 2014 15:04:31 GMT-0700 (Pacific Daylight Time)
+// Generated on Sun Sep 14 2014 10:15:49 GMT-0700 (PDT)
 
 module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '../../demo/node_modules/',
+    basePath: '',
 
 
     // frameworks to use
@@ -15,8 +15,14 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-    'directives/*.html',
-    'directives/spec/*.js'
+
+      './../demo/public/bower_components/angular/angular.js',
+      './../demo/public/bower_components/angular/angular.min.js',
+      './../demo/public/bower_components/angular-mocks/angular-mocks.js',
+      './../src/directives/templates/*.html',
+      './../src/directives/*.js',
+      './directives/spec/*.js'
+
     ],
 
 
@@ -28,8 +34,20 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+        './../src/directives/templates/*.html':['ng-html2js']
     },
 
+    ngHtml2JsPreprocessor: {
+        //stripPrefix:'./../'
+     'moduleName': 'templates',
+    // cacheIdFromPath: function(filepath) {
+    //     console.log(filepath);
+    // return filepath.match(/views\/.*/)
+  //}
+
+
+
+    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
