@@ -19,6 +19,8 @@ module.exports = function(config) {
       './../demo/public/bower_components/angular/angular.js',
       './../demo/public/bower_components/angular/angular.min.js',
       './../demo/public/bower_components/angular-mocks/angular-mocks.js',
+      './../demo/public/javascripts/*.js',
+      './../src/*.js',
       './../src/directives/templates/*.html',
       './../src/directives/*.js',
       './directives/spec/*.js'
@@ -39,14 +41,8 @@ module.exports = function(config) {
 
     ngHtml2JsPreprocessor: {
         //stripPrefix:'./../'
-     'moduleName': 'templates',
-    // cacheIdFromPath: function(filepath) {
-    //     console.log(filepath);
-    // return filepath.match(/views\/.*/)
-  //}
-
-
-
+     moduleName: 'Templates',
+   
     },
 
     // test results reporter to use
