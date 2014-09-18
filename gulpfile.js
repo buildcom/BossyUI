@@ -3,5 +3,6 @@ var gulp = require('./gulp')([
     'watch',
     'copy',
     'build',
-    'compass'
+    'compass',
+    'test'
 ]);
