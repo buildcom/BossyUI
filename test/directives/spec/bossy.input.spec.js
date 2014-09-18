@@ -16,11 +16,8 @@ beforeEach(inject(function($compile,$rootScope){
 
 }));
 	it('should add bossy input',function(){
-		var name = element.text();
-		var title = element.attr("title");
-		console.log(title);
-		expect(name).toMatch("Bossy Input");
-		expect(title).toMatch("Sample Bossy Input")
+		expect(element.text()).toMatch("Bossy Input");
+		expect(element.attr("title")).toMatch("Sample Bossy Input")
 
 	})
 
