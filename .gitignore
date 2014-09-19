@@ -1,0 +1,13 @@
+# Project
+node_modules
+demo/public/bower_components
+build
+
+# Editor
+.idea/
+
+# System
+.DS_Store
+
+# Compass
+.sass-cache
