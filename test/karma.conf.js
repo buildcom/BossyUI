@@ -23,7 +23,7 @@ module.exports = function(config) {
       './../src/*.js',
       './../src/directives/templates/*.html',
       './../src/directives/*.js',
-      './directives/spec/*.js'
+      './directives/*.js'
 
     ],
 
