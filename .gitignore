@@ -3,6 +3,9 @@ node_modules
 demo/public/bower_components
 build
 
+# Demo/Docs Site
+_site/
+
 # Editor
 .idea/
 
