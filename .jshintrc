@@ -2,9 +2,9 @@
     "passfail": false,
     "maxerr": 100,
     "browser": true,
-    "predef": [
-        "angular"
-    ],
+    "globals": {
+        "angular": false
+    },
     "debug": false,
     "devel": true,
     "strict": false,
@@ -33,6 +33,6 @@
     "undef": true,
     "unused": false,
     "multistr": true,
-    "es3": true,
-    "quotmark": "single"
+    "quotmark": "single",
+    "node": true
 }
