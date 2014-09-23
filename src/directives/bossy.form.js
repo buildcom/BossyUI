@@ -34,7 +34,7 @@ angular.module('app.directive.bossy.form', [])
             } else {
                 _data = result;
             }
-            
+
         }
 
         function setSchema(schema) {
@@ -122,8 +122,8 @@ angular.module('app.directive.bossy.form', [])
                     );
                     $compile(element.contents())(scope);
                 }
-                
-                
+
+
             }
         };
 
