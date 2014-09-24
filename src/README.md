@@ -12,3 +12,9 @@ smartin43@mail.csuchico.edu
 pbarnum1@mail.csuchico.edu
 - CAGD Major (the new APCG)
 - C++, C#, Java, PHP, JavaScript, jQuery, HTML, CSS, MySQL
+
+*Alen Maragoul
+amaragoul@mail.csuchico.edu
+- APCG Major
+- Gets Down with C++: 111 , 211, 311
+- Moderate Experience with C# in Unity to Publish Small Project on Google Play Store and Amazon App Store
