@@ -12,3 +12,8 @@ smartin43@mail.csuchico.edu
 pbarnum1@mail.csuchico.edu
 - CAGD Major (the new APCG)
 - C++, C#, Java, PHP, JavaScript, jQuery, HTML, CSS, MySQL
+
+*Rick Stone
+rstone16@mail.csuchico.edu
+- Computer Science major
+- C++, Java enterprise, SQL,  some javascript, HTML, CSS, PHP
