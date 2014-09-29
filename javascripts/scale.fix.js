@@ -1,4 +1,4 @@
-fixScale = function(doc) {
+var fixScale = function(doc) {
 
 	var addEvent = 'addEventListener',
 		type = 'gesturestart',
