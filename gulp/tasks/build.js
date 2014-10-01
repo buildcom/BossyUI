@@ -9,6 +9,5 @@ module.exports = function() {
         .pipe(sourcemaps.init())
         .pipe(concat('bossy.all.js'))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('build/js'))
-        .pipe(gulp.dest('demo/public/javascripts'));
+        .pipe(gulp.dest('build/js'));
 };

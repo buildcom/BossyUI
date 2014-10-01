@@ -4,13 +4,13 @@ angular.module('app.directive.bossy.input', [])
     })
     .directive('bossyInput', function ($compile, $http, $schema, $data, $templateCache) {
     	return {
-			restrict: "E",
+			restrict: 'E',
 			replace: true,
 			scope: {
-				title: "=",
-				value: "=",
-				type: "=",
-				required: "="
+				title: '=',
+				value: '=',
+				type: '=',
+				required: '='
 			},
 			template: $templateCache.get('bossy-input.html')
 		};
