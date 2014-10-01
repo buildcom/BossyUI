@@ -1,5 +1,6 @@
 # Project
 node_modules
+bower_components
 _site
 
 # Editor
@@ -10,3 +11,6 @@ _site
 
 # Compass
 .sass-cache
+
+# Demo
+demo/dist/*
