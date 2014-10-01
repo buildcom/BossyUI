@@ -1,6 +1,6 @@
 # Project
 node_modules
-demo/public/bower_components
+bower_components
 build
 
 # Demo/Docs Site
