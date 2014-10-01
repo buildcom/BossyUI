@@ -1,4 +1,4 @@
-angular.module('app.factory.bossy.data', [])
+angular.module('bossy.data', [])
     .factory('$data', ['$q','$http',function ($q,$http) {
 
         function _getData (data) {

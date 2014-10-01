@@ -5,9 +5,6 @@ var gulp = require('gulp'),
 
 module.exports = function() {
     return gulp
-        .src(config.paths.scripts)
-        .pipe(sourcemaps.init())
-        .pipe(concat('bossy.all.js'))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('dist/js'));
+        .src('demo/src/js/*.js')
+        .pipe(gulp.dest('demo/dist/js'));
 };

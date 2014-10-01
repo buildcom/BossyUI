@@ -1,10 +1,10 @@
 # Project
 node_modules
 bower_components
-build
 
 # Demo/Docs Site
 _site/
+demo/dist/*
 
 # Editor
 .idea/
