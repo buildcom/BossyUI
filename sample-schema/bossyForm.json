@@ -20,7 +20,7 @@
     "gender": {
       "title": "Gender",
       "type": "string",
-      "enum": ["male", "femaile"]
+      "enum": ["female", "male"]
     }
   },
   "required": ["terms", "gender", "username"]

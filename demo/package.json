@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "postinstall": "bower install && gulp build"
+    "postinstall": "bower cache clean && bower install"
+  },
+  "engines": {
+    "node": "0.10.x"
   },
   "dependencies": {
     "body-parser": "~1.0.0",
@@ -16,5 +19,11 @@
     "gulp": "^3.8.7",
     "morgan": "~1.0.0",
     "static-favicon": "~1.0.0"
+  },
+  "devDependencies": {
+    "karma": "^0.12.23",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-jasmine": "^0.1.5",
+    "karma-ng-html2js-preprocessor": "^0.1.0"
   }
 }
