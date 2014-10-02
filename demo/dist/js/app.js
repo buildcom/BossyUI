@@ -27,7 +27,7 @@ angular.module('demoApp', [
                 controller: 'MatrixCtrl'
             });
 
-        $urlRouterProvider.otherwise('/');
+        //$urlRouterProvider.otherwise('/');
     })
 
     .run([function() { }])
