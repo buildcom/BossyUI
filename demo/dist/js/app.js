@@ -10,14 +10,14 @@ angular.module('demoApp', [
 
         $stateProvider
             .state('home', {
-                url: '/',
+                url: '/home',
                 template: '<h1>home</h1>',
                 //templateUrl: '../../templates/home.html',
                 controller: 'HomeCtrl'
             })
             .state('demos', {
                 abstract: true,
-                url: '/BossyUI/demos',
+                url: '/demos',
                 template: '<ui-view></ui-view>'
             })
             .state('demos.matrix', {
@@ -27,7 +27,7 @@ angular.module('demoApp', [
                 controller: 'MatrixCtrl'
             });
 
-        //$urlRouterProvider.otherwise('/BossyUI/home');
+        $urlRouterProvider.otherwise('/home');
     })
 
     .run([function() { }])
