@@ -7,5 +7,6 @@ var gulp = require('./gulp')([
     'test',
     'build',
     'build-src',
-    'build-demo'
+    'build-demo',
+    'build-install'
 ]);
