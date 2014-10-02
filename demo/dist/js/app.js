@@ -10,18 +10,18 @@ angular.module('demoApp', [
 
         $stateProvider
             .state('home', {
-                url: '/',
+                url: '',
                 //template: '<h1>home</h1>',
                 templateUrl: '../templates/home.html',
                 controller: 'HomeCtrl'
             })
             .state('demos', {
                 abstract: true,
-                url: '/demos',
+                url: 'demos',
                 template: '<ui-view></ui-view>'
             })
             .state('demos.matrix', {
-                url: '/matrix',
+                url: 'matrix',
                 template: '<h1>matrix</h1>',
                 //templateUrl: '../../templates/demos.matrix.html',
                 controller: 'MatrixCtrl'
