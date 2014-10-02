@@ -13,9 +13,9 @@
 
 //TODO: need layout, labels
 var bossy = angular.module('bossy', [
-        'app.factory.bossy.data',
-        'app.factory.bossy.schema',
-        'app.directive.bossy.form',
-        'app.directive.bossy.input'
+        'bossy.data',
+        'bossy.schema',
+        'bossy.form',
+        'bossy.input'
     ]
 );
