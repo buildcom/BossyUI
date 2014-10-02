@@ -1,4 +1,5 @@
 angular.module('demoApp', [
+    'ui.router',
     'demoApp.controllers',
     'bossy'
 ])
@@ -10,10 +11,12 @@ angular.module('demoApp', [
         $stateProvider
 
             .state('home', {
-                url: '',
+                url: '/',
                 templateUrl: 'demo/templates/home.html',
                 controller: 'HomeCtrl'
-            })
+            });
+
+        $urlRouterProvider.otherwise('/');
     })
 
     .run([function() { }])

@@ -14,3 +14,6 @@ demo/dist/*
 
 # Compass
 .sass-cache
+
+# Local Testing
+local.html
