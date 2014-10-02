@@ -10,7 +10,7 @@ angular.module('demoApp', [
 
         $stateProvider
             .state('home', {
-                url: '/home',
+                url: '/',
                 template: '<h1>home</h1>',
                 //templateUrl: '../../templates/home.html',
                 controller: 'HomeCtrl'
@@ -27,7 +27,7 @@ angular.module('demoApp', [
                 controller: 'MatrixCtrl'
             });
 
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('#/');
     })
 
     .run([function() { }])
