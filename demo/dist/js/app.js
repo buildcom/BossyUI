@@ -11,7 +11,7 @@ angular.module('demoApp', [
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: 'demo/templates/home.html',
+                templateUrl: '/demo/templates/home.html',
                 controller: 'HomeCtrl'
             })
             .state('demos', {
@@ -21,7 +21,7 @@ angular.module('demoApp', [
             })
             .state('demos.matrix', {
                 url: '/matrix',
-                templateUrl: 'demo/templates/demos.matrix.html',
+                templateUrl: '/demo/templates/demos.matrix.html',
                 controller: 'MatrixCtrl'
             });
 
