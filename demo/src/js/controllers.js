@@ -7,5 +7,4 @@ angular.module('demoApp.controllers', [])
     .controller('MatrixCtrl', function() {
         console.log('MatrixCtrl');
     })
-
 ;
