@@ -9,11 +9,20 @@ angular.module('demoApp', [
         $locationProvider.html5Mode(true);
 
         $stateProvider
-
             .state('home', {
                 url: '/',
                 templateUrl: 'demo/templates/home.html',
                 controller: 'HomeCtrl'
+            })
+            .state('demos', {
+                abstract: true,
+                url: '/demos',
+                template: '<ui-view></ui-view>'
+            })
+            .state('demos.matrix', {
+                url: '/matrix',
+                templateUrl: 'demo/templates/demos.matrix.html',
+                controller: 'MatrixCtrl'
             });
 
         $urlRouterProvider.otherwise('/');
