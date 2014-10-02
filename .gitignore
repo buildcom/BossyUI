@@ -4,7 +4,6 @@ bower_components
 
 # Demo/Docs Site
 _site/
-demo/dist/*
 
 # Editor
 .idea/
