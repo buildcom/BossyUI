@@ -6,11 +6,11 @@ angular.module('demoApp', [
 
     .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
-        $locationProvider.html5Mode(true);
+        //$locationProvider.html5Mode(true);
 
         $stateProvider
             .state('home', {
-                url: '/BossyUI',
+                url: '/',
                 //template: '<h1>home</h1>',
                 templateUrl: '../../templates/home.html',
                 controller: 'HomeCtrl'
@@ -27,7 +27,7 @@ angular.module('demoApp', [
                 controller: 'MatrixCtrl'
             });
 
-        $urlRouterProvider.otherwise('/BossyUI/home');
+        //$urlRouterProvider.otherwise('/BossyUI/home');
     })
 
     .run([function() { }])
