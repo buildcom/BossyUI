@@ -3,8 +3,9 @@ var gulp = require('./gulp')([
     'jshint',
     'watch',
     'copy',
-    'build',
-    'build-demo',
     'compass',
-    'test'
+    'test',
+    'build',
+    'build-src',
+    'build-demo'
 ]);

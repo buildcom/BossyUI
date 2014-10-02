@@ -15,5 +15,5 @@ demo/dist/*
 # Compass
 .sass-cache
 
-# Demo
-demo/dist/*
+# Local Testing
+local.html
