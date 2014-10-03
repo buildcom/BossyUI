@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>This is a Combo Box demo</title>
+    <script src="../angular.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper" role="application">
+        <div ng-controller="Menu1" style="position:absolute; top:400px; left:50px;">
+            <select class="dropdownmenu" class="effecthover" name="" ng-model="selected_option1" ng-options="choice.name for choice in choices">
+                <option value="">Make Selection...</option>
+            </select>
+        </div>
+    </div>
+    <script>
+        function Menu1($scope){
+        	$scope.choices = [
+                { name: "Option A" },
+                { name: "Option B" },
+                { name: "Option C" }
+        	]
+        }
+    </script>
+</body></html>
