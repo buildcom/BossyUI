@@ -4,14 +4,12 @@ angular.module('demoApp', [
     'bossy'
 ])
 
-    .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-
-        $locationProvider.html5Mode(true);
+    .config(function($stateProvider, $urlRouterProvider) {
 
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: '../../templates/home.html',
+                templateUrl: 'demo/templates/home.html',
                 controller: 'HomeCtrl'
             })
             .state('demos', {
@@ -21,7 +19,7 @@ angular.module('demoApp', [
             })
             .state('demos.matrix', {
                 url: '/matrix',
-                templateUrl: '../../templates/demos.matrix.html',
+                templateUrl: 'demo/templates/demos.matrix.html',
                 controller: 'MatrixCtrl'
             });
 
