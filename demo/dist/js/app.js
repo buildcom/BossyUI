@@ -6,12 +6,9 @@ angular.module('demoApp', [
 
     .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
-        //$locationProvider.html5Mode(true);
-
         $stateProvider
             .state('home', {
                 url: '/',
-                //template: '<h1>TEST</h1>',
                 templateUrl: 'demo/templates/home.html',
                 controller: 'HomeCtrl'
             })
@@ -22,8 +19,7 @@ angular.module('demoApp', [
             })
             .state('demos.matrix', {
                 url: '/matrix',
-                template: '<h1>TEST</h1>',
-                //templateUrl: '../../templates/demos.matrix.html',
+                templateUrl: 'demo/templates/demos.matrix.html',
                 controller: 'MatrixCtrl'
             });
 
