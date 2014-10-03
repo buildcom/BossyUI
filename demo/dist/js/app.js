@@ -4,7 +4,7 @@ angular.module('demoApp', [
     'bossy'
 ])
 
-    .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+    .config(function($stateProvider, $urlRouterProvider) {
 
         $stateProvider
             .state('home', {
@@ -26,10 +26,6 @@ angular.module('demoApp', [
         $urlRouterProvider.otherwise('/');
     })
 
-    .run(['$location', function($location) { 
-        
-        console.log($location);
-        
-    }])
+    .run([function() { }])
 
 ;
