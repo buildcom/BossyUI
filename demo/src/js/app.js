@@ -26,6 +26,6 @@ angular.module('demoApp', [
         $urlRouterProvider.otherwise('/');
     })
 
-    .run(['$location', function() { }])
+    .run([function() { }])
 
 ;
