@@ -11,8 +11,8 @@ angular.module('demoApp', [
         $stateProvider
             .state('home', {
                 url: '/',
-                template: '<h1>TEST</h1>',
-                //templateUrl: '../../templates/home.html',
+                //template: '<h1>TEST</h1>',
+                templateUrl: 'demo/templates/home.html',
                 controller: 'HomeCtrl'
             })
             .state('demos', {
