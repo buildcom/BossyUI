@@ -22,7 +22,8 @@ angular.module('demoApp', [
             })
             .state('demos.matrix', {
                 url: '/matrix',
-                templateUrl: '../../templates/demos.matrix.html',
+                template: '<h1>TEST</h1>',
+                //templateUrl: '../../templates/demos.matrix.html',
                 controller: 'MatrixCtrl'
             });
 
