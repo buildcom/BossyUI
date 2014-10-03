@@ -27,7 +27,7 @@ angular.module('demoApp', [
                 controller: 'MatrixCtrl'
             });
 
-        //$urlRouterProvider.otherwise('/BossyUI/');
+        $urlRouterProvider.otherwise('/BossyUI/');
     })
 
     .run(['$location', function($location) { 
