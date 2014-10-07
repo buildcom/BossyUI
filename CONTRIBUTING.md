@@ -21,7 +21,7 @@ To get developing you will need to have a few programs installed which will make
 
 ### Git
 
-Instructions here: [http://git-scm.com/book/en/Getting-Started-Installing-Git]()
+[Installation Instructions](http://git-scm.com/book/en/Getting-Started-Installing-Git)
 
 *Note For Windows Users*: mysysgit comes with a tool called `git bash` which is the recommened shell to run commands in. 
 
