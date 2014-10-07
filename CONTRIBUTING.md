@@ -19,6 +19,13 @@ If you want to dive in and help contribute some code we'll have some coding guid
 
 To get developing you will need to have a few programs installed which will make things easier as you develop.
 
+### Git
+
+Instructions here: [http://git-scm.com/book/en/Getting-Started-Installing-Git]()
+
+*Note For Windows Users*: mysysgit comes with a tool called `git bash` which is the recommened shell to run commands in. 
+
+### Node.js and NPM
 First you will need to make sure you have [Node.js](http://nodejs.org) installed on your machine. If you are unsure if you have Node.js installed on your computer you can run this command in your terminal to check.
 
 ```bash
