@@ -19,4 +19,4 @@ Interested in contributing? Checkout our [contributing guide](/CONTRIBUTING.md).
 
 ## Demo Page
 
-[Examples](http://bossy-ui-demo.herokuapp.com) of bossy directives 
+[Examples](buildcom.github.io/BossyUI) of bossy directives

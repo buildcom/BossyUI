@@ -1,4 +1,4 @@
-angular.module('app.directive.bossy.form', [])
+angular.module('bossy.form', [])
     .run(function($templateCache){
         $templateCache.put('bossy-input.html', 'templates/bossy-input.html');
     })
