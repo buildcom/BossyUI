@@ -10,13 +10,13 @@
 
 1. In your terminal change directory to the root of the project and install dependencies using NPM.
 
-```bash
-$ cd path/to/project/root
-$ npm install
-```
+  ```bash
+  $ cd path/to/project/root
+  $ npm install
+  ```
 
 2. After that finishes run the tests with gulp.
 
-```bash
-$ gulp test
-```
+  ```bash
+  $ gulp test
+  ```
