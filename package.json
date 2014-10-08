@@ -29,10 +29,11 @@
   },
   "devDependencies": {
     "chai": "^1.9.1",
+    "gulp-jshint": "^1.8.4",
+    "jasmine": "^2.0.1",
     "karma-chrome-launcher": "^0.1.4",
     "karma-jasmine": "^0.1.5",
     "karma-ng-html2js-preprocessor": "^0.1.0",
-    "mocha": "^1.21.4",
-    "gulp-jshint": "~1.8.4"
+    "mocha": "^1.21.4"
   }
 }
