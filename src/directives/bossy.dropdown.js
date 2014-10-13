@@ -6,7 +6,6 @@ angular.module('bossy.dropdown', [])
 	.factory('bossyDropdownFactory', ['$http', /*'$data',*/ function($http /*$data*/) {
 		var dataArray = [];
 		
-		var fill = function(){
 		$http.get('https://gist.githubusercontent.com/mshafrir/2646763/raw/bfb35f17bc5d5f86ec0f10b80f7b80e823e9197f/states_titlecase.json')
 			.success(function(data){
 				dataArray = data;
@@ -16,7 +15,7 @@ angular.module('bossy.dropdown', [])
 				console.log("http.get FAILED");
 				$scope.data = data || "Request failed";
 			})
-		}
+			
 		//TEST ARRAY 
 		 // dataArray =  [
         // {id: 0, name:'AlenMania'},
@@ -26,12 +25,7 @@ angular.module('bossy.dropdown', [])
         // {id: 4, name:'Angola'},
         // {id: 5, name:'Antigua & Deps'}
 		// ];
-		return {
-			_options: {
-				titles: 'drop title',
-				contents: dataArray
-			}
-		}
+		return dataArray;
 	}])
 	
 	.directive('bossyDropdown', function($compile, $http /*$data,*/ /*$schema*/) {
@@ -39,26 +33,16 @@ angular.module('bossy.dropdown', [])
 			restrict: 'EA',
 			replace: true,
 			templateUrl: 'bossy.dropdown.html',
-			controller:['$scope', 'bossyDropdownFactory', function($scope, bossyDropdownFactory) {
-				this._options = {
-					titles: bossyDropdownFactory._options.titles,
-					contents: bossyDropdownFactory._options.contents
-				};
-					$scope.myVals = this._options.contents;
-			}],
+			controller: function($scope, bossyDropdownFactory) {
+				this.contents = bossyDropdownFactory;
+				$scope.myVals = this.contents;
+			},
 			controllerAs: "drops"		
 		};
 	})
 	
 	.controller('bossyDropdownCtrl', function($compile, $http, bossyDropdownFactory, $scope /*$data,*/ /*$schema*/) {
-		$scope._options = {
-			titles: bossyDropdownFactory._options.titles,
-			contents: bossyDropdownFactory._options.contents
-		};
-		// $http.get('https://gist.githubusercontent.com/mshafrir/2646763/raw/bfb35f17bc5d5f86ec0f10b80f7b80e823e9197f/states_titlecase.json')
-			// .success(function(data){
-				// $scope._options.contents = data;
-			// })
+			$scope.contents = bossyDropdownFactory;
 	})
 	
 	
