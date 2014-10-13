@@ -9,4 +9,4 @@ var karma = require('karma').server;
     configFile:__dirname +'./../../test/karma.conf.js'
   });
 
-}
+};
