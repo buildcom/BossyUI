@@ -1,6 +1,4 @@
-
-
-angular.module('app.factory.bossy.data', [])
+angular.module('bossy.data', [])
 /**
 @ngdoc service
 @name $data
