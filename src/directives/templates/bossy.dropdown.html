@@ -2,7 +2,7 @@
 With a seperate controller
 <section ng-controller="bossyDropdownCtrl as dropCtrl">	
 		<select>
-			<option ng-repeat="content in dropCtrl._options.contents">
+			<option ng-repeat="content in _options.contents">
 				<h1>{{content.name}}</h1>
 			</option>
 		</select>
@@ -10,10 +10,8 @@ With a seperate controller
 
 With an directive embedded controller
 <section>	
-	<select>
-			<option ng-repeat="name in contents.names">
-				<h1>{{myVal[0].name}}</h1>
-				<h2>{{drops._options.contents}}</h2>
+	<select ng-model="myVals" ng-options="myVal.product as myVal.name for myVal in myVals">
+			<option>
 			</option>
 	</select> 
 </section>
@@ -23,7 +21,7 @@ Just regular output
 	<select>
 				<option><h1>{{drops._options.titles}}</h1></option>
 				<option><h2>{{drops._options.contents}}</h2></option>
-				<option><h3>{{myVal[0].name}}</h3></option>
+				<option><h3>{{myVals[0].name}}</h3></option>
 				<option><h3>{{bossyDropdownCtrl._options.contents}}</h3></option>
 
 	</select> 
