@@ -4,17 +4,8 @@ angular.module('bossy.dropdown', [])
 	})
 	
 	.factory('bossyDropdownFactory', ['$http', /*'$data',*/ function($http /*$data*/) {
-		var dataArray = [];
 		
-		$http.get('https://gist.githubusercontent.com/mshafrir/2646763/raw/bfb35f17bc5d5f86ec0f10b80f7b80e823e9197f/states_titlecase.json')
-			.success(function(data){
-				dataArray = data;
-				console.log(dataArray[0].name);
-			})
-			.error(function(data) {
-				console.log("http.get FAILED");
-				$scope.data = data || "Request failed";
-			})
+		return $http.get('https://gist.githubusercontent.com/mshafrir/2646763/raw/bfb35f17bc5d5f86ec0f10b80f7b80e823e9197f/states_titlecase.json');
 			
 		//TEST ARRAY 
 		 // dataArray =  [
@@ -25,7 +16,6 @@ angular.module('bossy.dropdown', [])
         // {id: 4, name:'Angola'},
         // {id: 5, name:'Antigua & Deps'}
 		// ];
-		return dataArray;
 	}])
 	
 	.directive('bossyDropdown', function($compile, $http /*$data,*/ /*$schema*/) {
@@ -34,15 +24,30 @@ angular.module('bossy.dropdown', [])
 			replace: true,
 			templateUrl: 'bossy.dropdown.html',
 			controller: function($scope, bossyDropdownFactory) {
-				this.contents = bossyDropdownFactory;
-				$scope.myVals = this.contents;
+				$scope.contents = [];
+				
+				bossyDropdownFactory.success(function(data){
+						$scope.contents = data;
+					})
+					.error(function(data) {
+						console.log("http.get FAILED");
+						$scope.contents = data || "Request failed";
+					});
 			},
 			controllerAs: "drops"		
 		};
 	})
 	
 	.controller('bossyDropdownCtrl', function($compile, $http, bossyDropdownFactory, $scope /*$data,*/ /*$schema*/) {
-			$scope.contents = bossyDropdownFactory;
+			$scope.contents = [];
+			
+			bossyDropdownFactory.success(function(data){
+				$scope.contents = data;
+			})
+			.error(function(data) {
+				console.log("http.get FAILED");
+				$scope.contents = data || "Request failed";
+			})
 	})
 	
 	

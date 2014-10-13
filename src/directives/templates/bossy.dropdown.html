@@ -10,9 +10,8 @@ With a seperate controller
 
 With an directive embedded controller
 <section>	
-	<select ng-model="myVals" ng-options="myVal.product as myVal.name for myVal in myVals">
-			<option>
-			</option>
+	<select ng-model="contents" ng-options="content.product as content.name for content in contents">
+			<option></option>
 	</select> 
 </section>
 
@@ -21,7 +20,7 @@ Just regular output
 	<select>
 				<option><h1>{{drops._options.titles}}</h1></option>
 				<option><h2>{{drops._options.contents}}</h2></option>
-				<option><h3>{{myVals[0].name}}</h3></option>
+				<option><h3>{{contents[0].name}}</h3></option>
 				<option><h3>{{bossyDropdownCtrl._options.contents}}</h3></option>
 
 	</select> 
