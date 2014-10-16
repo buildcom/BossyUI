@@ -4,7 +4,7 @@ describe('bossySchema test', function(){
 		rootScope,
 		deferred;
 	beforeEach(module('Templates'));
-	beforeEach(module('app.factory.bossy.schema'));
+	beforeEach(module('bossy.schema'));
 	beforeEach(inject(function(_$schema_, _$rootScope_, _$q_) {
 		schemaService = _$schema_;
 		rootScope = _$rootScope_;
