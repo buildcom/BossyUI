@@ -2,26 +2,17 @@
 With a seperate controller
 <section ng-controller="bossyDropdownCtrl as dropCtrl">	
 		<select>
-			<option ng-repeat="content in contents">
-				<h1>{{content.name}}</h1>
+			<option ng-repeat="item in items">
+				<h1>{{item.name}}</h1>
 			</option>
 		</select>
 </section>
 
 With an directive embedded controller
 <section>	
-	<select ng-model="contents" ng-options="content.product as content.name for content in contents">
-			<option></option>
-	</select> 
+	<select ng-model="content" ng-options="content.name for content in contents"></select> 
+	<div ng-show="content">
+		<h3>Abbreviation: {{content.abbreviation}}</h3>
+	</div>
 </section>
-
-Just regular output
-<section>	
-	<select>
-				<option><h1>{{drops._options.titles}}</h1></option>
-				<option><h2>{{drops._options.contents}}</h2></option>
-				<option><h3>{{contents[0].name}}</h3></option>
-				<option><h3>{{bossyDropdownCtrl._options.contents}}</h3></option>
-
-	</select> 
-</section></div>
+</div>
