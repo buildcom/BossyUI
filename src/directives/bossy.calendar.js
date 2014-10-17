@@ -1,17 +1,17 @@
 angular.module('bossy.calendar', [])
 	.controller('CalendarController', ['$scope', function ($scope) {
 
+		$scope.days = [
+			'Sunday',
+			'Monday',
+			'Tuesday',
+			'Wednesday',
+			'Thursday',
+			'Friday',
+			'Saturday'
+		];
 		function _getDay() {
-			var days = [
-				'Sunday',
-				'Monday',
-				'Tuesday',
-				'Wednesday',
-				'Thursday',
-				'Friday',
-				'Saturday'
-			];
-			return days[$scope.currentDate.getDay()];
+			return $scope.days[$scope.currentDate.getDay()];
 		}
 
 		function _getMonth() {
@@ -42,7 +42,7 @@ angular.module('bossy.calendar', [])
 	}]).directive('bossyCalendar', function () {
 		return {
 			restrict: 'AE',
-			template: '<table><tr><td colspan="7">{{month}} {{year}}</td></tr><tr><td colspan="7">{{day}}, {{month}} {{date}}, {{year}}</td></tr></table>',
+			template: '<table><tr><td colspan="7">{{month}} {{year}}</td></tr><td ng-repeat="day in days" title="{{day}}">{{day | limitTo : 2}}</td><tr></tr><tr><td colspan="7">{{day}}, {{month}} {{date}}, {{year}}</td></tr></table>',
 			controller: 'CalendarController'
 		};
 	});
