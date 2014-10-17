@@ -1,3 +1,29 @@
+CSU, Chico CSCI 430 Student Teams
+
+=====Team java! (Java Bang)=====
+
+*Shelby Martin
+smartin43@mail.csuchico.edu
+- CAGD Major (the new APCG)
+- Hang out with c++ (cos she fly), a small amount of c#, little experience with java and javascript
+- Looking forward to the widget creation
+
+*Patrick Barnum
+pbarnum1@mail.csuchico.edu
+- CAGD Major (the new APCG)
+- C++, C#, Java, PHP, JavaScript, jQuery, HTML, CSS, MySQL
+
+*Rick Stone
+rstone16@mail.csuchico.edu
+- Computer Science major
+- C++, Java enterprise, SQL,  some javascript, HTML, CSS, PHP
+
+*Alen Maragoul
+amaragoul@mail.csuchico.edu
+- APCG Major
+- Gets Down with C++: 111 , 211, 311
+- Moderate Experience with C# in Unity to Publish Small Project on Google Play Store and Amazon App Store
+
 <h1> README </h1>
 <h1> Purpose </h1>
 
@@ -7,7 +33,7 @@
 
 <h1> Meet The Team </h1>
 
-<strong>    Sean German [Scrum Master, Development] <jsgerman@me.com> </strong>  
+<strong>    Sean German [Scrum Master, Development] <jsgerman@me.com> </strong>
               Computer Science Major @ CSUChico, Chose this project as it allows me an opportunity to learn angular.js as well as work on a project that will be pushed to a production setting that it will be actually used.
 
 <strong>     Lukas Fink [Development] <lfink579@googlemail.com> </strong><br />
@@ -26,10 +52,10 @@ I am a junior in college with little GitHub experience and have dabbled in sever
 A senior in the Computer Science department with background in mostly C/C++. My skype name is goldennut (not joking), feel free to add me so we can chat about the project.
 
 <strong>Chue Vang</strong><br/>
-This is the first time I actually use GitHub for CSCI Project. I have experience C++ and a little on PHP and JAVA. 
+This is the first time I actually use GitHub for CSCI Project. I have experience C++ and a little on PHP and JAVA.
 
 <strong>Colin Baldwin</strong><br/>
-I'm an aspiring artist and programmer. I have experience in HTML, Java, and a little bit in C++ 
+I'm an aspiring artist and programmer. I have experience in HTML, Java, and a little bit in C++
 
 <strong>Sumit Dorle</strong><br/>
 This is my first commit on the github.
