@@ -28,6 +28,9 @@
   },
   "devDependencies": {
     "chai": "^1.9.1",
+    "karma": "^0.12.24",
+    "karma-chrome-launcher": "^0.1.5",
+    "karma-jasmine": "^0.1.5",
     "mocha": "^1.21.4"
   }
 }
