@@ -10,8 +10,8 @@ bossyuicombobox.controller('defaultCtrl', function($scope){
 bossyuicombobox.directive('bossytextbox', function() {
     return {
         template: '<input list="options">' +
-            '<datalist id="options" ng-repeat="s in suggestions">' +
-            '<option value="{{s.name}}">' +
+            '<datalist id="options">' +
+            '<option ng-repeat="s in suggestions" value="{{s.name}}"></option>' +
             '</datalist>',
         link: function($scope){
             $scope.suggestions = [
