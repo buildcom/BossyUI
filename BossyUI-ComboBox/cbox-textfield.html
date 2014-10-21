@@ -1,10 +1,4 @@
-<input ng-model="inputText">
-<div style="postion:relative;">
-    <table id="popup" style="position:absolute;">
-        <tr ng-if="inputText.length != 0" 
-            ng-repeat="suggestion in suggestions | filter: inputText"
-            ng-click="complete(suggestion)">
-            <td>{{suggestion}}</td>
-        </tr>
-    </table>
-</div>
+<input list="options">
+<datalist id="options" ng-repeat="suggestion in suggestions">
+    <option value="suggestion">
+</datalist>

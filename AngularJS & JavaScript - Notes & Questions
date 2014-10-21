@@ -1,0 +1,131 @@
+AngularJS & JavaScript - Notes & Questions
+
+Francisco Tadillo
+
+--------------------------------------------------------------------------------
+
+All the content here are my straight-off-the-dome notes and questions about
+AngularJS and JavaScript. I will be updating this regularly to help my own
+understanding of the languages and to stay organized.
+
+Feel free to comment or answer questions on this.
+
+--------------------------------------------------------------------------------
+
+I noticed that AngularJS follows the MVC structure heavily.
+
+Model holds variables/data (ng-model)
+Controller is what manipulates the data through functions
+and so forth. (ng-controller)
+View is basically the way the data is displayed or presented to the user 
+on-screen. This has to do with the html layout.
+
+................................................................................
+
+Code Example:
+
+<body>
+    First Name: <input ng-model="firstName" type="text">
+    Last Name: <input ng-model="lastName" type="text">
+    Your first name is {{firstName}} and your last name is {{lastName}}
+</body>
+
+This code will create 2 text input fields and dynamically display them
+as you type.
+
+................................................................................
+
+Controller
+
+Naming convention for controller in Angular is... somethingCtrl
+
+$scope object is the model of Angular. It's a plain JavaScript object in terms
+of manipulation.
+
+................................................................................
+
+Code Example:
+
+<script>
+    function NameCtrl($scope){
+        $scope.firstName = 'Francisco';
+        $scope.lastName = 'Tadillo';
+    }
+</script>
+
+<body ng-controller="NameCtrl">
+    First Name: <input ng-model="firstName" type="text">
+    Last Name: <input ng-model="lastName" type="text">
+    Your first name is {{firstName}} and your last name is {{lastName}}
+</body>
+
+The Controller initializes the data in this case.
+
+................................................................................
+
+Module can be used to prevent pollution of the global space.
+
+second argument is the list of dependencies.
+
+<html ng-app="nameApp">
+
+<script>
+var nameApp = angular.module('nameApp',[]);
+nameApp.controller('NameCtrl', function ($scope) {
+	firstName = 'Francisco';
+	lastName = 'Tadillo';
+});
+</script>
+
+................................................................................
+
+ng-repeat is like a loop
+
+push adds to a scope.
+For example:
+
+$scope.names.push($scope.enteredName)
+
+ng-submit="someFunction" can be used to create a form with a submit button.
+Once pressed, it'll call any function you designate it to.
+
+ng-click is similar but used for links and so forth
+
+function to remove names in a scope...
+
+$scope.removeName = function(name) {
+	var i = $scope.names.indexOf(name);
+	$scope.names.splice(i,1);
+};
+
+................................................................................
+
+JSON data
+
+var countryApp = angular.module('countryApp', []);
+countryApp.controller('CountryCtrl', function ($scope, $http){
+	$http.get('countries.json').success(function(data){
+	    $scope.countries = data;
+	});
+});
+
+Alt syntax for declaring dependencies... minification
+This will still work after minification
+
+var countryApp = angular.module('countryApp', []);
+countryApp.controller('CountryCtrl', ['$scope', '$http', function (scope, http){
+	$http.get('countries.json').success(function(data){
+	    $scope.countries = data;
+	});
+}]);
+
+
+
+
+
+
+
+
+
+
+

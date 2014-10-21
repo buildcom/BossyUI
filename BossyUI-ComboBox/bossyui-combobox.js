@@ -1,11 +1,24 @@
-angular.module('BossyUI-ComboBox')
-    .controller('Controller', ['$scope', function($scope){
-        $scope.choices = [
-            { name: "Option A" },
-            { name: "Option B" },
-            { name: "Option C" }
-        ]
-    }])
-    .directive('Textfield', function($timeout) {
-        
-    });
+var bossyuicombobox = angular.module('bossyui-combobox', [])
+
+bossyuicombobox.controller('defaultCtrl', function($scope){
+    $scope.suggestions = [
+        { name: "Option A" },
+        { name: "Option B" },
+        { name: "Option C" }
+    ]
+});
+bossyuicombobox.directive('bossytextbox', function() {
+    return {
+        template: '<input list="options">' +
+            '<datalist id="options" ng-repeat="s in suggestions">' +
+            '<option value="{{s.name}}">' +
+            '</datalist>',
+        link: function($scope){
+            $scope.suggestions = [
+                { name: "angular" },
+                { name: "bossy" },
+                { name: "combobox" }
+            ]  
+        }
+    };
+});
