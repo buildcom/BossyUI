@@ -1,46 +1,28 @@
- angular.module('bossy.tooltip', [])
-	.run(function($templateCache) {
-		$templateCache.put('jasmineTest.html', 'jasmineTest.html');
-	})
-	
-	.factory('bossyTooltipFactory', function() {
-		return {
-			_options: {
-				title: 'factory title',
-				content: 'factory content'
-			}
-		}
-	})
-	
-	.directive('bossyTooltip', function($compile, $http /*$data,*/ /*$schema*/) {
-		return {
-			restrict: 'EA',
+angular.module('bossy.tooltip', [])
+    .directive('bossyTooltip', function() {
+        return {
+            restrict: 'A',
+            scope: {},
 			replace: true,
-			templateUrl: 'bossy.tooltip.html',
-			controller:['$scope', 'bossyTooltipFactory', function($scope, bossyTooltipFactory) {
-					this._options = {
-					title: bossyTooltipFactory._options.title,
-					content: bossyTooltipFactory._options.content
-				};
-			}],
-			controllerAs: "tips"		
-		};
-	})
-	
-	// Directives onEnter && onExit use jQueryLite dependency
-	.directive('onEnter', function() {
-		return function(scope, element) {
-			element.bind('mouseenter', function() {
-				console.log("I'm in you");
-			})
-		}
-	})
-	
-	.directive('onExit', function() {
-		return function(scope, element) {
-			element.bind('mouseleave', function() {
-				console.log("I'm outta here");
-			})
-		}
-	})
-	
+            link: function(scope, element, attrs) {
+                if(typeof attrs.title !== "string" && typeof attrs.body !== "string")
+                    console.error("Error: No title or body information provided.");
+                
+                // Create tip element
+                var $tip = document.createElement('div');
+                $tip.innerHTML = '<div>'+ attrs.title +'</div><div>'+ attrs.body +'</div>';
+                $tip.className = 'bossyTooltip';
+                
+                // Mouse events
+                element.on('mouseenter', function() {
+                    console.log('here');
+                })
+                .on('mouseleave', function() {
+                    console.log('there');
+                });
+                
+                // Append to DOM
+                element[0].appendChild($tip);
+            }
+        };
+    });
