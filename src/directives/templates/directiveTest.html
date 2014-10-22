@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 
-<!-- <link rel="shortcut icon" type="image/png" href="jasmine/lib/jasmine-core/jasmine_favicon.png">
-<link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine-core/jasmine.css"> 
-
-<script type="text/javascript" src="jasmine/lib/jasmine-core/jasmine.js"></script>
-<script type="text/javascript" src="jasmine/lib/jasmine-core/jasmine-html.js"></script>
-<script type="text/javascript" src="jasmine/lib/jasmine-core/boot.js"></script> -->
-<script type="text/javascript" src="../angular.min.js"></script>
-<!-- <script type="text/javascript" src="bossy.tooltip.js"></script> -->
-<script type="text/javascript" src="../bossy.dropdown.js"></script>
-<!-- <script type="text/javascript" src="../bossy.data.js"></script>
-<script type="text/javascript" src="../bossy.form.js"></script> -->
-
-
-
 <html> 
-	<head>
-		<meta charset="utf-8" />
-		<title>Working?</title>
-	</head>
-	<h2 ng-app="bossy.dropdown" bossy-dropdown></h2>
+<head>
+    <meta charset="utf-8" />
+    <title>Working?</title>
+    
+    <style>
+        #test {height: 100px; width: 100px; position: absolute; top: 100px; left: 400px; background-color: yellow;}
+    </style>
+    
+</head>
+
+<body ng-app="bossy.tooltip">
+
+    <div bossy-tooltip id="test" title="titleTest" body="bodyTest" position="s"></div>
+
+</body>
+
+<script type="text/javascript" src="../angular.min.js"></script>
+<script type="text/javascript" src="../bossy.tooltip.js"></script>
 </html>
