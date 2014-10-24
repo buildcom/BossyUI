@@ -1,10 +1,11 @@
 angular.module('bossy.calendar', [])
-	.controller('CalendarController', ['$scope', function ($scope) {
+	.controller('CalendarController', ['$scope', '$filter', function ($scope, $filter) {
 
 		var _monthMaps = {},
-		universal = {
-			DAY: 24 * 60 * 60 * 1000
-		};
+			initDate = new Date(),
+			universal = {
+				DAY: 24 * 60 * 60 * 1000
+			};
 
 		$scope.days = [
 			'Sunday',
@@ -30,58 +31,80 @@ angular.module('bossy.calendar', [])
 			'December'
 		];
 
-		function _getMonth() {
-			return $scope.months[$scope.currentDate.getMonth()];
+		function _getTimeObject(date) {
+			return {
+				full: date,
+				year: date.getFullYear(),
+				monthName: _getMonthName(date.getMonth()),
+				month: date.getMonth(),
+				day: _getDay(date),
+				date: date.getDate(),
+				time: date.getTime()
+			};
 		}
 
-		function _getDay() {
-			return $scope.days[$scope.currentDate.getDay()];
+		function _setSelectedDate(date) {
+			$scope.selected = _getTimeObject(date);
 		}
 
-		$scope.getDateMap = function() {
-			if (_monthMaps[$scope.month]) {
-				return _monthMaps[$scope.month];
-			}
-			var daysBack = $scope.date + ($scope.date % 7),
-				firstWeekDay = new Date($scope.currentDate.getTime() - (daysBack * universal.DAY)),
-				dateMap = [],
+		function _setCurrentMonthAndYear(month, year) {
+			var date = new Date(year || $scope.selected.year, month || $scope.selected.month, 1);
+			$scope.current = _getTimeObject(date);
+		}
+
+		function _getMonthName(month) {
+			return $scope.months[month];
+		}
+
+		function _getDay(date) {
+			return $scope.days[date.getDay()];
+		}
+
+		$scope.previousMonth = function() {
+			var date = new Date($scope.current.year, ($scope.current.month - 1), 1);
+			_setCurrentMonthAndYear(date.getMonth(), date.getFullYear());
+			$scope.updateDateMap();
+		};
+
+		$scope.nextMonth = function() {
+			var date = new Date($scope.current.year, ($scope.current.month + 1), 1);
+			_setCurrentMonthAndYear(date.getMonth(), date.getFullYear());
+			$scope.updateDateMap();
+		};
+
+		$scope.selectDate = function(date) {};
+
+		$scope.updateDateMap = function() {
+			var firstWeekDay = new Date($scope.current.time - ($scope.current.full.getDay() * universal.DAY)),
 				isMonthComplete = false;
+				$scope.dateMap = [];
 
 			while (!isMonthComplete) {
 				var week = [];
-				if (dateMap.length === 5) {
+				if ($scope.dateMap.length === 5) {
 					isMonthComplete = true;
 				}
 				for (var weekDay = 0; weekDay < 7; weekDay++) {
 					var _thisDate = (new Date(firstWeekDay.getTime() + (weekDay * universal.DAY)));
 					week.push({
 						date: _thisDate.getDate(),
-						bold: _thisDate.getMonth() === $scope.currentDate.getMonth()
+						bold: _thisDate.getMonth() === $scope.current.full.getMonth()
 					});
 				}
 				firstWeekDay = new Date(firstWeekDay.getTime() + (7 * universal.DAY));
-				dateMap.push(week);
+				$scope.dateMap.push(week);
 			}
-			_monthMaps[$scope.month] = dateMap;
-			return dateMap;
 		};
 
-		$scope.currentDate = new Date();
+		// init to current date
+		_setSelectedDate(initDate);
+		_setCurrentMonthAndYear();
+		$scope.updateDateMap();
 
-		$scope.year = $scope.currentDate.getFullYear();
-		$scope.month = _getMonth();
-		$scope.day = _getDay();
-		$scope.date = $scope.currentDate.getDate();
-
-	}]).directive('bossyCalendar', ['$compile', function ($compile) {
+	}]).directive('bossyCalendar', [function () {
 		return {
 			restrict: 'AE',
-			link: function(scope, element, attributes) {
-				var template = '<table><tr><td colspan="7">{{month}} {{year}}</td></tr><td ng-repeat="day in days" title="{{day}}">{{day | limitTo : 2}}</td><tr ng-repeat="week in getDateMap()"><td ng-repeat="current in week"><b ng-if="current.bold">{{current.date}}</b><span ng-if="!current.bold">{{current.date}}</span></td></tr><tr><td colspan="7">{{day}}, {{month}} {{date}}, {{year}}</td></tr></table>';
-
-				element.html(template);
-				$compile(element.contents())(scope);
-			},
+			template: '<table><tr><td ng-click="previousMonth()">&lt;</td><td colspan="5">{{current.monthName}} {{current.year}}</td><td ng-click="nextMonth()">&gt;</td></tr><td ng-repeat="day in days" title="{{day}}">{{day | limitTo : 2}}</td><tr ng-repeat="week in dateMap"><td ng-repeat="current in week" ng-click="selectDate(current.date)"><b ng-if="current.bold">{{current.date}}</b><span ng-if="!current.bold">{{current.date}}</span></td></tr><tr><td colspan="7">{{selected.day}}, {{selected.monthName}} {{selected.date}}, {{selected.year}}</td></tr></table>',
 			controller: 'CalendarController'
 		};
 	}]);
