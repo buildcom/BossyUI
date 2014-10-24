@@ -7,6 +7,7 @@ Dan Green <dan.green@build.com>
 Dan Sluis <daniel@lulus.com>
 Tauseef Jamadar <tmjam.ahmed@gmail.com>
 Tuhin Shukla <tuhintshukla@gmail.com>
+Erik Mellum
 
 CSU Chico CS Students:
 
