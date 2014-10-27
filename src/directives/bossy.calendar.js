@@ -4,7 +4,8 @@ angular.module('bossy.calendar', [])
 		var _monthMaps = {},
 			initDate = new Date(),
 			universal = {
-				DAY: 24 * 60 * 60 * 1000
+				DAY: 24 * 60 * 60 * 1000,
+				HOUR: 60 * 60 * 1000
 			};
 
 		$scope.days = [
@@ -86,6 +87,12 @@ angular.module('bossy.calendar', [])
 				}
 				for (var weekDay = 0; weekDay < 7; weekDay++) {
 					var _thisDate = (new Date(firstWeekDay.getTime() + (weekDay * universal.DAY)));
+					// fix for DST oddness
+					if (_thisDate.getHours() === 23) {
+						_thisDate = (new Date(_thisDate.getTime() + universal.HOUR));
+					} else if (_thisDate.getHours() === 1) {
+						_thisDate = (new Date(_thisDate.getTime() - universal.HOUR));
+					}
 					week.push({
 						date: _thisDate.getDate(),
 						bold: _thisDate.getMonth() === $scope.current.full.getMonth()
