@@ -48,7 +48,7 @@ angular.module('bossy.calendar', [])
 		}
 
 		function _setCurrentMonthAndYear(month, year) {
-			var date = new Date(year || $scope.selected.year, month || $scope.selected.month, 1);
+			var date = new Date(year !== undefined ? year : $scope.selected.year, month !== undefined ? month : $scope.selected.month, 1);
 			$scope.current = _getTimeObject(date);
 		}
 
