@@ -1,6 +1,5 @@
 # Project
 node_modules
-bower_components
 
 # Demo/Docs Site
 _site/
