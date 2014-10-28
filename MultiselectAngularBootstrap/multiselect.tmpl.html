@@ -1,0 +1,12 @@
+<div class="dropdown">
+    <button ng-click="toggleSelect()" ng-disabled="disabled" ng-class="{'error': !valid()}">
+        <span>{{header}}</span>
+    </button>
+    <ul class="dropdown-menu">
+        <li ng-show="multiple" ng-click="checkAll()"><a>Select all</a></li>
+        <li ng-show="multiple" ng-click="uncheckAll()"><a>Deselect all</a></li>
+        <li ng-repeat="i in items | filter:searchText">
+            <a ng-click="select(i); focus()">{{i.label}}</a>
+        </li>
+    </ul>
+</div>
