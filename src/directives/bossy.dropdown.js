@@ -9,13 +9,25 @@ angular.module('bossy.dropdown', [])
 	})
 	
 	.directive('bossyDropdown', function($compile, $http /*$data,*/ /*$schema*/) {
+		function setData(data){
+			return data;
+		}
 		return {
 			restrict: 'EA',
 			replace: true,
+			scope: {
+				main: '=',
+				affiliated: '='
+            },
+			link: function(scope,element,attrs){
+				scope.main = attrs.main;
+				scope.affiliated = attrs.affiliated;
+			},
+			//template: '<div> {{main}} poop {{affiliated}} </div>',
 			templateUrl: 'bossy.dropdown.html',
 			controller: function($scope, bossyDropdownFactory) {
 				$scope.contents = [];
-
+				
 				bossyDropdownFactory
 					.success(function(data){
 						$scope.contents = data;
@@ -41,5 +53,4 @@ angular.module('bossy.dropdown', [])
 				$scope.items = data || "Request failed";
 			})
 	})
-	
-	
+
