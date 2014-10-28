@@ -1,5 +1,5 @@
-angular.module('app.factory.bossy.schema', [])
-    .factory('$schema', function () {
+angular.module('bossy.schema', [])
+    .factory('$schema', ['$q', '$http', function ($q, $http) {
 
         function _getSchema (schema) {
             if (angular.isString(schema)) {
@@ -14,13 +14,13 @@ angular.module('app.factory.bossy.schema', [])
             }
         }
 
-        function _getRemoteSchema() {
+        function _getRemoteSchema(schema) {
             var deferred = $q.defer();
 
             $http.get( schema )
                 .success( function( data ) {
                     if( angular.isObject( data ) ) {
-                        deferred.resolve(data);;
+                        deferred.resolve(data);
                     }
                     else {
                         //TODO: replace error message with online doc link like ng errors
@@ -37,6 +37,6 @@ angular.module('app.factory.bossy.schema', [])
 
         return {
             getSchema: _getSchema
-        }
-    })
+        };
+    }])
 ;
