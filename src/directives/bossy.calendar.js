@@ -73,7 +73,14 @@ angular.module('bossy.calendar', [])
 			$scope.updateDateMap();
 		};
 
-		$scope.selectDate = function(date) {};
+		$scope.selectDate = function(time) {
+			var date = _getTimeObject(new Date(time));
+			if (date.month !== $scope.current.month) {
+				_setCurrentMonthAndYear(date.month, date.year);
+				$scope.updateDateMap();
+			}
+			$scope.selected = _getTimeObject(new Date(time));
+		};
 
 		$scope.updateDateMap = function() {
 			var firstWeekDay = new Date($scope.current.time - ($scope.current.full.getDay() * universal.DAY)),
@@ -93,10 +100,9 @@ angular.module('bossy.calendar', [])
 					} else if (_thisDate.getHours() === 1) {
 						_thisDate = (new Date(_thisDate.getTime() - universal.HOUR));
 					}
-					week.push({
-						date: _thisDate.getDate(),
-						bold: _thisDate.getMonth() === $scope.current.full.getMonth()
-					});
+					var _date = _getTimeObject(_thisDate);
+					_date.bold = _thisDate.getMonth() === $scope.current.full.getMonth();
+					week.push(_date);
 				}
 				firstWeekDay = new Date(firstWeekDay.getTime() + (7 * universal.DAY));
 				$scope.dateMap.push(week);
@@ -111,7 +117,7 @@ angular.module('bossy.calendar', [])
 	}]).directive('bossyCalendar', [function () {
 		return {
 			restrict: 'AE',
-			template: '<table><tr><td ng-click="previousMonth()">&lt;</td><td colspan="5">{{current.monthName}} {{current.year}}</td><td ng-click="nextMonth()">&gt;</td></tr><td ng-repeat="day in days" title="{{day}}">{{day | limitTo : 2}}</td><tr ng-repeat="week in dateMap"><td ng-repeat="current in week" ng-click="selectDate(current.date)"><b ng-if="current.bold">{{current.date}}</b><span ng-if="!current.bold">{{current.date}}</span></td></tr><tr><td colspan="7">{{selected.day}}, {{selected.monthName}} {{selected.date}}, {{selected.year}}</td></tr></table>',
+			template: '<table><tr><td ng-click="previousMonth()">&lt;</td><td colspan="5">{{current.monthName}} {{current.year}}</td><td ng-click="nextMonth()">&gt;</td></tr><td ng-repeat="day in days" title="{{day}}">{{day | limitTo : 2}}</td><tr ng-repeat="week in dateMap"><td ng-repeat="current in week" ng-click="selectDate(current.time)"><b ng-if="current.bold">{{current.date}}</b><span ng-if="!current.bold">{{current.date}}</span></td></tr><tr><td colspan="7">{{selected.day}}, {{selected.monthName}} {{selected.date}}, {{selected.year}}</td></tr></table>',
 			controller: 'CalendarController'
 		};
 	}]);
