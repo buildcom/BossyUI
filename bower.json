@@ -1,12 +1,11 @@
 {
   "name": "BossyUI",
   "version": "0.0.0",
-  "homepage": "https://github.com/buildcom/BossyUI",
+  "homepage": "http://buildcom.github.io/BossyUI/",
   "authors": [
     "Geoff Lawson <geoff.lawson@build.com>"
   ],
   "license": "MIT",
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -15,6 +14,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.2.21"
+    "angular": "~1.2.25",
+    "angular-ui-router": "~0.2.11"
   }
 }
