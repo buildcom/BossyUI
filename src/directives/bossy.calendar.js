@@ -33,7 +33,7 @@ angular.module('bossy.calendar', [])
 
 		function _getTimeObject(date) {
 			return {
-				full: date,
+				raw: date,
 				year: date.getFullYear(),
 				monthName: _getMonthName(date.getMonth()),
 				month: date.getMonth(),
@@ -45,7 +45,7 @@ angular.module('bossy.calendar', [])
 
 		function _setSelectedDate(date) {
 			$scope.selected = _getTimeObject(date);
-			$scope.ngModel = $filter('date')($scope.selected.full, 'EEEE, MMMM d, yyyy');
+			$scope.ngModel = $scope.selected.raw;
 		}
 
 		function _setCurrentMonthAndYear(month, year) {
@@ -83,7 +83,7 @@ angular.module('bossy.calendar', [])
 		};
 
 		$scope.updateDateMap = function() {
-			var firstWeekDay = new Date($scope.current.time - ($scope.current.full.getDay() * universal.DAY)),
+			var firstWeekDay = new Date($scope.current.time - ($scope.current.raw.getDay() * universal.DAY)),
 				isMonthComplete = false;
 				$scope.dateMap = [];
 
@@ -101,7 +101,7 @@ angular.module('bossy.calendar', [])
 						_thisDate = (new Date(_thisDate.getTime() - universal.HOUR));
 					}
 					var _date = _getTimeObject(_thisDate);
-					_date.bold = _thisDate.getMonth() === $scope.current.full.getMonth();
+					_date.bold = _thisDate.getMonth() === $scope.current.raw.getMonth();
 					week.push(_date);
 				}
 				firstWeekDay = new Date(firstWeekDay.getTime() + (7 * universal.DAY));

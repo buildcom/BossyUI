@@ -21,6 +21,11 @@ angular.module('demoApp', [
                 url: '/matrix',
                 templateUrl: 'demo/templates/demos.matrix.html',
                 controller: 'MatrixCtrl'
+            })
+            .state('demos.calendar', {
+                url: '/calendar',
+                templateUrl: 'demo/templates/demos.calendar.html',
+                controller: 'CalendarCtrl'
             });
 
         $urlRouterProvider.otherwise('/');
