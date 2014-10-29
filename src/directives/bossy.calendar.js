@@ -2,7 +2,6 @@ angular.module('bossy.calendar', [])
 	.controller('CalendarController', ['$scope', '$filter', function ($scope, $filter) {
 
 		var _monthMaps = {},
-			initDate = new Date(),
 			universal = {
 				DAY: 24 * 60 * 60 * 1000,
 				HOUR: 60 * 60 * 1000
@@ -46,6 +45,7 @@ angular.module('bossy.calendar', [])
 
 		function _setSelectedDate(date) {
 			$scope.selected = _getTimeObject(date);
+			$scope.ngModel = $filter('date')($scope.selected.full, 'EEEE, MMMM d, yyyy');
 		}
 
 		function _setCurrentMonthAndYear(month, year) {
@@ -79,7 +79,7 @@ angular.module('bossy.calendar', [])
 				_setCurrentMonthAndYear(date.month, date.year);
 				$scope.updateDateMap();
 			}
-			$scope.selected = _getTimeObject(new Date(time));
+			_setSelectedDate(new Date(time));
 		};
 
 		$scope.updateDateMap = function() {
@@ -110,13 +110,16 @@ angular.module('bossy.calendar', [])
 		};
 
 		// init to current date
-		_setSelectedDate(initDate);
+		_setSelectedDate($scope.ngModel || new Date());
 		_setCurrentMonthAndYear();
 		$scope.updateDateMap();
 
 	}]).directive('bossyCalendar', [function () {
 		return {
 			restrict: 'AE',
+			scope: {
+				ngModel: '='
+			},
 			template: '<table><tr><td ng-click="previousMonth()">&lt;</td><td colspan="5">{{current.monthName}} {{current.year}}</td><td ng-click="nextMonth()">&gt;</td></tr><td ng-repeat="day in days" title="{{day}}">{{day | limitTo : 2}}</td><tr ng-repeat="week in dateMap"><td ng-repeat="current in week" ng-click="selectDate(current.time)"><b ng-if="current.bold">{{current.date}}</b><span ng-if="!current.bold">{{current.date}}</span></td></tr><tr><td colspan="7">{{selected.day}}, {{selected.monthName}} {{selected.date}}, {{selected.year}}</td></tr></table>',
 			controller: 'CalendarController'
 		};
