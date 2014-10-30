@@ -4,14 +4,15 @@
 <head>
     <meta charset="utf-8" />
     <title>Working?</title>
-    
 </head>
 
 <body ng-app="bossy.dropdown">
 	<input type="text" ng-model="data">
 	<hr>
 	<input type="text" ng-model="brain">
-    <div bossy-dropdown main="data" affiliated="brain"></div>
+	<div ng-controller = "bossyDropdownCtrl">
+		<div bossy-dropdown main="main" affiliated="affiliated"></div>
+	</div>
 </body>
 
 <script type="text/javascript" src="../angular.min.js"></script>

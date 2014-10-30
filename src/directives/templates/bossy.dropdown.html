@@ -6,7 +6,7 @@ With a seperate controller
 				<h1>{{item.name}}</h1>
 			</option>
 		</select>
-		<h2> {{main}} {{affiliated}} </h2>
+		<h2> {{main.name}} {{affiliated}}</h2>
 </section>
 
 With an directive embedded controller
@@ -15,6 +15,6 @@ With an directive embedded controller
 	<div ng-show="content">
 		<h3>Abbreviation: {{content.abbreviation}}</h3>
 	</div>
-		<h4> {{main}} {{affiliated}} </h4>
+		<h4> {{main.name}} {{affiliated}} </h4>
 </section>
 </div>
