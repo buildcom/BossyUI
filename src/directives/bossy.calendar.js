@@ -1,5 +1,5 @@
 angular.module('bossy.calendar', [])
-	.controller('CalendarController', ['$scope', '$filter', function ($scope, $filter) {
+	.controller('CalendarController', ['$scope', function ($scope) {
 
 		var _monthMaps = {},
 			universal = {
