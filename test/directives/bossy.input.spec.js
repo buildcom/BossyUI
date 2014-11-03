@@ -1,18 +1,10 @@
 describe('bossyInput', function() {
-	var element,
-		scope,
-		compile,
-		val;
-
+	var element;
 
 	beforeEach(module('Templates'));
-	beforeEach(inject(function($compile,$rootScope){
-		scope = $rootScope;
-		compile = $compile;
-		val = true;
+	beforeEach(inject(function(){
 		element = angular.element('<bossy-input title = "Sample Bossy Input">Bossy Input</bossy-input>');
-		$compile(element)(scope);
-		$rootScope.$digest();
+
 	}));
 
 	it('should add bossy input',function(){
