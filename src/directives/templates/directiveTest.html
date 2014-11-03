@@ -4,17 +4,21 @@
 <head>
     <meta charset="utf-8" />
     <title>Working?</title>
+    
+    <style>
+        #test {height: 100px; width: 100px; position: absolute; top: 100px; left: 400px; background-color: yellow;}
+        .bossyTooltip {position: absolute; background-color: #cccccc; width: 300px;}
+        .bossyTooltip > span {font-size: 20px; font-weight: bold;}
+    </style>
+    
 </head>
 
-<body ng-app="bossy.dropdown">
-	<input type="text" ng-model="data">
-	<hr>
-	<input type="text" ng-model="brain">
-	<div ng-controller = "bossyDropdownCtrl">
-		<div bossy-dropdown main="main" affiliated="affiliated"></div>
-	</div>
+<body ng-app="bossy.tooltip">
+
+    <div bossy-tooltip id="test" title="Tooltip" body="This is the tooltip test showing what it can do!" position="n"></div>
+
 </body>
 
 <script type="text/javascript" src="../angular.min.js"></script>
-<script type="text/javascript" src="../bossy.dropdown.js"></script>
+<script type="text/javascript" src="../bossy.tooltip.js"></script>
 </html>
