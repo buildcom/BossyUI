@@ -52,15 +52,11 @@ angular.module('bossy.calendar', [])
 			}
 			return false;
 		}
-		function _setConfigOptions() {
-			try {
-				var config = JSON.parse($scope.config);
-				config.start = _getTimeObjectIfDate(config.start);
-				config.end = _getTimeObjectIfDate(config.end);
-				options = angular.extend({}, defaults, config);
-			} catch (error) {
-				console.error(new Error(error));
-			}
+
+		function setConfigOptions() {
+			$scope.config.start = _getTimeObjectIfDate($scope.config.start);
+			$scope.config.end = _getTimeObjectIfDate($scope.config.end);
+			options = angular.extend({}, defaults, $scope.config);
 		}
 
 		function _dayIsOutOfRange(_date) {
@@ -143,7 +139,7 @@ angular.module('bossy.calendar', [])
 			}
 		};
 
-		_setConfigOptions();
+		setConfigOptions();
 		_setSelectedDate($scope.ngModel || new Date());
 		_setCurrentMonthAndYear();
 		$scope.updateDateMap();
@@ -153,7 +149,7 @@ angular.module('bossy.calendar', [])
 			restrict: 'AE',
 			scope: {
 				ngModel: '=',
-				config: '@'
+				config: '='
 			},
 			template: '<style>bossy-calendar .day-in-month{font-weight:700}bossy-calendar .disabled-day{color:#ccc}</style><table><tr><td ng-click="previousMonth()" title="Previous month">&lt;</td><td colspan="5">{{current.monthName}} {{current.year}}</td><td ng-click="nextMonth()" title="Next month">&gt;</td></tr><td ng-repeat="day in days" title="{{day}}">{{day | limitTo : 2}}</td><tr ng-repeat="week in dateMap"><td ng-repeat="current in week" ng-click="selectDate(current.time)" class="{{current.dayInMonth}} {{current.disabledDay}}">{{current.date}}</td></tr><tr><td colspan="7">{{selected.day}}, {{selected.monthName}} {{selected.date}}, {{selected.year}}</td></tr></table>',
 			controller: 'CalendarController'
