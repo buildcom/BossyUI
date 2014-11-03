@@ -7,7 +7,6 @@ angular.module('bossy.dropdown', [])
 		return {
 			restrict: 'EA',
 			scope: {
-				//config: "="
 				src: "=",
 				title: "="
 			},
@@ -16,7 +15,6 @@ angular.module('bossy.dropdown', [])
 				var thisDropdown = this;
 				thisDropdown.title = $scope.title;
 				thisDropdown.items = [];
-
 				$http.get($scope.src).success(function(data) {
 					thisDropdown.items = data;
 				});
