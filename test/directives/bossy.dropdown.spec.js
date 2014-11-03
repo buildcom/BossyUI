@@ -3,26 +3,27 @@ var element;
 var scope;
 var compile;
 var val;
+var http;
 
 
 beforeEach(module('Templates'))
-beforeEach(inject(function($compile,$rootScope){
+beforeEach(inject(function($compile,$rootScope, $http){
 	scope=$rootScope;
 	compile  = $compile;
 	val = true;
-	scope.myConfig = {
-		src: 'https://gist.githubusercontent.com/mshafrir/2646763/raw/bfb35f17bc5d5f86ec0f10b80f7b80e823e9197f/states_titlecase.json',
-		title: 'name'
-	};
-	element = angular.element('<bossy-dropdown config={{myConfig}}></bossy-dropdown>');
+	element = angular.element('<bossy-dropdown title="name"></bossy-dropdown>');
 	$compile(element)(scope);
 	$rootScope.$digest();
+	http = $http;
 
 }));
-	// it('should populate bossy dropdown',function(){
-	// 	expect(element.items.length).toMatch(58);
+	it('should populate bossy dropdown',function(){
+		expect(element.attr("title")).toMatch("name");
 
-	// })
+	})
+	it('should throw error to broken promise',function(){
+		expect(http.get("")).toThrow(new Error("http.get FAILED"));
 
+	})
 
  })

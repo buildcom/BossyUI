@@ -15,9 +15,14 @@ angular.module('bossy.dropdown', [])
 				var thisDropdown = this;
 				thisDropdown.title = $scope.title;
 				thisDropdown.items = [];
-				$http.get($scope.src).success(function(data) {
-					thisDropdown.items = data;
-				});
+				$http.get($scope.src)
+					.success(function(data) {
+						thisDropdown.items = data;
+					})
+					.error(function(data) {
+						console.log("http.get FAILED");
+						$scope.items = data || "Request failed";
+					});
 			},
 			controllerAs: 'dropdown'
 		};
