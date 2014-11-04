@@ -1,50 +1,41 @@
-var app = angular.module("app", []);
+var app = angular.module("bossy.checkboxMultiselect", []);
 
-app.controller('Ctrl', function($scope) {
+app.controller('AppCtrl', function($scope) {
+
     $scope.choices = [
         'Option A',
         'Option B',
-        'Option C',
-        'Option D'
+        'Option C'
     ];
+
     $scope.name = {
         choices: []
     };
-    $scope.checkAll = function() {
+
+    $scope.selectAll = function() {
         $scope.name.choices = angular.copy($scope.choices);
     };
-    $scope.uncheckAll = function() {
+
+    $scope.deselectAll = function() {
         $scope.name.choices = [];
     };
+
 });
 
-app.directive('checklistModel', ['$parse', '$compile', function($parse, $compile) {
+app.directive('bossyCheckboxMultiselect', ['$parse', '$compile', function($parse, $compile) {
 
     return {
-        restrict: 'A',
-        priority: 1000,
-        terminal: true,
+        restrict: 'AE',
         scope: true,
         compile: function(tElement, tAttrs) {
-            if (tElement[0].tagName !== 'INPUT' || !tElement.attr('type', 'checkbox')) {
-                throw 'checklist-model should be applied to `input[type="checkbox"]`.';
-            }
 
-            if (!tAttrs.checklistValue) {
-                throw 'You should provide `checklist-value`.';
-            }
+            tElement.removeAttr('bossy-checkbox-multiselect');
 
-            // exclude recursion
-            tElement.removeAttr('checklist-model');
-
-            // local scope var storing individual checkbox model
             tElement.attr('ng-model', 'checked');
 
-            return postLinkFn;
+            return link;
         }
     };
-
-        // contains
         function contains(arr, item) {
             if (angular.isArray(arr)) {
                 for (var i = 0; i < arr.length; i++) {
@@ -56,7 +47,6 @@ app.directive('checklistModel', ['$parse', '$compile', function($parse, $compile
             return false;
         }
 
-        // add
         function add(arr, item) {
             arr = angular.isArray(arr) ? arr : [];
             for (var i = 0; i < arr.length; i++) {
@@ -68,7 +58,6 @@ app.directive('checklistModel', ['$parse', '$compile', function($parse, $compile
             return arr;
         }
 
-        // remove
         function remove(arr, item) {
             if (angular.isArray(arr)) {
                 for (var i = 0; i < arr.length; i++) {
@@ -81,19 +70,15 @@ app.directive('checklistModel', ['$parse', '$compile', function($parse, $compile
             return arr;
         }
 
-        // http://stackoverflow.com/a/19228302/1458162
-        function postLinkFn(scope, elem, attrs) {
-            // compile with `ng-model` pointing to `checked`
+        function link(scope, elem, attrs) {
+
             $compile(elem)(scope);
 
-            // getter / setter for original model
-            var getter = $parse(attrs.checklistModel);
+            var getter = $parse(attrs.bossyCheckboxMultiselect);
             var setter = getter.assign;
 
-            // value added to list
             var value = $parse(attrs.checklistValue)(scope.$parent);
 
-            // watch UI checked change
             scope.$watch('checked', function(newValue, oldValue) {
                 if (newValue === oldValue) {
                     return;
@@ -106,9 +91,8 @@ app.directive('checklistModel', ['$parse', '$compile', function($parse, $compile
                 }
             });
 
-            // watch original model change
-            scope.$parent.$watch(attrs.checklistModel, function(newArr, oldArr) {
+            scope.$parent.$watch(attrs.bossyCheckboxMultiselect, function(newArr) {
                 scope.checked = contains(newArr, value);
             }, true);
         }
-    }]);
+}]);
