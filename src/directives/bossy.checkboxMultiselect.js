@@ -2,15 +2,9 @@ var app = angular.module("bossy.checkboxMultiselect", []);
 
 app.controller('AppCtrl', function($scope) {
 
-    $scope.choices = [
-        'Option A',
-        'Option B',
-        'Option C'
-    ];
+    $scope.choices = ['Option A', 'Option B', 'Option C'];
 
-    $scope.name = {
-        choices: []
-    };
+    $scope.name = {choices: []};
 
     $scope.selectAll = function() {
         $scope.name.choices = angular.copy($scope.choices);
@@ -28,26 +22,13 @@ app.directive('bossyCheckboxMultiselect', ['$parse', '$compile', function($parse
         restrict: 'AE',
         scope: true,
         compile: function(tElement, tAttrs) {
-
-            tElement.removeAttr('bossy-checkbox-multiselect');
-
             tElement.attr('ng-model', 'checked');
-
-            return link;
+            tElement.removeAttr('bossy-checkbox-multiselect');
+            return watch;
         }
     };
-        function contains(arr, item) {
-            if (angular.isArray(arr)) {
-                for (var i = 0; i < arr.length; i++) {
-                    if (angular.equals(arr[i], item)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
 
-        function add(arr, item) {
+        function addChoice (arr, item) {
             arr = angular.isArray(arr) ? arr : [];
             for (var i = 0; i < arr.length; i++) {
                 if (angular.equals(arr[i], item)) {
@@ -58,7 +39,7 @@ app.directive('bossyCheckboxMultiselect', ['$parse', '$compile', function($parse
             return arr;
         }
 
-        function remove(arr, item) {
+        function removeChoice(arr, item) {
             if (angular.isArray(arr)) {
                 for (var i = 0; i < arr.length; i++) {
                     if (angular.equals(arr[i], item)) {
@@ -70,29 +51,40 @@ app.directive('bossyCheckboxMultiselect', ['$parse', '$compile', function($parse
             return arr;
         }
 
-        function link(scope, elem, attrs) {
+        function containCheckbox (arr, item) {
+            if (angular.isArray(arr)) {
+                for (var i = 0; i < arr.length; i++) {
+                    if (angular.equals(arr[i], item)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        function watch(scope, elem, attrs) {
 
             $compile(elem)(scope);
 
             var getter = $parse(attrs.bossyCheckboxMultiselect);
             var setter = getter.assign;
 
-            var value = $parse(attrs.checklistValue)(scope.$parent);
+            var value = $parse(attrs.bossyListValue)(scope.$parent);
 
             scope.$watch('checked', function(newValue, oldValue) {
                 if (newValue === oldValue) {
                     return;
                 }
-                var current = getter(scope.$parent);
+                var actual = getter(scope.$parent);
                 if (newValue === true) {
-                    setter(scope.$parent, add(current, value));
+                    setter(scope.$parent, addChoice (actual, value));
                 } else {
-                    setter(scope.$parent, remove(current, value));
+                    setter(scope.$parent, removeChoice(actual, value));
                 }
             });
 
             scope.$parent.$watch(attrs.bossyCheckboxMultiselect, function(newArr) {
-                scope.checked = contains(newArr, value);
+                scope.checked = containCheckbox (newArr, value);
             }, true);
         }
 }]);
