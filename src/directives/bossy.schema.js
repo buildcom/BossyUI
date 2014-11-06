@@ -1,5 +1,5 @@
-angular.module('app.factory.bossy.schema', [])
-    .factory('$schema', function () {
+angular.module('bossy.schema', [])
+    .factory('$schema', ['$q', '$http', function ($q, $http) {
 
         function _getSchema (schema) {
             if (angular.isString(schema)) {
@@ -14,7 +14,7 @@ angular.module('app.factory.bossy.schema', [])
             }
         }
 
-        function _getRemoteSchema() {
+        function _getRemoteSchema(schema) {
             var deferred = $q.defer();
 
             $http.get( schema )
@@ -38,5 +38,5 @@ angular.module('app.factory.bossy.schema', [])
         return {
             getSchema: _getSchema
         };
-    })
+    }])
 ;

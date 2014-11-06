@@ -1,8 +1,32 @@
 Built with LOVE by:
 
 Geoff Lawson <geoff.lawson@build.com>
+Kevin Buffardi <kbuffardi@csuchico.edu> (CSU Chico Faculty Advisor)
 Jason Merino <jasonmerino@gmail.com>
 Dan Green <dan.green@build.com>
 Dan Sluis <daniel@lulus.com>
 Tauseef Jamadar <tmjam.ahmed@gmail.com>
 Tuhin Shukla <tuhintshukla@gmail.com>
+Erik Mellum
+
+CSU Chico CS Students:
+
+Taber Fitzgerald
+Alen Maragoul
+Chue Vang
+Colin Baldwin
+Francisco Tadillo
+James Crean
+Jay German
+Lukas Fink
+Martin Mojica
+Patrick Barnum
+Shelby Martin
+Spencer McWilliams
+Sumit Dorle
+
+CSU Chico Design Students:
+
+Carly Culver
+Christie Landrie
+Mary Trujillo

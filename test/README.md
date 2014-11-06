@@ -1,20 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/buildcom/BossyUI/badges/gpa.svg)](https://codeclimate.com/github/buildcom/BossyUI)
-[![Test Coverage](https://codeclimate.com/github/buildcom/BossyUI/badges/coverage.svg)](https://codeclimate.com/github/buildcom/BossyUI)
-BossyUI
-=======
-
-Created with LOVE by Build.com Open Source Consortium - fostering a collaboration between CSU Chico students and Chico, CA software companies on open source projects.  Sponsored by Build.com
-
-## BossyUI
-
-An opinionated set of AngularJS directives used to build rich and interactive web sites.  
-
-## BossyUI Goals
-1. 100% AngularJS, no JQuery dependencies.
-2. Lightweight directives.
-3. 100% themeable.
-
-##  Testing
+#  Testing
 
 1. Jasmine used as the preferred framework for BossyUI testing. See [Documentation](http://jasmine.github.io/).
 2. Karma test runner used to run Jasmine tests.See [installation](http://karma-runner.github.io/0.12/intro/installation.html).
@@ -24,13 +8,15 @@ An opinionated set of AngularJS directives used to build rich and interactive we
 
 ## Installation for BossyUI Tests.
 
-1. Install dependencies using npm install in project root folder.
-2. Run command - gulp test from command line.
+1. In your terminal change directory to the root of the project and install dependencies using NPM.
 
-## Contributing
+  ```bash
+  $ cd path/to/project/root
+  $ npm install
+  ```
 
-Interested in contributing? Checkout our [contributing guide](/CONTRIBUTING.md).
+2. After that finishes run the tests with gulp.
 
-## Demo Page
-
-[Examples](http://bossy-ui-demo.herokuapp.com) of bossy directives 
+  ```bash
+  $ gulp test
+  ```

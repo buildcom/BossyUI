@@ -1,4 +1,11 @@
-angular.module('app.factory.bossy.data', [])
+angular.module('bossy.data', [])
+/**
+@ngdoc service
+@name $data
+@requires $q
+@requires $http
+
+*/
     .factory('$data', ['$q','$http',function ($q,$http) {
 
         function _getData (data) {
@@ -39,6 +46,13 @@ angular.module('app.factory.bossy.data', [])
         }
 
         return {
+            /**
+            @ngdoc method
+            @name getData
+            @methodOf $data
+            @param {string,object,function} data If data is a string, it will be treated as a url to retrieve data from. If data is an object it will be immediately returned. If data is a function, the function will be called and processed until an object is produced
+            @returns {Object} Either a $q promise, a data object or a string.
+            */
             getData: _getData
         };
     }])

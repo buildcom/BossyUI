@@ -1,8 +1,12 @@
 //TODO: create release task
 var gulp = require('./gulp')([
+    'jshint',
     'watch',
     'copy',
-    'build',
     'compass',
-    'test'
+    'test',
+    'build',
+    'build-src',
+    'build-demo',
+    'build-install'
 ]);

@@ -1,8 +1,8 @@
-angular.module('app.directive.bossy.form', [])
+angular.module('bossy.form', [])
     .run(function($templateCache){
         $templateCache.put('bossy-input.html', 'templates/bossy-input.html');
     })
-    .directive('bossyForm', function ($compile, $http, $schema, $data) {
+    .directive('bossyForm',['$compile','$http','$schema','$data', function ($compile, $http, $schema, $data) {
         var _schema,
             _data,
             _options = {
@@ -34,7 +34,7 @@ angular.module('app.directive.bossy.form', [])
             } else {
                 _data = result;
             }
-            
+
         }
 
         function setSchema(schema) {
@@ -122,10 +122,10 @@ angular.module('app.directive.bossy.form', [])
                     );
                     $compile(element.contents())(scope);
                 }
-                
-                
+
+
             }
         };
 
-    })
+    }])
 ;

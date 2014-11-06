@@ -1,0 +1,20 @@
+﻿<div>
+With a seperate controller
+<section ng-controller="bossyDropdownCtrl as dropCtrl">	
+		<select>
+			<option ng-repeat="item in items">
+				<h1>{{item.name}}</h1>
+			</option>
+		</select>
+		<h2> {{main.name}} {{affiliated}}</h2>
+</section>
+
+With an directive embedded controller
+<section>	
+	<select ng-model="content" ng-options="content.name for content in contents"></select> 
+	<div ng-show="content">
+		<h3>Abbreviation: {{content.abbreviation}}</h3>
+	</div>
+		<h4> {{main.name}} {{affiliated}} </h4>
+</section>
+</div>
