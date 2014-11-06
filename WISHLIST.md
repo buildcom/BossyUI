@@ -1,9 +1,10 @@
-Core Services:
+#Feature Wishlist
+##Core Services
 
 * Data (in progress)
 * Schema (in progress)
 
-Widget Directives:
+##Widget Directives
 
 * AutoForm (in progress)
 * Combobox (in progress)
@@ -12,3 +13,5 @@ Widget Directives:
 * Tooltip (in progress)
 * Layout (in progress)
 * Menu
+* Tree Veuw
+* DataGrid
