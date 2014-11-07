@@ -1,5 +1,4 @@
 [![Code Climate](https://codeclimate.com/github/buildcom/BossyUI/badges/gpa.svg)](https://codeclimate.com/github/buildcom/BossyUI)
-[![Test Coverage](https://codeclimate.com/github/buildcom/BossyUI/badges/coverage.svg)](https://codeclimate.com/github/buildcom/BossyUI)
 BossyUI
 =======
 
@@ -20,4 +19,4 @@ Interested in contributing? Checkout our [contributing guide](/CONTRIBUTING.md).
 
 ## Demo Page
 
-[Examples](http://bossy-ui-demo.herokuapp.com) of bossy directives 
+[Examples](http://buildcom.github.io/BossyUI/#/) of bossy directives
