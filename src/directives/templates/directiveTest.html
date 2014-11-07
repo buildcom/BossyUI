@@ -15,24 +15,26 @@
 
 
 
-<html lang="en" ng-app="bossy.dropdown">
+<html lang="en">
 	<head>
 		<meta charset="etf-8">
 		<title>bossyDropdown</title>
 		<script type="text/javascript" src="../angular.min.js"></script>
 		<script type="text/javascript" src="../bossy.dropdown.js"></script>
+		<script>
+			angular.module('whatever', ['bossy.dropdown'])
+				.controller('testController', ['$scope', function($scope) {
+					$scope.myConfig = {
+						src: 'https://gist.githubusercontent.com/mshafrir/2646763/raw/bfb35f17bc5d5f86ec0f10b80f7b80e823e9197f/states_titlecase.json',
+						title: 'abbreviation'
+					};
+				}])		
+			</script>
 	</head>
-	<body>
+	<body ng-app="whatever">
 		<!-- Drop Down List -->
-		<h2>
-			<div bossy-dropdown src="'https://gist.githubusercontent.com/mshafrir/2646763/raw/bfb35f17bc5d5f86ec0f10b80f7b80e823e9197f/states_titlecase.json'" title="'abbreviation'">
-
-
-
-			</div>
-
-
-
+		<h2 ng-controller="testController">
+			<div bossy-dropdown config="myConfig"> </div>
 		</h2>
 	</body>
 </html>
