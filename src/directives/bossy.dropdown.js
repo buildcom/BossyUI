@@ -27,7 +27,7 @@ angular.module('bossy.dropdown', [])
 					.error(function(data) {
 						console.log("http.get FAILED");
 						$scope.config.items = data || "Request failed";
-					})
+					});
 			},
 			controllerAs: 'dropdown'
 		};
