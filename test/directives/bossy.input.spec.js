@@ -20,6 +20,11 @@ beforeEach(inject(function($compile,$rootScope){
 		expect(element.attr("title")).toMatch("Sample Bossy Input")
 
 	})
+	it('should add bossy input',function(){
+		expect(element.text()).toMatch("Bossy Input");
+		expect(element.attr("title")).toMatch("Sample Bossy Input")
+
+	})
 
 
  })

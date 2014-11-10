@@ -26,7 +26,9 @@
 				.controller('testController', ['$scope', function($scope) {
 					$scope.myConfig = {
 						src: 'https://gist.githubusercontent.com/mshafrir/2646763/raw/bfb35f17bc5d5f86ec0f10b80f7b80e823e9197f/states_titlecase.json',
-						title: 'abbreviation'
+						title: 'abbreviation',
+						items: [],
+						select: {}
 					};
 				}])		
 			</script>
@@ -35,6 +37,9 @@
 		<!-- Drop Down List -->
 		<h2 ng-controller="testController">
 			<div bossy-dropdown config="myConfig"> </div>
+			<div ng-show="{{myConfig.select}}">
+				<h2>{{myConfig.select.name}}</h2>
+			</div>
 		</h2>
 	</body>
 </html>
