@@ -1,8 +1,4 @@
 angular.module('bossy.dropdown', [])
-	.run(function($templateCache) {
-		$templateCache.put('jasmineTest.html', 'jasmineTest.html');
-	})
-
 	.directive('bossyDropdown', function($http) {
 		return {
 			restrict: 'EA',
