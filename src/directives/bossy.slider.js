@@ -22,9 +22,6 @@ angular.module('app.directive.bossy.slider', [])
         $scope.slideOff = '<div style="display:inline-block;width:10px;height:3px;background-color:lightgrey;margin-bottom:4px"></div>';
         //"Art" for a slider button
         $scope.slideBut = '<div style="display:inline-block;width:10px;height:10px;background-color:red;border-radius:50%;"></div>';
-
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
         //as it is named it is used to maintain correct alignment with the slider bar array
         var offSet;
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
