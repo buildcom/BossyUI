@@ -2,6 +2,8 @@
 BossyUI
 =======
 
+<img title="Bossy UI" src='bossy_logo.png?raw=true' />
+
 Created with LOVE by Build.com Open Source Consortium - fostering a collaboration between CSU Chico students and Chico, CA software companies on open source projects.  Sponsored by Build.com
 
 ## BossyUI
