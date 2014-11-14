@@ -1,8 +1,8 @@
 [![Code Climate](https://codeclimate.com/github/buildcom/BossyUI/badges/gpa.svg)](https://codeclimate.com/github/buildcom/BossyUI)
 =======
-<span style="text-align: center;">
+<p style="text-align: center;">
 <img title="Bossy UI" alt="bossyui" src='bossy_logo.png?raw=true' />
-</span>
+</p>
 Created with LOVE by Build.com Open Source Consortium - fostering a collaboration between CSU Chico students and Chico, CA software companies on open source projects.  Sponsored by Build.com
 
 ## BossyUI
