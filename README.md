@@ -1,6 +1,8 @@
 [![Code Climate](https://codeclimate.com/github/buildcom/BossyUI/badges/gpa.svg)](https://codeclimate.com/github/buildcom/BossyUI)
 =======
 
+<img title="Bossy UI" src='bossy_logo.png?raw=true' />
+
 <span style="text-align: center;">
 <img title="Bossy UI" alt="bossyui" src='bossy_logo.png?raw=true' />
 </span>
