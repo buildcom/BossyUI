@@ -7,58 +7,34 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 angular.module('app.directive.bossy.slider', [])
-    .controller('SliderController', ['$scope', '$sce', function ($scope, $sce) {
+    .controller('SliderController', ['$scope', function ($scope) {
 
 
         //these are our default values and are the variables that can be changed by user of our widgets
         $scope.max = 10;
         $scope.min = 1;
-        $scope.orientation = "horizontal";
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        $scope.fillWidth = 0;
+        $scope.emptWidth = 0;
 
-        //"Art" for a bar piece
-        $scope.barPiece = '<div style="display:inline-block;width:10px;height:3px;background-color:blue;margin-bottom:4px"></div>';
-        //"Art" for a slider button offset
-        $scope.slideOff = '<div style="display:inline-block;width:10px;height:3px;background-color:lightgrey;margin-bottom:4px"></div>';
-        //"Art" for a slider button
-        $scope.slideBut = '<div style="display:inline-block;width:10px;height:10px;background-color:red;border-radius:50%;"></div>';
-        //as it is named it is used to maintain correct alignment with the slider bar array
-        var offSet;
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         /*makeBar()
-         * This initializes the array that keeps track of all the pieces of the slider,
-         * it initializes the off-set used to map the sliders value to the correct position
-         * in the array*/
+         * This creates the initial graphic of the slider and ensures it is in the correct order*/
         $scope.makeBar = function () {
-            var constructSlider = [];
-            offSet = $scope.min - 1;
             //button should show up in the middle now or close to if uneven
             $scope.value = parseInt(($scope.max + $scope.min) / 2);
-            if ($scope.orientation === "vertical") {
-                $scope.barPiece = '<div style="margin-left:9px;width:3px;height:10px;background-color:blue;"></div>';
-                $scope.slideBut = '<div style="margin-left:5px;width:10px;height:10px;background-color:red;border-radius:50%;"></div>';
-                $scope.slideOff = '<div style="margin-left:9px;width:3px;height:10px;background-color:lightgrey;"></div>';
-            }
             for (var current = $scope.min; current <= $scope.max; current++) {
                 if (current < ($scope.value)) {
-                    constructSlider.push($scope.barPiece);
+                    $scope.fillWidth++;
                 }
                 if (current > ($scope.value)) {
-                    constructSlider.push($scope.slideOff);
+                    $scope.emptWidth++;
                 }
                 if (current == ($scope.value)) {
-                    constructSlider.push($scope.slideBut);
                 }
             }
-            return constructSlider;
-        };
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        /*renderHTML(string)
-         * This take a string in the format of HTML and validates it for use as HTML*/
-        $scope.renderHtml = function (html_code) {
-            return $sce.trustAsHtml(html_code);
+            $scope.ngModel = $scope.value;
+            return;
         };
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -67,11 +43,12 @@ angular.module('app.directive.bossy.slider', [])
          * of the slider button and updates the value.*/
         $scope.increase = function () {
             if ($scope.value < $scope.max) {
-                $scope.slider[$scope.value - offSet - 1] = $scope.barPiece;
                 $scope.value = $scope.value + 1;
-                $scope.slider[$scope.value - offSet - 1] = $scope.slideBut;
+                $scope.fillWidth++;
+                $scope.emptWidth--;
+                $scope.ngModel = $scope.value;
             }
-            $scope.draw();
+            return;
         };
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -80,11 +57,12 @@ angular.module('app.directive.bossy.slider', [])
          * of the slider button and updates the value.*/
         $scope.decrease = function () {
             if ($scope.value > $scope.min) {
-                $scope.slider[$scope.value - offSet - 1] = $scope.slideOff;
                 $scope.value = $scope.value - 1;
-                $scope.slider[$scope.value - offSet - 1] = $scope.slideBut;
+                $scope.fillWidth--;
+                $scope.emptWidth++;
+                $scope.ngModel = $scope.value;
             }
-            $scope.draw();
+            return;
         };
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -100,56 +78,79 @@ angular.module('app.directive.bossy.slider', [])
             if ($scope.pressed === 38 || $scope.pressed === 39) {
                 $scope.increase();
             }
-        };
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /*draw()
-         * This function takes the slider array and creates a string of the contents. So it can be rendered
-         * in HTML.*/
-        $scope.draw = function () {
-            $scope.string = "";
-            if ($scope.orientation === "vertical")
-                $scope.slider.reverse();
-
-            //changed to the angular forEach loop for readability
-            angular.forEach($scope.slider, function (item) {
-                $scope.string += item;
-            })
-
-            if ($scope.orientation === "vertical")
-                $scope.slider.reverse();
-
-            //this should allow the programmer access to this value outside the slider controller
-            $scope.ngModel = $scope.value;
-            return $scope.string;
+            return;
         };
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    }]).directive('bossySlider', function () {
+        /*drag()
+         * This function is to allow the slider button to slide and update the value when released*/
+        $scope.drag = function () {
+            alert("drag");
+            return;
+        };
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        /*barClick()
+         * This function is to allow the value to be changed when clicking on the bar*/
+        $scope.barClick = function () {
+            alert("bar click");
+            return;
+        };
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    }]).directive('bossySlider', function ($compile) {
+        var myTemplate;
         return {
             //allows the slider to be created as and attribute or element <bossy-slider><bossy-slider>
             restrict: 'AE',
             controller: 'SliderController',
-            //This is the template the slider form takes and inserts into HTML
-            template: '<button ng-click="decrease()" ng-keydown="keyBind($event)">-</button><span ng-bind-html="renderHtml(string)"></span><button ng-click="increase()" ng-keydown="keyBind($event)">+</button>',
             scope: {
                 ngModel: '='
             },
-            //This allows us to pull input from the elements attributes
+            /*link: function:
+            * This allows us to pull in the settings the programmer wants for the slider and set things correctly
+            * it also initializes the slider and adds the correct orientation template to the DOM*/
             link: function (scope, iElem, iAttr) {
+
                 //checks to see if there is a max attribute
                 if (iAttr.max) {
                     scope.max = parseInt(iAttr.max);
+                    if (scope.max === NaN) {
+                        scope.max = 10;
+                    }
                 }
                 //checks to see if there is a min attribute
                 if (iAttr.min) {
                     scope.min = parseInt(iAttr.min);
+                    if (scope.min === NaN) {
+                        scope.min = 1;
+                    }
                 }
-                //checks to see if there is a orientation attribute
+                //checks to see if there is a orientation attribute if there is set our template to the vertical template
                 if (iAttr.orientation) {
-                    scope.orientation = iAttr.orientation;
+                    if ('vertical' === iAttr.orientation) {
+                        myTemplate = '<div style="position:relative;"><button ng-click="increase()" ng-keydown="keyBind($event)">+</button>' +
+                        '<div ng-click="barClick()" style="margin-left:9px;width:3px;height:{{10 * emptWidth}}px;background-color:lightgrey;margin-bottom:4px"></div>' +
+                        '<div ng-mousedown="drag()" style="margin-top:-4px;margin-left:5px;width:10px;height:10px;background-color:red;border-radius:50%;"></div>' +
+                        '<div ng-click="barClick()" style="margin-left:9px;width:3px;height:{{10 * fillWidth}}px;background-color:blue;margin-bottom:4px"></div>' +
+                        '<button ng-click="decrease()" ng-keydown="keyBind($event)">-</button></div>';
+                    }
                 }
-                scope.slider = scope.makeBar();
-                scope.draw();
+                else {
+                    //this builds our horizontal template
+                    myTemplate = '<div style="position:relative;"><button ng-click="decrease()" ng-keydown="keyBind($event)">-</button>' +
+                    '<div ng-click="barClick()" style="display:inline-block;width:{{10 * fillWidth}}px;height:3px;background-color:blue;margin-bottom:4px"></div>' +
+                    '<div ng-mousedown="drag()" style="display:inline-block;width:10px;height:10px;background-color:red;border-radius:50%;"></div>' +
+                    '<div ng-click="barClick()" style="display:inline-block;width:{{10 * emptWidth}}px;height:3px;background-color:lightgrey;margin-bottom:4px"></div>' +
+                    '<button ng-click="increase()" ng-keydown="keyBind($event)">+</button></div>';
+                }
+                //We show our template and then compile it so the DOM knows about our ng functions
+                iElem.html(myTemplate);
+                $compile(iElem.contents())(scope);
+                //create the initial bar
+                scope.makeBar();
+                return;
             }
         }
     });
