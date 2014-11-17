@@ -24,6 +24,16 @@ amaragoul@mail.csuchico.edu
 - Gets Down with C++: 111 , 211, 311
 - Moderate Experience with C# in Unity to Publish Small Project on Google Play Store and Amazon App Store
 
+<h1> Road Map </h1>
+/css
+ - Style sheets specifying themes, and a map linking multiple style sheets
+/directives
+ - Javascript implementation files
+ - /templates
+    - HTML templates
+/scss 
+ - Master style sheet
+
 <h1> README </h1>
 <h1> Purpose </h1>
 
