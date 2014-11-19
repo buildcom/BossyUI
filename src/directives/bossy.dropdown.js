@@ -7,7 +7,15 @@ angular.module('bossy.dropdown', [])
 			},
 			templateUrl: '',
 			link: function(scope, element, attrs) {
-				var customTemplate = $compile('<ng-include src="dropdown.tempUrl"></ng-include>')(scope);
+				var customTemplate;
+				
+				//Checks if user is defining a url or inner html
+				if(scope.dropdown.template[0] !== '<')
+					customTemplate = $compile('<ng-include src="dropdown.template"></ng-include>')(scope);
+
+				else
+					customTemplate = $compile(scope.dropdown.template)(scope);
+				
 				element.replaceWith(customTemplate);
 			},
 			controller: function($scope) {
@@ -16,10 +24,10 @@ angular.module('bossy.dropdown', [])
 				thisDropdown.items = [];
 
 				//Determine if custom template Url has been defined.
-				if($scope.config.tempUrl)
-					thisDropdown.tempUrl = $scope.config.tempUrl;
+				if($scope.config.template)
+					thisDropdown.template = $scope.config.template;
 				else
-					thisDropdown.tempUrl = 'bossy-dropdown.html';
+					thisDropdown.template = 'bossy-dropdown.html';
 
 				thisDropdown.updateSelectedItem = function(){
 					$scope.config.select = $scope.selectedItem;
