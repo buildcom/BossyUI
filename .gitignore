@@ -11,3 +11,4 @@ build
 
 # Compass
 .sass-cache
+test/directives/bossy.dropdown.spec.js
