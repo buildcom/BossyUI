@@ -5,18 +5,19 @@ angular.module('bossy.dropdown', [])
 			scope: {
 				config: "="
 			},
-			templateUrl: '',
+			templateUrl: 'bossy-dropdown.html',
 			link: function(scope, element, attrs) {
 				var customTemplate;
-				
+
 				//Checks if user is defining a url or inner html
 				if(scope.dropdown.template[0] !== '<')
 					customTemplate = $compile('<ng-include src="dropdown.template"></ng-include>')(scope);
-
 				else
 					customTemplate = $compile(scope.dropdown.template)(scope);
 				
 				element.replaceWith(customTemplate);
+				//scope.selectedItem = "ooo";
+
 			},
 			controller: function($scope) {
 				var thisDropdown = this;
@@ -29,8 +30,9 @@ angular.module('bossy.dropdown', [])
 				else
 					thisDropdown.template = 'bossy-dropdown.html';
 
-				thisDropdown.updateSelectedItem = function(){
-					$scope.config.select = $scope.selectedItem;
+				thisDropdown.updateSelectedItem = function(selectedItem){
+					$scope.config.select = selectedItem;
+					console.log($scope.config.select);
 				}
 
 				$http.get($scope.config.src)
@@ -42,8 +44,6 @@ angular.module('bossy.dropdown', [])
 						console.log("http.get FAILED");
 						$scope.config.items = data || "Request failed";
 					});
-
-					
 			},
 			controllerAs: 'dropdown'
 		};
