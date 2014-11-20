@@ -1,4 +1,4 @@
-var app = angular.module("bossy.cascadingDropdown", []);
+var app = angular.module("bossy.combobox.cascadingDropdown", []);
 
 app.controller('AppCtrl', function($scope) {
 

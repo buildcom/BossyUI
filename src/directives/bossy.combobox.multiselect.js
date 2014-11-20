@@ -1,4 +1,4 @@
-var app = angular.module('bossy.multiselect', []);
+var app = angular.module('bossy.combobox.multiselect', []);
 
 app.controller('AppCtrl', function($scope) {
     $scope.choices = [{id:1, name: 'Option A'},
@@ -122,7 +122,7 @@ app.directive('bossyMultiselectPopup', ['$document', function ($document) {
             restrict: 'E',
             scope: false,
             replace: true,
-            templateUrl: '../templates/bossy.bossy.multiselect.html',
+            templateUrl: '../templates/bossy.combobox.multiselect.html',
             link: function (scope, element, attr) {
 
             }
