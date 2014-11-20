@@ -31,12 +31,13 @@
 					$scope.myConfig = {
 						src: 'https://gist.githubusercontent.com/mshafrir/2646763/raw/bfb35f17bc5d5f86ec0f10b80f7b80e823e9197f/states_titlecase.json',
 						title: 'abbreviation',
-						items: [],
-						select: {}
+						select: {},
+						// items: true,
 						// template: '<div>shit</div>'
-						// template: 'temp1.html'
+						template: 'temp2.html'
 						// template: 'https://raw.githubusercontent.com/smartin43/javabang-BossyUI/smartin43/src/directives/templates/other-template.html'
 					};
+					$scope.selectItem = "";
 				}])		
 			</script>
 			
@@ -45,11 +46,20 @@
 		<script type="text/ng-template" id="temp1.html">
 	    	<ng-include src="'https://raw.githubusercontent.com/smartin43/javabang-BossyUI/smartin43/src/directives/templates/other-template.html'"></ng-include>
 		</script>
+		<script type="text/ng-template" id="temp2.html">
+	    	<div>
+				<select ng-options="item[dropdown.title] for item in dropdown.items | orderBy: dropdown.title" ng-model="selectedItem" ng-change="dropdown.updateSelectedItem(selectedItem)">
+						<option value="" ng-hide="selectedItem">Suck my kiss</option>
+				</select>
+			</div>
+		</script>
 		<!-- Drop Down List -->
 		<h2 ng-controller="testController">
-			<div bossy-dropdown config="myConfig"> </div>
+			<div bossy-dropdown config="myConfig" select="selectItem"></div>
 			<div ng-show="{{myConfig.select}}">
 				<h2>{{myConfig.select.name}}</h2>
+				<div>{{selectItem.name}}</div>
+				<!--div>{{myConfig.items[0]}}</div-->
 			</div>
 		</h2>
 	</body>
