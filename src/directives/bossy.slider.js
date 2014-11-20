@@ -127,23 +127,47 @@ angular.module('app.directive.bossy.slider', [])
                         scope.min = 1;
                     }
                 }
+                //checks for bar color customization
+                scope.barfillcolor = "#0000FF";
+                if (iAttr.barfillcolor) {
+                    var pattern = /^#[0-9a-fA-F]{6}$/; //currently accepts lower case a-f
+                    if (pattern.test(iAttr.barfillcolor)) {
+                        scope.barfillcolor = iAttr.barfillcolor;
+                    }
+                }
+                //checks for empty bar color customization
+                scope.baremptycolor = "#D3D3D3";
+                if (iAttr.baremptycolor) {
+                    var pattern = /^#[0-9a-fA-F]{6}$/; //currently accepts lower case a-f
+                    if (pattern.test(iAttr.baremptycolor)) {
+                        scope.baremptycolor = iAttr.baremptycolor;
+                    }
+                }
+
+                scope.buttoncolor = "#FF0000";
+                if (iAttr.buttoncolor) {
+                    var pattern = /^#[0-9a-fA-F]{6}$/; //currently accepts lower case a-f
+                    if (pattern.test(iAttr.buttoncolor)) {
+                        scope.buttoncolor = iAttr.buttoncolor;
+                    }
+                }
                 //checks to see if there is a orientation attribute if there is set our template to the vertical template
                 if (iAttr.orientation) {
                     if ('vertical' === iAttr.orientation) {
-                        myTemplate = '<div style="position:relative;"><button ng-click="increase()" ng-keydown="keyBind($event)">+</button>' +
-                        '<div ng-click="barClick()" style="margin-left:9px;width:3px;height:{{10 * emptWidth}}px;background-color:lightgrey;margin-bottom:4px"></div>' +
-                        '<div ng-mousedown="drag()" style="margin-top:-4px;margin-left:5px;width:10px;height:10px;background-color:red;border-radius:50%;"></div>' +
-                        '<div ng-click="barClick()" style="margin-left:9px;width:3px;height:{{10 * fillWidth}}px;background-color:blue;margin-bottom:4px"></div>' +
-                        '<button ng-click="decrease()" ng-keydown="keyBind($event)">-</button></div>';
+                        myTemplate = '<button ng-click="increase()" ng-keydown="keyBind($event)">+</button>' +
+                        '<div ng-click="barClick()" style="margin-left:9px;width:3px;height:{{10 * emptWidth}}px;background-color:' + scope.baremptycolor + ';margin-bottom:4px"></div>' +
+                        '<div ng-mousedown="drag()" style="margin-top:-4px;margin-left:5px;width:10px;height:10px;background-color:' + scope.buttoncolor + ';border-radius:50%;"></div>' +
+                        '<div ng-click="barClick()" style="margin-left:9px;width:3px;height:{{10 * fillWidth}}px;background-color:' + scope.barfillcolor + ';margin-bottom:4px"></div>' +
+                        '<button ng-click="decrease()" ng-keydown="keyBind($event)">-</button>';
                     }
                 }
                 else {
                     //this builds our horizontal template
-                    myTemplate = '<div style="position:relative;"><button ng-click="decrease()" ng-keydown="keyBind($event)">-</button>' +
-                    '<div ng-click="barClick()" style="display:inline-block;width:{{10 * fillWidth}}px;height:3px;background-color:blue;margin-bottom:4px"></div>' +
-                    '<div ng-mousedown="drag()" style="display:inline-block;width:10px;height:10px;background-color:red;border-radius:50%;"></div>' +
-                    '<div ng-click="barClick()" style="display:inline-block;width:{{10 * emptWidth}}px;height:3px;background-color:lightgrey;margin-bottom:4px"></div>' +
-                    '<button ng-click="increase()" ng-keydown="keyBind($event)">+</button></div>';
+                    myTemplate = '<button ng-click="decrease()" ng-keydown="keyBind($event)">-</button>' +
+                    '<div ng-click="barClick()" style="display:inline-block;width:{{10 * fillWidth}}px;height:3px;background-color:' + scope.barfillcolor + ';margin-bottom:4px"></div>' +
+                    '<div ng-mousedown="drag()" style="display:inline-block;width:10px;height:10px;background-color:' + scope.buttoncolor + ';border-radius:50%;"></div>' +
+                    '<div ng-click="barClick()" style="display:inline-block;width:{{10 * emptWidth}}px;height:3px;background-color:' + scope.baremptycolor + ';margin-bottom:4px"></div>' +
+                    '<button ng-click="increase()" ng-keydown="keyBind($event)">+</button>';
                 }
                 //We show our template and then compile it so the DOM knows about our ng functions
                 iElem.html(myTemplate);
