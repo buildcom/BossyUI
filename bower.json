@@ -1,11 +1,13 @@
 {
-  "name": "BossyUI",
+  "name": "BossyUI Demo Site",
   "version": "0.0.0",
-  "homepage": "http://buildcom.github.io/BossyUI/",
+  "homepage": "https://github.com/buildcom/BossyUI",
   "authors": [
-    "Geoff Lawson <geoff.lawson@build.com>"
+    "Adrian_Miller <adrian.miller@build.com>"
   ],
+  "description": "Demo site for the Bossy UI project",
   "license": "MIT",
+  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -14,7 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.2.25",
-    "angular-ui-router": "~0.2.11"
+    "BossyUI": "git@github.com:buildcom/BossyUI.git",
+    "thin": "git@github.com:fathomles/thin.git#~0.0.1"
   }
 }

@@ -1,0 +1,41 @@
+$unit: 1.4em;
+$pad: $unit;
+$margin: $unit;
+$global-footer-height: 50px;
+$module-header-height: 30px;
+$max-width: 1024px;
+
+@import "../../scss/thin";
+
+#primary-navigation {
+	> ul {
+		@extend %float-list;
+	}
+
+	position: relative;
+	
+	li > ul {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background-color: lightgray;
+		width: 100%;
+	}
+}
+
+.menu-style-1 {
+
+	a {
+		padding: 0 $unit;
+		height: 40px;
+		line-height: 40px;
+		position: relative;
+		&:after {
+			content: "";
+			border: solid 10px transparent;
+			border-bottom-color: lightgray;
+			display: none;
+			position: absolute;
+		}
+	}
+}

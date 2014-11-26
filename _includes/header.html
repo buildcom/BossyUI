@@ -1,15 +1,24 @@
 <header>
-	<h1 class="header">BossyUI</h1>
-	<p class="header"></p>
-
-	<ul>
-		<li class="download"><a class="buttons" href="https://github.com/buildcom/BossyUI/zipball/master">Download ZIP</a></li>
-		<li class="download"><a class="buttons" href="https://github.com/buildcom/BossyUI/tarball/master">Download TAR</a></li>
-		<li><a class="buttons github" href="https://github.com/buildcom/BossyUI">View On GitHub</a></li>
-	</ul>
-
-	<p class="header">This project is maintained by <a class="header name" href="https://github.com/buildcom">buildcom</a></p>
-
-
+  <div class="container">
+		<nav role="dropdown">
+			<ul>
+				{% assign pages = site.pages | sort:"order" %}
+				{% for page in pages %}
+					{% if page.parent == "" %}
+						<li class="menu-style-1"><a href="{{ page.parent }}">{{ page.title }}</a>
+							<ul>
+								{% assign child = site.pages | sort:"order" %}
+								{% for child in site.pages %}
+									{% if child.parent == page.slug %}
+										<li class="menu-style-2"><a href="">{{ child.title }}</a></li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</nav>
+  </div>
 </header>
 

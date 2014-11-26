@@ -1,0 +1,86 @@
+// Reset Font Size to 14px (12pt)
+html, body {
+	font-size: 87.5%;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	height: 100%;
+}
+
+// Use box-sizing for the grid
+* {
+	box-sizing: border-box;
+}
+
+body {
+	position: relative;
+	min-height: 100%;
+	padding-bottom: $global-footer-height;
+}
+
+// Reset headings to global font-size
+h1, h2, h3, h4, h5 {
+	font-size: 1rem;
+	font-weight: normal;
+	margin: 0;
+}
+
+// Unstyle all lists inside a 
+nav ul, .unstyled, [role="nav"], [role="navigation"] {
+	@extend %clearfix;
+ 	list-style: none;
+	margin: 0;
+	padding: 0;
+	li {
+		list-style: none;
+		margin-left: 0;
+
+		> a + * {
+			display: none;
+		}
+		> ul {
+			position: absolute;
+			top: 100%;
+			left: 0;
+		}
+
+		&:hover > ul {
+			min-width: 100%;
+			display: block;
+			z-index: 1000;
+			> li {
+				white-space: nowrap;
+			}
+		}
+	}
+}
+
+nav {
+	&[role="dropdown"] > ul > li {
+		position: relative;
+	}
+
+	&[role="mega-dropdown"] > ul {
+		position: relative;
+	}
+}
+
+// Remove link styles from navigation links
+nav a {
+	text-decoration: none;
+
+	&:visited {
+		color: inherit;
+	}
+}
+
+// Footer position
+body > footer {
+	bottom: 0;
+	height: $global-footer-height;
+	left: 0;
+	position: absolute;
+	width: 100%;
+}

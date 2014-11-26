@@ -1,0 +1,23 @@
+body {
+	line-height: $unit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 1rem;
+	line-height: $unit;
+	font-weight: normal;
+	margin: 0;
+}
+
+header { 
+	h1, h2, h3, h4, h5, h6 {
+		display: inline-block;
+	}
+}
+
+p {
+	margin: 0;
+	+ p {
+		margin-top: $margin;
+	}
+}

@@ -1,0 +1,27 @@
+.menu-style-1 {
+	float: left;
+	width: 20%;
+	> a {
+		text-align: center;
+		height: 40px;
+		line-height: 40px;
+		background-color: lightgray;
+		display: block;
+	}
+	+ .menu-style-1 {
+		border-left: solid thin white;
+	}
+}
+
+
+.menu-style-2 {
+	width: 100%;
+	> a {
+		display: block;
+		height: 40px;
+		line-height: 40px;
+		background-color: lightgray;
+		display: block;
+		padding: 0 $pad;
+	}
+}

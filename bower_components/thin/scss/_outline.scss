@@ -1,0 +1,16 @@
+body.outline {
+	// [class^="col-"], .module {
+	// 	box-shadow: 0 1px gray, 0 -1px gray, 1px 0 gray, -1px 0 gray;
+	// }
+	section {
+		border: solid thin lightgray;
+	}
+	section { 
+		header {
+			border-bottom: solid thin lightgray;
+		}
+		footer {
+			border-top: solid thin lightgray;
+		}
+	}
+}

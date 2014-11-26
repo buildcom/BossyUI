@@ -1,0 +1,44 @@
+form {
+	label {
+		display: block;
+	}
+
+	input[type="text"]:required {
+		margin-left: $unit;
+		&:before {
+			content: "*";
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+
+	> fieldset + fieldset {
+		margin-top: $margin;
+	}
+
+	input + label {
+		margin-left: $margin;
+	}
+
+	fieldset {
+		position: relative;
+		border: none;
+		margin: 0;
+		padding: 0;
+
+		&.inline {
+			display: inline-block;
+			margin-top: $margin;
+		}
+
+		legend {
+			margin: 0;
+			padding: 0;
+		}
+		
+		&:disabled {
+			@extend %disable-select;
+		}
+	}
+}

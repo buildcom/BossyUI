@@ -1,0 +1,29 @@
+{
+  "name": "BossyUI",
+  "homepage": "http://buildcom.github.io/BossyUI/",
+  "authors": [
+    "Geoff Lawson <geoff.lawson@build.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.25",
+    "angular-ui-router": "~0.2.11"
+  },
+  "_release": "d1d3745d5b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d1d3745d5b9e5fd5ff243d26ae9a3c27de6ab8d8"
+  },
+  "_source": "git@github.com:buildcom/BossyUI.git",
+  "_target": "*",
+  "_originalSource": "git@github.com:buildcom/BossyUI.git",
+  "_direct": true
+}

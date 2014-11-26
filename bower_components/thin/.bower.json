@@ -1,0 +1,15 @@
+{
+  "name": "thin",
+  "homepage": "https://github.com/fathomles/thin",
+  "version": "0.0.1",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "4656d49142cc87e0edcfe6739228a8c556db190f"
+  },
+  "_source": "git@github.com:fathomles/thin.git",
+  "_target": "~0.0.1",
+  "_originalSource": "git@github.com:fathomles/thin.git",
+  "_direct": true
+}
