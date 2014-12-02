@@ -22,7 +22,6 @@ body {
 
 // Reset headings to global font-size
 h1, h2, h3, h4, h5 {
-	font-size: 1rem;
 	font-weight: normal;
 	margin: 0;
 }
@@ -55,6 +54,10 @@ nav ul, .unstyled, [role="nav"], [role="navigation"] {
 			}
 		}
 	}
+}
+
+img {
+	display: block;
 }
 
 nav {

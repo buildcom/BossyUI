@@ -26,3 +26,16 @@ defaults:
       type: "pages"
     values:
       parent: "components"
+  -
+    scope:
+      path: "pages/getting_started"
+      type: "pages"
+    values:
+      parent: "getting_started"
+
+  -
+    scope:
+      path: "pages/about"
+      type: "pages"
+    values:
+      parent: "about"

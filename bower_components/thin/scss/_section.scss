@@ -1,8 +1,8 @@
 section {
 	position: relative;
-	padding-top: $module-header-height;
+	padding-top: 0;
 
-	header {
+	> header {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -10,10 +10,10 @@ section {
 		height: $module-header-height;
 		line-height: $module-header-height;
 		background-color: lightgray;
-	}
 
-	> * + * {
-		margin-top: $margin;
+		+ [role="content"] {
+			padding-top: $module-header-height;
+		}
 	}
 	
 	+ section {
