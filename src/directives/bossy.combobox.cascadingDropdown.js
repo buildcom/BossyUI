@@ -2,6 +2,8 @@ var app = angular.module("bossy.combobox.cascadingDropdown", []);
 
 app.controller('AppCtrl', function($scope) {
 
+    // add choices for the 3 dropdowns
+    // dependencies in arrays (A - A1 - A1a)
     $scope.choices = {
         'Option A': {
             'Option A1': ['Option A1a', 'Option A1b', 'Option A1c'],
