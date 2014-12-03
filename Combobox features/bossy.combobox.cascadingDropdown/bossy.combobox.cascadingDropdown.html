@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app = "bossy.cascadingDropdown">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Cascading Dropdown</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script type="text/javascript" src="bossy.combobox.cascadingDropdown.js"></script>
+</head>
+<body>
+<div ng-controller="AppCtrl">
+    <div>
+        Choice 1:
+        <select id="choiceOne" ng-model="choiceTwoOptions" ng-options="choiceOne for (choiceOne, choiceTwoOptions) in choices">
+            <option value=''>Select</option>
+        </select>
+    </div>
+    <div>
+        Choice 2: <select id="choiceTwo" ng-disabled="!choiceTwoOptions" ng-model="choiceThreeOptions" ng-options="choiceTwo for (choiceTwo, choiceThree) in choiceTwoOptions"><option value=''>Select</option></select>
+    </div>
+    <div>
+        Choice 3: <select id="choiceThree" ng-disabled="!choiceThreeOptions || !choiceTwoOptions" ng-model="choiceThree" ng-options="choiceThree for choiceThree in choiceThreeOptions"><option value=''>Select</option></select>
+    </div>
+</div>
+</body>
+</html>

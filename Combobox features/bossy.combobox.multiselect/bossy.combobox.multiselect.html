@@ -1,0 +1,7 @@
+<div>
+    <select multiple>
+        <option ng-show="multiple" ng-click="checkAll()">Select all</option>
+        <option ng-show="multiple" ng-click="uncheckAll()">Deselect all</option>
+        <option ng-repeat="i in items | filter:searchText" ng-click="select(i); focus()">{{i.label}}</option>
+    </select>
+</div>

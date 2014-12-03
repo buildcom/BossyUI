@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="bossy.combobox.checkboxMultiselect">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="http://code.angularjs.org/1.1.5/angular.min.js" data-semver="1.1.5"></script>
+    <script type="text/javascript" src="bossy.combobox.checkboxMultiselect.js"></script>
+    <title>checkbox multiselect</title>
+</head>
+<body ng-controller="AppCtrl">
+<div>
+    <label ng-repeat="choice in choices">
+        <input type="checkbox" bossy-checkbox-multiselect="name.choices" bossy-list-value="choice"> {{choice}}
+    </label>
+    <br />
+    <button ng-click="selectAll()">select all</button>
+    <button ng-click="deselectAll()">deselect all</button>
+    <br />
+    choices: {{ name.choices }}
+</div>
+</body>
+</html>

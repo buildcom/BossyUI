@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="bossy.combobox.multiselect">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Dropdown-Multiselect</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script type="text/javascript" src="bossy.combobox.multiselect.js"></script>
+</head>
+<body ng-controller="AppCtrl">
+<bossy-multiselect multiple="true"
+                   ng-model="selectedChoice"
+                   options="choice.name for choice in choices"
+                   change="selected()">
+</bossy-multiselect>
+<div>
+    {{selectedChoice}}
+</div>
+</body>
+</html>
