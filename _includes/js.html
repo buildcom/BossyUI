@@ -1,11 +1,14 @@
+{% assign lvl = page.url | append:'X' | split:'/' | size %}
+{% capture relative %}{% for i in (3..lvl) %}../{% endfor %}{% endcapture %}
+
 <!-- Vendor -->
-<script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
-<script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script type="text/javascript" src="/bower_components/angular-route/angular-route.min.js"></script>
-<script type="text/javascript" src="/bower_components/BossyUI/src/bossy.js"></script>
+<script type="text/javascript" src="{{ relative }}bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="{{ relative }}bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="{{ relative }}bower_components/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="{{ relative }}bower_components/BossyUI/src/bossy.js"></script>
 <!-- End Vendor -->
 
 <!-- Application -->
-<script type="text/javascript" src="/js/app.js"></script>
-<script type="text/javascript" src="/js/controllers.js"></script>
+<script type="text/javascript" src="{{ relative }}js/app.js"></script>
+<script type="text/javascript" src="{{ relative }}js/controllers.js"></script>
 <!-- End Application -->
