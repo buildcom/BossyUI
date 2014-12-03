@@ -14,13 +14,13 @@ var myApp = angular.module( 'bossyui', [
 		// route to show our basic form (/form)
 	.state('home', {
 		url: '/',
-		templateUrl: '/pages/home.html',
+		templateUrl: '/BossyUI/pages/home.html',
 		controller: 'homeCtrl'
 	})
 
 	.state('getting_started', {
 		url: '/getting_started',
-		templateUrl: '/pages/getting_started.html',
+		templateUrl: '/BossyUI/pages/getting_started.html',
 		controller: 'homeCtrl'
 	})
 
@@ -41,16 +41,16 @@ var myApp = angular.module( 'bossyui', [
 		controller: 'homeCtrl',
 		templateUrl: function ($stateParams){
 			if($stateParams.component) {
-				return '/pages/components/' + $stateParams.component + '.html';
+				return '/BossyUI/pages/components/' + $stateParams.component + '.html';
 			} else {
-				return '/pages/components.html'
+				return '/BossyUI/pages/components.html'
 			}
   	}
 	})
 
 	.state('about', {
 		url: '/about',
-		templateUrl: '/pages/about.html',
+		templateUrl: '/BossyUI/pages/about.html',
 		controller: 'homeCtrl'
 	})
 	$urlRouterProvider.otherwise('/');
