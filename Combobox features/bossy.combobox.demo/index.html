@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="comboboxApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>BossyUI Combobox (team widgets)</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div id="header">BossyUI Combobox</div>
+    <div id="header2">Team: Widgets</div>
+    <br />
+    <div id="dropdown">
+
+        <div id="cascadingDropdown">
+            <div id="cascheader">
+                Cascading Dropdown
+            </div>
+            <div ng-controller="CascadingCtrl">
+                <div>
+                    Country:
+                    <select id="choiceOne" ng-model="choiceTwoOptions" ng-options="choiceOne for (choiceOne, choiceTwoOptions) in choices">
+                        <option value=''>Select</option>
+                    </select>
+                </div>
+                <div>
+                    State:
+                    <select id="choiceTwo" ng-disabled="!choiceTwoOptions" ng-model="choiceThreeOptions" ng-options="choiceTwo for (choiceTwo, choiceThree) in choiceTwoOptions">
+                        <option value=''>Select</option>
+                    </select>
+                </div>
+                <div>
+                    City:
+                    <select id="choiceThree" ng-disabled="!choiceThreeOptions" ng-model="choiceThree" ng-options="choiceThree for choiceThree in choiceThreeOptions">
+                        <option value=''>Select</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div id="checkboxMultiselect">
+            <div id="checkheader">
+                Checkbox Multiselect
+            </div>
+            <div ng-controller="CheckCtrl">
+                <label ng-repeat="choice in choices">
+                    <input type="checkbox" bossy-checkbox-multiselect="name.choices" bossy-list-value="choice"> {{choice}} <br />
+                </label>
+                <button ng-click="selectAll()"><b>select all</b></button>
+                <br />
+                <button ng-click="deselectAll()"><b>deselect all</b></button>
+                <br />
+                choices: {{name.choices}}
+            </div>
+        </div>
+        <hr>
+        <div id="multiselect">
+            <div id="multheader">
+                Multiselect
+            </div>
+            <div ng-controller="MultiCtrl">
+                <bossy-multiselect multiple="true" ng-model="selectedChoice" options="choice.name for choice in choices" change="selected()"></bossy-multiselect>
+                <div>
+                    choices: {{selectedChoice}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
