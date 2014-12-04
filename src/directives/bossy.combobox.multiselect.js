@@ -1,14 +1,19 @@
-var app = angular.module('bossy.multiselect', []);
+var app = angular.module('bossy.combobox.multiselect', []);
 
 app.controller('AppCtrl', function($scope) {
+
+    // add choices for multiselect in array
     $scope.choices = [{id:1, name: 'Option A'},
                       {id:2, name: 'Option B'},
                       {id:3, name: 'Option C'}
                      ];
+
+    // selected choice
     $scope.selectedChoice = [];
 
 })
 
+// inject functions
 app.factory('optionParser', ['$parse', function ($parse) {
 
     var TYPEAHEAD_REGEXP = /^\s*(.*?)(?:\s+as\s+(.*?))?\s+for\s+(?:([\$\w][\$\w\d]*))\s+in\s+(.*)$/;
@@ -16,6 +21,7 @@ app.factory('optionParser', ['$parse', function ($parse) {
     return {
         parse: function (input) {
 
+            // check inputs
             var match = input.match(TYPEAHEAD_REGEXP), modelMapper, viewMapper, source;
             if (!match) {
                 throw new Error(
@@ -41,6 +47,7 @@ app.directive('bossyMultiselect',
                 require: 'ngModel',
                 link: function (originalScope, element, attrs, modelCtrl) {
 
+                    // declare variables
                     var exp = attrs.options,
                         parsedResult = optionParser.parse(exp),
                         isMultiple = attrs.multiple ? true : false,
@@ -50,8 +57,10 @@ app.directive('bossyMultiselect',
                     scope.items = [];
                     scope.multiple = isMultiple;
 
+                    // include second directive (template)
                     var popUpEl = angular.element('<bossy-multiselect-popup></bossy-multiselect-popup>');
 
+                    // analyse model
                     function parseModel() {
                         var model = parsedResult.source(originalScope);
                         for (var i = 0; i < model.length; i++) {
@@ -67,13 +76,16 @@ app.directive('bossyMultiselect',
 
                     parseModel();
 
+                    // add template directive
                     element.append($compile(popUpEl)(scope));
 
+                    // selection function
                     function selectMultiple(item) {
                         item.checked = !item.checked;
                         setModelValue(true);
                     }
 
+                    // array for multiple selection
                     function setModelValue(isMultiple) {
                         if (isMultiple) {
                             value = [];
@@ -91,6 +103,7 @@ app.directive('bossyMultiselect',
                         modelCtrl.$setViewValue(value);
                     }
 
+                    // function for selection of all
                     scope.checkAll = function () {
                         if (!isMultiple) return;
                         angular.forEach(scope.items, function (item) {
@@ -99,6 +112,7 @@ app.directive('bossyMultiselect',
                         setModelValue(true);
                     };
 
+                    // function for selection of none
                     scope.uncheckAll = function () {
                         angular.forEach(scope.items, function (item) {
                             item.checked = false;
@@ -117,12 +131,13 @@ app.directive('bossyMultiselect',
             };
         })
 
+// directive storing template
 app.directive('bossyMultiselectPopup', ['$document', function ($document) {
         return {
             restrict: 'E',
             scope: false,
             replace: true,
-            templateUrl: '../templates/bossy.bossy.multiselect.html',
+            templateUrl: '../templates/bossy.combobox.multiselect.html',
             link: function (scope, element, attr) {
 
             }
