@@ -2,6 +2,7 @@
 node_modules
 bower_components
 npm-debug.log
+sites/sandbox/lib/bower
 
 # Demo/Docs Site
 _site/

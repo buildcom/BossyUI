@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="SandboxApp">
+<head>
+    <title>BossyUI Sandbox</title>
+    <link href="lib/bower/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="lib/bower/angular/angular.min.js"></script>
+</head>
+<body ng-controller="SandboxCtrl" style="margin: 50px;">
+
+    <div class="row" style="margin-top: 70px;margin-left: 10px;margin-right:10px;">
+        <div class="col-md-6 col-md-offset-3">
+            <h3>BossyUI Directive Sandbox</h3>
+            <hr/>
+
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="directive in directives">
+                    <h4 style="display: inline-block;">{{directive}}</h4>
+                    <button type="submit" class="btn btn-success pull-right" ng-click="openFiddle(directive)">Open in JSFiddle</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+<script src="js/bossy.all.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
