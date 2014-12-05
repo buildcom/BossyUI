@@ -1,0 +1,19 @@
+{
+	"paths": {
+		"js": {
+            "src": [
+                "src/bossy.js",
+                "src/directives/bossy.*.js"
+            ],
+            "dist": "dist/js"
+        },
+		"scss": {
+            "src": "src/scss/*.scss",
+            "dist": "dist/css"
+        },
+		"css": {
+            "src": "src/css/*.css",
+            "dist": "dist/css"
+        }
+	}
+}

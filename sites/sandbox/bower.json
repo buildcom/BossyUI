@@ -1,9 +1,9 @@
 {
-  "name": "BossyUI",
+  "name": "sandbox",
   "version": "0.0.0",
-  "homepage": "http://buildcom.github.io/BossyUI/",
+  "homepage": "https://github.com/buildcom/BossyUI",
   "authors": [
-    "Geoff Lawson <geoff.lawson@build.com>"
+    "BossyUI"
   ],
   "license": "MIT",
   "ignore": [
@@ -14,7 +14,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.2.25",
-    "angular-ui-router": "~0.2.11"
+    "angular": "~1.3.1",
+    "bootstrap": "~3.3.0"
   }
 }
