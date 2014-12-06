@@ -1,57 +1,57 @@
 angular.module('bossy.dropdown', [])
-	.run(function($templateCache) {
-		$templateCache.put('jasmineTest.html', 'jasmineTest.html');
-	})
-	
-	.factory('bossyDropdownFactory', function($http /*$data*/) {
-		var promise = $http.get('https://gist.githubusercontent.com/mshafrir/2646763/raw/bfb35f17bc5d5f86ec0f10b80f7b80e823e9197f/states_titlecase.json');
-		return promise;
-	})
-	
-	.directive('bossyDropdown', function($compile, $http /*$data,*/ /*$schema*/) {
-		function setData(data){
-			return data;
-		}
+	.directive('bossyDropdown', function($http, $compile) {
 		return {
 			restrict: 'EA',
-			replace: true,
 			scope: {
-				main: '=',
-				affiliated: '='
-            },
-			link: function(scope,element,attrs){
-				// scope.main = attrs.main;
-				// scope.affiliated = attrs.affiliated;
+				config: "=",
+				select: "="
 			},
-			// template: '<div> {{main.name}} poop {{affiliated}} </div>',
-			templateUrl: 'bossy.dropdown.html',
-			controller: function($scope, bossyDropdownFactory) {
-				$scope.contents = [];
+			templateUrl: '',
+			link: function(scope, element, attrs) {
+				var customTemplate;
+
+				//Checks if user is defining a url or inner html
+				//If it is a url, the template must be located in a local directory or added to the DOM via ng-include
+				if(scope.dropdown.template[0] !== '<')
+					customTemplate = $compile('<ng-include src="dropdown.template"></ng-include>')(scope);
+				else
+					customTemplate = $compile(scope.dropdown.template)(scope);
 				
-				bossyDropdownFactory
-					.success(function(data){
-						$scope.contents = data;
+				//Injects template
+				element.replaceWith(customTemplate);
+			},
+			controller: function($scope) {
+				var thisDropdown = this;
+				thisDropdown.title = $scope.config.title;
+				thisDropdown.items = [];
+
+				//Retrieve json containing objects to populate the dropdown
+				$http.get($scope.config.src)
+					.success(function(data) {
+						thisDropdown.items = data;
+						//Attaches retrieved items to $scope.config for additional functionality
+						if($scope.config.items)
+							$scope.config.items = thisDropdown.items;
 					})
 					.error(function(data) {
 						console.log("http.get FAILED");
-						$scope.contents = data || "Request failed";
+						$scope.config.items = data || "Request failed";
 					});
+
+				//Function called to update select via ng-change in the template
+				thisDropdown.updateSelectedItem = function(selectedItem){
+					//selectedItem attached to two different selects for multifunctionality
+					//user can collect and utilize multiple select objects if passing in a select param
+					$scope.select = selectedItem;
+					$scope.config.select = selectedItem;
+				};
+
+				//Determine if custom template Url has been defined.
+				if($scope.config.template)
+					thisDropdown.template = $scope.config.template;
+				else
+					thisDropdown.template = 'bossy-dropdown.html';
 			},
-			controllerAs: "drops"		
+			controllerAs: 'dropdown'
 		};
 	})
-	
-	.controller('bossyDropdownCtrl', function($http, bossyDropdownFactory, $scope /*$data,*/ /*$schema*/) {
-		$scope.items = [];
-		$scope.main = {id: 0, name:'AlenMania'};
-		$scope.affiliated = "chicken";
-		bossyDropdownFactory
-			.success(function(data){
-				$scope.items = data;
-			})
-			.error(function(data) {
-				console.log("http.get FAILED");
-				$scope.items = data || "Request failed";
-			})
-	})
-
