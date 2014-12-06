@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+      <meta charset="UTF-8">
+      <title><%= title %></title>
+      <script src="/bower_components/angular/angular.js"></script>
+      <script src="/javascripts/bossy.all.js"></script>
+      <script src="/javascripts/demo.js"></script>
+      <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <link rel="stylesheet" type="text/css" href="/stylesheets/bossy.css">
+  </head>
+  <body ng-app="demoApp">
+    <h1><%= title %></h1>
+    <div class="container theme-showcase">
+        <div class="bs-callout bs-callout-info">
+            <h1>AngularJS Custom Directives</h1>
+            <h3>Bossy Form directive using angular.js</h3>
+        </div>
+        <xmp>
+            Example: <bossy-form config="config" title="'This is my bossy form'"></bossy-form>
+        </xmp>
+        <div style="border: 1px solid #666" ng-controller="DemoBossyFormCtrl" class="">
+            <bossy-form config="config" title="'This is my bossy form'"></bossy-form>
+        </div>
+        <xmp>
+            Example: <bossy-input title="'This is my bossy input'"></bossy-input>
+        </xmp>
+        <div style="border: 1px solid #666; padding: 10px">
+            <div class="container" style="width: 40%">
+                <bossy-input title="'This is my bossy input'"></bossy-input>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
