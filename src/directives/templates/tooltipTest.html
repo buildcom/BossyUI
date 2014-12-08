@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html> 
+<head>
+    <meta charset="utf-8" />
+    <title>Working?</title>
+    
+    <style>
+        #test1 {height: 100px; width: 100px; position: absolute; top: 2%;  left: 2%;  background-color: yellow;}
+        #test2 {height: 100px; width: 100px; position: absolute; top: 2%;  left: 92%; background-color: red;}
+        #test3 {height: 100px; width: 100px; position: absolute; top: 45%; left: 2%;  background-color: green;}
+        #test4 {height: 100px; width: 100px; position: absolute; top: 45%; left: 92%; background-color: grey;}
+        #test5 {height: 100px; width: 100px; position: absolute; top: 2%;  left: 45%; background-color: orange;}
+        #test6 {height: 100px; width: 100px; position: absolute; top: 89%; left: 2%;  background-color: blue;}
+        #test7 {height: 100px; width: 100px; position: absolute; top: 89%; left: 45%; background-color: cyan;}
+        #test8 {height: 100px; width: 100px; position: absolute; top: 89%; left: 92%; background-color: purple;}
+        .bossyTooltip {position: absolute; background-color: #cccccc; width: 300px;}
+        .bossyTooltip > span {font-size: 20px; font-weight: bold;}
+    </style>
+    
+</head>
+
+<body ng-app="bossy.tooltip">
+
+    <bossy-tooltip id="test1" title="Tooltip - North West" body="This is the tooltip test showing what it can do!" position="nw"></bossy-tooltip>
+    <bossy-tooltip id="test2" title="Tooltip - North"      body="This is the tooltip test showing what it can do!" position="n" ></bossy-tooltip>
+    <bossy-tooltip id="test3" title="Tooltip - North East" body="This is the tooltip test showing what it can do!" position="ne"></bossy-tooltip>
+    <bossy-tooltip id="test4" title="Tooltip - East"       body="This is the tooltip test showing what it can do!" position="e" ></bossy-tooltip>
+    <bossy-tooltip id="test5" title="Tooltip - South East" body="This is the tooltip test showing what it can do!" position="se"></bossy-tooltip>
+    <bossy-tooltip id="test6" title="Tooltip - South"      body="This is the tooltip test showing what it can do!" position="s" ></bossy-tooltip>
+    <bossy-tooltip id="test7" title="Tooltip - South West" body="This is the tooltip test showing what it can do!" position="sw"></bossy-tooltip>
+    <bossy-tooltip id="test8" title="Tooltip - West"       body="This is the tooltip test showing what it can do!" position="w" ></bossy-tooltip>
+    <!-- <div bossy-tooltip id="test" title="Tooltip" body="This is the tooltip test showing what it can do!" position="n"></div> -->
+
+</body>
+
+<script type="text/javascript" src="../angular.min.js"></script>
+<script type="text/javascript" src="../bossy.tooltip.js"></script>
+</html>
