@@ -6,7 +6,7 @@ var gulp = require('gulp-help')(require('gulp')),
     sequence = require('run-sequence'),
     karma = require('karma').server,
     compass   = require('gulp-compass'),
-    config = require('./gulp/config.json');
+    config = require('./gulp_config.json');
 
 gulp.task('build-sandbox', 'Runs build and adds BossyUI libs to Sandbox', function(callback) {
 
