@@ -18,3 +18,4 @@ _site/
 
 # Local Testing
 local.html
+.developmentserverrc
