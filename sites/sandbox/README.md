@@ -3,7 +3,7 @@ Sandbox for BossyUI Directives
 
 ## To Prep
 
-From your local repo root, run: `gulp build-sandbox`.  
+From your local repo root, run: `gulp build-sandbox` (you might need to run `npm install` if you havn't in a while).  
 
 ## To Launch
  
