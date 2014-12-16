@@ -56,7 +56,7 @@ amaragoul@mail.csuchico.edu
             Computer Science major at California State University, Chico. I was debating whether going my own route or choosing a project that's already being worked on, but I ended up choosing this because of the credit we will earn from this project. From a professional stand-point, this seemed like the best choice. I'm excited to work hard with my team and learn the ins and outs of javascript. Looking forward to designing some functional and elegant-looking widgets.
 
 <strong>Taber Storm Fitzgerald</strong><br/>
-I am a junior in college with little GitHub experience and have dabbled in several languages such as C++ C# Java HTML CSS JS and love run on sentences.
+I am a junior at California State University of Chico working on a BS in Computer Science. I enjoy several languages such as C++, C#, C, Java, JavaScript, HTML, CSS, and Ruby on Rails.
 
 <strong>    James Crean [Development] <creanjames@gmail.com> </strong><br />
             I am a senior in the Computer Science department at Chico with a background in mostly C/C++. I chose to work on this project because I like the challenge of learning new languages and frameworks.  
@@ -68,8 +68,7 @@ This is the first time I actually use GitHub for CSCI Project. I have experience
 I'm an aspiring artist and programmer. I have experience in HTML, Java, and a little bit in C++
 
 <strong>Sumit Dorle</strong><br/>
-This is my first commit on the github.
-
+I am a senior at California State University, Chico. I have experience in C++, HTML, javascript and PLSQL.
 <strong>Shelby Martin &lt;smartin43@mail.csuchico.edu&gt;</strong><br/>
 CAGD Major (the new APCG); Hang out with c++ (cos she fly), a small amount of c#, little experience with java and javascript; Looking forward to the widget creation\
 
