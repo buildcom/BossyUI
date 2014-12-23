@@ -1,20 +1,6 @@
 angular.module('bossy.toast', ['ngAnimate'])
-  .controller('ToastController', ['$scope', '$timeout', function ($scope, $timeout) {
 
-    $scope.show = function(toastObject){
-      console.log("Trying to show" + toastObject);
-      toastObject.style.display = "block";
-      $timeout($scope.hide(toastObject), 3000);  // 5 seconds
-    };
-
-    $scope.hide = function(toastObject){
-      console.log("Trying to hide" + toastObject);
-      toastObject.style.display = "none";
-    };
-
-    
-
-  }]).directive('toast', [ '$timeout', function ($timeout) {
+  .directive('toast', [ '$timeout', function ($timeout) {
     function link(scope, element, attrs) {
       console.log(element[0]);
       $timeout(function(){
