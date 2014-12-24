@@ -41,10 +41,17 @@ angular.module('bossy.toast', ['ngAnimate'])
   **/
   .controller('ToasterController', ['$scope', '$timeout', function($scope, $timeout)
   {
+
     /** object prototypes **/
-    function Toast(message, timeout){
+    function Toast(message, timeout, background, color, height, width, margin, padding){
       this.message = message;
       this.timeout = timeout;
+      this.background = background || "#333"; //default background is dark gray
+      this.color = color || "#FFF"; //default text color is white
+      this.height = height || "30px"; //default height is 30px
+      this.width = width || ""; //default width is content specific
+      this.margin = margin || "5px 0px";
+      this.padding = padding || "5px 5px";
     }
     /** universal members **/
     //toasts is a stack of toasts made by the user
@@ -69,8 +76,10 @@ angular.module('bossy.toast', ['ngAnimate'])
       $scope.toasts.push(new_toast); // adds the toast to the toastlist
       $scope.toasts.sort(compareTimeouts); // first toast to expire is at the bottom
       console.log($scope.toasts);  // shows the toasts list before toast is removed
-      $timeout(function(){$scope.toasts.splice($scope.toasts.indexOf(new_toast), 1)}, new_toast.timeout);
-      $timeout(function(){console.log("Ending Toast")}, new_toast.timeout); // outputs at the moment the toast is removed from the toastlist
+      // always removes the lowest time remaining item
+      $timeout(function(){$scope.toasts.splice(0, 1)}, new_toast.timeout); 
+      // outputs at the moment the toast is removed from the toastlist
+      $timeout(function(){console.log("Ending Toast")}, new_toast.timeout); 
     };
 
   }])
@@ -78,9 +87,9 @@ angular.module('bossy.toast', ['ngAnimate'])
     return {
       restrict: 'AE',
       scope: {
-        config: '='
+        toast: '=config'
       },
-      template: '<style>.bossy-toast{ box-sizing: border-box; position: relative; height: 30px; padding: 6px 10px; margins: 5px 0px; background: #222; color: #FFF;}</style><div class="bossy-toast">Toasty</div>'
+      template: '{{toast.message}}'
     };
 
   }])
@@ -88,9 +97,9 @@ angular.module('bossy.toast', ['ngAnimate'])
     return {
       restrict: 'AE',
       scope: {
-        toasts: '='
+        toasts: '=config'
       },
-      template: '<style>.bossy-toaster{ box-sizing: border-box; position: absolute; bottom: 50px; left: 40%;}</style><div class="bossy-toaster"><toast ng-repeat="toast in toasts" ng-animate config="toast">Something</toast></div>'
+      template: '<toast ng-repeat="toast in toasts" config="toast" class="bossy-toast"></toast>'
     };
 
   }])
