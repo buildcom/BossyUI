@@ -18,5 +18,5 @@
 2. After that finishes run the tests with gulp.
 
   ```bash
-  $ gulp test
+  $ gulp run-tests
   ```

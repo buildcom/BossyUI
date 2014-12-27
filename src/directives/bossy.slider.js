@@ -17,7 +17,7 @@
 var app = angular.module('bossy.slider', []);
 app.controller('SliderController', ['$scope', function ($scope) {
     //these are our default values and are the variables that can be changed by user of our widgets
-    $scope.max = 100;
+    $scope.max = 10;
     $scope.value = 0;
     $scope.min = 1;
     $scope.fillWidth = 0;
