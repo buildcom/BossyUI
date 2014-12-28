@@ -1,5 +1,7 @@
 Important:
 
+Anyone know anything about a CSS string parser?
+
 Directives that want to modify the DOM typically use the link option. link takes a function with the following signature, function link(scope, element, attrs) { ... } where:
 
 scope is an Angular scope object.

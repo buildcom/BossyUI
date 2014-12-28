@@ -1,3 +1,12 @@
+.bossy-toaster {
+  box-sizing: border-box; 
+  position: relative; 
+  bottom: 50px; 
+  margin: 0 auto;
+  width: 300px;
+  display: block;
+}
+
 .bossy-toast { 
   box-sizing: border-box; 
   position: relative; 
@@ -7,17 +16,9 @@
   background: #222; 
   color: #FFF;
   display: block;
-  transition: all .1s ease-out;
+  transition: all .3s ease-out;
   text-align: center;
-}
-
-.bossy-toaster {
-  box-sizing: border-box; 
-  position: relative; 
-  bottom: 50px; 
-  margin: 0 auto;
-  width: 300px;
-  display: block;
+  border-radius: 15px;
 }
 
 .bossy-toast.ng-enter.enter-active, 
