@@ -22,9 +22,9 @@ angular.module('bossy.toast', ['ngAnimate'])
       this.color = color || "#FFF"; //default text color is white
       this.height = height || "30px"; //default height is 30px
       this.width = width || ""; //default width is content specific
-      this.margin = margin || "5px 0px";
-      this.padding = padding || "5px 5px";
-      this.border_radius = border_radius || "0px";
+      this.margin = margin || "5px 0px"; //default margins are only for top and bottom
+      this.padding = padding || "5px 5px";//default padding on all edges
+      this.border_radius = border_radius || "0px";//default to square edges
     }
 
     /** universal members **/
@@ -90,8 +90,7 @@ angular.module('bossy.toast', ['ngAnimate'])
       //$timeout(function(){console.log("Ending Toast")}, new_toast.timeout); 
     };
   }])
-  .directive('toast', [ '$timeout', function ($timeout) {
-
+  .directive('toast', [function () {
     return {
       restrict: 'AE',
       scope: {
@@ -100,7 +99,7 @@ angular.module('bossy.toast', ['ngAnimate'])
       template: '{{toast.message}} {{toast.timeout}}'
     };
   }])
-  .directive('toaster', [ '$timeout', function ($timeout) {
+  .directive('toaster', [function () {
     return {
       restrict: 'AE',
       scope: {
