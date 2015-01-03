@@ -105,6 +105,8 @@ angular.module('bossy.toast', ['ngAnimate'])
       scope: {
         toasts: '=config'
       },
-      template: '<toast ng-repeat="toast in toasts" config="toast" class="bossy-toast"></toast>'
+      controller: 'ToasterController',
+      template: '<style>.bossy-toaster {box-sizing: border-box; position: relative; bottom: 50px; margin: 0 auto;width: 300px;display: block;}.bossy-toast { box-sizing: border-box; position: relative; height: 30px; padding: 6px 10px; margin: 5px 0px; background: #222; color: #FFF;display: block;transition: all .3s ease-out;text-align: center;border-radius: 15px;}.bossy-toast.ng-enter.enter-active, .bossy-toast.ng-leave { transform: scale(1); }.bossy-toast.ng-leave.ng-leave-active, .bossy-toast.ng-enter { transform: scale(0); } </style><h1>Toast Test</h1>Toast Message<input ng-model="toastMessage">Toast Timer (ms)<input type="number" ng-model="toastTime"><button ng-click="bossyToast(toastMessage, toastTime)">Click for toast</button><div class="bossy-toaster"><toast ng-repeat="toast in oasts" config="toast" class="bossy-toast"></toast></div>'
     };
   }]);
+

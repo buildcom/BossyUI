@@ -18,9 +18,10 @@ var bossy = angular.module('bossy', [
         'bossy.dropdown',
         'bossy.form',
         'bossy.input',
-        'bossy.multiselect',
+        'bossy.combobox.multiselect',
         'bossy.numerictextbox',
         'bossy.schema',
-        'bossy.tooltip'
+        'bossy.tooltip',
+        'bossy.toast'
     ]
 );
