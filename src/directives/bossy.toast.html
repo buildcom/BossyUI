@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="bossy.toast" ng-controller="ToasterController">
+  <head>
+    <title>Toast Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta charset="UTF-8"> 
+    <script src="angular.min.js"></script>
+    <script src="angular-animate.min.js"></script>
+    <script src="bossy.toast.js"></script>
+    <link href="styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Toast Test</h1>
+    Toast Message
+    <input ng-model="toastMessage">
+    Toast Timer (ms)
+    <input type="number" ng-model="toastTime">
+    <button ng-click="bossyToast(toastMessage, toastTime)">Click for toast</button>
+    <toaster class="bossy-toaster" config="toasts">
+    </toaster>
+  </body>
+</html>
