@@ -1,29 +1,5 @@
 angular.module('bossy.datagrid', [])
 	.controller('DataGridController', ['$scope', function($scope){
-		$scope.data = {
-			columns: [
-				{
-					type: 'number',
-					title: 'Number Column'
-				},
-				{
-					type: 'string',
-					title: 'Alphabetic Column'
-				},
-				{
-					type: 'money',
-					title: 'Money Column'
-				}
-			],
-			rows: [
-				[1, 'b', '$2.00'],
-				[2, 'c', '$1.00'],
-				[3, 'a', '$1.50'],
-				[4, 'C', '$10.50'],
-				[5, 'B', '$12.00'],
-				[6, 'A', '$11.00']
-			]
-		};
 
 		var numberCompare = function(a, b) {
 			var result = 0;
@@ -48,7 +24,7 @@ angular.module('bossy.datagrid', [])
 		};
 
 		var columnCompare = function(a, b, columnIndex){
-			var columnType = $scope.data.columns[columnIndex].type,
+			var columnType = $scope.config.data.columns[columnIndex].type,
 				result = 0;
 			if (columnType === 'number') {
 				result = numberCompare(a[columnIndex], b[columnIndex]);
@@ -62,19 +38,19 @@ angular.module('bossy.datagrid', [])
 
 		var calculateSortdirection = function(columnIndex){
 			// 1 = asc or  -1 = desc
-			if ($scope.data.columns[columnIndex].sortDirection) {
-				$scope.data.columns[columnIndex].sortDirection = -$scope.data.columns[columnIndex].sortDirection;
+			if ($scope.config.data.columns[columnIndex].sortDirection) {
+				$scope.config.data.columns[columnIndex].sortDirection = -$scope.config.data.columns[columnIndex].sortDirection;
 			} else {
-				$scope.data.columns[columnIndex].sortDirection = 1;
+				$scope.config.data.columns[columnIndex].sortDirection = 1;
 			}
 
-			return $scope.data.columns[columnIndex].sortDirection;
+			return $scope.config.data.columns[columnIndex].sortDirection;
 		};
 
 		$scope.sortColumn = function(columnIndex) {
 			var sortDirection = calculateSortdirection(columnIndex);
 
-			$scope.data.rows = $scope.data.rows.sort(function(a, b){
+			$scope.config.data.rows = $scope.config.data.rows.sort(function(a, b){
 				return sortDirection * columnCompare(a, b, columnIndex);
 			});
 		};
@@ -83,6 +59,9 @@ angular.module('bossy.datagrid', [])
 	{
 		return {
 			restrict: 'EA',
+			scope: {
+				config: '='
+			},
 			templateUrl: 'bossy.datagrid.html',
 			controller: 'DataGridController'
 		};
