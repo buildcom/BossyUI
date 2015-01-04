@@ -25,8 +25,6 @@ describe('CalendarControllerUnitTests', function() {
         it('updateDateMap should be called', function() {
 
             spyOn(scope,"updateDateMap");
-            //console.log(ctrl);
-            //console.log(scope);
             scope.updateDateMap();
             expect(scope.updateDateMap).toHaveBeenCalled();
         });
@@ -44,6 +42,36 @@ describe('CalendarControllerUnitTests', function() {
             scope.previousMonth();
             expect(scope.previousMonth).toHaveBeenCalled();
         });
+
+        it('scope.dateMap should not be null after updateDateMap is called',function(){
+
+            scope.updateDateMap();
+            expect(scope.dateMap).toNotBe(null);
+
+
+
+        })
+
+        it('calling scope.selectDate should set the selectedDate',function(){
+             var time = new Date().getTime();
+            //Lets assign ngModel to null to verify it actually gets set later.
+            scope.ngModel=null;
+            scope.selectDate(time);
+            expect(scope.ngModel).toNotBe(null);
+        })
+
+        it('calling scope.nextMonth should set the current Month and Year',function(){
+
+            //scope.current=null; //assigning current to null to verify if its set later.
+            console.log(scope.current);
+            spyOn(scope,"updateDateMap");
+            scope.nextMonth();
+            expect(scope.updateDateMap).toHaveBeenCalled();
+            expect(scope.current).toNotBe(null);
+        })
+
+
     });
+
 
 });
