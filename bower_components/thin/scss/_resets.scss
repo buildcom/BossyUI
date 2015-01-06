@@ -48,7 +48,7 @@ nav ul, .unstyled, [role="nav"], [role="navigation"] {
 		&:hover > ul {
 			min-width: 100%;
 			display: block;
-			z-index: 1000;
+			z-index: 10000;
 			> li {
 				white-space: nowrap;
 			}
@@ -58,6 +58,10 @@ nav ul, .unstyled, [role="nav"], [role="navigation"] {
 
 img {
 	display: block;
+}
+
+img {
+	width: 100%;
 }
 
 nav {
@@ -86,4 +90,32 @@ body > footer {
 	left: 0;
 	position: absolute;
 	width: 100%;
+}
+
+ol[role="steps"] {
+	padding-left: 0;
+	counter-reset: slideNum;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	li {
+		list-style: none;
+		counter-increment: slideNum;
+		display: inline-block;
+		margin-left: 0;
+
+		&:before {
+			@if $badge > 0 {
+				@extend %badge;
+			}
+			content: counter(slideNum);
+			display: inline-block;
+			text-align: center;
+		}
+	}
+}
+
+[role="main"] {
+	position: relative;
 }

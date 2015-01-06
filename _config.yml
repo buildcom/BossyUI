@@ -36,3 +36,10 @@ defaults:
       type: "pages"
     values:
       parent: "about"
+
+  -
+    scope:
+      path: "_partials"
+      type: "pages"
+    values:
+      parent: ""    

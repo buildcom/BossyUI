@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="bossyui">
+
+  {% include head.html %}
+
+  <body sticky="160" bossy-sticky ng-class="{min: sticky}">
+
+    {% include header.html %}
+
+    <div role="main">
+      <div class="container">
+        {{ content }}
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>

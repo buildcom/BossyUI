@@ -1,39 +1,95 @@
+#bossy_logo_mark {
+	background-color: $color-green;
+}
+
 body {
-	font-family: "Helvetica", sans-serif;
-}
+	font-family: "Lato", sans-serif;
+	font-size: 11pt;
+	padding-top: 40px;
+	background-color: #f3f3f3;
 
+  background-repeat: no-repeat;
+  background-position: center 100px;
+  background-attachment: fixed;
+  background-width: 100%;
 
-.menu-style-1 {
-	float: left;
-	width: 25%;
-	> a {
-		text-align: center;
-		height: 40px;
-		line-height: 40px;
-		background-color: lightgray;
-		display: block;
-		&.active {
-			background-color: #eee;
-		}
-	}
-	+ .menu-style-1 {
-		border-left: solid thin white;
+	> header {
+		
 	}
 }
-
-
-.menu-style-2 {
+#header {
+	background-color: #fff;
+	box-shadow: 0 1px 2px rgba(black, 0);
+	left: 0;
+	top: 0;
 	width: 100%;
-	> a {
-		display: block;
-		height: 40px;
-		line-height: 40px;
-		background-color: lightgray;
-		display: block;
-		padding: 0 $pad;
-		&.active {
-			background-color: #eee;
-		}
+	z-index: 999;
+	position: fixed;
+	box-shadow: 0 1px 2px rgba(black, 0.4);
+
+	@include transition(box-shadow .25s);
+}
+
+#footer {
+	background-color: #fff;
+	box-shadow: 0 -1px 2px rgba(black, 0.2);
+	padding: $pad;
+}
+
+.hero {
+	font-size: 60pt;
+	line-height: 60pt;
+	width: 100%;
+	height: 300px;
+	display: table-cell;
+	vertical-align: middle;
+	font-weight: 100;
+	text-align: center;
+}
+
+* + p {
+	margin-top: $margin;
+}
+
+.step {
+	text-align: center;
+	&:before {
+		font-size: 48pt;
+		
+	}
+}
+
+section + section {
+	margin-top: $margin;
+}
+
+.button-green {
+	background-color: $color-green;
+	color: #fff;
+	&:hover {
+		background-color: lighten($color-green, 5%);
+		box-shadow: 0 0 3px rgba(black, 0.2) inset;
+	}
+}
+
+.heading-large {
+	font-size: 24pt;
+	font-weight: 300;
+	margin-bottom: $unit;
+}
+
+.module {
+	margin-bottom: -1px;
+	background-color: #fff;
+	padding: $pad;
+	border-radius: 2px 2px 0 0;
+	box-shadow: 0 2px 1px rgba(black, 0.3), 0 -1px 1px rgba(black, 0.1);
+	&:last-of-type {
+		border-radius: 0 0 2px 2px;
+	}
+	+ .module {
+		padding-top: $pad;
+		box-shadow: 0 2px 1px rgba(black, 0.3);
 	}
 }
 

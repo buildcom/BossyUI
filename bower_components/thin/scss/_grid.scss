@@ -1,6 +1,6 @@
-[class^="grid"] {
+[class*="grid"] {
 	@extend %clearfix;
-	& + [class^="grid"] {
+	& + [class*="grid"] {
 		margin-top: $margin;
 	}
 }

@@ -1,0 +1,55 @@
+.menu-style-1 {
+	float: left;
+	width: 25%;
+	> a {
+		@include transition(background, .4s);
+
+		font-size: 11pt;
+		display: block;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+
+		&:hover {
+			background-color: $color-green;
+			color: #fff;
+		}
+	}
+}
+
+
+.menu-style-2 {
+	width: 100%;
+	box-shadow: 0 1px rgba(black, 0.2), 1px 0 rgba(black, 0.2), -1px 0 rgba(black, 0.2);
+
+	> a {
+		@include transition(background, .4s);
+		
+		display: block;
+		height: 40px;
+		line-height: 40px;
+		background-color: white;
+		display: block;
+		padding: 0 $pad;
+		&:hover {
+			background-color: #00ADA7;
+			color: #fff;
+		}
+	}
+}
+
+button, [role="button"] {
+	background: transparent;
+	border: none;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 3px;
+	padding: 0 $pad;
+	color: inherit;
+	text-decoration: none;
+	background: lightgray;
+	display: inline-block;
+	&:hover {
+		cursor: pointer;
+	}
+}

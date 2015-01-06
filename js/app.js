@@ -1,7 +1,9 @@
 var myApp = angular.module( 'bossyui', [
 	'ngRoute',
 	'ui.router',
-	'bossyui.controllers'
+	'bossy',
+	'bossyui.controllers',
+	'bossyui.directives'
 	])
 
 
@@ -15,13 +17,19 @@ var myApp = angular.module( 'bossyui', [
 	.state('home', {
 		url: '/',
 		templateUrl: '/BossyUI/pages/home.html',
-		controller: 'homeCtrl'
+		controller: 'homeCtrl',
+		data: {
+			slug: 'home'
+		}
 	})
 
 	.state('getting_started', {
 		url: '/getting_started',
 		templateUrl: '/BossyUI/pages/getting_started.html',
-		controller: 'homeCtrl'
+		controller: 'homeCtrl',
+		data: {
+			slug: 'getting-started'
+		}
 	})
 
 	// .state('components', {
@@ -45,13 +53,19 @@ var myApp = angular.module( 'bossyui', [
 			} else {
 				return '/BossyUI/pages/components.html'
 			}
+  	},
+  	data: {
+  		slug: "component"
   	}
 	})
 
 	.state('about', {
 		url: '/about',
 		templateUrl: '/BossyUI/pages/about.html',
-		controller: 'homeCtrl'
+		controller: 'homeCtrl',
+		data: {
+			slug: 'about'
+		}
 	})
 	$urlRouterProvider.otherwise('/');
 });

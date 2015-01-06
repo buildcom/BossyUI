@@ -1,0 +1,21 @@
+# Project
+node_modules
+bower_components
+npm-debug.log
+sites/sandbox/lib/bower
+
+# Demo/Docs Site
+_site/
+
+# Editor
+.idea/
+
+# System
+.DS_Store
+
+# Compass
+src/css
+.sass-cache
+
+# Local Testing
+local.html

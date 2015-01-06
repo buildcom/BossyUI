@@ -19,3 +19,15 @@
 		float: left;
 	}
 }
+
+
+
+%badge {
+  $badge-color: $bg !default;
+  width: $badge;
+  height: $badge;
+  line-height: $badge;
+  border-radius: $badge/2;
+  background-color: $badge-color;
+  color: $badge-font-color;
+}
