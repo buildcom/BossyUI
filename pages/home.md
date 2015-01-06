@@ -1,16 +1,18 @@
 ---
-title: Home
+title: <img id="logo" src="./img/logo_horizontal.svg" />
 slug: home
 order: 1
 ---
 
 
-<div role="banner">
+<section role="banner">
 	<div class="container">
 		<p class="hero">An Opinionated Set of Angular Directives…</p>
 	</div>
-</div>
-
+</section>
+<section>
+	<img class="logo-large" src="./img/mark.svg">
+</section>
 <section>
 <div class="grid">
 	<div class="col-1-3">

@@ -6,17 +6,39 @@ body {
 	font-family: "Lato", sans-serif;
 	font-size: 11pt;
 	padding-top: 40px;
-	background-color: #f3f3f3;
-
-  background-repeat: no-repeat;
-  background-position: center 100px;
-  background-attachment: fixed;
-  background-width: 100%;
+	background: url(../img/bg.svg) no-repeat top left #f3f3f3;
+  // background-repeat: no-repeat;
+  // background-position: center 100px;
+  // background-attachment: fixed;
+  // background-width: 100%;
 
 	> header {
 		
 	}
 }
+
+a, a:visited {
+	color: $color-gray;
+}
+
+[role="main"] {
+	margin-top: $margin;
+}
+
+#logo {
+	padding-top: 4px;
+	max-width: 150px;
+	margin: 0 auto;
+}
+
+.table {
+	display: table;
+	width: 100%;
+	> * {
+		display: table-cell;
+	}
+}
+
 #header {
 	background-color: #fff;
 	box-shadow: 0 1px 2px rgba(black, 0);
@@ -31,20 +53,27 @@ body {
 }
 
 #footer {
-	background-color: #fff;
-	box-shadow: 0 -1px 2px rgba(black, 0.2);
-	padding: $pad;
+	background-color: #5A5A5A;
+	color: #fff;
+	box-shadow: 0 2px 2px rgba(black, 0.2) inset;
+	padding: 0 $pad;
+	font-weight: normal;
+	line-height: $global-footer-height;
 }
 
 .hero {
-	font-size: 60pt;
-	line-height: 60pt;
+	font-size: 54pt;
+	line-height: 54pt;
 	width: 100%;
-	height: 300px;
 	display: table-cell;
 	vertical-align: middle;
 	font-weight: 100;
 	text-align: center;
+}
+
+.logo-large {
+	max-width: 150px;
+	margin: 0 auto;
 }
 
 * + p {
@@ -57,10 +86,6 @@ body {
 		font-size: 48pt;
 		
 	}
-}
-
-section + section {
-	margin-top: $margin;
 }
 
 .button-green {
