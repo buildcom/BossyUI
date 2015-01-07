@@ -141,10 +141,14 @@ angular.module('bossy.calendar', [])
 			return $scope.days[date.getDay()];
 		}
 
-		setConfigOptions();
-		setSelectedDate($scope.ngModel || new Date());
-		setCurrentMonthAndYear();
-		$scope.updateDateMap();
+		function initialize() {
+			setConfigOptions();
+			setSelectedDate($scope.ngModel || new Date());
+			setCurrentMonthAndYear();
+			$scope.updateDateMap();
+		}
+
+		initialize();
 
 	}]).directive('bossyCalendar', [function () {
 		return {
