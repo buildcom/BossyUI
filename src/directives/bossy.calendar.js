@@ -19,6 +19,7 @@ angular.module('bossy.calendar', [])
 			'Friday',
 			'Saturday'
 		];
+
 		$scope.months = [
 			'January',
 			'February',
@@ -33,6 +34,58 @@ angular.module('bossy.calendar', [])
 			'November',
 			'December'
 		];
+
+		$scope.previousMonth = function() {
+			var date = new Date($scope.current.year, ($scope.current.month - 1), 1);
+			setCurrentMonthAndYear(date.getMonth(), date.getFullYear());
+			$scope.updateDateMap();
+		};
+
+		$scope.nextMonth = function() {
+			var date = new Date($scope.current.year, ($scope.current.month + 1), 1);
+			setCurrentMonthAndYear(date.getMonth(), date.getFullYear());
+			$scope.updateDateMap();
+		};
+
+		$scope.selectDate = function(time) {
+			var date = getStandardTime(new Date(time));
+			if (dayIsOutOfRange(date)) {
+				return;
+			}
+			if (date.month !== $scope.current.month) {
+				setCurrentMonthAndYear(date.month, date.year);
+				$scope.updateDateMap();
+			}
+			setSelectedDate(new Date(time));
+		};
+
+		$scope.updateDateMap = function() {
+			var firstWeekDay = new Date($scope.current.time - ($scope.current.raw.getDay() * universal.DAY)),
+				isMonthComplete = false;
+				$scope.dateMap = [];
+
+			while (!isMonthComplete) {
+				var week = [];
+				if ($scope.dateMap.length === 5) {
+					isMonthComplete = true;
+				}
+				for (var weekDay = 0; weekDay < 7; weekDay++) {
+					var _thisDate = (new Date(firstWeekDay.getTime() + (weekDay * universal.DAY)));
+					// fix for DST oddness
+					if (_thisDate.getHours() === 23) {
+						_thisDate = (new Date(_thisDate.getTime() + universal.HOUR));
+					} else if (_thisDate.getHours() === 1) {
+						_thisDate = (new Date(_thisDate.getTime() - universal.HOUR));
+					}
+					var _date = getStandardTime(_thisDate);
+					_date.dayInMonth = _thisDate.getMonth() === $scope.current.raw.getMonth() ? 'day-in-month' : '';
+					_date.disabledDay = dayIsOutOfRange(_date) ? 'disabled-day' : '';
+					week.push(_date);
+				}
+				firstWeekDay = new Date(firstWeekDay.getTime() + (7 * universal.DAY));
+				$scope.dateMap.push(week);
+			}
+		};
 
 		function getStandardTime(date) {
 			return {
@@ -86,58 +139,6 @@ angular.module('bossy.calendar', [])
 		function getDayName(date) {
 			return $scope.days[date.getDay()];
 		}
-
-		$scope.previousMonth = function() {
-			var date = new Date($scope.current.year, ($scope.current.month - 1), 1);
-			setCurrentMonthAndYear(date.getMonth(), date.getFullYear());
-			$scope.updateDateMap();
-		};
-
-		$scope.nextMonth = function() {
-			var date = new Date($scope.current.year, ($scope.current.month + 1), 1);
-			setCurrentMonthAndYear(date.getMonth(), date.getFullYear());
-			$scope.updateDateMap();
-		};
-
-		$scope.selectDate = function(time) {
-			var date = getStandardTime(new Date(time));
-			if (dayIsOutOfRange(date)) {
-				return;
-			}
-			if (date.month !== $scope.current.month) {
-				setCurrentMonthAndYear(date.month, date.year);
-				$scope.updateDateMap();
-			}
-			setSelectedDate(new Date(time));
-		};
-
-		$scope.updateDateMap = function() {
-			var firstWeekDay = new Date($scope.current.time - ($scope.current.raw.getDay() * universal.DAY)),
-				isMonthComplete = false;
-				$scope.dateMap = [];
-
-			while (!isMonthComplete) {
-				var week = [];
-				if ($scope.dateMap.length === 5) {
-					isMonthComplete = true;
-				}
-				for (var weekDay = 0; weekDay < 7; weekDay++) {
-					var _thisDate = (new Date(firstWeekDay.getTime() + (weekDay * universal.DAY)));
-					// fix for DST oddness
-					if (_thisDate.getHours() === 23) {
-						_thisDate = (new Date(_thisDate.getTime() + universal.HOUR));
-					} else if (_thisDate.getHours() === 1) {
-						_thisDate = (new Date(_thisDate.getTime() - universal.HOUR));
-					}
-					var _date = getStandardTime(_thisDate);
-					_date.dayInMonth = _thisDate.getMonth() === $scope.current.raw.getMonth() ? 'day-in-month' : '';
-					_date.disabledDay = dayIsOutOfRange(_date) ? 'disabled-day' : '';
-					week.push(_date);
-				}
-				firstWeekDay = new Date(firstWeekDay.getTime() + (7 * universal.DAY));
-				$scope.dateMap.push(week);
-			}
-		};
 
 		setConfigOptions();
 		setSelectedDate($scope.ngModel || new Date());
