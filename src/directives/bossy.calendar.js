@@ -107,6 +107,7 @@ angular.module('bossy.calendar', [])
 		}
 
 		function setConfigOptions() {
+			$scope.config = $scope.config || {};
 			$scope.config.start = getTimeObjectIfDate($scope.config.start);
 			$scope.config.end = getTimeObjectIfDate($scope.config.end);
 			options = angular.extend({}, defaults, $scope.config);
