@@ -3,6 +3,8 @@ node_modules
 bower_components
 npm-debug.log
 sites/sandbox/lib/bower
+sites/sandbox/css
+sites/sandbox/js/bossy.all.js
 
 # Demo/Docs Site
 _site/
@@ -14,6 +16,7 @@ _site/
 .DS_Store
 
 # Compass
+src/css
 .sass-cache
 
 # Local Testing

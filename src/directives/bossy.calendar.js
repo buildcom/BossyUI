@@ -19,6 +19,7 @@ angular.module('bossy.calendar', [])
 			'Friday',
 			'Saturday'
 		];
+
 		$scope.months = [
 			'January',
 			'February',
@@ -34,81 +35,28 @@ angular.module('bossy.calendar', [])
 			'December'
 		];
 
-		function getStandardTime(date) {
-			return {
-				raw: date,
-				year: date.getFullYear(),
-				monthName: _getMonthName(date.getMonth()),
-				month: date.getMonth(),
-				day: _getDayName(date),
-				date: date.getDate(),
-				time: date.getTime()
-			};
-		}
-
-		function _getTimeObjectIfDate(date) {
-			if (angular.isDate(new Date(date))) {
-				return getStandardTime(new Date(date));
-			}
-			return false;
-		}
-
-		function setConfigOptions() {
-			$scope.config.start = _getTimeObjectIfDate($scope.config.start);
-			$scope.config.end = _getTimeObjectIfDate($scope.config.end);
-			options = angular.extend({}, defaults, $scope.config);
-		}
-
-		function _dayIsOutOfRange(_date) {
-			if (options.start && options.end && (_date.time < options.start.time || _date.time > options.end.time)) {
-				return true;
-			} else if (options.start && _date.time < options.start.time) {
-				return true;
-			} else if (options.end && _date.time > options.end.time) {
-				return true;
-			}
-		}
-
-		function _setSelectedDate(date) {
-			$scope.selected = getStandardTime(date);
-			$scope.ngModel = $scope.selected.raw;
-		}
-
-		function _setCurrentMonthAndYear(month, year) {
-			var date = new Date(year !== undefined ? year : $scope.selected.year, month !== undefined ? month : $scope.selected.month, 1);
-			$scope.current = getStandardTime(date);
-		}
-
-		function _getMonthName(month) {
-			return $scope.months[month];
-		}
-
-		function _getDayName(date) {
-			return $scope.days[date.getDay()];
-		}
-
 		$scope.previousMonth = function() {
 			var date = new Date($scope.current.year, ($scope.current.month - 1), 1);
-			_setCurrentMonthAndYear(date.getMonth(), date.getFullYear());
+			setCurrentMonthAndYear(date.getMonth(), date.getFullYear());
 			$scope.updateDateMap();
 		};
 
 		$scope.nextMonth = function() {
 			var date = new Date($scope.current.year, ($scope.current.month + 1), 1);
-			_setCurrentMonthAndYear(date.getMonth(), date.getFullYear());
+			setCurrentMonthAndYear(date.getMonth(), date.getFullYear());
 			$scope.updateDateMap();
 		};
 
 		$scope.selectDate = function(time) {
 			var date = getStandardTime(new Date(time));
-			if (_dayIsOutOfRange(date)) {
+			if (dayIsOutOfRange(date)) {
 				return;
 			}
 			if (date.month !== $scope.current.month) {
-				_setCurrentMonthAndYear(date.month, date.year);
+				setCurrentMonthAndYear(date.month, date.year);
 				$scope.updateDateMap();
 			}
-			_setSelectedDate(new Date(time));
+			setSelectedDate(new Date(time));
 		};
 
 		$scope.updateDateMap = function() {
@@ -131,7 +79,7 @@ angular.module('bossy.calendar', [])
 					}
 					var _date = getStandardTime(_thisDate);
 					_date.dayInMonth = _thisDate.getMonth() === $scope.current.raw.getMonth() ? 'day-in-month' : '';
-					_date.disabledDay = _dayIsOutOfRange(_date) ? 'disabled-day' : '';
+					_date.disabledDay = dayIsOutOfRange(_date) ? 'disabled-day' : '';
 					week.push(_date);
 				}
 				firstWeekDay = new Date(firstWeekDay.getTime() + (7 * universal.DAY));
@@ -139,9 +87,63 @@ angular.module('bossy.calendar', [])
 			}
 		};
 
+		function getStandardTime(date) {
+			return {
+				raw: date,
+				year: date.getFullYear(),
+				monthName: getMonthName(date.getMonth()),
+				month: date.getMonth(),
+				day: getDayName(date),
+				date: date.getDate(),
+				time: date.getTime()
+			};
+		}
+
+		function getTimeObjectIfDate(date) {
+			if (angular.isDate(new Date(date))) {
+				return getStandardTime(new Date(date));
+			}
+			return false;
+		}
+
+		function setConfigOptions() {
+			$scope.config = $scope.config || {};
+			$scope.config.start = getTimeObjectIfDate($scope.config.start);
+			$scope.config.end = getTimeObjectIfDate($scope.config.end);
+			options = angular.extend({}, defaults, $scope.config);
+		}
+
+		function dayIsOutOfRange(_date) {
+			if (options.start && options.end && (_date.time < options.start.time || _date.time > options.end.time)) {
+				return true;
+			} else if (options.start && _date.time < options.start.time) {
+				return true;
+			} else if (options.end && _date.time > options.end.time) {
+				return true;
+			}
+		}
+
+		function setSelectedDate(date) {
+			$scope.selected = getStandardTime(date);
+			$scope.ngModel = $scope.selected.raw;
+		}
+
+		function setCurrentMonthAndYear(month, year) {
+			var date = new Date(year !== undefined ? year : $scope.selected.year, month !== undefined ? month : $scope.selected.month, 1);
+			$scope.current = getStandardTime(date);
+		}
+
+		function getMonthName(month) {
+			return $scope.months[month];
+		}
+
+		function getDayName(date) {
+			return $scope.days[date.getDay()];
+		}
+
 		setConfigOptions();
-		_setSelectedDate($scope.ngModel || new Date());
-		_setCurrentMonthAndYear();
+		setSelectedDate($scope.ngModel || new Date());
+		setCurrentMonthAndYear();
 		$scope.updateDateMap();
 
 	}]).directive('bossyCalendar', [function () {
