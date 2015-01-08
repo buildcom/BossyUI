@@ -3,6 +3,7 @@ To get up and developing;
 * We use the fork & pull Git model, fork a local copy.
 * Install Git, Node, Gulp
 * Run `npm install` to install all NPM packages.
+* Run `bower install` to install all bower packages.
 
 Contributing Guide
 ==================
