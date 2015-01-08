@@ -32,9 +32,9 @@ app.controller('SliderController', ['$scope', function ($scope) {
     $scope.newYCord = 0;
     $scope.orientation = false;
     $scope.butSize = 15;
-    $scope.barfillcolor = "#0000FF";
-    $scope.baremptycolor = "#D3D3D3";
-    $scope.buttoncolor = "#FF0000";
+    $scope.barfillcolor = '#0000FF';
+    $scope.baremptycolor = '#D3D3D3';
+    $scope.buttoncolor = '#FF0000';
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -84,7 +84,7 @@ app.controller('SliderController', ['$scope', function ($scope) {
             $scope.increase();
         }
         return;
-    }
+    };
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /*decrease()
@@ -111,7 +111,7 @@ app.controller('SliderController', ['$scope', function ($scope) {
             $scope.decrease();
         }
         return;
-    }
+    };
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /*keyBind($event)
@@ -233,7 +233,7 @@ app.controller('SliderController', ['$scope', function ($scope) {
         return;
     };
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-}])
+}]);
 app.directive('bossySlider', function ($compile) {
     var myTemplate;
     return {
@@ -248,6 +248,7 @@ app.directive('bossySlider', function ($compile) {
          * it also initializes the slider and adds the correct orientation template to the DOM*/
         link: {
             pre: function (scope, iElem, iAttr) {
+                var pattern = /^#[0-9a-fA-F]{6}$/; //currently accepts lower case a-f
 
                 //checks to see if there is a max attribute
                 if (iAttr.max) {
@@ -265,7 +266,6 @@ app.directive('bossySlider', function ($compile) {
                 }
                 //checks for bar color customization
                 if (iAttr.barfillcolor) {
-                    var pattern = /^#[0-9a-fA-F]{6}$/; //currently accepts lower case a-f
                     if (pattern.test(iAttr.barfillcolor)) {
                         scope.barfillcolor = iAttr.barfillcolor;
                     }
@@ -273,7 +273,6 @@ app.directive('bossySlider', function ($compile) {
                 //checks for empty bar color customization
 
                 if (iAttr.baremptycolor) {
-                    var pattern = /^#[0-9a-fA-F]{6}$/; //currently accepts lower case a-f
                     if (pattern.test(iAttr.baremptycolor)) {
                         scope.baremptycolor = iAttr.baremptycolor;
                     }
@@ -281,7 +280,6 @@ app.directive('bossySlider', function ($compile) {
 
 
                 if (iAttr.buttoncolor) {
-                    var pattern = /^#[0-9a-fA-F]{6}$/; //currently accepts lower case a-f
                     if (pattern.test(iAttr.buttoncolor)) {
                         scope.buttoncolor = iAttr.buttoncolor;
                     }
@@ -332,6 +330,6 @@ app.directive('bossySlider', function ($compile) {
                 return;
             }
         }
-    }
+    };
 });
 

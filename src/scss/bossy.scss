@@ -1,13 +1,13 @@
 .bossy-input {
 	input{
 		border: 0;
-		border-bottom: 1px solid #ef9c28;				
+		border-bottom: 1px solid #ef9c28;
 		width: 100%;
 		padding-left: 25px;
 	}
 	input:focus{
-		border-bottom: 3px solid #ef9c28;	
-	}	
+		border-bottom: 3px solid #ef9c28;
+	}
 	span {
 		display: inline-block;
 		width: 10px;
@@ -83,11 +83,20 @@ bossy-form{
 		box-shadow: 0 0 20px rgba(0,0,0,.15);
 		font: 12px/15px Arial, Helvetica, sans-serif;
 		color: #666;
-	}	
-	form.green{		
+	}
+	form.green{
 		border-left: 5px solid #9b2;
 	}
-	form.red{	
+	form.red{
 		border-left: 5px solid #AE0002;
+	}
+}
+
+bossy-calendar {
+	.day-in-month {
+		font-weight: 700;
+	}
+	.disabled-day {
+		color: #ccc;
 	}
 }

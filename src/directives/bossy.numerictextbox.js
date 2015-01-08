@@ -39,7 +39,7 @@ app.controller('bossynumericCtrl',function($scope){
             default:
                 break;
         }
-    }
+    };
     $scope.decrement = function(a){
 
         switch(a){
@@ -73,7 +73,7 @@ app.controller('bossynumericCtrl',function($scope){
                 break;
         }
 
-    }
+    };
 
 });
 
@@ -85,5 +85,5 @@ app.directive('bossynumerictextbox',function(){
         transclude:true,
         templateUrl:'bossy.numerictextbox.html'
 
-    }
-});	
+    };
+});
