@@ -52,7 +52,7 @@ app.directive('bossyMultiselect',
                         parsedResult = optionParser.parse(exp),
                         isMultiple = attrs.multiple ? true : false,
                         scope = originalScope.$new(),
-                        changeHandler = attrs.change || anguler.noop;
+                        changeHandler = attrs.change || angular.noop;
 
                     scope.items = [];
                     scope.multiple = isMultiple;
@@ -126,9 +126,8 @@ app.directive('bossyMultiselect',
                     };
 
                     scope.select = function (item) {
-                        if (isMultiple === false) {
-                            selectSingle(item);
-                        } else {
+                        // TODO: add selectSingle function ???
+                        if (isMultiple !== false) {
                             selectMultiple(item);
                         }
                     };
