@@ -33,7 +33,7 @@ angular.module('bossy.dropdown', [])
 				//Retrieve json containing objects to populate the dropdown.
 				if($scope.config.src) {
 					//Checks that config.src is a JSON file.
-					if($scope.config.src.substr($scope.config.src.length-5, $scope.config.src.length) == '.json') {
+					if($scope.config.src.substr($scope.config.src.length-5, $scope.config.src.length) === '.json') {
 						$http.get($scope.config.src)
 							.success(function(data) {
 								thisDropdown.items = data;
