@@ -32,9 +32,9 @@ app.controller('SliderController', ['$scope', function ($scope) {
     $scope.newYCord = 0;
     $scope.orientation = false;
     $scope.butSize = 15;
-    $scope.barfillcolor = "#0000FF";
-    $scope.baremptycolor = "#D3D3D3";
-    $scope.buttoncolor = "#FF0000";
+    $scope.barfillcolor = '#0000FF';
+    $scope.baremptycolor = '#D3D3D3';
+    $scope.buttoncolor = '#FF0000';
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -84,7 +84,7 @@ app.controller('SliderController', ['$scope', function ($scope) {
             $scope.increase();
         }
         return;
-    }
+    };
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /*decrease()
@@ -111,7 +111,7 @@ app.controller('SliderController', ['$scope', function ($scope) {
             $scope.decrease();
         }
         return;
-    }
+    };
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /*keyBind($event)
@@ -233,7 +233,7 @@ app.controller('SliderController', ['$scope', function ($scope) {
         return;
     };
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-}])
+}]);
 app.directive('bossySlider', function ($compile) {
     var myTemplate;
     return {
@@ -332,6 +332,6 @@ app.directive('bossySlider', function ($compile) {
                 return;
             }
         }
-    }
+    };
 });
 

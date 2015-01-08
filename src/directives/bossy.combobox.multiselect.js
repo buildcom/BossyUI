@@ -11,7 +11,7 @@ app.controller('AppCtrl', function($scope) {
     // selected choice
     $scope.selectedChoice = [];
 
-})
+});
 
 // inject functions
 app.factory('optionParser', ['$parse', function ($parse) {
@@ -25,8 +25,8 @@ app.factory('optionParser', ['$parse', function ($parse) {
             var match = input.match(TYPEAHEAD_REGEXP), modelMapper, viewMapper, source;
             if (!match) {
                 throw new Error(
-                        "Expected typeahead specification in form of '_modelValue_ (as _label_)? for _item_ in _collection_'" +
-                        " but got '" + input + "'.");
+                        'Expected typeahead specification in form of "_modelValue_ (as _label_)? for _item_ in _collection_"' +
+                        ' but got "' + input + '".');
             }
 
             return {
@@ -37,7 +37,7 @@ app.factory('optionParser', ['$parse', function ($parse) {
             };
         }
     };
-}])
+}]);
 
 app.directive('bossyMultiselect',
 
@@ -87,25 +87,30 @@ app.directive('bossyMultiselect',
 
                     // array for multiple selection
                     function setModelValue(isMultiple) {
+                        var value;
                         if (isMultiple) {
                             value = [];
                             angular.forEach(scope.items, function (item) {
-                                if (item.checked) value.push(item.model);
-                            })
+                                if (item.checked) {
+                                    value.push(item.model);
+                                }
+                            });
                         } else {
                             angular.forEach(scope.items, function (item) {
                                 if (item.checked) {
                                     value = item.model;
                                     return false;
                                 }
-                            })
+                            });
                         }
                         modelCtrl.$setViewValue(value);
                     }
 
                     // function for selection of all
                     scope.checkAll = function () {
-                        if (!isMultiple) return;
+                        if (!isMultiple) {
+                            return;
+                        }
                         angular.forEach(scope.items, function (item) {
                             item.checked = true;
                         });
@@ -126,10 +131,10 @@ app.directive('bossyMultiselect',
                         } else {
                             selectMultiple(item);
                         }
-                    }
+                    };
                 }
             };
-        })
+        });
 
 // directive storing template
 app.directive('bossyMultiselectPopup', ['$document', function ($document) {
@@ -141,5 +146,5 @@ app.directive('bossyMultiselectPopup', ['$document', function ($document) {
             link: function (scope, element, attr) {
 
             }
-        }
+        };
     }]);

@@ -1,4 +1,4 @@
-var app = angular.module("bossy.combobox.checkboxMultiselect", []);
+var app = angular.module('bossy.combobox.checkboxMultiselect', []);
 
 app.controller('AppCtrl', function($scope) {
 
