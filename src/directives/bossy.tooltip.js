@@ -1,42 +1,43 @@
 angular.module('bossy.tooltip', [])
     .directive('bossyTooltip', function() {
-    
+
         // Private member array containing all known positions
-        pos = ['n','ne','e','se','s','sw','w','nw'];
-        
+        var _pos = ['n','ne','e','se','s','sw','w','nw'];
+
+        // Move the tip to a certain position
         function _moveTip($parent, $tip, curPos)
         {
-            if(curPos == 'n')
+            if(curPos === 'n')
             {
                 $tip.style.left = $parent.offsetLeft + ($parent.offsetWidth / 2) - ($tip.offsetWidth / 2) + 'px';
                 $tip.style.top = $parent.offsetTop - $tip.offsetHeight + 'px';
             }
-            else if(curPos == 'ne')
+            else if(curPos === 'ne')
             {
                 $tip.style.left = $parent.offsetLeft + $parent.offsetWidth + 'px';
                 $tip.style.top = $parent.offsetTop - $tip.offsetHeight + 'px';
             }
-            else if(curPos == 'e')
+            else if(curPos === 'e')
             {
                 $tip.style.left = $parent.offsetLeft + $parent.offsetWidth + 'px';
                 $tip.style.top = $parent.offsetTop + ($parent.offsetHeight / 2) - ($tip.offsetHeight / 2) + 'px';
             }
-            else if(curPos == 'se')
+            else if(curPos === 'se')
             {
                 $tip.style.left = $parent.offsetLeft + $parent.offsetWidth + 'px';
                 $tip.style.top = $parent.offsetTop + $parent.offsetHeight + 'px';
             }
-            else if(curPos == 's')
+            else if(curPos === 's')
             {
                 $tip.style.left = $parent.offsetLeft + ($parent.offsetWidth / 2) - ($tip.offsetWidth / 2) + 'px';
                 $tip.style.top = $parent.offsetTop + $parent.offsetHeight + 'px';
             }
-            else if(curPos == 'sw')
+            else if(curPos === 'sw')
             {
                 $tip.style.left = $parent.offsetLeft - $tip.offsetWidth + 'px';
                 $tip.style.top = $parent.offsetTop + $parent.offsetHeight + 'px';
             }
-            else if(curPos == 'w')
+            else if(curPos === 'w')
             {
                 $tip.style.left = $parent.offsetLeft - $tip.offsetWidth + 'px';
                 $tip.style.top = $parent.offsetTop + ($parent.offsetHeight / 2) - ($tip.offsetHeight / 2) + 'px';
@@ -47,11 +48,12 @@ angular.module('bossy.tooltip', [])
                 $tip.style.top = $parent.offsetTop - $tip.offsetHeight + 'px';
             }
         }
-        
+
+        // Check to see if the tip is within the window
         function _checkPos($tip)
         {
             var rect = $tip.getBoundingClientRect();
-            
+
             return (
                 rect.top >= 0 &&
                 rect.left >= 0 &&
@@ -59,54 +61,69 @@ angular.module('bossy.tooltip', [])
                 rect.right <= (window.innerWidth || document.documentElement.clientWidth)
             );
         }
-        
+
         return {
-            restrict: 'A',
-            scope: {},
-			replace: true,
+            restrict: 'E',
+            scope: {
+                config: '='
+            },
+            replace: true,
             link: function(scope, element, attrs) {
-                if(typeof attrs.title !== "string" && typeof attrs.body !== "string")
-                    console.error("Error: No title or body information provided.");
-                if(!attrs.position || typeof attrs.position !== 'string' || pos.indexOf(attrs.position) < 0)
-                    attrs.position = 'n';
-                
+
+                // If the user doesn't provide essential information, error out
+                if(!scope.config.title || !scope.config.body) {
+                    console.error('Error: No title or body information provided.');
+                    return 1;
+                }
+
+                // If the user doesn't provide a position, default 'north'
+                if(!scope.config.position || typeof scope.config.position !== 'string' || _pos.indexOf(scope.config.position) < 0)
+                {
+                    scope.config.position = 'n';
+                }
+
                 // Create tip element
                 var $tip = document.createElement('div');
-                
+
                 // Append to DOM
                 document.body.appendChild($tip);
                 $tip.style.position = 'absolute';
-                $tip.innerHTML = '<span>'+ attrs.title +'</span><div>'+ attrs.body +'</div>';
+                $tip.innerHTML = '<span>'+ scope.config.title +'</span><div>'+ scope.config.body +'</div>';
                 $tip.className = 'bossyTooltip';
-                
-                // Find best location starting with attrs.position
-                var i = 0;
-                do
-                {
+
+                // Disable browser's tooltip
+                element[0].title = '';
+                console.log(element);
+
+                var i = 0,
+                    locked;
+
+                do {
                     locked = true;
-                    _moveTip(element[0], $tip, attrs.position);
-                    
-                    // Wrap around array if the end is hit
-                    if(attrs.position == 'nw')
-                        attrs.position = 'n';
-                    else
-                        attrs.position = pos[pos.indexOf(attrs.position) + 1];
-                    
+                    _moveTip(element[0], $tip, scope.config.position);
+
                     // Continue to loop if $tip is clipped
                     if(!_checkPos($tip))
                     {
                         locked = false;
+
+                        // Wrap around array if the end is hit
+                        if (scope.config.position === 'nw') {
+                            scope.config.position = 'n';
+                        } else {
+                            scope.config.position = _pos[_pos.indexOf(scope.config.position) + 1];
+                        }
                     }
-                    
-                    if(i == 8)
+
+                    if (i === 8) {
                         break;
-                    
+                    }
                     ++i;
-                } while(locked == false);
-                
+                } while (locked === false);
+
                 // Hide it until mouse event
                 $tip.style.display = 'none';
-                
+
                 // Mouse events
                 element.on('mouseenter', function() {
                     $tip.style.display = 'block';
@@ -114,7 +131,7 @@ angular.module('bossy.tooltip', [])
                 .on('mouseleave', function() {
                     $tip.style.display = 'none';
                 });
-                
+
             }
         };
     });

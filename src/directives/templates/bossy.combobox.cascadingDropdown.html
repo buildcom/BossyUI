@@ -1,0 +1,26 @@
+<div ng-controller="AppCtrl">
+    <div>
+        <!-- ng-options defines dropdown option dependent on previous selection -->
+        <!-- ng-model binds options from next dropdown to the selection of the current one -->
+        <!-- ng-disabled activates the next selection if a selection was made in the previous dropdown -->
+        <!-- 1st dropdown -->
+        Choice 1:
+        <select id="choiceOne" ng-model="choiceTwoOptions" ng-options="choiceOne for (choiceOne, choiceTwoOptions) in choices">
+            <option value=''>Select</option>
+        </select>
+    </div>
+    <div>
+        <!-- 2nd dropdown -->
+        Choice 2:
+        <select id="choiceTwo" ng-disabled="!choiceTwoOptions" ng-model="choiceThreeOptions" ng-options="choiceTwo for (choiceTwo, choiceThree) in choiceTwoOptions">
+            <option value=''>Select</option>
+        </select>
+    </div>
+    <div>
+        <!-- 3rd dropdown -->
+        Choice 3:
+        <select id="choiceThree" ng-disabled="!choiceThreeOptions || !choiceTwoOptions" ng-model="choiceThree" ng-options="choiceThree for choiceThree in choiceThreeOptions">
+            <option value=''>Select</option>
+        </select>
+    </div>
+</div>

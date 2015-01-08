@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="etf-8">
+		<title>Javabang DOM Tests</title>
+		<!-- Loads Angular -->
+		<script type="text/javascript" src="angular.min.js"></script>
+		<!-- Loads the Bossy Dropdown Widget -->
+		<script type="text/javascript" src="../../../src/directives/bossy.dropdown.js"></script>
+		<!-- Loads the Bossy Tooltip Widget -->
+		<script type="text/javascript" src="../../../src/directives/bossy.tooltip.js"></script>
+		<!-- Represents End User Controller Creation -->
+		<script>
+			angular.module('testModule', ['bossy.dropdown', 'bossy.tooltip'])
+				.controller('testController', ['$scope', function($scope) {	
+					$scope.tooltipTest00 = {
+					};
+					$scope.tooltipTest01 = {
+						title: "Tooltip test01",
+						body: "This is the tooltip test01 With no specified position!"
+					};
+					$scope.tooltipTest02 = {
+						title: "Tooltip test02",
+						body: "This is the tooltip test02 with specified position of East!",
+						position: "e"
+					};
+					$scope.testConfig00 = {
+					};
+					$scope.testConfig01 = {
+						src: 'states.json'
+					};
+					$scope.testConfig02 = {
+						src: 'states.json',
+						title: 'name'
+					};
+					$scope.testConfig03 = {
+						src: 'https://gist.githubusercontent.com/mshafrir/2646763/raw/bfb35f17bc5d5f86ec0f10b80f7b80e823e9197f/states_titlecase.json',
+						title: 'falseTitle'
+					};
+					$scope.testConfig04 = {
+						src: 'https://gist.githubusercontent.com/mshafrir/2646763/raw/bfb35f17bc5d5f86ec0f10b80f7b80e823e9197f/states_titlecase.json',
+						title: 'abbreviation',
+						select: {}
+					};
+					$scope.testConfig05 = {
+						src: 'https://gist.githubusercontent.com/mshafrir/2646763/raw/bfb35f17bc5d5f86ec0f10b80f7b80e823e9197f/states_titlecase.json',
+						title: 'name'
+					};
+					$scope.testConfig06 = {
+						src: 'https://gist.githubusercontent.com/mshafrir/2646763/raw/bfb35f17bc5d5f86ec0f10b80f7b80e823e9197f/states_titlecase.json',
+						title: 'name'
+					};
+					$scope.testConfig07 = {
+						src: 'https://gist.githubusercontent.com/mshafrir/2646763/raw/bfb35f17bc5d5f86ec0f10b80f7b80e823e9197f/states_titlecase.json',
+						title: 'name',
+						select: {},
+						template: '<div><select ng-options="item[dropdown.title] for item in dropdown.items | orderBy: dropdown.title" ng-model="selectedItem" ng-change="dropdown.updateSelectedItem(selectedItem)"><option value="" ng-hide="selectedItem">Template passed as a string!</option></select></div>'
+					};
+					$scope.testConfig08 = {
+						src: 'https://gist.githubusercontent.com/mshafrir/2646763/raw/bfb35f17bc5d5f86ec0f10b80f7b80e823e9197f/states_titlecase.json',
+						title: 'name',
+						select: {},
+						template: 'testTemplate08.html'
+					};
+					$scope.testConfig09 = {
+						src: 'states.json',
+						title: 'name',
+						select: {},
+						template: 'testTemplate09.html'
+					};
+					$scope.testConfig10 = {
+						src: 'states.json',
+						title: 'name',
+						select: {},
+						template: 'testTemplate10.html'
+					};
+					$scope.testSelect05a = {};
+					$scope.testSelect05b = {};
+					$scope.testItems06 = {};
+				}])
+		</script>
+		<!-- Stylings for tooltip Testing -->
+		<style>
+			#test1 {height: 100px; width: 100px; position: absolute; top: 2%;  left: 2%;  background-color: yellow;}
+	        #test2 {height: 100px; width: 100px; position: absolute; top: 2%;  left: 92%; background-color: red;}
+	        #test3 {height: 100px; width: 100px; position: absolute; top: 45%; left: 2%;  background-color: green;}
+	        #test4 {height: 100px; width: 100px; position: absolute; top: 45%; left: 92%; background-color: grey;}
+	        #test5 {height: 100px; width: 100px; position: absolute; top: 2%;  left: 45%; background-color: orange;}
+	        #test6 {height: 100px; width: 100px; position: absolute; top: 89%; left: 2%;  background-color: blue;}
+	        #test7 {height: 100px; width: 100px; position: absolute; top: 89%; left: 45%; background-color: cyan;}
+	        #test8 {height: 100px; width: 100px; position: absolute; top: 89%; left: 92%; background-color: purple;}
+	        .bossyTooltip {position: absolute; background-color: #cccccc; width: 300px;}
+	        .bossyTooltip > span {font-size: 20px; font-weight: bold;}
+	    </style>
+	</head>
+	<body ng-app="testModule">
+		<!-- User Defined Templates -->
+		<script type="text/ng-template" id="testTemplate08.html">
+	    	<div>
+				<select ng-options="item[dropdown.title] for item in dropdown.items | orderBy: dropdown.title" ng-model="selectedItem" ng-change="dropdown.updateSelectedItem(selectedItem)">
+						<option value="" ng-hide="selectedItem">Template defined within a script tag!</option>
+				</select>
+			</div>
+		</script>
+		<script type="text" src="testTemplate09.html" id="testTemplate09.html">
+		</script>
+		<script type="text/ng-template" id="testTemplate10.html">
+	    	<ng-include src="'https://raw.githubusercontent.com/smartin43/javabang-BossyUI/smartin43/src/directives/templates/other-template.html'"></ng-include>
+		</script>
+
+		<h2 ng-controller="testController">
+			<!-- Tooltip Tesing -->
+			<div>
+				<div>Tooltip Test 00: <em>Throws error in the console log indicating body or title was not provided in config.</em></div>
+			    <bossy-tooltip id="test2" config="tooltipTest00">Test 00</bossy-tooltip>
+			    <h6></h6>
+			    <div>Tooltip Test 01: <em>Checks position on screen and creates a tooltip in the appropriate position. Based on content of the element.</em></div>
+			    <div align="center"><bossy-tooltip config="tooltipTest01">Test 01</bossy-tooltip></div>
+			    <div align="right"><bossy-tooltip config="tooltipTest01">Test 01</bossy-tooltip></div>
+			    <div align="left"><bossy-tooltip config="tooltipTest01">Test 01</bossy-tooltip></div>
+			    <h1></h1>
+			    <div>Tooltip Test 02: <em>Uses Stylings to create a tooltip attached to container divs.</em></div>
+			    <bossy-tooltip id="test3" config="tooltipTest02">Test 02</bossy-tooltip>
+			    <h1>Test02</h1>
+			    <h1>Test02</h1>
+			</div>
+			<!-- Dropdown Testing -->
+			<div>
+				<div>Dropdown Test 00: <em>Throws error in the console log indicating src was not provided in config.</em></div>
+				<bossy-dropdown config="testConfig00"></bossy-dropdown>
+				<h6></h6>
+				<div>Dropdown Test 01: <em>Throws error indicating title was not provided in config.</em></div>
+				<bossy-dropdown config="testConfig01"></bossy-dropdown>
+				<h6></h6>
+				<div>Dropdown Test 02: <em>Loads local JSON. No select field provided for data binding.</em></div>
+				<bossy-dropdown config="testConfig02"></bossy-dropdown>
+				<h6></h6>
+				<div>Dropdown Test 03: <em>Loads remote JSON. False title field provided for error testing.</em></div>
+				<bossy-dropdown config="testConfig03"></bossy-dropdown>
+				<h6></h6>
+				<div>Dropdown Test 04a: <em>Loads remote JSON. Proper title provided. Select field provided for data binding.</em></div>
+				<div bossy-dropdown config="testConfig04"></div>
+				<h6><div>Selected Object: {{testConfig04.select}}</div></h6>
+				<div>Dropdown Test 04b: <em>Single config object utilized in multiple dropdowns to demonstrate shared data.</em></div>
+				<div bossy-dropdown config="testConfig04"></div>
+				<h6><div>Selected Object: {{testConfig04.select}}</div></h6>
+				<div>Dropdown Test 05: <em>Single config object utilized with multiple select fields.</em></div>
+				<div bossy-dropdown config="testConfig05" select="testSelect05a"></div>
+				<h6><div>1st Selected Object: {{testSelect05a}}</div></h6>
+				<div bossy-dropdown config="testConfig05" select="testSelect05b"></div>
+				<h6><div>2nd Selected Object: {{testSelect05b}}</div></h6>
+				<div>Dropdown Test 06: <em>Passes retreived items to an items object.</em></div>
+				<div ng-hide="true"><div bossy-dropdown config="testConfig06" items="testItems06"></div></div>
+				<h6><div>First 3 elements' abbreviations in the array of items: {{testItems06[0].abbreviation}}, {{testItems06[1].abbreviation}}, {{testItems06[2].abbreviation}}</div></h6>
+				<div>Dropdown Test 07: <em>Template field defined as string.</em></div>
+				<div bossy-dropdown config="testConfig07"></div>
+				<h6><div>Selected Object: {{testConfig07.select}}</div></h6>
+				<div>Dropdown Test 08: <em>Template field defined whithin a script tag.</em></div>
+				<div bossy-dropdown config="testConfig08"></div>
+				<h6><div>Selected Object: {{testConfig08.select}}</div></h6>
+				<div>Dropdown Test 09: <em>Template field loaded from a local file within a script tag.</em></div>
+				<div bossy-dropdown config="testConfig09"></div>
+				<h6><div>Selected Object: {{testConfig09.select}}</div></h6>
+				<div>Dropdown Test 10: <em>Template field loaded from a remote file using ng-include within a script tag.</em></div>
+				<div bossy-dropdown config="testConfig10"></div>
+				<h6><div>Selected Object: {{testConfig10.select}}</div></h6>
+			</div>
+		</h2>
+	</body>
+</html>

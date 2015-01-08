@@ -19,7 +19,6 @@ module.exports = function(config) {
       'https://code.angularjs.org/1.2.25/angular.js',
       'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js',
       'https://code.angularjs.org/1.2.25/angular-mocks.js',
-      './../demo/public/javascripts/*.js',
       './../src/*.js',
       './../src/directives/templates/*.html',
       './../src/directives/*.js',
@@ -42,7 +41,7 @@ module.exports = function(config) {
     ngHtml2JsPreprocessor: {
         //stripPrefix:'./../'
      moduleName: 'Templates',
-   
+
     },
 
     // test results reporter to use

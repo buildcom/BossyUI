@@ -1,8 +1,16 @@
+## tl;dr;
+To get up and developing;
+* We use the fork & pull Git model, fork a local copy.
+* Install Git, Node, Gulp
+* Run `npm install` to install all NPM packages.
+* Run `bower install` to install all bower packages.
+
 Contributing Guide
 ==================
 
 Let's build something awesome. We can make it happen with your help.
 
+## Verbose Version 
 We use the [fork & pull model](https://help.github.com/articles/using-pull-requests#fork--pull) to accept new code into the project. If you aren't familiar with that workflow, Github's [Using Pull Requests](https://help.github.com/articles/using-pull-requests) article is a great primer.
 
 If you plan on contributing more than once and want to keep your fork up to date with this project we recommend checking out these guides on [configuring a remote for a fork](https://help.github.com/articles/configuring-a-remote-for-a-fork) and [syncing a fork](https://help.github.com/articles/syncing-a-fork).
@@ -34,19 +42,83 @@ $ node -v
 
 If your terminal returns a version number then you are good to go. If it does not return a version number then visit the [Node.js downloads page](http://nodejs.org/download/) and download and install a copy on your machine.
 
-With the Node.js installer you will also get the NPM CLI (Node Package Manager Command Line Interface) which your computer will use to download packages from the NPM registry. This project depends on a number of those packages to streamline our workflow.
+With the Node.js installer you will also get the NPM CLI (Node Package Manager Command Line Interface) which your computer will use to download packages from the NPM registry. 
 
-Once you have Node.js installed and the project forked and cloned to your local machine then you will need to install these dependencies onto your machine. The `package.json` file in the root directory of the project contains the list of dependencies to download. All you need to do is change directories in your terminal and run the npm installer.
+### Install all NPM/Bower packages
 
 ```bash
-$ cd path/to/BossyUI
 $ npm install
 ```
 
-Your terminal will keep scrolling with each dependency it resolves and when it's finished downloading everything all those dependencies will be located in a folder called `node_modules` inside the projects root directory.
+### Gulp
+We use Gulp as our build system.  To install gulp, run:
 
-After that you will be able to run all the Gulp tasks that help us with building, minifying, generating CSS, JSHinting and testing our code. The folks in charge of Gulp have put together a [nice list of helpful articles](https://github.com/gulpjs/gulp/blob/master/docs/README.md#articles) to help users to get up to speed.
+```bash
+$ npm install --global gulp
+```
+To get a list of availble build commands, run:
+
+```bash
+$ gulp help
+```
 
 ## Finding Bugs?
 
 We don't write perfect software and systems and platforms change, so if you've found a bug log it in the issue tracker so we can get started fixing it.
+
+Contributors
+============
+
+Built with LOVE by:
+
+Geoff Lawson <geoff.lawson@build.com>
+
+Kevin Buffardi <kbuffardi@csuchico.edu> (CSU Chico Faculty Advisor)
+
+Jason Merino <jasonmerino@gmail.com>
+
+Dan Green <dan.green@build.com>
+
+Dan Sluis <daniel@lulus.com>
+
+Tauseef Jamadar <tmjam.ahmed@gmail.com>
+
+Tuhin Shukla <tuhintshukla@gmail.com>
+
+Erik Mellum
+
+CSU Chico CS Students:
+
+Taber Fitzgerald
+
+Alen Maragoul
+
+Chue Vang
+
+Colin Baldwin
+
+Francisco Tadillo
+
+James Crean
+
+Jay German
+
+Lukas Fink
+
+Martin Mojica
+
+Patrick Barnum
+
+Shelby Martin
+
+Spencer McWilliams
+
+Sumit Dorle
+
+CSU Chico Design Students:
+
+Carly Culver
+
+Christie Landrie
+
+Mary Trujillo
