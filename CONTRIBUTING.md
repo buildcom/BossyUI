@@ -3,6 +3,7 @@ To get up and developing;
 * We use the fork & pull Git model, fork a local copy.
 * Install Git, Node, Gulp
 * Run `npm install` to install all NPM packages.
+* Run `bower install` to install all bower packages.
 
 Contributing Guide
 ==================
@@ -64,3 +65,60 @@ $ gulp help
 ## Finding Bugs?
 
 We don't write perfect software and systems and platforms change, so if you've found a bug log it in the issue tracker so we can get started fixing it.
+
+Contributors
+============
+
+Built with LOVE by:
+
+Geoff Lawson <geoff.lawson@build.com>
+
+Kevin Buffardi <kbuffardi@csuchico.edu> (CSU Chico Faculty Advisor)
+
+Jason Merino <jasonmerino@gmail.com>
+
+Dan Green <dan.green@build.com>
+
+Dan Sluis <daniel@lulus.com>
+
+Tauseef Jamadar <tmjam.ahmed@gmail.com>
+
+Tuhin Shukla <tuhintshukla@gmail.com>
+
+Erik Mellum
+
+CSU Chico CS Students:
+
+Taber Fitzgerald
+
+Alen Maragoul
+
+Chue Vang
+
+Colin Baldwin
+
+Francisco Tadillo
+
+James Crean
+
+Jay German
+
+Lukas Fink
+
+Martin Mojica
+
+Patrick Barnum
+
+Shelby Martin
+
+Spencer McWilliams
+
+Sumit Dorle
+
+CSU Chico Design Students:
+
+Carly Culver
+
+Christie Landrie
+
+Mary Trujillo
