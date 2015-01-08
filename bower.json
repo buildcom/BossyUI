@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "homepage": "https://github.com/buildcom/BossyUI",
   "description": "An opinionated set of angular directives",
+  "private": true,
   "dependencies": {
     "angular-resource": "1.3.x",
     "angular-animate": "1.3.x"
