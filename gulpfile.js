@@ -6,6 +6,7 @@ var gulp = require('gulp-help')(require('gulp')),
     sequence = require('run-sequence'),
     karma = require('karma').server,
     compass   = require('gulp-compass'),
+    nodemon = require('gulp-nodemon'),
     config = require('./gulp_config.json');
 
 gulp.task('build-sandbox', 'Runs build and adds BossyUI libs to Sandbox', function(callback) {
@@ -66,6 +67,16 @@ gulp.task('run-tests', 'Runs all Karma tests', function() {
     karma.start({
         configFile: __dirname + '/test/karma.conf.js'
     });
+});
+
+gulp.task('serve-sandbox', 'Runs development environment server with reloading', ['build-sandbox'], function() {
+    nodemon({
+        cwd: 'sites/sandbox',
+        script: 'server.js',
+        ext: 'html js',
+        ignore: ['ignored.js']
+    })
+    .on('change', ['jshint']);
 });
 
 gulp.task('jshint', 'Runs JSHint on JS lib', function() {
