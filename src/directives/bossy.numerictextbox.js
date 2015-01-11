@@ -36,10 +36,11 @@ app.controller('bossynumericCtrl',function($scope){
             case 'stock':
                 key.stock++;
                 $scope.s=key.stock;
+                break;
             default:
                 break;
         }
-    }
+    };
     $scope.decrement = function(a){
 
         switch(a){
@@ -73,7 +74,7 @@ app.controller('bossynumericCtrl',function($scope){
                 break;
         }
 
-    }
+    };
 
 });
 
@@ -85,5 +86,5 @@ app.directive('bossynumerictextbox',function(){
         transclude:true,
         templateUrl:'bossy.numerictextbox.html'
 
-    }
-});	
+    };
+});

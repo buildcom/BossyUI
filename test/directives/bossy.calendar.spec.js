@@ -1,19 +1,32 @@
-describe('CalendarControllerUnitTests', function() {
+describe('CalendarUnitTests', function() {
 
     beforeEach(module('bossy.calendar'));
 
-    var ctrl, scope;
+    var ctrl, scope,compile;
     // inject the $controller and $rootScope services
     // in the beforeEach block
-    beforeEach(inject(function($controller, $rootScope) {
+    beforeEach(inject(function($controller, $rootScope,$compile) {
         // Create a new scope that's a child of the $rootScope
+        compile=$compile;
         scope = $rootScope.$new();
         scope.config={};
         // Create the controller
         ctrl = $controller('CalendarController', {
             $scope: scope
         });
+
+
     }));
+    beforeEach(inject(function(){
+
+       // scope = $rootScope.$new();
+        scope.directiveConfig={};
+
+        element = angular.element('<bossy-calendar config="directiveConfig"></bossy-calendar>');
+        scope.$digest();
+
+    }));
+
     describe('Controller Initialization',function(){
 
         it('initialization variables should not be null',function(){
@@ -62,13 +75,27 @@ describe('CalendarControllerUnitTests', function() {
 
         it('calling scope.nextMonth should set the current Month and Year',function(){
 
-            //scope.current=null; //assigning current to null to verify if its set later.
-            console.log(scope.current);
             spyOn(scope,"updateDateMap");
             scope.nextMonth();
             expect(scope.updateDateMap).toHaveBeenCalled();
             expect(scope.current).toNotBe(null);
         })
+
+
+    });
+
+    describe('Bossy Calender Directive',function(){
+
+        it('bossyCalendar should not be null',function(){
+
+            var dirConf={};
+            var x = compile('<bossy-calendar config="dirConf"></bossy-calendar>')(scope);
+            scope.$digest();
+            console.log(x);
+            expect(element).toNotBe(null);
+           // console.log(element.html());
+            //console.log(element.attr("config")).toMatch('directiveConfig');
+        });
 
 
     });

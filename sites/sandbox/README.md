@@ -1,18 +1,18 @@
 Sandbox for BossyUI Directives
 ===
 
-## To Prep
+## To Start Development
 
-From your local repo root, run: `gulp build-sandbox` (you might need to run `npm install` if you haven't in a while).
+To get started developing `cd` into the `sites/sandbox` directory.
 
-## To Launch
- 
-CD to sites/sandbox: `cd sites/sandbox`.  Open with your favorite micro web server, ie: `python -m SimpleHTTPServer`.
-The page will read-up all the directives current to bossy.all.js, and give you a list to pick from.  Clicking on 'Open 
-in JSFiddle' will launch a fiddle with the directive as would be used.
+```bash
+cd sites/sandbox
+```
 
-## Notes
+Then run the `gulp serve-sandbox` command to start up the development server.
 
-The sandbox should only be used to test your developed directive as it would be used.  It is not met as a development 
-environment.
+```bash
+gulp serve-sandbox
+```
 
+Once the server is up and running visit [http://localhost:3000](http://localhost:3000) in your web browser. The served page will read-up all the directives current to bossy.all.js, and give you a list to pick from. Clicking on 'Open in JSFiddle' will launch a fiddle with the directive as would be used.
