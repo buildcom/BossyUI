@@ -2,6 +2,13 @@
 <html lang="en" ng-app="SandboxApp">
 <head>
     <title>BossyUI Sandbox</title>
+    <style>
+        .codepen-mover-button{
+            background: #222;
+            display: inline-block;
+            padding: 5px 5px 0 10px;
+        }
+    </style>
     <link href="lib/bower/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="lib/bower/angular/angular.min.js"></script>
 </head>
@@ -11,11 +18,17 @@
         <div class="col-md-6 col-md-offset-3">
             <h3>BossyUI Directive Sandbox</h3>
             <hr/>
-
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="directive in directives">
-                    <h4 style="display: inline-block;">{{directive}}</h4>
-                    <button type="submit" class="btn btn-success pull-right" ng-click="openFiddle(directive)">Open in JSFiddle</button>
+                    <div class="row">
+                        <div class="col-md-6"><h4 style="display: inline-block;">{{directive}}</h4></div>
+                        <div class="col-md-3"><button type="submit" class="btn btn-success pull-right" ng-click="openFiddle(directive)">Open in JSFiddle</button></div>
+                        <div class="col-md-3">
+                            <span class="codepen-mover-button">
+                                <input ng-click="postToCodepen(directive)" type="image" title="Open in code pen" src="http://s.cdpn.io/3/cp-arrow-right.svg" width="25" height="25" value="Create Pen">
+                            </span>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
