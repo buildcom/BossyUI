@@ -46,13 +46,11 @@ app.controller('SliderController', ['$scope', function ($scope) {
         //button should show up in the middle now or close to if uneven
         $scope.value = parseInt(($scope.max + $scope.min) / 2);
         for (var current = $scope.min; current <= $scope.max; current++) {
-            if (current < ($scope.value)) {
+            if (current < $scope.value) {
                 $scope.fillWidth++;
             }
-            if (current > ($scope.value)) {
+            if (current > $scope.value) {
                 $scope.emptWidth++;
-            }
-            if (current == ($scope.value)) {
             }
         }
         $scope.ngModel = $scope.value;
@@ -253,14 +251,14 @@ app.directive('bossySlider', function ($compile) {
                 //checks to see if there is a max attribute
                 if (iAttr.max) {
                     scope.max = parseInt(iAttr.max);
-                    if (scope.max === NaN) {
+                    if (isNaN(scope.max)) {
                         scope.max = 10;
                     }
                 }
                 //checks to see if there is a min attribute
                 if (iAttr.min) {
                     scope.min = parseInt(iAttr.min);
-                    if (scope.min === NaN) {
+                    if (isNaN(scope.min)) {
                         scope.min = 1;
                     }
                 }

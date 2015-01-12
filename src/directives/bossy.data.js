@@ -6,7 +6,7 @@ angular.module('bossy.data', [])
 @requires $http
 
 */
-    .factory('$data', ['$q','$http',function ($q,$http) {
+    .factory('$data', ['$q','$http', '$scope', function ($q, $http, $scope) {
 
         function _getData (data) {
             if (angular.isString(data)) {

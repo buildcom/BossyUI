@@ -36,6 +36,7 @@ app.controller('bossynumericCtrl',function($scope){
             case 'stock':
                 key.stock++;
                 $scope.s=key.stock;
+                break;
             default:
                 break;
         }
