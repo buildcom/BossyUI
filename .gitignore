@@ -4,6 +4,8 @@ bower_components
 npm-debug.log
 sites/sandbox/lib/bower
 sites/sandbox/css
+sites/sandbox/bossy.*
+sites/sandbox/bossy-*
 sites/sandbox/js/bossy.all.js
 
 # Demo/Docs Site
