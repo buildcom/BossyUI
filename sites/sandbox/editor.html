@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html ng-app="SandboxApp">
+<head>
+    <title>BossyUI Sandbox Editor</title>
+    <link href="lib/bower/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sandbox.css" rel="stylesheet">
+    <script src="lib/bower/angular/angular.min.js"></script>
+</head>
+<body>
+
+<!--<div>-->
+    <!--<div id="topnav" ng-style="{width: {{cols}} + 'px'}">Top navbar</div>-->
+
+    <!--<div id="sidebar" ng-style="{width: {{cols}} + 'px'}">-->
+        <!--<h3>Side navbar</h3>-->
+    <!--</div>-->
+
+    <!--<div id="content">-->
+
+        <!--<div id="top-content" ng-style="{width: {{cols}} + 'px'}">Top content <p>{{content}}</p></div>-->
+
+        <!--<div id="bottom-content" ng-style="{width: {{cols}} + 'px'}">Bottom content</div>-->
+
+        <!--<div id="content-resizer"-->
+             <!--resizer="horizontal"-->
+             <!--resizer-height="6"-->
+             <!--resizer-top="#top-content"-->
+             <!--resizer-bottom="#bottom-content">-->
+            <!--<div id="html-editor">this is my html</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+    <!--<div id="sidebar-resizer"-->
+         <!--resizer="vertical"-->
+         <!--resizer-width="6"-->
+         <!--resizer-left="#sidebar"-->
+         <!--resizer-right="#content"-->
+         <!--resizer-max="400">-->
+    <!--</div>-->
+<!--</div>-->
+
+<section class="well container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h4>RESULT</h4>
+            <iframe id="editor-result" frameborder="3"></iframe>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="position: relative">
+            <h4>HTML</h4>
+            <div id="html-editor" class="editor">Start typing</div>
+        </div>
+        <div class="col-md-4" style="position: relative">
+            <h4>CSS</h4>
+            <div id="css-editor" class="editor"></div>
+        </div>
+        <div class="col-md-4" style="position: relative">
+            <h4>JAVASCRIPT</h4>
+            <div id="js-editor" class="editor"></div>
+        </div>
+    </div>
+    <br/>
+</section>
+
+<script src="js/bossy.all.js"></script>
+<script src="js/resizer.js"></script>
+<script src="js/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    (function(){
+        var frame = document.getElementById("editor-result");
+            bodyTag = frame.contentWindow.document.getElementsByTagName("body")[0],
+            headTag = frame.contentWindow.document.getElementsByTagName("head")[0],
+            style = document.createElement('style'),
+            script = document.createElement('script');
+
+        headTag.appendChild(style);
+        headTag.appendChild(script);
+
+        var styleTag = frame.contentWindow.document.getElementsByTagName("style")[0],
+                jsTag = frame.contentWindow.document.getElementsByTagName("script")[0];
+        var htmlEditor = ace.edit("html-editor");
+        htmlEditor.setTheme("ace/theme/monokai");
+        htmlEditor.getSession().setMode("ace/mode/html");
+        htmlEditor.getSession().on('change', function() {
+            bodyTag.innerHTML = htmlEditor.getValue();
+        });
+
+        var jsEditor = ace.edit("js-editor");
+        jsEditor.setTheme("ace/theme/monokai");
+        jsEditor.getSession().setMode("ace/mode/javascript");
+        jsEditor.getSession().on('change', function() {
+            jsTag.innerHTML = jsEditor.getValue();
+        });
+
+        var cssEditor = ace.edit("css-editor");
+        cssEditor.setTheme("ace/theme/monokai");
+        cssEditor.getSession().setMode("ace/mode/css");
+        cssEditor.getSession().on('change', function() {
+            styleTag.innerHTML = cssEditor.getValue();
+        });
+    })();
+</script>
+</body>
+</html>

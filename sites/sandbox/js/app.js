@@ -1,7 +1,7 @@
 angular.module('SandboxApp', [
-    'bossy'
+    'bossy',
+    'mc.resizer'
 ])
-
     .controller('SandboxCtrl', ['$scope', '$document', '$window', function($scope, $document, $window) {
         var module =  angular.module('bossy'),
             bossyRef = $window.location.origin + $window.location.pathname.replace('index.html', '') + 'js/bossy.all.js';
