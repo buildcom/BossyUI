@@ -74,34 +74,48 @@
         var frame = document.getElementById("editor-result");
             bodyTag = frame.contentWindow.document.getElementsByTagName("body")[0],
             headTag = frame.contentWindow.document.getElementsByTagName("head")[0],
-            style = document.createElement('style'),
-            script = document.createElement('script');
+            htmlTag = frame.contentWindow.document.getElementsByTagName("html")[0],
+            style = document.createElement('style');
 
         headTag.appendChild(style);
-        headTag.appendChild(script);
+        //headTag.appendChild(script);
 
         var styleTag = frame.contentWindow.document.getElementsByTagName("style")[0],
                 jsTag = frame.contentWindow.document.getElementsByTagName("script")[0];
         var htmlEditor = ace.edit("html-editor");
         htmlEditor.setTheme("ace/theme/monokai");
         htmlEditor.getSession().setMode("ace/mode/html");
-        htmlEditor.getSession().on('change', function() {
-            bodyTag.innerHTML = htmlEditor.getValue();
-        });
+        htmlEditor.getSession().on('change', onHTMLChange);
 
         var jsEditor = ace.edit("js-editor");
         jsEditor.setTheme("ace/theme/monokai");
         jsEditor.getSession().setMode("ace/mode/javascript");
-        jsEditor.getSession().on('change', function() {
-            jsTag.innerHTML = jsEditor.getValue();
-        });
+        jsEditor.getSession().on('change', onJSChange);
 
         var cssEditor = ace.edit("css-editor");
         cssEditor.setTheme("ace/theme/monokai");
         cssEditor.getSession().setMode("ace/mode/css");
-        cssEditor.getSession().on('change', function() {
+        cssEditor.getSession().on('change', onCSSChange);
+
+        function onHTMLChange(){
+            bodyTag.innerHTML = htmlEditor.getValue();
+        }
+        function onCSSChange(){
             styleTag.innerHTML = cssEditor.getValue();
-        });
+        }
+        function onJSChange(){
+            onHTMLChange();
+            onCSSChange();
+
+            var currentScript = frame.contentWindow.document.getElementById("custom-scripts");
+            if(currentScript) 
+                currentScript.remove();
+            var script = document.createElement('script');
+            script.id = "custom-scripts";
+            script.innerHTML = jsEditor.getValue();
+            htmlTag.appendChild(script);
+        }
+
     })();
 </script>
 </body>
