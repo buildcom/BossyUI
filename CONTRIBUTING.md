@@ -64,7 +64,7 @@ $ gulp help
 
 ## JavaScript Style Guide
 
-We make use of the [aribnb style guide](https://github.com/airbnb/javascript). Please make sure that all contributed code is in line with this style guide. Code will be rejected if it is not in line with this standard.
+We make use of the [airbnb style guide](https://github.com/airbnb/javascript). Please make sure that all contributed code is in line with this style guide. Code will be rejected if it is not in line with this standard.
 
 ## Finding Bugs?
 
