@@ -27,7 +27,7 @@ angular.module('bossy.data', [])
         function _getRemoteData(data) {
             var deferred = $q.defer();
 
-            $http.get( data, { responseType: 'json' } )
+            $http.get(data, { responseType: 'json' } )
                 .success( function( data ) {
                     if( angular.isObject( data ) ) {
                         deferred.resolve(data);
@@ -37,7 +37,7 @@ angular.module('bossy.data', [])
                         deferred.reject('directive.bossyForm: GET request to url did not produce data object');
                     }
                 })
-                .error( function(response_data, status) {
+                .error(function(responseData, status) {
                     //TODO: replace error message with online doc link like ng errors
                     deferred.reject('directive.bossyForm: GET request to url "' + data + '" failed with status "' + status + '"');
                 });
