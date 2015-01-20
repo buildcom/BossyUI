@@ -82,3 +82,17 @@ div.editor {
     height: 400px;
     border: 2px solid;
 }
+#debugDiv{
+    height: 100px;
+    overflow: auto;
+    line-height: 10px;
+    position: fixed;
+    width: 300px;
+    right: -1px;
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    font-size: 10px;
+    border: 1px solid black;
+    padding-left: 5px;
+    top: 0;
+}

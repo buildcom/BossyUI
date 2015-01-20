@@ -1,0 +1,12 @@
+<div>
+    <!-- ng-repeat repeats all values of array choices in label -->
+    <label ng-repeat="choice in choices">
+        <!-- label input with custom directive -->
+        <input type="checkbox" bossy-checkbox-multiselect="name.choices" bossy-list-value="choice"> {{choice}}
+    </label>
+    <br />
+    <button ng-click="selectAll()">select all</button>
+    <button ng-click="deselectAll()">deselect all</button>
+    <br />
+    choices: {{ name.choices }}
+</div>
