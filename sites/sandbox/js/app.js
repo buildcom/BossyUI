@@ -2,48 +2,34 @@ angular.module('SandboxApp', [
     'bossy'
 ])
 
-    .controller('SandboxCtrl', ['$scope', '$document', '$window', function($scope, $document, $window) {
+    .directive('loadDirective', [function() {
+        return function(scope, element, attrs) {
+            element.bind('click', function() {
+                scope.apply(attrs.enter);
+            });
+        };
+    }])
+
+    .controller('DemoCtrl', ['$scope', '$document', '$window', '$compile', function($scope, $document, $window, $compile) {
         var module =  angular.module('bossy');
 
         $scope.directives = [];
+        $scope.directiveConfig = {};
 
         for (var i in module.requires) {
             $scope.directives.push(module.requires[i]);
         }
 
-        $scope.openFiddle = function (directive) {
-            var url = 'http://jsfiddle.net/api/post/angularjs/1.2.1/',
-                form = angular.element('<form style="display: none;" target="_blank" method="post" action="' + url + '"></form>'),
-                js = angular.element('<input type="hidden" name="js">'),
-                html = angular.element('<input type="hidden" name="html">'),
-                resources = angular.element('<input type="hidden" name="resources">'),
-                bossyRef = $window.location.origin + $window.location.pathname.replace('index.html', '') + 'js/bossy.all.js';
+        $scope.developLocally = function(directive) {
+            var demo;
+            var html;
 
-            var htmlCode = '' +
-                '<script src="' + bossyRef + '"></script>\n' +
-                '<div ng-app="sandboxApp" ng-controller="sandboxCtrl">\n' +
-                '   <' + directive.replace('.', '-') + ' config="directiveConfig">\n' +
-                '</div>';
+            demo = angular.element(document.getElementById('demo'));
+            html = '<' + directive.replace('.', '-') + ' config="directiveConfig">';
 
-            html.attr('value', htmlCode);
-            form.append(html);
+            $compile(demo.html(html))($scope);
 
-            var jsCode = '' +
-                'angular.module("sandboxApp", ["bossy"])\n\n' +
-                '.controller("sandboxCtrl", ["$scope", function($scope) {\n' +
-                '' +
-                '   $scope.directiveConfig = {};\n' +
-                '}])\n\n;';
-
-            js.attr('value', jsCode);
-            form.append(js);
-
-            resources.attr('value', '');
-            form.append(resources);
-
-            $document.find('body').append(form);
-            form[0].submit();
-            form.remove();
         };
+
     }])
 ;

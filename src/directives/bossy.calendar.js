@@ -157,7 +157,6 @@ angular.module('bossy.calendar', [])
 		return {
 			restrict: 'AE',
 			scope: {
-				ngModel: '=',
 				config: '='
 			},
 			templateUrl: 'bossy.calendar.html',

@@ -44,18 +44,21 @@ If your terminal returns a version number then you are good to go. If it does no
 
 With the Node.js installer you will also get the NPM CLI (Node Package Manager Command Line Interface) which your computer will use to download packages from the NPM registry.
 
-### Install all NPM/Bower packages
+### Install all NPM and Bower packages
 
 ```bash
 $ npm install
+$ bower install
 ```
 
 ### Gulp
+
 We use Gulp as our build system.  To install gulp, run:
 
 ```bash
 $ npm install --global gulp
 ```
+
 To get a list of availble build commands, run:
 
 ```bash
@@ -65,6 +68,17 @@ $ gulp help
 ## JavaScript Style Guide
 
 We make use of the [airbnb style guide](https://github.com/airbnb/javascript). Please make sure that all contributed code is in line with this style guide. Code will be rejected if it is not in line with this standard.
+
+## Before You Pull Request
+
+Before you go to Github and submit your pull request be sure to run:
+
+```bash
+$ gulp jshint
+$ gulp run-tests
+```
+
+As long as those tasks do not present you with any errors you are ready to submit your pull request.
 
 ## Finding Bugs?
 

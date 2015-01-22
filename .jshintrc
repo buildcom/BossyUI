@@ -17,7 +17,6 @@
     "eqeqeq": true,
     "eqnull": true,
     "evil": false,
-    "indent": 2,
     "newcap": true,
     "expr": true,
     "forin": false,
