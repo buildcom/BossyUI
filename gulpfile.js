@@ -77,8 +77,9 @@ gulp.task('run-tests', 'Runs all Karma tests', function() {
 });
 
 gulp.task('serve-sandbox', 'Runs development environment server', ['build-sandbox'], function() {
-	gulp.watch(config.paths.scss.src, ['build-sass', 'sandbox-copy-css', 'sandbox-copy-templates']);
-	gulp.watch(config.paths.js.src, ['build-js', 'sandbox-copy-js', 'sandbox-copy-templates']);
+	gulp.watch(config.paths.scss.src, ['build-sass', 'sandbox-copy-css']);
+	gulp.watch(config.paths.js.src, ['build-js', 'sandbox-copy-js']);
+	gulp.watch(['src/directives/templates/*.html'], ['sandbox-copy-templates']);
 
 	return gulp.src('')
 		.pipe(shell([

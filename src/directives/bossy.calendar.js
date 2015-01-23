@@ -79,10 +79,10 @@ angular.module('bossy.calendar', [])
 					} else if (thisDate.getHours() === 1) {
 						thisDate = (new Date(thisDate.getTime() - universal.HOUR));
 					}
-					var _date = getStandardTime(thisDate);
-					_date.dayInMonth = thisDate.getMonth() === $scope.current.raw.getMonth() ? 'day-in-month' : '';
-					_date.disabledDay = dayIsOutOfRange(_date) ? 'disabled-day' : '';
-					week.push(_date);
+					var date = getStandardTime(thisDate);
+					date.dayInMonth = thisDate.getMonth() === $scope.current.raw.getMonth() ? 'day-in-month' : '';
+					date.disabledDay = dayIsOutOfRange(date) ? 'disabled-day' : '';
+					week.push(date);
 				}
 				firstWeekDay = new Date(firstWeekDay.getTime() + (7 * universal.DAY));
 				$scope.dateMap.push(week);
