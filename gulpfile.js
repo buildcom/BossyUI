@@ -18,6 +18,7 @@ gulp.task('build-sandbox', 'Runs build and adds BossyUI libs to Sandbox', functi
 		'build-sass',
 		'sandbox-copy-js',
 		'sandbox-copy-css',
+		'sandbox-copy-templates',
 		callback);
 });
 

@@ -2,14 +2,6 @@ angular.module('SandboxApp', [
     'bossy'
 ])
 
-    .directive('loadDirective', [function() {
-        return function(scope, element, attrs) {
-            element.bind('click', function() {
-                scope.apply(attrs.enter);
-            });
-        };
-    }])
-
     .controller('DemoCtrl', ['$scope', '$document', '$window', '$compile', function($scope, $document, $window, $compile) {
         var module =  angular.module('bossy');
 
