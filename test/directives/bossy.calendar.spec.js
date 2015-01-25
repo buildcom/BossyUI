@@ -1,10 +1,15 @@
 describe('CalendarUnitTests', function() {
-
+    /**
+     * using module() makes the calendar module available for testing
+     */
     beforeEach(module('bossy.calendar'));
-
     var ctrl, scope,compile;
-    // inject the $controller and $rootScope services
-    // in the beforeEach block
+    /**
+     * @param {$controller} $controller
+     * @param {$rootScope} $rootScope
+     * @param {@compile} $compile
+     *  @ngInject
+     */
     beforeEach(inject(function($controller, $rootScope,$compile) {
         // Create a new scope that's a child of the $rootScope
         compile=$compile;
@@ -19,12 +24,8 @@ describe('CalendarUnitTests', function() {
     }));
     beforeEach(inject(function(){
 
-       // scope = $rootScope.$new();
         scope.directiveConfig={};
-
         element = angular.element('<bossy-calendar config="directiveConfig"></bossy-calendar>');
-        scope.$digest();
-
     }));
 
     describe('Controller Initialization',function(){
@@ -60,9 +61,6 @@ describe('CalendarUnitTests', function() {
 
             scope.updateDateMap();
             expect(scope.dateMap).toNotBe(null);
-
-
-
         })
 
         it('calling scope.selectDate should set the selectedDate',function(){
@@ -87,14 +85,8 @@ describe('CalendarUnitTests', function() {
     describe('Bossy Calender Directive',function(){
 
         it('bossyCalendar should not be null',function(){
-
-            var dirConf={};
-            var x = compile('<bossy-calendar config="dirConf"></bossy-calendar>')(scope);
-            scope.$digest();
-            expect(x).toNotBe(null);
+            expect(element).toNotBe(null);
         });
-
-
     });
 
 
