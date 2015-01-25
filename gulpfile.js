@@ -1,13 +1,14 @@
 var gulp = require('gulp-help')(require('gulp')),
-  jshint = require('gulp-jshint'),
-  install = require('gulp-install'),
-  concat = require('gulp-concat'),
-  sourcemaps = require('gulp-sourcemaps'),
-  sequence = require('run-sequence'),
-  karma = require('karma').server,
-  compass   = require('gulp-compass'),
-  nodemon = require('gulp-nodemon'),
-  config = require('./gulp_config.json');
+	shell = require('gulp-shell'),
+	jshint = require('gulp-jshint'),
+	install = require('gulp-install'),
+	concat = require('gulp-concat'),
+	sourcemaps = require('gulp-sourcemaps'),
+	sequence = require('run-sequence'),
+	karma = require('karma').server,
+	compass = require('gulp-compass'),
+	nodemon = require('gulp-nodemon'),
+	config = require('./gulp_config.json');
 
 gulp.task('build-sandbox', 'Runs build and adds BossyUI libs to Sandbox', function(callback) {
 
@@ -17,6 +18,7 @@ gulp.task('build-sandbox', 'Runs build and adds BossyUI libs to Sandbox', functi
 		'build-sass',
 		'sandbox-copy-js',
 		'sandbox-copy-css',
+		'sandbox-copy-templates',
 		callback);
 });
 
@@ -32,6 +34,12 @@ gulp.task('sandbox-copy-js', false, function() {
 	return gulp
 		.src(['dist/js/bossy.all.js'])
 		.pipe(gulp.dest('sites/sandbox/js'));
+});
+
+gulp.task('sandbox-copy-templates', false, function() {
+	return gulp
+		.src(['src/directives/templates/*.html'])
+		.pipe(gulp.dest('sites/sandbox'));
 });
 
 gulp.task('sandbox-copy-css', false, function() {
@@ -69,14 +77,15 @@ gulp.task('run-tests', 'Runs all Karma tests', function() {
 	});
 });
 
-gulp.task('serve-sandbox', 'Runs development environment server with reloading', ['build-sandbox'], function() {
-    nodemon({
-        cwd: 'sites/sandbox',
-        script: 'server.js',
-        ext: 'html js',
-        ignore: ['ignored.js']
-    })
-    .on('change', ['jshint']);
+gulp.task('serve-sandbox', 'Runs development environment server', ['build-sandbox'], function() {
+	gulp.watch(config.paths.scss.src, ['build-sass', 'sandbox-copy-css']);
+	gulp.watch(config.paths.js.src, ['build-js', 'sandbox-copy-js']);
+	gulp.watch(['src/directives/templates/*.html'], ['sandbox-copy-templates']);
+
+	return gulp.src('')
+		.pipe(shell([
+			'node sites/sandbox/server.js'
+		]));
 });
 
 gulp.task('jshint', 'Runs JSHint on JS lib', function() {
@@ -88,8 +97,7 @@ gulp.task('jshint', 'Runs JSHint on JS lib', function() {
 });
 
 gulp.task('watch', 'Watcher task', function() {
-
-	gulp.watch(config.paths.scss.src, ['build-scss']);
+	gulp.watch(config.paths.scss.src, ['build-sass']);
 	gulp.watch(config.paths.js.src, ['build-js']);
 });
 

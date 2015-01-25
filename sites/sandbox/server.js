@@ -2,11 +2,12 @@ var http = require('http'),
 	fs = require('fs'),
 	path = require('path');
 
-http.createServer(function (request, response) {
+http.createServer(function (req, res) {
 
-	var filePath = '.' + request.url;
-	if (filePath == './')
-		filePath = './index.html';
+	var filePath = './sites/sandbox' + req.url;
+	if (filePath === './sites/sandbox/') {
+		filePath = './sites/sandbox/index.html';
+	}
 
 	var extname = path.extname(filePath);
 	var contentType = 'text/html';
@@ -24,18 +25,20 @@ http.createServer(function (request, response) {
 		if (exists) {
 			fs.readFile(filePath, function(error, content) {
 				if (error) {
-					response.writeHead(500);
-					response.end();
+					res.writeHead(500);
+					res.end();
 				}
 				else {
-					response.writeHead(200, { 'Content-Type': contentType });
-					response.end(content, 'utf-8');
+					res.writeHead(200, {
+						'Content-Type': contentType
+					});
+					res.end(content, 'utf-8');
 				}
 			});
 		}
 		else {
-			response.writeHead(404);
-			response.end();
+			res.writeHead(404);
+			res.end();
 		}
 	});
 
