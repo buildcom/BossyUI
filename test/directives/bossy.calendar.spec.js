@@ -1,6 +1,7 @@
 describe('CalendarUnitTests', function() {
     /**
-     * using module() makes the calendar module available for testing
+     * using module() makes the calendar module
+     * available for testing
      */
     beforeEach(module('bossy.calendar'));
     var ctrl, scope,compile;

@@ -7,14 +7,11 @@ describe('bossyData',function(){
 
     beforeEach(inject(function($rootScope) {
         scope = $rootScope.$new();
-
     })
     );
 
        beforeEach(inject(function(_$data_,_$q_)
         {
-
-
             dataService = _$data_;
             deferred = _$q_.defer();
             deferred.resolve('data');
@@ -27,13 +24,11 @@ describe('bossyData',function(){
 
         dataService.getData();
         expect(dataService.getData).toHaveBeenCalledWith();
-
     });
 
     it('getData should be called with arguments',function(){
         dataService.getData('abc');
         expect(dataService.getData).toHaveBeenCalledWith('abc');
-
     });
 
     var input = {
@@ -70,5 +65,4 @@ describe('bossyData',function(){
         expect(dataService.getData).toHaveBeenCalledWith(input);
         expect(data).toMatch(input);
     });
-
 });
