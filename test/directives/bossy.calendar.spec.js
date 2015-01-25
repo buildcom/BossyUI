@@ -20,9 +20,8 @@ describe('CalendarUnitTests', function() {
         ctrl = $controller('CalendarController', {
             $scope: scope
         });
-
-
     }));
+
     beforeEach(inject(function(){
 
         scope.directiveConfig={};
@@ -79,8 +78,6 @@ describe('CalendarUnitTests', function() {
             expect(scope.updateDateMap).toHaveBeenCalled();
             expect(scope.current).toNotBe(null);
         })
-
-
     });
 
     describe('Bossy Calender Directive',function(){
