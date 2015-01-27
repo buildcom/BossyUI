@@ -1,7 +1,8 @@
 ## tl;dr;
 To get up and developing;
 * We use the fork & pull Git model, fork a local copy.
-* Install Git, Node, Gulp
+* Install Git, Node, Gulp, Bower
+* Run `npm install -g bower gulp` to install Bower and Gulp.js globally.
 * Run `npm install` to install all NPM packages.
 * Run `bower install` to install all bower packages.
 
@@ -10,7 +11,6 @@ Contributing Guide
 
 Let's build something awesome. We can make it happen with your help.
 
-## Verbose Version
 We use the [fork & pull model](https://help.github.com/articles/using-pull-requests#fork--pull) to accept new code into the project. If you aren't familiar with that workflow, Github's [Using Pull Requests](https://help.github.com/articles/using-pull-requests) article is a great primer.
 
 If you plan on contributing more than once and want to keep your fork up to date with this project we recommend checking out these guides on [configuring a remote for a fork](https://help.github.com/articles/configuring-a-remote-for-a-fork) and [syncing a fork](https://help.github.com/articles/syncing-a-fork).
@@ -21,20 +21,21 @@ The easiest way to get involved is to join in the conversation on this repositor
 
 ## Adding Code
 
-If you want to dive in and help contribute some code we'll have some coding guidelines for you to checkout soon. Stay tuned.
+We make use of the [airbnb style guide](https://github.com/airbnb/javascript). Please make sure that all contributed code is in line with this style guide. Code will be rejected if it is not in line with this standard.
 
 ## Environment Setup
 
-To get developing you will need to have a few programs installed which will make things easier as you develop.
+To get developing you will need to have a few programs.
 
-### Git
+### 1. Git
 
-[Installation Instructions](http://git-scm.com/book/en/Getting-Started-Installing-Git)
+Follow the [installation instructions](http://git-scm.com/book/en/Getting-Started-Installing-Git) on the git website to get setup with git.
 
 *Note For Windows Users*: mysysgit comes with a tool called `git bash` which is the recommened shell to run commands in.
 
-### Node.js and NPM
-First you will need to make sure you have [Node.js](http://nodejs.org) installed on your machine. If you are unsure if you have Node.js installed on your computer you can run this command in your terminal to check.
+### 2. Node.js and NPM
+
+Next make sure you have [Node.js](http://nodejs.org) installed on your machine. If you are unsure if you have Node on your computer you can run this command in your terminal to check.
 
 ```bash
 $ node -v
@@ -44,30 +45,34 @@ If your terminal returns a version number then you are good to go. If it does no
 
 With the Node.js installer you will also get the NPM CLI (Node Package Manager Command Line Interface) which your computer will use to download packages from the NPM registry.
 
-### Install all NPM and Bower packages
+### 3. Bower & Gulp.js
+
+Install Bower and Gulp.js globally on your machine.
+
+```bash
+$ npm install -g bower gulp
+```
+
+### 4. Project Node modules
+
+Install project Node module and Bower dependencies.
 
 ```bash
 $ npm install
 $ bower install
 ```
 
-### Gulp
+### 5. Pull up the sandbox
 
-We use Gulp as our build system.  To install gulp, run:
-
-```bash
-$ npm install --global gulp
-```
-
-To get a list of availble build commands, run:
+We use Gulp as our task runner and build system and to serve the sandbox environment. To see the changes you're developing run:
 
 ```bash
-$ gulp help
+$ gulp serve-sandbox
 ```
 
-## JavaScript Style Guide
+You can then see changes you are making to directives as you develop them at [http://localhost:3000](http://localhost:3000).
 
-We make use of the [airbnb style guide](https://github.com/airbnb/javascript). Please make sure that all contributed code is in line with this style guide. Code will be rejected if it is not in line with this standard.
+*Hint: if you want to easily see all gulp tasks available run `gulp help` in your terminal.*
 
 ## Before You Pull Request
 
