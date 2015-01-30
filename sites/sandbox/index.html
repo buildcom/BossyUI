@@ -5,29 +5,41 @@
     <link href="css/bossy.css" rel="stylesheet">
     <link href="lib/bower/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="lib/bower/angular/angular.min.js"></script>
+    <script src="lib/bower/ui-router/release/angular-ui-router.min.js"></script>
 </head>
-<body ng-controller="DemoCtrl" style="margin: 50px;">
+<body ng-controller="DemoCtrl" style="margin: 50px;min-width: 1200px;">
 
-    <div class="row" style="margin-top: 70px;margin-left: 10px;margin-right:10px;">
+    <div class="row">
         <div class="col-xs-12">
             <h3>BossyUI Directive Sandbox</h3>
             <hr/>
         </div>
-
-        <div class="col-xs-5">
-
-            <ul class="list-group">
-                <li class="list-group-item" ng-repeat="directive in directives">
-                    <div style="display: inline-block;">{{directive}}</div>
-                    <button class="btn btn-success btn-xs pull-right clearfix" ng-click="developLocally(directive)" title="Edit {{directive}}">
-                        <span class="glyphicon glyphicon-edit"></span>
-                    </button>
-                </li>
-            </ul>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="list-group">
+                <a ui-sref="{{directive}}" class="list-group-item" ng-repeat="directive in directives" ng-click="developLocally(directive)">
+                    <h4>{{directive}}
+                    <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+                    </h4>
+                </a>
+            </div>
         </div>
-
-        <div class="col-xs-7">
-            <div id="demo" class="center"></div>
+        <div class="col-xs-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Results</h3>
+                </div>
+                <ui-view></ui-view>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Option Settings</h3>
+                </div>
+                <div class="panel-body" style="padding: 5px;">
+                    <div id="options" contenteditable="true"></div>
+                </div>
+            </div>
         </div>
     </div>
 
