@@ -5,14 +5,14 @@
 				{% assign pages = site.pages | sort:"order" %}
 				{% for page in pages %}
 					{% if page.parent == "" %}
-						<li class="menu-style-1">
-							<a ui-sref="{{ page.slug }}" ui-sref-active="active">{{ page.title }}</a>
+						<li class="menuStyle--a" ui-sref-active="active">
+							<a ui-sref="{{ page.slug }}">{{ page.title }}</a>
 							<ul>
 								{% assign child = site.pages | sort:"order" %}
 								{% for child in site.pages %}
 									{% if child.parent == page.slug %}
-										<li class="menu-style-2">
-											<a ui-sref="{{child.parent}}({ component: '{{child.slug}}' })" ui-sref-active="active">{{ child.title }}</a>
+										<li class="menuStyle--b" ui-sref-active="active">
+											<a ui-sref="{{child.parent}}({ component: '{{child.slug}}' })">{{ child.title }}</a>
 										</li>
 									{% endif %}
 								{% endfor %}

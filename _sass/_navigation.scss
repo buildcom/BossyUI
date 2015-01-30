@@ -1,4 +1,4 @@
-.menu-style-1 {
+.menuStyle--a {
 	width: 33.3333%;
 	float: left;
 	> a {
@@ -13,18 +13,37 @@
 		&:hover {
 			background-color: $color-green;
 			color: #fff;
+			* {
+				fill: #fff;
+			}
+		}
+	}
+
+	&.active {
+		> a {
+			color: #00ADA7;
+			cursor: default;
+
+			* {
+				fill: #00ADA7;
+			}
+
+			&:hover {
+				background-color: #fff;
+				color: #00ADA7;
+			}
 		}
 	}
 }
 
 
-.menu-style-2 {
+.menuStyle--b {
 	width: 100%;
 	box-shadow: 0 1px rgba(black, 0.2), 1px 0 rgba(black, 0.2), -1px 0 rgba(black, 0.2);
 
 	> a {
 		@include transition(background, .4s);
-		
+
 		display: block;
 		height: 40px;
 		line-height: 40px;
@@ -34,6 +53,24 @@
 		&:hover {
 			background-color: #00ADA7;
 			color: #fff;
+		}
+	}
+
+	&.active {
+		> a {
+			color: #00ADA7;
+			cursor: default;
+
+			* {
+				fill: #00ADA7;
+			}
+
+			&:hover {
+				background-color: #fff;
+				* {
+					fill: #fff;
+				}
+			}
 		}
 	}
 }

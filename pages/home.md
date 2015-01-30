@@ -1,17 +1,16 @@
 ---
-title: <img id="logo" src="./img/logo_horizontal.svg" />
+title: <bossy-svg id="logo" data-src="img/logo_horizontal.svg"></bossy-svg>
 slug: home
 order: 1
 ---
-
-
 <section role="banner">
 	<div class="container">
 		<p class="hero">An Opinionated Set of Angular Directives…</p>
 	</div>
 </section>
 <section>
-	<img class="logo-large" src="./img/mark.svg">
+	<bossy-svg data-src="img/mark.svg" class="mark"></bossy-svg>
+	<!-- <img class="logo-large" src="./img/mark.svg"> -->
 </section>
 <section>
 <div class="grid">

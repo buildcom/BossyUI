@@ -2,18 +2,20 @@
 	background-color: $color-green;
 }
 
+.mark {
+	display: block;
+	margin: 0 auto;
+	width: 150px;
+}
+
 body {
 	font-family: "Lato", sans-serif;
 	font-size: 11pt;
 	padding-top: 40px;
 	background: url(../img/bg.svg) no-repeat top left #f3f3f3;
-  // background-repeat: no-repeat;
-  // background-position: center 100px;
-  // background-attachment: fixed;
-  // background-width: 100%;
 
 	> header {
-		
+
 	}
 }
 
@@ -26,8 +28,8 @@ a, a:visited {
 }
 
 #logo {
-	padding-top: 4px;
-	max-width: 150px;
+	display: block;
+	max-width: 200px;
 	margin: 0 auto;
 }
 
@@ -84,7 +86,7 @@ a, a:visited {
 	text-align: center;
 	&:before {
 		font-size: 48pt;
-		
+
 	}
 }
 

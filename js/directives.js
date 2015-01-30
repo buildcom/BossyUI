@@ -33,7 +33,14 @@ angular.module('bossyui.directives', [])
       },
     }
   })
-  ;
+
+  .directive('bossySvg', function($state, $rootScope, $http){
+    return {
+      templateUrl: function(elem, attr){
+        return attr.src;
+      }
+    }
+  });
   // function(scope, element, attrs) {
   //     angular.element($window).bind("scroll", function() {
   //     	console.log("success");

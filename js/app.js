@@ -4,15 +4,16 @@ var myApp = angular.module( 'bossyui', [
 	'bossy',
 	'bossyui.controllers',
 	'bossyui.directives'
+	// 'bossyui.services'
 	])
 
 
-// configuring our routes 
+// configuring our routes
 // =============================================================================
 .config(function($stateProvider, $urlRouterProvider) {
-	
+
 	$stateProvider
-	
+
 		// route to show our basic form (/form)
 	.state('home', {
 		url: '/',
@@ -68,4 +69,11 @@ var myApp = angular.module( 'bossyui', [
 		}
 	})
 	$urlRouterProvider.otherwise('/');
-});
+})
+
+.run(function($rootScope, $templateCache, $http) {
+	$http.get('img/logo_horizontal.svg')
+		.success(function(data){
+			$templateCache.put('logo', data);
+		})
+	});
