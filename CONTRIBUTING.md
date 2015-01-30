@@ -67,7 +67,7 @@ $ bower install
 We use Gulp as our task runner and build system and to serve the sandbox environment. To see the changes you're developing run:
 
 ```bash
-$ gulp serve-sandbox
+$ gulp serve
 ```
 
 You can then see changes you are making to directives as you develop them at [http://localhost:3000](http://localhost:3000).
