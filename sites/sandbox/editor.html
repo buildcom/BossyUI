@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html ng-app="SandboxApp">
 <head>
-    <title>BossyUI Sandbox Editor</title>
+    <title>BossyUI Sandbox - Editor</title>
     <link href="lib/bower/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/sandbox.css" rel="stylesheet">
     <script src="lib/bower/angular/angular.min.js"></script>
+    <script src="js/app.js"></script>
 </head>
 <body>
 <section class="well container">
-    <div class="row">
+    <div ng-controller="EditorCtrl" class="row">
         <div class="col-md-12">
             <h4>RESULT</h4>
             <div id="debugcontainer"><div id="debugDiv"></div><span onclick="toggleDebugger(this)" id="close-debug">></span></div>
