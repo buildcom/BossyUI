@@ -3,8 +3,7 @@ angular.module('bossy.calendar', [])
 
 		var _monthMaps = {},
 			options = {},
-			defaults = {
-			},
+			defaults = {},
 			universal = {
 				DAY: 24 * 60 * 60 * 1000,
 				HOUR: 60 * 60 * 1000
@@ -60,9 +59,11 @@ angular.module('bossy.calendar', [])
 		};
 
 		$scope.updateDateMap = function() {
-			var firstWeekDay = new Date($scope.current.time - ($scope.current.raw.getDay() * universal.DAY)),
+			var rawCurrentDay = ($scope.current.raw.getDay() * universal.DAY),
+				firstWeekDay = new Date($scope.current.time - rawCurrentDay),
 				isMonthComplete = false;
-				$scope.dateMap = [];
+
+			$scope.dateMap = [];
 
 			while (!isMonthComplete) {
 				var week = [];
@@ -70,17 +71,18 @@ angular.module('bossy.calendar', [])
 					isMonthComplete = true;
 				}
 				for (var weekDay = 0; weekDay < 7; weekDay++) {
-					var _thisDate = (new Date(firstWeekDay.getTime() + (weekDay * universal.DAY)));
+					var rawThisDate = firstWeekDay.getTime() + (weekDay * universal.DAY),
+						thisDate = (new Date(rawThisDate));
 					// fix for DST oddness
-					if (_thisDate.getHours() === 23) {
-						_thisDate = (new Date(_thisDate.getTime() + universal.HOUR));
-					} else if (_thisDate.getHours() === 1) {
-						_thisDate = (new Date(_thisDate.getTime() - universal.HOUR));
+					if (thisDate.getHours() === 23) {
+						thisDate = (new Date(thisDate.getTime() + universal.HOUR));
+					} else if (thisDate.getHours() === 1) {
+						thisDate = (new Date(thisDate.getTime() - universal.HOUR));
 					}
-					var _date = getStandardTime(_thisDate);
-					_date.dayInMonth = _thisDate.getMonth() === $scope.current.raw.getMonth() ? 'day-in-month' : '';
-					_date.disabledDay = dayIsOutOfRange(_date) ? 'disabled-day' : '';
-					week.push(_date);
+					var date = getStandardTime(thisDate);
+					date.dayInMonth = thisDate.getMonth() === $scope.current.raw.getMonth() ? 'day-in-month' : '';
+					date.disabledDay = dayIsOutOfRange(date) ? 'disabled-day' : '';
+					week.push(date);
 				}
 				firstWeekDay = new Date(firstWeekDay.getTime() + (7 * universal.DAY));
 				$scope.dateMap.push(week);
@@ -114,7 +116,8 @@ angular.module('bossy.calendar', [])
 		}
 
 		function dayIsOutOfRange(_date) {
-			if (options.start && options.end && (_date.time < options.start.time || _date.time > options.end.time)) {
+			var hasRange = options.start && options.end;
+			if (hasRange && (_date.time < options.start.time || _date.time > options.end.time)) {
 				return true;
 			} else if (options.start && _date.time < options.start.time) {
 				return true;
@@ -154,7 +157,6 @@ angular.module('bossy.calendar', [])
 		return {
 			restrict: 'AE',
 			scope: {
-				ngModel: '=',
 				config: '='
 			},
 			templateUrl: 'templates/bossy.calendar.html',//$templateCache.get('templates/bossy.calendar.html'),

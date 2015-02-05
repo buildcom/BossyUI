@@ -16,8 +16,8 @@ angular.module('bossy.form', [])
                 number: function () {
                     return '<input type="number"/>';
                 },
-                text: function (obj, key, is_required) {
-                    return '<bossy-input title="\''+obj.title+'\'" type="\''+ obj.input_type +'\'" value="\''+_data.address[key]+'\'"' + ( is_required ? ' required' : '' ) + '></bossy-input>';
+                text: function (obj, key, isRequired) {
+                    return '<bossy-input title="\''+obj.title+'\'" type="\''+ obj.inputType +'\'" value="\''+_data.address[key]+'\'"' + ( isRequired ? ' required' : '' ) + '></bossy-input>';
                 },
                 textArea: function () {
                     return '<textarea></textarea>';
@@ -49,8 +49,8 @@ angular.module('bossy.form', [])
                     console.log(fullKey + ' is '+ value.type);
                     switch (value.type) {
                         case 'object':
-                            var required_list = typeof( value.required ) !== 'undefined' ? value.required : null;
-                            template += buildTemplate(value.properties, fullKey, required_list );
+                            var requiredList = typeof( value.required ) !== 'undefined' ? value.required : null;
+                            template += buildTemplate(value.properties, fullKey, requiredList );
                             break;
                         case 'array':
                             template += buildTemplate(value.items.properties, fullKey);
@@ -59,11 +59,11 @@ angular.module('bossy.form', [])
                             template += _itemTemplate.number(value);
                             break;
                         case 'string':
-                            var is_required = false;
+                            var isRequired = false;
                             if( required && required.indexOf(key) !== -1 ) {
-                                is_required = true;
+                                isRequired = true;
                             }
-                            template += _itemTemplate.text(value, key, is_required);
+                            template += _itemTemplate.text(value, key, isRequired);
                             break;
                         case 'boolean':
                             template += _itemTemplate.checkbox(value);

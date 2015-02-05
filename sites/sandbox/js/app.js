@@ -104,6 +104,15 @@ angular.module('SandboxApp', [
         form[0].submit();
         form.remove();
     };
+    //$scope.developLocally = function(directive) {
+    //    var demo,
+    //        html;
+    //
+    //    demo = angular.element(document.getElementById('results'));
+    //    html = '<' + directive.replace('.', '-') + ' config="directiveConfig">';
+    //
+    //    $compile(demo.html(html))($scope);
+    //};
 }])
 .directive('doneTyping', function($rootScope){
     

@@ -2,40 +2,48 @@
 <html lang="en" ng-app="SandboxApp">
 <head>
     <title>BossyUI Sandbox</title>
-    <style>
-        .codepen-mover-button{
-            background: #222;
-            display: inline-block;
-            padding: 5px 5px 0 10px;
-        }
-    </style>
+    <link href="css/bossy.css" rel="stylesheet">
     <link href="lib/bower/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="lib/bower/angular/angular.min.js"></script>
+    <script src="lib/bower/ui-router/release/angular-ui-router.min.js"></script>
 </head>
-<body ng-controller="SandboxCtrl" style="margin: 50px;">
+<body ng-controller="DemoCtrl" style="margin: 50px;min-width: 1200px;">
 
-    <div class="row" style="margin-top: 70px;margin-left: 10px;margin-right:10px;">
-        <div class="col-md-6 col-md-offset-3">
+    <div class="row">
+        <div class="col-xs-12">
             <h3>BossyUI Directive Sandbox</h3>
             <hr/>
-            <ul class="list-group">
-                <li class="list-group-item" ng-repeat="directive in directives">
-                    <div class="row">
-                        <div class="col-md-6"><h4 style="display: inline-block;">{{directive}}</h4></div>
-                        <div class="col-md-3"><button type="submit" class="btn btn-success pull-right" ng-click="openFiddle(directive)">Open in JSFiddle</button></div>
-                        <div class="col-md-3">
-                            <span class="codepen-mover-button">
-                                <input ng-click="postToCodepen(directive)" type="image" title="Open in code pen" src="http://s.cdpn.io/3/cp-arrow-right.svg" width="25" height="25" value="Create Pen">
-                            </span>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="list-group">
+                <a ui-sref="{{directive}}" class="list-group-item" ng-repeat="directive in directives" ng-click="developLocally(directive)">
+                    <h4>{{directive}}
+                    <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+                    </h4>
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Results</h3>
+                </div>
+                <ui-view></ui-view>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Option Settings</h3>
+                </div>
+                <div class="panel-body" style="padding: 5px;">
+                    <div id="options" contenteditable="true"></div>
+                </div>
+            </div>
         </div>
     </div>
 
 <script src="js/bossy.all.js"></script>
-<script src="js/resizer.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
