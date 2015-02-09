@@ -86,7 +86,7 @@ div.editor {
     height: 70%;
     line-height: 10px;
     position: fixed;
-    width: 300px;
+    width: 0px;
     right: -1px;
     background-color: rgba(0,0,0,0.7);
     color: white;

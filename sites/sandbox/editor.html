@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html ng-app="SandboxApp">
+<html ng-app="editorApp">
 <head>
     <title>BossyUI Sandbox - Editor</title>
     <link href="lib/bower/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/sandbox.css" rel="stylesheet">
-    <script src="lib/bower/angular/angular.min.js"></script>
-    <script src="js/app.js"></script>
+    <link href="css/sandbox.css" rel="stylesheet">  
+    <style type="text/css">
+    .ace_editor { height: 300px; }
+    </style>  
 </head>
 <body>
-<section class="well container">
-    <div ng-controller="EditorCtrl" class="row">
+<section ng-controller="EditorCtrl" class="well container">
+    <div class="row">
         <div class="col-md-12">
             <h4>RESULT</h4>
-            <div id="debugcontainer"><div id="debugDiv"></div><span onclick="toggleDebugger(this)" id="close-debug">></span></div>
+            <div id="debugcontainer"><div id="debugDiv"></div><span ng-click="toggleDebugger(this)" id="close-debug">></span></div>
 
             <iframe id="editor-result" frameborder="3">
             </iframe>
@@ -21,158 +22,72 @@
     <div class="row">
         <div class="col-md-4" style="position: relative">
             <h4>HTML</h4>
-            <div id="html-editor" done-typing class="editor">test</div>
+            <div ui-ace="{
+              require: ['ace/ext/language_tools'],
+              advanced: {
+                  enableSnippets: true,
+                  enableBasicAutocompletion: true,
+                  enableLiveAutocompletion: true
+              },
+              useWrapMode : true,
+              showGutter: true,
+              theme:'twilight',
+              mode: 'html',
+              firstLineNumber: 1,
+              onLoad: aceHTMLLoaded,
+              onChange: aceHTMLChanged
+            }"></div>
+
         </div>
         <div class="col-md-4" style="position: relative">
             <h4>CSS</h4>
-            <div id="css-editor" class="editor"></div>
+            <div ui-ace="{
+              require: ['ace/ext/language_tools'],
+              advanced: {
+                  enableSnippets: true,
+                  enableBasicAutocompletion: true,
+                  enableLiveAutocompletion: true
+              },
+              useWrapMode : true,
+              showGutter: true,
+              theme:'twilight',
+              mode: 'css',
+              firstLineNumber: 1,
+              onLoad: aceCSSLoaded,
+              onChange: aceCSSChanged
+            }"></div>
+
         </div>
         <div class="col-md-4" style="position: relative">
             <h4>JAVASCRIPT</h4>
-            <div id="js-editor" class="editor"></div>
+            <div ui-ace="{
+              require: ['ace/ext/language_tools','js/bossy.all.js'],
+              advanced: {
+                  enableSnippets: true,
+                  enableBasicAutocompletion: true,
+                  enableLiveAutocompletion: true
+              },
+              useWrapMode : true,
+              showGutter: true,
+              theme:'twilight',
+              mode: 'javascript',
+              firstLineNumber: 1,
+              onLoad: aceJSLoaded,
+              onChange: aceJSChanged
+            }"></div>
+
         </div>
     </div>
     <br/>     
 </section>
 
+<script src="lib/bower/angular/angular.min.js"></script>
+<script src="lib/bower/ui-router/release/angular-ui-router.min.js"></script>
 <script src="js/bossy.all.js"></script>
 <script src="js/resizer.js"></script>
-<script src="js/app.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js" type="text/javascript" charset="utf-8"></script>
-<script>
-    function toggleDebugger($this){
-        var debuggerElement = document.getElementById("debugcontainer");
-        console.log(debuggerElement.clientWidth);
-        if(debuggerElement.clientWidth === 298){
-            debuggerElement.style.width = 0;
-            $this.innerHTML = "<";
-        } else {
-            debuggerElement.style.width = "300px";
-            $this.innerHTML = ">";
-        }
-    }
-    (function(){
-
-        function EditorFrame(iframeID){
-            var frame = document.getElementById(iframeID),
-            iFdocument = frame.contentWindow.document,
-            bodyTag = iFdocument.getElementsByTagName("body")[0],
-            headTag = iFdocument.getElementsByTagName("head")[0],
-            htmlTag = iFdocument.getElementsByTagName("html")[0],
-            script = iFdocument.createElement("script"),
-            style = iFdocument.createElement('style');
-            headTag.appendChild(style),
-            $this = this;
-
-            var styleTag = iFdocument.getElementsByTagName("style")[0],
-            jsTags = iFdocument.getElementsByTagName("script"),
-            jsTag = jsTags[jsTags.length - 1];
-
-
-            var htmlEditor = ace.edit("html-editor");
-            var jsEditor = ace.edit("js-editor");
-            var cssEditor = ace.edit("css-editor");
-            
-            $this.loadScript = function(url, callback){
-                script.type = "text/javascript";
-
-                if (script.readyState){  //IE
-                    script.onreadystatechange = function(){
-                        if (script.readyState == "loaded" ||
-                                script.readyState == "complete"){
-                            script.onreadystatechange = null;
-                            callback();
-                        }
-                    };
-                } else {  //Others
-                    script.onload = function(){
-                        callback();
-                    };
-                }
-                script.src = url;
-                headTag.appendChild(script);
-            };
-
-            $this.onHTMLChange = function(){
-                bodyTag.innerHTML = htmlEditor.getValue();
-            };
-
-            $this.onCSSChange = function(){
-                styleTag.innerHTML = cssEditor.getValue();
-            };
-
-            $this.onJSChange = function(){
-                $this.onHTMLChange();
-                $this.onCSSChange();
-                
-                var currentScript = iFdocument.getElementById("custom-scripts");
-                if(currentScript) 
-                    currentScript.remove();
-                var script = iFdocument.createElement('script');
-                script.id = "custom-scripts";
-                script.innerHTML = jsEditor.getValue();
-                htmlTag.appendChild(script); 
-            };
-
-
-            htmlEditor.setTheme("ace/theme/monokai");
-            htmlEditor.getSession().setMode("ace/mode/html");
-            htmlEditor.getSession().on('change', $this.onHTMLChange);
-
-
-            jsEditor.setTheme("ace/theme/monokai");
-            jsEditor.getSession().setMode("ace/mode/javascript");
-            jsEditor.getSession().on('change', $this.onJSChange);
-
-
-            cssEditor.setTheme("ace/theme/monokai");
-            cssEditor.getSession().setMode("ace/mode/css");
-            cssEditor.getSession().on('change', $this.onCSSChange);
-        }
-
-        var editFrame = new EditorFrame("editor-result");
-
-        editFrame.loadScript("http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.9/angular.min.js", function(){
-            console.log("Done loading angular script");
-            editFrame.loadScript("http://localhost:3000/js/bossy.all.js", function(){
-                console.log("Done loading bossy script");
-
-            });
-        });      
-
-        
-        function doneTyping(callback, timeout){
-            timeout = timeout || 1e3;
-            var timeoutReference;
-            if (!timeoutReference) return;
-            timeoutReference = null;
-            callback.call();
-        }
-
-    })();
-
-    // Overload the console messates.
-    (function () {
-        var frame = document.getElementById("editor-result");
-        if (typeof console  != "undefined") 
-            if (typeof console.log != 'undefined')
-                console.olog = console.log;
-            else
-                console.olog = function() {};
-
-        console.log = function(message) {
-            console.olog(message);
-            document.getElementById('debugDiv').innerHTML = document.getElementById('debugDiv').innerHTML + ('<p>' + message + '</p>');
-        };
-        
-        frame.contentWindow.onerror = window.onerror = function(message, url, linenumber) {
-            console.log("JavaScript error: " + message + " on line " + 
-                    linenumber + " for " + url);
-        };
-
-        frame.contentWindow.console.error = frame.contentWindow.console.debug = frame.contentWindow.console.info = frame.contentWindow.console.log = console.error = console.debug = console.info =  console.log;
-        
-    })();
-</script>
+<script type="text/javascript" src="lib/bower/angular-ui-ace/ui-ace.js"></script>
+<script type="text/javascript" src="lib/bower/ace-builds/src-min-noconflict/ext-language_tools.js"></script>
+<script type="text/javascript" src="js/editor.js"></script>
 </body>
 </html>

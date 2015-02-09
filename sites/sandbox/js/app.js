@@ -8,7 +8,6 @@ angular.module('SandboxApp', [
 
         angular.forEach(module.requires, function(directive) {
             var name = directive.split('.')[1];
-
             $stateProvider
                 .state(name, {
                     url: '/' + name,
@@ -40,8 +39,5 @@ angular.module('SandboxApp', [
         //    $compile(demo.html(html))($scope);
         //};
     }])
-    .controller('EditorCtrl', ['$scope', '$document', '$window', '$compile', function($scope, $document, $window, $compile) {
-        var editor = angular.element(document.getElementById('editor-result'));
-        $compile(editor.html(editor.html()))($scope);
-    }])
+    
 ;
