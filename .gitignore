@@ -7,6 +7,7 @@ sites/sandbox/css/bossy.css
 sites/sandbox/bossy.*
 sites/sandbox/bossy-*
 sites/sandbox/js/bossy.all.js
+build/js/bossy.all.js
 
 # Demo/Docs Site
 _site/
