@@ -18,11 +18,16 @@
     <div class="row">
         <div class="col-xs-4">
             <div class="list-group">
-                <a ui-sref="{{directive}}" class="list-group-item" ng-repeat="directive in directives" ng-click="developLocally(directive)">
-                    <h4>{{directive}}
-                    <span class="glyphicon glyphicon-chevron-right pull-right"></span>
-                    </h4>
-                </a>
+                <ul class="list-group">
+                  <li class="list-group-item" ng-repeat="directive in directives" ng-click="developLocally(directive)">
+                    <a ui-sref="{{directive}}">
+                        <h4>{{directive}}
+                        <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+                        </h4>                    
+                    </a>            
+                    <a href="editor.html#dir={{directive}}">Open in editor</a>    
+                  </li>
+                </ul>
             </div>
         </div>
         <div class="col-xs-8">

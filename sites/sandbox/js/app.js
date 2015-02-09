@@ -8,7 +8,6 @@ angular.module('SandboxApp', [
 
         angular.forEach(module.requires, function(directive) {
             var name = directive.split('.')[1];
-
             $stateProvider
                 .state(name, {
                     url: '/' + name,
@@ -40,4 +39,5 @@ angular.module('SandboxApp', [
         //    $compile(demo.html(html))($scope);
         //};
     }])
+    
 ;
