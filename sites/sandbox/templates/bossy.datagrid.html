@@ -1,0 +1,16 @@
+<table>
+	<thead>
+		<tr>
+			<td ng-repeat="column in config.data.columns" ng-click="sortColumn($index)">
+				{{column.title}}
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="row in config.data.rows">
+			<td ng-repeat="column in config.data.columns">
+				{{row[$index]}}
+			</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,24 @@
+<div ng-controller='bossynumericCtrl'>
+    <table border="2" style="width:21%">
+        <tr>
+            <td>
+                Price:<button ng-click='increment("price")'> + </button> <input type="text" value={{p}}> <button ng-click='decrement("price")'> - </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Weight:<button ng-click='increment("weight")'> + </button> <input type="text" value={{w}}> <button ng-click='decrement("weight")'> - </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Discount:<button ng-click='increment("discount")'> + </button> <input type="text" value={{d}}> <button ng-click='decrement("discount")'> - </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                In Stock:<button ng-click='increment("stock")'> + </button> <input type="text" value={{s}}> <button ng-click='decrement("stock")'> - </button>
+            </td>
+        </tr>
+    </table>
+</div>

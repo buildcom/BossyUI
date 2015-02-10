@@ -9,7 +9,8 @@ http.createServer(function (req, res) {
 		'./sites/sandbox',
 		'./src/directives',
 		'./src/directives/templates',
-		'./src'
+		'./src',
+		'./dist'
 	];
 	var fileExists = false;
 

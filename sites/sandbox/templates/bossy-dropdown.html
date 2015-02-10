@@ -1,0 +1,5 @@
+<div>
+	<select ng-options="item[dropdown.title] for item in dropdown.items | orderBy: dropdown.title" ng-model="selectedItem" ng-change="dropdown.updateSelectedItem(selectedItem)">
+			<option value="" ng-hide="selectedItem">Please select one...</option>
+	</select>
+</div>
