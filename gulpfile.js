@@ -16,9 +16,7 @@ gulp.task('build-sandbox', 'Runs build and adds BossyUI libs to Sandbox', functi
 		'sandbox-install',
 		'build-js',
 		'build-sass',
-		'sandbox-copy-js',
 		'sandbox-copy-css',
-        'sandbox-copy-templates',
 		callback);
 });
 
@@ -27,19 +25,6 @@ gulp.task('sandbox-install', false, function() {
 	return gulp
 		.src('sites/sandbox/bower.json')
 		.pipe(install());
-});
-
-gulp.task('sandbox-copy-templates', false, function(){
-    return gulp
-        .src('src/directives/templates/*.*')
-        .pipe(gulp.dest('sites/sandbox/templates'));
-});
-
-gulp.task('sandbox-copy-js', false, function() {
-
-	return gulp
-		.src(['dist/js/bossy.all.js'])
-		.pipe(gulp.dest('sites/sandbox/js'));
 });
 
 gulp.task('sandbox-copy-css', false, function() {
@@ -79,7 +64,6 @@ gulp.task('run-tests', 'Runs all Karma tests', function() {
 
 gulp.task('serve', 'Runs development environment server', ['build-sandbox'], function() {
 	gulp.watch(config.paths.scss.src, ['build-sass', 'sandbox-copy-css']);
-	gulp.watch(config.paths.js.src, ['build-js', 'sandbox-copy-js']);
 
 	return gulp.src('')
 		.pipe(shell([

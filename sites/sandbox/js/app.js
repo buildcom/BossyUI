@@ -26,18 +26,7 @@ angular.module('SandboxApp', [
 
         angular.forEach(module.requires, function(directive) {
             $scope.directives.push(directive.split('.')[1]);
-            //$scope.states.push(directive.split('.')[1]);
         });
-
-        //$scope.developLocally = function(directive) {
-        //    var demo,
-        //        html;
-        //
-        //    demo = angular.element(document.getElementById('results'));
-        //    html = '<' + directive.replace('.', '-') + ' config="directiveConfig">';
-        //
-        //    $compile(demo.html(html))($scope);
-        //};
     }])
     
 ;
