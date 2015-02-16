@@ -1,42 +1,33 @@
 .menuStyle--a {
-	width: 33.3333%;
+	width: 25%;
 	float: left;
-	> a {
-		@include transition(background, .4s);
 
-		font-size: 11pt;
+	> a {
+		font-size: 10pt;
 		display: block;
 		height: 40px;
 		line-height: 40px;
 		text-align: center;
-
-		&:hover {
-			background-color: $c-green-a;
-			color: #fff;
-			* {
-				fill: #fff;
-			}
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		position: relative;
+		&:before {
+			content: "";
+			border-bottom: solid 3px $c-blue-a;
+			width: 100%;
+			display: block;
+			top: -3px;
+			left: 0;
+			position: absolute;
+			@include transition(all .25s);
 		}
 	}
 
-	&.active {
-		> a {
-			color: $c-green-a;
-			cursor: default;
-
-			* {
-				fill: #58595B;
-			}
-
-			.logo-mark {
-				fill: $c-green-a;
-			}
-
-			&:hover {
-				background-color: #fff;
-				color: $c-green-a;
-			}
-		}
+	&.active > a, > a:hover {
+		color: $c-blue-a;
+	}
+	&.active > a:before {
+		top: 0;
 	}
 }
 
@@ -51,29 +42,17 @@
 		display: block;
 		height: 40px;
 		line-height: 40px;
-		background-color: white;
+		background-color: #fff;
+		color: #fff;
 		display: block;
 		padding: 0 $pad;
-		&:hover {
-			background-color: $c-green-a;
-			color: #fff;
-		}
 	}
 
-	&.active {
-		> a {
-			color: $c-green-a;
-			cursor: default;
-
-			.logo-mark {
-				fill: $c-green-a;
-			}
-
-			&:hover {
-				background-color: #fff;
-			}
-		}
+	&.active > a, > a:hover {
+		background-color: $c-blue-a;
+		color: #fff;
 	}
+
 }
 
 button, [role="button"] {

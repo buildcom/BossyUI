@@ -1,5 +1,5 @@
 ---
-title: <bossy-svg id="logo" data-src="img/logo_horizontal.svg"></bossy-svg>
+title: Getting Started
 slug: home
 order: 1
 ---

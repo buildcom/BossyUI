@@ -2,6 +2,9 @@
   <div class="container">
 		<nav role="dropdown">
 			<ul>
+				<li class="menuStyle--a">
+					<a ui-sref="home"><bossy-svg id="logo" data-src="img/logo_horizontal.svg"></bossy-svg></a>
+				</li>
 				{% assign pages = site.pages | sort:"order" %}
 				{% for page in pages %}
 					{% if page.parent == "" %}

@@ -15,7 +15,7 @@ body {
 	background: url(../img/bg.svg) no-repeat top left #f3f3f3;
 
 	> header {
-
+		// border-bottom: solid $c-blue-a 5px;
 	}
 }
 
@@ -29,8 +29,9 @@ a, a:visited {
 
 #logo {
 	display: block;
-	max-width: 200px;
+	max-width: 150px;
 	margin: 0 auto;
+	padding-top: 4px;
 }
 
 .table {
