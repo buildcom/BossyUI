@@ -1,5 +1,5 @@
 #bossy_logo_mark {
-	background-color: $color-green;
+	background-color: $c-green-a;
 }
 
 .mark {
@@ -20,7 +20,7 @@ body {
 }
 
 a, a:visited {
-	color: $color-gray;
+	color: $c-gray-a;
 }
 
 [role="main"] {
@@ -91,10 +91,10 @@ a, a:visited {
 }
 
 .button-green {
-	background-color: $color-green;
+	background-color: $c-green-a;
 	color: #fff;
 	&:hover {
-		background-color: lighten($color-green, 5%);
+		background-color: lighten($c-green-a, 5%);
 		box-shadow: 0 0 3px rgba(black, 0.2) inset;
 	}
 }

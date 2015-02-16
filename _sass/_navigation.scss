@@ -11,7 +11,7 @@
 		text-align: center;
 
 		&:hover {
-			background-color: $color-green;
+			background-color: $c-green-a;
 			color: #fff;
 			* {
 				fill: #fff;
@@ -21,16 +21,20 @@
 
 	&.active {
 		> a {
-			color: #00ADA7;
+			color: $c-green-a;
 			cursor: default;
 
 			* {
-				fill: #00ADA7;
+				fill: #58595B;
+			}
+
+			.logo-mark {
+				fill: $c-green-a;
 			}
 
 			&:hover {
 				background-color: #fff;
-				color: #00ADA7;
+				color: $c-green-a;
 			}
 		}
 	}
@@ -51,25 +55,22 @@
 		display: block;
 		padding: 0 $pad;
 		&:hover {
-			background-color: #00ADA7;
+			background-color: $c-green-a;
 			color: #fff;
 		}
 	}
 
 	&.active {
 		> a {
-			color: #00ADA7;
+			color: $c-green-a;
 			cursor: default;
 
-			* {
-				fill: #00ADA7;
+			.logo-mark {
+				fill: $c-green-a;
 			}
 
 			&:hover {
 				background-color: #fff;
-				* {
-					fill: #fff;
-				}
 			}
 		}
 	}

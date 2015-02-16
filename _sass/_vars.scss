@@ -1,12 +1,9 @@
 // Colors
 @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
 
-$color-tan: #B48C74;
-$color-tan_light: #B4A298;
-$color-brown: #68574D;
-$color-green: #62B4B4;
-$color-green_dark: #4D6868;
-$color-gray: #58595B;
+$c-blue-a: #00AAE8;
+$c-green-a: #059172;
+$c-gray-a: gray;
 
 $unit: 20px;
 
@@ -21,4 +18,4 @@ $max-width: 840px;
 $badge: 100px;
 $badge-font-color: #fff;
 
-$badge-color: $color-green_dark;
+$badge-color: $c-green-a;
