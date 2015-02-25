@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,600,700,900);
+
 #bossy_logo_mark {
 	background-color: $c-green-a;
 }
@@ -9,7 +12,7 @@
 }
 
 body {
-	font-family: "Lato", sans-serif;
+	font-family: 'PT Sans', sans-serif;
 	font-size: 11pt;
 	padding-top: 40px;
 	background: url(../img/bg.svg) no-repeat top left #f3f3f3;
@@ -70,8 +73,9 @@ a, a:visited {
 	width: 100%;
 	display: table-cell;
 	vertical-align: middle;
-	font-weight: 100;
+	font-weight: 200;
 	text-align: center;
+	font-family: "Titillium Web", sans-serif;
 }
 
 .logo-large {
