@@ -1,0 +1,22 @@
+<nav role="dropdown">
+	<ul class="table">
+		{% assign pages = site.pages | sort:"order" %}
+		{% for page in pages %}
+			{% if page.parent == "" %}
+				<li class="menuStyle--a" ui-sref-active="active">
+					<a ui-sref="{{ page.slug }}">{{ page.title }}</a>
+					<ul>
+						{% assign child = site.pages | sort:"order" %}
+						{% for child in site.pages %}
+							{% if child.parent == page.slug %}
+								<li class="menuStyle--b" ui-sref-active="active">
+									<a ui-sref="{{child.parent}}({ component: '{{child.slug}}' })">{{ child.title }}</a>
+								</li>
+							{% endif %}
+						{% endfor %}
+					</ul>
+				</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+</nav>

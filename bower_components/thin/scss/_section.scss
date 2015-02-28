@@ -15,8 +15,8 @@ section {
 			padding-top: $module-header-height;
 		}
 	}
-	
-	+ section {
+
+	+ * {
 		margin-top: $section-margin;
 	}
 }

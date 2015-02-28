@@ -1,14 +1,19 @@
-// Colors
-@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Oxygen+Mono|Oxygen:400,300,700);
 
+// Colors
 $c-blue-a: #0076a8;
 $c-green-a: #00b388;
-$c-gray-a: gray;
+$c-value-a: #252525;
+$c-value-b: #979595;
+
+$f-lato       : 'Lato', sans-serif;
+$f-oxygenMono : 'Oxygen Mono', courier;
+$f-oxygen     : 'Oxygen', sans-serif;
 
 $unit: 20px;
 
 $pad: $unit;
-$section-margin: 75px;
+$section-margin: 50px;
 
 $global-footer-height: 40px;
 $module-header-height: $unit;
@@ -19,3 +24,4 @@ $badge: 100px;
 $badge-font-color: #fff;
 
 $badge-color: $c-green-a;
+

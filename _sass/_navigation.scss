@@ -1,8 +1,15 @@
+.table {
+	display: table-row;
+	> * {
+		display: table-cell;
+	}
+}
+
 .menuStyle--a {
-	width: 25%;
-	float: left;
 
 	> a {
+		text-shadow: 0 -1px rgba(black, 0.6);
+		color: #eee;
 		font-size: 10pt;
 		display: block;
 		height: 40px;
@@ -11,26 +18,27 @@
 		text-transform: uppercase;
 		letter-spacing: 0.2em;
 		position: relative;
+		// @include transition(all .5s);
+
 		&:before {
 			content: "";
-			border-bottom: solid 3px $c-blue-a;
+			// border-bottom: solid 3px #fff;
 			width: 100%;
 			display: block;
-			top: -3px;
+			bottom: -3px;
 			left: 0;
 			position: absolute;
-			@include transition(all .25s);
 		}
 	}
 
 	&.active > a, > a:hover {
-		color: $c-blue-a;
+		color: #fff;
+		@include background(linear-gradient(to top, $c-blue-a, darken($c-blue-a, 3)));
 	}
-	&.active > a:before {
-		top: 0;
+	&.active > a {
+		box-shadow: 0 4px 6px rgba(black, 0.05) inset;
 	}
 }
-
 
 .menuStyle--b {
 	width: 100%;
@@ -43,16 +51,15 @@
 		height: 40px;
 		line-height: 40px;
 		background-color: #fff;
-		color: #fff;
+		color: $c-value-b;
 		display: block;
 		padding: 0 $pad;
 	}
 
 	&.active > a, > a:hover {
-		background-color: $c-blue-a;
+		background-color: $c-green-a;
 		color: #fff;
 	}
-
 }
 
 button, [role="button"] {

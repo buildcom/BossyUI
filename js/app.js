@@ -68,6 +68,15 @@ var myApp = angular.module( 'bossyui', [
 			slug: 'about'
 		}
 	})
+
+	.state('contribute', {
+		url: '/contribute',
+		templateUrl: '/BossyUI/pages/contribute.html',
+		controller: 'homeCtrl',
+		data: {
+			slug: 'about'
+		}
+	})
 	$urlRouterProvider.otherwise('/');
 })
 

@@ -1,29 +1,12 @@
 <header id="header">
   <div class="container">
-		<nav role="dropdown">
-			<ul>
-				<li class="menuStyle--a">
-					<a ui-sref="home"><bossy-svg id="logo" data-src="img/logo_horizontal.svg"></bossy-svg></a>
-				</li>
-				{% assign pages = site.pages | sort:"order" %}
-				{% for page in pages %}
-					{% if page.parent == "" %}
-						<li class="menuStyle--a" ui-sref-active="active">
-							<a ui-sref="{{ page.slug }}">{{ page.title }}</a>
-							<ul>
-								{% assign child = site.pages | sort:"order" %}
-								{% for child in site.pages %}
-									{% if child.parent == page.slug %}
-										<li class="menuStyle--b" ui-sref-active="active">
-											<a ui-sref="{{child.parent}}({ component: '{{child.slug}}' })">{{ child.title }}</a>
-										</li>
-									{% endif %}
-								{% endfor %}
-							</ul>
-						</li>
-					{% endif %}
-				{% endfor %}
-			</ul>
-		</nav>
+  	<div class="grid">
+  		<!-- <div class="col-1-6">
+				<a ui-sref="home"><bossy-svg id="logo" data-src="img/mark.svg"></bossy-svg></a>
+  		</div> -->
+  		<div class="col-1">
+  			{% include nav.html %}
+  		</div>
+  	</div>
   </div>
 </header>

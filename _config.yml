@@ -17,12 +17,14 @@ defaults:
       type: "pages"
     values:
       parent: ""
+      layout: "page"
   -
     scope:
       path: "pages/components"
       type: "pages"
     values:
       parent: "components"
+      layout: "page"
   -
     scope:
       path: "pages/getting_started"
@@ -42,4 +44,4 @@ defaults:
       path: "_partials"
       type: "pages"
     values:
-      parent: ""    
+      parent: ""

@@ -1,6 +1,3 @@
----
-layout: default
----
 <div class="post">
 
   <header class="post-header">
