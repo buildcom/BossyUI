@@ -18,11 +18,16 @@
     <div class="row">
         <div class="col-xs-4">
             <div class="list-group">
-                <a ui-sref="{{directive}}" class="list-group-item" ng-repeat="directive in directives" ng-click="developLocally(directive)">
-                    <h4>{{directive}}
-                    <span class="glyphicon glyphicon-chevron-right pull-right"></span>
-                    </h4>
-                </a>
+                <ul class="list-group">
+                  <li class="list-group-item" ng-repeat="directive in directives" ng-click="developLocally(directive)">
+                    <a ui-sref="{{directive}}">
+                        <h4>{{directive}}
+                        <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+                        </h4>
+                    </a>
+                    <a href="editor.html#dir={{directive}}">Open in editor</a>
+                  </li>
+                </ul>
             </div>
         </div>
         <div class="col-xs-8">
@@ -42,6 +47,20 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+=======
+
+<script src="/bossy.js"></script>
+<script src="/bossy.calendar.js"></script>
+<script src="/bossy.data.js"></script>
+<script src="/bossy.data_grid.js"></script>
+<script src="/bossy.dropdown.js"></script>
+<script src="/bossy.form.js"></script>
+<script src="/bossy.input.js"></script>
+<script src="/bossy.numerictextbox.js"></script>
+<script src="/bossy.schema.js"></script>
+<script src="/bossy.tooltip.js"></script>
+>>>>>>> upstream/master
 <script src="js/app.js"></script>
 <script src="js/bossy.all.js"></script>
 </body>

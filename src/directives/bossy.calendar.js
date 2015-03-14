@@ -159,7 +159,7 @@ angular.module('bossy.calendar', [])
 			scope: {
 				config: '='
 			},
-			templateUrl: 'bossy.calendar.html',
+			templateUrl: 'templates/bossy.calendar.html',//$templateCache.get('templates/bossy.calendar.html'),
 			controller: 'CalendarController'
 		};
 	}]);

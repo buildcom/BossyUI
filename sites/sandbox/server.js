@@ -8,7 +8,9 @@ http.createServer(function (req, res) {
 	var static = [
 		'./sites/sandbox',
 		'./src/directives',
-		'./src/directives/templates'
+		'./src/directives/templates',
+		'./src',
+		'./dist'
 	];
 	var fileExists = false;
 
