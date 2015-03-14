@@ -1,4 +1,4 @@
-describe('bossyData',function(){
+xdescribe('bossyData',function(){
 
     var dataService,scope,
         deferred;

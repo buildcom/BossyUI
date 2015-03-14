@@ -16,13 +16,13 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
 
-      'https://code.angularjs.org/1.2.25/angular.js',
-      'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js',
-      'https://code.angularjs.org/1.2.25/angular-mocks.js',
+      'https://code.angularjs.org/1.3.11/angular.js',
+      'https://code.angularjs.org/1.3.11/angular-mocks.js',
       './../src/*.js',
       './../src/directives/templates/*.html',
       './../src/directives/*.js',
-      './directives/*.js'
+      './directives/*.js',
+      './controllers/*.js'
 
     ],
 
@@ -39,8 +39,8 @@ module.exports = function(config) {
     },
 
     ngHtml2JsPreprocessor: {
-        //stripPrefix:'./../'
-     moduleName: 'Templates',
+    // stripPrefix:'./../src/directives/templates/*.html',
+     moduleName: 'bossy-templates'
 
     },
 

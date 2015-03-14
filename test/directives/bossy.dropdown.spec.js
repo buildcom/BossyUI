@@ -2,7 +2,7 @@ describe('bossyDropdown',function() {
     var createCtrl,element;
 
 
-    beforeEach(module('Templates'));
+    beforeEach(module('bossy-templates'));
     beforeEach(inject(function($controller,$http,$compile,$rootScope){
 
          $rootScope.myConfig={

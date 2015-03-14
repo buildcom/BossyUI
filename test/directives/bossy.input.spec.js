@@ -1,7 +1,7 @@
 describe('bossyInput', function() {
 	var element;
 
-	beforeEach(module('Templates'));
+	beforeEach(module('bossy-templates'));
 	beforeEach(inject(function(){
 		element = angular.element('<bossy-input title = "Sample Bossy Input">Bossy Input</bossy-input>');
 
