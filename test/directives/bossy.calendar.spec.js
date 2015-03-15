@@ -1,6 +1,6 @@
-xdescribe('CalendarUnitTests for Directive', function() {
+describe('CalendarUnitTests for Directive', function() {
 
-    var element,scope, e;
+    var element,scope;
 
     /**
      * Load Calendar Templates
@@ -23,7 +23,7 @@ xdescribe('CalendarUnitTests for Directive', function() {
             '</bossy-calendar>'+
             '</div>');
 
-        e = $compile(element)(scope);
+        $compile(element)(scope);
         scope.$digest();
 
     }));
@@ -32,11 +32,6 @@ xdescribe('CalendarUnitTests for Directive', function() {
 
         it('bossyCalendar template should not be null',function(){
 
-            var a = element.html();
-
-            console.log(scope);
-            console.log('##', a);
-            console.log('###', element.html());
 
         });
     });
