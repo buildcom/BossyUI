@@ -33,6 +33,7 @@ section + * {
 
 [role="main"] {
 	margin-top: $margin;
+	margin-bottom: $margin;
 }
 
 #logo {
@@ -143,5 +144,16 @@ section + * {
 	+ .module {
 		padding-top: $pad;
 		box-shadow: 0 2px 1px rgba(black, 0.3);
+	}
+}
+
+.demo {
+	padding: 1em;
+	background-color: #555;
+	margin-top: 1em;
+	.demo {
+		background-color: #888;
+		margin-top: 0;
+		color: #fff;
 	}
 }

@@ -1,0 +1,40 @@
+%clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+%disable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  cursor: default;
+}
+
+%float {
+	@extend %clearfix;
+	> li, > div {
+		float: left;
+	}
+}
+
+%unstyle {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  > * {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+%overlay {
+  background-color: rgba(black, 0.6);
+  color: #fff;
+}

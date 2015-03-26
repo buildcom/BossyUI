@@ -12,8 +12,8 @@ layout: home
 
 <div class="container">
 	<section>
-		<div class="grid">
-			<div class="col-1-3">
+		<div class="grid-3">
+			<div class="col-1">
 				<div class="module">
 					<h3 class="heading-large" align="center">Get started</h3>
 					<p align="center">
@@ -21,7 +21,7 @@ layout: home
 					</p>
 				</div>
 			</div>
-			<div class="col-2-3">
+			<div class="col-2">
 				<div class="">
 					<p>
 						Created with LOVE by Build.com Open Source Consortium - fostering a collaboration between CSU Chico students and Chico, CA software companies on open source projects. Sponsored by Build.com

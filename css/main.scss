@@ -1,9 +1,11 @@
 ---
 ---
 
-@import "bourbon/bourbon";
-@import "syntax-highlighting";
 @import "vars";
-@import "../bower_components/thin/scss/thin";
+@import "extends";
+@import "resets";
+@import "bourbon/bourbon";
+@import "grid";
+@import "syntax-highlighting";
 @import "navigation";
 @import "theme";

@@ -10,15 +10,20 @@ $f-lato       : 'Lato', sans-serif;
 $f-oxygenMono : 'Oxygen Mono', courier;
 $f-oxygen     : 'Oxygen', sans-serif;
 
+$t-size: 12pt;
+$t-leading: 1.5em;
+
 $unit: 20px;
 
 $pad: $unit;
+$margin: $unit;
 $section-margin: 50px;
 
 $global-footer-height: 40px;
 $module-header-height: $unit;
 
 $max-width: 840px;
+$gutter: 1rem;
 
 $badge: 100px;
 $badge-font-color: #fff;
