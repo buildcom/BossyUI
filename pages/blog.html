@@ -1,0 +1,13 @@
+---
+title: Blog
+slug: blog
+order: 7
+---
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a ui-sref="blog({ post: '{{ post.url | prepend: site.baseurl }}' })">{{ post.title }}</a>
+      {{ post.excerpt }}
+    </li>
+  {% endfor %}
+</ul>

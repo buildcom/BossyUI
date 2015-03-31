@@ -25,12 +25,6 @@ defaults:
     values:
       parent: "components"
       layout: "page"
-  -
-    scope:
-      path: "pages/getting_started"
-      type: "pages"
-    values:
-      parent: "getting_started"
 
   -
     scope:

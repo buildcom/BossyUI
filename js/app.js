@@ -33,18 +33,6 @@ var myApp = angular.module( 'bossyui', [
 		}
 	})
 
-	// .state('components', {
-	// 	url: '/components',
-	// 	templateUrl: '/pages/components.html',
-	// 	controller: 'homeCtrl'
-	// })
-
-	// .state('components', {
-	// 	url: '/components',
-	// 	templateUrl: '/pages/components.html',
-	// 	controller: 'homeCtrl'
-	// })
-
 	.state('components',{
 		url: '/components/:component',
 		controller: 'homeCtrl',
@@ -76,6 +64,21 @@ var myApp = angular.module( 'bossyui', [
 		data: {
 			slug: 'about'
 		}
+	})
+
+	.state('blog',{
+		url: '/blog/:post',
+		controller: 'homeCtrl',
+		templateUrl: function ($stateParams){
+			if($stateParams.post) {
+				return $stateParams.post;
+			} else {
+				return '/BossyUI/pages/blog.html'
+			}
+  	},
+  	data: {
+  		slug: "component"
+  	}
 	})
 	$urlRouterProvider.otherwise('/');
 })
