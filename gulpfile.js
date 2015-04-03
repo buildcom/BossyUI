@@ -8,7 +8,9 @@ var gulp = require('gulp-help')(require('gulp')),
 	karma = require('karma').server,
 	compass = require('gulp-compass'),
 	nodemon = require('gulp-nodemon'),
-	config = require('./gulp_config.json');
+	bump = require('gulp-bump'),
+	config = require('./gulp_config.json'),
+	args = require('minimist')(process.argv.slice(2));
 
 gulp.task('build-sandbox', 'Runs build and adds BossyUI libs to Sandbox', function(callback) {
 
@@ -88,4 +90,13 @@ gulp.task('install', 'Runs npm and bower installs', function() {
 	return gulp
 		.src(['./bower.json', './package.json'])
 		.pipe(install());
+});
+
+gulp.task('version', function() {
+	gulp
+		.src(['./bower.json', './package.json'])
+		.pipe(bump({
+			type: args.major ? 'major' : args.minor ? 'minor' : 'patch'
+		}))
+		.pipe(gulp.dest('./'));
 });

@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "chai": "^1.9.1",
+    "gulp-bump": "^0.3.0",
     "gulp-jshint": "^1.8.4",
     "gulp-nodemon": "^1.0.5",
     "gulp-shell": "^0.2.11",
@@ -38,6 +39,7 @@
     "karma-chrome-launcher": "^0.1.4",
     "karma-jasmine": "^0.1.5",
     "karma-ng-html2js-preprocessor": "^0.1.0",
+    "minimist": "^1.1.1",
     "mocha": "^1.21.4"
   }
 }
