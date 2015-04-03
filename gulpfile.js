@@ -46,6 +46,14 @@ gulp.task('build-js', 'Runs build for all lib Javascript', function() {
 		.pipe(gulp.dest(config.paths.js.dist));
 });
 
+gulp.task('copy-templates', 'Copy templates for release', function() {
+	return gulp
+		.src('src/directives/templates/**', {
+			base: 'src/directives'
+		})
+		.pipe(gulp.dest('dist/js'));
+});
+
 gulp.task('build-sass', 'Runs build for all lib Sass/Css', function() {
 
 	return gulp
@@ -92,7 +100,7 @@ gulp.task('install', 'Runs npm and bower installs', function() {
 		.pipe(install());
 });
 
-gulp.task('version', function() {
+gulp.task('release', ['build-sass', 'build-js'], function() {
 	gulp
 		.src(['./bower.json', './package.json'])
 		.pipe(bump({
