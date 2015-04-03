@@ -8,7 +8,10 @@
   ],
   "moduleType": "globals",
   "ignore": [
-    "sites"
+    "*",
+    "!dist/*",
+    "!bower.json",
+    "!README.md"
   ],
   "keywords": [
     "angular",
