@@ -100,7 +100,7 @@ gulp.task('install', 'Runs npm and bower installs', function() {
 		.pipe(install());
 });
 
-gulp.task('release', ['build-sass', 'build-js'], function() {
+gulp.task('release', ['build-sass', 'build-js', 'copy-templates'], function() {
 	gulp
 		.src(['./bower.json', './package.json'])
 		.pipe(bump({
