@@ -1,4 +1,4 @@
-ddescribe('CalendarUnitTests for Directive', function() {
+describe('CalendarUnitTests for Directive', function() {
 
 
 
@@ -8,12 +8,6 @@ ddescribe('CalendarUnitTests for Directive', function() {
      * Load Calendar Templates
      */
     beforeEach(module('bossy-templates'));
-
-    /**
-     * using module() makes the calendar module
-     * available for testing
-     */
-    beforeEach(angular.mock.module('bossy.calendar'));
 
     beforeEach(inject(function($rootScope,$compile){
 
@@ -34,6 +28,7 @@ ddescribe('CalendarUnitTests for Directive', function() {
 
         it('bossyCalendar template should not be null',function(){
 
+            expect(element).toNotBe(null);
 
         });
     });
