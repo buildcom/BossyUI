@@ -18,7 +18,7 @@
     "directives"
   ],
   "homepage": "https://github.com/buildcom/BossyUI",
-  "private": false,
+  "private": true,
   "dependencies": {
     "angular-resource": "1.3.x",
     "angular-animate": "1.3.x"
