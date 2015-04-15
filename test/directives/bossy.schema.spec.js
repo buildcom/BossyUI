@@ -3,7 +3,7 @@ describe('bossySchema test', function(){
 	var schemaService,
 		rootScope,
 		deferred;
-	beforeEach(module('Templates'));
+	beforeEach(module('bossy-templates'));
 	beforeEach(module('bossy.schema'));
 	beforeEach(inject(function(_$schema_, _$rootScope_, _$q_) {
 		schemaService = _$schema_;

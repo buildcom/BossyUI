@@ -1,29 +1,34 @@
-describe('bossyData',function(){
+xdescribe('bossyData',function(){
 
-    var dataService,
+    var dataService,scope,
         deferred;
 
     beforeEach(module('bossy.data'));
 
-    beforeEach(inject(function(_$data_,_$q_) {
-            dataService = _$data_;
+    beforeEach(inject(function($rootScope) {
+        scope = $rootScope.$new();
+    })
+    );
 
+       beforeEach(inject(function(_$data_,_$q_)
+        {
+            dataService = _$data_;
             deferred = _$q_.defer();
             deferred.resolve('data');
+
             spyOn(dataService,'getData').andReturn(deferred.promise);
         })
     );
 
     it('should call getData function',function(){
+
         dataService.getData();
         expect(dataService.getData).toHaveBeenCalledWith();
-
     });
 
     it('getData should be called with arguments',function(){
         dataService.getData('abc');
         expect(dataService.getData).toHaveBeenCalledWith('abc');
-
     });
 
     var input = {
@@ -33,7 +38,7 @@ describe('bossyData',function(){
             title: {
                 type: 'string',
                 tag: 'bossy-label',
-                title: 'Login to enter',
+                title: 'Login to enter'
             },
             terms: {
                 type: 'boolean',
@@ -60,5 +65,4 @@ describe('bossyData',function(){
         expect(dataService.getData).toHaveBeenCalledWith(input);
         expect(data).toMatch(input);
     });
-
 });

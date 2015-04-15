@@ -1,4 +1,8 @@
 angular.module('bossy.calendar', [])
+    .run(function($templateCache){
+        $templateCache.put('bossy-calendar.html', 'templates/bossy-calendar.html');
+
+    })
 	.controller('CalendarController', ['$scope', function ($scope) {
 
 		var _monthMaps = {},
@@ -159,7 +163,7 @@ angular.module('bossy.calendar', [])
 			scope: {
 				config: '='
 			},
-			templateUrl: 'templates/bossy.calendar.html',//$templateCache.get('templates/bossy.calendar.html'),
+			templateUrl:$templateCache.get('templates/bossy.calendar.html'),//'templates/bossy.calendar.html'
 			controller: 'CalendarController'
 		};
 	}]);
