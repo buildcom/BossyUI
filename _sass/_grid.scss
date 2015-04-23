@@ -49,7 +49,7 @@
 	&.rows {
 		margin-bottom: -$gutter;
 		> * {
-			padding-bottom: $gutter;
+			margin-bottom: $gutter;
 		}
 	}
 
