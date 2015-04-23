@@ -158,3 +158,63 @@ section + * {
 		color: #fff;
 	}
 }
+
+// Color page
+
+.demo-color {
+	color: #ffffff;
+	text-align: center;
+	.dark {
+		background-color: #2C2C2C;
+		padding: 1em;
+		margin-top: 1em;
+	}
+	.darkgrey {
+		background-color: #595959;
+		padding: 1em;
+		margin-top: 1em;
+		float: left;
+		width: 50%;
+	}
+	.lightgrey {
+		background-color: #B0B0B0;
+		padding: 1em;
+		margin-top: 1em;
+		float: right;
+		width: 50%;
+	}
+	.white {
+		background-color: #ffffff;
+		color: #262626;
+		padding: 1em;
+		margin-top: 1em;
+		border: 1px #EEE solid;
+	}
+	.primary {
+		background-color: #0076a8;
+		padding: 1em;
+		margin-top: 1em;
+		&.light {
+			background-color: #B9E3F5;
+			float: left;
+			width: 50%;
+		}
+		&.dark {
+			background-color: #005274;
+			float: right;
+			width: 50%;
+		}
+		&.inverse {
+			color: #000000;
+		}
+	}
+	.accent {
+		background-color: #00b388;
+		padding: 1em;
+		margin-top: 1em;
+	}
+	.nospace {
+		padding: 0;
+		margin: 0;
+	}
+}
