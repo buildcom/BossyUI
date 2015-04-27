@@ -6,7 +6,8 @@ var gulp = require('gulp-help')(require('gulp')),
 	sourcemaps = require('gulp-sourcemaps'),
 	sequence = require('run-sequence'),
 	karma = require('karma').server,
-	compass = require('gulp-compass'),
+	sass = require('gulp-sass'),
+	sourcemaps = require('gulp-sourcemaps'),
 	nodemon = require('gulp-nodemon'),
 	bump = require('gulp-bump'),
 	config = require('./gulp_config.json'),
@@ -58,11 +59,12 @@ gulp.task('build-sass', 'Runs build for all lib Sass/Css', function() {
 
 	return gulp
 		.src(config.paths.scss.src)
-		.pipe(compass({
-			style: 'compressed',
-			sass: 'src/scss',
-			css: config.paths.css.dist
-		}));
+		.pipe(sourcemaps.init())
+		.pipe(sass({
+			outputStyle: 'compressed'
+		}))
+		.pipe(sourcemaps.write('./'))
+		.pipe(gulp.dest(config.paths.css.dist));
 });
 
 gulp.task('run-tests', 'Runs all Karma tests', function() {
