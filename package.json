@@ -26,9 +26,7 @@
     "gulp-install": "^0.2.0",
     "gulp-jsdoc-to-markdown": "^1.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sourcemaps": "~1.1.1",
     "gulp-util": "^3.0.4",
-    "karma": "~0.12.19",
     "run-sequence": "^1.0.2"
   },
   "devDependencies": {
