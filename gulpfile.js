@@ -1,15 +1,19 @@
 var gulp = require('gulp-help')(require('gulp')),
+    fs = require('fs'),
 	shell = require('gulp-shell'),
 	jshint = require('gulp-jshint'),
 	install = require('gulp-install'),
 	concat = require('gulp-concat'),
+    rename = require('gulp-rename'),
 	sourcemaps = require('gulp-sourcemaps'),
 	sequence = require('run-sequence'),
 	karma = require('karma').server,
 	sass = require('gulp-sass'),
+    util = require('gulp-util'),
 	sourcemaps = require('gulp-sourcemaps'),
 	nodemon = require('gulp-nodemon'),
 	bump = require('gulp-bump'),
+    gulpJsdoc2md = require('gulp-jsdoc-to-markdown'),
 	config = require('./gulp_config.json'),
 	args = require('minimist')(process.argv.slice(2));
 
@@ -65,6 +69,20 @@ gulp.task('build-sass', 'Runs build for all lib Sass/Css', function() {
 		}))
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest(config.paths.css.dist));
+});
+
+gulp.task('build-docs', function(){
+    //var template = require('./docs/templates/template.hbs');
+
+    return gulp.src('src/directives/bossy.chart.js')
+        .pipe(gulpJsdoc2md({ template: fs.readFileSync("./docs/templates/directive.hbs", "utf8") }))
+        .on('error', function(err){
+            util.log(util.colors.red('jsdoc2md failed'), err.message)
+        })
+        .pipe(rename(function(path){
+            path.extname = '.md';
+        }))
+        .pipe(gulp.dest('dist/docs'));
 });
 
 gulp.task('run-tests', 'Runs all Karma tests', function() {
