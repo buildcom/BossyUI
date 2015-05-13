@@ -43,6 +43,7 @@ order: 5
 .bossy-calendar-header {}
 .bossy-calendar-header-day {}
 {% endhighlight %}
+		mulit-word names use camle case eg: multiMenu
 	</div>
 </section>
 
