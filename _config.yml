@@ -2,8 +2,8 @@
 title: Bossy UI
 email: your-email@domain.com
 description: >
-baseurl: "/BossyUI" # the subpath of your site, e.g. /blog/
-url: "http://buildcom.github.io/" # the base hostname & protocol for your site
+baseurl: "/" # the subpath of your site, e.g. /blog/
+url: "http://bossyui.io/#/" # the base hostname & protocol for your site
 # twitter_username: jekyllrb
 # github_username:  jekyll
 
