@@ -17,7 +17,7 @@ var myApp = angular.module( 'bossyui', [
 		// route to show our basic form (/form)
 	.state('home', {
 		url: '/',
-		templateUrl: '/BossyUI/pages/home.html',
+		templateUrl: '/pages/home.html',
 		controller: 'homeCtrl',
 		data: {
 			slug: 'home'
@@ -26,7 +26,7 @@ var myApp = angular.module( 'bossyui', [
 
 	.state('getting_started', {
 		url: '/getting_started',
-		templateUrl: '/BossyUI/pages/getting_started.html',
+		templateUrl: '/pages/getting_started.html',
 		controller: 'homeCtrl',
 		data: {
 			slug: 'getting-started'
@@ -38,9 +38,9 @@ var myApp = angular.module( 'bossyui', [
 		controller: 'homeCtrl',
 		templateUrl: function ($stateParams){
 			if($stateParams.component) {
-				return '/BossyUI/pages/components/' + $stateParams.component + '.html';
+				return '/pages/components/' + $stateParams.component + '.html';
 			} else {
-				return '/BossyUI/pages/components.html'
+				return '/pages/components.html'
 			}
   	},
   	data: {
@@ -50,7 +50,7 @@ var myApp = angular.module( 'bossyui', [
 
 	.state('about', {
 		url: '/about',
-		templateUrl: '/BossyUI/pages/about.html',
+		templateUrl: '/pages/about.html',
 		controller: 'homeCtrl',
 		data: {
 			slug: 'about'
@@ -59,7 +59,7 @@ var myApp = angular.module( 'bossyui', [
 
 	.state('contribute', {
 		url: '/contribute',
-		templateUrl: '/BossyUI/pages/contribute.html',
+		templateUrl: '/pages/contribute.html',
 		controller: 'homeCtrl',
 		data: {
 			slug: 'about'
@@ -73,7 +73,7 @@ var myApp = angular.module( 'bossyui', [
 			if($stateParams.post) {
 				return $stateParams.post;
 			} else {
-				return '/BossyUI/pages/blog.html'
+				return '/pages/blog.html'
 			}
   	},
   	data: {
