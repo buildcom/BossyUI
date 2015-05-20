@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "start": "gulp serve",
-    "postinstall": "npm install"
+    "start": "npm start"
   },
   "repository": {
     "type": "git",
