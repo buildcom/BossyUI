@@ -1,1 +1,1 @@
-web: node node_modules/gulp/bin/gulp serve
+web: node sites/sandbox/server.js
