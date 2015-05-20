@@ -4,8 +4,7 @@
   "description": "An opinionated set of AngularJS directives used to build rich and interactive web sites.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "start": "npm start"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",

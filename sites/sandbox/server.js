@@ -1,6 +1,7 @@
 var http = require('http'),
 	fs = require('fs'),
-	path = require('path');
+	path = require('path'),
+	port = process.env.NODE_ENV === 'production' ? 80 : 3000;
 
 http.createServer(function (req, res) {
 
@@ -50,6 +51,6 @@ http.createServer(function (req, res) {
 		res.end();
 	}
 
+}).listen(port, '127.0.0.1');
 
-}).listen(3000, '127.0.0.1');
-console.log('Server running at http://localhost:3000/');
+console.log('Server running at http://localhost:'+port);
