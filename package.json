@@ -32,7 +32,8 @@
     "lazypipe": "^0.2.3",
     "gulp-livereload": "~3.8.0",
     "gulp-autoprefixer": "~2.3.0",
-    "gulp-uglify": "~1.2.0"
+    "gulp-uglify": "~1.2.0",
+    "gulp-shell": "~0.2.11"
   },
   "devDependencies": {
     "chai": "^1.9.1",
