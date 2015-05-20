@@ -15,7 +15,13 @@ var gulp = require('gulp-help')(require('gulp')),
 	bump = require('gulp-bump'),
     gulpJsdoc2md = require('gulp-jsdoc-to-markdown'),
 	config = require('./gulp_config.json'),
-	args = require('minimist')(process.argv.slice(2));
+	g = require('gulp-load-plugins')({lazy: false}),
+	lazypipe = require('lazypipe'),
+	livereload = require('gulp-livereload'),
+	autoprefixer = require('gulp-autoprefixer'),
+	uglify = require('gulp-uglify')
+	args = require('minimist')(process.argv.slice(2)),
+	isWatching = false;
 
 gulp.task('build-sandbox', 'Runs build and adds BossyUI libs to Sandbox', function(callback) {
 
@@ -48,7 +54,10 @@ gulp.task('build-js', 'Runs build for all lib Javascript', function() {
 		.pipe(sourcemaps.init())
 		.pipe(concat('bossy.all.js'))
 		.pipe(sourcemaps.write())
-		.pipe(gulp.dest(config.paths.js.dist));
+		.pipe(uglify({ mangle: false }))
+		.pipe(gulp.dest(config.paths.js.dist))
+		.pipe(gulp.dest(config.paths.js.sandbox))
+		.pipe(livereload());
 });
 
 gulp.task('copy-templates', 'Copy templates for release', function() {
@@ -64,11 +73,17 @@ gulp.task('build-sass', 'Runs build for all lib Sass/Css', function() {
 	return gulp
 		.src(config.paths.scss.src)
 		.pipe(sourcemaps.init())
+		.pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
 		.pipe(sass({
 			outputStyle: 'compressed'
 		}))
 		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(config.paths.css.dist));
+		.pipe(gulp.dest(config.paths.css.dist))
+		.pipe(gulp.dest(config.paths.css.sandbox))
+		.pipe(livereload());
 });
 
 gulp.task('build-docs', function(){
@@ -110,6 +125,11 @@ gulp.task('jshint', 'Runs JSHint on JS lib', function() {
 });
 
 gulp.task('watch', 'Watcher task', function() {
+	isWatching = true;
+	
+	// Initiate livereload server:
+  	livereload.listen();
+
 	gulp.watch(config.paths.scss.src, ['build-sass']);
 	gulp.watch(config.paths.js.src, ['build-js']);
 });
