@@ -109,6 +109,7 @@ gulp.task('run-tests', 'Runs all Karma tests', function() {
 
 gulp.task('serve', 'Runs development environment server', ['build-sandbox'], function() {
 	gulp.watch(config.paths.scss.src, ['build-sass', 'sandbox-copy-css']);
+	gulp.watch(config.paths.js.src, ['build-js']);
 
 	return gulp.src('')
 		.pipe(shell([
