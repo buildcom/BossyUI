@@ -1,7 +1,7 @@
 var http = require('http'),
 	fs = require('fs'),
 	path = require('path'),
-	port = process.env.NODE_ENV === 'production' ? 80 : 3000;
+	port = process.env.PORT || 3000;
 
 http.createServer(function (req, res) {
 
