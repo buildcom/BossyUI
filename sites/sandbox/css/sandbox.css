@@ -112,3 +112,7 @@ div.editor {
     top: 42%;
     cursor: pointer;
 }
+
+input:focus {
+    outline: none;
+}
