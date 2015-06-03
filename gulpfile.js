@@ -19,7 +19,7 @@ var gulp = require('gulp-help')(require('gulp')),
 	lazypipe = require('lazypipe'),
 	livereload = require('gulp-livereload'),
 	autoprefixer = require('gulp-autoprefixer'),
-	uglify = require('gulp-uglify')
+	uglify = require('gulp-uglify'),
 	args = require('minimist')(process.argv.slice(2)),
 	isWatching = false;
 
@@ -90,9 +90,9 @@ gulp.task('build-docs', function(){
     //var template = require('./docs/templates/template.hbs');
 
     return gulp.src('src/directives/bossy.chart.js')
-        .pipe(gulpJsdoc2md({ template: fs.readFileSync("./docs/templates/directive.hbs", "utf8") }))
+        .pipe(gulpJsdoc2md({ template: fs.readFileSync('./docs/templates/directive.hbs', 'utf8') }))
         .on('error', function(err){
-            util.log(util.colors.red('jsdoc2md failed'), err.message)
+            util.log(util.colors.red('jsdoc2md failed'), err.message);
         })
         .pipe(rename(function(path){
             path.extname = '.md';
@@ -126,7 +126,7 @@ gulp.task('jshint', 'Runs JSHint on JS lib', function() {
 
 gulp.task('watch', 'Watcher task', function() {
 	isWatching = true;
-	
+
 	// Initiate livereload server:
   	livereload.listen();
 

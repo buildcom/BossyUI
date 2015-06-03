@@ -18,7 +18,7 @@ describe('CalendarUnitTests for Controller', function() {
         scope = $rootScope.$new();
         scope.config={};
         // Create the controller
-        ctrl = $controller('CalendarController', {
+        ctrl = $controller('bossyCalendarController', {
             $scope: scope
         });
     }));
