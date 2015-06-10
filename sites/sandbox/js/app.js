@@ -28,23 +28,23 @@ angular.module('SandboxApp', [
         $scope.directiveConfig = {};
 
         // Setup directive Configurations
-        // 
+        //
         $scope.inputconfig = $scope.basicInputConfig = {
-            title: "Postfix Input with text",
+            title: 'Postfix Input with text',
             placeholder: 'Text only',
             templateType: 'postfix',
-            postfixText: ".bossyui.com"
+            postfixText: '.bossyui.com'
         };
 
         $scope.basicPrefixInputConfig = {
-            title: "Prefix Input with text",
+            title: 'Prefix Input with text',
             placeholder: 'Text only',
             templateType: 'prefix',
-            prefixText: "@"
+            prefixText: '@'
         };
 
         $scope.numberInputConfig = {
-            title: "Input with number",
+            title: 'Input with number',
             type: 'number',
             placeholder: 'Numbers only'
         };
