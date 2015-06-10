@@ -33,14 +33,14 @@ angular.module('SandboxApp', [
             title: 'Postfix Input with text',
             placeholder: 'Text only',
             templateType: 'postfix',
-            postfixText: '.bossyui.com'
+            postfixContent: ".bossyui.com"
         };
 
         $scope.basicPrefixInputConfig = {
             title: 'Prefix Input with text',
             placeholder: 'Text only',
             templateType: 'prefix',
-            prefixText: '@'
+            prefixContent: "@"
         };
 
         $scope.numberInputConfig = {
@@ -48,6 +48,14 @@ angular.module('SandboxApp', [
             type: 'number',
             placeholder: 'Numbers only'
         };
+
+        $scope.counterInputConfig = {
+            title: "Input with counter",
+            placeholder: "Start typing",
+            templateType: 'counter',
+            max: 20
+        };
+
         angular.forEach(module.requires, function(directive) {
             $scope.directives.push(directive.split('.')[1]);
         });
