@@ -25,3 +25,6 @@ src/css
 # Local Testing
 local.html
 .developmentserverrc
+dist/docs
+sites/sandbox/docs
+sites/sandbox/markdown
