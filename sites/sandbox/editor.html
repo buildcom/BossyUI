@@ -1,84 +1,84 @@
 <!DOCTYPE html>
 <html ng-app="editorApp">
 <head>
-    <title>BossyUI Sandbox - Editor</title>
-    <link href="lib/bower/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/sandbox.css" rel="stylesheet">  
-    <style type="text/css">
-    .ace_editor { height: 300px; }
-    </style>  
+	<title>BossyUI Sandbox - Editor</title>
+	<link href="lib/bower/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/sandbox.css" rel="stylesheet">
+	<style type="text/css">
+	.ace_editor { height: 300px; }
+	</style>
 </head>
 <body>
 <section ng-controller="EditorCtrl" class="well container">
-    <div class="row">
-        <div class="col-md-12">
-            <h4>RESULT</h4>
-            <div id="debugcontainer"><div id="debugDiv"></div><span ng-click="toggleDebugger(this)" id="close-debug">></span></div>
+	<div class="row">
+		<div class="col-md-12">
+			<h4>RESULT</h4>
+			<div id="debugcontainer"><div id="debugDiv"></div><span ng-click="toggleDebugger(this)" id="close-debug">></span></div>
 
-            <iframe id="editor-result" frameborder="3">
-            </iframe>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4" style="position: relative">
-            <h4>HTML</h4>
-            <div ui-ace="{
-              require: ['ace/ext/language_tools'],
-              advanced: {
-                  enableSnippets: true,
-                  enableBasicAutocompletion: true,
-                  enableLiveAutocompletion: true
-              },
-              useWrapMode : true,
-              showGutter: true,
-              theme:'twilight',
-              mode: 'html',
-              firstLineNumber: 1,
-              onLoad: aceHTMLLoaded,
-              onChange: aceHTMLChanged
-            }"></div>
+			<iframe id="editor-result" frameborder="3">
+			</iframe>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4" style="position: relative">
+			<h4>HTML</h4>
+			<div ui-ace="{
+			  require: ['ace/ext/language_tools'],
+			  advanced: {
+				  enableSnippets: true,
+				  enableBasicAutocompletion: true,
+				  enableLiveAutocompletion: true
+			  },
+			  useWrapMode : true,
+			  showGutter: true,
+			  theme:'twilight',
+			  mode: 'html',
+			  firstLineNumber: 1,
+			  onLoad: aceHTMLLoaded,
+			  onChange: aceHTMLChanged
+			}"></div>
 
-        </div>
-        <div class="col-md-4" style="position: relative">
-            <h4>CSS</h4>
-            <div ui-ace="{
-              require: ['ace/ext/language_tools'],
-              advanced: {
-                  enableSnippets: true,
-                  enableBasicAutocompletion: true,
-                  enableLiveAutocompletion: true
-              },
-              useWrapMode : true,
-              showGutter: true,
-              theme:'twilight',
-              mode: 'css',
-              firstLineNumber: 1,
-              onLoad: aceCSSLoaded,
-              onChange: aceCSSChanged
-            }"></div>
+		</div>
+		<div class="col-md-4" style="position: relative">
+			<h4>CSS</h4>
+			<div ui-ace="{
+			  require: ['ace/ext/language_tools'],
+			  advanced: {
+				  enableSnippets: true,
+				  enableBasicAutocompletion: true,
+				  enableLiveAutocompletion: true
+			  },
+			  useWrapMode : true,
+			  showGutter: true,
+			  theme:'twilight',
+			  mode: 'css',
+			  firstLineNumber: 1,
+			  onLoad: aceCSSLoaded,
+			  onChange: aceCSSChanged
+			}"></div>
 
-        </div>
-        <div class="col-md-4" style="position: relative">
-            <h4>JAVASCRIPT</h4>
-            <div ui-ace="{
-              require: ['ace/ext/language_tools','js/bossy.all.js'],
-              advanced: {
-                  enableSnippets: true,
-                  enableBasicAutocompletion: true,
-                  enableLiveAutocompletion: true
-              },
-              useWrapMode : true,
-              showGutter: true,
-              theme:'twilight',
-              mode: 'javascript',
-              firstLineNumber: 1,
-              onLoad: aceJSLoaded,
-              onChange: aceJSChanged
-            }"></div>
+		</div>
+		<div class="col-md-4" style="position: relative">
+			<h4>JAVASCRIPT</h4>
+			<div ui-ace="{
+			  require: ['ace/ext/language_tools','js/bossy.all.js'],
+			  advanced: {
+				  enableSnippets: true,
+				  enableBasicAutocompletion: true,
+				  enableLiveAutocompletion: true
+			  },
+			  useWrapMode : true,
+			  showGutter: true,
+			  theme:'twilight',
+			  mode: 'javascript',
+			  firstLineNumber: 1,
+			  onLoad: aceJSLoaded,
+			  onChange: aceJSChanged
+			}"></div>
 
-        </div>
-    </div>
-    <br/>     
+		</div>
+	</div>
+	<br/>
 </section>
 
 <script src="lib/bower/angular/angular.min.js"></script>
