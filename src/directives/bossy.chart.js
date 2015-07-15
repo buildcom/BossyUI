@@ -52,7 +52,7 @@ function Chart() {
         $scope.type = $scope.type || 'bar';
         $scope.template = templates[$scope.type];
 
-        if ($scope.type == 'line') {
+        if ($scope.type === 'line') {
             config.max = $filter('orderBy')($scope.data, '-value')[0].value;
 
             angular.forEach($scope.data, function(line, index) {
@@ -74,7 +74,7 @@ function Chart() {
             config: '=',
             data: '='
         },
-        template: templates['base'],
+        template: templates.base,
         compile: function (element, attrs) {
             var type = attrs.type || 'bar';
 
@@ -88,4 +88,3 @@ Chart.$inject = [];
 
 angular.module('bossy.chart', [])
     .directive('bossyChart', Chart);
-

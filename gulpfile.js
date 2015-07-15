@@ -48,13 +48,12 @@ gulp.task('sandbox-copy-css', false, function() {
 });
 
 gulp.task('build-js', 'Runs build for all lib Javascript', function() {
-
 	return gulp
 		.src(config.paths.js.src)
 		.pipe(sourcemaps.init())
 		.pipe(concat('bossy.all.js'))
-		.pipe(sourcemaps.write())
 		.pipe(uglify({ mangle: false }))
+		.pipe(sourcemaps.write('../maps'))
 		.pipe(gulp.dest(config.paths.js.dist))
 		.pipe(gulp.dest(config.paths.js.sandbox))
 		.pipe(livereload());
