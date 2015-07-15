@@ -1,21 +1,25 @@
 {
 	"paths": {
 		"js": {
-            "src": [
-                "src/bossy.js",
-                "src/directives/bossy.*.js"
-            ],
-            "dist": "dist/js",
-            "sandbox": "sites/sandbox/js"
-        },
+			"src": [
+				"src/bossy.js",
+				"src/directives/bossy.*.js"
+			],
+			"dist": "dist/js",
+			"sandbox": "sites/sandbox/js"
+		},
 		"scss": {
-            "src": "src/scss/*.scss",
-            "dist": "dist/css"
-        },
+			"src": "src/scss/*.scss",
+			"dist": "dist/css"
+		},
 		"css": {
-            "src": "src/css/*.css",
-            "dist": "dist/css",
-            "sandbox": "sites/sandbox/css"
-        }
+			"src": "src/css/*.css",
+			"dist": "dist/css",
+			"sandbox": "sites/sandbox/css"
+		},
+		"markdown": {
+			"src": "dist/docs/*.md",
+			"sandbox": "sites/sandbox/markdown"
+		}
 	}
 }
