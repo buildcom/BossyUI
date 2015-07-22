@@ -28,3 +28,4 @@ local.html
 dist/docs
 sites/sandbox/docs
 sites/sandbox/markdown
+*.map

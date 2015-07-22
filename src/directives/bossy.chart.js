@@ -33,8 +33,11 @@ function Chart() {
             '<svg style="width:{{config.width}}px; height:{{config.height}}px;">' +
             '   <rect ' +
             '       ng-repeat="bar in data"' +
-            '       width="300"' +
-            '       height="100"' +
+            '       x="{{$index * (config.width / data.length)}}"' +
+            '       y="{{config.height - bar}}"' +
+            '       data-index="{{$index}}"' +
+            '       width="{{config.width / data.length}}"' +
+            '       height="{{bar}}"' +
             '       style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)">' +
             '</svg>'
     };
