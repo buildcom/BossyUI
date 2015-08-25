@@ -11,12 +11,9 @@ var gulp = require('gulp-help')(require('gulp')),
 	sass = require('gulp-sass'),
 	util = require('gulp-util'),
 	sourcemaps = require('gulp-sourcemaps'),
-	nodemon = require('gulp-nodemon'),
 	bump = require('gulp-bump'),
 	gulpJsdoc2md = require('gulp-jsdoc-to-markdown'),
 	config = require('./gulp_config.json'),
-	g = require('gulp-load-plugins')({lazy: false}),
-	lazypipe = require('lazypipe'),
 	livereload = require('gulp-livereload'),
 	autoprefixer = require('gulp-autoprefixer'),
 	uglify = require('gulp-uglify'),
@@ -24,7 +21,6 @@ var gulp = require('gulp-help')(require('gulp')),
 	isWatching = false;
 
 gulp.task('build-sandbox', 'Runs build and adds BossyUI libs to Sandbox', function(callback) {
-
 	sequence(
 		'sandbox-install',
 		'build-js',
@@ -34,14 +30,12 @@ gulp.task('build-sandbox', 'Runs build and adds BossyUI libs to Sandbox', functi
 });
 
 gulp.task('sandbox-install', false, function() {
-
 	return gulp
 		.src('sites/sandbox/bower.json')
 		.pipe(install());
 });
 
 gulp.task('sandbox-copy-css', false, function() {
-
 	return gulp
 		.src(['dist/css/bossy.css'])
 		.pipe(gulp.dest('sites/sandbox/css'));
