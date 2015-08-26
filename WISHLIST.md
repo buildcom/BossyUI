@@ -6,16 +6,17 @@
 
 ##Widget Directives
 
-* AutoForm (in progress)
-* Combobox (in progress)
-* Calendar (in progress)
+* Form (in progress)
+* DatePicker (in progress)
 * Dropdown (in progress)
 * Tooltip (in progress)
-* Layout (in progress)
 * Menu
+
+
 * TreeView
 * DataGrid
 * AutoComplete
 * ScrollList
 * Tabs
 * Wizard
+* Combobox
