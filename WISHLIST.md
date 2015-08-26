@@ -6,17 +6,30 @@
 
 ##Widget Directives
 
-* Form (in progress)
-* DatePicker (in progress)
-* Dropdown (in progress)
-* Tooltip (in progress)
-* Menu
+(in progress)
+* Form 
+* * Input
+* * Textarea
+* * Radio Button
+* * Checkbox
+* DatePicker 
+* Graph 
+* Navigation 
 
+(in design)
+* Tabs - Andy
+* Wizard - Carly
+* Combobox - Adrian
+* Tooltip - Chrystal 
 
+(to do)
+* Dropdown
+* Combobox
+* Tooltip 
 * TreeView
 * DataGrid
 * AutoComplete
 * ScrollList
 * Tabs
 * Wizard
-* Combobox
+
