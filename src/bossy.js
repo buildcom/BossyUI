@@ -14,14 +14,10 @@
 //TODO: need layout, labels
 var bossy = angular.module('bossy', [
 		'bossy.calendar',
-		'bossy.chart',
 		'bossy.data',
-		'bossy.dropdown',
 		'bossy.form',
+        'bossy.graph',
 		'bossy.input',
-		'bossy.numerictextbox',
-		'bossy.schema',
-		'bossy.tooltip',
-		'bossy.datagrid'
+		'bossy.schema'
 	]
 );
