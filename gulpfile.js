@@ -10,48 +10,48 @@ var gulp = require('gulp-help')(require('gulp')),
 	karma = require('karma').server,
 	sass = require('gulp-sass'),
 	util = require('gulp-util'),
-	sourcemaps = require('gulp-sourcemaps'),
+	nodemon = require('gulp-nodemon'),
 	bump = require('gulp-bump'),
 	gulpJsdoc2md = require('gulp-jsdoc-to-markdown'),
 	config = require('./gulp_config.json'),
+	g = require('gulp-load-plugins')({lazy: false}),
 	livereload = require('gulp-livereload'),
 	autoprefixer = require('gulp-autoprefixer'),
 	uglify = require('gulp-uglify'),
 	args = require('minimist')(process.argv.slice(2)),
 	isWatching = false;
 
-gulp.task('build-sandbox', 'Runs build and adds BossyUI libs to Sandbox', function(callback) {
+gulp.task('preview', 'Runs BossyUI Preview', function(callback) {
+
 	sequence(
-		'sandbox-install',
-		'build-js',
-		'build-sass',
-		'sandbox-copy-css',
+		'preview-libs',
+        'build-sass',
+        'build-js',
+        'watch',
+		'preview-serve',
 		callback);
 });
 
-gulp.task('sandbox-install', false, function() {
+gulp.task('preview-libs', false, function() {
+
 	return gulp
-		.src('sites/sandbox/bower.json')
+		.src('sites/preview/bower.json')
 		.pipe(install());
 });
 
-gulp.task('sandbox-copy-css', false, function() {
-	return gulp
-		.src(['dist/css/bossy.css'])
-		.pipe(gulp.dest('sites/sandbox/css'));
-});
+gulp.task('preview-serve', false, shell.task([
+    'node sites/preview/server.js'
+]));
 
 gulp.task('build-js', 'Runs build for all lib Javascript', function() {
 
 	return gulp
-		.src(config.paths.js.src)
+		.src('src/**/*.js')
 		.pipe(sourcemaps.init())
 		.pipe(concat('bossy.all.js'))
 		.pipe(sourcemaps.write())
 		.pipe(uglify({ mangle: false }))
-		.pipe(gulp.dest(config.paths.js.dist))
-		.pipe(gulp.dest(config.paths.js.sandbox))
-		.pipe(livereload());
+		.pipe(gulp.dest(config.paths.js.dist));
 });
 
 gulp.task('copy-templates', 'Copy templates for release', function() {
@@ -75,9 +75,7 @@ gulp.task('build-sass', 'Runs build for all lib Sass/Css', function() {
 			outputStyle: 'compressed'
 		}))
 		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(config.paths.css.dist))
-		.pipe(gulp.dest(config.paths.css.sandbox))
-		.pipe(livereload());
+		.pipe(gulp.dest(config.paths.css.dist));
 });
 
 gulp.task('build-docs', function(){
@@ -100,21 +98,6 @@ gulp.task('run-tests', 'Runs all Karma tests', function() {
 		configFile: __dirname + '/test/karma.conf.js'
 	});
 });
-gulp.task('sandbox-copy-markdown', false, function() {
-	return gulp
-		.src([config.paths.markdown.src])
-		.pipe(gulp.dest(config.paths.markdown.sandbox));
-});
-
-gulp.task('serve', 'Runs development environment server', ['build-sandbox'], function() {
-	gulp.watch(config.paths.scss.src, ['build-sass', 'sandbox-copy-css']);
-	gulp.watch(config.paths.markdown.src ['sandbox-copy-markdown']);
-
-	return gulp.src('')
-		.pipe(shell([
-			'node sites/sandbox/server.js'
-		]));
-});
 
 gulp.task('jshint', 'Runs JSHint on JS lib', function() {
 
@@ -125,13 +108,8 @@ gulp.task('jshint', 'Runs JSHint on JS lib', function() {
 });
 
 gulp.task('watch', 'Watcher task', function() {
-	isWatching = true;
-
-	// Initiate livereload server:
-	  livereload.listen();
-
-	gulp.watch(config.paths.scss.src, ['build-sass']);
-	gulp.watch(config.paths.js.src, ['build-js']);
+    gulp.watch('src/**/*.scss', ['build-sass']);
+    gulp.watch('src/**/*.js', ['build-js']);
 });
 
 gulp.task('install', 'Runs npm and bower installs', function() {
