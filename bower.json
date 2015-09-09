@@ -20,10 +20,11 @@
   "homepage": "https://github.com/buildcom/BossyUI",
   "private": true,
   "dependencies": {
-    "angular-resource": "1.3.x",
-    "angular-animate": "1.3.x"
+    "angular": "~1.4.3",
   },
   "devDependencies": {
-    "angular-md": "~1.0.0"
+  },
+  "resolutions": {
+    "angular": "~1.4.3"
   }
 }

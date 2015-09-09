@@ -17,7 +17,13 @@
 	}
 
 	input:focus{
-		border-bottom: 3px solid #ef9c28; 
+		border-bottom: 3px solid #ef9c28;
+	}
+	.counter {
+		position: absolute;
+	  right: 0;
+	  top: -20px;
+	  font-size: 10px;
 	}
 	input:focus + span {
 		-webkit-animation-duration: 1s;
@@ -108,7 +114,7 @@
 
 /* BOSSY FORM SECTION */
 
-bossy-form{
+.bossy-form{
 	padding: 10px;
 	form{
 		margin: 0 auto;
@@ -128,7 +134,7 @@ bossy-form{
 	}
 }
 
-bossy-calendar {
+.bossy-calendar {
 	.p {
 		cursor: pointer;
 	}
@@ -146,3 +152,4 @@ bossy-calendar {
 		color: #ccc;
 	}
 }
+
