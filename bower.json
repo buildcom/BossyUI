@@ -20,7 +20,11 @@
   "homepage": "https://github.com/buildcom/BossyUI",
   "private": true,
   "dependencies": {
+    "angular": "~1.4.3",
   },
   "devDependencies": {
+  },
+  "resolutions": {
+    "angular": "~1.4.3"
   }
 }

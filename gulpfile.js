@@ -98,6 +98,7 @@ gulp.task('run-tests', 'Runs all Karma tests', function() {
 		configFile: __dirname + '/test/karma.conf.js'
 	});
 });
+	gulp.watch(config.paths.js.src, ['build-js']);
 
 gulp.task('jshint', 'Runs JSHint on JS lib', function() {
 
