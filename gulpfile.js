@@ -10,13 +10,11 @@ var gulp = require('gulp-help')(require('gulp')),
 	karma = require('karma').server,
 	sass = require('gulp-sass'),
 	util = require('gulp-util'),
-	sourcemaps = require('gulp-sourcemaps'),
 	nodemon = require('gulp-nodemon'),
 	bump = require('gulp-bump'),
 	gulpJsdoc2md = require('gulp-jsdoc-to-markdown'),
 	config = require('./gulp_config.json'),
 	g = require('gulp-load-plugins')({lazy: false}),
-	lazypipe = require('lazypipe'),
 	livereload = require('gulp-livereload'),
 	autoprefixer = require('gulp-autoprefixer'),
 	uglify = require('gulp-uglify'),
@@ -41,14 +39,9 @@ gulp.task('preview-libs', false, function() {
 		.pipe(install());
 });
 
-gulp.task('preview-serve', false, function() {
-
-    return gulp
-        .src('')
-        .pipe(shell([
-            'node sites/preview/server.js'
-        ]));
-});
+gulp.task('preview-serve', false, shell.task([
+    'node sites/preview/server.js'
+]));
 
 gulp.task('build-js', 'Runs build for all lib Javascript', function() {
 
@@ -58,9 +51,7 @@ gulp.task('build-js', 'Runs build for all lib Javascript', function() {
 		.pipe(concat('bossy.all.js'))
 		.pipe(sourcemaps.write())
 		.pipe(uglify({ mangle: false }))
-		.pipe(gulp.dest(config.paths.js.dist))
-		.pipe(gulp.dest(config.paths.js.sandbox))
-		.pipe(livereload());
+		.pipe(gulp.dest(config.paths.js.dist));
 });
 
 gulp.task('copy-templates', 'Copy templates for release', function() {
@@ -84,9 +75,7 @@ gulp.task('build-sass', 'Runs build for all lib Sass/Css', function() {
 			outputStyle: 'compressed'
 		}))
 		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(config.paths.css.dist))
-		.pipe(gulp.dest(config.paths.css.sandbox))
-		.pipe(livereload());
+		.pipe(gulp.dest(config.paths.css.dist));
 });
 
 gulp.task('build-docs', function(){

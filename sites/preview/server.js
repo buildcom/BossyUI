@@ -22,28 +22,7 @@ app.use('/css', express.static('sites/preview/css'));
 app.use('/templates', express.static('sites/preview/templates'));
 
 app.get('/', function (req, res) {
-
-
-    var scripts = [];
-    //
-    //glob.sync('src/**/*.js').forEach(function (script) {
-    //    scripts.push({
-    //        src: script
-    //    });
-    //
-    //});
-
-    //console.log(files, process.cwd(), __dirname + '/src/**/*.js');
-    //
-    //var scripts = [
-    //    'bossy.js',
-    //    'directives'
-    //];
-
-
-    res.render('index', {
-        scripts: scripts
-    });
+    res.render('index');
 });
 
 var server = app.listen(3000, function () {
