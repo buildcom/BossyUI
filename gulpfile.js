@@ -26,7 +26,7 @@ gulp.task('preview', 'Runs BossyUI Preview', function(callback) {
 	sequence(
 		'preview-libs',
         'build-sass',
-        'build-js',
+		'build-js',
         'watch',
 		'preview-serve',
 		callback);
@@ -43,14 +43,18 @@ gulp.task('preview-serve', false, shell.task([
     'node sites/preview/server.js'
 ]));
 
-gulp.task('build-js', 'Runs build for all lib Javascript', function() {
+	return gulp
+		.src(['dist/css/bossy.css'])
+		.pipe(gulp.dest('sites/sandbox/css'));
+});
 
+gulp.task('build-js', 'Runs build for all lib Javascript', function() {
 	return gulp
 		.src('src/**/*.js')
 		.pipe(sourcemaps.init())
 		.pipe(concat('bossy.all.js'))
-		.pipe(sourcemaps.write())
 		.pipe(uglify({ mangle: false }))
+		.pipe(sourcemaps.write('../maps'))
 		.pipe(gulp.dest(config.paths.js.dist));
 });
 
@@ -99,6 +103,13 @@ gulp.task('run-tests', 'Runs all Karma tests', function() {
 	});
 });
 	gulp.watch(config.paths.js.src, ['build-js']);
+	gulp.watch(config.paths.markdown.src ['sandbox-copy-markdown']);
+
+	return gulp.src('')
+		.pipe(shell([
+			'node sites/sandbox/server.js'
+		]));
+});
 
 gulp.task('jshint', 'Runs JSHint on JS lib', function() {
 

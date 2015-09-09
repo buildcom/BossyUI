@@ -87,7 +87,7 @@ function Chart() {
             config: '=',
             data: '='
         },
-        template: templates['base'],
+        template: templates.base,
         compile: function (element, attrs) {
             var type = attrs.type || 'bar';
 
