@@ -62,17 +62,15 @@ $ npm install
 $ bower install
 ```
 
-### 5. Pull up the sandbox
+### 5. Previewing Directives
 
-We use Gulp as our task runner and build system and to serve the sandbox environment. To see the changes you're developing run:
+You can view directives in a runtime environment as you develop.  This preview environment will allow you to test runtime markup and options.  To run preview:
 
 ```bash
-$ gulp serve
+$ gulp preview
 ```
 
 You can then see changes you are making to directives as you develop them at [http://localhost:3000](http://localhost:3000).
-
-*Hint: if you want to easily see all gulp tasks available run `gulp help` in your terminal.*
 
 ## Before You Pull Request
 

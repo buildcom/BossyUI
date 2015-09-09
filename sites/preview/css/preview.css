@@ -1,0 +1,19 @@
+body { padding-top: 70px; }
+
+.show {
+    display: inline-block;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.ace_editor {
+    height: 200px;
+}
+
+/* Bootstrap Overrides */
+
+.tab-pane {
+    padding-top: 30px;
+}

@@ -5,8 +5,7 @@
 				"src/bossy.js",
 				"src/directives/bossy.*.js"
 			],
-			"dist": "dist/js",
-			"sandbox": "sites/sandbox/js"
+			"dist": "dist/js"
 		},
 		"scss": {
 			"src": "src/scss/*.scss",
@@ -14,12 +13,10 @@
 		},
 		"css": {
 			"src": "src/css/*.css",
-			"dist": "dist/css",
-			"sandbox": "sites/sandbox/css"
+			"dist": "dist/css"
 		},
 		"markdown": {
-			"src": "dist/docs/*.md",
-			"sandbox": "sites/sandbox/markdown"
+			"src": "dist/docs/*.md"
 		}
 	}
 }
