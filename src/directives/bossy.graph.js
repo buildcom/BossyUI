@@ -2,7 +2,17 @@
  * @class Chart
  * @description Creates simple line, plot, or pie charts.
  * @example
- <bossy-chart type="line" config="lineConfig" data="lineData"></bossy-chart>
+ <div ng-app="sandboxApp" ng-controller="sandboxCtrl">
+	<bossy-chart type="bar" data="data" config="config"></bossy-chart>
+ </div>
+ <script>
+	angular.module("sandboxApp", ["bossy"])
+
+	.controller("sandboxCtrl", ["$scope", function($scope) {
+		$scope.data =  [10, 20, 35, 55, 25, 50];
+		$scope.config = {};
+	}]);
+ </script>
  */
 
 function Chart() {
@@ -55,7 +65,7 @@ function Chart() {
         $scope.type = $scope.type || 'bar';
         $scope.template = templates[$scope.type];
 
-        if ($scope.type == 'line') {
+        if ($scope.type === 'line') {
             config.max = $filter('orderBy')($scope.data, '-value')[0].value;
 
             angular.forEach($scope.data, function(line, index) {
