@@ -1,34 +1,22 @@
 angular.module('PreviewApp', [
     'ui.router',
+    'ui.ace',
     'bossy'
 ])
 
-    .config(['$stateProvider',
-        function ($stateProvider) {
-            var module = angular.module('bossy');
-
-            //angular.forEach(module.requires, function (directive) {
-            //    var name = directive.split('.')[1];
-            //    $stateProvider
-            //        .state(name, {
-            //            url: '/' + name,
-            //            templateUrl: 'templates/directive.html',
-            //            controller: 'DirectiveCtrl',
-            //            resolve: function () {
-            //                return name;
-            //            }
-            //        });
-            //});
+    .config(['$stateProvider', '$urlRouterProvider',
+        function ($stateProvider, $urlRouterProvider) {
 
             $stateProvider
                 .state('directive', {
                     url: '/:name',
-                    //templateUrl: 'templates/directive.html',
                     views: {
-                        'directive': {
+                        'name': {
                             template: function ($stateParams) {
-                                return '<bossy-' + $stateParams.name + ' config="config"></bossy-' + $stateParams.name + '>';
-                            },
+                                return ': ' + $stateParams.name;
+                            }
+                        },
+                        'directive': {
                             controller: 'DirectiveCtrl'
                         }
                     },
@@ -39,11 +27,17 @@ angular.module('PreviewApp', [
                         }
                     }
                 });
+
+            $urlRouterProvider.otherwise('/calendar');
         }
     ])
 
-    .controller('NavCtrl', ['$scope', '$document', '$window', '$compile',
-        function ($scope, $document, $window, $compile) {
+    .run([function () {
+
+    }])
+
+    .controller('NavCtrl', ['$scope',
+        function ($scope) {
             var module = angular.module('bossy');
 
             $scope.view = {
@@ -62,31 +56,87 @@ angular.module('PreviewApp', [
         }
     ])
 
-    .controller('TabsCtrl', ['$scope', '$rootScope',
-        function ($scope, $rootScope) {
+    .controller('DirectiveCtrl', ['$scope', '$compile', 'name',
+        function ($scope, $compile, name) {
+            var markupLoaded = false,
+                optionsLoaded = false,
+                markupKey = 'markup-' + name,
+                markupStorage = localStorage[markupKey],
+                optionsKey = 'options-' + name,
+                optionsStorage = localStorage[optionsKey];
 
-            //$rootScope.name = '';
-
-            $scope.tabs = {
-                directive: true,
-                options: false
+            $scope.markupEditorOptions = {
+                useWrapMode : true,
+                theme:'twilight',
+                mode: 'html',
+                onLoad: markupEditorLoaded,
+                onChange: markupEditorChanged
             };
 
-            $scope.toggleTabs = function () {
-                $scope.tabs.directive = !$scope.tabs.directive;
-                $scope.tabs.options = !$scope.tabs.options;
+            $scope.optionsEditorOptions = {
+                useWrapMode : true,
+                theme:'twilight',
+                mode: 'javascript',
+                onLoad: optionsEditorLoaded,
+                onChange: optionsEditorChanged
             };
-        }
-    ])
 
-    .controller('DirectiveCtrl', ['$scope', '$rootScope', 'name',
-        function ($scope, $rootScope, name) {
+            function markupEditorLoaded (markupEditor) {
+                $scope.markupEditor = markupEditor;
+                $scope.markupEditor.setValue(markupStorage);
+            }
 
-            $rootScope.view = {
-                name: true
-            };
-            $rootScope.name = name;
+            function markupEditorChanged () {
+                if (markupLoaded) {
+                    markupStorage = $scope.markupEditor.getValue();
+                    localStorage[markupKey] = markupStorage;
+                    buildDirective(optionsStorage, markupStorage);
+                } else {
+                    markupLoaded = true;
+                }
+            }
 
-            $scope.config = {};
+            function optionsEditorLoaded (optionsEditor) {
+                $scope.optionsEditor = optionsEditor;
+                $scope.optionsEditor.setValue(optionsStorage);
+            }
+
+            function optionsEditorChanged () {
+                if (optionsLoaded) {
+                    optionsStorage = $scope.optionsEditor.getValue();
+                    localStorage[optionsKey] = optionsStorage;
+                    buildDirective(optionsStorage, markupStorage);
+                } else {
+                    optionsLoaded = true;
+                }
+            }
+
+            function buildDirective (options, markup) {
+                try {
+                    eval(options);
+                } catch (ex) {
+                    console.log('options syntax is incorrect');
+                    return;
+                }
+
+                var src = $compile(markup)($scope),
+                    dst = angular.element(document.getElementById('preview'));
+
+                dst.empty();
+                dst.append(src);
+            }
+
+            function init () {
+                if (!optionsStorage) {
+                    optionsStorage = '$scope.directiveData = {\n};\n\n$scope.directiveOptions = {\n};';
+                }
+                if (!markupStorage) {
+                    markupStorage = '<bossy-' + name + ' data="directiveData" options="directiveOptions"></bossy-' + name + '>';
+                }
+
+                buildDirective(optionsStorage, markupStorage);
+            }
+
+            init();
         }
     ]);
