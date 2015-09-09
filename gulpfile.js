@@ -101,7 +101,6 @@ gulp.task('run-tests', 'Runs all Karma tests', function() {
 	karma.start({
 		configFile: __dirname + '/test/karma.conf.js'
 	});
-});
 	gulp.watch(config.paths.js.src, ['build-js']);
 	gulp.watch(config.paths.markdown.src ['sandbox-copy-markdown']);
 
