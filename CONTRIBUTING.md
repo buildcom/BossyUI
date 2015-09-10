@@ -75,13 +75,13 @@ You can then see changes you are making to directives as you develop them at [ht
 
 Before you start work please create an Issue in this repo.  The Issue title should reflect the Directive/Widget you are working on, ie:
 
-"GRAPH: Short discription on what you are working on"
+"GRAPH: Short description on what you are working on"
 
 Your working branch should be named with both the Directive/Widget name and the Issue number, ie:
 
 "GRAPH-1234"
 
-When committing code, you will need to prefix your commets with the branch name.  Pull request will be rejected if these rules are not met.
+When committing code, you will need to prefix your comments with the branch name.  Pull request will be rejected if these rules are not met.
 
 ## Before You Pull Request
 
