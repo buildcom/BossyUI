@@ -4,7 +4,6 @@ To get up and developing;
 * Install Git, Node, Gulp, Bower
 * Run `npm install -g bower gulp` to install Bower and Gulp.js globally.
 * Run `npm install` to install all NPM packages.
-* Run `bower install` to install all bower packages.
 
 Contributing Guide
 ==================
@@ -71,6 +70,18 @@ $ gulp preview
 ```
 
 You can then see changes you are making to directives as you develop them at [http://localhost:3000](http://localhost:3000).
+
+## Creating or Modifying Directives
+
+Before you start work please create an Issue in this repo.  The Issue title should reflect the Directive/Widget you are working on, ie:
+
+"GRAPH: Short discription on what you are working on"
+
+Your working branch should be named with both the Directive/Widget name and the Issue number, ie:
+
+"GRAPH-1234"
+
+When committing code, you will need to prefix your commets with the branch name.  Pull request will be rejected if these rules are not met.
 
 ## Before You Pull Request
 
