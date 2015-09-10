@@ -43,11 +43,6 @@ gulp.task('preview-serve', false, shell.task([
     'node sites/preview/server.js'
 ]));
 
-	return gulp
-		.src(['dist/css/bossy.css'])
-		.pipe(gulp.dest('sites/sandbox/css'));
-});
-
 gulp.task('build-js', 'Runs build for all lib Javascript', function() {
 	return gulp
 		.src('src/**/*.js')
@@ -102,7 +97,6 @@ gulp.task('run-tests', 'Runs all Karma tests', function() {
 		configFile: __dirname + '/test/karma.conf.js'
 	});
 	gulp.watch(config.paths.js.src, ['build-js']);
-	gulp.watch(config.paths.markdown.src ['sandbox-copy-markdown']);
 
 	return gulp.src('')
 		.pipe(shell([

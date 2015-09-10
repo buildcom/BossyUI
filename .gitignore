@@ -17,7 +17,6 @@ src/css
 .sass-cache
 
 dist/docs
-sites/sandbox/docs
-sites/sandbox/markdown
 *.map
+
 sites/preview/lib
