@@ -1,0 +1,61 @@
+/* ----------- Bars ----------- */
+/* Generic Bar */
+
+$bar-height: 2.4rem;
+
+.bar {
+  height: $bar-height;
+  line-height: $bar-height;
+  padding: 0 0 0 1rem;
+  display: flex;
+  justify-content: flex-start;
+  background-color: $color-c--light;
+
+  > * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: $bar-height;
+  }
+
+  .bar-button {
+    border-radius: 0;
+    padding: 0 1rem;
+    height: $bar-height;
+    margin-top: 0;
+    margin-left: auto;
+    align-self: flex-end;
+    background-color: $color-c--dark;
+    color: #fff;
+    height: 100%;
+    line-height: $bar-height;
+    font-size: 1rem;
+    border-top-right-radius: inherit;
+
+    @include hover($color-c--dark);
+  }
+}
+
+/* Primary Color Bar */
+.bar--primary {
+  @extend .bar;
+  background-color: $color-a;
+  color: #fff;
+
+  .bar-button {
+    background-color: $color-a--dark;
+    @include hover($color-a--dark);
+  }
+}
+
+/* Secondary Color Bar */
+.bar--secondary {
+  @extend .bar;
+  background-color: $color-b;
+  color: #fff;
+
+  .bar-button {
+    background-color: $color-b--dark;
+    @include hover($color-b--dark);
+  }
+}

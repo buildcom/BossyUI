@@ -1,0 +1,72 @@
+.bossy-input {
+	position: relative;
+	height: 30px;
+  	line-height: 30px;
+	input{
+		border: 0;
+		border-bottom: 1px solid #ef9c28;
+		width: 100%;
+		padding-left: 10px;
+	}
+	input.prefix {
+		padding-left: 35px;
+	}
+	input.postfix {
+		padding-right: 35px;
+	}
+
+	input:focus{
+		border-bottom: 3px solid #ef9c28;
+	}
+	.counter {
+		position: absolute;
+	  right: 0;
+	  top: -20px;
+	  font-size: 10px;
+	}
+	input:focus + span {
+		-webkit-animation-duration: 1s;
+	    -moz-animation-duration: 1s;
+	    -o-animation-duration: 1s;
+	    animation-duration: 1s;
+	    -webkit-animation-fill-mode: both;
+	    -moz-animation-fill-mode: both;
+	    -o-animation-fill-mode: both;
+	    animation-fill-mode: both;
+	    -webkit-animation-name: bounce;
+		-moz-animation-name: bounce;
+		-o-animation-name: bounce;
+		animation-name: bounce;
+	}
+	&-component {
+		background: #ccc;
+		color: #333;
+		padding: 0 8px;
+	}
+	&-prefix {
+	  	position: absolute;
+	  	top: 0;
+	  	left: 0;
+	  	width: 30px
+	}
+	&-postfix {
+		position: absolute;
+	  	top: 0;
+		right: 0;
+	}
+}
+
+.bossy-fieldset {
+  padding: 0.5em 1em;
+  display: inline;
+}
+
+.bossy-legend {
+  padding: 0.1em 0.5em;
+  border:0px solid green;
+  color: green;
+  font-size:90%;
+  width: auto;
+  margin: 0;
+  text-align:left;
+}

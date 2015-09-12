@@ -1,0 +1,9 @@
+html, body {
+	margin: 0;
+}
+
+nav {
+	ul {
+		@extend %unstyle-list;
+	}
+}

@@ -1,0 +1,21 @@
+/* ----------- Extends ----------- */
+/* Clearfix */
+%clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+  zoom: 1;
+}
+
+/* Unstyle */
+%unstyle-list {
+   list-style: none;
+   margin-left: 0;
+   margin-bottom: 0;
+   margin-top: 0;
+   padding-left: 0;
+}
+
+%web-kit-unstyle {
+	-webkit-appearance: none;
+}

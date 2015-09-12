@@ -1,0 +1,18 @@
+.bossy-calendar {
+	.p {
+		cursor: pointer;
+	}
+	table {
+		min-width: 214px;
+	}
+	td {
+		padding: 4px;
+		text-align: center;
+	}
+	.day-in-month {
+		font-weight: 700;
+	}
+	.disabled-day {
+		color: #ccc;
+	}
+}

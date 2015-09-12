@@ -71,7 +71,8 @@ gulp.task('build-sass', 'Runs build for all lib Sass/Css', function() {
 			cascade: false
 		}))
 		.pipe(sass({
-			outputStyle: 'compressed'
+			outputStyle: 'compressed',
+			errLogToConsole: true
 		}))
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest(config.paths.css.dist));

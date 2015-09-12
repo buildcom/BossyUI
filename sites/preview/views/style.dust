@@ -1,11 +1,116 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>BossyUI Styles</title>
-    <link href="dist/css/bossy.css" rel="stylesheet">
-</head>
-<body>
-    {LRScript|s}
-</body>
+	<head lang="en">
+	    <meta charset="UTF-8">
+	    <title>BossyUI Styles</title>
+	    <link href="dist/css/bossy.css" rel="stylesheet">
+	    {LRScript|s}
+	    <style>
+				.container {
+					margin-left: auto;
+					margin-right: auto;
+					max-width: 1024px;
+				}
+	    </style>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<h1>Bossy UI Styles</h1>
+			</div>
+		</header>
+
+		<div class="container">
+			<div class="grid">
+				<div class="col-1-4">
+					<nav>
+						<ul class="unstyle">
+							<li><a href="#tiles">Tiles</a></li>
+							<li><a href="#bars">Bars</a></li>
+							<li><a href="#buttons">Buttons</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-3-4">
+					<section id="tiles" class="tile">
+						<header class="bar">
+							<h2>Tiles</h2>
+						</header>
+
+						<div class="grid">
+					    <div class="col-1-3">
+					      <section class="tile" style="height: 100px;">
+					      </section>
+					    </div>
+					    <div class="col-2-3">
+					      <h3 id="tiles">Tiles</h3>
+					      <p>
+					        Tiles are structural elements, visual building blocks for contained elements on the page. Tiles should be used when a piece of information needs to visually separate from others around it.
+					      </p>
+					    </div>
+					  </div>
+					  <div class="grid">
+					    <div class="col-1-3">
+					      <section class="tile--stacked" style="height: 100px;">
+					      </section>
+					      <section class="tile--stacked" style="height: 100px;">
+					      </section>
+					    </div>
+					    <div class="col-2-3">
+					      <h3>Stacked Tiles</h3>
+					      <p>
+					        Tiles can also be stacked together. Instead of <code>.tile</code> use <code>.tiles--stacked</code> and the negative space between the tile elements will collapse.
+					      </p>
+					    </div>
+					  </div>
+					</section>
+
+					<section id="bars" class="tile">
+						<header class="bar">
+							<h2>Bars</h2>
+						</header>
+					  <div class="grid">
+					    <div class="col-1-3">
+					      <div class="bar">
+					        <span>Bar Default</span>
+					        <button class="bar-button">&#10005</button>
+					      </div>
+
+					      <div class="bar--primary">
+					        <span>Bar Primary</span>
+					        <button class="bar-button">&#10005</button>
+					      </div>
+
+					      <div class="bar--secondary">
+					        <span>Bar Secondary</span>
+					        <button class="bar-button">&#10005</button>
+					      </div>
+					    </div>
+					    <div class="col-2-3">
+					      <p>Bars are a visual container for specific content. They can be used as headers, footers or interactive elements. Their primary purpose is to provide a visual labeling mechanism and a single interactive button.</p>
+					    </div>
+					  </div>
+					</section>
+
+					<section id="buttons" class="tile">
+						<header class="bar"><h2>Buttons</h2></header>
+					  <div class="grid">
+					  	<div class="col-1-3">
+					  		<button>Single Button</button>
+					  		<div class="group">
+					  			<button>Group</button>
+					  			<button>Group</button>
+					  			<button>Group</button>
+					  		</div>
+					  	</div>
+					  	<div class="col-2-3">
+
+					  	</div>
+					  </div>
+					</section>
+
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
