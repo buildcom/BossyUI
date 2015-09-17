@@ -44,7 +44,7 @@ fieldset {
 	input[type="url"] {
 		margin-top: 0;
 		border: none;
-		border-bottom: solid thin $color-c;
+		border-bottom: solid thin $color-c--dark;
 		height: 2rem;
 		font-size: 1rem;
 		line-height: 2rem;
@@ -129,8 +129,6 @@ fieldset {
 }
 
 form {
-	border-top: solid thin $color-c;
-
 	.group {
 		margin-top: 0;
 	}

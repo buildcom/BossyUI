@@ -4,7 +4,6 @@
 	    <meta charset="UTF-8">
 	    <title>BossyUI Styles</title>
 	    <link href="dist/css/bossy.css" rel="stylesheet">
-	    <script src="/bower_components/Code-Highlighter/code-highlighter.js"></script>
 	    {LRScript|s}
 	    <style>
 				.container {
@@ -20,6 +19,22 @@
 					padding: 1rem 0;
 				}
 	    </style>
+	    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.js"></script>
+	    <script type="text/javascript">
+		    $(document).ready(function(){
+		    	var $sections = $('section');
+		    	$.each($sections, function(index, item){
+		    		var offset = $(item).offset();
+		    	});
+
+		    	$("#menu").on('click', 'a', function(e){
+		    		var target = $(e.target).attr('href');
+		    		$(target).velocity("scroll", { duration: 500, easing: "ease-in-out" })
+		    	});
+
+		    });
+	    </script>
 	</head>
 	<body>
 		<header>
@@ -32,10 +47,11 @@
 			<div class="grid">
 				<div class="col-1-4">
 					<nav>
-						<ul class="unstyle">
+						<ul id="menu" class="unstyle">
 							<li><a href="#tiles">Tiles</a></li>
 							<li><a href="#bars">Bars</a></li>
 							<li><a href="#buttons">Buttons</a></li>
+							<li><a href="#inputs">Inputs</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -146,8 +162,8 @@
 					  </div>
 					</section>
 
-					<section id="input" class="tile">
-						<header class="bar"><h2>Input</h2></header>
+					<section id="inputs" class="tile">
+						<header class="bar"><h2>Inputs</h2></header>
 						<div class="grid">
 							<div class="col-1-3">
 								<form action="">
@@ -227,9 +243,14 @@
 											</div>
 										</fieldset>
 										<fieldset class="bossy-radio">
-											<legend>Checkboxes</legend>
+											<legend>Check</legend>
 											<div class="group">
 												<label><input type="checkbox"> Radio</label>
+											</div>
+										</fieldset>
+										<fieldset class="bossy-radio">
+											<legend>Check</legend>
+											<div class="group">
 												<label><input type="checkbox"> Radio</label>
 											</div>
 										</fieldset>
@@ -238,6 +259,7 @@
 							</div>
 							<div class="col-2-3">
 								<h3>Radio Buttons</h3>
+								textfield.class="bossy-radio"
 								<p>
 									Radio buttons are handled by wrapping the label around in the input. This simplifies the input, making the label clickable for selecting the corresponding value.
 								</p>
