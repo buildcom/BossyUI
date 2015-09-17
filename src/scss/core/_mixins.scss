@@ -1,3 +1,21 @@
+/* ----------- Functions ----------- */
+@function check-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return $text-color; // Lighter backgorund, return dark color
+  } @else {
+    @return #ffffff; // Darker background, return light color
+  }
+}
+
+/* ----------- Utilities ----------- */
+@mixin each($list) {
+  @each $name, $value in $list {
+    $name: "name" !default;
+    $value: "value" !default;
+    @content;
+  }
+}
+
 /* ----------- Prefixer ----------- */
 @mixin prefix($name, $argument) {
   -webkit-#{$name}: #{$argument};
@@ -14,6 +32,17 @@
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+}
+
+/* Flex Grid */
+@mixin flexbox-grid() {
+  @include flexbox();
+  @include prefix(flex-wrap, wrap);
+  @extend %gutter;
+
+  > * {
+    @include prefix(flex, 0 1 auto);
+  }
 }
 
 /* ----------- Custom Media Quiries ----------- */
@@ -323,36 +352,20 @@
 
 /* ----------- Grid Generator ----------- */
 @mixin grid-generator($grid) {
-  @include flexbox();
-  @include prefix(flex-wrap, wrap);
-  margin-left: -1rem;
+  @include flexbox-grid();
 
-  > * {
-    margin-top: 0;
-    margin-left: 1rem;
-    @include prefix(flex, 0 1 auto);
-
-    &.align-left {
-      @include prefix(align-self, flex-start);
-    }
-
-    &.align-right {
-      @include prefix(align-self, flex-end);
-    }
-  }
-
-  @each $name, $break in $grid {
-    @include media($break) {
-      [class*="#{$name}"] {
-        width: 100%;
-      }
+  @each $name, $value in $grid {
+    > [class*="#{$name}"] {
+      width: 100%;
     }
 
     @for $i from 1 through $columns {
       @for $j from 1 through $i {
         @if $j < $i {
-          @include media($break) {
+          @include media($value) {
             .#{$name}-#{$j}-#{$i} {
+              padding-left: 1rem;
+              padding-left: calc(0rem);
               max-width: percentage($j/$i);
               max-width: calc(#{percentage($j/$i)} - 1rem);
             }
@@ -363,12 +376,21 @@
   }
 }
 
-/* ----------- Inetractive ----------- */
+/* ----------- Base ----------- */
+@mixin set-background($background) {
+  color: check-text-color($background);
+  background: $background;
+}
 
+/* ----------- Inetractive ----------- */
 /* Hover States */
 @mixin hover($background) {
+  @include set-background($background);
+
   &:hover {
     background-color: darken($background, 5%);
     cursor: pointer;
   }
 }
+
+

@@ -1,72 +1,237 @@
-.bossy-input {
-	position: relative;
-	height: 30px;
-  	line-height: 30px;
-	input{
-		border: 0;
-		border-bottom: 1px solid #ef9c28;
+fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-before: 0;
+  -webkit-padding-start: 0;
+  -webkit-padding-end: 0;
+  -webkit-padding-after: 0;
+  + * {
+		margin-top: 0;
+  }
+
+	legend {
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: .05rem;
+		color: #777;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 		width: 100%;
-		padding-left: 10px;
-	}
-	input.prefix {
-		padding-left: 35px;
-	}
-	input.postfix {
-		padding-right: 35px;
+		float: left;
+		font-size: .7rem;
+		padding-top: .25rem;
+		+ * {
+			clear: both;
+		}
 	}
 
-	input:focus{
-		border-bottom: 3px solid #ef9c28;
+	legend, label {
+		-webkit-padding-start: 0;
+    -webkit-padding-end: 0;
+		line-height: 1em;
 	}
-	.counter {
-		position: absolute;
-	  right: 0;
-	  top: -20px;
-	  font-size: 10px;
+
+	input[type="email"],
+	input[type="number"],
+	input[type="text"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="password"],
+	input[type="url"] {
+		margin-top: 0;
+		border: none;
+		border-bottom: solid thin $color-c;
+		height: 2rem;
+		font-size: 1rem;
+		line-height: 2rem;
+		outline: none;
+		display: block;
+		width: 100%;
+
+		&::-webkit-input-placeholder {
+   		color: $color-c;
+		}
+
+		&:-moz-placeholder { /* Firefox 18- */
+		   color: $color-c;
+		}
+
+		&::-moz-placeholder {  /* Firefox 19+ */
+		   color: $color-c;
+		}
+
+		&:-ms-input-placeholder {
+		   color: $color-c;
+		}
 	}
-	input:focus + span {
-		-webkit-animation-duration: 1s;
-	    -moz-animation-duration: 1s;
-	    -o-animation-duration: 1s;
-	    animation-duration: 1s;
-	    -webkit-animation-fill-mode: both;
-	    -moz-animation-fill-mode: both;
-	    -o-animation-fill-mode: both;
-	    animation-fill-mode: both;
-	    -webkit-animation-name: bounce;
-		-moz-animation-name: bounce;
-		-o-animation-name: bounce;
-		animation-name: bounce;
+
+	&.valid {
+		label {
+			&:after {
+				content: "\2713";
+				color: green;
+				margin-left: .25em;
+			}
+		}
+		input {
+			border-bottom-color: green;
+		}
 	}
-	&-component {
-		background: #ccc;
-		color: #333;
-		padding: 0 8px;
+
+	&.invalid {
+		label {
+			&:after {
+				content: "\2715";
+				color: red;
+				margin-left: .25em;
+			}
+		}
+		input {
+			border-bottom-color: red;
+		}
 	}
-	&-prefix {
-	  	position: absolute;
-	  	top: 0;
-	  	left: 0;
-	  	width: 30px
-	}
-	&-postfix {
-		position: absolute;
-	  	top: 0;
-		right: 0;
+	&.bossy-radio, &.bossy-checkbox {
+		margin-left: -.5rem;
+		display: flex;
+		position: relative;
+		padding-bottom: .25rem;
+
+		&:after {
+			content: "";
+			border-bottom: solid thin $color-c;
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: .5rem;
+			width: calc(100% - .5rem);
+		}
+
+		.group {
+			margin-top: 0;
+		}
+
+		label {
+			margin: 0;
+			margin-left: .5rem;
+			white-space: nowrap;
+			margin-top: .5rem;
+		}
+
+		legend {
+			margin-top: 0;
+			margin-left: .5rem;
+		}
 	}
 }
 
-.bossy-fieldset {
-  padding: 0.5em 1em;
-  display: inline;
+form {
+	border-top: solid thin $color-c;
+
+	.group {
+		margin-top: 0;
+	}
 }
 
-.bossy-legend {
-  padding: 0.1em 0.5em;
-  border:0px solid green;
-  color: green;
-  font-size:90%;
-  width: auto;
-  margin: 0;
-  text-align:left;
+
+.group {
+	fieldset {
+		width: auto;
+		flex: 1;
+		margin-top: 0;
+		+ fieldset {
+			position: relative;
+
+			&:before {
+				content: "";
+				border-left: solid thin $color-c;
+				height: 100%;
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			legend, input {
+				padding-left: .25rem;
+			}
+		}
+	}
 }
+
+
+// .bossy-input {
+// 	position: relative;
+// 	height: 30px;
+//   	line-height: 30px;
+// 	input{
+// 		border: 0;
+// 		border-bottom: 1px solid #ef9c28;
+// 		width: 100%;
+// 		padding-left: 10px;
+// 	}
+// 	input.prefix {
+// 		padding-left: 35px;
+// 	}
+// 	input.postfix {
+// 		padding-right: 35px;
+// 	}
+
+// 	input:focus{
+// 		border-bottom: 3px solid #ef9c28;
+// 	}
+// 	.counter {
+// 		position: absolute;
+// 	  right: 0;
+// 	  top: -20px;
+// 	  font-size: 10px;
+// 	}
+// 	input:focus + span {
+// 		-webkit-animation-duration: 1s;
+// 	    -moz-animation-duration: 1s;
+// 	    -o-animation-duration: 1s;
+// 	    animation-duration: 1s;
+// 	    -webkit-animation-fill-mode: both;
+// 	    -moz-animation-fill-mode: both;
+// 	    -o-animation-fill-mode: both;
+// 	    animation-fill-mode: both;
+// 	    -webkit-animation-name: bounce;
+// 		-moz-animation-name: bounce;
+// 		-o-animation-name: bounce;
+// 		animation-name: bounce;
+// 	}
+// 	&-component {
+// 		background: #ccc;
+// 		color: #333;
+// 		padding: 0 8px;
+// 	}
+// 	&-prefix {
+// 	  	position: absolute;
+// 	  	top: 0;
+// 	  	left: 0;
+// 	  	width: 30px
+// 	}
+// 	&-postfix {
+// 		position: absolute;
+// 	  	top: 0;
+// 		right: 0;
+// 	}
+// }
+
+// .bossy-fieldset {
+//   padding: 0.5em 1em;
+//   display: inline;
+// }
+
+// .bossy-legend {
+//   padding: 0.1em 0.5em;
+//   border:0px solid green;
+//   color: green;
+//   font-size:90%;
+//   width: auto;
+//   margin: 0;
+//   text-align:left;
+// }

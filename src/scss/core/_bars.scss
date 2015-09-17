@@ -4,12 +4,12 @@
 $bar-height: 2.4rem;
 
 .bar {
+  @include set-background($color-c--light);
   height: $bar-height;
   line-height: $bar-height;
   padding: 0 0 0 1rem;
   display: flex;
   justify-content: flex-start;
-  background-color: $color-c--light;
 
   > * {
     white-space: nowrap;
@@ -18,32 +18,29 @@ $bar-height: 2.4rem;
     line-height: $bar-height;
   }
 
-  .bar-button {
-    border-radius: 0;
-    padding: 0 1rem;
-    height: $bar-height;
-    margin-top: 0;
-    margin-left: auto;
-    align-self: flex-end;
-    background-color: $color-c--dark;
-    color: #fff;
-    height: 100%;
-    line-height: $bar-height;
-    font-size: 1rem;
-    border-top-right-radius: inherit;
-
+  button, .bar-button {
     @include hover($color-c--dark);
+    @extend .flex-end;
+
+    background-color: $color-c--dark;
+    border-radius: 0;
+    border-top-right-radius: inherit;
+    color: #fff;
+    height: $bar-height;
+    font-size: 1rem;
+    line-height: $bar-height;
+    margin-left: auto;
+    margin-top: 0;
+    padding: 0 1rem;
   }
 }
 
 /* Primary Color Bar */
 .bar--primary {
   @extend .bar;
-  background-color: $color-a;
-  color: #fff;
+  @include set-background($color-a);
 
   .bar-button {
-    background-color: $color-a--dark;
     @include hover($color-a--dark);
   }
 }
@@ -51,11 +48,9 @@ $bar-height: 2.4rem;
 /* Secondary Color Bar */
 .bar--secondary {
   @extend .bar;
-  background-color: $color-b;
-  color: #fff;
+  @include set-background($color-b);
 
   .bar-button {
-    background-color: $color-b--dark;
     @include hover($color-b--dark);
   }
 }

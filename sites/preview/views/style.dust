@@ -4,12 +4,20 @@
 	    <meta charset="UTF-8">
 	    <title>BossyUI Styles</title>
 	    <link href="dist/css/bossy.css" rel="stylesheet">
+	    <script src="/bower_components/Code-Highlighter/code-highlighter.js"></script>
 	    {LRScript|s}
 	    <style>
 				.container {
 					margin-left: auto;
 					margin-right: auto;
 					max-width: 1024px;
+				}
+				footer {
+					background: #777;
+					color: #fff;
+				}
+				.footer {
+					padding: 1rem 0;
 				}
 	    </style>
 	</head>
@@ -44,11 +52,16 @@
 					    </div>
 					    <div class="col-2-3">
 					      <h3 id="tiles">Tiles</h3>
+					      <xmp>
+				          <div class="tile"></div>
+								</xmp>
 					      <p>
 					        Tiles are structural elements, visual building blocks for contained elements on the page. Tiles should be used when a piece of information needs to visually separate from others around it.
 					      </p>
+
 					    </div>
 					  </div>
+					  <hr>
 					  <div class="grid">
 					    <div class="col-1-3">
 					      <section class="tile--stacked" style="height: 100px;">
@@ -58,6 +71,8 @@
 					    </div>
 					    <div class="col-2-3">
 					      <h3>Stacked Tiles</h3>
+					      <xmp><div class="tile--stacked"></div></xmp>
+					      <xmp><div class="tile--stacked"></div></xmp>
 					      <p>
 					        Tiles can also be stacked together. Instead of <code>.tile</code> use <code>.tiles--stacked</code> and the negative space between the tile elements will collapse.
 					      </p>
@@ -87,7 +102,18 @@
 					      </div>
 					    </div>
 					    <div class="col-2-3">
+					    	<h3>Bar Types</h3>
+					    	<xmp>
+				          <div class="bar"></div>
+								</xmp>
+								<xmp>
+				          <div class="bar--primary"></div>
+								</xmp>
+								<xmp>
+				          <div class="bar--secondary"></div>
+								</xmp>
 					      <p>Bars are a visual container for specific content. They can be used as headers, footers or interactive elements. Their primary purpose is to provide a visual labeling mechanism and a single interactive button.</p>
+
 					    </div>
 					  </div>
 					</section>
@@ -96,21 +122,138 @@
 						<header class="bar"><h2>Buttons</h2></header>
 					  <div class="grid">
 					  	<div class="col-1-3">
-					  		<button>Single Button</button>
+					  			<button>Single Button</button>
+									<button class="primary">Button Primary</button>
+									<button class="secondary">Button Secondary</button>
 					  		<div class="group">
 					  			<button>Group</button>
-					  			<button>Group</button>
-					  			<button>Group</button>
+					  			<button class="primary">Group</button>
+					  			<button class="secondary">Group</button>
 					  		</div>
 					  	</div>
 					  	<div class="col-2-3">
-
+					  		<h3>Buttons &amp; Button Groups</h3>
+					  		<xmp><button>Single Button</button></xmp>
+					  		<xmp><div class="group"></xmp>
+					  		<xmp><button>Grouped Button</button></xmp>
+					  		<xmp><button class="primary">Grouped Button</button></xmp>
+					  		<xmp><button class="secondary">Grouped Button</button></xmp>
+					  		<xmp></div></xmp>
+								<p>
+									Buttons and buttons groups are a base style applied globally to all button tags. Buttons can be group together into a single group by nesting sibling buttons within a parent element with the class group.
+								</p>
 					  	</div>
 					  </div>
+					</section>
+
+					<section id="input" class="tile">
+						<header class="bar"><h2>Input</h2></header>
+						<div class="grid">
+							<div class="col-1-3">
+								<form action="">
+									<fieldset>
+										<legend><label for="id1">Full Name</label></legend>
+										<input id="id1" type="text">
+									</fieldset>
+									<div class="group">
+										<fieldset>
+											<legend><label for="id1">License</label></legend>
+											<input id="id1" type="text">
+										</fieldset>
+										<fieldset>
+											<legend><label for="id1">Zip Code</label></legend>
+											<input id="id1" type="number">
+										</fieldset>
+									</div>
+									<fieldset class="valid">
+										<legend><label for="id2">Address</label></legend>
+										<input id="id2" type="text">
+									</fieldset>
+									<fieldset class="invalid">
+										<legend><label for="id3">City</label></legend>
+										<input id="id3" type="text">
+									</fieldset>
+									<fieldset>
+										<legend><label for="id3">Password</label></legend>
+										<input id="id3" type="password">
+									</fieldset>
+								</form>
+							</div>
+							<div class="col-2-3">
+								<h3>
+									Text, Email &amp; Number inputs
+								</h3>
+								<p>
+									Bossy inputs provide a stripped down method for showing form information. The validation feedback should show as a postive/negative color change on the bottom border of the input and the a X or Check next to the input label. This is achieved through the use of the valid/invalid classes applied to the parent fieldset.
+								</p>
+							</div>
+
+						</div>
+						<hr>
+						<div class="grid">
+							<div class="col-1-3">
+								<form action="">
+									<fieldset class="bossy-radio">
+										<legend>Radio Button Label</legend>
+										<div class="group">
+											<label><input name="radio" type="radio"> Radio</label>
+											<label><input name="radio" type="radio"> Radio</label>
+											<label><input name="radio" type="radio"> Radio</label>
+											<label><input name="radio" type="radio"> Radio</label>
+											<label><input name="radio" type="radio"> Radio</label>
+											<label><input name="radio" type="radio"> Radio</label>
+										</div>
+									</fieldset>
+									<div class="group">
+										<fieldset class="bossy-radio">
+											<legend>Radio Buttons</legend>
+											<div class="group">
+												<label><input name="radio" type="radio"> Radio</label>
+											</div>
+										</fieldset>
+										<fieldset class="bossy-radio">
+											<legend>Radio Buttons</legend>
+											<div class="group">
+												<label><input name="radio" type="radio"> Radio</label>
+												<label><input name="radio" type="radio"> Radio</label>
+											</div>
+										</fieldset>
+									</div>
+									<div class="group">
+										<fieldset class="bossy-radio">
+											<legend>Check</legend>
+											<div class="group">
+												<label><input type="checkbox"> Radio</label>
+											</div>
+										</fieldset>
+										<fieldset class="bossy-radio">
+											<legend>Checkboxes</legend>
+											<div class="group">
+												<label><input type="checkbox"> Radio</label>
+												<label><input type="checkbox"> Radio</label>
+											</div>
+										</fieldset>
+									</div>
+								</form>
+							</div>
+							<div class="col-2-3">
+								<h3>Radio Buttons</h3>
+								<p>
+									Radio buttons are handled by wrapping the label around in the input. This simplifies the input, making the label clickable for selecting the corresponding value.
+								</p>
+							</div>
+						</div>
 					</section>
 
 				</div>
 			</div>
 		</div>
+		<footer>
+			<div class="container">
+				<div class="footer">
+					&copy; Build Open Source Consortium
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>
