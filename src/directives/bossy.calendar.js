@@ -156,24 +156,45 @@ function CalendarController($scope) {
 function Calendar() {
 
 	var template =
-		'<table>' +
-			'<tr>' +
-				'<td ng-click="previousMonth()" title="Previous month" class="p">&lt;</td>' +
-				'<td colspan="5">{{current.monthName}} {{current.year}}</td>' +
-				'<td ng-click="nextMonth()" title="Next month" class="p">&gt;</td>' +
-			'</tr>' +
-			'<tr>' +
-				'<td ng-repeat="day in days" title="{{day}}">{{day | limitTo : 2}}</td>' +
-			'</tr>' +
-			'<tr ng-repeat="week in dateMap">' +
-				'<td ng-repeat="current in week" ng-click="selectDate(current.time)" class="{{current.dayInMonth}} {{current.disabledDay}} p">' +
-					'{{current.date}}' +
-				'</td>' +
-			'</tr>' +
-			'<tr>' +
-				'<td colspan="7">{{selected.day}}, {{selected.monthName}} {{selected.date}}, {{selected.year}}</td>' +
-			'</tr>' +
-		'</table>';
+
+		'<div class="calendarWrapper">' +
+
+			'<div class="calendarView">' +
+				'<table>' +
+					'<thead>' +
+						'<tr class="heading">' +
+							'<td ng-click="previousMonth()" title="Previous month" class="p"><img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-chevron-right-128.png" title="Previous Month" style="transform: rotate(180deg);" width="25"><i class="ionicon ion-chevron-down"></i></td>' +
+							'<td colspan="5" class="calendar-month">{{current.monthName}} {{current.year}}</td>' +
+							'<td ng-click="nextMonth()" title="Next month" class="p"><img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-chevron-right-128.png" title="Next Month" width="25"></td>' +
+						'</tr>' +
+					'</thead>' +
+					'<tbody>' +
+						'<tr class="week-days">' +
+							'<td ng-repeat="day in days" title="{{day}}">{{day | limitTo : 2}}</td>' +
+						'</tr>' +
+						'<tr ng-repeat="week in dateMap">' +
+							'<td ng-repeat="current in week" ng-click="selectDate(current.time)" class="{{current.dayInMonth}} {{current.disabledDay}} p">' +
+								'{{current.date}}' +
+							'</td>' +
+						'</tr>' +
+					'<tbody>' +
+					'<tfooter>' +
+						'<tr>' +
+							'<td colspan="7">{{selected.day}}, {{selected.monthName}} {{selected.date}}, {{selected.year}}</td>' +
+						'</tr>' +
+					'</tfooter>' +
+				'</table>' +
+			'</div> <!-- / calendarView -->' +
+
+			'<div class="btm-bar">' +
+				'<span class="date-selected">' +
+					'<strong>Start Date</strong>' +
+					'August 6th, 2015' +
+				'</span>' +
+				'<i class="flip-over"><img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-chevron-right-128.png" title="Previous Month" width="25"></i>' +
+			'</div> <!-- / Btm-Bar -->' +
+
+		'</div> <!-- / calendarWrapper -->';
 
 
 
