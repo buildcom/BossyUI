@@ -216,3 +216,5 @@ CalendarController.$inject = ['$scope'];
 angular.module('bossy.calendar', [])
 	.controller('bossyCalendarController', CalendarController)
     .directive('bossyCalendar', Calendar);
+
+// notes so I can make a commit
