@@ -1,0 +1,424 @@
+/* ----------- Functions ----------- */
+@function check-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return $text-color; // Lighter backgorund, return dark color
+  } @else {
+    @return #ffffff; // Darker background, return light color
+  }
+}
+
+@function dark($color) {
+  $dark: darken($color, 10%);
+  @if (lightness($dark) > 0) {
+    @return $dark; // If not black return darkened color
+  } @else {
+    @return $color; // Return input color
+  }
+}
+
+@function light($color) {
+  $light: lighten($color, 6%);
+  @if (lightness($light) < 100%) {
+    @return $light; // If not black return darkened color
+  } @else {
+    @return $color; // Return input color
+  }
+}
+
+/* ----------- Utilities ----------- */
+@mixin each($list) {
+  @each $name, $value in $list {
+    $name: "name" !default;
+    $value: "value" !default;
+    @content;
+  }
+}
+
+/* ----------- Prefixer ----------- */
+@mixin prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+
+/* Display: flexbox */
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Flex Grid */
+@mixin flexbox-grid() {
+  @include flexbox();
+  @include prefix(flex-wrap, wrap);
+  @extend %gutter;
+
+  > * {
+    @include prefix(flex, 0 1 auto);
+  }
+}
+
+/* ----------- Custom Media Quiries ----------- */
+
+/* Custom Media Query */
+@mixin media($media) {
+  @media (min-width: #{$media}) {
+    @content;
+  }
+}
+
+/* Tablet */
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+/* Desktop/Wide Tablet */
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+/* Desktop */
+@mixin desktop-large {
+  @media (min-width: #{$desktop-width-large}) {
+    @content;
+  }
+}
+
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@mixin iphone-4 {
+  @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 480px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+/* Portrait */
+@mixin iphone-4-portrait {
+  @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 480px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait) {
+      @content;
+  }
+}
+
+/* Landscape */
+@mixin iphone-4-landscape {
+  @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 480px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: landscape) {
+    @content;
+  }
+}
+
+/* ----------- iPhone 5 and 5S ----------- */
+
+/* Portrait and Landscape */
+@mixin iphone-5 {
+  @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 568px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+      @content;
+  }
+}
+
+/* Portrait */
+@mixin iphone-5-portrait {
+  @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 568px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait) {
+      @content;
+  }
+}
+
+/* Landscape */
+@mixin iphone-5-landscape {
+  @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 568px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: landscape) {
+      @content;
+  }
+}
+
+/* ----------- iPhone 6 ----------- */
+
+/* Portrait and Landscape */
+@mixin iphone-6 {
+  @media only screen
+    and (min-device-width: 375px)
+    and (max-device-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+      @content;
+  }
+}
+
+/* Portrait */
+@mixin iphone-6-portrait {
+  @media only screen
+    and (min-device-width: 375px)
+    and (max-device-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait) {
+      @content;
+  }
+}
+
+/* Landscape */
+@mixin iphone-6-landscape {
+  @media only screen
+    and (min-device-width: 375px)
+    and (max-device-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: landscape) {
+      @content;
+  }
+}
+
+/* ----------- iPhone 6+ ----------- */
+
+/* Portrait and Landscape */
+@mixin iphone-6-plus {
+  @media only screen
+    and (min-device-width: 414px)
+    and (max-device-width: 736px)
+    and (-webkit-min-device-pixel-ratio: 3) {
+      @content;
+  }
+}
+
+/* Portrait */
+@mixin iphone-6-plus-portrait {
+  @media only screen
+    and (min-device-width: 414px)
+    and (max-device-width: 736px)
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: portrait) {
+      @content;
+  }
+}
+
+/* Landscape */
+@mixin iphone-6-plus-landscape {
+  @media only screen
+    and (min-device-width: 414px)
+    and (max-device-width: 736px)
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: landscape) {
+      @content;
+  }
+}
+
+/* ----------- iPad mini ----------- */
+
+/* Portrait and Landscape */
+@mixin ipad-mini {
+  @media only screen
+    and (min-device-width: 768px)
+    and (max-device-width: 1024px)
+    and (-webkit-min-device-pixel-ratio: 1) {
+      @content;
+  }
+}
+
+/* Portrait */
+@mixin ipad-mini-portrait {
+  @media only screen
+    and (min-device-width: 768px)
+    and (max-device-width: 1024px)
+    and (orientation: portrait)
+    and (-webkit-min-device-pixel-ratio: 1) {
+      @content;
+  }
+}
+
+/* Landscape */
+@mixin ipad-mini-landscape {
+  @media only screen
+    and (min-device-width: 768px)
+    and (max-device-width: 1024px)
+    and (orientation: landscape)
+    and (-webkit-min-device-pixel-ratio: 1) {
+      @content;
+  }
+}
+
+/* ----------- iPad 1 and 2 ----------- */
+/* Portrait and Landscape */
+@mixin ipad-1-2 {
+  @media only screen
+    and (min-device-width: 768px)
+    and (max-device-width: 1024px)
+    and (-webkit-min-device-pixel-ratio: 1) {
+      @content;
+  }
+}
+
+/* Portrait */
+@mixin ipad-1-2-portrait {
+  @media only screen
+    and (min-device-width: 768px)
+    and (max-device-width: 1024px)
+    and (orientation: portrait)
+    and (-webkit-min-device-pixel-ratio: 1) {
+      @content;
+  }
+}
+
+/* Landscape */
+@mixin ipad-1-2-landscape {
+  @media only screen
+    and (min-device-width: 768px)
+    and (max-device-width: 1024px)
+    and (orientation: landscape)
+    and (-webkit-min-device-pixel-ratio: 1) {
+      @content;
+  }
+}
+
+/* ----------- iPad 3 and 4 ----------- */
+/* Portrait and Landscape */
+@mixin ipad-3-4 {
+  @media only screen
+    and (min-device-width: 768px)
+    and (max-device-width: 1024px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+      @content;
+  }
+}
+
+/* Portrait */
+@mixin ipad-3-4-portrait {
+  @media only screen
+    and (min-device-width: 768px)
+    and (max-device-width: 1024px)
+    and (orientation: portrait)
+    and (-webkit-min-device-pixel-ratio: 2) {
+      @content;
+  }
+}
+
+/* Landscape */
+@mixin ipad-3-4-landscape {
+  @media only screen
+    and (min-device-width: 768px)
+    and (max-device-width: 1024px)
+    and (orientation: landscape)
+    and (-webkit-min-device-pixel-ratio: 2) {
+      @content;
+  }
+}
+
+/* ----------- Non-Retina Screens ----------- */
+@mixin non-retina {
+  @media screen
+    and (min-device-width: 1200px)
+    and (max-device-width: 1600px)
+    and (-webkit-min-device-pixel-ratio: 1) {
+      @content;
+  }
+}
+
+/* ----------- Retina Screens ----------- */
+@mixin retina {
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+      @content;
+  }
+}
+
+/* ----------- Apple Watch ----------- */
+@mixin apple-watch {
+  @media
+    (max-device-width: 42mm)
+    and (min-device-width: 38mm) {
+      @content;
+  }
+}
+
+/* ----------- Print ----------- */
+@mixin print {
+  @media print {
+    @content;
+  }
+}
+
+/* ----------- Grid Generator ----------- */
+@mixin grid-generator($grid) {
+  @include flexbox-grid();
+
+  @each $name, $value in $grid {
+    > [class*="#{$name}"] {
+      width: 100%;
+    }
+
+    @for $i from 1 through $columns {
+      @for $j from 1 through $i {
+        @if $j < $i {
+          @include media($value) {
+            .#{$name}-#{$j}-#{$i} {
+              padding-left: 1rem;
+              padding-left: calc(0rem);
+              max-width: percentage($j/$i);
+              max-width: calc(#{percentage($j/$i)} - 1rem);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ----------- Base ----------- */
+@mixin set-background($background) {
+  color: check-text-color($background);
+  background: $background;
+}
+
+/* ----------- Inetractive ----------- */
+/* Hover States */
+@mixin hover($background) {
+  @include set-background($background);
+
+  &:hover {
+    background-color: darken($background, 5%);
+    cursor: pointer;
+  }
+}
+
+
+/*
+= Color Generator
+*/
+@mixin color-generator($colors) {
+  @each $name, $value in $list {
+    #{$name}: $value;
+    #{$name}--dark: darken($value, 10%);
+    #{$name}--light: lighten($value, 6%);
+  }
+}

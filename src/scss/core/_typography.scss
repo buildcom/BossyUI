@@ -1,0 +1,22 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic,700italic);
+/*
+= Font Size Resets
+*/
+
+html {
+	font-family: 'Lato', Helvetica, sans-serif;
+	font-weight: 300;
+	font-size: 87.5%;
+	line-height: 1.4rem;
+}
+
+/*
+= Heading Resets
+*/
+h1, h2, h3, h4, h5, h6 {
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+
+  line-height: 1.8em;
+}

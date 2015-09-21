@@ -1,0 +1,144 @@
+fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-before: 0;
+  -webkit-padding-start: 0;
+  -webkit-padding-end: 0;
+  -webkit-padding-after: 0;
+  + * {
+		margin-top: 0;
+  }
+
+	legend {
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: .05rem;
+		color: #777;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 100%;
+		float: left;
+		font-size: .7rem;
+		padding-top: .25rem;
+		+ * {
+			clear: both;
+		}
+	}
+
+	legend, label {
+		-webkit-padding-start: 0;
+    -webkit-padding-end: 0;
+		line-height: 1em;
+	}
+
+	input[type="email"],
+	input[type="number"],
+	input[type="text"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="password"],
+	input[type="url"] {
+		margin-top: 0;
+		border: none;
+		border-bottom: solid thin $color-c--dark;
+		height: 2rem;
+		font-size: 1rem;
+		line-height: 2rem;
+		outline: none;
+		display: block;
+		width: 100%;
+	}
+
+	&.valid {
+		label {
+			&:after {
+				content: "\2713";
+				color: green;
+				margin-left: .25em;
+			}
+		}
+		input {
+			border-bottom-color: green;
+		}
+	}
+
+	&.invalid {
+		label {
+			&:after {
+				content: "\2715";
+				color: red;
+				margin-left: .25em;
+			}
+		}
+		input {
+			border-bottom-color: red;
+		}
+	}
+
+	&.bossy-radio, &.bossy-checkbox {
+		margin-left: -.5rem;
+		display: flex;
+		position: relative;
+		padding-bottom: .25rem;
+
+		&:after {
+			content: "";
+			border-bottom: solid thin $color-c;
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: .5rem;
+			width: calc(100% - .5rem);
+		}
+
+		label {
+			margin: 0;
+			margin-left: .5rem;
+			white-space: nowrap;
+			margin-top: .5rem;
+		}
+
+		legend {
+			margin-top: 0;
+			margin-left: .5rem;
+		}
+	}
+}
+
+/*
+= Fieldset group
+*/
+
+form {
+	.group {
+		margin-top: 0;
+
+		fieldset {
+			width: auto;
+			flex: 1;
+			margin-top: 0;
+
+			+ fieldset {
+				position: relative;
+
+				&:before {
+					content: "";
+					border-left: solid thin $color-c;
+					height: 100%;
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+				}
+
+				legend, input {
+					padding-left: .25rem;
+				}
+			}
+		}
+	}
+}

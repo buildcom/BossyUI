@@ -20,6 +20,7 @@ app.use('/lib', express.static('sites/preview/lib'));
 app.use('/js', express.static('sites/preview/js'));
 app.use('/css', express.static('sites/preview/css'));
 app.use('/templates', express.static('sites/preview/templates'));
+app.use('/bower_components', express.static('bower_components'));
 
 app.get('/', function (req, res) {
     res.render('index');

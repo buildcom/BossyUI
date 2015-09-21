@@ -1,0 +1,39 @@
+/* ----------- Tiles ----------- */
+
+/*
+= Tile
+*/
+.tile {
+  background: #FFFFFF;
+  box-shadow: $shadow-left, $shadow-right, $shadow-top, $shadow-bottom;
+  border-radius: $radius;
+  padding: 1rem;
+
+  > header {
+    margin: -1rem -1rem 0;
+    border-radius: $radius $radius 0 0;
+  }
+}
+
+/*
+= Tiles Stacked
+*/
+.tile--stacked {
+  @extend .tile;
+  border-radius: 0;
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+  padding-bottom: 3px;
+
+  > header {
+      border-radius: 0;
+  }
+
+  + .tile--stacked {
+    border-radius: 0;
+    border-bottom-left-radius: $radius;
+    border-bottom-right-radius: $radius;
+    margin-top: -$radius;
+    box-shadow: $shadow-left, $shadow-right, $shadow-bottom;
+  }
+}
