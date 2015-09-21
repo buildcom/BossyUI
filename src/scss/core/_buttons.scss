@@ -1,5 +1,8 @@
 /* ----------- Buttons ----------- */
-// Default Button Styles
+
+/*
+= Buttons
+*/
 button {
   @include hover($color-c--light);
   @extend %web-kit-unstyle;
@@ -29,14 +32,9 @@ button {
   }
 }
 
-
-.group {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-
-// Button Groups
+/*
+= Button Group
+*/
 .group {
 
   > button {
@@ -47,6 +45,7 @@ button {
     + button {
       border-left: solid thin $color-c--dark;
     }
+
     &:first-of-type {
       border-radius: $radius 0 0 $radius;
     }

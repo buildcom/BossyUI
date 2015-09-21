@@ -1,5 +1,9 @@
+/*
+= global box-sizing
+*/
+
 * {
-	box-sizing: border-box;
+	@include prefix(box-sizing, border-box);
 	margin-top: 0;
 
 	+ * {
@@ -7,10 +11,42 @@
 	}
 }
 
+
+/*
+= Grid Generation
+*/
 .grid {
   @include grid-generator($grid);
 }
 
+
+/*
+= Section spacing
+*/
+
 section + section {
 	margin-top: 1.4rem*3;
+}
+
+
+/*
+= Group
+*/
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+/*
+= Flex position
+*/
+
+.flex-left {
+  @include prefix(align-self, flex-start);
+}
+
+.flex-right {
+  @include prefix(align-self, flex-end);
 }

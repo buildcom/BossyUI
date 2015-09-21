@@ -7,6 +7,24 @@
   }
 }
 
+@function dark($color) {
+  $dark: darken($color, 10%);
+  @if (lightness($dark) > 0) {
+    @return $dark; // If not black return darkened color
+  } @else {
+    @return $color; // Return input color
+  }
+}
+
+@function light($color) {
+  $light: lighten($color, 6%);
+  @if (lightness($light) < 100%) {
+    @return $light; // If not black return darkened color
+  } @else {
+    @return $color; // Return input color
+  }
+}
+
 /* ----------- Utilities ----------- */
 @mixin each($list) {
   @each $name, $value in $list {
@@ -394,3 +412,13 @@
 }
 
 
+/*
+= Color Generator
+*/
+@mixin color-generator($colors) {
+  @each $name, $value in $list {
+    #{$name}: $value;
+    #{$name}--dark: darken($value, 10%);
+    #{$name}--light: lighten($value, 6%);
+  }
+}

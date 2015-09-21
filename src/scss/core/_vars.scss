@@ -1,5 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Oxygen+Mono|Oxygen:400,300,700);
 
+/*
+= Grid Variables
+*/
 $gutter: 1rem;
 $tablet-width: 768px;
 $desktop-width: 1024px;
@@ -12,10 +15,18 @@ $grid: (
   desktop: $desktop-width
 );
 
-$text-color: #444;
+$gutter: 1rem;
 
+
+/*
+= Radius Variables
+*/
 $radius: 3px !default;
 
+
+/*
+= Shadow Variables
+*/
 $shadow: rgba(201,201,201,0.50);
 $shadow-left:  -1px 0px 0px 0px $shadow;
 $shadow-right: 1px 0px 0px 0px $shadow;
@@ -23,15 +34,9 @@ $shadow-top:  0px -1px 0px 0px $shadow;
 $shadow-bottom: 0px 2px 0px 0px $shadow;
 
 
+/*
+= Colors
+*/
+$text-color: #444;
 
-$color-a: #0076A8;
-$color-b: #00B388;
-$color-c: #E4E3E3;
 
-$color-a--dark: darken($color-a, 10%);
-$color-b--dark: darken($color-b, 10%);
-$color-c--dark: darken($color-c, 10%);
-
-$color-c--light: lighten($color-c, 6%);
-
-$gutter: 1rem;

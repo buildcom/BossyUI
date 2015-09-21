@@ -1,5 +1,8 @@
 /* ----------- Tiles ----------- */
-/* Single Tile */
+
+/*
+= Tile
+*/
 .tile {
   background: #FFFFFF;
   box-shadow: $shadow-left, $shadow-right, $shadow-top, $shadow-bottom;
@@ -12,7 +15,9 @@
   }
 }
 
-/* Stacked Tile */
+/*
+= Tiles Stacked
+*/
 .tile--stacked {
   @extend .tile;
   border-radius: 0;

@@ -1,5 +1,7 @@
 /* ----------- Bars ----------- */
-/* Generic Bar */
+/*
+= Bar
+*/
 
 $bar-height: 2.4rem;
 
@@ -35,7 +37,9 @@ $bar-height: 2.4rem;
   }
 }
 
-/* Primary Color Bar */
+/*
+= Primary Bar
+*/
 .bar--primary {
   @extend .bar;
   @include set-background($color-a);
@@ -45,7 +49,9 @@ $bar-height: 2.4rem;
   }
 }
 
-/* Secondary Color Bar */
+/*
+= Secondary Bar
+*/
 .bar--secondary {
   @extend .bar;
   @include set-background($color-b);
