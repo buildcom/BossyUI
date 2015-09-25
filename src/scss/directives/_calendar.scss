@@ -1,18 +1,175 @@
-.bossy-calendar {
+* {
+	box-sizing: border-box;
+}
+
+$color-primary: #3582a2;
+$color-primary-dark: darken($color-primary, 10%);
+$color-primary-light: lighten($color-primary, 10%);
+
+$color-text: #333;
+$color-text-dark: darken($color-text, 20%);
+$color-text-light: lighten($color-text, 20%);
+
+$border-radius: 3px;
+
+bossy-calendar {
+
 	.p {
 		cursor: pointer;
 	}
+
 	table {
 		min-width: 214px;
+
+		tr {
+
+			td {
+				padding: 4px;
+				text-align: center;
+			}
+
+		}
+
 	}
-	td {
-		padding: 4px;
-		text-align: center;
-	}
-	.day-in-month {
-		font-weight: 700;
-	}
-	.disabled-day {
-		color: #ccc;
-	}
+
 }
+
+.ng-isolate-scope {
+
+	.calendarWrapper {
+		position: relative;
+		background-color: white;
+		padding-bottom: 60px;
+		display: inline-block;
+		border-radius: $border-radius;
+		box-shadow: 0 1px 2.97px 0.03px rgba(0,0,0,0.35),
+					0 4px 10.45px 0.55px rgba(0,0,0,0.21);
+	}
+
+	.calendarView {
+		position: relative;
+		padding: 30px;
+		display: inline-block;
+	}
+
+	table {
+
+		tr {
+
+			&.heading {
+				text-align: center;
+				font: bold 26px "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+				color: $color-text-dark;
+
+				td {
+
+					&.calendar-month {
+						min-width: 250px;
+					}
+
+					&:not(.calendar-month) {
+						background-color: $color-primary;
+						display: block;
+						height: 45px;
+						width: 45px;
+						border-radius: 5px;
+						color: #fff;
+
+						&:hover {
+							background-color: $color-primary-dark;
+						}
+
+					}
+
+				}
+
+			}
+
+			&.week-days {
+				font-weight: bold;
+				border-bottom: 1px solid #e8e8e8;
+			}
+
+			&.ng-scope {
+				border-bottom: 1px solid #eee;
+
+				td {
+					color: $color-text-light;
+
+					&:not(.day-in-month) {
+						color: #dfdfdf;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+	.btm-bar {
+		position: absolute;
+		background-color: $color-primary;
+		width: 100%;
+		bottom: 0;
+		left: 0;
+		padding: 10px 8px 8px;
+		color: #fff;
+		border-bottom-left-radius: $border-radius;
+		border-bottom-right-radius: $border-radius;
+
+		.date-selected {
+			font-size: 23px;
+			font-weight: 100;
+
+			strong {
+				display: block;
+				font-size: 12px;
+			}
+
+		}
+
+		.flip-over {
+			position: absolute;
+			background-color: $color-primary-dark;
+			height: 100%;
+			width: 50px;
+			top: 0;
+			right: 0;
+			padding-left: 15px;
+			padding-top: 19px;
+			cursor: pointer;
+		}
+
+	}
+
+}
+
+/*.bossy-calendar {
+
+	table {
+		border: 1px solid #ccc;
+		border-radius: 10px;
+		-webkit-border-radius: 10px;
+
+		tr {
+			border-bottom: 1px solid #ccc;
+
+			td {
+
+				&.day-in-month {
+					background-color: #eee;
+				}
+
+			}
+
+			.p + .p.day-in-month {
+				border-radius: 50%;
+			}
+
+		}
+
+	}
+
+}*/
