@@ -1,5 +1,6 @@
 function TooltipController($scope){
 
+
 }
 
 function Tooltip()
@@ -7,9 +8,19 @@ function Tooltip()
   return {
     restrict: 'A',
     scope: {
-      data: '='
+      data: '=',
     },
-    controller: TooltipController
+    link: function(scope, element, attrs){
+      element.bind('mouseenter', function(){
+        element.after('<span id="tooltip" class="btn btn-danger">' + scope.data.text+ '</span>');
+
+      });
+
+      element.bind('mouseleave', function(){
+        angular.element(document.querySelector('#tooltip')).remove();
+      });
+    },
+    controller: TooltipController,
   };
 }
 
@@ -19,4 +30,4 @@ TooltipController.$inject = ['$scope'];
 
 angular.module('bossy.tooltip', [])
   .controller('bossyTooltipController', TooltipController)
-    .directive('bossTooltip', Tooltip);
+    .directive('bossyTooltip', Tooltip);
