@@ -16,8 +16,8 @@ var bossy = angular.module('bossy', [
 		'bossy.calendar',
 		'bossy.data',
 		'bossy.form',
-    'bossy.graph',
+        'bossy.graph',
 		'bossy.input',
-		'bossy.schema',
+		'bossy.schema'
 	]
 );
