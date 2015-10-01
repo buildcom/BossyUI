@@ -1,0 +1,42 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Oxygen+Mono|Oxygen:400,300,700);
+
+/*
+= Grid Variables
+*/
+$gutter: 1rem;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$desktop-width-large: 1200px;
+$columns: 12;
+
+$grid: (
+  col: 0,
+  tablet: $tablet-width,
+  desktop: $desktop-width
+);
+
+$gutter: 1rem;
+
+
+/*
+= Radius Variables
+*/
+$radius: 3px !default;
+
+
+/*
+= Shadow Variables
+*/
+$shadow: rgba(201,201,201,0.50);
+$shadow-left:  -1px 0px 0px 0px $shadow;
+$shadow-right: 1px 0px 0px 0px $shadow;
+$shadow-top:  0px -1px 0px 0px $shadow;
+$shadow-bottom: 0px 2px 0px 0px $shadow;
+
+
+/*
+= Colors
+*/
+$text-color: #444;
+
+

@@ -1,0 +1,62 @@
+/* ----------- Bars ----------- */
+/*
+= Bar
+*/
+
+$bar-height: 2.4rem;
+
+.bar {
+  @include set-background($color-c--light);
+  height: $bar-height;
+  line-height: $bar-height;
+  padding: 0 0 0 1rem;
+  display: flex;
+  justify-content: flex-start;
+
+  > * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: $bar-height;
+  }
+
+  button, .bar-button {
+    @include hover($color-c--dark);
+    @extend .flex-end;
+
+    background-color: $color-c--dark;
+    border-radius: 0;
+    border-top-right-radius: inherit;
+    color: #fff;
+    height: $bar-height;
+    font-size: 1rem;
+    line-height: $bar-height;
+    margin-left: auto;
+    margin-top: 0;
+    padding: 0 1rem;
+  }
+}
+
+/*
+= Primary Bar
+*/
+.bar--primary {
+  @extend .bar;
+  @include set-background($color-a);
+
+  .bar-button {
+    @include hover($color-a--dark);
+  }
+}
+
+/*
+= Secondary Bar
+*/
+.bar--secondary {
+  @extend .bar;
+  @include set-background($color-b);
+
+  .bar-button {
+    @include hover($color-b--dark);
+  }
+}

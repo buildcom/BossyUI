@@ -1,0 +1,67 @@
+/* ----------- Buttons ----------- */
+
+/*
+= Buttons
+*/
+button {
+  @include hover($color-c--light);
+  @extend %web-kit-unstyle;
+
+  border: none;
+  border-radius: 0;
+  display: inline-block;
+  outline: none;
+  height: 2.5em;
+  line-height: 2.5em;
+  padding: 0 1em;
+  font-size: 1rem;
+  border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+  transition: background-color .25s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &.primary {
+    @include hover($color-a);
+  }
+  &.secondary {
+    @include hover($color-b);
+  }
+}
+
+/*
+= Button Group
+*/
+.group {
+
+  > button {
+    display: block;
+    border-radius: 0;
+    margin: 0;
+
+    + button {
+      border-left: solid thin $color-c--dark;
+    }
+
+    &:first-of-type {
+      border-radius: $radius 0 0 $radius;
+    }
+
+    &:last-of-type {
+      border-radius: 0 $radius $radius 0;
+    }
+    &.primary {
+      + button {
+        border-left: solid thin $color-a--dark;
+      }
+    }
+    &.secondary {
+      + button {
+        border-left: solid thin $color-b--dark;
+      }
+    }
+  }
+}
