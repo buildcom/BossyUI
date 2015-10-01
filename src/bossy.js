@@ -19,6 +19,5 @@ var bossy = angular.module('bossy', [
     'bossy.graph',
 		'bossy.input',
 		'bossy.schema',
-    'bossy.tooltip'
 	]
 );
