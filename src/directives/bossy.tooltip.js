@@ -12,19 +12,19 @@ function Tooltip()
       options: '=',
     },
     link: function(scope, element, attrs){
+
+      var tooltipElement = angular.element('<span id="tooltip" class="btn btn-danger">' + scope.data.text+ '</span>');
+
       element.bind('mouseenter', function(){
-        element.after('<span id="tooltip" class="btn btn-danger">' + scope.data.text+ '</span>');
+        element.after(tooltipElement);
 
         if (scope.options.color === 'Blue'){
-        angular.element(document.querySelector('#tooltip')).removeClass('btn btn-danger').addClass('btn btn-primary');
-        angular.element(document.querySelector('#tooltip')).css('position', 'relative');
-        angular.element(document.querySelector('#tooltip')).css('bottom', '50px');
+        tooltipElement.removeClass('btn btn-danger').addClass('btn btn-primary');
         }
-
       });
 
       element.bind('mouseleave', function(){
-        angular.element(document.querySelector('#tooltip')).remove();
+        tooltipElement.remove();
       });
     },
     controller: TooltipController,
