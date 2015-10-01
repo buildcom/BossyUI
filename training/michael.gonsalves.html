@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    <title>Angular Training App - Michael Gonsalves</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="trainingApp" ng-controller="trainingCtrl">
+  <input type="text" ng-model="trainingText"><br>
+  <h1>{{trainingText}}</h1>
+</div>
+
+<script>
+var app = angular.module('trainingApp', []);
+app.controller('trainingCtrl', function($scope) {
+    $scope.trainingText = "Enter text here!";
+});
+</script>
+
+</body>
+</html>
