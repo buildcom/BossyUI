@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>BossyUI Preview</title>
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/Ionicons/css/ionicons.min.css"/>
+    <link href="css/preview.css" rel="stylesheet">
+    <link href="dist/css/bossy.css" rel="stylesheet">
+</head>
+<body ng-app="PreviewApp">
+<!-- <nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavCtrl">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                BossyUI Preview
+            </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-click="toggleDirectives()">Directives <span class="caret"></span></a>
+                <ul class="dropdown-menu" ng-class="{show: view.directives}" ng-click="toggleDirectives()">
+                    <li ng-repeat="directive in directives" class="uppercase"><a href="#{{ directive }}">{{ directive }}</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>  -->
+<div class="container">
+{+content/}
+</div>
+    {LRScript|s}
+<script src="lib/ace-builds/src-min-noconflict/ace.js"></script>
+<script src="lib/angular/angular.min.js"></script>
+<script src="lib/ui-router/release/angular-ui-router.min.js"></script>
+<script src="lib/angular-ui-ace/ui-ace.js"></script>
+<script src="dist/js/bossy.all.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

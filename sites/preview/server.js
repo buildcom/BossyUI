@@ -26,8 +26,12 @@ app.get('/', function (req, res) {
     res.render('index');
 });
 
-app.get('/style', function (req, res) {
-    res.render('style');
+app.get('/directives', function (req, res) {
+    res.render('directives');
+});
+
+app.get('/styles', function (req, res) {
+    res.render('styles');
 });
 
 var server = app.listen(3000, function () {
