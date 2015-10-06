@@ -13,19 +13,43 @@ function Tooltip()
     },
     link: function(scope, element, attrs){
 
-      var tooltipElement = angular.element('<span id="tooltip" class="btn btn-danger">' + scope.data.text+ '</span>');
+      // Determine class options
+      var tooltipClass = "tooltip-active";
 
-      element.bind('mouseenter', function(){
-        element.after(tooltipElement);
+      // Alignment
+      if (scope.options.align === "Left"){
+        tooltipClass += " tooltip-left";
+      }
+      else if (scope.options.align === "Right"){
+        tooltipClass += " tooltip-right";
+      }
 
-        if (scope.options.color === 'Blue'){
-        tooltipElement.removeClass('btn btn-danger').addClass('btn btn-primary');
-        }
-      });
+      // Color
+      if (scope.options.color === "Green"){
+        tooltipClass += " green";
+      }
+      else if (scope.options.color === "Blue"){
+        tooltipClass += " blue";
+      }
+      else if (scope.options.color === "Orange"){
+        tooltipClass += " orange";
+      }
+      else if (scope.options.color === "Red"){
+        tooltipClass += " red";
+      }
 
-      element.bind('mouseleave', function(){
-        tooltipElement.remove();
-      });
+      // Content type
+      if (scope.options.type === "Html"){
+        tooltipClass += " content-html";
+      }
+
+      // Wrap element html
+      var replacementHTML = '<div class="tooltip default-style" style="opacity:1;"><span class="link">' + element.html() +
+      '<div class="' + tooltipClass + '">' + scope.data.text + '</div></span></div>';
+
+      // Replace element's html with wrapped content
+      element.html(replacementHTML);
+
     },
     controller: TooltipController,
   };
