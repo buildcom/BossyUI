@@ -13,6 +13,16 @@ function Tooltip()
     },
     link: function(scope, element, attrs){
 
+      // What do we do if no text is given?
+      if (!scope.data){
+        scope.data = {text:"Sample Tool Tip"};
+      }
+
+      // Fail safe in case options are not given
+      if (!scope.options){
+        scope.options = {};
+      }
+
       // Determine class options
       var tooltipClass = "tooltip-active";
 
