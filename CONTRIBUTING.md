@@ -40,7 +40,7 @@ Next make sure you have [Node.js](http://nodejs.org) installed on your machine. 
 $ node -v
 ```
 
-If your terminal returns a version number then you are good to go. If it does not return a version number then visit the [Node.js downloads page](http://nodejs.org/download/) and download and install a copy on your machine.
+If your terminal returns a version number then you are good to go. If it does not return a version number then visit the [Node.js downloads page](http://nodejs.org/en/download/) and download and install a copy on your machine.
 
 With the Node.js installer you will also get the NPM CLI (Node Package Manager Command Line Interface) which your computer will use to download packages from the NPM registry.
 
