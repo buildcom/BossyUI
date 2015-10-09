@@ -1,0 +1,17 @@
+<html ng-app="NameApp">
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+		<script >
+			var app = angular.module('NameApp', []);
+			app.controller('NameController', ['$scope', function($scope){
+				$scope.name = "DON'T TOUCH ANYTHING";
+			}]);
+		</script>
+	</head>
+	<body>
+		<div ng-controller="NameController">
+			<input type="text" ng-model="name" placeholder="YOU TOUCHED THAT"/>
+			<h1>{{ name }}</h1>
+		</div>
+	</body>
+</html>
