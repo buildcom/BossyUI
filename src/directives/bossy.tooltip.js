@@ -6,68 +6,86 @@ function TooltipController($scope){
 function Tooltip()
 {
   return {
-    restrict: 'A',
+    restrict: 'E',
     scope: {
       data: '=',
       options: '=',
     },
     link: function(scope, element, attrs){
 
-       // What do we do if no text is given?
-       if (!scope.data){
-         scope.data = {text:"Sample Tool Tip"};
-       }
+      // Fail safe in case text is not given
+      if (!scope.data){
+        scope.data = {text:""};
+      }
 
-       // Fail safe in case options are not given
-       if (!scope.options){
-         scope.options = {};
-       }
+      // Fail safe in case options are not given
+      if (!scope.options){
+        scope.options = {};
+      }
 
-       // Determine class options
-       var tooltipClass = "tooltip-active";
+	    // If the user decides to pass html content through the markup
+	    if (scope.options.transclude === true){
+		    const tooltipHtml = element.find('div');
+		    scope.data.text = tooltipHtml.html();
+		    tooltipHtml.remove();
+	    }
 
-       // Alignment
-       if (scope.options.align === "Left"){
-         tooltipClass += " tooltip-left";
-       }
-       else if (scope.options.align === "Right"){
-         tooltipClass += " tooltip-right";
-       }
+      // Determine class options
+      var tooltipClass = "tooltip-active";
 
-       // Color
-       if (scope.options.color === "Green"){
-         tooltipClass += " green";
-       }
-       else if (scope.options.color === "Blue"){
-         tooltipClass += " blue";
-       }
-       else if (scope.options.color === "Orange"){
-         tooltipClass += " orange";
-       }
-       else if (scope.options.color === "Red"){
-         tooltipClass += " red";
-       }
+      // Alignment
+      if (scope.options.align){
 
-       // Content type
-       if (scope.options.type === "Html"){
-         tooltipClass += " content-html wide extra-padding";
-       }
- 	     else if (scope.options.type === "Download"){
-         tooltipClass += " download";
- 	     }
- 	     else if (scope.options.type === "Alert")	   {
-         tooltipClass += " alert"; 
- 	     }
+        if (scope.options.align.toLowerCase() === "left"){
+          tooltipClass += " tooltip-left";
+        }
+        else if (scope.options.align.toLowerCase() === "right"){
+          tooltipClass += " tooltip-right";
+        }
 
-       // Wrap element html
-       var replacementHTML = '<span class="tooltip default-style" style="opacity:1;"><span class="link">' + element.html() +
-       '<span class="' + tooltipClass + '">' + scope.data.text + '</span></span></span>';
+      }
 
-       // Replace element's html with wrapped content
-       element.html(replacementHTML);
+      // Color
+      if (scope.options.color){
 
-     },
-    controller: TooltipController,
+        if (scope.options.color.toLowerCase() === "green"){
+          tooltipClass += " green";
+        }
+        else if (scope.options.color.toLowerCase() === "blue"){
+          tooltipClass += " blue";
+        }
+        else if (scope.options.color.toLowerCase() === "orange"){
+          tooltipClass += " orange";
+        }
+        else if (scope.options.color.toLowerCase() === "red"){
+          tooltipClass += " red";
+        }
+
+      }
+
+      // Content type
+      if (scope.options.type){
+
+        if (scope.options.type.toLowerCase() === "html"){
+          tooltipClass += " content-html wide extra-padding";
+        }
+  	    else if (scope.options.type.toLowerCase() === "download"){
+  		    tooltipClass += " download";
+  	    }
+  	    else if (scope.options.type.toLowerCase() === "alert"){
+  		    tooltipClass += " alert";
+  	    }
+
+      }
+
+      // Wrap element html
+      var replacementHTML = '<span class="tooltip default-style" style="opacity:1;"><span class="link">' + element.html() +
+      '<div class="' + tooltipClass + '">' + scope.data.text + '</div></span></span>';
+
+      // Replace element's html with wrapped content
+      element.html(replacementHTML);
+
+    },
   };
 }
 

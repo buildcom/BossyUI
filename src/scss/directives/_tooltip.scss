@@ -1,22 +1,3 @@
-body {
-  margin: 10%;
-  font: 200 18px "Helvetica Neue", sans-serif;
-  color: #666;
-}
-
-html,
-html a {
-  text-rendering: optimizeLegibilitiy;
-  -webkit-font-smoothing: antialiased;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
-}
-
-* {
-  box-sizing: border-box;
-  -webkit-transition: all .3s ease-in-out;
-          transition: all .3s ease-in-out;
-}
-
 /* Colors */
 .green {
   background-color: #408900 !important;
