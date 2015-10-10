@@ -23,12 +23,12 @@ function Tooltip()
         scope.options = {};
       }
 
-	    // If the user decides to pass html content through the markup
-	    if (scope.options.transclude === true){
-		    const tooltipHtml = element.find('div');
-		    scope.data.text = tooltipHtml.html();
-		    tooltipHtml.remove();
-	    }
+      // If the user decides to pass html content through the markup
+      if (scope.options.transclude === true){
+        const tooltipHtml = element.find('div');
+        scope.data.text = tooltipHtml.html();
+        tooltipHtml.remove();
+      }
 
       // Determine class options
       var tooltipClass = "tooltip-active";
