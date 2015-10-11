@@ -120,6 +120,15 @@ Node.prototype = {
   }
 }
 
+// @param [str] strs
+function buildBKTree(strs) {
+  var i, root = new Node(strs[0]);
+  for (i = 1; i < strs.length; i++) {
+    root.add(new Node(strs[i]));
+  }
+  return root;
+}
+
 angular.module('bossy.autocomplete', []);
 
 })(); // iife end
