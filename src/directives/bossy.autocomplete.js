@@ -1,4 +1,4 @@
-(function() {
+(function() { // iife begin
 
 // Constructs a 2D array of dimension x by y
 function createMatrix(x,y) {
@@ -111,7 +111,7 @@ Node.prototype = {
       matchObj[dist].push(this.str)
     }
     // It doesn't make sense to have negative distance
-    i = dist - tolerance > 0 ? dist - tolerence : 0;
+    i = dist - tolerance > 0 ? dist - tolerance : 0;
     for (; i < dist + tolerance; i++) {
       if(this.children[i]) {
         this.children[i].search(query, tolerance, matchObj);
@@ -153,8 +153,6 @@ function searchBKTree(root, query, tolerance) {
   }
   return matches;
 }
-
-angular.module('bossy.autocomplete', []);
 
 })(); // iife end
 
