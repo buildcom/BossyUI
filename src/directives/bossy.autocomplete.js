@@ -113,7 +113,9 @@ Node.prototype = {
     // It doesn't make sense to have negative distance
     i = dist - tolerance > 0 ? dist - tolerence : 0;
     for (; i < dist + tolerance; i++) {
-      this.children[i].search(query, tolerance, matchObj);
+      if(this.children[i]) {
+        this.children[i].search(query, tolerance, matchObj);
+      }
     }
   }
 }
