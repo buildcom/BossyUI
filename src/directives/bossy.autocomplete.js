@@ -122,11 +122,36 @@ Node.prototype = {
 
 // @param [str] strs
 function buildBKTree(strs) {
+  // Create root node from first string
   var i, root = new Node(strs[0]);
   for (i = 1; i < strs.length; i++) {
+    // Create nodes from  subsequent strings and add them to the root
     root.add(new Node(strs[i]));
   }
   return root;
+}
+
+/**
+ * @param Node root
+ * @param str query
+ * @param int tolerance
+ */
+function searchBKTree(root, query, tolerance) {
+  // { int:[str]|null } matchObj
+  var dist, matchObj = {}, matches = [];
+  for (dist = 0; dist <= tolerance; dist++) {
+    matchObj[dist] = [];
+  }
+  root.search(query, tolerance, matchObj);
+  /**
+   * Concatenate matches from matchObj to a single array called match
+   * Note that match's elements will be in ascending order by distance
+   * from query. 
+   */
+  for (dist = 0; dist <= tolerance; dist++) {
+    matches = matches.concat(matchObj[dist]);
+  }
+  return matches;
 }
 
 angular.module('bossy.autocomplete', []);
