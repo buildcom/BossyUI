@@ -20,10 +20,15 @@ function createMatrix(x,y) {
  */ 
 function levDist(str1, str2) {
   var i, j, matrix = createMatrix(str1.length + 1, str2.length + 1);
-  // Algorithm requires that str1 and str2 be 1-indexed. 
-  // Simple solution is to prepend a ' ' 
-  str1 = ' ' + str1;
-  str2 = ' ' + str2;
+  /**
+   * Algorithm requires that str1 and str2 be 1-indexed. 
+   * Simple solution is to prepend a ' ' 
+   *
+   * Autocomplete should be case-insensitive so distance will
+   * be computed using the lower case versions of the strings
+   */
+  str1 = ' ' + str1.toLowerCase();
+  str2 = ' ' + str2.toLowerCase();
   for (i = 0; i < str1.length; i++) {
     matrix[i][0] = i;
   }
