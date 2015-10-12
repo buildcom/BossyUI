@@ -1,0 +1,16 @@
+/*
+= color definitions
+*/
+
+$color-a: #0076A8;
+$color-b: #00B388;
+$color-c: #E4E3E3;
+
+$color-a--dark: dark($color-a);
+$color-b--dark: dark($color-b);
+$color-c--dark: dark($color-c);
+
+
+$color-a--light: light($color-a);
+$color-b--light: light($color-b);
+$color-c--light: light($color-c);

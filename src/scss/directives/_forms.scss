@@ -1,0 +1,20 @@
+/* BOSSY FORM SECTION */
+.bossy-form{
+	padding: 10px;
+	form{
+		margin: 0 auto;
+		padding: 25px 50px;
+		width: 40%;
+		min-height: 115px;
+		background: #fff;
+		box-shadow: 0 0 20px rgba(0,0,0,.15);
+		font: 12px/15px Arial, Helvetica, sans-serif;
+		color: #666;
+	}
+	form.green{
+		border-left: 5px solid #9b2;
+	}
+	form.red{
+		border-left: 5px solid #AE0002;
+	}
+}

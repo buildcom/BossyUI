@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <title>Adam J Penn Bossy UI</title>
+</head>
+
+<body>
+<div ng-app="BossyUITrainingApp" ng-controller="BossyUITrainingCtrl">
+  <h2>Adam J Penn's Bossy UI Training Angular App!!</h2>
+  User Input: <input type="text" ng-model="userinput"><br>
+  <h3>What you entered: {{userinput}}</h3>
+</div>
+
+<script>
+  var app = angular.module('BossyUITrainingApp', []);
+  app.controller('BossyUITrainingCtrl', function($scope) {
+    $scope.userinput = "Enter text here";
+  });
+</script>
+</body>
+</html>

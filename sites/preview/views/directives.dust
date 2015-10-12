@@ -1,0 +1,57 @@
+{>"layout"/}
+{<content}
+<nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavCtrl">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                BossyUI Preview
+            </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-click="toggleDirectives()">Directives <span class="caret"></span></a>
+                <ul class="dropdown-menu" ng-class="{show: view.directives}" ng-click="toggleDirectives()">
+                    <li ng-repeat="directive in directives" class="uppercase"><a href="#{{ directive }}">{{ directive }}</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="row" ui-view="directive">
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Preview</h3>
+            </div>
+            <div class="panel-body" id="preview">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Markup</h3>
+                    </div>
+                    <div class="panel-body" style="padding: 0px;">
+                        <div ui-ace="markupEditorOptions"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Options</h3>
+                    </div>
+                    <div class="panel-body" style="padding: 0px;">
+                        <div ui-ace="optionsEditorOptions"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/content}

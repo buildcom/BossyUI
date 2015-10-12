@@ -1,0 +1,28 @@
+html, body {
+	margin: 0;
+	color: #333;
+}
+
+nav {
+	ul {
+		@extend %unstyle-list;
+	}
+}
+
+xmp {
+	margin-bottom: 0;
+	+ xmp {
+		margin-top: 0;
+	}
+}
+
+p {
+	margin-bottom: 0;
+}
+
+hr {
+	margin-bottom: 0;
+	border: none;
+	border-bottom: solid thin $color-c;
+	height: 1px;
+}

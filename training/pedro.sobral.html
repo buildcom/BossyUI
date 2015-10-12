@@ -1,0 +1,17 @@
+<html lang="en" ng-app="app">
+<head>
+  <title>Training Pedro Henrique</title>
+</head>
+<body ng-controller="myController">
+  <input placeholder="{{inputPlaceholder}}" type="text" ng-model="userName" >
+  <h1>{{userName}}</h1>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<script type="text/javascript">
+var app =   angular.module('app', []);
+app.controller('myController', function($scope) {
+  $scope.inputPlaceholder = "What's your name";
+  $scope.userName = null;
+});
+</script>
+</html>

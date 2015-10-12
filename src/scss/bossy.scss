@@ -1,157 +1,24 @@
-/* BOSSY INPUT SECTION */
-@import "_calendar.scss";
+@charset "UTF-8";
 
-.bossy-input {
-	position: relative;
-	height: 30px;
-  	line-height: 30px;
-	input{
-		border: 0;
-		border-bottom: 1px solid #ef9c28;
-		width: 100%;
-		padding-left: 10px;
-	}
-	input.prefix {
-		padding-left: 35px;
-	}
-	input.postfix {
-		padding-right: 35px;
-	}
+/* Core */
+@import
+"core/container",
+"core/vars",
+"core/mixins",
+"core/colors",
+"core/resets",
+"core/layout",
+"core/typography",
+"core/extends",
+"core/animation",
+"core/bars",
+"core/buttons",
+"core/tiles";
 
-	input:focus{
-		border-bottom: 3px solid #ef9c28;
-	}
-	.counter {
-		position: absolute;
-	  right: 0;
-	  top: -20px;
-	  font-size: 10px;
-	}
-	input:focus + span {
-		-webkit-animation-duration: 1s;
-	    -moz-animation-duration: 1s;
-	    -o-animation-duration: 1s;
-	    animation-duration: 1s;
-	    -webkit-animation-fill-mode: both;
-	    -moz-animation-fill-mode: both;
-	    -o-animation-fill-mode: both;
-	    animation-fill-mode: both;
-	    -webkit-animation-name: bounce;
-		-moz-animation-name: bounce;
-		-o-animation-name: bounce;
-		animation-name: bounce;
-	}
-	&-component {
-		background: #ccc;
-		color: #333;
-		padding: 0 8px;
-	}
-	&-prefix {
-	  	position: absolute;
-	  	top: 0;
-	  	left: 0;
-	  	width: 30px
-	} 
-	&-postfix {
-		position: absolute;
-	  	top: 0;
-		right: 0;
-	}	
-}
+/* Directives */
+@import
+"directives/calendar",
+"directives/input",
+"directives/forms";
 
-.bossy-fieldset { 
-  padding: 0.5em 1em;
-  display: inline;
-}
-
-.bossy-legend {
-  padding: 0.1em 0.5em;
-  border:0px solid green;
-  color: green;
-  font-size:90%;
-  width: auto;
-  margin: 0;
-  text-align:left;
-}
-
-
-@-webkit-keyframes bounce {
-	0%, 20%, 50%, 80%, 100% {-webkit-transform: translateX(0);}
-	40% {-webkit-transform: translateX(-30px);}
-	60% {-webkit-transform: translateX(-15px);}
-}
-
-@-moz-keyframes bounce {
-	0%, 20%, 50%, 80%, 100% {-moz-transform: translateX(0);}
-	40% {-moz-transform: translateX(-30px);}
-	60% {-moz-transform: translateX(-15px);}
-}
-
-@-o-keyframes bounce {
-	0%, 20%, 50%, 80%, 100% {-o-transform: translateX(0);}
-	40% {-o-transform: translateX(-30px);}
-	60% {-o-transform: translateX(-15px);}
-}
-@keyframes bounce {
-	0%, 20%, 50%, 80%, 100% {transform: translateX(0);}
-	40% {transform: translateX(-30px);}
-	60% {transform: translateX(-15px);}
-}
-.animated {
-	-webkit-animation-duration: 1s;
-	   -moz-animation-duration: 1s;
-	     -o-animation-duration: 1s;
-	        animation-duration: 1s;
-	-webkit-animation-fill-mode: both;
-	   -moz-animation-fill-mode: both;
-	     -o-animation-fill-mode: both;
-	        animation-fill-mode: both;
-}
-.animated.bounce {
-	-webkit-animation-name: bounce;
-	-moz-animation-name: bounce;
-	-o-animation-name: bounce;
-	animation-name: bounce;
-}
-
-/* BOSSY FORM SECTION */
-
-.bossy-form{
-	padding: 10px;
-	form{
-		margin: 0 auto;
-		padding: 25px 50px;
-		width: 40%;
-		min-height: 115px;
-		background: #fff;
-		box-shadow: 0 0 20px rgba(0,0,0,.15);
-		font: 12px/15px Arial, Helvetica, sans-serif;
-		color: #666;
-	}
-	form.green{
-		border-left: 5px solid #9b2;
-	}
-	form.red{
-		border-left: 5px solid #AE0002;
-	}
-}
-
-.bossy-calendar {
-	.p {
-		cursor: pointer;
-	}
-	table {
-		min-width: 214px;
-	}
-	td {
-		padding: 4px;
-		text-align: center;
-	}
-	.day-in-month {
-		font-weight: 700;
-	}
-	.disabled-day {
-		color: #ccc;
-	}
-}
 

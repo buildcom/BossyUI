@@ -1,0 +1,283 @@
+{>"layout"/}
+{<content}
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavCtrl">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">
+                        BossyUI Preview
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            <div class="col-1-4">
+                <nav>
+                    <ul id="menu" class="unstyle">
+                        <li><a href="#tiles">Tiles</a></li>
+                        <li><a href="#bars">Bars</a></li>
+                        <li><a href="#buttons">Buttons</a></li>
+                        <li><a href="#inputs">Inputs</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-3-4">
+                <section id="tiles" class="tile">
+                    {!<header class="bar">!}
+                        {!<h2>Tiles</h2>!}
+                    {!</header>!}
+
+                    <div class="grid">
+                        <div class="col-1-3">
+                            <section class="tile" style="height: 100px;">
+                            </section>
+                        </div>
+                        <div class="col-2-3">
+                            <h3 id="tiles">Tiles</h3>
+                            <xmp>
+                                <div class="tile"></div>
+                            </xmp>
+                            <p>
+                                Tiles are structural elements, visual building blocks for contained elements on the
+                                page. Tiles should be used when a piece of information needs to visually separate from
+                                others around it.
+                            </p>
+
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="grid">
+                        <div class="col-1-3">
+                            <section class="tile--stacked" style="height: 100px;">
+                            </section>
+                            <section class="tile--stacked" style="height: 100px;">
+                            </section>
+                        </div>
+                        <div class="col-2-3">
+                            <h3>Stacked Tiles</h3>
+                            <xmp>
+                                <div class="tile--stacked"></div>
+                            </xmp>
+                            <xmp>
+                                <div class="tile--stacked"></div>
+                            </xmp>
+                            <p>
+                                Tiles can also be stacked together. Instead of <code>.tile</code> use <code>.tiles--stacked</code>
+                                and the negative space between the tile elements will collapse.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="bars" class="tile">
+                    {!<header class="bar">!}
+                        {!<h2>Bars</h2>!}
+                    {!</header>!}
+                    <div class="grid">
+                        <div class="col-1-3">
+                            <div class="bar">
+                                <span>Bar Default</span>
+                                <button class="bar-button">&#10005</button>
+                            </div>
+
+                            <div class="bar--primary">
+                                <span>Bar Primary</span>
+                                <button class="bar-button">&#10005</button>
+                            </div>
+
+                            <div class="bar--secondary">
+                                <span>Bar Secondary</span>
+                                <button class="bar-button">&#10005</button>
+                            </div>
+                        </div>
+                        <div class="col-2-3">
+                            <h3>Bar Types</h3>
+                            <xmp>
+                                <div class="bar"></div>
+                            </xmp>
+                            <xmp>
+                                <div class="bar--primary"></div>
+                            </xmp>
+                            <xmp>
+                                <div class="bar--secondary"></div>
+                            </xmp>
+                            <p>Bars are a visual container for specific content. They can be used as headers, footers or
+                                interactive elements. Their primary purpose is to provide a visual labeling mechanism
+                                and a single interactive button.</p>
+
+                        </div>
+                    </div>
+                </section>
+
+                <section id="buttons" class="tile">
+                    {!<header class="bar"><h2>Buttons</h2></header>!}
+                    <div class="grid">
+                        <div class="col-1-3">
+                            <button>Single Button</button>
+                            <button class="primary">Button Primary</button>
+                            <button class="secondary">Button Secondary</button>
+                            <div class="group">
+                                <button>Group</button>
+                                <button class="primary">Group</button>
+                                <button class="secondary">Group</button>
+                            </div>
+                        </div>
+                        <div class="col-2-3">
+                            <h3>Buttons &amp; Button Groups</h3>
+                            <xmp>
+                                <button>Single Button</button>
+                            </xmp>
+                            <xmp>
+                                <div class="group"></div>
+                            </xmp>
+                            <xmp>
+                                <button>Grouped Button</button>
+                            </xmp>
+                            <xmp>
+                                <button class="primary">Grouped Button</button>
+                            </xmp>
+                            <xmp>
+                                <button class="secondary">Grouped Button</button>
+                            </xmp>
+                            <xmp></xmp>
+                            <p>
+                                Buttons and buttons groups are a base style applied globally to all button tags. Buttons
+                                can be group together into a single group by nesting sibling buttons within a parent
+                                element with the class group.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="inputs" class="tile">
+                    {!<header class="bar"><h2>Inputs</h2></header>!}
+                    <div class="grid">
+                        <div class="col-1-3">
+                            <form action="">
+                                <fieldset>
+                                    <legend><label for="id1">Full Name</label></legend>
+                                    <input id="id1" type="text">
+                                </fieldset>
+                                <div class="group">
+                                    <fieldset>
+                                        <legend><label for="id1">License</label></legend>
+                                        <input id="id1" type="text">
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend><label for="id1">Zip Code</label></legend>
+                                        <input id="id1" type="number">
+                                    </fieldset>
+                                </div>
+                                <fieldset class="valid">
+                                    <legend><label for="id2">Address</label></legend>
+                                    <input id="id2" type="text">
+                                </fieldset>
+                                <fieldset class="invalid">
+                                    <legend><label for="id3">City</label></legend>
+                                    <input id="id3" type="text">
+                                </fieldset>
+                                <fieldset>
+                                    <legend><label for="id3">Password</label></legend>
+                                    <input id="id3" type="password">
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="col-2-3">
+                            <h3>
+                                Text, Email &amp; Number inputs
+                            </h3>
+
+                            <p>
+                                Bossy inputs provide a stripped down method for showing form information. The validation
+                                feedback should show as a postive/negative color change on the bottom border of the
+                                input and the a X or Check next to the input label. This is achieved through the use of
+                                the valid/invalid classes applied to the parent fieldset.
+                            </p>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="grid">
+                        <div class="col-1-3">
+                            <form action="">
+                                <fieldset class="bossy-radio">
+                                    <legend>Radio Button Label</legend>
+                                    <div class="group">
+                                        <label><input name="radio" type="radio"> Radio</label>
+                                        <label><input name="radio" type="radio"> Radio</label>
+                                        <label><input name="radio" type="radio"> Radio</label>
+                                        <label><input name="radio" type="radio"> Radio</label>
+                                        <label><input name="radio" type="radio"> Radio</label>
+                                        <label><input name="radio" type="radio"> Radio</label>
+                                    </div>
+                                </fieldset>
+                                <div class="group">
+                                    <fieldset class="bossy-radio">
+                                        <legend>Radio Buttons</legend>
+                                        <div class="group">
+                                            <label><input name="radio" type="radio"> Radio</label>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="bossy-radio">
+                                        <legend>Radio Buttons</legend>
+                                        <div class="group">
+                                            <label><input name="radio" type="radio"> Radio</label>
+                                            <label><input name="radio" type="radio"> Radio</label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="group">
+                                    <fieldset class="bossy-radio">
+                                        <legend>Check</legend>
+                                        <div class="group">
+                                            <label><input type="checkbox"> Radio</label>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="bossy-radio">
+                                        <legend>Check</legend>
+                                        <div class="group">
+                                            <label><input type="checkbox"> Radio</label>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="bossy-radio">
+                                        <legend>Check</legend>
+                                        <div class="group">
+                                            <label><input type="checkbox"> Radio</label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-2-3">
+                            <h3>Radio Buttons</h3>
+                            textfield.class="bossy-radio"
+                            <p>
+                                Radio buttons are handled by wrapping the label around in the input. This simplifies the
+                                input, making the label clickable for selecting the corresponding value.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var $sections = $('section');
+            $.each($sections, function (index, item) {
+                var offset = $(item).offset();
+            });
+
+            $("#menu").on('click', 'a', function (e) {
+                var target = $(e.target).attr('href');
+                $(target).velocity("scroll", {duration: 500, easing: "ease-in-out"})
+            });
+        });
+    </script>
+{/content}
