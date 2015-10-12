@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-    <script src="myController.js"></script>
+    
+<script> var app = angular.module('mikesApp', []);
+app.controller('myController', function($scope) {
+    $scope.word = "";
+   });
+</script>
+
   <body ng-app="mikesApp">
     <div ng-controller= "myController">
       <h1 ng-bind="word"></h1>
