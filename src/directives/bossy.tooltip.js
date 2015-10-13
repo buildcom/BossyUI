@@ -25,7 +25,7 @@ function Tooltip()
 
       // If the user decides to pass html content through the markup
       if (scope.options.transclude === true){
-        const tooltipHtml = element.find('div');
+        var tooltipHtml = element.find('div');
         scope.data.text = tooltipHtml.html();
         tooltipHtml.remove();
       }
@@ -46,41 +46,26 @@ function Tooltip()
       }
 
       // Color
-      if (scope.options.color){
-
-        if (scope.options.color.toLowerCase() === "green"){
-          tooltipClass += " green";
-        }
-        else if (scope.options.color.toLowerCase() === "blue"){
-          tooltipClass += " blue";
-        }
-        else if (scope.options.color.toLowerCase() === "orange"){
-          tooltipClass += " orange";
-        }
-        else if (scope.options.color.toLowerCase() === "red"){
-          tooltipClass += " red";
-        }
-
-      }
+      tooltipClass += " " + scope.options.color.toLowerCase();
 
       // Content type
       if (scope.options.type){
 
         if (scope.options.type.toLowerCase() === "html"){
-          tooltipClass += " content-html wide extra-padding";
+          tooltipClass += " content-html";
         }
-  	    else if (scope.options.type.toLowerCase() === "download"){
-  		    tooltipClass += " download";
-  	    }
-  	    else if (scope.options.type.toLowerCase() === "alert"){
-  		    tooltipClass += " alert";
-  	    }
+        else if (scope.options.type.toLowerCase() === "download"){
+          tooltipClass += " download";
+        }
+        else if (scope.options.type.toLowerCase() === "alert"){
+          tooltipClass += " alert";
+        }
 
       }
 
       // Wrap element html
       var replacementHTML = '<span class="tooltip default-style" style="opacity:1;"><span class="link">' + element.html() +
-      '<div class="' + tooltipClass + '">' + scope.data.text + '</div></span></span>';
+        '<div class="' + tooltipClass + '">' + scope.data.text + '</div></span></span>';
 
       // Replace element's html with wrapped content
       element.html(replacementHTML);
@@ -94,5 +79,5 @@ Tooltip.$inject = [];
 TooltipController.$inject = ['$scope'];
 
 angular.module('bossy.tooltip', [])
-  .controller('bossyTooltipController', TooltipController)
-    .directive('bossyTooltip', Tooltip);
+.controller('bossyTooltipController', TooltipController)
+.directive('bossyTooltip', Tooltip);
