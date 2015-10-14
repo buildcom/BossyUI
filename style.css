@@ -1,0 +1,13 @@
+li{
+	background-color: #3333ff;
+}
+
+img .expanded{
+	content:url("http://www.ecst.csuchico.edu/~thardin/tmp/e.png");
+	display: block;
+}
+
+img .collapsed{
+	content:url("http://www.ecst.csuchico.edu/~thardin/tmp/c.png");
+	display: none;
+}
