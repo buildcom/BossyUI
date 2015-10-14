@@ -31,7 +31,6 @@ function levDist(str1, str2) {
   str1 = ' ' + str1.toLowerCase();
   str2 = ' ' + str2.toLowerCase();
 
-
   // Initialize first row values to edit distance from empty string
   for (i = 0; i < str1.length; i++) {
     matrix[i][0] = i;
@@ -125,7 +124,7 @@ Node.prototype = {
     }
     // It doesn't make sense to have negative distance
     i = dist - tolerance > 0 ? dist - tolerance : 0;
-    for (; i < dist + tolerance; i++) {
+    for (; i <= dist + tolerance; i++) {
       if(this.children[i]) {
         this.children[i].search(query, tolerance, matchObj);
       }
