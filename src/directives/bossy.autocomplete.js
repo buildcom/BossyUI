@@ -20,21 +20,29 @@ function createMatrix(x,y) {
  */ 
 function levDist(str1, str2) {
   var i, j, matrix = createMatrix(str1.length + 1, str2.length + 1);
+
   /**
    * Algorithm requires that str1 and str2 be 1-indexed. 
    * Simple solution is to prepend a ' ' 
    *
-   * Autocomplete should be case-insensitive so distance will
+   * Autocomplete should be case-insensitive, so distance will
    * be computed using the lower case versions of the strings
    */
   str1 = ' ' + str1.toLowerCase();
   str2 = ' ' + str2.toLowerCase();
+
+
+  // Initialize first row values to edit distance from empty string
   for (i = 0; i < str1.length; i++) {
     matrix[i][0] = i;
   }
+
+  // Initialize first column values to edit distance from empty string
   for (j = 0; j < str2.length; j++) {
     matrix[0][j] = j;
   }
+
+  // Flood fill matrix with edit distances between all substrings of str1/str2
   for (j = 1; j < str2.length; j++) {
     for (i = 1; i < str1.length; i++) {
       if (str1[i] === str2[j]) {
@@ -47,6 +55,7 @@ function levDist(str1, str2) {
       }
     }
   }
+
   return matrix[str1.length - 1][str2.length - 1];
 }
 
@@ -86,8 +95,7 @@ Node.prototype = {
    */
   add: function(newNode) {
     var dist;
-    // If a node with a matching string is already 
-    // in the tree, don't do anything
+    // If newNode's string is already in the tree, don't do anything
     if (this.str !== newNode.str) {
       dist = levDist(this.str, newNode.str);
       if (this.children[dist] === undefined) {
