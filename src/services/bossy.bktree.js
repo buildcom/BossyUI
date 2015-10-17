@@ -1,7 +1,7 @@
 angular.module('bossy.BKTree', [])
     .factory('BKTree', function() {
 
-        /*
+        /**
          * @param int x
          * @param int y
          */
@@ -13,7 +13,7 @@ angular.module('bossy.BKTree', [])
             return mat;
         }
 
-        /*
+        /**
          * https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm
          * Computes edit distance between two strings.
          *
@@ -50,7 +50,7 @@ angular.module('bossy.BKTree', [])
             return mat[str1.length - 1][str2.length - 1];
         }
 
-        /*
+        /**
          * http://blog.notdot.net/2007/4/Damn-Cool-Algorithms-Part-1-BK-Trees
          *
          * @param String str
@@ -78,7 +78,7 @@ angular.module('bossy.BKTree', [])
                 }
             },
 
-            /*
+            /**
              * @param String query
              * @param int tolerance
              * @param { int: [String] } matchObj
@@ -99,11 +99,11 @@ angular.module('bossy.BKTree', [])
 
         };
 
-        /*
+        /**
          * @param [String] dict
          */
         function _buildBKTree(dict) {
-            var i, root = new _Node(dict[0]);
+            var i, root = dict !== [] ? new _Node(dict[0]) : undefined;
             for (i = 1; i < dict.length; i++) {
                 root.add(new _Node(dict[i]));
             }
@@ -127,7 +127,7 @@ angular.module('bossy.BKTree', [])
             return matches;
         }
 
-        /*
+        /**
          * @param [String] dict
          * @param int tolerance
          */
@@ -135,7 +135,7 @@ angular.module('bossy.BKTree', [])
             this._root = _buildBKTree(dict);
             this._tolerance = tolerance;
             this.query = function(query) {
-                return _searchBKTree(this._root, query, this._tolerance);
+                return this._root ? _searchBKTree(this._root, query, this._tolerance) : [];
             };
         };
         
