@@ -25,7 +25,6 @@ angular.module('bossy.autocomplete', ['bossy.BKTree', 'bossy.utility'])
                     else {
                         scope.suggestions = [];
                     }
-                    console.log(scope.suggestions);
                 };
 
                 scope.chooseSuggestion = function(suggestion) {
