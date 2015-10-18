@@ -1,4 +1,4 @@
-// Want a helpful function that's not directly tied to a
+// Need a helpful function that's not directly tied to a
 // controller/directive/service? Put it here.
 
 angular.module('bossy.utility', [])
@@ -39,6 +39,16 @@ angular.module('bossy.utility', [])
                 return w.startsWith(query);
             });
         };
+
+        /**
+         * http://stackoverflow.com/a/10050831
+         *
+         * @param int n
+         * @return [0..n-1]
+         */
+        this.range = function(n) {
+            return Array.apply(null, Array(n)).map(function (_, i) {return i;});
+        }
 
     })
 ;
