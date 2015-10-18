@@ -26,15 +26,6 @@ angular.module('bossy.utility', [])
             });
         };
 
-        /**
-         * http://stackoverflow.com/a/10050831
-         *
-         * @param int n
-         * @return [0..n-1]
-         */
-        this.range = function(n) {
-            return Array.apply(null, Array(n)).map(function (_, i) {return i;});
-        }
-
     })
 ;
+

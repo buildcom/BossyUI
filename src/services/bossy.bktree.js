@@ -91,7 +91,7 @@ angular.module('bossy.BKTree', ['bossy.utility'])
          * @param [String] dict
          */
         function buildBKTree(dict) {
-            var i, root = dict !== [] ? new Node(dict[0]) : undefined;
+            var i, root = dict.length > 0 ? new Node(dict[0]) : null;
             for (i = 1; i < dict.length; i++) {
                 root.add(new Node(dict[i]));
             }
@@ -129,3 +129,4 @@ angular.module('bossy.BKTree', ['bossy.utility'])
         
     }])
 ;
+

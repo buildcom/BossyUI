@@ -36,7 +36,7 @@ angular.module('bossy.autocomplete', ['bossy.BKTree', 'bossy.utility'])
                       '  <input ng-model="query" ng-change="updateSuggestions(query)">' +
                       '  <div ng-repeat="sug in suggestions" ng-click="chooseSuggestion(sug)">{{sug}}</div>' +
                       '</div>'
- 
         };
     }])
 ;
+
