@@ -16,7 +16,7 @@ angular.module('bossy.autocomplete', ['bossy.BKTree', 'bossy.utility'])
                 scope.suggestions = []
 
                 scope.updateSuggestions = function(query) {
-                    var startsWithMatches = utility.filterStartsWith(scope.dict, query);
+                    var startsWithMatches = utility.filterStartsWith(scope.dict, query, true);
                         correctionMatches = scope.tree.query(query);
                     if (query.length > 0) {
                         // ng-repeat doesn't work with Sets

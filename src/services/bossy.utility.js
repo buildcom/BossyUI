@@ -19,11 +19,21 @@ angular.module('bossy.utility', [])
         /**
          * @param [String] words
          * @param String query
+         * @param Boolean caseInsensitive
          */
-        this.filterStartsWith = function(words, query) {
-            return words.filter(function(w) {
-                return w.startsWith(query);
-            });
+        this.filterStartsWith = function(words, query, caseInsensitive) {
+            var compare;
+            if (caseInsensitive) {
+                compare = function(w) {
+                    return w.toLowerCase().startsWith(query.toLowerCase());
+                };
+            }
+            else {
+                compare = function(w) {
+                    return w.startsWith(query)
+                };
+            }
+            return words.filter(compare);
         };
 
     })
