@@ -23,7 +23,8 @@ module.exports = function(config) {
       './../src/directives/*.js',
       './../src/services/*.js',
       './directives/*.js',
-      './controllers/*.js'
+      './controllers/*.js',
+      './services/*.js'
 
     ],
 
