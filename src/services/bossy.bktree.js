@@ -1,17 +1,5 @@
-angular.module('bossy.BKTree', [])
-    .factory('BKTree', function() {
-
-        /**
-         * @param int x
-         * @param int y
-         */
-        function _createMatrix(x,y) {
-            var i, mat = new Array(x);
-            for (i = 0; i < x; i++) {
-                mat[i] = new Array(y);
-            }
-            return mat;
-        }
+angular.module('bossy.BKTree', ['bossy.utility'])
+    .factory('BKTree', ['utility', function(utility) {
 
         /**
          * https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm
@@ -20,8 +8,8 @@ angular.module('bossy.BKTree', [])
          * @param String str1
          * @param String str2
          */
-        function _levDist(str1, str2) {
-            var i, j, mat = _createMatrix(str1.length + 1, str2.length + 1);
+        function levDist(str1, str2) {
+            var i, j, mat = utility.createMatrix(str1.length + 1, str2.length + 1);
             // More readable if strings are 1-indexed
             // lower case for case-insensitive matching
             str1 = ' ' + str1.toLowerCase();
@@ -55,20 +43,20 @@ angular.module('bossy.BKTree', [])
          *
          * @param String str
          */
-        var _Node = function(str) {
+        var Node = function(str) {
             this.str = str;
             this.children = {}; // key is edit-distance from this.str
         };
 
-        _Node.prototype = {
+        Node.prototype = {
 
-            /*
-             * @param _Node newNode
+            /**
+             * @param Node newNode
              */
             add: function(newNode) {
                 var dist; // if newNode.str in tree, do nothing.
                 if (newNode.str !== this.str) {
-                    dist = _levDist(newNode.str, this.str);
+                    dist = levDist(newNode.str, this.str);
                     if (this.children[dist] === undefined) {
                         this.children[dist] = newNode;
                     }
@@ -84,7 +72,7 @@ angular.module('bossy.BKTree', [])
              * @param { int: [String] } matchObj
              */
             search: function(query, tolerance, matchObj) {
-                var i, dist = _levDist(query, this.str);
+                var i, dist = levDist(query, this.str);
                 if (dist <= tolerance) {
                     matchObj[dist].push(this.str);
                 }
@@ -102,20 +90,20 @@ angular.module('bossy.BKTree', [])
         /**
          * @param [String] dict
          */
-        function _buildBKTree(dict) {
-            var i, root = dict !== [] ? new _Node(dict[0]) : undefined;
+        function buildBKTree(dict) {
+            var i, root = dict !== [] ? new Node(dict[0]) : undefined;
             for (i = 1; i < dict.length; i++) {
-                root.add(new _Node(dict[i]));
+                root.add(new Node(dict[i]));
             }
             return root;
         }
     
         /**
-         * @param _Node root
+         * @param Node root
          * @param String query
          * @param int tolerance
          */
-        function _searchBKTree(root, query, tolerance) {
+        function searchBKTree(root, query, tolerance) {
             var dist, matchObj = {}, matches = [];
             for (dist = 0; dist <= tolerance; dist++) {
                   matchObj[dist] = [];
@@ -132,12 +120,12 @@ angular.module('bossy.BKTree', [])
          * @param int tolerance
          */
         return function(dict, tolerance) {
-            this._root = _buildBKTree(dict);
-            this._tolerance = tolerance;
+            this._root = buildBKTree(dict);
+            this.tolerance = tolerance;
             this.query = function(query) {
-                return this._root ? _searchBKTree(this._root, query, this._tolerance) : [];
+                return this._root ? searchBKTree(this._root, query, this.tolerance) : [];
             };
         };
         
-    })
+    }])
 ;
