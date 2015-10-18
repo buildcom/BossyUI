@@ -30,5 +30,15 @@ angular.module('bossy.utility', [])
             return res;
         };
 
+        /**
+         * @param [String] words
+         * @param String query
+         */
+        this.filterStartsWith = function(words, query) {
+            return words.filter(function(w) {
+                return w.startsWith(query);
+            });
+        };
+
     })
 ;
