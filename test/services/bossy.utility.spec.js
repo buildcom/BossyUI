@@ -55,3 +55,4 @@ describe('bossyUtility tests', function() {
     });
 
 });
+
