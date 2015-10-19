@@ -119,11 +119,10 @@ angular.module('bossy.BKTree', ['bossy.utility'])
          * @param [String] dict
          * @param int tolerance
          */
-        return function(dict, tolerance) {
+        return function(dict) {
             this._root = buildBKTree(dict);
-            this.tolerance = tolerance;
-            this.query = function(query) {
-                return this._root ? searchBKTree(this._root, query, this.tolerance) : [];
+            this.query = function(query, tolerance) {
+                return this._root ? searchBKTree(this._root, query, tolerance) : [];
             };
         };
         

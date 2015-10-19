@@ -12,12 +12,12 @@ angular.module('bossy.autocomplete', ['bossy.BKTree', 'bossy.utility'])
                 var i;
                 scope.maxCorrections = scope.maxCorrections || 0;
                 scope.maxSuggestions = scope.maxSuggestions || 5;
-                scope.tree = new BKTree(scope.dict, scope.maxCorrections);
+                scope.tree = new BKTree(scope.dict);
                 scope.suggestions = [];
 
                 scope.updateSuggestions = function(query) {
                     var startsWithMatches = utility.filterStartsWith(scope.dict, query, true),
-                        correctionMatches = scope.tree.query(query);
+                        correctionMatches = scope.tree.query(query, scope.maxCorrections);
                     if (query.length > 0) {
                         // ng-repeat doesn't work with Sets
                         scope.suggestions = Array.from(new Set(startsWithMatches.concat(correctionMatches)));
