@@ -10,8 +10,8 @@ angular.module('bossy.autocomplete', ['bossy.BKTree', 'bossy.utility'])
             },
             link: function(scope, element, attrs) {
                 var i;
-                scope.maxCorrections = angular.isUndefined(scope.maxCorrections) ? 0 : scope.maxCorrections;
-                scope.maxSuggestions = angular.isUndefined(scope.maxSuggestions) ? 5 : scope.maxSuggestions;
+                scope.maxCorrections = scope.maxCorrections || 0;
+                scope.maxSuggestions = scope.maxSuggestions || 5;
                 scope.tree = new BKTree(scope.dict, scope.maxCorrections);
                 scope.suggestions = []
 
