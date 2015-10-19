@@ -19,19 +19,19 @@ describe('bossy.bktree tests', function() {
     });
 
     it('Zero tolerance query returns only exact match', function() {
-        var tree = new BKTree(['abc', 'xyz', 'bbc'], 0);
-        expect(tree.query('abc')).toEqual(['abc']);
-        expect(tree.query('yyz')).toEqual([]);
+        var tree = new BKTree(['abc', 'xyz', 'bbc']);
+        expect(tree.query('abc', 0)).toEqual(['abc']);
+        expect(tree.query('yyz', 0)).toEqual([]);
     });
 
     it('Tree does not contain duplicates', function() {
-        var tree = new BKTree(['cat', 'cat', 'cat'], 0);
-        expect(tree.query('cat')).toEqual(['cat']);
+        var tree = new BKTree(['cat', 'cat', 'cat']);
+        expect(tree.query('cat', 0)).toEqual(['cat']);
     });
 
     it('Tree with 1 tolerance matches words 1 correction from query', function() {
-        var tree = new BKTree(['cat', 'rat', 'bat', 'dog', 'frog'], 1);
-        expect(tree.query('mat')).toEqual(['cat', 'rat', 'bat']);
+        var tree = new BKTree(['cat', 'rat', 'bat', 'dog', 'frog']);
+        expect(tree.query('mat', 1)).toEqual(['cat', 'rat', 'bat']);
     });
 
 });
