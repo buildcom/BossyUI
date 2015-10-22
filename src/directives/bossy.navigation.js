@@ -1,6 +1,9 @@
 angular.module('bossy.navigation')
-    .directive('subMenu', function() {
+    .directive('menu', function() {
         return {
+            restrict: 'E',
+            link: function(scope, element, attrs) {
+            }
         };
     })
 ;
