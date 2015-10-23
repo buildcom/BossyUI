@@ -46,7 +46,9 @@ function Tooltip()
       }
 
       // Color
-      tooltipClass += ' ' + scope.options.color.toLowerCase();
+      if (scope.options.color) {
+        tooltipClass += ' ' + scope.options.color.toLowerCase();
+      }
 
       // Content type
       if (scope.options.type){
