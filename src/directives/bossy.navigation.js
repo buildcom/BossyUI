@@ -6,7 +6,7 @@ angular.module('bossy.navigation', ['bossy.data'])
             restrict: 'E',
             link: function(scope, element, attrs) {
 
-                Node = function(parentNode, menuObj) {
+                function Node(parentNode, menuObj) {
                     var i, childMenuObj;
                     this.title = menuObj.title;
                     this.parentNode = parentNode;
@@ -19,7 +19,7 @@ angular.module('bossy.navigation', ['bossy.data'])
                             this.children.push(new Node(this, menuObj.link[i]));
                         }
                     }
-                };
+                }
 
                 scope.menu = {
                     open: false,
@@ -28,6 +28,7 @@ angular.module('bossy.navigation', ['bossy.data'])
                 };
 
                 $data.getData(attrs.data).then(function(result) {
+                    // Grabbing the first menu object for testing. 
                     scope.menu.cur = scope.menu.root = new Node(null, result.navigation[0]);
                     console.log(result.navigation[0]);
                 });
