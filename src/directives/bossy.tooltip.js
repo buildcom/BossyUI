@@ -63,9 +63,15 @@ function Tooltip()
 
       }
 
+      // Force tooltip to persist without hovering
+      var styleText = '';
+      if (scope.options.persist){
+        styleText= 'style="opacity: 1; transform: scale(1) translateY(0);"';
+      }
+
       // Wrap element html
       var replacementHTML = '<span class="tooltip default-style" style="opacity:1;"><span class="link">' + element.html() +
-        '<div class="' + tooltipClass + '">' + scope.data.text + '</div></span></span>';
+        '<div class="' + tooltipClass + '" ' + styleText + '>' + scope.data.text + '</div></span></span>';
 
       // Replace element's html with wrapped content
       element.html(replacementHTML);
