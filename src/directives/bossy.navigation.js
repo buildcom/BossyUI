@@ -30,12 +30,10 @@ angular.module('bossy.navigation', ['bossy.data'])
                 $data.getData(attrs.data).then(function(result) {
                     // Grabbing the first menu object for testing. 
                     scope.menu.cur = scope.menu.root = new Node(null, result.navigation[0]);
-                    console.log(result.navigation[0]);
                 });
 
                 scope.updateView = function(node) {
                     scope.menu.cur = node;
-                    console.log(scope.menu.cur.children);
                 };
 
                 scope.toggleOpen = function() {
