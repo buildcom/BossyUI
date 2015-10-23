@@ -15,7 +15,7 @@ function Tooltip()
 
       // Fail safe in case text is not given
       if (!scope.data){
-        scope.data = {text:""};
+        scope.data = {text:''};
       }
 
       // Fail safe in case options are not given
@@ -31,34 +31,36 @@ function Tooltip()
       }
 
       // Determine class options
-      var tooltipClass = "tooltip-active";
+      var tooltipClass = 'tooltip-active';
 
       // Alignment
       if (scope.options.align){
 
-        if (scope.options.align.toLowerCase() === "left"){
-          tooltipClass += " tooltip-left";
+        if (scope.options.align.toLowerCase() === 'left'){
+          tooltipClass += ' tooltip-left';
         }
-        else if (scope.options.align.toLowerCase() === "right"){
-          tooltipClass += " tooltip-right";
+        else if (scope.options.align.toLowerCase() === 'right'){
+          tooltipClass += ' tooltip-right';
         }
 
       }
 
       // Color
-      tooltipClass += " " + scope.options.color.toLowerCase();
+      if (scope.options.color) {
+        tooltipClass += ' ' + scope.options.color.toLowerCase();
+      }
 
       // Content type
       if (scope.options.type){
 
-        if (scope.options.type.toLowerCase() === "html"){
-          tooltipClass += " content-html";
+        if (scope.options.type.toLowerCase() === 'html'){
+          tooltipClass += ' content-html';
         }
-        else if (scope.options.type.toLowerCase() === "download"){
-          tooltipClass += " download";
+        else if (scope.options.type.toLowerCase() === 'download'){
+          tooltipClass += ' download';
         }
-        else if (scope.options.type.toLowerCase() === "alert"){
-          tooltipClass += " alert";
+        else if (scope.options.type.toLowerCase() === 'alert'){
+          tooltipClass += ' alert';
         }
 
       }
