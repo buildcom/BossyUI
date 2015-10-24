@@ -1,56 +1,46 @@
 function TreeviewController($scope) {
+    $scope.hiddenChildren = false;
 
-    //$scope.clickable = true;
-    $scope.clicked = false;
-
-    //revise
-    $scope.hasIcons = function (data) {
-        if (data.hasOwnProperty('icons')) {
-            if (data.icons.hasOwnProperty[1]) $scope.curIconSrc = data.icons[1]; //collapse
-            else $scope.curIconSrc = data.icons[0]; //expand / any other type
-            return true;
-        }
-        return false;
+    $scope.clicked = function($event){
+      if(!$scope.hiddenChildren)
+        angular.element($event.target).children().css("display", "none");
+      else
+        angular.element($event.target).children().css("display", "initial");
+      $scope.hiddenChildren = !$scope.hiddenChildren;
     };
+    
+    $scope.contents = {name: $scope.treeData.value, nodes: $scope.treeData.nodes};
 
-    /*
-    //revise
-    $scope.expanded = function (data) {
-        if ($scope.$parent.tree.showing) return true;
-        return false;
-    }; */
 } //end TreeviewController
 
-function Treeview() {
-    //HTML for tree
-    var template =
-        '<div class="treeviewWrapper">' +
-        '{{treeData}}'+
-        '<ul class="treeList">' +
-        '<li ng-repeat="node in treeData" >' +
-        '<div class="dataItem" ng-click="clicked=!clicked">' +
-        //'<img ng-class="{\'expanded\': clicked, \'collapsed\': !clicked}">' +
-        //' ng-if="hasIcons(data)" ng-src="curIconSrc"/> ' +
-        //'{{node.value}}' +
-        '<br>';
-        if(node.nodes.length > 0)
-          template += '<bossy-treeview tree-data="node.nodes" options=""></bossy-treeview>';
-    template = template + 'li</div></li>ul</ul>';
-    template += '</div> <!-- / treeviewWrapper -->';
-    console.log('executed');
+function Treeview($compile){
 
     return {
         restrict: 'AE',
         scope: {
-            options: '=',
-            treeData: '='
+            treeData: '=',
+            options: '='
         },
-        //template: template,
-        controller: TreeviewController
+        controller: TreeviewController,
+        link: function(scope, element, attr){
+          var directiveTemplate =   
+           '<ul ng-if="contents.nodes">'+
+            '<li ng-repeat="node in contents.nodes" ng-click="clicked($event)">' +
+              '<span ng-if="node.node">'+
+                '{{node.node.value}}' +
+                '<bossy-treeview tree-data="node.node" options=""></bossy-treeview>' +
+              '</span>' +
+              '<span ng-if="node.item">' +
+                '{{node.item.value}}' +
+              '</span>' +
+            '</li>'+
+           '</ul>';
+           element.append(($compile(directiveTemplate))(scope));
+       }   
     };
 } //end Treeview
 
-Treeview.$inject = [];
+Treeview.$inject = ['$compile'];
 TreeviewController.$inject = ['$scope'];
 
 angular.module('bossy.treeview')

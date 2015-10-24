@@ -4,15 +4,12 @@
 <script type="text/javascript" src="data.js"></script>
 <script type="text/javascript" src="bossyTreeview.js"></script>
 
-	<body>
-	        <div ng-controller="DataController">
-	        <div id="treeWrap">
-              <input id="in1" ng-model="textInput">
-              <bossy-treeview tree-data="treeInput" options="">
-               <!-- {{treeInput.nodes}} -->
-              </bossy-treeview>
-                
-                </div>
-            </div>
-	</body>
+<body>
+  <div ng-controller="DataController">
+   <div id="treeWrap">
+        <bossy-treeview tree-data="treeInput" options="">
+          </bossy-treeview>
+    </div>
+  </div>
+  </body>
 </html>
