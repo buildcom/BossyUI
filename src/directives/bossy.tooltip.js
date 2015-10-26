@@ -30,10 +30,11 @@ function Tooltip()
         tooltipHtml.remove();
       }
 
+
       // Determine class options
       var tooltipClass = 'tooltip-active';
 
-      // Alignment
+      // Anchor Alignment
       if (scope.options.align){
 
         if (scope.options.align.toLowerCase() === 'left'){
@@ -65,10 +66,22 @@ function Tooltip()
 
       }
 
+      // tooltipPosition handles the position of the whole tooltip,
+      // above, below, right, or left of the element requiring a tooltip
+      if(scope.options.position){
+        if(scope.options.position.toLowerCase() === 'left')
+          tooltipClass += ' tooltip-pos-left';
+        else if(scope.options.position.toLowerCase() === 'right')
+          tooltipClass += ' tooltip-pos-right';
+        else if(scope.options.position.toLowerCase() === 'bottom')
+          tooltipClass += ' tooltip-pos-bottom';
+      }
+
       // Force tooltip to persist without hovering
       var styleText = '';
-      if (scope.options.persist){
+      if (scope.options.persist === true){
         styleText= 'style="opacity: 1; transform: scale(1) translateY(0);"';
+        tooltipClass += ' active';
       }
 
       // Wrap element html
