@@ -1,10 +1,10 @@
 angular.module('bossy.navigation', ['bossy.data'])
 
-    .directive('menu', ['$data', function($data) {
+    .directive('navigation', ['$data', function($data) {
         return {
 
-            restrict: 'E',
             link: function(scope, element, attrs) {
+                var root;
 
                 function Node(parentNode, menuObj) {
                     var i, childMenuObj;
@@ -21,41 +21,64 @@ angular.module('bossy.navigation', ['bossy.data'])
                     }
                 }
 
-                scope.menu = {
-                    open: false,
-                    root: null,
-                    cur: null,
-                };
-
+                // Retrieve the menu data
                 $data.getData(attrs.data).then(function(result) {
-                    // Grabbing the first menu object for testing. 
-                    scope.menu.cur = scope.menu.root = new Node(null, result.navigation[0]);
-                    console.log(result.navigation[0]);
+                    // TODO: validate result
+                    scope.menuList = result.navigation;
+                    // Initialize state tree & settings for each menu in the navbar
+                    scope.menus = [];
+                    angular.forEach(scope.menuList, function(menu, key) {
+                        root = new Node(null, menu);
+                        scope.menus.push( 
+                            {
+                                open: false,
+                                curNode: root,
+                                rootNode: root,
+                            }
+                        );
+                    });
+
+                    scope.curOpenMenuIndex = null;
+
+                    // Called when a menu header is clicked.
+                    scope.toggleOpen = function(menu, menuIndex) {
+                        // menu is open
+                        if (scope.curOpenMenuIndex === menuIndex) {
+                            scope.curOpenMenuIndex = null;
+                        }
+                        // menu is closed
+                        else {
+                            scope.curOpenMenuIndex = menuIndex;
+                            // Reset menu state
+                            menu.curNode = menu.rootNode;
+                        }
+                    };
                 });
 
-                scope.updateView = function(node) {
-                    scope.menu.cur = node;
-                    console.log(scope.menu.cur.children);
-                };
-
-                scope.toggleOpen = function() {
-                    scope.menu.open = !scope.menu.open;
-                    scope.menu.cur = scope.menu.root;
-                };
-
             },
-            template: 
-               '<div>' +
-                  '<strong ng-click="toggleOpen()">{{menu.root.title}}</strong>' +
-                  '<ol ng-show="menu.open">' +
-                      '<lh ng-show="menu.cur!==menu.root" ng-click="updateView(menu.cur.parentNode)">{{menu.cur.title}}</lh>' +
-                      '<li ng-repeat="node in menu.cur.children">' +
-                          '<a ng-if="node.url" ng-attr-href="{{node.url}}">{{node.title}}</a>' +
-                          '<div ng-if="node.children" ng-click="updateView(node)">{{node.title}}</div>' +
+            template:
+                '<ul>' +
+                  '<li ng-repeat="menu in menus">' +
+                    // If the menu header is a link
+                    '<a ng-if="menu.rootNode.url" href="menu.rootNode.url">{{menu.rootNode.title}}</a>' +
+                    // If the menu expands to submenus (it has children)
+                    '<strong ng-if="menu.rootNode.children" ng-click="toggleOpen(menu, $index)">{{menu.rootNode.title}}</strong>' +
+                    // Each menu expands to a submenu
+                    // Only current open menu is shown (expanded)
+                    '<ul ng-show="curOpenMenuIndex===$index">' +
+                      // List header only shows when the current node is not the root
+                      // Clicking the header sets the current node to its parent.
+                      '<lh ng-if="menu.curNode!==menu.rootNode" ng-click="menu.curNode=menu.curNode.parentNode"><strong>{{menu.curNode.title}}</strong></lh>' +
+                      '<li ng-repeat="node in menu.curNode.children">' +
+                        // Leaf node (is a link)
+                        '<a ng-if="node.url" href="node.url">{{node.title}}</a>' +
+                        // Subtree (has a submenu)
+                        '<span ng-if="node.children" ng-click="menu.curNode=node">{{node.title}}</span>' +
                       '</li>' +
-                  '</ol>' +
-              '<div>'
-
+                    '</ul>' +
+                  '</li>' +
+                '</ul>'
         };
+
     }])
 ;
