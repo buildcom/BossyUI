@@ -23,6 +23,7 @@ angular.module('bossy.navigation', ['bossy.data'])
 
                 // Retrieve the menu data
                 $data.getData(attrs.data).then(function(result) {
+<<<<<<< HEAD
                     // TODO: validate result
                     scope.menuList = result.navigation;
                     // Initialize state tree & settings for each menu in the navbar
@@ -39,6 +40,8 @@ angular.module('bossy.navigation', ['bossy.data'])
                     });
 
                     scope.curOpenMenuIndex = null;
+=======
+>>>>>>> 75140186a6803dd16423fdbde74c42f9889b09fe
 
                     // Called when a menu header is clicked.
                     scope.toggleOpen = function(menu, menuIndex) {
