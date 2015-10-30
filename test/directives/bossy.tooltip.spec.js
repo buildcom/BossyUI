@@ -33,11 +33,6 @@ describe('Tooltip Directive:', function() {
         expect(spanElement.text()).toContain('');
     });
 
-    
-    /* TODO
-     * persistence
-     */
-    
     // No options
     it('toolTip with empty options should create default tooltip-active class', function(){
         scope.directiveData = {text: 'Tooltip Text'};
