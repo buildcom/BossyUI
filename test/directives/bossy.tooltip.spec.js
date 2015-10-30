@@ -35,7 +35,6 @@ describe('Tooltip Directive:', function() {
 
     
     /* TODO
-     * transclude
      * persistence
      */
     
@@ -232,7 +231,6 @@ describe('Tooltip Directive:', function() {
         var spanElement = element.find("div");
         expect(spanElement.hasClass("download")).toBeTruthy();
         
-        scope.directiveData = {text: 'Tooltip Text'};
         scope.directiveOptions = {type: 'aLeRt'};
         var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
         element = compile(element)(scope);
@@ -242,7 +240,6 @@ describe('Tooltip Directive:', function() {
         var spanElement = element.find("div");
         expect(spanElement.hasClass("alert")).toBeTruthy();
         
-        scope.directiveData = {text: 'Tooltip Text'};
         scope.directiveOptions = {type: 'HtMl'};
         var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
         element = compile(element)(scope);
@@ -253,17 +250,33 @@ describe('Tooltip Directive:', function() {
         expect(spanElement.hasClass("content-html")).toBeTruthy();
     });
 
-    // Transclude //TODO
+    // Transclude
     it('toolTip transclude = true, should allow html content in anchor', function(){
-        scope.directiveData = {text: 'Tooltip Text'};
-        scope.directiveOptions = {type: 'download'};
-        //TODO
-        var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor<dibv>tooltip text</div></bossy-tooltip>');
+        scope.directiveData = {};
+        scope.directiveOptions = {type: 'download', transclude: true};
+
+        var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor<div><b>tooltip text</b></div></bossy-tooltip>');
         element = compile(element)(scope);
 
         scope.$digest();
         
-        var spanElement = element.find("div").find("div");
-        expect(spanElement.hasClass("download")).toBeTruthy();
+        var spanElement = element.find("div");
+        expect(spanElement.hasClass("tooltip-active")).toBeTruthy();
+        spanElement = spanElement.find("b");
+        expect(spanElement.text()).toContain("tooltip text");
+    });
+    
+    // Persist
+    it('toolTip persistence, should apply "active" class to tooltip', function(){
+        scope.directiveData = {text: 'Tooltip Text'};
+        scope.directiveOptions = {type: 'download', persist: true};
+
+        var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
+        element = compile(element)(scope);
+
+        scope.$digest();
+
+        var spanElement = element.find("div");
+        expect(spanElement.hasClass("active")).toBeTruthy();
     });
 });
