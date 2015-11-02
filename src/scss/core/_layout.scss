@@ -7,7 +7,8 @@
 	margin-top: 0;
 
 	+ * {
-		margin-top: 1.4rem;
+		//margin-top: 1.4rem;
+                margin-top: 0; // Temp fix for the markup on the preview site
 	}
 }
 
