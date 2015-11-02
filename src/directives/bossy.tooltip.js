@@ -69,12 +69,15 @@ function Tooltip()
       // tooltipPosition handles the position of the whole tooltip,
       // above, below, right, or left of the element requiring a tooltip
       if(scope.options.position){
-        if(scope.options.position.toLowerCase() === 'left')
+        if(scope.options.position.toLowerCase() === 'left'){
           tooltipClass += ' tooltip-pos-left';
-        else if(scope.options.position.toLowerCase() === 'right')
+        }
+        else if(scope.options.position.toLowerCase() === 'right'){
           tooltipClass += ' tooltip-pos-right';
-        else if(scope.options.position.toLowerCase() === 'bottom')
+        }
+        else if(scope.options.position.toLowerCase() === 'bottom'){
           tooltipClass += ' tooltip-pos-bottom';
+        }
       }
 
       // Force tooltip to persist without hovering
