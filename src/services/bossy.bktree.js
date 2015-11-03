@@ -41,17 +41,21 @@ angular.module('bossy.BKTree', ['bossy.utility'])
         /**
          * http://blog.notdot.net/2007/4/Damn-Cool-Algorithms-Part-1-BK-Trees
          *
+         * BKTrees utilize the metric space of strings' edit distance to 
+         * greatly reduce the number of comparisons need to find all matches
+         * to a query string within a specified edit distance. 
+         *  
          * @param String str
          */
-        var Node = function(str) {
+        var BKTreeNode = function(str) {
             this.str = str;
             this.children = {}; // key is edit-distance from this.str
         };
 
-        Node.prototype = {
+        BKTreeNode.prototype = {
 
             /**
-             * @param Node newNode
+             * @param BKTreeNode newNode
              */
             add: function(newNode) {
                 var dist; // if newNode.str in tree, do nothing.
@@ -91,15 +95,15 @@ angular.module('bossy.BKTree', ['bossy.utility'])
          * @param [String] dict
          */
         function buildBKTree(dict) {
-            var i, root = dict.length > 0 ? new Node(dict[0]) : null;
+            var i, root = dict.length > 0 ? new BKTreeNode(dict[0]) : null;
             for (i = 1; i < dict.length; i++) {
-                root.add(new Node(dict[i]));
+                root.add(new BKTreeNode(dict[i]));
             }
             return root;
         }
     
         /**
-         * @param Node root
+         * @param BKTreeNode root
          * @param String query
          * @param int tolerance
          */
