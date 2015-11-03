@@ -3,25 +3,25 @@ function TooltipController($scope){
   // Toggle the visibility of the tooltip dynamically
   function togglePersist(){
 
-		var tooltipDiv = $scope.element.find('div');
+    var tooltipDiv = $scope.element.find('div');
 
-		if (tooltipDiv.hasClass('tooltip-active')){
-			tooltipDiv.toggleClass('active');
-		}
+    if (tooltipDiv.hasClass('tooltip-active')){
+      tooltipDiv.toggleClass('active');
+    }
 
-	}
+  }
 
   // Change the color of the tooltip dynamically
-	function changeColor(newValue, oldValue){
+  function changeColor(newValue, oldValue){
 
-		var tooltipDiv = $scope.element.find('div');
+    var tooltipDiv = $scope.element.find('div');
 
-		if (tooltipDiv.hasClass('tooltip-active')){
-			tooltipDiv.removeClass(oldValue);
-			tooltipDiv.addClass(newValue);
-		}
+    if (tooltipDiv.hasClass('tooltip-active')){
+      tooltipDiv.removeClass(oldValue);
+      tooltipDiv.addClass(newValue);
+    }
 
-	}
+  }
 
   // Change the progress of the download bar dynamically
   function changeProgress(newValue){
@@ -34,8 +34,8 @@ function TooltipController($scope){
 
   }
 
-	$scope.togglePersist = togglePersist;
-	$scope.changeColor = changeColor;
+  $scope.togglePersist = togglePersist;
+  $scope.changeColor = changeColor;
   $scope.changeProgress = changeProgress;
 
 }
