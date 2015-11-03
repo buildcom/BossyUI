@@ -1,5 +1,42 @@
 function TooltipController($scope){
 
+  // Toggle the visibility of the tooltip dynamically
+  function togglePersist(){
+
+		var tooltipDiv = $scope.element.find('div');
+
+		if (tooltipDiv.hasClass('tooltip-active')){
+			tooltipDiv.toggleClass('active');
+		}
+
+	}
+
+  // Change the color of the tooltip dynamically
+	function changeColor(newValue, oldValue){
+
+		var tooltipDiv = $scope.element.find('div');
+
+		if (tooltipDiv.hasClass('tooltip-active')){
+			tooltipDiv.removeClass(oldValue);
+			tooltipDiv.addClass(newValue);
+		}
+
+	}
+
+  // Change the progress of the download bar dynamically
+  function changeProgress(newValue){
+
+    var progressDiv = $scope.element.find('div').find('div');
+
+    if (progressDiv.hasClass('progress-bar')){
+      progressDiv.css('width', newValue + '%');
+    }
+
+  }
+
+	$scope.togglePersist = togglePersist;
+	$scope.changeColor = changeColor;
+  $scope.changeProgress = changeProgress;
 
 }
 
@@ -11,7 +48,11 @@ function Tooltip()
       data: '=',
       options: '=',
     },
+    controller: TooltipController,
     link: function(scope, element, attrs){
+
+      // Reference to element for use in controller
+      scope.element = element;
 
       // Fail safe in case text is not given
       if (!scope.data){
@@ -29,7 +70,6 @@ function Tooltip()
         scope.data.text = tooltipHtml.html();
         tooltipHtml.remove();
       }
-
 
       // Determine class options
       var tooltipClass = 'tooltip-active';
@@ -59,6 +99,7 @@ function Tooltip()
         }
         else if (scope.options.type.toLowerCase() === 'download'){
           tooltipClass += ' download';
+          scope.data.text += '<div class="progress-bar"></div>';
         }
         else if (scope.options.type.toLowerCase() === 'alert'){
           tooltipClass += ' alert';
@@ -91,6 +132,27 @@ function Tooltip()
 
       // Replace element's html with wrapped content
       element.html(replacementHTML);
+
+      // Watch the 'persist' option for changes
+      scope.$watch('options.persist', function(newValue, oldValue){
+        if (newValue !== oldValue){
+          scope.togglePersist();
+        }
+      }, true);
+
+      // Watch the 'color' option for changes
+      scope.$watch('options.color', function(newValue, oldValue){
+        if (newValue !== oldValue){
+          scope.changeColor(newValue, oldValue);
+        }
+      }, true);
+
+      // Watch the 'progress' option for changes
+      scope.$watch('options.progress', function(newValue, oldValue){
+        if (newValue !== oldValue){
+          scope.changeProgress(newValue);
+        }
+      }, true);
 
     },
   };
