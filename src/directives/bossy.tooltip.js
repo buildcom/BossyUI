@@ -1,42 +1,83 @@
 function TooltipController($scope){
 
-  // Toggle the visibility of the tooltip dynamically
-  function togglePersist(){
+  $scope.setAlignment = function(alignment){
+    // Anchor Alignment
+    var alignmentClass = '';
 
-    var tooltipDiv = $scope.element.find('div');
-
-    if (tooltipDiv.hasClass('tooltip-active')){
-      tooltipDiv.toggleClass('active');
+    if (alignment){
+      if (alignment.toLowerCase() === 'left'){
+        alignmentClass = 'tooltip-left';
+      }
+      else if (alignment.toLowerCase() === 'right'){
+        alignmentClass ='tooltip-right';
+      }
     }
 
+    return alignmentClass;
   }
 
-  // Change the color of the tooltip dynamically
-  function changeColor(newValue, oldValue){
+  $scope.setActive = function(persist){
+    // Force tooltip to persist without hovering
 
-    var tooltipDiv = $scope.element.find('div');
+    var activeClass = '';
 
-    if (tooltipDiv.hasClass('tooltip-active')){
-      tooltipDiv.removeClass(oldValue);
-      tooltipDiv.addClass(newValue);
+    if (persist){
+      activeClass = 'active';
     }
 
+    return activeClass;
   }
 
-  // Change the progress of the download bar dynamically
-  function changeProgress(newValue){
+  $scope.setPositioning = function(position){
+    // tooltipPosition handles the position of the whole tooltip,
+    // above, below, right, or left of the element requiring a tooltip
+    var positionClass = '';
 
-    var progressDiv = $scope.element.find('div').find('div');
-
-    if (progressDiv.hasClass('progress-bar')){
-      progressDiv.css('width', newValue + '%');
+    if(position){
+      if(position.toLowerCase() === 'left'){
+        positionClass = 'tooltip-pos-left';
+      }
+      else if(position.toLowerCase() === 'right'){
+        positionClass = 'tooltip-pos-right';
+      }
+      else if(position.toLowerCase() === 'bottom'){
+        positionClass = 'tooltip-pos-bottom';
+      }
     }
 
+    return positionClass;
   }
 
-  $scope.togglePersist = togglePersist;
-  $scope.changeColor = changeColor;
-  $scope.changeProgress = changeProgress;
+  $scope.setContentType = function(type){
+    // Content type
+    var contentType = '';
+    if ($scope.options.type){
+      if ($scope.options.type.toLowerCase() === 'html'){
+        contentType = 'content-html';
+      }
+      else if ($scope.options.type.toLowerCase() === 'download'){
+        contentType = 'download';
+      }
+    }
+
+    return contentType;
+  }
+
+function initialize(){
+
+  // Fail safe in case text is not given
+  if (!$scope.data){
+    $scope.data = {text:''};
+  }
+
+  // Fail safe in case options are not given
+  if (!$scope.options){
+    $scope.options = {};
+  }
+
+}
+
+  initialize();
 
 }
 
@@ -49,112 +90,35 @@ function Tooltip()
       options: '=',
     },
     controller: TooltipController,
-    link: function(scope, element, attrs){
-
-      // Reference to element for use in controller
-      scope.element = element;
-
-      // Fail safe in case text is not given
-      if (!scope.data){
-        scope.data = {text:''};
-      }
-
-      // Fail safe in case options are not given
-      if (!scope.options){
-        scope.options = {};
-      }
+    transclude: true,
+    link: function(scope, elem, attr){
 
       // If the user decides to pass html content through the markup
       if (scope.options.transclude === true){
-        var tooltipHtml = element.find('div');
-        scope.data.text = tooltipHtml.html();
-        tooltipHtml.remove();
-      }
+        var tooltipHtml = elem.find('div');
+        var index = 0;
 
-      // Determine class options
-      var tooltipClass = 'tooltip-active';
-
-      // Anchor Alignment
-      if (scope.options.align){
-
-        if (scope.options.align.toLowerCase() === 'left'){
-          tooltipClass += ' tooltip-left';
-        }
-        else if (scope.options.align.toLowerCase() === 'right'){
-          tooltipClass += ' tooltip-right';
+        while (tooltipHtml.length && !tooltipHtml.hasClass('tooltip-content')){
+          tooltipHtml = tooltipHtml.find('div');
+          index++;
         }
 
-      }
-
-      // Color
-      if (scope.options.color) {
-        tooltipClass += ' ' + scope.options.color.toLowerCase();
-      }
-
-      // Content type
-      if (scope.options.type){
-
-        if (scope.options.type.toLowerCase() === 'html'){
-          tooltipClass += ' content-html';
-        }
-        else if (scope.options.type.toLowerCase() === 'download'){
-          tooltipClass += ' download';
-          scope.data.text += '<div class="progress-bar"></div>';
-        }
-        else if (scope.options.type.toLowerCase() === 'alert'){
-          tooltipClass += ' alert';
-        }
-
-      }
-
-      // tooltipPosition handles the position of the whole tooltip,
-      // above, below, right, or left of the element requiring a tooltip
-      if(scope.options.position){
-        if(scope.options.position.toLowerCase() === 'left'){
-          tooltipClass += ' tooltip-pos-left';
-        }
-        else if(scope.options.position.toLowerCase() === 'right'){
-          tooltipClass += ' tooltip-pos-right';
-        }
-        else if(scope.options.position.toLowerCase() === 'bottom'){
-          tooltipClass += ' tooltip-pos-bottom';
+        if (tooltipHtml.length){
+          scope.data.text = tooltipHtml.html();
+          tooltipHtml[index].remove();
         }
       }
-
-      // Force tooltip to persist without hovering
-      if (scope.options.persist === true){
-        tooltipClass += ' active';
-      }
-
-      // Wrap element html
-      var replacementHTML = '<span class="tooltip default-style" style="opacity:1;"><span class="link">' + element.html() +
-        '<div class="' + tooltipClass + '" >' + scope.data.text + '</div></span></span>';
-
-      // Replace element's html with wrapped content
-      element.html(replacementHTML);
-
-      // Watch the 'persist' option for changes
-      scope.$watch('options.persist', function(newValue, oldValue){
-        if (newValue !== oldValue){
-          scope.togglePersist();
-        }
-      }, true);
-
-      // Watch the 'color' option for changes
-      scope.$watch('options.color', function(newValue, oldValue){
-        if (newValue !== oldValue){
-          scope.changeColor(newValue, oldValue);
-        }
-      }, true);
-
-      // Watch the 'progress' option for changes
-      scope.$watch('options.progress', function(newValue, oldValue){
-        if (newValue !== oldValue){
-          scope.changeProgress(newValue);
-        }
-      }, true);
 
     },
+    template: '<span class="tooltip default-style" style="opacity:1;">' +
+                '<span class="link">' +
+                  '<ng-transclude></ng-transclude>' +
+                  '<div class="tooltip-active {{options.color.toLowerCase()}} {{setActive(options.persist)}} {{setAlignment(options.align)}} {{setContentType(options.type)}}">' +
+                  '<span ng-bind-html="data.text | unsafe"></span>'+
+                  '<div ng-show="options.progress > 0" class="progress-bar" style="width: {{options.progress}}%"></div>' +
+                  '</div>' +
+                '</span>' +
+              '</span>',
   };
 }
 
@@ -164,4 +128,8 @@ TooltipController.$inject = ['$scope'];
 
 angular.module('bossy.tooltip', [])
 .controller('bossyTooltipController', TooltipController)
-.directive('bossyTooltip', Tooltip);
+.directive('bossyTooltip', Tooltip)
+.filter('unsafe', function($sce) {
+  return function(val) {
+    return $sce.trustAsHtml(val);
+  }});
