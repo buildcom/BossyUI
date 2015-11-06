@@ -14,7 +14,7 @@ function TooltipController($scope){
     }
 
     return alignmentClass;
-  }
+  };
 
   $scope.setActive = function(persist){
     // Force tooltip to persist without hovering
@@ -26,7 +26,7 @@ function TooltipController($scope){
     }
 
     return activeClass;
-  }
+  };
 
   $scope.setPositioning = function(position){
     // tooltipPosition handles the position of the whole tooltip,
@@ -46,7 +46,7 @@ function TooltipController($scope){
     }
 
     return positionClass;
-  }
+  };
 
   $scope.setContentType = function(type){
     // Content type
@@ -61,7 +61,7 @@ function TooltipController($scope){
     }
 
     return contentType;
-  }
+  };
 
 function initialize(){
 
@@ -113,7 +113,8 @@ function Tooltip()
     template: '<span class="tooltip default-style" style="opacity:1;">' +
                 '<span class="link">' +
                   '<ng-transclude></ng-transclude>' +
-                  '<div class="tooltip-active {{options.color.toLowerCase()}} {{setActive(options.persist)}} {{setAlignment(options.align)}} {{setContentType(options.type)}}">' +
+                  '<div class="tooltip-active {{options.color.toLowerCase()}} {{setActive(options.persist)}} ' +
+                    '{{setAlignment(options.align)}} {{setContentType(options.type)}} {{setPositioning(options.position)}}">' +
                   '<span ng-bind-html="data.text | unsafe"></span>'+
                   '<div ng-show="options.progress > 0" class="progress-bar" style="width: {{options.progress}}%"></div>' +
                   '</div>' +
@@ -132,4 +133,4 @@ angular.module('bossy.tooltip', [])
 .filter('unsafe', function($sce) {
   return function(val) {
     return $sce.trustAsHtml(val);
-  }});
+  };});
