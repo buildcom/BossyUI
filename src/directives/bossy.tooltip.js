@@ -65,14 +65,22 @@ function TooltipController($scope){
 
 function initialize(){
 
-  // Fail safe in case text is not given
-  if (!$scope.data){
-    $scope.data = {text:''};
+  // Throw an error if text is not given
+  if (!$scope.data.text && $scope.options.transclude !== true){
+    throw 'You must include content for tool tip.';
   }
 
   // Fail safe in case options are not given
   if (!$scope.options){
-    $scope.options = {};
+    $scope.options = {
+      align: 'center',
+      color: 'black',
+      type: 'default',
+      transclude: false,
+      persist: false,
+      progress: '0',
+      icon: '',
+    };
   }
 
 }
@@ -107,6 +115,11 @@ function Tooltip()
           scope.data.text = tooltipHtml.html();
           tooltipHtml[index].remove();
         }
+
+        // Throw error if tool tip content is empty
+        if (!scope.data.text){
+          throw 'You must include content for tool tip.';
+        }
       }
 
     },
@@ -115,8 +128,9 @@ function Tooltip()
                   '<ng-transclude></ng-transclude>' +
                   '<div class="tooltip-active {{options.color.toLowerCase()}} {{setActive(options.persist)}} ' +
                     '{{setAlignment(options.align)}} {{setContentType(options.type)}} {{setPositioning(options.position)}}">' +
-                  '<span ng-bind-html="data.text | unsafe"></span>'+
-                  '<div ng-show="options.progress > 0" class="progress-bar" style="width: {{options.progress}}%"></div>' +
+                    '<span ng-bind-html="data.text | unsafe"></span>' +
+                    '<i ng-show="options.icon" class="icon ionicon {{options.icon}}"></i>' +
+                    '<div ng-show="options.type === \'download\'" class="progress-bar" style="width: {{options.progress}}%"></div>' +
                   '</div>' +
                 '</span>' +
               '</span>',
