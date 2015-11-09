@@ -129,8 +129,8 @@ function Tooltip()
                   '<div class="tooltip-active {{options.color.toLowerCase()}} {{setActive(options.persist)}} ' +
                     '{{setAlignment(options.align)}} {{setContentType(options.type)}} {{setPositioning(options.position)}}">' +
                     '<span ng-bind-html="data.text | unsafe"></span>' +
-                    '<i ng-show="options.icon" class="icon ionicon {{options.icon}}"></i>' +
-                    '<div ng-show="options.type === \'download\'" class="progress-bar" style="width: {{options.progress}}%"></div>' +
+                    '<i ng-show="options.icon" class="icon ionicon {{options.icon.toLowerCase()}}"></i>' +
+                    '<div ng-show="options.type.toLowerCase() === \'download\'" class="progress-bar" style="width: {{options.progress}}%"></div>' +
                   '</div>' +
                 '</span>' +
               '</span>',
