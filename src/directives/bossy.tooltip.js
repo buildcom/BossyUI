@@ -67,7 +67,7 @@ function initialize(){
 
   // Throw an error if text is not given
   if (!$scope.data.text && $scope.options.transclude !== true){
-    throw 'You must include content for tool tip.';
+    console.error('You must include content for tool tip.');
   }
 
   // Fail safe in case options are not given
@@ -118,17 +118,19 @@ function Tooltip()
 
         // Throw error if tool tip content is empty
         if (!scope.data.text){
-          throw 'You must include content for tool tip.';
+          console.error('You must include content for tool tip.');
         }
       }
 
     },
     template: '<span class="tooltip default-style" style="opacity:1;">' +
                 '<span class="link">' +
-                  '<ng-transclude></ng-transclude>' +
+                  '<span style="white-space: nowrap;">' +
+                    '<ng-transclude></ng-transclude>' +
+                  '</span>' +
                   '<div class="tooltip-active {{options.color.toLowerCase()}} {{setActive(options.persist)}} ' +
                     '{{setAlignment(options.align)}} {{setContentType(options.type)}} {{setPositioning(options.position)}}">' +
-                    '<span ng-bind-html="data.text | unsafe"></span>' +
+                    '<span ng-bind-html="data.text | bossyUnsafe"></span>' +
                     '<i ng-show="options.icon" class="icon ionicon {{options.icon.toLowerCase()}}"></i>' +
                     '<div ng-show="options.type.toLowerCase() === \'download\'" class="progress-bar" style="width: {{options.progress}}%"></div>' +
                   '</div>' +
@@ -144,7 +146,7 @@ TooltipController.$inject = ['$scope'];
 angular.module('bossy.tooltip', [])
 .controller('bossyTooltipController', TooltipController)
 .directive('bossyTooltip', Tooltip)
-.filter('unsafe', function($sce) {
+.filter('bossyUnsafe', function($sce) {
   return function(val) {
     return $sce.trustAsHtml(val);
   };});
