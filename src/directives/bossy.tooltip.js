@@ -130,7 +130,7 @@ function Tooltip()
                   '</span>' +
                   '<div class="tooltip-active {{options.color.toLowerCase()}} {{setActive(options.persist)}} ' +
                     '{{setAlignment(options.align)}} {{setContentType(options.type)}} {{setPositioning(options.position)}}">' +
-                    '<span ng-bind-html="data.text | bossyUnsafe"></span>' +
+                    '<span ng-bind-html="data.text | bossyUnsafeHtml"></span>' +
                     '<i ng-show="options.icon" class="icon ionicon {{options.icon.toLowerCase()}}"></i>' +
                     '<div ng-show="options.type.toLowerCase() === \'download\'" class="progress-bar" style="width: {{options.progress}}%"></div>' +
                   '</div>' +
@@ -143,10 +143,6 @@ Tooltip.$inject = [];
 
 TooltipController.$inject = ['$scope'];
 
-angular.module('bossy.tooltip', [])
+angular.module('bossy.tooltip', ['bossy.filters'])
 .controller('bossyTooltipController', TooltipController)
-.directive('bossyTooltip', Tooltip)
-.filter('bossyUnsafe', function($sce) {
-  return function(val) {
-    return $sce.trustAsHtml(val);
-  };});
+.directive('bossyTooltip', Tooltip);
