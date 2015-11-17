@@ -6,10 +6,10 @@ function TooltipController($scope){
 
     if (alignment){
       if (alignment.toLowerCase() === 'left'){
-        alignmentClass = 'tooltip-left';
+        alignmentClass = 'bossy-tooltip-left';
       }
       else if (alignment.toLowerCase() === 'right'){
-        alignmentClass ='tooltip-right';
+        alignmentClass ='bossy-tooltip-right';
       }
     }
 
@@ -35,13 +35,13 @@ function TooltipController($scope){
 
     if(position){
       if(position.toLowerCase() === 'left'){
-        positionClass = 'tooltip-pos-left';
+        positionClass = 'bossy-tooltip-pos-left';
       }
       else if(position.toLowerCase() === 'right'){
-        positionClass = 'tooltip-pos-right';
+        positionClass = 'bossy-tooltip-pos-right';
       }
       else if(position.toLowerCase() === 'bottom'){
-        positionClass = 'tooltip-pos-bottom';
+        positionClass = 'bossy-tooltip-pos-bottom';
       }
     }
 
@@ -74,6 +74,7 @@ function initialize(){
   if (!$scope.options){
     $scope.options = {
       align: 'center',
+      position: 'top',
       color: 'black',
       type: 'default',
       transclude: false,
@@ -123,12 +124,12 @@ function Tooltip()
       }
 
     },
-    template: '<span class="tooltip default-style" style="opacity:1;">' +
+    template: '<span class="bossy-tooltip">' +
                 '<span class="link">' +
                   '<span style="white-space: nowrap;">' +
                     '<ng-transclude></ng-transclude>' +
                   '</span>' +
-                  '<div class="tooltip-active {{options.color.toLowerCase()}} {{setActive(options.persist)}} ' +
+                  '<div class="bossy-tooltip-active {{options.color.toLowerCase()}} {{setActive(options.persist)}} ' +
                     '{{setAlignment(options.align)}} {{setContentType(options.type)}} {{setPositioning(options.position)}}">' +
                     '<span ng-bind-html="data.text | bossyUnsafeHtml"></span>' +
                     '<i ng-show="options.icon" class="icon ionicon {{options.icon.toLowerCase()}}"></i>' +

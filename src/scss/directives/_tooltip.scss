@@ -30,7 +30,7 @@ $dark-tooltip:  #333;
 
 /* Tooltip */
 
-.tooltip {
+.bossy-tooltip {
   + * {
     margin-top: 50px;
   }
@@ -39,13 +39,13 @@ $dark-tooltip:  #333;
     color: $primary-color;
     cursor: pointer;
     &:hover {
-      .tooltip-active {
+      .bossy-tooltip-active {
         opacity: 1;
         transform: scale(1) translateY(0);
       }
     }
   }
-  .tooltip-active {
+  .bossy-tooltip-active {
     position: absolute;
     background-color: $dark-tooltip;
     width: 300px;
@@ -67,14 +67,14 @@ $dark-tooltip:  #333;
       opacity: 1;
       transform: scale(1) translateY(0);
     }
-    &.tooltip-left {
+    &.bossy-tooltip-left {
       left: 5%;
       margin: 0;
       &:before {
         left: 10%;
       }
     }
-    &.tooltip-right {
+    &.bossy-tooltip-right {
       right: 5%;
       left: auto;
       margin: 0;
@@ -178,4 +178,3 @@ $dark-tooltip:  #333;
     }
   }
 }
-
