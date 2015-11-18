@@ -143,9 +143,7 @@ function Tooltip()
     },
     template: '<span class="bossy-tooltip">' +
                 '<span class="link">' +
-                  '<span style="white-space: nowrap;">' +
-                    '<ng-transclude></ng-transclude>' +
-                  '</span>' +
+                  '<ng-transclude></ng-transclude>' +
                   '<div class="bossy-tooltip-active {{options.color.toLowerCase()}} {{setActive(options.persist)}} ' +
                     '{{setAlignment(options.align)}} {{setContentType(options.type)}} {{setPositioning(options.position)}}">' +
                     '<span ng-bind-html="data.text | bossyUnsafeHtml"></span>' +
