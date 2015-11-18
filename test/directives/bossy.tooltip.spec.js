@@ -9,7 +9,7 @@ describe('Tooltip Directive:', function() {
             compile = $compile;
         });
     });
-    
+
     // Tooltip returns something
     it('toolTip HTML replacement should not be null',function(){
         scope.directiveData = {};
@@ -17,10 +17,10 @@ describe('Tooltip Directive:', function() {
         var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
         element = compile(element)(scope);
         scope.$digest();
-        
+
         expect(element).toNotBe(null);
     });
-    
+
     // No options, no data
     it('toolTip with no data and options should create empty string tooltip',function(){
         scope.directiveData = {};
@@ -28,7 +28,7 @@ describe('Tooltip Directive:', function() {
         var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
         element = compile(element)(scope);
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.text()).toContain('');
     });
@@ -41,11 +41,11 @@ describe('Tooltip Directive:', function() {
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("tooltip-active")).toBeTruthy();
     });
-    
+
     // Check anchor and tooltip text
     it('toolTip anchor text and tooltip text should be "Anchor" and "Tooltip Text"', function(){
         scope.directiveData = {text: 'Tooltip Text'};
@@ -54,7 +54,7 @@ describe('Tooltip Directive:', function() {
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("span").find("span");
         expect(spanElement.text()).toContain('AnchorTooltip Text');
     });
@@ -67,11 +67,11 @@ describe('Tooltip Directive:', function() {
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("span").find("span");
         expect(spanElement.hasClass("link")).toBeTruthy();
     });
-    
+
     // tooltip-active class
     it('toolTip should have div class with tooltip-active class', function(){
         scope.directiveData = {text: 'Tooltip Text'};
@@ -80,7 +80,7 @@ describe('Tooltip Directive:', function() {
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("tooltip-active")).toBeTruthy();
     });
@@ -94,11 +94,11 @@ describe('Tooltip Directive:', function() {
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("red")).toBeTruthy();
     });
-    
+
     it('toolTip color option should be case insensitive', function(){
         scope.directiveData = {text: 'Tooltip Text'};
         scope.directiveOptions = {color: 'red'};
@@ -106,27 +106,27 @@ describe('Tooltip Directive:', function() {
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("red")).toBeTruthy();
-        
+
         scope.directiveData = {text: 'Tooltip Text'};
         scope.directiveOptions = {color: 'RED'};
         var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("red")).toBeTruthy();
-        
+
         scope.directiveData = {text: 'Tooltip Text'};
         scope.directiveOptions = {color: 'rEd'};
         var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("red")).toBeTruthy();
     });
@@ -139,11 +139,11 @@ describe('Tooltip Directive:', function() {
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("tooltip-left")).toBeTruthy();
     });
-    
+
     it('toolTip should align right, having div class with tooltip-right class', function(){
         scope.directiveData = {text: 'Tooltip Text'};
         scope.directiveOptions = {align: 'right'};
@@ -151,11 +151,11 @@ describe('Tooltip Directive:', function() {
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("tooltip-right")).toBeTruthy();
     });
-    
+
     it('toolTip align option should be case insensitive', function(){
         scope.directiveData = {text: 'Tooltip Text'};
         scope.directiveOptions = {align: 'RIGHT'};
@@ -163,17 +163,17 @@ describe('Tooltip Directive:', function() {
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("tooltip-right")).toBeTruthy();
-        
+
         scope.directiveData = {text: 'Tooltip Text'};
         scope.directiveOptions = {align: 'LeFt'};
         var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("tooltip-left")).toBeTruthy();
     });
@@ -186,23 +186,11 @@ describe('Tooltip Directive:', function() {
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("content-html")).toBeTruthy();
     });
-    
-    it('toolTip type alert, should have div class with alert class', function(){
-        scope.directiveData = {text: 'Tooltip Text'};
-        scope.directiveOptions = {type: 'alert'};
-        var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-        element = compile(element)(scope);
 
-        scope.$digest();
-        
-        var spanElement = element.find("div");
-        expect(spanElement.hasClass("alert")).toBeTruthy();
-    });
-    
     it('toolTip type download, should have div class with download class', function(){
         scope.directiveData = {text: 'Tooltip Text'};
         scope.directiveOptions = {type: 'download'};
@@ -210,11 +198,11 @@ describe('Tooltip Directive:', function() {
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("download")).toBeTruthy();
     });
-    
+
     it('toolTip type, should be case insensitive', function(){
         scope.directiveData = {text: 'Tooltip Text'};
         scope.directiveOptions = {type: 'DOWNLOAD'};
@@ -222,25 +210,16 @@ describe('Tooltip Directive:', function() {
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("download")).toBeTruthy();
-        
-        scope.directiveOptions = {type: 'aLeRt'};
-        var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-        element = compile(element)(scope);
 
-        scope.$digest();
-        
-        var spanElement = element.find("div");
-        expect(spanElement.hasClass("alert")).toBeTruthy();
-        
         scope.directiveOptions = {type: 'HtMl'};
         var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("content-html")).toBeTruthy();
     });
@@ -250,17 +229,17 @@ describe('Tooltip Directive:', function() {
         scope.directiveData = {};
         scope.directiveOptions = {type: 'download', transclude: true};
 
-        var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor<div><b>tooltip text</b></div></bossy-tooltip>');
+        var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor<div class="tooltip-content"><b>tooltip text</b></div></bossy-tooltip>');
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("tooltip-active")).toBeTruthy();
         spanElement = spanElement.find("b");
         expect(spanElement.text()).toContain("tooltip text");
     });
-    
+
     // Persist
     it('toolTip persistence, should apply "active" class to tooltip', function(){
         scope.directiveData = {text: 'Tooltip Text'};
@@ -274,7 +253,7 @@ describe('Tooltip Directive:', function() {
         var spanElement = element.find("div");
         expect(spanElement.hasClass("active")).toBeTruthy();
     });
-    
+
     // Tooltip Position
     it('toolTip position: "left", should apply "tooltip-pos-left" class to tooltip div', function(){
         scope.directiveData = {text: 'Tooltip Text'};
@@ -284,11 +263,11 @@ describe('Tooltip Directive:', function() {
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("tooltip-pos-left")).toBeTruthy();
     });
-    
+
     it('toolTip position: "right", should apply "tooltip-pos-right" class to tooltip div', function(){
         scope.directiveData = {text: 'Tooltip Text'};
         scope.directiveOptions = {position: "right"};
@@ -297,11 +276,11 @@ describe('Tooltip Directive:', function() {
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("tooltip-pos-right")).toBeTruthy();
     });
-    
+
     it('toolTip position: "bottom", should apply "tooltip-pos-bottom" class to tooltip div', function(){
         scope.directiveData = {text: 'Tooltip Text'};
         scope.directiveOptions = {position: "bottom"};
@@ -310,11 +289,11 @@ describe('Tooltip Directive:', function() {
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("tooltip-pos-bottom")).toBeTruthy();
     });
-    
+
     it('toolTip position, should should be case insensitive', function(){
         scope.directiveData = {text: 'Tooltip Text'};
         scope.directiveOptions = {position: "LEFT"};
@@ -322,25 +301,25 @@ describe('Tooltip Directive:', function() {
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("tooltip-pos-left")).toBeTruthy();
-        
+
         scope.directiveOptions = {position: 'RiGhT'};
         var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("tooltip-pos-right")).toBeTruthy();
-        
+
         scope.directiveOptions = {position: 'bOTTOm'};
         var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
         element = compile(element)(scope);
 
         scope.$digest();
-        
+
         var spanElement = element.find("div");
         expect(spanElement.hasClass("tooltip-pos-bottom")).toBeTruthy();
     });
