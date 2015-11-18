@@ -14,7 +14,6 @@
 //TODO: need layout, labels
 var bossy = angular.module('bossy', [
 	'bossy.filters',
-	'bossy.utility',
 	'bossy.calendar',
 	'bossy.data',
 	'bossy.form',

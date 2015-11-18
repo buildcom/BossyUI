@@ -6,10 +6,10 @@ function TooltipController($scope){
 
     if (alignment){
       if (alignment.toLowerCase() === 'left'){
-        alignmentClass = 'bossy-tooltip-left';
+        alignmentClass = 'bossy-tooltip-align-left';
       }
       else if (alignment.toLowerCase() === 'right'){
-        alignmentClass ='bossy-tooltip-right';
+        alignmentClass ='bossy-tooltip-align-right';
       }
     }
 
@@ -18,7 +18,6 @@ function TooltipController($scope){
 
   $scope.setActive = function(persist){
     // Force tooltip to persist without hovering
-
     var activeClass = '';
 
     if (persist){
@@ -51,16 +50,33 @@ function TooltipController($scope){
   $scope.setContentType = function(type){
     // Content type
     var contentType = '';
-    if ($scope.options.type){
-      if ($scope.options.type.toLowerCase() === 'html'){
+
+    if (type){
+      if (type.toLowerCase() === 'html'){
         contentType = 'content-html';
       }
-      else if ($scope.options.type.toLowerCase() === 'download'){
+      else if (type.toLowerCase() === 'download'){
         contentType = 'download';
       }
     }
 
     return contentType;
+  };
+
+  $scope.setIconFloat = function(direction){
+    // Float icon to left or right
+    var iconDirection = '';
+
+    if (direction){
+      if (direction.toLowerCase() === 'left'){
+        iconDirection = 'icon-left';
+      }
+      else if (direction.toLowerCase() === 'right'){
+        iconDirection = 'icon-right';
+      }
+    }
+
+    return iconDirection;
   };
 
 function initialize(){
@@ -81,6 +97,7 @@ function initialize(){
       persist: false,
       progress: '0',
       icon: '',
+      iconFloat:'left',
     };
   }
 
@@ -132,7 +149,7 @@ function Tooltip()
                   '<div class="bossy-tooltip-active {{options.color.toLowerCase()}} {{setActive(options.persist)}} ' +
                     '{{setAlignment(options.align)}} {{setContentType(options.type)}} {{setPositioning(options.position)}}">' +
                     '<span ng-bind-html="data.text | bossyUnsafeHtml"></span>' +
-                    '<i ng-show="options.icon" class="icon ionicon {{options.icon.toLowerCase()}}"></i>' +
+                    '<i ng-show="options.icon" class="icon ionicon {{options.icon.toLowerCase()}} {{setIconFloat(options.iconFloat)}}"></i>' +
                     '<div ng-show="options.type.toLowerCase() === \'download\'" class="progress-bar" style="width: {{options.progress}}%"></div>' +
                   '</div>' +
                 '</span>' +
