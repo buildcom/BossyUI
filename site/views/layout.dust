@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en" ng-app="BossyUIApp">
+<head>
+    <title>BossyUI</title>
+    <link rel="stylesheet" href="/dist/css/bossy.css"/>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            position: relative;
+            min-height: 100%;
+            padding-bottom: 60px;
+        }
+
+        body > footer {
+            bottom: 0;
+            height: 60px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+        }
+
+        body {
+            padding-top: 3rem;
+        }
+
+        body > header {
+            height: 3rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .container {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .grid {
+            margin: 0;
+        }
+
+        .header {
+            background: -webkit-linear-gradient( bottom , #0076A8, #007db2);
+            background: linear-gradient(to top, #0076A8, #007db2);
+            left: 0;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+            position: fixed;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+            -webkit-transition: box-shadow 0.25s;
+            -moz-transition: box-shadow 0.25s;
+            transition: box-shadow 0.25s;
+        }
+
+        .nav{
+            position: relative;
+            margin-left: 0;
+        }
+
+        .nav> a {
+            padding: 0 1rem;
+            text-shadow: 0 -1px rgba(0, 0, 0, 0.6);
+            color: #eee;
+            font-size: 10pt;
+            display: block;
+            height: 3rem;
+            line-height: 3rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            position: relative;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav> a:before {
+            content: "";
+            width: 100%;
+            display: block;
+            bottom: -3px;
+            left: 0;
+            position: absolute;
+        }
+
+        .nav.active > a, .nav> a:hover {
+            color: #fff;
+            background: -webkit-linear-gradient( bottom , #0076A8, #006b99);
+            background: linear-gradient(to top, #0076A8, #006b99);
+        }
+
+        .nav.active > a {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) inset;
+        }
+
+        .nav-logo {
+            display: block;
+
+
+        }
+
+        .nav-logo {
+            display: block;
+            width: 200px;
+        }
+
+        .nav-logo > a {
+            padding: 0 1rem;
+            text-shadow: 0 -1px rgba(0, 0, 0, 0.6);
+            color: #eee;
+            font-size: 14pt;
+            display: inline;
+            height: 3rem;
+            line-height: 3rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            position: relative;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-logo > a > img {
+            display: block;
+            padding-top: 4px;
+            width: 35px;
+            heigth: 35px;
+            float: left;
+
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="grid">
+                <div class="col-1-4" style="">
+                    <div ui-sref-active="active" class="nav-logo">
+                        <a href="/#/">
+                            <img src="/dist/images/bossyUI_logoMark_150x150.png" alt=""/>
+                            BossyUI
+                        </a>
+                    </div>
+                </div>
+                <div class="col-3-4">
+                    <nav class="nav">
+                        <ul class="grid">
+                            <li ui-sref-active="active" class="nav">
+                                <a ui-sref="components" href="#/components">Components</a>
+                            </li>
+                            <li ui-sref-active="active" class="nav">
+                                <a ui-sref="blog" href="#/blog">Blog</a>
+                            </li>
+                            <li ui-sref-active="active" class="nav">
+                                <a ui-sref="contact" href="#/contact">Contact</a>
+                            </li>
+                            <li ui-sref-active="active" class="nav">
+                                <a ui-sref="styles" href="#/styles">Styles</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="grid">
+            <div class="desktop-1-2 tablet-1-3 col" style="background-color: green;">
+                menu
+            </div>
+            <div class="desktop-1-2 tablet-2-3 col" style="background-color: yellow;">
+                <div class="">{+content/}</div>
+            </div>
+        </div>
+    </div>
+
+
+<script src="/lib/angular/angular.min.js"></script>
+<script src="/lib/ui-router/release/angular-ui-router.min.js"></script>
+<script src="/dist/js/bossy.all.js"></script>
+<script src="/js/app.js"></script>
+    {LRScript|s}
+</body>
+</html>
+
+
+
+
