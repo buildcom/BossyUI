@@ -1,0 +1,46 @@
+/* mdl overrides */
+.mdl-layout__header-row {
+    background-color: #ffffff;
+}
+.mdl-navigation .mdl-navigation__link {
+    color: rgb(0, 118, 168);
+}
+
+/* all */
+.side-menu {
+    min-width: 240px;
+}
+
+/* home page */
+.home-splash {
+    background: url('/images/splash.jpg') center / cover;
+}
+.home-logo {
+    background: url('/images/logo.png') no-repeat;
+    padding-bottom: 47px;
+    width: 50px;
+}
+.home-logo-word {
+    background: url('/images/logo-word.png') no-repeat;
+    padding-bottom: 50px;
+    margin-left: 10px;
+    width: 300px;
+}
+.home-card {
+    margin-top: 100px;
+    width: 600px;
+}
+
+/* directives */
+.show {
+    display: inline-block;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.ace_editor {
+    height: 200px;
+}
+

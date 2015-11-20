@@ -1,57 +1,38 @@
 {>"layout"/}
 {<content}
-<nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavCtrl">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">
-                BossyUI Preview
-            </a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-click="toggleDirectives()">Directives <span class="caret"></span></a>
-                <ul class="dropdown-menu" ng-class="{show: view.directives}" ng-click="toggleDirectives()">
-                    <li ng-repeat="directive in directives" class="uppercase"><a href="#{{ directive }}">{{ directive }}</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</nav>
-<div class="row" ui-view="directive">
-    <div class="col-sm-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Preview</h3>
+    <style>
+
+
+
+    </style>
+
+{!<main class="mdl-layout__content">!}
+    {!<div class="content mdl-grid mdl-grid--no-spacing">!}
+    {!<div class="mdl-components mdl-js-components mdl-cell mdl-cell--12-col directive-main">!}
+        {!<aside class="mdl-components__nav docs-text-styling mdl-shadow--4dp">!}
+
+            {!<a href="#badges-section" class="mdl-components__link mdl-component badges">!}
+                {!<div class="mdl-components__link-image" style="background-image: url('../assets/comp_badges.png')">!}
+                {!</div>!}
+                {!<span class="mdl-components__link-text">Badges</span>!}
+            {!</a>!}
+
+
+        {!</aside>!}
+        {!<main class="mdl-components__pages">!}
+
+            {!hi!}
+        {!</main>!}
+    {!</div>!}
+    {!</div>!}
+{!</main>!}
+
+    <main class="mdl-layout__content">
+        <div class="mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--1-col mdl-shadow--4dp side-menu">
             </div>
-            <div class="panel-body" id="preview">
-            </div>
+            <div class="mdl-cell--stretch">11</div>
         </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Markup</h3>
-                    </div>
-                    <div class="panel-body" style="padding: 0px;">
-                        <div ui-ace="markupEditorOptions"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Options</h3>
-                    </div>
-                    <div class="panel-body" style="padding: 0px;">
-                        <div ui-ace="optionsEditorOptions"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    </main>
+
 {/content}
