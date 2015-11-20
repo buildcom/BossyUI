@@ -1,22 +1,8 @@
 function comboboxController($scope){
-	$scope.list = [
-	{value: 'Ball', 
-	 registered: true},
-	{value: 'Stick',
-	 registered: true},
-	{value: 'Table',
-	 registered: true},
-	{value: 'Chalk',
-	 registered: true},
-	{value: 'Cue',
-	 registered: true},
-	{value: 'Eight',
-	 registered: true},
-	{value: 'People',
-	 registered: true},
-	{value: 'Rails',
-	 registered:true
-	}];
+     $scope.elements = $scope.data.elements;
+
+     $scope.list = $scope.elements.slice();
+
 	 $scope.myVar = true;
 	 $scope.toggleItem = function(){
 	 };
@@ -45,6 +31,9 @@ function combobox(){
 
 	return {
 		restrict: 'E',
+		scope: {
+			data: '='
+		},
 		template: template,
 		controller: comboboxController
 	};
