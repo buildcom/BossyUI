@@ -1,43 +1,49 @@
-function comboboxController($scope){
-     $scope.elements = $scope.data.elements;
 
-     $scope.list = $scope.elements.slice();
+function ComboboxController($scope){
+	$scope.list = $scope.config.list;
+	$scope.selectedItems = [];
 
-	 $scope.myVar = true;
-	 $scope.toggleItem = function(){
-	 };
-	 $scope.toggleView = function(){
-	 	$scope.myVar = !$scope.myVar;
-	 };
-	 $scope.getRegistered = function(){
-	 };
-	 $scope.submitItem = function(){
-	 };
-}
-function combobox(){
-	var template = '<br>' +
-	 '<head>Combobox Template</head>' +
-	  '<hr/>' +
-		'<div>' + '<br>' +  '<input type="text" ng-model="name"/>' +
-		 '<label ng-repeat="item in list | filter:{registered:false}">{{item.value}}  <input type="checkbox" ng-click="item.registered=true"/>' + 
-		 '</label>' + '<button ng-click="toggleView()" >This is an arrow</button>' +
-	   		'<p ng-hide="myVar">' +  
-	   			'<select>' +  
-	   				'<option value="">-- Select --</option>' +
-	    			'<option ng-repeat="item in list | filter:{registered:true} | filter:name" ng-click="item.registered=false">{{item.value}}</option>' + 
-	   			'</select>' + 
-	   		'</p>' +
-		'</div>';
+	// Remove item from the list of selected items and place it back in the dropbox
+	$scope.deleteSelection = function(item) {
+		var index = $scope.selectedItems.indexOf(item);
+		$scope.selectedItems.splice(index, 1);
+	};
 
-	return {
-		restrict: 'E',
-		scope: {
-			data: '='
-		},
-		template: template,
-		controller: comboboxController
+	// Add selected item to selection list and remove it from the dropdown box
+	$scope.addSelection = function(item) {
+		if ($scope.selectedItems.indexOf(item) == -1) {
+			$scope.selectedItems.push(item);
+		}
 	};
 }
 
-angular.module('bossy.Combobox',[])
-.directive('bossyCombobox', combobox);
+function Combobox(){
+	var template = '' +
+		'<div class="combo-box" ng-class="{\'open\': inFocus}" ng-blur="inFocus = false">' +
+			'<label for="combo-input" class="input-label">Profession</label>' +
+			'<input id="combo-input" type="text" placeholder="- Select -" ng-focus="inFocus = true">' +
+			'<div class="inputs">' +
+				'<label class="pill" ng-repeat="item in selectedItems">{{item}}<span class="close" ng-click="deleteSelection(item)">&times;</span></label>' +
+			'</div>' +
+
+			'<div class="lists" ng-class="{\'is-active\': inFocus}">' +
+				'<ul>' +
+					'<li class="title">Awesome Jobs</li>' +
+					'<li ng-repeat="item in list"><a href="#!" title="{{item}}" ng-click="addSelection(item)">{{item}}</a></li>' +
+				'</ul>' +
+			'</div>' +
+		'</div>';
+
+	return {
+		restrict: 'AE',
+		scope: {
+			config: '='
+		},
+		template: template,
+		controller: ComboboxController
+	};
+}
+
+angular.module('bossy.combobox',[])
+	.directive('bossyCombobox', Combobox);
+
