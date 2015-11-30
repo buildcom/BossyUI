@@ -1,6 +1,6 @@
 describe('Tooltip Directive:', function() {
 
-  var scope,element;
+  var scope,element,compile;
 
   beforeEach(module('bossy.tooltip'));
   beforeEach(function(){
@@ -10,12 +10,13 @@ describe('Tooltip Directive:', function() {
     element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
 
     scope = $rootScope.$new();
+    compile = $compile;
     scope.directiveData = {};
     scope.directiveOptions = {};
     $compile(element)(scope);
     scope.$digest();
   }));
-  
+
   // No text given, should log error to console
   it('toolTip should log an error for empty tooltip content when transclude is false and no text given',function(){
     expect(console.error).toHaveBeenCalled();
@@ -28,9 +29,9 @@ describe('Tooltip Directive:', function() {
     scope.$digest();
 
     var divElement = element.find("div");
-    expect(divElement.hasClass("bossy-tooltip-active")).toBeTruthy();
+    expect(divElement.hasClass("bossy-tooltip-container")).toBeTruthy();
   });
- 
+
   // Check tooltip text
   it('toolTip tooltip text should be "Tooltip Text"', function(){
     scope.directiveData = {text: 'Tooltip Text'};
@@ -39,7 +40,7 @@ describe('Tooltip Directive:', function() {
     var iscope = element.isolateScope();
     expect(iscope.data.text).toEqual('Tooltip Text');
   });
-  
+
   // Check anchor text
   it('toolTip anchor text should be "Anchor"', function(){
     scope.directiveData = {text: 'Tooltip Text'};
@@ -51,6 +52,25 @@ describe('Tooltip Directive:', function() {
     }
     anchorElement = angular.element(anchorElement[0]);
     expect(anchorElement.text()).toEqual('Anchor');
+  });
+
+  // Isolate scope variables
+  it('toolTip isolate scope variables passing correctly', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {align: 'left',
+                              position: 'bottom',
+                              color: 'red',
+                              type: 'download',
+                              transclude: true,
+                              persist: true,
+                              progress: '10',
+                              icon: 'scissor-icon',
+                              iconFloat: 'right' };
+    scope.$digest();
+  
+    var iscope = element.isolateScope();
+    expect(iscope.options).toEqual(scope.directiveOptions);
+    expect(iscope.data.text).toEqual(scope.directiveData.text);
   });
 
   // Option tests
@@ -79,219 +99,200 @@ describe('Tooltip Directive:', function() {
     expect(divElement.hasClass("red")).toBeTruthy();
   });
 
-/*
-// Align
-it('toolTip should align left, having div class with tooltip-left class', function(){
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {align: 'left'};
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
+  // Align
+  it('toolTip should align left, having div class with bossy-tooltip-align-left class', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {align: 'left'};
+    scope.$digest();
 
-  scope.$digest();
+    var divElement = element.find("div");
+    expect(divElement.hasClass("bossy-tooltip-align-left")).toBeTruthy();
+  });
 
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("tooltip-left")).toBeTruthy();
-});
+  it('toolTip should align right, having div class with bossy-tooltip-align-right class', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {align: 'right'};
+    scope.$digest();
 
-it('toolTip should align right, having div class with tooltip-right class', function(){
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {align: 'right'};
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
+    var divElement = element.find("div");
+    expect(divElement.hasClass("bossy-tooltip-align-right")).toBeTruthy();
+  });
 
-  scope.$digest();
+  it('toolTip align option should be case insensitive', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {align: 'RIGHT'};
+    scope.$digest();
 
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("tooltip-right")).toBeTruthy();
-});
+    var divElement = element.find("div");
+    expect(divElement.hasClass("bossy-tooltip-align-right")).toBeTruthy();
 
-it('toolTip align option should be case insensitive', function(){
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {align: 'RIGHT'};
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {align: 'LeFt'};
+    scope.$digest();
 
-  scope.$digest();
+    var divElement = element.find("div");
+    expect(divElement.hasClass("bossy-tooltip-align-left")).toBeTruthy();
+  });
 
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("tooltip-right")).toBeTruthy();
+  // Position
+  it('toolTip position: "left", should apply "bossy-tooltip-pos-left" class to tooltip div', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {position: "left"};
+    scope.$digest();
 
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {align: 'LeFt'};
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
+    var divElement = element.find("div");
+    expect(divElement.hasClass("bossy-tooltip-pos-left")).toBeTruthy();
+  });
 
-  scope.$digest();
+  it('toolTip position: "right", should apply "bossy-tooltip-pos-right" class to tooltip div', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {position: "right"};
+    scope.$digest();
 
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("tooltip-left")).toBeTruthy();
-});
+    var divElement = element.find("div");
+    expect(divElement.hasClass("bossy-tooltip-pos-right")).toBeTruthy();
+  });
 
-// Type
-it('toolTip type html, should have div class with content-html class', function(){
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {type: 'html'};
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
+  it('toolTip position: "bottom", should apply "bossy-tooltip-pos-bottom" class to tooltip div', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {position: "bottom"};
+    scope.$digest();
 
-  scope.$digest();
+    var divElement = element.find("div");
+    expect(divElement.hasClass("bossy-tooltip-pos-bottom")).toBeTruthy();
+  });
 
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("content-html")).toBeTruthy();
-});
+  it('toolTip position, should should be case insensitive', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {position: "LEFT"};
+    scope.$digest();
 
-it('toolTip type download, should have div class with download class', function(){
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {type: 'download'};
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
+    var divElement = element.find("div");
+    expect(divElement.hasClass("bossy-tooltip-pos-left")).toBeTruthy();
 
-  scope.$digest();
+    scope.directiveOptions = {position: 'RiGhT'};
+    scope.$digest();
 
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("download")).toBeTruthy();
-});
+    divElement = element.find("div");
+    expect(divElement.hasClass("bossy-tooltip-pos-right")).toBeTruthy();
 
-it('toolTip type, should be case insensitive', function(){
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {type: 'DOWNLOAD'};
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
+    scope.directiveOptions = {position: 'bOTTOm'};
+    scope.$digest();
 
-  scope.$digest();
+    divElement = element.find("div");
+    expect(divElement.hasClass("bossy-tooltip-pos-bottom")).toBeTruthy();
+  });
+  
+  // Persist
+  it('toolTip should be be visible via "active" class when persist is true', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {persist: true};
+    scope.$digest();
 
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("download")).toBeTruthy();
+    var divElement = element.find("div");
+    expect(divElement.hasClass("active")).toBeTruthy();
+  });
+  
+  // Transclude
+  it('toolTip transclude, html content between ', function(){
+    element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor<div class="tooltip-content"><b>transclude tooltip text</b></div></bossy-tooltip>');
+    scope.directiveOptions = {transclude: true};
+    compile(element)(scope);
+    scope.$digest();
 
-  scope.directiveOptions = {type: 'HtMl'};
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
+    var divElement = element.find("b");
+    expect(divElement.text()).toEqual('transclude tooltip text');
+  });
+  
+  // Type - Download
+  it('toolTip type: download, should apply download class', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {type: 'download'};
+    scope.$digest();
 
-  scope.$digest();
+    var divElement = element.find("div");
+    expect(divElement.hasClass("download")).toBeTruthy();
+  });
+  
+  it('toolTip type: download, should apply "progress-bar" class', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {type: 'download'};
+    scope.$digest();
 
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("content-html")).toBeTruthy();
-});
+    var divElement = element.find("div").find("div");
+    expect(divElement.hasClass("progress-bar")).toBeTruthy();
+  });
+  
+  it('toolTip type: download, should apply "progress" percent styling to progress bar element', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {type: 'download', progress: '10'};
+    scope.$digest();
 
-// Transclude
-it('toolTip transclude = true, should allow html content in anchor', function(){
-  scope.directiveData = {};
-  scope.directiveOptions = {type: 'download', transclude: true};
+    var divElement = element.find('div');
+    while (divElement.length && !divElement.hasClass('progress-bar')){
+      divElement = divElement.find('div');
+    }
+    divElement = angular.element(divElement[0]);
+    expect(divElement.css('width')).toEqual('10%');
+  });
+  
+  it('toolTip type: download, should be case insensitive', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {type: 'DOWNload'};
+    scope.$digest();
 
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor<div class="tooltip-content"><b>tooltip text</b></div></bossy-tooltip>');
-  element = compile(element)(scope);
+    var divElement = element.find("div");
+    expect(divElement.hasClass("download")).toBeTruthy();
+    
+    scope.directiveOptions = {type: 'DOWNLOAD'};
+    scope.$digest();
 
-  scope.$digest();
+    var divElement = element.find("div");
+    expect(divElement.hasClass("download")).toBeTruthy();
+  });
 
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("tooltip-active")).toBeTruthy();
-  spanElement = spanElement.find("b");
-  expect(spanElement.text()).toContain("tooltip text");
-});
+  // Icon
+  it('toolTip icon, should apply class "icon ionicon (icon name)" to the i element', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {icon: 'scissor-icon'};
+    scope.$digest();
 
-// Persist
-it('toolTip persistence, should apply "active" class to tooltip', function(){
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {type: 'download', persist: true};
+    var iElement = element.find("i");
+    expect(iElement.hasClass("icon")).toBeTruthy();
+    expect(iElement.hasClass("ionicon")).toBeTruthy();
+    expect(iElement.hasClass("scissor-icon")).toBeTruthy();
+  });
 
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
+  it('toolTip iconFloat: left, should apply icon float left position to i ionicon element', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {icon: 'scissor-icon', iconFloat: 'left'};
+    scope.$digest();
 
-  scope.$digest();
+    var iElement = element.find("i");
+    expect(iElement.hasClass("icon-left")).toBeTruthy();
+  });
+  
+  it('toolTip iconFloat: right, should apply icon float right position to i ionicon element', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {icon: 'scissor-icon', iconFloat: 'right'};
+    scope.$digest();
 
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("active")).toBeTruthy();
-});
+    var iElement = element.find("i");
+    expect(iElement.hasClass("icon-right")).toBeTruthy();
+  });
+  
+  it('toolTip iconFloat option should be case insensitive', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {icon: 'scissor-icon', iconFloat: 'RIGHT'};
+    scope.$digest();
 
-// Tooltip Position
-it('toolTip position: "left", should apply "tooltip-pos-left" class to tooltip div', function(){
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {position: "left"};
+    var iElement = element.find("i");
+    expect(iElement.hasClass("icon-right")).toBeTruthy();
 
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
+    scope.directiveOptions = {iconFloat: 'lEfT'};
+    scope.$digest();
 
-  scope.$digest();
-
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("tooltip-pos-left")).toBeTruthy();
-});
-
-it('toolTip position: "right", should apply "tooltip-pos-right" class to tooltip div', function(){
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {position: "right"};
-
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
-
-  scope.$digest();
-
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("tooltip-pos-right")).toBeTruthy();
-});
-
-it('toolTip position: "bottom", should apply "tooltip-pos-bottom" class to tooltip div', function(){
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {position: "bottom"};
-
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
-
-  scope.$digest();
-
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("tooltip-pos-bottom")).toBeTruthy();
-});
-
-it('toolTip position, should should be case insensitive', function(){
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {position: "LEFT"};
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
-
-  scope.$digest();
-
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("tooltip-pos-left")).toBeTruthy();
-
-  scope.directiveOptions = {position: 'RiGhT'};
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
-
-  scope.$digest();
-
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("tooltip-pos-right")).toBeTruthy();
-
-  scope.directiveOptions = {position: 'bOTTOm'};
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
-
-  scope.$digest();
-
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("tooltip-pos-bottom")).toBeTruthy();
-});
-*/
-
-/* TODO
-  Base
-    *base css class
-    *error on no tooltip content
-    *no options
-  Data
-    *Anchor text
-    *tooltip text
-    html
-  Options
-    align
-    position
-    *color
-    type
-    transclude
-    persist
-    progress
-    icon
-    iconFloat
-*/
+    var iElement = element.find("i");
+    expect(iElement.hasClass("icon-left")).toBeTruthy();
+  });
 });
