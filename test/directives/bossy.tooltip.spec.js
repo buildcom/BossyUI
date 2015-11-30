@@ -10,7 +10,6 @@ describe('Tooltip Directive:', function() {
     element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
 
     scope = $rootScope.$new();
-    compile = $compile;
     scope.directiveData = {};
     scope.directiveOptions = {};
     $compile(element)(scope);
@@ -24,102 +23,63 @@ describe('Tooltip Directive:', function() {
 
 
   // No options
-  it('toolTip with empty options should create default tooltip-active class', function(){
-    scope.directiveData = {text: 'AAAAAAAAAAAAAAAAAAAAAAAAAAA'};
-    scope.$digest();
-    console.log(element.isolateScope().data.text);
-    console.log(scope.data.text);
-    var spanElement = element.find("div");
-    expect(spanElement.hasClass("bossy-tooltip-active")).toBeTruthy();
-  });
-
-  /*
-  // Check anchor and tooltip text
-  it('toolTip anchor text and tooltip text should be "Anchor" and "Tooltip Text"', function(){
+  it('toolTip with empty options should create default bossy-tooltip-active class', function(){
     scope.directiveData = {text: 'Tooltip Text'};
-    var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-    element = compile(element)(scope);
-
     scope.$digest();
 
-    var spanElement = element.find("span").find("span");
-    var test = element.html();
-    console.log(test);
-    expect(spanElement.text()).toContain('AnchorTooltip Text');
+    var divElement = element.find("div");
+    expect(divElement.hasClass("bossy-tooltip-active")).toBeTruthy();
   });
-
-  // link class
-  it('toolTip should have link class', function(){
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {};
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
-
-  scope.$digest();
-
-  var spanElement = element.find("span").find("span");
-  expect(spanElement.hasClass("link")).toBeTruthy();
+ 
+  // Check tooltip text
+  it('toolTip tooltip text should be "Tooltip Text"', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.$digest();
+    
+    var iscope = element.isolateScope();
+    expect(iscope.data.text).toEqual('Tooltip Text');
   });
+  
+  // Check anchor text
+  it('toolTip anchor text should be "Anchor"', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.$digest();
 
-  // tooltip-active class
-  it('toolTip should have div class with tooltip-active class', function(){
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {};
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
-
-  scope.$digest();
-
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("tooltip-active")).toBeTruthy();
+    var anchorElement = element.find('span');
+    while (anchorElement.length && !anchorElement.hasClass('ng-scope')){
+      anchorElement = anchorElement.find('span');
+    }
+    anchorElement = angular.element(anchorElement[0]);
+    expect(anchorElement.text()).toEqual('Anchor');
   });
 
   // Option tests
   // Color
   it('toolTip should be red, should have div class with red class', function(){
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {color: 'red'};
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {color: 'red'};
+    scope.$digest();
 
-  scope.$digest();
-
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("red")).toBeTruthy();
+    var divElement = element.find("div");
+    expect(divElement.hasClass("red")).toBeTruthy();
   });
 
   it('toolTip color option should be case insensitive', function(){
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {color: 'red'};
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {color: 'RED'};
+    scope.$digest();
 
-  scope.$digest();
+    var divElement = element.find("div");
+    expect(divElement.hasClass("red")).toBeTruthy();
 
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("red")).toBeTruthy();
+    scope.directiveOptions = {color: 'rEd'};
+    scope.$digest();
 
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {color: 'RED'};
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
+    var divElement = element.find("div");
+    expect(divElement.hasClass("red")).toBeTruthy();
+  });
 
-  scope.$digest();
-
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("red")).toBeTruthy();
-
-  scope.directiveData = {text: 'Tooltip Text'};
-  scope.directiveOptions = {color: 'rEd'};
-  var element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
-  element = compile(element)(scope);
-
-  scope.$digest();
-
-  var spanElement = element.find("div");
-  expect(spanElement.hasClass("red")).toBeTruthy();
-});
-
+/*
 // Align
 it('toolTip should align left, having div class with tooltip-left class', function(){
   scope.directiveData = {text: 'Tooltip Text'};
@@ -312,5 +272,26 @@ it('toolTip position, should should be case insensitive', function(){
   var spanElement = element.find("div");
   expect(spanElement.hasClass("tooltip-pos-bottom")).toBeTruthy();
 });
+*/
+
+/* TODO
+  Base
+    *base css class
+    *error on no tooltip content
+    *no options
+  Data
+    *Anchor text
+    *tooltip text
+    html
+  Options
+    align
+    position
+    *color
+    type
+    transclude
+    persist
+    progress
+    icon
+    iconFloat
 */
 });
