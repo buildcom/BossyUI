@@ -52,10 +52,7 @@ function TooltipController($scope){
     var contentType = '';
 
     if (type){
-      if (type.toLowerCase() === 'html'){
-        contentType = 'content-html';
-      }
-      else if (type.toLowerCase() === 'download'){
+      if (type.toLowerCase() === 'download'){
         contentType = 'download';
       }
     }
