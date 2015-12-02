@@ -1,84 +1,149 @@
 angular.module('bossy.navigation', ['bossy.data'])
 
-    .directive('navigation', ['$data', function($data) {
-        return {
-
-            link: function(scope, element, attrs) {
-                var root;
-
-                function Node(parentNode, menuObj) {
-                    var i, childMenuObj;
-                    this.title = menuObj.title;
-                    this.parentNode = parentNode;
-                    if (angular.isString(menuObj.link)) {
-                        this.url = menuObj.link;
-                    }
-                    if (angular.isArray(menuObj.link)) {
-                        this.children = [];
-                        for (i = 0; i < menuObj.link.length; i++) {
-                            this.children.push(new Node(this, menuObj.link[i]));
+    .controller('MyCtrl', ['$scope', function($scope) {
+        $scope.menuObj = {
+            activeMenuId:'menu1Id',
+            navigation:
+            [
+                {
+                    title:'menu1',
+                    menuId:'menu1Id',
+                    subMenus: 
+                    [
+                        {
+                            title:'menu11',
+                            menuId:'menu11Id',
+                            subMenus:
+                            [
+                                {
+                                    title:'menu111',
+                                    menuId:'menu111Id',
+                                    url:'menu111.com'
+                                },
+                                {
+                                    title:'menu112',
+                                    menuId:'menu112Id',
+                                    url:'menu112.com'
+                                }
+                            ]
+                        },
+                        {
+                            title:'menu12',
+                            menuId:'menu12Id',
+                            url:'www.menu12.com'
                         }
+                    ]
+                },
+                {
+                    title:'menu2',
+                    menuId:'menu2Id',
+                    url:'www.menu2.com'
+                }
+            ]
+        };
+    }])
+
+
+    .directive('navigation', ['$q', '$compile', '$data', function($q, $compile, $data) {
+        return {
+            scope: { 
+                menuUrl: '@?',
+                menuObj: '=?',
+            },
+            link: function(scope, element, attrs) {
+
+                scope.toggleOpen = function(menuId) {
+                    if (scope.menuObj.activeMenuId === menuId) {
+                        scope.menuObj.activeMenuId = undefined;
+                    }
+                    else {
+                        scope.menuObj.activeMenuId = menuId;
                     }
                 }
 
-                // Retrieve the menu data
-                $data.getData(attrs.data).then(function(result) {
-                    // TODO: validate result
-                    scope.menuList = result.navigation;
-                    // Initialize state tree & settings for each menu in the navbar
-                    scope.menus = [];
-                    angular.forEach(scope.menuList, function(menu, key) {
-                        root = new Node(null, menu);
-                        scope.menus.push( 
-                            {
-                                open: false,
-                                curNode: root,
-                                rootNode: root,
+                // Each call to uniqueId() returns the next integer 
+                // in the sequence 0,1,2,..., prepent a '__' to the
+                // id to avoid conflicts with user-specified ids
+                var __next_id = 1;
+                function uniqueId() {
+                    return '__' + __next_id++;
+                }
+
+                // Traverses subMenuObj and builds a <ul> for every submenu
+                function buildSubMenus(subMenusElem, parentMenuId, subMenuObj) {
+
+                    // Create the <ul> element for subMenuObj. The element 
+                    // should only show when its id is the active menu id
+                    var subMenuElem = angular.element(
+                        '<ul ng-show="menuObj.activeMenuId===\'' + 
+                        subMenuObj.menuId + '\'"></ul>'
+                    );
+
+                    // The header for the submenu element sets the active menu
+                    // id to the parent menu's id when clicked. 
+                    subMenuElem.append(angular.element(
+                        '<lh><strong ng-click="menuObj.activeMenuId=\'' + 
+                        parentMenuId + '\'">' + subMenuObj.title + 
+                        '</strong></lh>'
+                    ));
+
+                    angular.forEach(subMenuObj.subMenus, function(childMenuObj) {
+                        if (childMenuObj.subMenus) {
+
+                            // Generate an id if the user didn't specify one
+                            if (angular.isUndefined(childMenuObj.menuId)) {
+                                childMenuObj.menuId = uniqueId();
                             }
-                        );
+                            subMenuElem.append(angular.element(
+                                '<li><span ng-click=menuObj.activeMenuId=\'' + 
+                                childMenuObj.menuId + '\'>' + childMenuObj.title + 
+                                '</span></li>'
+                            ));
+                            buildSubMenus(subMenusElem, subMenuObj.menuId, childMenuObj);
+                        }
+                        if (childMenuObj.url) {
+                            subMenuElem.append(angular.element(
+                                '<li><a href="' + childMenuObj.url + '">' + 
+                                childMenuObj.title + '</a></li>'
+                            ));
+                        }
                     });
-
-                    scope.curOpenMenuIndex = null;
-
-                    // Called when a menu header is clicked.
-                    scope.toggleOpen = function(menu, menuIndex) {
-                        // menu is open
-                        if (scope.curOpenMenuIndex === menuIndex) {
-                            scope.curOpenMenuIndex = null;
+                    subMenusElem.append(subMenuElem);
+                }
+    
+                function buildNavbar(menuObj) {
+                    var navbar = angular.element('<ul>');
+                    angular.forEach(scope.menuObj.navigation, function(rootMenuObj) {
+                        var rootMenuElem, subMenusElem;
+                        if (angular.isUndefined(rootMenuObj.menuId)) {
+                            rootMenuObj.menuId = uniqueId();
                         }
-                        // menu is closed
-                        else {
-                            scope.curOpenMenuIndex = menuIndex;
-                            // Reset menu state
-                            menu.curNode = menu.rootNode;
+                        if (rootMenuObj.subMenus) {
+                            rootMenuElem = angular.element(
+                                '<li><strong ng-click="toggleOpen(\'' + 
+                                rootMenuObj.menuId + '\')">' + rootMenuObj.title + 
+                                '</strong></li>'
+                            );
+                            buildSubMenus(rootMenuElem, '', rootMenuObj);
+                            rootMenuElem.append(subMenusElem);
                         }
-                    };
+                        else if (rootMenuObj.url) {
+                            rootMenuElem = angular.element( 
+                                '<li><a href="' + rootMenuObj.url + '">' + 
+                                rootMenuObj.title + '</a>'
+                            );
+                        }
+                        navbar.append(rootMenuElem);
+                    });
+                    element.append(navbar);
+                    $compile(element.contents())(scope);
+                }
+
+                $q.when($data.getData(scope.menuUrl || scope.menuObj)).then(function(result) {
+                    scope.menuObj = result;
+                    buildNavbar(result);
                 });
-
             },
-            template:
-                '<ul>' +
-                  '<li ng-repeat="menu in menus">' +
-                    // If the menu header is a link
-                    '<a ng-if="menu.rootNode.url" href="menu.rootNode.url">{{menu.rootNode.title}}</a>' +
-                    // If the menu expands to submenus (it has children)
-                    '<strong ng-if="menu.rootNode.children" ng-click="toggleOpen(menu, $index)">{{menu.rootNode.title}}</strong>' +
-                    // Each menu expands to a submenu
-                    // Only current open menu is shown (expanded)
-                    '<ul ng-show="curOpenMenuIndex===$index">' +
-                      // List header only shows when the current node is not the root
-                      // Clicking the header sets the current node to its parent.
-                      '<lh ng-if="menu.curNode!==menu.rootNode" ng-click="menu.curNode=menu.curNode.parentNode"><strong>{{menu.curNode.title}}</strong></lh>' +
-                      '<li ng-repeat="node in menu.curNode.children">' +
-                        // Leaf node (is a link)
-                        '<a ng-if="node.url" href="node.url">{{node.title}}</a>' +
-                        // Subtree (has a submenu)
-                        '<span ng-if="node.children" ng-click="menu.curNode=node">{{node.title}}</span>' +
-                      '</li>' +
-                    '</ul>' +
-                  '</li>' +
-                '</ul>'
         };
-
     }])
 ;
