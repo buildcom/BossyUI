@@ -1,3 +1,4 @@
+
 function ComboboxController($scope){
 	$scope.list = $scope.config.list;
 	$scope.selectedItems = [];
@@ -15,6 +16,7 @@ function ComboboxController($scope){
 		}
 	};
 }
+
 function Combobox(){
 	var template = '' +
 		'<div class="combo-box" ng-class="{\'open\': inFocus}" ng-blur="inFocus = false">' +
@@ -44,3 +46,4 @@ function Combobox(){
 
 angular.module('bossy.combobox',[])
 	.directive('bossyCombobox', Combobox);
+
