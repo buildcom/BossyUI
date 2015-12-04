@@ -1,11 +1,9 @@
 describe('bossyAutocomplete tests', function() {
 
-    var utility, BKTree, $rootScope, $compile, scope, elem
+    var utility, BKTree, $rootScope, $compile, scope, elem;
 
     // Load module
-    beforeEach(function() {
-        module('bossy.autocomplete');
-    });
+    beforeEach(module('bossy.autocomplete'));
 
     // Inject dependencies
     beforeEach(inject(function(_utility_, _BKTree_, _$rootScope_, _$compile_) {
