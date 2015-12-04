@@ -1,5 +1,6 @@
 var dust = require('dustjs-linkedin');
 var cons = require('consolidate');
+var path = require('path');
 var glob = require('glob');
 var livereload = require('express-livereload');
 var express = require('express');
@@ -27,16 +28,38 @@ app.get('/', function (req, res) {
 });
 
 app.get('/directives', function (req, res) {
-    res.render('directives');
+	var directives = getDirectives();
+
+    res.render('directives', {directives: directives});
 });
 
 app.get('/styles', function (req, res) {
     res.render('styles');
 });
 
+app.get('/sandbox', function (req, res) {
+	var directives = getDirectives();
+
+	res.render('sandbox', {directives: directives});
+});
+
 var server = app.listen(3000, function () {
     var port = server.address().port;
 
-    console.info('\n\n╔╗ ┌─┐┌─┐┌─┐┬ ┬╦ ╦╦\n╠╩╗│ │└─┐└─┐└┬┘║ ║║\n╚═╝└─┘└─┘└─┘ ┴ ╚═╝╩');
-    console.log('\nBossyUI Preview running at http://localhost:%s\n\n', port);
+	var asciiLogo = '' +
+		'╔╗ ┌─┐┌─┐┌─┐┬ ┬╦ ╦╦\n' +
+		'╠╩╗│ │└─┐└─┐└┬┘║ ║║\n' +
+		'╚═╝└─┘└─┘└─┘ ┴ ╚═╝╩\n';
+
+    console.log('\n%s\nBossyUI Preview running at http://localhost:%s\n', asciiLogo, port);
 });
+
+function getDirectives() {
+	var directives = [];
+
+	glob.sync('src/directives/*.js').forEach(function(file) {
+		directives.push({directive: path.basename(file).split('.')[1]});
+	});
+
+	return directives;
+}

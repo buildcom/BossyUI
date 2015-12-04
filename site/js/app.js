@@ -34,4 +34,23 @@ angular.module('BossyUIApp', [
     .run([function () {
 
     }])
+
+	.controller('SandboxCtrl', ['$scope',
+		function ($scope) {
+
+
+
+			function init() {
+				var module = angular.module('bossy');
+
+				$scope.directives = [];
+
+				angular.forEach(module.requires, function (directive) {
+					$scope.directives.push(directive.split('.')[1]);
+				});
+			}
+
+			init();
+		}
+	])
 ;

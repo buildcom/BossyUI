@@ -6,30 +6,17 @@
 
     </style>
 
-{!<main class="mdl-layout__content">!}
-    {!<div class="content mdl-grid mdl-grid--no-spacing">!}
-    {!<div class="mdl-components mdl-js-components mdl-cell mdl-cell--12-col directive-main">!}
-        {!<aside class="mdl-components__nav docs-text-styling mdl-shadow--4dp">!}
-
-            {!<a href="#badges-section" class="mdl-components__link mdl-component badges">!}
-                {!<div class="mdl-components__link-image" style="background-image: url('../assets/comp_badges.png')">!}
-                {!</div>!}
-                {!<span class="mdl-components__link-text">Badges</span>!}
-            {!</a>!}
-
-
-        {!</aside>!}
-        {!<main class="mdl-components__pages">!}
-
-            {!hi!}
-        {!</main>!}
-    {!</div>!}
-    {!</div>!}
-{!</main>!}
-
-    <main class="mdl-layout__content">
+    <main class="mdl-layout__content" ng-controller="DirectivesCtrl">
         <div class="mdl-grid mdl-grid--no-spacing">
             <div class="mdl-cell mdl-cell--1-col mdl-shadow--4dp side-menu">
+                {!<ui>!}
+                    {!<li ng-repeat="directive in directives">{{ directive }}</li>!}
+                {!</ui>!}
+                <ul class="mdl-js-ripple-effect">
+                    {#directives}
+                    <li class="mdl-menu__item">{directive}</li>
+                    {/directives}
+                </ul>
             </div>
             <div class="mdl-cell--stretch">11</div>
         </div>

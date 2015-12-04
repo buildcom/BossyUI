@@ -14,12 +14,22 @@ function ComboboxController($scope){
 			$scope.selectedItems.push(item);
 		}
 	};
+
+	$scope.changed = function(event) {
+		console.log('keypress', event.keyCode);
+	};
+
+	$scope.$watch('newItem', function(newValue, oldValue) {
+
+		console.log('watch', newValue);
+
+	});
 }
 function Combobox(){
 	var template = '' +
 		'<div class="combo-box" ng-class="{\'open\': inFocus}" ng-blur="inFocus = false">' +
 			'<label for="combo-input" class="input-label">Profession</label>' +
-			'<input id="combo-input" type="text" placeholder="- Select -" ng-focus="inFocus = true">' +
+			'<input id="combo-input" type="text" placeholder="- Select -" ng-focus="inFocus = true" ng-model="newItem" ng-keypress="changed($event)">' +
 			'<div class="inputs">' +
 				'<label class="pill" ng-repeat="item in selectedItems">{{item}}<span class="close" ng-click="deleteSelection(item)">&times;</span></label>' +
 			'</div>' +

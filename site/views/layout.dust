@@ -12,29 +12,23 @@
     <header class="mdl-layout__header mdl-layout__header">
         <div class="mdl-layout__header-row">
             <!-- Title -->
-            <span class="mdl-layout-title home-logo"></span>
-            <span class="mdl-layout-title home-logo-word"></span>
+            <a class="home-logo-link" href="/">
+                <span class="mdl-layout-title home-logo"></span>
+                <span class="mdl-layout-title home-logo-word"></span>
+            </a>
             <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
             <!-- Navigation -->
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="/directives">Directives</a>
                 <a class="mdl-navigation__link" href="/styles">Styles</a>
-                <a class="mdl-navigation__link" href="/contact">Contact</a>
+                <a class="mdl-navigation__link" href="/sandbox">Sandbox</a>
                 <a class="mdl-navigation__link" href="https://github.com/buildcom/BossyUI">GitHub</a>
             </nav>
         </div>
     </header>
     {+content}
     {/content}
-    <footer class="mdl-mini-footer">
-        <div class="mdl-mini-footer__left-section">
-            <ul class="mdl-mini-footer__link-list">
-                <li><a href="#">&copy; BossyUI</a></li>
-                <li><a href="#">Privacy & Terms</a></li>
-            </ul>
-        </div>
-    </footer>
 </div>
 <script src="/lib/angular/angular.min.js"></script>
 <script src="/lib/ui-router/release/angular-ui-router.min.js"></script>

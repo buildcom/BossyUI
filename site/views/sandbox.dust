@@ -1,0 +1,16 @@
+{>"layout"/}
+{<content}
+
+
+    <main class="" ng-controller="SandboxCtrl">
+        <div class="side-menu">
+            <ul class="">
+                <li class="side-menu-title">Sandbox</li>
+                {#directives}
+                    <li class="side-menu-item" ng-class="&#123;active: view.{directive}&#125;" ng-click="selectDirective('{directive}')">{directive}</li>
+                {/directives}
+            </ul>
+        </div>
+    </main>
+
+{/content}
