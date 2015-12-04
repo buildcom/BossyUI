@@ -52,10 +52,7 @@ function TooltipController($scope){
     var contentType = '';
 
     if (type){
-      if (type.toLowerCase() === 'html'){
-        contentType = 'content-html';
-      }
-      else if (type.toLowerCase() === 'download'){
+      if (type.toLowerCase() === 'download'){
         contentType = 'download';
       }
     }
@@ -144,7 +141,7 @@ function Tooltip()
     template: '<span class="bossy-tooltip">' +
                 '<span class="link">' +
                   '<ng-transclude></ng-transclude>' +
-                  '<div class="bossy-tooltip-active {{options.color.toLowerCase()}} {{setActive(options.persist)}} ' +
+                  '<div class="bossy-tooltip-container {{options.color.toLowerCase()}} {{setActive(options.persist)}} ' +
                     '{{setAlignment(options.align)}} {{setContentType(options.type)}} {{setPositioning(options.position)}}">' +
                     '<span ng-bind-html="data.text | bossyUnsafeHtml"></span>' +
                     '<i ng-show="options.icon" class="icon ionicon {{options.icon.toLowerCase()}} {{setIconFloat(options.iconFloat)}}"></i>' +
