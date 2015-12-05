@@ -70,6 +70,6 @@ function Treeview($compile){
 Treeview.$inject = ['$compile'];
 TreeviewController.$inject = ['$scope', '$rootScope'];
 
-angular.module('bossy.treeview')
+angular.module('bossy.treeview',['bossy.filters'] )
     .controller('bossyTreeviewController', TreeviewController)
     .directive('bossyTreeview', Treeview);
