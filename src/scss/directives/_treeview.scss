@@ -1,0 +1,80 @@
+ul {
+  padding: 0 0 0 20px;
+  color: #666;
+}
+  li {
+    position: relative;
+    margin: 0;
+    padding-left: 0;
+    display: inline-block;
+    float: left;
+    clear: left;
+  }
+
+.content-type-{
+  position: absolute;
+  top: 3px;
+  right: -5px;
+  padding: 3px;
+  transform: translateX(110%);
+  border-radius: 3px;
+  font-size: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff
+  }
+  .content-type-.gif {background-color: #f5791e;}
+  .content-type-.svg {background-color: #925b2a;}
+  .content-type-.html {background-color: #3182a4;}  
+  .content-type-.css {background-color: #7fac57;}
+  .content-type-.js {background-color: #e0612f;}
+  .content-type-.png {background-color: #21b7a0;}
+  .content-type-.jpg {background-color: #d63e49;}
+
+
+
+body {
+  padding: 10%;
+  font: 200 18px "Helvetica Neue", sans-serif;
+  color: #666;
+}
+
+html,
+html a {
+  text-rendering: optimizeLegibilitiy;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+.fileIcon{
+  padding: 0 0 0 20px;
+}
+
+
+
+.nodeIcon{
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  padding: 0 0 0 20px;
+}
+
+.collapsed{
+   /*background-image: url(../../images/folder.png);*/
+   background-image: url(../../images/collapsed.png);
+   background-repeat: no-repeat;
+   background-size: 20px 20px;   
+}
+
+
+.expanded{
+  /*background-image: url(../../images/folder-red.png);*/
+  background-image: url(../../images/expanded-red.png);
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  color: #FA5732;
+}
+
+.selected{
+  /*color: #FA5732;*/
+  /*background-color: #99FF99;*/
+}
