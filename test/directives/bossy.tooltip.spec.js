@@ -11,8 +11,6 @@ describe('Tooltip Directive:', function() {
 
     scope = $rootScope.$new();
     compile = $compile;
-    scope.directiveData = {};
-    scope.directiveOptions = {};
     $compile(element)(scope);
     scope.$digest();
   }));
