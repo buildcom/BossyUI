@@ -192,7 +192,7 @@ describe('Tooltip Directive:', function() {
   });
   
   // Transclude
-  it('toolTip transclude, html content between ', function(){
+  it('toolTip transclude, html content between div tags', function(){
     element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor<div class="tooltip-content"><b>transclude tooltip text</b></div></bossy-tooltip>');
     scope.directiveOptions = {transclude: true};
     compile(element)(scope);
@@ -200,6 +200,24 @@ describe('Tooltip Directive:', function() {
 
     var divElement = element.find("b");
     expect(divElement.text()).toEqual('transclude tooltip text');
+  });
+  
+  it('toolTip transclude, log error to console when tooltip content isn\t provided between the div tags', function(){
+    element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor<div class="tooltip-content"></div></bossy-tooltip>');
+    scope.directiveOptions = {transclude: true};
+    compile(element)(scope);
+    scope.$digest();
+
+    expect(console.error).toHaveBeenCalled();
+  });
+  
+  it('toolTip transclude, log error to console when tooltip content div tags are not present', function(){
+    element = angular.element('<bossy-tooltip data="directiveData" options="directiveOptions">Anchor</bossy-tooltip>');
+    scope.directiveOptions = {transclude: true};
+    compile(element)(scope);
+    scope.$digest();
+
+    expect(console.error).toHaveBeenCalled();
   });
   
   // Type - Download
@@ -277,6 +295,17 @@ describe('Tooltip Directive:', function() {
 
     var iElement = element.find("i");
     expect(iElement.hasClass("icon-right")).toBeTruthy();
+  });
+  
+  it('toolTip iconFloat: garbage, shouldn\'t apply icon float right or left position to i ionicon element, and shouldn\' pass garbage through', function(){
+    scope.directiveData = {text: 'Tooltip Text'};
+    scope.directiveOptions = {icon: 'scissor-icon', iconFloat: 'garbage'};
+    scope.$digest();
+
+    var iElement = element.find("i");
+    expect(iElement.hasClass("icon-right")).toBeFalsy();
+    expect(iElement.hasClass("icon-left")).toBeFalsy();
+    expect(iElement.hasClass("garbage")).toBeFalsy();
   });
   
   it('toolTip iconFloat option should be case insensitive', function(){
