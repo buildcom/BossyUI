@@ -1,7 +1,10 @@
-
 function ComboboxController($scope){
 	$scope.list = $scope.config.list;
 	$scope.selectedItems = [];
+
+	$scope.title = $scope.config.title;
+	$scope.inputText = $scope.config.inputText;
+	$scope.sort = $scope.config.sort;
 
 	// Remove item from the list of selected items and place it back in the dropbox
 	$scope.deleteSelection = function(item) {
@@ -15,13 +18,22 @@ function ComboboxController($scope){
 			$scope.selectedItems.push(item);
 		}
 	};
+
+	//OPTIONS
+	//sorts ComboBox elements
+	$scope.sortFunction = function(x) {
+		if($scope.sort == true)
+		{
+			return x.element;
+		}
+	};
 }
 
 function Combobox(){
-	var template = '' +
+	var template = '' +'<link rel="stylesheet" href="combobox.css">'+
 		'<div class="combo-box" ng-class="{\'open\': inFocus}" ng-blur="inFocus = false">' +
-			'<label for="combo-input" class="input-label">Profession</label>' +
-			'<input id="combo-input" type="text" placeholder="- Select -" ng-focus="inFocus = true">' +
+			'<label for="combo-input" class="input-label">{{title}}</label>' +
+			'<input id="combo-input" type="text" placeholder="{{inputText}}" ng-focus="inFocus = true" ng-model="inputField">' +
 			'<div class="inputs">' +
 				'<label class="pill" ng-repeat="item in selectedItems">{{item}}<span class="close" ng-click="deleteSelection(item)">&times;</span></label>' +
 			'</div>' +
@@ -29,7 +41,7 @@ function Combobox(){
 			'<div class="lists" ng-class="{\'is-active\': inFocus}">' +
 				'<ul>' +
 					'<li class="title">Awesome Jobs</li>' +
-					'<li ng-repeat="item in list"><a href="#!" title="{{item}}" ng-click="addSelection(item)">{{item}}</a></li>' +
+					'<li ng-repeat="item in list | filter:inputField | orderBy: sortFunction"><a href="#!" title="{{item.element}}" ng-click="addSelection(item)">{{item.element}}</a></li>' +
 				'</ul>' +
 			'</div>' +
 		'</div>';
