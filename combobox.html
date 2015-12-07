@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	Combobox Template
+	<title>
+		Combobox
+	</title>
+	<link rel="stylesheet" href="dist/css/bossy.css"/>
+</head>
+<body ng-app="BossyComboboxTest">
+	<div ng-controller="TestCtrl">
+		<bossy-combobox config="data"></bossy-combobox>
+	</div>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="dist/js/bossy.all.js"></script>
+    <script>
+        angular.module('BossyComboboxTest', [
+            'bossy'
+        ])
+            .controller('TestCtrl', ['$scope', function ($scope) {
+
+                $scope.data = {
+                    list: [{element:'Stick'},{element:'Ball'},{element:'Table'}],
+                    title: 'ComboBox',
+                    inputText: 'what are you looking for?',
+                    sort: false
+                }
+            }]);
+    </script>
+</body>
+</html>
