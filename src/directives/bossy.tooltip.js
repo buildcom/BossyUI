@@ -78,11 +78,6 @@ function TooltipController($scope){
 
 function initialize(){
 
-  // Throw an error if text is not given
-  if (!$scope.data.text && $scope.options.transclude !== true){
-    console.error('You must include content for tool tip.');
-  }
-
   // Fail safe in case options are not given
   if (!$scope.options){
     $scope.options = {
@@ -97,7 +92,16 @@ function initialize(){
       iconFloat:'left',
     };
   }
+  
+  // Fail safe in case data object is not given
+  if (!$scope.data) {
+    $scope.data = {}
+  }
 
+  // Throw an error if text is not given
+  if (!$scope.data.text && $scope.options.transclude !== true){
+    console.error('You must include content for tool tip.');
+  }
 }
 
   initialize();
