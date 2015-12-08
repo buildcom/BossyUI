@@ -20,10 +20,11 @@
             .controller('TestCtrl', ['$scope', function ($scope) {
 
                 $scope.data = {
-                    list: [{element:'Stick'},{element:'Ball'},{element:'Table'}],
+                    list: ['Stick','Ball','Table','Chalk'],
                     title: 'ComboBox',
-                    inputText: 'what are you looking for?',
-                    sort: false
+                    inputText: 'search',
+                    multi: true,
+                    sort: true
                 }
             }]);
     </script>
