@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for directives/bossy.form.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">directives/</a> bossy.form.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">8.33% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>4/48</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">8.33% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>4/48</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">angular.module('bossy.form', [])
+    .run(<span class="fstat-no" title="function not covered" >function($templateCache){</span>
+<span class="cstat-no" title="statement not covered" >        $templateCache.put('bossy-input.html', 'templates/bossy-input.html');</span>
+    })
+    .directive('bossyForm',['$compile','$http','$schema','$data', <span class="fstat-no" title="function not covered" >function ($compile, $http, $schema, $data) {</span>
+<span class="cstat-no" title="statement not covered" >        var _schema,</span>
+            _data,
+            _options = {
+                showLabels: true,
+                header: 'This is header',
+                footer: 'This is footer',
+                theme: 'green',
+                button: 'Save'
+            },
+            _itemTemplate = {
+                number: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                    return '&lt;input type="number"/&gt;';</span>
+                },
+                text: <span class="fstat-no" title="function not covered" >function (obj, key, isRequired) {</span>
+<span class="cstat-no" title="statement not covered" >                    return '&lt;bossy-input title="\''+obj.title+'\'" type="\''+ obj.inputType +'\'" value="\''+_data.address[key]+'\'"' + ( isRequired ? ' required' : '' ) + '&gt;&lt;/bossy-input&gt;';</span>
+                },
+                textArea: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                    return '&lt;textarea&gt;&lt;/textarea&gt;';</span>
+                },
+                checkbox: <span class="fstat-no" title="function not covered" >function(obj){</span>
+<span class="cstat-no" title="statement not covered" >                    return '&lt;div class="checkbox"&gt;&lt;label&gt;&lt;input type="checkbox"&gt;'+obj.title+'&lt;/label&gt;&lt;/div&gt;';</span>
+                }
+            };
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function setData(data) {</span>
+<span class="cstat-no" title="statement not covered" >            var result = $data.getData(data);</span>
+<span class="cstat-no" title="statement not covered" >            if( angular.isFunction( result.then ) &amp;&amp; angular.isFunction( result.catch ) &amp;&amp; angular.isFunction( result.finally ) ) {</span>
+<span class="cstat-no" title="statement not covered" >                return result;</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                _data = result;</span>
+            }
+&nbsp;
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function setSchema(schema) {</span>
+<span class="cstat-no" title="statement not covered" >            _schema = $schema.getSchema(schema);</span>
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function buildTemplate(schemaPart, parentKey, required) {</span>
+<span class="cstat-no" title="statement not covered" >            var template = '',</span>
+                fullKey = '';
+<span class="cstat-no" title="statement not covered" >            angular.forEach(schemaPart, <span class="fstat-no" title="function not covered" >function(value, key) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if (value.type) {</span>
+<span class="cstat-no" title="statement not covered" >                    console.log(fullKey + ' is '+ value.type);</span>
+<span class="cstat-no" title="statement not covered" >                    switch (value.type) {</span>
+                        case 'object':
+<span class="cstat-no" title="statement not covered" >                            var requiredList = typeof( value.required ) !== 'undefined' ? value.required : null;</span>
+<span class="cstat-no" title="statement not covered" >                            template += buildTemplate(value.properties, fullKey, requiredList );</span>
+<span class="cstat-no" title="statement not covered" >                            break;</span>
+                        case 'array':
+<span class="cstat-no" title="statement not covered" >                            template += buildTemplate(value.items.properties, fullKey);</span>
+<span class="cstat-no" title="statement not covered" >                            break;</span>
+                        case 'number' || 'integer':
+<span class="cstat-no" title="statement not covered" >                            template += _itemTemplate.number(value);</span>
+<span class="cstat-no" title="statement not covered" >                            break;</span>
+                        case 'string':
+<span class="cstat-no" title="statement not covered" >                            var isRequired = false;</span>
+<span class="cstat-no" title="statement not covered" >                            if( required &amp;&amp; required.indexOf(key) !== -1 ) {</span>
+<span class="cstat-no" title="statement not covered" >                                isRequired = true;</span>
+                            }
+<span class="cstat-no" title="statement not covered" >                            template += _itemTemplate.text(value, key, isRequired);</span>
+<span class="cstat-no" title="statement not covered" >                            break;</span>
+                        case 'boolean':
+<span class="cstat-no" title="statement not covered" >                            template += _itemTemplate.checkbox(value);</span>
+<span class="cstat-no" title="statement not covered" >                            break;</span>
+                    }
+                }
+            }, this);
+<span class="cstat-no" title="statement not covered" >            return template;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return {</span>
+            restrict: 'E',
+            replace: true,
+            template: '',
+            scope: {
+                config:'=', //Create scope isolation with bi-directional binding,
+                title: '='
+            },
+            link: <span class="fstat-no" title="function not covered" >function (scope, element, attributes) {</span>
+<span class="cstat-no" title="statement not covered" >                scope.config.options = angular.extend(_options, scope.config.options);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var promise = setData(scope.config.data);</span>
+<span class="cstat-no" title="statement not covered" >                setSchema(scope.config.schema);</span>
+<span class="cstat-no" title="statement not covered" >                if( promise ) {</span>
+                    //todo: set directive to loading state
+<span class="cstat-no" title="statement not covered" >                    promise.then(</span>
+<span class="fstat-no" title="function not covered" >                        function(result) {</span>
+                            //todo: set directive to loaded state
+<span class="cstat-no" title="statement not covered" >                            _data = result;</span>
+<span class="cstat-no" title="statement not covered" >                            element.html(</span>
+                                '&lt;form novalidate class="{{config.options.theme}}"&gt;'+
+                                '&lt;div class="banner page-header"&gt;&lt;h3&gt;{{config.options.header}}&lt;/h3&gt;&lt;/div&gt;'+
+                                    buildTemplate(_schema) +
+                                    '&lt;button ng-if="config.options.button"&gt;{{config.options.button}}&lt;/button&gt;' +
+                                '&lt;div class="page-footer"&gt;&lt;h3&gt;{{config.options.footer}}&lt;/h3&gt;&lt;/div&gt;'+
+                                '&lt;/form&gt;'
+                            );
+<span class="cstat-no" title="statement not covered" >                            $compile(element.contents())(scope);</span>
+                        },
+<span class="fstat-no" title="function not covered" >                        function(reason) {</span>
+                            //todo: set directive to error state
+                        });
+<span class="cstat-no" title="statement not covered" >                    element.html(</span>
+                        '&lt;form novalidate class="{{config.options.theme}}"&gt;LOADING...&lt;/form&gt;'
+                    );
+<span class="cstat-no" title="statement not covered" >                    $compile(element.contents())(scope);</span>
+                }
+                else {
+<span class="cstat-no" title="statement not covered" >                    element.html(</span>
+                        '&lt;form novalidate class="{{config.options.theme}}"&gt;'+
+                        '&lt;div class="banner page-header"&gt;&lt;h3&gt;{{config.options.header}}&lt;/h3&gt;&lt;/div&gt;'+
+                            buildTemplate(_schema) +
+                            '&lt;button ng-if="config.options.button"&gt;{{config.options.button}}&lt;/button&gt;' +
+                        '&lt;div class="page-footer"&gt;&lt;h3&gt;{{config.options.footer}}&lt;/h3&gt;&lt;/div&gt;'+
+                        '&lt;/form&gt;'
+                    );
+<span class="cstat-no" title="statement not covered" >                    $compile(element.contents())(scope);</span>
+                }
+&nbsp;
+&nbsp;
+            }
+        };
+&nbsp;
+    }])
+;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Dec 08 2015 17:14:56 GMT-0800 (PST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
