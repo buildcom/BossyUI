@@ -1,100 +1,9 @@
-/* mdl overrides */
-.mdl-layout__header-row {
-    background-color: #ffffff;
-}
-.mdl-navigation .mdl-navigation__link {
-    color: rgb(0, 118, 168);
+/* page */
+main {
+    margin: 60px 0 0 0;
 }
 
-/* all */
-.side-menu {
-    width: 200px;
-}
-
-.side-menu ul {
-    margin: 0;
-    padding-left: 0;
-    border-right: 1px solid #a9a9a9;
-    height: 100vh;
-}
-
-.side-menu-title {
-    outline-color: #bdbdbd;
-    position: relative;
-    overflow: hidden;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0;
-    padding: 3px 16px;
-    height: 50px;
-    line-height: 50px;
-}
-
-.side-menu-item {
-    display: block;
-    border: none;
-    color: rgba(0,0,0,.87);
-    background-color: transparent;
-    text-align: left;
-    margin: 0;
-    padding: 0 16px;
-    outline-color: #bdbdbd;
-    position: relative;
-    overflow: hidden;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0;
-    text-decoration: none;
-    cursor: pointer;
-    height: 48px;
-    line-height: 48px;
-    white-space: nowrap;
-    -webkit-transition: opacity .2s cubic-bezier(.4,0,.2,1);
-    transition: opacity .2s cubic-bezier(.4,0,.2,1);
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.side-menu-item:hover {
-    background-color: #eee;
-}
-
-.side-menu-item.active {
-    background-color: #eee;
-    font-weight: bold;
-    border-top: 1px solid #a9a9a9;
-    border-bottom: 1px solid #a9a9a9;
-    border-right: 5px solid rgb(0, 118, 168);
-}
-
-/* home page */
-.home-splash {
-    background: url('/images/splash.jpg') center / cover;
-}
-.home-logo-link {
-    width: 400px;
-}
-.home-logo {
-    display: inline-block;
-    background: url('/images/logo.png') no-repeat;
-    padding-bottom: 47px;
-    width: 50px;
-}
-.home-logo-word {
-    display: inline-block;
-    background: url('/images/logo-word.png') no-repeat;
-    padding-bottom: 48px;
-    margin-left: 10px;
-    width: 300px;
-}
-.home-card {
-    margin-top: 100px;
-    width: 600px;
-}
-
-/* directives */
+/* global */
 .show {
     display: inline-block;
 }
@@ -103,7 +12,123 @@
     text-transform: uppercase;
 }
 
-.ace_editor {
-    height: 200px;
+.no-padding {
+    padding: 0;
 }
 
+.no-margin {
+    margin: 0;
+}
+
+.col-fixed-200{
+    width: 200px;
+    position: fixed;
+    height: 100%;
+}
+
+.col-offset-200{
+    padding-left: 215px;
+}
+
+/* left menu */
+.left-menu
+{
+    /*position: absolute;*/
+    /*width: 200px;*/
+    border-right: 1px solid #a9a9a9;
+    height: 100%;
+    padding: 0;
+}
+
+.left-menu-title {
+    background: rgb(0, 118, 168);
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0 16px 0 30px;
+    height: 50px;
+    line-height: 50px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.left-menu-item {
+    display: block;
+    border: none;
+    padding: 0 16px 0 30px;
+    outline-color: #bdbdbd;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    height: 48px;
+    line-height: 48px;
+}
+
+.left-menu-item:hover {
+    background-color: #eee;
+}
+
+.left-menu-item.active {
+    background-color: #eee;
+    font-weight: bold;
+    border-top: 1px solid #a9a9a9;
+    border-bottom: 1px solid #a9a9a9;
+    text-transform: uppercase;
+}
+
+/* nav */
+.nav {
+    border-bottom: 2px solid #a9a9a9;
+    padding: 5px 20px 0 20px;
+    background-color: #ffffff;
+}
+
+.nav a {
+    color: rgb(0, 118, 168) !important;
+    font-size: 16px;
+}
+
+.nav .btn-ion {
+    font-size: 30px;
+    padding: 0;
+    margin: 3px 0;
+}
+
+.nav a:hover {
+    text-decoration: none;
+}
+
+.nav-logo {
+    display: inline-block;
+    background: url('/images/logo.png') no-repeat;
+    padding-bottom: 47px;
+    width: 50px;
+}
+.nav-logo-word {
+    display: inline-block;
+    background: url('/images/logo-word.png') no-repeat;
+    padding-bottom: 48px;
+    margin-left: 10px;
+    width: 300px;
+}
+
+/* home page */
+.home-splash {
+    background: url('/images/splash.jpg') center / cover;
+}
+.home-card {
+    margin-top: 100px;
+    width: 600px;
+}
+
+/* sandbox */
+.ace_editor {
+    min-height: 300px;
+}
+
+.sandbox-output {
+    min-height: 650px;
+}

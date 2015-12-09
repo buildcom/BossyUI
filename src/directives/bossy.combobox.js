@@ -25,6 +25,11 @@ function ComboboxController($scope){
 
 	});
 }
+
+/**
+ * @param {param} config
+ * @param {string} config.list - data to choose from.
+ */
 function Combobox(){
 	var template = '' +
 		'<div class="combo-box" ng-class="{\'open\': inFocus}" ng-blur="inFocus = false">' +

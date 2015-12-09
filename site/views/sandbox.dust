@@ -1,16 +1,64 @@
-{>"layout"/}
+{>"partials/layout"/}
 {<content}
-
-
-    <main class="" ng-controller="SandboxCtrl">
-        <div class="side-menu">
-            <ul class="">
-                <li class="side-menu-title">Sandbox</li>
-                {#directives}
-                    <li class="side-menu-item" ng-class="&#123;active: view.{directive}&#125;" ng-click="selectDirective('{directive}')">{directive}</li>
-                {/directives}
-            </ul>
+    <main class="container-fluid no-padding" ng-controller="SandboxCtrl">
+        <div class="row">
+            <div class="col-fixed-200">
+                <ul class="left-menu">
+                    <li class="left-menu-title">Sandbox</li>
+                    {#directives}
+                        <li class="left-menu-item" ng-class="&#123;active: directives.{directive}.active&#125;" ng-click="selectDirective('{directive}')">{directive}</li>
+                    {/directives}
+                </ul>
+            </div>
+            <div class="col-offset-200">
+                <div class="row">
+                    <div class="no-padding" ng-class="editorsCol">
+                        <div class="panel panel-default no-margin">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <span ng-hide="smallEditors">Option Variables</span>&nbsp;
+                                    <button type="button" class="btn btn-sm btn-default pull-right" ng-click="toggleEditorSize()">
+                                        <span class="glyphicon" ng-class="editorsSize"></span>
+                                    </button>
+                                </h3>
+                            </div>
+                            <div class="panel-body no-padding">
+                                <div ui-ace="optionsEditorOptions"></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default no-margin">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <span ng-hide="smallEditors">Directive Markup</span>&nbsp;
+                                </h3>
+                            </div>
+                            <div class="panel-body no-padding">
+                                <div ui-ace="markupEditorOptions"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="no-padding" ng-class="outputCol">
+                        <div class="panel panel-default no-margin">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Output</h3>
+                            </div>
+                            <div id="sandbox-output" class="panel-body sandbox-output">
+                                output
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
-
 {/content}
+{<scripts}
+    <script src="/lib/ace-builds/src-min-noconflict/ace.js"></script>
+    <script src="/lib/angular-ui-ace/ui-ace.js"></script>
+    <script src="/js/sandbox.js"></script>
+{/scripts}
+
+
+{!<button type="button" class="btn btn-default pull-right" aria-label="Left Align">!}
+    {!<span class="glyphicon glyphicon-resize-small" aria-hidden="true"></span>!}
+{!</button>!}

@@ -35,18 +35,26 @@ angular.module('BossyUIApp', [
 
     }])
 
-	.controller('SandboxCtrl', ['$scope',
+	.controller('SandboxCtrl',
+		['$scope',
 		function ($scope) {
+			$scope.selectDirective = function (directive) {
+				angular.forEach($scope.directives, function(value, key) {
+					$scope.directives[key].active = false;
+				});
 
-
+				$scope.directives[directive].active = !$scope.directives[directive].active;
+			};
 
 			function init() {
 				var module = angular.module('bossy');
 
-				$scope.directives = [];
+				$scope.directives = {};
 
 				angular.forEach(module.requires, function (directive) {
-					$scope.directives.push(directive.split('.')[1]);
+					$scope.directives[directive.split('.')[1]] = {
+						active: false
+					};
 				});
 			}
 
