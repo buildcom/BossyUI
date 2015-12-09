@@ -1,22 +1,20 @@
-function ComboboxController($scope){
+function ComboboxController($scope) {
 	$scope.list = $scope.config.list;
-	$scope.selectedItems = [];
-
 	$scope.title = $scope.config.title;
 	$scope.inputText = $scope.config.inputText;
 	$scope.sort = $scope.config.sort;
 	$scope.multi = $scope.config.multi;
+	$scope.selectedItems = [];
 
 	// Remove item from the list of selected items and place it back in the dropbox
 	$scope.deleteSelection = function(item) {
-			var index = $scope.selectedItems.indexOf(item);
-			$scope.selectedItems.splice(index, 1);
+		var index = $scope.selectedItems.indexOf(item);
+		$scope.selectedItems.splice(index, 1);
 	};
 
 	// Add selected item to selection list and remove it from the dropdown box
 	$scope.addSelection = function(item) {
-		if($scope.multi == false)
-		{
+		if($scope.multi == false) {
 			$scope.selectedItems = [];
 		}
 		if ($scope.selectedItems.indexOf(item) == -1) {
@@ -24,30 +22,35 @@ function ComboboxController($scope){
 		}
 	};
 
-	//OPTIONS
 	//sorts ComboBox elements
-	$scope.sortFunction = function(x) {
-		if($scope.sort == true)
-		{
-			return x;
+	$scope.sortFunction = function(sortByName) {
+		if($scope.sort == true) {
+			return sortByName;
 		}
 	};
 
-	function initialize() {
-		if($scope.multi!=true)
-		{
-			$scope.multi = false;
+	/*$scope.initialize = function() {
+		if(!$scope.multi) {
+			$scope.multi = true;
 		}
-	}
+	};*/
 
-	initialize();
+	$scope.changed = function(event) {
+		console.log('keypress',event.keyCode);
+	};
+
+	$scope.$watch('inputField', function(newValue, oldValue){
+		console.log('watch',newValue);
+	});
+
+	//$scope.initialize();
 }
 
 function Combobox(){
 	var template = '' +'<link rel="stylesheet" href="combobox.css">'+
 		'<div class="combo-box" ng-class="{\'open\': inFocus}" ng-blur="inFocus = false">' +
 			'<label for="combo-input" class="input-label">{{title}}</label>' +
-			'<input id="combo-input" type="text" placeholder="{{inputText}}" ng-focus="inFocus = true" ng-model="inputField">' +
+			'<input id="combo-input" type="text" ng-keypress="changed($event)" placeholder="{{inputText}}" ng-focus="inFocus = true" ng-model="inputField">' +
 			'<div class="inputs">' +
 				'<label class="pill" ng-repeat="item in selectedItems | orderBy: sortFunction" ng-click="deleteSelection(item)" ng-show={{multi}}>{{item}}<span class="close">&times;</span></label>' +
 			'</div>' +
@@ -61,7 +64,8 @@ function Combobox(){
 	return {
 		restrict: 'AE',
 		scope: {
-			config: '='
+			config: '=',
+			options: '='
 		},
 		template: template,
 		controller: ComboboxController
