@@ -1,32 +1,81 @@
 <!DOCTYPE html>
 <html>
-<head>
-	Combobox Template
-	<title>
-		Combobox
-	</title>
-	<link rel="stylesheet" href="dist/css/bossy.css"/>
-</head>
-<body ng-app="BossyComboboxTest">
-	<div ng-controller="TestCtrl">
-		<bossy-combobox config="data"></bossy-combobox>
-	</div>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script src="dist/js/bossy.all.js"></script>
-    <script>
-        angular.module('BossyComboboxTest', [
-            'bossy'
-        ])
-            .controller('TestCtrl', ['$scope', function ($scope) {
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="dist/js/bossy.all.js"></script>
 
-                $scope.data = {
-                    list: ['Stick','Ball','Table','Chalk'],
-                    title: 'ComboBox',
-                    inputText: 'search',
-                    multi: true,
-                    sort: true
-                }
-            }]);
-    </script>
-</body>
+	<head>
+		Combobox Template
+		<title>
+			Combobox
+		</title>
+		<link rel="stylesheet" href="dist/css/bossy.css"/>
+	</head>
+	<body ng-app="BossyComboboxTest">
+		<table>
+			<tr>
+				<td>
+					<div ng-controller="TestCtrl">
+						<bossy-combobox config="data2"></bossy-combobox>
+					</div>
+				</td>
+				<td>
+					<pre>
+					angular.module('BossyComboboxTest', ['bossy'])
+					.controller('TestCtrl', ['$scope', function ($scope) {
+						$scope.data = {
+							list: ['Stick','Ball','Table','Chalk'],
+							title: 'ComboBox',
+							inputText: 'search test 1',
+						}
+					}]);
+					</pre>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<div ng-controller="TestCtrl">
+						<bossy-combobox config="data"></bossy-combobox>
+					</div>
+				</td>
+				
+				<td>
+					<pre>
+					angular.module('BossyComboboxTest', ['bossy'])
+					.controller('TestCtrl', ['$scope', function ($scope) {
+						$scope.data = {
+							list: ['Stick','Ball','Table','Chalk','Chair','Book'],
+							title: 'ComboBox',
+							inputText: 'search test 2',
+							multi: true,
+							sort: true
+						}
+					}]);
+					</pre>
+				</td>
+			</tr>
+		</table>
+
+		<script>
+			angular.module('BossyComboboxTest', [
+			    'bossy'
+			])
+			    .controller('TestCtrl', ['$scope', function ($scope) {
+
+				$scope.data = {
+				    list: ['Stick','Ball','Table','Chalk','Chair','Book'],
+				    title: 'ComboBox',
+				    inputText: 'search test 2',
+				    multi: true,
+				    sort: true
+				}
+				
+				$scope.data2 = {
+				    list: ['Stick','Ball','Table','Chalk'],
+				    title: 'ComboBox',
+				    inputText: 'search test 1',
+				}
+			    }]);
+		</script>
+	</body>
 </html>

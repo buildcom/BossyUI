@@ -49,7 +49,7 @@ function Combobox(){
 			'<label for="combo-input" class="input-label">{{title}}</label>' +
 			'<input id="combo-input" type="text" placeholder="{{inputText}}" ng-focus="inFocus = true" ng-model="inputField">' +
 			'<div class="inputs">' +
-				'<label class="pill" ng-repeat="item in selectedItems" ng-show={{multi}}>{{item}}<span class="close" ng-click="deleteSelection(item)">&times;</span></label>' +
+				'<label class="pill" ng-repeat="item in selectedItems | orderBy: sortFunction" ng-click="deleteSelection(item)" ng-show={{multi}}>{{item}}<span class="close">&times;</span></label>' +
 			'</div>' +
 			'<div class="lists" ng-class="{\'is-active\': inFocus}">' +
 				'<ul>' +
