@@ -46,6 +46,11 @@ function ComboboxController($scope) {
 	//$scope.initialize();
 }
 
+/**
+ * @param {param} config
+ * @param {string} [config.list=["apples", "oranges", "bananas"]] - Array of list items to choose from.
+ * @param {string} config.title - Title.
+ */
 function Combobox(){
 	var template = '' +'<link rel="stylesheet" href="combobox.css">'+
 		'<div class="combo-box" ng-class="{\'open\': inFocus}" ng-blur="inFocus = false">' +
