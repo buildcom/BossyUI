@@ -69,7 +69,7 @@ You can view your directives in a runtime environment as you develop.  The sandb
 $ gulp site
 ```
 
-You can then see changes you are making to directives as you develop them at [http://localhost:3000](http://localhost:3000/sandbox).
+You can then see changes you are making to directives as you develop them at [http://localhost:3000/sandbox](http://localhost:3000/sandbox).
 
 ## Creating or Modifying Directives
 
