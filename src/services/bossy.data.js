@@ -6,7 +6,7 @@ angular.module('bossy.data', [])
 @requires $http
 
 */
-    .factory('$data', ['$q','$http', '$scope', function ($q, $http, $scope) {
+    .factory('$data', ['$q','$http', function ($q, $http) {
 
         function _getData (data) {
             if (angular.isString(data)) {
@@ -14,9 +14,6 @@ angular.module('bossy.data', [])
             }
             else if (angular.isObject(data)) {
                 return data;
-            }
-            else if (angular.isFunction(data)) {
-                return _getData( data.call($scope) );
             }
             else {
                 //TODO: replace error message with online doc link like ng errors
@@ -35,6 +32,7 @@ angular.module('bossy.data', [])
                     else {
                         //TODO: replace error message with online doc link like ng errors
                         deferred.reject('directive.bossyForm: GET request to url did not produce data object');
+                        console.log(data);
                     }
                 })
                 .error(function(responseData, status) {
