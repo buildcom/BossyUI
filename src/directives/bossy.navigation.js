@@ -1,49 +1,5 @@
 angular.module('bossy.navigation', ['bossy.data'])
 
-    .controller('MyCtrl', ['$scope', function($scope) {
-        $scope.menuObj = {
-            activeMenuId:'menu1Id',
-            navigation:
-            [
-                {
-                    title:'menu1',
-                    menuId:'menu1Id',
-                    subMenus: 
-                    [
-                        {
-                            title:'menu11',
-                            menuId:'menu11Id',
-                            subMenus:
-                            [
-                                {
-                                    title:'menu111',
-                                    menuId:'menu111Id',
-                                    url:'menu111.com'
-                                },
-                                {
-                                    title:'menu112',
-                                    menuId:'menu112Id',
-                                    url:'menu112.com'
-                                }
-                            ]
-                        },
-                        {
-                            title:'menu12',
-                            menuId:'menu12Id',
-                            url:'www.menu12.com'
-                        }
-                    ]
-                },
-                {
-                    title:'menu2',
-                    menuId:'menu2Id',
-                    url:'www.menu2.com'
-                }
-            ]
-        };
-    }])
-
-
     .directive('navigation', ['$q', '$compile', '$data', function($q, $compile, $data) {
         return {
             scope: { 
@@ -62,7 +18,7 @@ angular.module('bossy.navigation', ['bossy.data'])
                 }
 
                 // Each call to uniqueId() returns the next integer 
-                // in the sequence 0,1,2,..., prepent a '__' to the
+                // in the sequence 0,1,2,..., prepend a '__' to the
                 // id to avoid conflicts with user-specified ids
                 var __next_id = 1;
                 function uniqueId() {
