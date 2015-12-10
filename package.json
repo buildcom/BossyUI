@@ -54,6 +54,7 @@
     "karma-cli": "0.0.4",
     "karma-jasmine": "^0.1.5",
     "karma-ng-html2js-preprocessor": "^0.1.0",
+    "karma-coverage": "*",
     "lazypipe": "^0.2.3",
     "minimist": "^1.1.1",
     "mocha": "^1.21.4",
