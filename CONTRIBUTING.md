@@ -61,15 +61,15 @@ $ npm install
 $ bower install
 ```
 
-### 5. Previewing Directives
+### 5. Sandbox
 
-You can view directives in a runtime environment as you develop.  This preview environment will allow you to test runtime markup and options.  To run preview:
+You can view your directives in a runtime environment as you develop.  The sandbox environment will allow you to test runtime markup and options.  The sandbox is a page on the BossyUI website, to run the website locally:
 
 ```bash
-$ gulp preview
+$ gulp site
 ```
 
-You can then see changes you are making to directives as you develop them at [http://localhost:3000](http://localhost:3000).
+You can then see changes you are making to directives as you develop them at [http://localhost:3000](http://localhost:3000/sandbox).
 
 ## Creating or Modifying Directives
 
