@@ -5,9 +5,19 @@ npm-debug.log
 
 # Demo/Docs Site
 _site/
-site/lib/
 
 # Editor
 .idea/
 
+# System
+.DS_Store
+
+# Compass
+src/css
+.sass-cache
+
+dist/docs
 *.map
+
+sites/preview/lib
+site/lib
