@@ -1,20 +1,20 @@
 /**
- * @param {param} options
- * @param {Array} [options.dict=["apples", "oranges", "bananas"]] - Array of items for autocomplete.
- * @param {Number} [options.maxCorrections=0] - Maximum corrections.
- * @param {Number} [options.maxSuggestions=5] - Maximum suggestions.
+ * @param {param} config
+ * @param {Array} [config.dict=["apples", "oranges", "bananas"]] - Array of items for autocomplete.
+ * @param {Number} [config.maxCorrections=0] - Maximum corrections.
+ * @param {Number} [config.maxSuggestions=5] - Maximum suggestions.
  */
 function Autocomplete (BKTree, utility) {
 	return {
 		restrict: 'E',
 		replace: true,
 		scope: {
-			options: '='
+			config: '='
 		},
 		link: function(scope, element, attrs) {
-			scope.dict = scope.options.dict || [];
-			scope.maxCorrections = scope.options.maxCorrections || 0;
-			scope.maxSuggestions = scope.options.maxSuggestions || 5;
+			scope.dict = scope.config.dict || [];
+			scope.maxCorrections = scope.config.maxCorrections || 0;
+			scope.maxSuggestions = scope.config.maxSuggestions || 5;
 			scope.tree = new BKTree(scope.dict);
 			scope.suggestions = [];
 
