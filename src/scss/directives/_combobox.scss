@@ -1,0 +1,92 @@
+
+.combo-box {
+  width: 400px;
+  margin: 0 auto;
+  padding: 15px;
+  border: 1px solid transparent;
+
+  &.open {
+    border-color: $color-neutral;
+  }
+
+  label.input-label {
+    margin: 0 0 5px;
+    display: block;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  input#combo-input {
+    width: 100%;
+    margin: 0 0 10px;
+    display: block;
+    font-size: 14px;
+    border: 0;
+    border-bottom: 1px solid $color-neutral;
+    &:focus {
+      outline: none;
+      border-bottom-color: $color-primary;
+    }
+  }
+
+  .inputs {
+    margin: 0 0 15px;
+
+    label.pill {
+      background-color: lighten($color-neutral, 10%);
+      padding: 5px 10px;
+      font-size: 14px;
+      line-height: 1;
+      color: darken($color-neutral, 30%);
+      border: 1px solid $color-neutral;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 5px;
+
+      &:hover {
+        background-color: lighten($color-neutral, 5%);
+        color: darken($color-neutral, 50%);
+        border-color: darken($color-neutral, 5%);
+      }
+
+      .close {
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1;
+        color: #000;
+        text-shadow: 0 1px 0 #fff;
+        filter: alpha(opacity=20);
+        opacity: .2;
+        margin-left: 3px;
+      }
+    }
+
+  }
+
+  .lists {
+    display: none;
+    font-size: 14px;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin: 0 0 5px;
+
+        &.title {
+          font-weight: bold;
+        }
+
+        &:not(.title) {
+          margin-left: 10px;
+        }
+
+      }
+
+    }
+
+  }
+
+}

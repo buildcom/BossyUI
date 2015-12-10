@@ -19,4 +19,4 @@ src/css
 dist/docs
 *.map
 
-sites/preview/lib
+site/lib

@@ -40,13 +40,13 @@ $dark-tooltip:  #333;
 		cursor: pointer;
 		white-space: nowrap;
 		&:hover {
-			.bossy-tooltip-active {
+			.bossy-tooltip-container {
 				opacity: 1;
 				transform: scale(1) translateY(0);
 			}
 		}
 	}
-	.bossy-tooltip-active {
+	.bossy-tooltip-container {
 		position: absolute;
 		background-color: $dark-tooltip;
 		width: 300px;
@@ -119,43 +119,6 @@ $dark-tooltip:  #333;
 					left: 50%;
 					margin-left: -15px;
 				}
-			}
-		}
-		&.wide {
-			width: 420px;
-		}
-		&.extra-padding {
-			padding: 20px;
-		}
-		&.content-html {
-			img {
-				max-width: 20%;
-				float: left;
-				display: inline-block;
-			}
-			span {
-				width: 76%;
-				float: right;
-				text-align: left;
-			}
-			h3 {
-				margin: 0 0 5px;
-				font-size: 16x;
-				color: #fff;
-			}
-		}
-		&.alert {
-			.icon {
-				width: 10%;
-				float: left;
-				margin: 10px 0 0 10px;
-				text-align: center;
-			}
-			span {
-				width: 85%;
-				padding-left: 10px;
-				float: right;
-				text-align: left;
 			}
 		}
 		&.download {

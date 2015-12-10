@@ -1,71 +1,82 @@
-function testContoller($scope){
-    	$scope.elements = $scope.data.elements;
+function ComboboxController($scope) {
+	$scope.list = $scope.config.list;
+	$scope.title = $scope.config.title;
+	$scope.inputText = $scope.config.inputText;
+	$scope.sort = $scope.config.sort;
+	$scope.multi = $scope.config.multi;
+	$scope.selectedItems = [];
 
-    	$scope.list = $scope.elements.slice();
+	// Remove item from the list of selected items and place it back in the dropbox
+	$scope.deleteSelection = function(item) {
+		var index = $scope.selectedItems.indexOf(item);
+		$scope.selectedItems.splice(index, 1);
+	};
 
-    	//$scope.list = [{city: 'Chico', state: 'CA'}, {city: 'LA', state: 'CA'}, {city: 'Atlanta', state: 'GA'}];
-    	
-    	$scope.selectedElements = [];
-    	
-        // Remove item from the list of selected items and place it back in the dropbox
-    	$scope.removeSelection = function(element) 
-    	{
-    		$scope.list.push(element);
+	// Add selected item to selection list and remove it from the dropdown box
+	$scope.addSelection = function(item) {
+		if($scope.multi == false) {
+			$scope.selectedItems = [];
+		}
+		if ($scope.selectedItems.indexOf(item) == -1) {
+			$scope.selectedItems.push(item);
+		}
+	};
 
-    		var index = $scope.selectedElements.indexOf(element);
-    		$scope.selectedElements.splice(index, 1);
-    	}
+	//sorts ComboBox elements
+	$scope.sortFunction = function(sortByName) {
+		if($scope.sort == true) {
+			return sortByName;
+		}
+	};
 
-        // Reset the selections and dropdown options back to default
-    	$scope.resetSelections = function()
-    	{
-    		$scope.selectedElements = [];
-    		$scope.list = $scope.elements.slice();
-    	}
+	/*$scope.initialize = function() {
+		if(!$scope.multi) {
+			$scope.multi = true;
+		}
+	};*/
 
-        // Add selected item to selection list and remove it from the dropdown box
-    	$scope.newSelection = function()
-    	{
-    		if($scope.selectedElements.indexOf($scope.selectedItem) == -1)
-    		{
-    			$scope.selectedElements.push($scope.selectedItem);
+	$scope.changed = function(event) {
+		console.log('keypress',event.keyCode);
+	};
 
-    			var index = $scope.list.indexOf($scope.selectedItem);
-    			$scope.list.splice(index, 1);
-    		}
-    	}
+	$scope.$watch('inputField', function(newValue, oldValue){
+		console.log('watch',newValue);
+	});
+
+	//$scope.initialize();
 }
 
-function create(){
-	var template = 	'<br>'+
-					'<div><input type="text" data-ng-model="name"/></div>'+
-					'<select ng-model="selectedItem" ng-options="item.city group by item.state for item in list | filter:name | orderBy:state" ng-change="newSelection()">'+
-					'</select>'+
-					'<ul>'+
-						'<li data-ng-repeat="element in selectedElements">{{element.city}} <button ng-click="removeSelection(element)">x</button> </li>'+
-					'</ul>'
-					'<button ng-click="resetSelections()">reset</button>';
-					//'<div data-ng-repeat="x in elements| filter:name">{{x}}</div>';
+/**
+ * @param {param} config
+ * @param {string} [config.list=["apples", "oranges", "bananas"]] - Array of list items to choose from.
+ * @param {string} config.title - Title.
+ */
+function Combobox(){
+	var template = '' +
+		'<div class="combo-box" ng-class="{\'open\': inFocus}" ng-blur="inFocus = false">' +
+			'<label for="combo-input" class="input-label">{{title}}</label>' +
+			'<input id="combo-input" type="text" ng-keypress="changed($event)" placeholder="{{inputText}}" ng-focus="inFocus = true" ng-model="inputField">' +
+			'<div class="inputs">' +
+				'<label class="pill" ng-repeat="item in selectedItems | orderBy: sortFunction" ng-click="deleteSelection(item)" ng-show={{multi}}>{{item}}<span class="close">&times;</span></label>' +
+			'</div>' +
+			'<div class="lists" ng-class="{\'is-active\': inFocus}">' +
+				'<ul>' +
+					'<li ng-repeat="item in list | filter:inputField | orderBy: sortFunction"><a href="#!" title="{{item}}" ng-click="addSelection(item)">{{item}}</a></li>' +
+				'</ul>' +
+			'</div>' +
+		'</div>';
 
-  return {
-
-    restrict: 'E',
-    
-    scope: {
-    	data: '='
-    },
-    template: template,
-    controller: testContoller,
-    
-  };
+	return {
+		restrict: 'AE',
+		scope: {
+			config: '=',
+			options: '='
+		},
+		template: template,
+		controller: ComboboxController
+	};
 }
 
+angular.module('bossy.combobox',[])
+	.directive('bossyCombobox', Combobox);
 
-create.$inject = [];
-
-testContoller.$inject = ['$scope'];
-
-angular.module('test',[])
-		.controller('init', testContoller)
-		.directive('director', create);
-		

@@ -1,0 +1,24 @@
+{>"partials/layout"/}
+{<content}
+<main class="jumbotron home-hero">
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h2 class="panel-title">Opinionated Angular Directives</h2>
+                <p>
+                    Created with LOVE by Build.com Open Source Consortium - fostering a collaboration between CSU Chico students and Chico, CA software companies on open source projects.
+                </p>
+                <p>
+                    An opinionated set of AngularJS directives used to build rich and interactive web sites.
+                </p>
+                <p><strong>Sponsored by Build.com</strong></p>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="container-layout">
+    <div class="footer">
+        &copy; 2015 By BossyUI
+    </div>
+</div>
+{/content}
