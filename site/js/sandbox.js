@@ -41,6 +41,7 @@ angular.module('BossyUIApp', [
 		'$http',
 		'$compile',
 		function ($scope, $http, $compile) {
+			var currentDirective;
 			var	selected = false;
 			var	markupKey = '';
 			var	optionsKey = '';
@@ -55,6 +56,7 @@ angular.module('BossyUIApp', [
 				theme:'twilight',
 				mode: 'javascript',
 				onLoad: function (optionsEditor) {
+					optionsEditor.$blockScrolling = Infinity;
 					$scope.optionsEditor = optionsEditor;
 				},
 				onChange: function () {
@@ -71,6 +73,7 @@ angular.module('BossyUIApp', [
 				theme:'twilight',
 				mode: 'html',
 				onLoad: function (markupEditor) {
+					markupEditor.$blockScrolling = Infinity;
 					$scope.markupEditor = markupEditor;
 				},
 				onChange: function () {
@@ -83,6 +86,7 @@ angular.module('BossyUIApp', [
 			};
 
 			$scope.selectDirective = function (directive) {
+				currentDirective = directive;
 				markupKey = 'markup-' + directive;
 				optionsKey = 'options-' + directive;
 
@@ -117,6 +121,14 @@ angular.module('BossyUIApp', [
 					buildDirective();
 					selected = true;
 				}
+			};
+
+			$scope.refreshEditors = function () {
+				 if (currentDirective) {
+					 localStorage[optionsKey] = '';
+					 localStorage[markupKey] = '';
+					 $scope.selectDirective(currentDirective);
+				 }
 			};
 
 			$scope.toggleEditorSize = function () {

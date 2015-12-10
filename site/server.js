@@ -30,14 +30,9 @@ app.get('/', function (req, res) {
     res.render('index');
 });
 
-app.get('/directives', function (req, res) {
-	var directives = getDirectives();
+app.get('/documentation', function (req, res) {
 
-    res.render('directives', {directives: directives});
-});
-
-app.get('/styles', function (req, res) {
-    res.render('styles');
+    res.redirect('/sandbox');
 });
 
 app.get('/sandbox', function (req, res) {
@@ -67,7 +62,13 @@ app.get('/api/directives/:name/doc', function (req, res) {
 		if (docs && docs[0] && docs[0].params) {
 
 			docs[0].params.forEach(function (param) {
-				var base = '$scope.' + param.name + ' = ';
+				var base = '';
+
+				if (param.description) {
+					base += '// ' + param.description + '\n';
+				}
+
+				base += '$scope.' + param.name + ' = ';
 
 				if (param.defaultvalue) {
 					base += param.defaultvalue + ';';
@@ -92,17 +93,13 @@ app.get('/api/directives/:name/doc', function (req, res) {
 					}
 				}
 
-				if (param.description) {
-					base += ' // ' + param.description;
-				}
-
 				params.push(base);
 			});
 		} else {
 			params.push('// ERROR: no parameters where documented for this directive');
 		}
 
-		markup += '/>';
+		markup += '></bossy-' + req.params.name + '>';
 
 		res.send({ params: params, markup: markup });
 	});
