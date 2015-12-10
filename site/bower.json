@@ -16,7 +16,6 @@
   "dependencies": {
     "angular": "~1.4.3",
     "angular-ui-ace": "bower",
-    "bootstrap": "~3.3.0",
     "Ionicons": "ionicons#~2.0.1",
     "ui-router": "~0.2.13"
   }

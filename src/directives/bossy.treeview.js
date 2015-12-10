@@ -2,7 +2,7 @@ function TreeviewController($scope, $rootScope) {
 
   $scope.contents = {
     showingChildren: [],
-    nodes: $scope.treeData.nodes
+    nodes: $scope.treeData.nodes || []
   };
   
   $scope.nodeClicked = function($event, $index) {

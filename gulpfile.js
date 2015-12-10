@@ -21,26 +21,35 @@ var gulp = require('gulp-help')(require('gulp')),
 	args = require('minimist')(process.argv.slice(2)),
 	isWatching = false;
 
-gulp.task('preview', 'Runs BossyUI Preview', function(callback) {
+gulp.task('site', 'Runs BossyUI Site', function(callback) {
 
 	sequence(
-		'preview-libs',
+		'site-libs',
         'build-sass',
 		'build-js',
         'watch',
-		'preview-serve',
+		'site-serve',
 		callback);
 });
 
-gulp.task('preview-libs', false, function() {
+gulp.task('site-install', 'Installs BossyUI Site', function(callback) {
+
+	sequence(
+		'site-libs',
+		'build-sass',
+		'build-js',
+		callback);
+});
+
+gulp.task('site-libs', false, function() {
 
 	return gulp
-		.src('sites/preview/bower.json')
+		.src('site/bower.json')
 		.pipe(install());
 });
 
-gulp.task('preview-serve', false, shell.task([
-    'node sites/preview/server.js'
+gulp.task('site-serve', false, shell.task([
+    'nodemon site/server.js'
 ]));
 
 gulp.task('build-js', 'Runs build for all lib Javascript', function() {

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" ng-app="application">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zMail</title>
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css">
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/routes.js"></script>
+    <script src="assets/js/angular.js"></script>
+  </head>
+
+  <style>
+    #sub-nav {border-right: 1px solid #d0d0d0;}
+    #feed {border-left: 1px solid #d0d0d0;}
+    .player {border-top: 1px solid #d0d0d0;}
+    .player .menu-bar {margin-bottom: 0;}
+  </style>
+
+  <body>
+    <div class="grid-frame vertical">
+      <div class="dark title-bar">
+        <div class="center title"><a ui-sref="home">zMusic</a></div>
+        <span class="left hide-for-medium"><a zf-toggle="sub-nav">Menu</a></span>
+        <span class="right"><a ui-sref="settings">Settings</a></span>
+      </div>
+      <div ng-class="['ui-animation' ]" ui-view class="grid-block">
+
+      </div>
+      <div class="grid-block shrink player">
+        <div class="small-12 medium-3 content">
+          <ul class="menu-bar">
+            <li><a href="#">p</a></li>
+            <li><a href="#">p</a></li>
+            <li><a href="#"><input type="range"></a></li>
+          </ul>
+        </div>
+
+        <div class="medium-6 content show-for-medium">
+          <ul class="menu-bar">
+            <li><a href="#">
+              <progress value="50" max="100"></progress>
+            </a></li>
+          </ul>
+        </div>
+
+        <div class="medium-3 content show-for-medium">
+          <ul class="menu-bar">
+            <li><a href="#">2:53</a></li>
+            <li><a href="#">p</a></li>
+            <li><a href="#">p</a></li>
+            <li><a href="#">p</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
