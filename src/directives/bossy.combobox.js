@@ -52,7 +52,7 @@ function ComboboxController($scope) {
  * @param {string} config.title - Title.
  */
 function Combobox(){
-	var template = '' +'<link rel="stylesheet" href="combobox.css">'+
+	var template = '' +
 		'<div class="combo-box" ng-class="{\'open\': inFocus}" ng-blur="inFocus = false">' +
 			'<label for="combo-input" class="input-label">{{title}}</label>' +
 			'<input id="combo-input" type="text" ng-keypress="changed($event)" placeholder="{{inputText}}" ng-focus="inFocus = true" ng-model="inputField">' +

@@ -1,3 +1,4 @@
+
 function CalendarController($scope) {
 
 	var _monthMaps = {},
@@ -153,6 +154,11 @@ function CalendarController($scope) {
 	initialize();
 }
 
+/**
+ * @param {param} options
+ * @param {string} options.start - Starting date range.
+ * @param {string} options.end - Ending date range.
+ */
 function Calendar() {
 
 	var template =
@@ -209,12 +215,9 @@ function Calendar() {
 }
 
 Calendar.$inject = [];
-
-
 CalendarController.$inject = ['$scope'];
 
 angular.module('bossy.calendar', [])
 	.controller('bossyCalendarController', CalendarController)
     .directive('bossyCalendar', Calendar);
 
-// notes so I can make a commit
