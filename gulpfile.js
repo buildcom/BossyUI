@@ -32,6 +32,15 @@ gulp.task('site', 'Runs BossyUI Site', function(callback) {
 		callback);
 });
 
+gulp.task('site-install', 'Installs BossyUI Site', function(callback) {
+
+	sequence(
+		'site-libs',
+		'build-sass',
+		'build-js',
+		callback);
+});
+
 gulp.task('site-libs', false, function() {
 
 	return gulp
