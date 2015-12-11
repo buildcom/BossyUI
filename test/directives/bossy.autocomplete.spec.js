@@ -98,8 +98,8 @@ describe('bossyAutocomplete tests', function() {
         
         it('Element is created', function() {
             scope = $rootScope.$new()
-            scope.dict = [];
-            elem = angular.element('<bossy-autocomplete dict="dict"></bossy-autocomplete>');
+            scope.config = { dict: [] };
+            elem = angular.element('<bossy-autocomplete config="config"></bossy-autocomplete>');
             $compile(elem)(scope);
             // Check if input tag was created
             expect(elem.find('input').length).toEqual(1); 

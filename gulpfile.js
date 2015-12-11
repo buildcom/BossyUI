@@ -110,7 +110,7 @@ gulp.task('run-tests', 'Runs all Karma tests', function() {
 
 	return gulp.src('')
 		.pipe(shell([
-			'node sites/preview/server.js'
+			'node site/server.js'
 		]));
 });
 
