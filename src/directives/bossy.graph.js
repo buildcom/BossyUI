@@ -1,29 +1,21 @@
 /**
- * @class Chart
- * @description Creates simple line, plot, or pie charts.
- * @example
- <div ng-app="sandboxApp" ng-controller="sandboxCtrl">
-	<bossy-chart type="bar" data="data" config="config"></bossy-chart>
- </div>
- <script>
-	angular.module("sandboxApp", ["bossy"])
-
-	.controller("sandboxCtrl", ["$scope", function($scope) {
-		$scope.data =  [10, 20, 35, 55, 25, 50];
-		$scope.config = {};
-	}]);
- </script>
+ * @param {param} config
+ * @param {string} [config.type="bar"] - Type of graph; Line, dot, or bar.
+ * @param {array} [config.data=[10,20,30,40,50]] - Graph data.
+ * @param {number} [config.height=200] - Graph height in pixels.
+ * @param {number} [config.width=200] - Graph width in pixels.
+ * @param {string} [config.xLabel="xLabel"] - Label for x-axis.
+ * @param {string} [config.yLabel="yLabel"] - Label for y-axis.
  */
-
-function Chart() {
+function Chart ($compile) {
 
     var templates = {
-        'base':
-            '<div class="chart" style="width:{{width}}px; height:{{height}}px;">' +
-            '   <div class="y" style="width:{{height}}px;">{{yLabel}}</div>' +
-            '   <div class="x">{{xLabel}}</div>' +
+        base:
+            '<div class="chart" style="width:{{config.width}}px; height:{{config.height}}px;">' +
+            '   <div class="y" style="width:{{config.height}}px;">{{config.yLabel}}</div>' +
+            '   <div class="x">{{config.xLabel}}</div>' +
             '</div>',
-        'line':
+        line:
             '<svg style="width:{{config.width}}px; height:{{config.height}}px;">' +
             '   <line ' +
             '       ng-repeat="line in data" ' +
@@ -33,13 +25,13 @@ function Chart() {
             '       ng-attr-y2="{{line.y2}}">' +
             '   </line>' +
             '</svg>',
-        'dot':
+        dot:
             '<div' +
             '   ng-repeat="dot in data"' +
             '   class="dot"' +
             '   style="bottom:{{dot.value / max * height}}px; left:{{($index + 0.5) / data.length * width}}px;">' +
             '</div>',
-        'bar':
+        bar:
             '<svg style="width:{{config.width}}px; height:{{config.height}}px;">' +
             '   <rect ' +
             '       ng-repeat="bar in data"' +
@@ -52,7 +44,23 @@ function Chart() {
             '</svg>'
     };
 
-    function _controller($scope, $filter) {
+	function _buildBarSvg (width, height, data) {
+		var svg = '<svg style="width:' + width + 'px; height:' + height + 'px;">';
+
+		angular.forEach(data, function(bar, index) {
+			var x = index * (width / data.length);
+			var y = height - bar;
+			var w = width / data.length;
+
+			svg += '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + bar + '" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"></rect>';
+		});
+
+		svg += '</svg>';
+
+		return svg;
+	}
+
+    function _controller ($scope, $filter) {
         var config = {
                 max: 0,
                 height: 200,
@@ -61,43 +69,38 @@ function Chart() {
                 yLabel: undefined
             };
 
+	    $scope.data = $scope.config.data || [];
         $scope.config = angular.extend({}, config, $scope.config);
-        $scope.type = $scope.type || 'bar';
+
+        $scope.type = $scope.config.type || 'bar';
         $scope.template = templates[$scope.type];
-
-        if ($scope.type === 'line') {
-            config.max = $filter('orderBy')($scope.data, '-value')[0].value;
-
-            angular.forEach($scope.data, function(line, index) {
-                line.x1 = parseInt(index / $scope.data.length * config.width);
-                line.y1 = parseInt(($scope.data[index - 1] ? $scope.data[index - 1].value : 0) / config.max * config.height);
-                line.x2 = parseInt((index + 1)/ $scope.data.length * config.width);
-                line.y2 = parseInt(line.value / config.max * config.height);
-            });
-        }
     }
 
     _controller.$inject = ['$scope', '$filter'];
+
+	function _compile (element, attrs) {
+
+		return {
+			post: function(scope, element, attrs){
+				var svgTag = angular.element(_buildBarSvg(scope.config.width, scope.config.height, scope.data));
+				element.append(svgTag);
+			}
+		}
+	}
 
     return {
         restrict: 'E',
         replace: true,
         scope: {
-            type: '@',
-            config: '=',
-            data: '='
+            config: '='
         },
         template: templates.base,
-        compile: function (element, attrs) {
-            var type = attrs.type || 'bar';
-
-            element.html(templates[type]);
-        },
+        compile: _compile,
         controller: _controller
     };
 }
 
-Chart.$inject = [];
+Chart.$inject = ['$compile'];
 
 angular.module('bossy.graph', [])
     .directive('bossyGraph', Chart);
