@@ -16,7 +16,7 @@
                         <div class="panel panel-default no-margin">
                             <div class="panel-heading">
                                 <h3 class="panel-title">
-                                    <span ng-hide="smallEditors">Option Variables</span>&nbsp;
+                                    <span ng-hide="smallEditors">Output Controller</span>&nbsp;
                                     <div class="btn-toolbar pull-right" role="toolbar">
                                         <div class="btn-group" role="group">
                                             <button type="button" class="btn btn-sm btn-default" ng-click="refreshEditors()">
@@ -38,7 +38,7 @@
                         <div class="panel panel-default no-margin">
                             <div class="panel-heading">
                                 <h3 class="panel-title">
-                                    <span ng-hide="smallEditors">Directive Markup</span>&nbsp;
+                                    <span ng-hide="smallEditors">Output Markup</span>&nbsp;
                                 </h3>
                             </div>
                             <div class="panel-body no-padding">
@@ -64,8 +64,3 @@
     <script src="/lib/angular-ui-ace/ui-ace.js"></script>
     <script src="/js/sandbox.js"></script>
 {/scripts}
-
-
-{!<button type="button" class="btn btn-default pull-right" aria-label="Left Align">!}
-    {!<span class="glyphicon glyphicon-resize-small" aria-hidden="true"></span>!}
-{!</button>!}
