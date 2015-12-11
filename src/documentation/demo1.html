@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Angular Example</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="_navigation.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="bossy.data.js"></script>
+    <script src="bossy.navigation.js"></script>
+  </head>
+  <body ng-app="bossy.navigation">
+    <div style="width:100%;">
+      <div style="float:right; width:50%">
+        <div style="text-align:center;">
+          <navigation menu-url="massive-nav-v2.json"></navigation> 
+        </div>
+      </div>
+      <div style="float:left; width:50%; background-color:#f1f1f1;">
+<pre>
+
+<strong>&ltnavigation menu-url="tiger-direct.json"&gt&lt/navigation&gt</strong>
+<br>
+<h1>tiger-direct.json</h1>
+{
+    "navigation": 
+    [
+        {
+            "title": "Home",
+            "url": "ebracho.com"
+        },
+        {
+            "title": "Resumes",
+            "subMenus":
+            [
+                {
+                    "title": "Technical",
+                    "url": "ebracho.com/resumes/technical"
+                },
+                {
+                    "title": "General",
+                    "url": "ebracho.com/resumes/general"
+                }
+            ]
+        },
+        {
+            "title": "Projects",
+            "subMenus":
+            [
+                {
+                    "title": "Python",
+                    "subMenus":
+                    [
+                        {
+                            "title": "Artificial Neural Network",
+                            "url": "ebracho.com/projects/python/ann"
+                        },
+                        {
+                            "title": "Boolean Expression Interpreter",
+                            "url": "ebracho.com/projects/python/bei"
+                        },
+                        {
+                            "title": "Tetris Clone",
+                            "url": "ebracho.com/projects/python/tetris"
+                        },
+                        {
+                            "title": "Irc Bot",
+                            "url": "ebracho.com/projects/python/irc_bot"
+                        }
+                    ]
+                },
+                {
+                    "title": "Javascript",
+                    "subMenus":
+                    [
+                        {
+                            "title": "Navigation",
+                            "url": "ebracho.com/projects/javascript/navigation"
+                        },
+                        {
+                            "title": "Autocomplete",
+                            "url": "ebracho.com/projects/javascript/autocomplete"
+                        }
+                    ]
+                },
+                {
+                    "title": "C++",
+                    "subMenus":
+                    [
+                        {
+                            "title": "Matrix Library",
+                            "url": "ebracho.com/projects/c++/matrix_library"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Github",
+            "url": "http://github.com/ebracho"
+        }
+    ]
+}
+</pre>
+      </div>
+    </div>
+  </body>
+</html>
