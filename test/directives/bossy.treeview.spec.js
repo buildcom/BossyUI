@@ -4,7 +4,7 @@ describe('Treeview Directive:', function() {
 
   beforeEach(module('bossy.treeview'));
   beforeEach(inject(function($rootScope, $compile){
-    element = angular.element('<bossy-treeview tree-data="directiveData"></bossy-treeview>');
+    element = angular.element('<bossy-treeview data="directiveData"></bossy-treeview>');
     scope = $rootScope.$new();
     compile = $compile;
     scope.directiveData = {};
