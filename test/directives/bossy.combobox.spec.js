@@ -7,12 +7,13 @@ describe('Combobox Directive:', function() {
 
   //set up element, create scope, compile, digest
   beforeEach(inject(function($rootScope, $compile){
-    element = angular.element('<bossy-combobox config="directiveData" options="directiveOptions"></bossy-combobox>');
+    element = angular.element('<bossy-combobox config="config"></bossy-combobox>');
 
     scope = $rootScope.$new();
     compile = $compile;
-    scope.directiveData = {};
-    scope.directiveOptions = {};
+    scope.config = {
+	    list: []
+    };
     $compile(element)(scope);
     scope.$digest();
   }));
@@ -22,7 +23,7 @@ describe('Combobox Directive:', function() {
   //TESTING USER SPECIFICATIONS 
   //does the data in the scope of the directive equal what is passed in
   it('Combobox Test(1): isolate scope data is equal to passed in', function(){
-    scope.directiveData = {list: ['Ball','Stick','Table','Chalk']};
+    scope.config = {list: ['Ball','Stick','Table','Chalk']};
     scope.$digest();
     
     var iscope = element.isolateScope();
@@ -31,7 +32,7 @@ describe('Combobox Directive:', function() {
 
   //dropdown elments should be elements defined by list
   it('Combobox Test(2): dropdown elements should be values defined in config.list', function(){
-    scope.directiveData = {list: ['Ball','Stick','Table','Chalk']};
+    scope.config = {list: ['Ball','Stick','Table','Chalk']};
     compile(element)(scope);
     scope.$digest();
 
@@ -44,7 +45,7 @@ describe('Combobox Directive:', function() {
   //TESTING FUNCTIONS TRIGGERING PROPERLY
   //clicking on dropdown elements should call function to add selected element
   it('Combobox Test(3): dropdown element clicked calls addSelection()', function(){
-    scope.directiveData = {list: ['Ball']};
+    scope.config = {list: ['Ball']};
     var test = compile(element)(scope);
     scope.$digest();
 
@@ -56,20 +57,20 @@ describe('Combobox Directive:', function() {
 
   //clicking on selected elements should call function to remove selected element
   it('Combobox Test(4): selected element clicked calls deleteSelection()', function(){
-    scope.directiveData = {list: ['Ball'], multi: true};
+    scope.config = {list: ['Ball'], multi: true};
     var test = compile(element)(scope);
     scope.$digest();
 
     var iscope = element.isolateScope();
     test.find("a").triggerHandler("click");  
-    test.find("span").triggerHandler("click");
+    test.find("label").triggerHandler("click");
   
     expect(iscope.selectedItems).toEqual([]);
   });
 
   //clicking on selected elements should call function to remove selected element
   it('Combobox Test(5): selectedItems only stores one element when not multi select', function(){
-    scope.directiveData = {list: ['Ball']};
+    scope.config = {list: ['Ball']};
     var test = compile(element)(scope);
     scope.$digest();
 
@@ -82,7 +83,7 @@ describe('Combobox Directive:', function() {
 
   //clicking on selected elements should call function to remove selected element
   it('Combobox Test(6): element is not added to selectedItems if already in selectedItems', function(){
-    scope.directiveData = {list: ['Ball'], multi: true};
+    scope.config = {list: ['Ball'], multi: true};
     var test = compile(element)(scope);
     scope.$digest();
 
@@ -95,7 +96,7 @@ describe('Combobox Directive:', function() {
 
   //clicking on selected elements should call function to remove selected element
   it('Combobox Test(7): Sorts list objects by ascending if set to true', function(){
-    scope.directiveData = {list: ['Ball','Stick','Chalk'], multi: true, sort: true};
+    scope.config = {list: ['Ball','Stick','Chalk'], multi: true, sort: true};
     var test = compile(element)(scope);
     scope.$digest();
 

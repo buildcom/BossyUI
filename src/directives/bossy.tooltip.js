@@ -158,7 +158,6 @@ function TooltipController ($scope) {
 				iconFloat: 'left'
 			};
 		}
-		
 	}
 	
 	initialize();
