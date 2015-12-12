@@ -17,7 +17,7 @@ angular.module('bossy.data', [])
             }
             else {
                 //TODO: replace error message with online doc link like ng errors
-                console.error('directive.bossyForm: no data url or object given');
+                console.error('$data: no data url or object given');
             }
         }
 
@@ -31,13 +31,13 @@ angular.module('bossy.data', [])
                     }
                     else {
                         //TODO: replace error message with online doc link like ng errors
-                        deferred.reject('directive.bossyForm: GET request to url did not produce data object');
+                        deferred.reject('$data: GET request to url did not produce data object');
                         console.log(data);
                     }
                 })
                 .error(function(responseData, status) {
                     //TODO: replace error message with online doc link like ng errors
-                    deferred.reject('directive.bossyForm: GET request to url "' + data + '" failed with status "' + status + '"');
+                    deferred.reject('$data: GET request to url "' + data + '" failed with status "' + status + '"');
                 });
 
             return deferred.promise;

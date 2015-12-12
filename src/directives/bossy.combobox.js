@@ -44,8 +44,6 @@ function Combobox() {
 			if ($scope.selectedItems.indexOf(item) == -1) {
 				$scope.selectedItems.push(item);
 			}
-
-			console.log($scope.selectedItems);
 		};
 
 		//sorts ComboBox elements

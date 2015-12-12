@@ -88,6 +88,10 @@ app.get('/api/directives/:name/doc', function (req, res) {
 							base += '0;';
 							break;
 
+						case 'boolean':
+							base += 'false;';
+							break;
+
 						default:
 							base += '\'\';';
 					}
