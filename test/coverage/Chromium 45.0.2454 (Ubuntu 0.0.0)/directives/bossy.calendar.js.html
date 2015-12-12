@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for directives/bossy.calendar.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">directives/</a> bossy.calendar.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">82.5% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>66/80</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">74.36% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>29/39</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">86.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>13/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">82.5% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>66/80</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">336×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">336×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">336×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">336×</span>
+<span class="cline-any cline-yes">336×</span>
+<span class="cline-any cline-yes">336×</span>
+<span class="cline-any cline-yes">336×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">367×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">337×</span>
+<span class="cline-any cline-yes">337×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">337×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">337×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">367×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">367×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+function CalendarController($scope) {
+&nbsp;
+	var _monthMaps = {},
+		options = {},
+		defaults = {},
+		universal = {
+			DAY: 24 * 60 * 60 * 1000,
+			HOUR: 60 * 60 * 1000
+		};
+&nbsp;
+	$scope.days = [
+		'Sunday',
+		'Monday',
+		'Tuesday',
+		'Wednesday',
+		'Thursday',
+		'Friday',
+		'Saturday'
+	];
+&nbsp;
+	$scope.months = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'December'
+	];
+&nbsp;
+	$scope.previousMonth = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >		var date = new Date($scope.current.year, ($scope.current.month - 1), 1);</span>
+<span class="cstat-no" title="statement not covered" >		setCurrentMonthAndYear(date.getMonth(), date.getFullYear());</span>
+<span class="cstat-no" title="statement not covered" >		$scope.updateDateMap();</span>
+	};
+&nbsp;
+	$scope.nextMonth = function() {
+		var date = new Date($scope.current.year, ($scope.current.month + 1), 1);
+		setCurrentMonthAndYear(date.getMonth(), date.getFullYear());
+		$scope.updateDateMap();
+	};
+&nbsp;
+	$scope.selectDate = function(time) {
+		var date = getStandardTime(new Date(time));
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (dayIsOutOfRange(date)) {
+<span class="cstat-no" title="statement not covered" >			return;</span>
+		}
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (date.month !== $scope.current.month) {
+<span class="cstat-no" title="statement not covered" >			setCurrentMonthAndYear(date.month, date.year);</span>
+<span class="cstat-no" title="statement not covered" >			$scope.updateDateMap();</span>
+		}
+		setSelectedDate(new Date(time));
+	};
+&nbsp;
+	$scope.updateDateMap = function() {
+		var rawCurrentDay = ($scope.current.raw.getDay() * universal.DAY),
+			firstWeekDay = new Date($scope.current.time - rawCurrentDay),
+			isMonthComplete = false;
+&nbsp;
+		$scope.dateMap = [];
+&nbsp;
+		while (!isMonthComplete) {
+			var week = [];
+			if ($scope.dateMap.length === 5) {
+				isMonthComplete = true;
+			}
+			for (var weekDay = 0; weekDay &lt; 7; weekDay++) {
+				var rawThisDate = firstWeekDay.getTime() + (weekDay * universal.DAY),
+					thisDate = (new Date(rawThisDate));
+				// fix for DST oddness
+				<span class="missing-if-branch" title="if path not taken" >I</span>if (thisDate.getHours() === 23) {
+<span class="cstat-no" title="statement not covered" >					thisDate = (new Date(thisDate.getTime() + universal.HOUR));</span>
+				} else <span class="missing-if-branch" title="if path not taken" >I</span>if (thisDate.getHours() === 1) {
+<span class="cstat-no" title="statement not covered" >					thisDate = (new Date(thisDate.getTime() - universal.HOUR));</span>
+				}
+				var date = getStandardTime(thisDate);
+				date.dayInMonth = thisDate.getMonth() === $scope.current.raw.getMonth() ? 'day-in-month' : '';
+				date.disabledDay = dayIsOutOfRange(date) ? <span class="branch-0 cbranch-no" title="branch not covered" >'disabled-day' </span>: '';
+				week.push(date);
+			}
+			firstWeekDay = new Date(firstWeekDay.getTime() + (7 * universal.DAY));
+			$scope.dateMap.push(week);
+		}
+	};
+&nbsp;
+	function getStandardTime(date) {
+		return {
+			raw: date,
+			year: date.getFullYear(),
+			monthName: getMonthName(date.getMonth()),
+			month: date.getMonth(),
+			day: getDayName(date),
+			date: date.getDate(),
+			time: date.getTime()
+		};
+	}
+&nbsp;
+	function getTimeObjectIfDate(date) {
+		<span class="missing-if-branch" title="else path not taken" >E</span>if (angular.isDate(new Date(date))) {
+			return getStandardTime(new Date(date));
+		}
+<span class="cstat-no" title="statement not covered" >		return false;</span>
+	}
+&nbsp;
+	function setConfigOptions() {
+		$scope.config = $scope.config || <span class="branch-1 cbranch-no" title="branch not covered" >{};</span>
+		$scope.config.start = getTimeObjectIfDate($scope.config.start);
+		$scope.config.end = getTimeObjectIfDate($scope.config.end);
+		options = angular.extend({}, defaults, $scope.config);
+	}
+&nbsp;
+	function dayIsOutOfRange(_date) {
+		var hasRange = options.start &amp;&amp; options.end;
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (hasRange &amp;&amp; (_date.time &lt; options.start.time || _date.time &gt; options.end.time)) {
+<span class="cstat-no" title="statement not covered" >			return true;</span>
+		} else <span class="missing-if-branch" title="if path not taken" >I</span>if (options.start &amp;&amp; _date.time &lt; options.start.time) {
+<span class="cstat-no" title="statement not covered" >			return true;</span>
+		} else <span class="missing-if-branch" title="if path not taken" >I</span>if (options.end &amp;&amp; _date.time &gt; options.end.time) {
+<span class="cstat-no" title="statement not covered" >			return true;</span>
+		}
+	}
+&nbsp;
+	function setSelectedDate(date) {
+		$scope.selected = getStandardTime(date);
+		$scope.ngModel = $scope.selected.raw;
+	}
+&nbsp;
+	function setCurrentMonthAndYear(month, year) {
+		var date = new Date(year !== undefined ? year : $scope.selected.year, month !== undefined ? month : $scope.selected.month, 1);
+		$scope.current = getStandardTime(date);
+	}
+&nbsp;
+	function getMonthName(month) {
+		return $scope.months[month];
+	}
+&nbsp;
+	function getDayName(date) {
+		return $scope.days[date.getDay()];
+	}
+&nbsp;
+	function initialize() {
+		setConfigOptions();
+		setSelectedDate($scope.ngModel || new Date());
+		setCurrentMonthAndYear();
+		$scope.updateDateMap();
+	}
+&nbsp;
+	initialize();
+}
+&nbsp;
+/**
+ * @param {param} options
+ * @param {string} options.start - Starting date range.
+ * @param {string} options.end - Ending date range.
+ */
+<span class="fstat-no" title="function not covered" >function Calendar() {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	var template =</span>
+&nbsp;
+		'&lt;div class="calendarWrapper"&gt;' +
+&nbsp;
+			'&lt;div class="calendarView"&gt;' +
+				'&lt;table&gt;' +
+					'&lt;thead&gt;' +
+						'&lt;tr class="heading"&gt;' +
+							'&lt;td ng-click="previousMonth()" title="Previous month" class="p"&gt;&lt;img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-chevron-right-128.png" title="Previous Month" style="transform: rotate(180deg);" width="25"&gt;&lt;i class="ionicon ion-chevron-down"&gt;&lt;/i&gt;&lt;/td&gt;' +
+							'&lt;td colspan="5" class="calendar-month"&gt;{{current.monthName}} {{current.year}}&lt;/td&gt;' +
+							'&lt;td ng-click="nextMonth()" title="Next month" class="p"&gt;&lt;img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-chevron-right-128.png" title="Next Month" width="25"&gt;&lt;/td&gt;' +
+						'&lt;/tr&gt;' +
+					'&lt;/thead&gt;' +
+					'&lt;tbody&gt;' +
+						'&lt;tr class="week-days"&gt;' +
+							'&lt;td ng-repeat="day in days" title="{{day}}"&gt;{{day | limitTo : 2}}&lt;/td&gt;' +
+						'&lt;/tr&gt;' +
+						'&lt;tr ng-repeat="week in dateMap"&gt;' +
+							'&lt;td ng-repeat="current in week" ng-click="selectDate(current.time)" class="{{current.dayInMonth}} {{current.disabledDay}} p"&gt;' +
+								'{{current.date}}' +
+							'&lt;/td&gt;' +
+						'&lt;/tr&gt;' +
+					'&lt;tbody&gt;' +
+					'&lt;tfooter&gt;' +
+						'&lt;tr&gt;' +
+							'&lt;td colspan="7"&gt;{{selected.day}}, {{selected.monthName}} {{selected.date}}, {{selected.year}}&lt;/td&gt;' +
+						'&lt;/tr&gt;' +
+					'&lt;/tfooter&gt;' +
+				'&lt;/table&gt;' +
+			'&lt;/div&gt; &lt;!-- / calendarView --&gt;' +
+&nbsp;
+			'&lt;div class="btm-bar"&gt;' +
+				'&lt;span class="date-selected"&gt;' +
+					'&lt;strong&gt;Start Date&lt;/strong&gt;' +
+					'August 6th, 2015' +
+				'&lt;/span&gt;' +
+				'&lt;i class="flip-over"&gt;&lt;img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-chevron-right-128.png" title="Previous Month" width="25"&gt;&lt;/i&gt;' +
+			'&lt;/div&gt; &lt;!-- / Btm-Bar --&gt;' +
+&nbsp;
+		'&lt;/div&gt; &lt;!-- / calendarWrapper --&gt;';
+&nbsp;
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	return {</span>
+		restrict: 'AE',
+		scope: {
+			config: '='
+		},
+		template: template,
+		controller: CalendarController
+	};
+}
+&nbsp;
+Calendar.$inject = [];
+CalendarController.$inject = ['$scope'];
+&nbsp;
+angular.module('bossy.calendar', [])
+	.controller('bossyCalendarController', CalendarController)
+    .directive('bossyCalendar', Calendar);
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 10 2015 15:31:08 GMT-0800 (PST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
