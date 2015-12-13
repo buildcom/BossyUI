@@ -7,7 +7,8 @@
  *        "navigation":
  *        [
  *            {
- *             "title": "Home","url": "ebracho.com"
+ *             "title": "Home",
+ * 	       "url": "ebracho.com"
  *            },
  *            {
  *             "title": "Resumes",
