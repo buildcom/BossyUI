@@ -1,18 +1,34 @@
 /**
  * @param {param} config
- * @param {string} [config.menuObj = {"activeMenuId": "python","navigation":[{"title": "Home","url": "ebracho.com"},{"title": "Resumes","menuId": "resumes","subMenus":[{"title": "Technical","url": "ebracho.com/resumes/technical"},{"title": "General","url": "ebracho.com/resumes/general"}]}]}] - Menu object.
- * @param {string} config.menuUrl = URL of API endpoint for menu data.
+ * @param {Object} [config.menuObj] - Object describing menu. See documentation.
+ * @param {String} [config.menuUrl] - Path to json file describing menu. See documentation.
  */
 function Navigation($q, $compile, $data) {
-
 	return {
 		scope: {
 			config: '='
 		},
 		link: function(scope, element, attrs) {
+			if (!scope.config.menuObj && !scope.config.menuUrl) {
+				// Error: no data
+			}
 
-			scope.menuObj = scope.config.menuObj;
-			scope.menuUrl = scope.config.menuUrl;
+			$q.when($data.getData(scope.config.menuObj || scope.config.menuUrl)).then(function(menuObj) {
+				buildMenu(menuObj);
+			});
+		
+			function buildMenu(menuObj) {
+				scope.menuObj = menuObj;
+				scope.menuIdMap = {}
+				scope.rootSubMenus = [];
+
+				assignMenuIds(scope.menuObj.navigation, scope.menuIdMap);
+				angular.forEach(scope.menuObj.navigation, function(rootMenu) {
+					var subMenus = {};
+					getAllSubmenus(rootMenu, subMenus);
+					scope.rootSubMenus.push(subMenus);
+				});
+			}
 
 			scope.toggleOpen = function(menuId) {
 				if (scope.menuObj.activeMenuId === menuId) {
@@ -22,95 +38,60 @@ function Navigation($q, $compile, $data) {
 					scope.menuObj.activeMenuId = menuId;
 				}
 			};
-
-			// Each call to uniqueId() returns the next integer
-			// in the sequence 0,1,2,..., prepend a '__' to the
-			// id to avoid conflicts with user-specified ids
-			var __next_id = 1;
-			function uniqueId() {
-				return '__' + __next_id++;
-			}
-
-			// Traverses subMenuObj and builds a <ul> for every submenu
-			function buildSubMenus(subMenusElem, parentMenuId, subMenuObj) {
-
-				// Create the <ul> element for subMenuObj. The element
-				// should only show when its id is the active menu id
-				var subMenuElem = angular.element(
-					'<ul ng-show="menuObj.activeMenuId===\'' +
-					subMenuObj.menuId + '\'"></ul>'
-				);
-
-				// The header for the submenu element sets the active menu
-				// id to the parent menu's id when clicked.
-				subMenuElem.append(angular.element(
-					'<lh><strong ng-click="menuObj.activeMenuId=\'' +
-					parentMenuId + '\'">' + subMenuObj.title +
-					'</strong></lh>'
-				));
-
-				angular.forEach(subMenuObj.subMenus, function(childMenuObj) {
-					if (childMenuObj.subMenus) {
-
-						// Generate an id if the user didn't specify one
-						if (angular.isUndefined(childMenuObj.menuId)) {
-							childMenuObj.menuId = uniqueId();
-						}
-						subMenuElem.append(angular.element(
-							'<li><span ng-click=menuObj.activeMenuId=\'' +
-							childMenuObj.menuId + '\'>' + childMenuObj.title +
-							'</span></li>'
-						));
-						buildSubMenus(subMenusElem, subMenuObj.menuId, childMenuObj);
-					}
-					if (childMenuObj.url) {
-						subMenuElem.append(angular.element(
-							'<li><a href="' + childMenuObj.url + '">' +
-							childMenuObj.title + '</a></li>'
-						));
-					}
-				});
-				subMenusElem.append(subMenuElem);
-			}
-
-			function buildNavbar(menuObj) {
-				var navbar = angular.element('<ul>');
-				angular.forEach(scope.menuObj.navigation, function(rootMenuObj) {
-					var rootMenuElem, subMenusElem;
-					if (angular.isUndefined(rootMenuObj.menuId)) {
-						rootMenuObj.menuId = uniqueId();
-					}
-					if (rootMenuObj.subMenus) {
-						rootMenuElem = angular.element(
-							'<li><strong ng-click="toggleOpen(\'' +
-							rootMenuObj.menuId + '\')">' + rootMenuObj.title +
-							'</strong></li>'
-						);
-						buildSubMenus(rootMenuElem, '', rootMenuObj);
-						rootMenuElem.append(subMenusElem);
-					}
-					else if (rootMenuObj.url) {
-						rootMenuElem = angular.element(
-							'<li><a href="' + rootMenuObj.url + '">' +
-							rootMenuObj.title + '</a>'
-						);
-					}
-					navbar.append(rootMenuElem);
-				});
-				element.append(navbar);
-				$compile(element.contents())(scope);
-			}
-
-			$q.when($data.getData(scope.menuUrl || scope.menuObj)).then(function(result) {
-				scope.menuObj = result;
-				buildNavbar(result);
-			});
-		}
+		},
+		template:
+			'<ul class="navbar">' +
+				'<li class="navbar-item" ng-repeat="rootMenu in menuObj.navigation">' +
+					'<a class="navbar-link" ng-if="rootMenu.url" href={{rootMenu.url}}>{{rootMenu.title}}</a>' +
+					'<strong ng-if="rootMenu.subMenus" ng-click="toggleOpen(rootMenu.id)">{{rootMenu.title}}</strong>' + 
+					'<ul class="submenu" ng-repeat="(id, subMenu) in rootSubMenus[$index]" ng-show="menuObj.activeMenuId===id">' +
+						'<lh class="submenu-header" ng-show="id!==rootMenu.id" ng-click="toggleOpen(menuIdMap[id].parentId)">{{menuIdMap[id].title}}</strong></lh>' +
+						'<li class="submenu-item" ng-repeat="item in subMenu">' +
+							'<a class="navbar-link" ng-if="item.url" href={{item.url}}>{{item.title}}</a>' +
+							'<span ng-if="item.subMenus" ng-click="menuObj.activeMenuId=item.id">{{item.title}}</span>' +
+						'</li>' +
+					'</ul>' +
+				'</li>' +
+			'</ul>'
 	};
 }
 
 Navigation.$inject = ['$q', '$compile', '$data'];
 
+// Assigns each subMenu an id if it doesn't already have one.
+// Also maps id to submenu object in menuIdMap
+function assignMenuIds(menus, menuIdMap, parentMenu) {
+
+	var nextId = 0;
+	function getUniqueId() {
+		return '__' + nextId++;
+	}
+
+	angular.forEach(menus, function(menu) {
+		if (!angular.isUndefined(parentMenu)) {
+			menu.parentId = parentMenu.id;
+		}
+		if (angular.isArray(menu.subMenus)) {
+			if (angular.isUndefined(menu.id)) {
+				menu.id = getUniqueId();
+			}
+			menuIdMap[menu.id] = menu;
+			assignMenuIds(menu.subMenus, menuIdMap, menu);
+		}
+	});
+}
+
+// Returns a flat object of every submenu nested within menu
+function getAllSubmenus(menu, subMenus) {
+	if (angular.isArray(menu.subMenus)) {
+		subMenus[menu.id] = menu.subMenus;
+	}
+	angular.forEach(menu.subMenus, function(subMenu) {
+		getAllSubmenus(subMenu, subMenus);
+	});
+}
+
 angular.module('bossy.navigation', ['bossy.data'])
 	.directive('bossyNavigation', Navigation)
 ;
+
