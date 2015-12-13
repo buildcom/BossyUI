@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bossy Navigation Doucumentation</title>
+    <title>BossyUI Navigation Documentation</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/_navigation.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script src="js/bossy.data.js"></script>
-    <script src="js/bossy.navigation.js"></script>
+    <script src="../services/bossy.data.js"></script>
+    <script src="../directives/bossy.navigation.js"></script>
+    <script src="js/navigation.doc.js"></script>
   </head>
-  <body ng-app="bossy.navigation" ng-controller="MyCtrl">
+  <body ng-app="NavigationDoc" ng-controller="navDocCtrl">
     <div>
     <h2>BossyUI Navigation Directive</h2>
     <p>BossyUI's Navigation directive is designed to make it easy to put a navigation bar on your webpage.<br>
@@ -75,17 +76,19 @@
         <div style="width:100%;">
           <div style="float:right; width:50%">
             <div style="text-align:center;">
-              <navigation menu-obj="demo2Menu"></navigation> 
+              <bossy-navigation config="menu1Config"></bossy-navigation> 
             </div>
           </div>
           <div style="float:left; width:50%; background-color:#f1f1f1;">
     <pre>
 
-    <strong>&ltnavigation menu-obj="portfolioMenu"&gt&lt/navigation&gt</strong>
+    <strong>pfMenuConfig</strong> = { menuObj: portfolioMenu };
     <br>
-    <strong>scope.portfolioMenu</strong> = {
+    &ltnavigation config="pfMenuConfig"&gt&lt/navigation&gt
+    <br>
+    <strong>portfolioMenu</strong> = {
 
-        "activeMenuId": "<input ng-model="demo2Menu.activeMenuId">",
+        "activeMenuId": "<input ng-model="menu1Config.menuObj.activeMenuId">",
         "navigation": 
         [
             {
@@ -261,13 +264,14 @@
     <div style="width:100%; float:below">
       <div style="float:right; width:50%">
         <div style="text-align:center;">
-          <navigation menu-url="json/tiger-direct.json"></navigation> 
+          <bossy-navigation config="menu2Config"></bossy-navigation> 
         </div>
       </div>
       <div style="float:left; width:50%; background-color:#f1f1f1;">
 <pre>
 
-<strong>&ltnavigation menu-url="tiger-direct.json"&gt&lt/navigation&gt</strong>
+<strong>tdMenuConfig = { menuUrl: 'tiger-direct.json' }</strong>
+<strong>&ltbossy-navigation config="tdMenuConfig"&gt&lt/bossy-navigation&gt</strong>
 <br>
 <h1>tiger-direct.json</h1>
 {
