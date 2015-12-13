@@ -1,7 +1,32 @@
 /**
  * @param {param} config
- * @param {Object} [config.menuObj] - Object describing menu. See documentation.
- * @param {String} [config.menuUrl] - Path to json file describing menu. See documentation.
+ * @param {Object} [config.menuObj] - Object describing menu. 
+ *  Menu Object Example: 
+ *      {
+ *       "activeMenuId": "resumes",
+ *        "navigation":
+ *        [
+ *            {
+ *             "title": "Home","url": "ebracho.com"
+ *            },
+ *            {
+ *             "title": "Resumes",
+ *             "menuId": "resumes",
+ *             "subMenus":
+ *             [
+ *              {
+ *               "title": "Technical",
+ *               "url": "ebracho.com/resumes/technical"
+ *              },
+ *              {
+ *               "title": "General",
+ *               "url": "ebracho.com/resumes/general"
+ *              }
+ *             ]
+ *            }
+ *         ]
+ *      }
+ * @param {String} [config.menuUrl] - Path to json file describing a menu object.
  */
 function Navigation($q, $compile, $data) {
 	return {
