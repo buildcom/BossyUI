@@ -1,32 +1,6 @@
 /**
  * @param {param} config
- * @param {Object} [config.menuObj] - Object describing menu. 
- *  Menu Object Example: 
- *      {
- *       "activeMenuId": "resumes",
- *        "navigation":
- *        [
- *            {
- *             "title": "Home",
- * 	       "url": "ebracho.com"
- *            },
- *            {
- *             "title": "Resumes",
- *             "menuId": "resumes",
- *             "subMenus":
- *             [
- *              {
- *               "title": "Technical",
- *               "url": "ebracho.com/resumes/technical"
- *              },
- *              {
- *               "title": "General",
- *               "url": "ebracho.com/resumes/general"
- *              }
- *             ]
- *            }
- *         ]
- *      }
+ * @param {Object} [config.menuObj={"activeMenuId": "resumes","navigation":[{"title": "Home","url": "ebracho.com"},{"title": "Resumes","menuId": "resumes","subMenus":[{"title": "Technical","url": "ebracho.com/resumes/technical"},{"title": "General","url": "ebracho.com/resumes/general"}]}]}] - Object describing menu.
  * @param {String} [config.menuUrl] - Path to json file describing a menu object.
  */
 function Navigation($q, $compile, $data) {
@@ -66,14 +40,14 @@ function Navigation($q, $compile, $data) {
 			};
 		},
 		template:
-			'<ul class="navbar">' +
-				'<li class="navbar-item" ng-repeat="rootMenu in menuObj.navigation">' +
-					'<a class="navbar-link" ng-if="rootMenu.url" href={{rootMenu.url}}>{{rootMenu.title}}</a>' +
+			'<ul class="bossy-navbar">' +
+				'<li class="bossy-navbar-item" ng-repeat="rootMenu in menuObj.navigation">' +
+					'<a class="bossy-navbar-link" ng-if="rootMenu.url" href={{rootMenu.url}}>{{rootMenu.title}}</a>' +
 					'<strong ng-if="rootMenu.subMenus" ng-click="toggleOpen(rootMenu.id)">{{rootMenu.title}}</strong>' + 
-					'<ul class="submenu" ng-repeat="(id, subMenu) in rootSubMenus[$index]" ng-show="menuObj.activeMenuId===id">' +
-						'<lh class="submenu-header" ng-show="id!==rootMenu.id" ng-click="toggleOpen(menuIdMap[id].parentId)">{{menuIdMap[id].title}}</strong></lh>' +
-						'<li class="submenu-item" ng-repeat="item in subMenu">' +
-							'<a class="navbar-link" ng-if="item.url" href={{item.url}}>{{item.title}}</a>' +
+					'<ul class="bossy-navbar-submenu" ng-repeat="(id, subMenu) in rootSubMenus[$index]" ng-show="menuObj.activeMenuId===id">' +
+						'<lh class="bossy-navbar-submenu-header" ng-show="id!==rootMenu.id" ng-click="toggleOpen(menuIdMap[id].parentId)">{{menuIdMap[id].title}}</strong></lh>' +
+						'<li class="bossy-navbar-submenu-item" ng-repeat="item in subMenu">' +
+							'<a class="bossy-navbar-link" ng-if="item.url" href={{item.url}}>{{item.title}}</a>' +
 							'<span ng-if="item.subMenus" ng-click="menuObj.activeMenuId=item.id">{{item.title}}</span>' +
 						'</li>' +
 					'</ul>' +
@@ -120,4 +94,3 @@ function getAllSubmenus(menu, subMenus) {
 angular.module('bossy.navigation', ['bossy.data'])
 	.directive('bossyNavigation', Navigation)
 ;
-
