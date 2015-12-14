@@ -24,15 +24,16 @@ app.use('/lib', express.static('site/lib'));
 app.use('/js', express.static('site/js'));
 app.use('/css', express.static('site/css'));
 app.use('/images', express.static('site/images'));
-app.use('/templates', express.static('site/templates'));
+app.use('/templates', express.static('src/documentation'));
 
 app.get('/', function (req, res) {
     res.render('index');
 });
 
 app.get('/documentation', function (req, res) {
+	var directives = getDirectives();
 
-    res.redirect('/sandbox');
+	res.render('documentation', {directives: directives});
 });
 
 app.get('/sandbox', function (req, res) {

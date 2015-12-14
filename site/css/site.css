@@ -148,6 +148,10 @@ main {
     min-height: 650px;
 }
 
+.doc-view {
+    margin: 20px;
+}
+
 /* footer */
 .footer {
     background-color: rgb(0, 118, 168);
