@@ -1,428 +1,361 @@
-
-<table class="table-striped" width="100%">
-  <thead>
-    <tr style="font-size: 30px">
-      <th class="col-md-3">Code Example</th>
-      <th class="col-md-3">Tooltip Example</th>
-    </tr>
-  </thead>
-  <tbody>
+<div ng-controller="TooltipCtrl">
+    <h2>Tooltip Directive</h2>
+    <hr/>
+    <h3>Usage</h3>
+    <pre>&lt;bossy-tooltip config="myConfigObj"&gt;&lt;/bossy-tooltip&gt;</pre>
+    <hr/>
+    <h3>Options</h3>
+    <ul class="list-unstyled">
+        <li><code>config</code> - Object that specifies tooltip configuration.</li>
+        <li><code>config.text</code> - This property is just a raw string of text or can be a string of html markup. If it is a raw string it will be used as the tooltip text. If it is the markup, the markup will be displayed within the tooltip.
+If you don’t want to pass the markup as a string for the “text:” property, you can place the HTML markup within the < bossy-tooltip > tags as long as the markup you are providing is wrapped within < div class=”tooltip-content” > tags. If one decides to provide HTML markup this way, you must set the “transclude” property in the directiveOptions to “True.”
+        </li>
+        <li><code>config.align</code> - This property is used display the tooltip anchor either on the “left” or the “right”. if align is not set, the anchor is defaulted to the middle. Only works when position is set to default (top).</li>
+        <li><code>config.color</code> - This property changes the background color of the tooltip. It is defaulted to black. The possible colors are as follows: “green,” “orange,” “red,” and “blue.” This can be set dynamically after the tool tip is compiled. You can also pass in a color via a custom class.</li>
+        <li><code>config.position</code> -This property is used set the relative positioning of the tooltip. The default setting will display the tooltip above the anchor markup. This can also be set to “bottom”, “left”, or “right”.</li>
+        <li><code>config.type</code> - This property is used to define a more specialized tooltip such as “download” which sets up a download progress that can be adjusted by changing the value of options.progress.</li>
+        <li><code>config.transclude:</code> (the name of this option conflicts with the angular keyword, so the name is a placeholder.) Set this property to true to allow HTML markup to be placed within the < bossy-tooltip ></xmp> tags.</li>
+        <li><code>config.persist:</code> - This property forces the tooltip to display without the user hovering over the anchor text. This will allow the developer to show the tooltip programmatically. This can be set dynamically after the tool tip is compiled.</li>
+        <li><code>config.progress:</code> - This property is used to communicate download progress if you are using the download tooltip. This can be set dynamically after the tool tip is compiled.</li>
+        <li><code>config.icon:</code> - This property allows the developer to insert an ionicon into the tool tip.<a href="http://ionicons.com/"> ionicon page</a></li>
+        <li><code>config.iconFloat:</code> - This property allows the developer to float the icon left or right.</li>
+    </ul>
+    <hr/>
+    <h3>Examples</h3>
     <!-- normal -->
-    <tr>
-      <td>
-        <p>
-          Creating a controller to pass the options into the tooltip:<br>
-          <pre>
-            <code class="language-javascript">
-app.controller('appCtrl', function($scope) {
-$scope.directiveData = {
-text: "This is default text in the tooltip"
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>Code</h4>
+            <p>Pass the options into the tooltip:</p>
+<pre>
+$scope.exp1Config = {
+    text: "This is default text in the tooltip"
 };
-$scope.directiveOptions = {
-};
-            </code>
-          </pre>
-          The HTML that calls the Tooltip:<br>
-          <pre>
-            <code class="language-html">
-              <xmp>
-<div>This is a <bossy-tooltip data="directiveData"
-options="directiveOptions">normal</bossy-tooltip>
-tooltip without any options</div>
-              </xmp>
-            </code>
-          </pre>
-        </p>
-      </td>
-      <td class="tooltip-styles">
-        <div>This is a <bossy-tooltip data="directiveData" options="directiveOptions">normal</bossy-tooltip> tooltip without any options</div>
-      </td>
-    </tr>
+</pre>
+            <br/>
+            <p>The HTML that calls the Tooltip:</p>
+<pre>
+<div>
+This is a &lt;bossy-tooltip config="exp1Options"&gt;normal&lt;/bossy-tooltip&gt; tooltip without any options
+</div>
+</pre>
+            <h4>Results</h4>
+            <div class="well well-lg">
+                This is a <bossy-tooltip config="exp1Config">normal</bossy-tooltip> tooltip without any options
+            </div>
+        </div>
+    </div>
+
     <!-- anchor position -->
-    <tr>
-      <td>
-        <p>
-          Creating a controller to pass the options into the tooltip:<br>
-          <pre>
-            <code class="language-javascript">
-app.controller('appCtrl', function($scope) {
-$scope.directiveData = {
-text: "This is default text in the tooltip"
-};
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>Code</h4>
+            <p>Pass the options into the tooltip:</p>
+<pre>
 // To align the anchor left
-$scope.directiveOptions = {
-align: "left"
+$scope.exp2ConfigLeft = {
+    text: "This is default text in the tooltip",
+    align: "left"
 };
 // To align the anchor right
-$scope.directiveOptions = {
-align: "right"
+$scope.exp2ConfigRight = {
+    text: "This is default text in the tooltip",
+    align: "right"
 };
-            </code>
-          </pre>
-          The HTML that calls the Tooltip:<br>
-          <pre>
-            <code class="language-html">
-              <xmp>
-<!-- To the left -->
-<div>This is a tooltip <bossy-tooltip data="directiveData1"
-options="directiveOptions">aligned</bossy-tooltip> to the
-left</div>
-<!-- To the right -->
-<div>This is a tooltip <bossy-tooltip data="directiveData2"
-options="directiveOptions">aligned</bossy-tooltip> to the
-right</div>
-              </xmp>
-            </code>
-          </pre>
-        </p>
-      </td>
-      <td class="tooltip-styles">
-        <div>This is a tooltip <bossy-tooltip data="directiveData1" options="directiveOptions1">aligned</bossy-tooltip> to the left</div>
-        <br>
-        <br>
-        <br>
-        <div>This is a tooltip <bossy-tooltip data="directiveData2" options="directiveOptions2">aligned</bossy-tooltip> to the right</div>
-      </td>
-    </tr>
-    <!-- Color -->
-    <tr>
-      <td>
-        <p>
-          Creating a controller to pass the options into the tooltip:<br>
-          <pre>
-            <code class="language-javascript">
-app.controller('appCtrl', function($scope) {
-$scope.directiveData = {
-text: "This is default text in the tooltip"
-};
+</pre>
+            <br/>
+            <p>The HTML that calls the Tooltip:</p>
+<pre>
+<div>
+This is a tooptip&lt;bossy-tooltip config="exp2ConfigLeft"&gt;aligned&lt;/bossy-tooltip&gt; to the left
+This is a tooptip&lt;bossy-tooltip config="exp2ConfigRigth"&gt;aligned&lt;/bossy-tooltip&gt; to the right
+</div>
+</pre>
+            <h4>Results</h4>
+            <div class="well well-lg">
+                This is a tooltip <bossy-tooltip config="exp2ConfigLeft">aligned</bossy-tooltip> to the left.
+                <br/>
+                This is a tooltip <bossy-tooltip config="exp2ConfigRight">aligned</bossy-tooltip> to the right.
+            </div>
+        </div>
+    </div>
+
+    <!-- color position -->
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>Code</h4>
+            <p>Pass the options into the tooltip:</p>
+<pre>
 // Set color to green
-$scope.directiveOptions = {
-color: "green"
+$scope.exp3ConfigGreen = {
+    text: "This is default text in the tooltip",
+    color: "green"
 };
 // Set color to orange
-$scope.directiveOptions = {
-color: "orange"
+$scope.exp3ConfigOrange = {
+    text: "This is default text in the tooltip",
+    color: "orange"
 };
 // Set color to red
-$scope.directiveOptions = {
-color: "red"
+$scope.exp3ConfigRed = {
+    text: "This is default text in the tooltip",
+    color: "red"
 };
 // Set color to blue
-$scope.directiveOptions = {
-color: "blue"
+$scope.exp3ConfigBlue = {
+    text: "This is default text in the tooltip",
+    color: "blue"
 };
-            </code>
-          </pre>
-          The HTML that calls the Tooltip:<br>
-          <pre>
-            <code class="language-html">
-              <xmp>
+</pre>
+            <br/>
+            <p>The HTML that calls the Tooltip:</p>
+<pre>
+<xmp>
 <!-- Green -->
-<div>This is a <bossy-tooltip data="directiveData"
-options="directiveOptions">green</bossy-tooltip>
-tooltip</div>
+<div>This is a <bossy-tooltip config="exp3ConfigGreen">green</bossy-tooltip> tooltip</div>
 <!-- Orange -->
-<div>This is a <bossy-tooltip data="directiveData"
-options="directiveOptions">orange</bossy-tooltip>
-tooltip</div>
+<div>This is a <bossy-tooltip dconfig="exp3ConfigOrange">orange</bossy-tooltip> tooltip</div>
 <!-- Red -->
-<div>This is a <bossy-tooltip data="directiveData"
-options="directiveOptions">red</bossy-tooltip>
-tooltip</div>
+<div>This is a <bossy-tooltip config="exp3ConfigRed">red</bossy-tooltip> tooltip</div>
 <!-- Blue -->
-<div>This is a <bossy-tooltip data="directiveData"
-options="directiveOptions">blue</bossy-tooltip>
-tooltip</div>
-              </xmp>
-            </code>
-          </pre>
-        </p>
-      </td>
-      <td class="tooltip-styles">
-        <div>This is a <bossy-tooltip data="directiveData3" options="directiveOptions3">green</bossy-tooltip> tooltip</div>
-        <br>
-        <br>
-        <div>This is a <bossy-tooltip data="directiveData4" options="directiveOptions4">orange</bossy-tooltip> tooltip</div>
-        <br>
-        <br>
-        <div>This is a <bossy-tooltip data="directiveData5" options="directiveOptions5">red</bossy-tooltip> tooltip</div>
-        <br>
-        <br>
-        <div>This is a <bossy-tooltip data="directiveData6" options="directiveOptions6">blue</bossy-tooltip> tooltip</div>
-      </td>
-    </tr>
+<div>This is a <bossy-tooltip config="exp3ConfigBlue">blue</bossy-tooltip> tooltip</div>
+</xmp>
+</pre>
+            <h4>Results</h4>
+            <div class="well well-lg">
+                <!-- Green -->
+                <div>This is a <bossy-tooltip config="exp3ConfigGreen">green</bossy-tooltip> tooltip</div>
+                <br/>
+                <!-- Orange -->
+                <div>This is a <bossy-tooltip config="exp3ConfigOrange">orange</bossy-tooltip> tooltip</div>
+                <br/>
+                <!-- Red -->
+                <div>This is a <bossy-tooltip config="exp3ConfigRed">red</bossy-tooltip> tooltip</div>
+                <br/>
+                <!-- Blue -->
+                <div>This is a <bossy-tooltip config="exp3ConfigBlue">blue</bossy-tooltip> tooltip</div>
+            </div>
+        </div>
+    </div>
+
     <!-- position -->
-    <tr>
-      <td>
-        <p>
-          Creating a controller to pass the options into the tooltip:<br>
-          <pre>
-            <code class="language-javascript">
-app.controller('appCtrl', function($scope) {
-$scope.directiveData = {
-text: "This is default text in the tooltip"
-};
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>Code</h4>
+            <p>Pass the options into the tooltip:</p>
+<pre>
 // Set position to top(default)
-$scope.directiveOptions = {
+$scope.exp4ConfigTop = {
+    text: "This is default text in the tooltip",
+    position: "top"
 };
 // Set position to left
-$scope.directiveOptions = {
-position: "left"
+$scope.exp4ConfigLeft = {
+    text: "This is default text in the tooltip",
+    position: "left"
 };
 // Set position to right
-$scope.directiveOptions = {
-position: "right"
+$scope.exp4ConfigRight = {
+    text: "This is default text in the tooltip",
+    position: "right"
 };
 // Set position to bottom
-$scope.directiveOptions = {
-position: "bottom"
+$scope.exp4ConfigBottom = {
+    text: "This is default text in the tooltip",
+    position: "bottom"
 };
-            </code>
-          </pre>
-          The HTML that calls the Tooltip:<br>
-          <pre>
-            <code class="language-html">
-              <xmp>
+</pre>
+            <br/>
+            <p>The HTML that calls the Tooltip:</p>
+<pre>
+<div>
+<xmp>
 <!-- top -->
-<div>This is a tooltip <bossy-tooltip data="directiveData"
-options="directiveOptions"><a href="#">positioned</a>
-</bossy-tooltip> on the top</div>
+<div>This is a tooltip <bossy-tooltip config="exp4ConfigTop"><a href="#">positioned</a></bossy-tooltip> on the top</div>
 <!-- left -->
-<div>This is a tooltip <bossy-tooltip data="directiveData"
-options="directiveOptions"><button>positioned</button>
-</bossy-tooltip> on the left</div>
+<div>This is a tooltip <bossy-tooltip config="exp4ConfigLeft"><button>positioned</button></bossy-tooltip> on the left</div>
 <!-- right -->
-<div>This is a tooltip <bossy-tooltip data="directiveData"
-options="directiveOptions">positioned</bossy-tooltip> on
-the right</div>
+<div>This is a tooltip <bossy-tooltip config="exp4ConfigRight">positioned</bossy-tooltip> on the right</div>
 <!-- bottom -->
-<div>This is a tooltip <bossy-tooltip data="directiveData"
-options="directiveOptions">positioned</bossy-tooltip> on
-the bottom</div>
-              </xmp>
-            </code>
-          </pre>
-        </p>
-      </td>
-      <td class="tooltip-styles">
-        <div>This is a tooltip <bossy-tooltip data="directiveData" options="directiveOptions">positioned</bossy-tooltip> on the top</div>
-        <br>
-        <br>
-        <div>This is a tooltip <bossy-tooltip data="directiveData7" options="directiveOptions7"><a href="#">positioned</a></bossy-tooltip> on the left</div>
-        <br>
-        <br>
-        <div>This is a tooltip <bossy-tooltip data="directiveData8" options="directiveOptions8"><button>positioned</button></bossy-tooltip> on the right</div>
-        <br>
-        <br>
-        <div>This is a tooltip <bossy-tooltip data="directiveData9" options="directiveOptions9">positioned</bossy-tooltip> on the bottom</div>
-      </td>
-    </tr>
+<div>This is a tooltip <bossy-tooltip config="exp4ConfigBottom">positioned</bossy-tooltip> on the bottom</div>
+</xmp>
+</div>
+</pre>
+            <h4>Results</h4>
+            <div class="well well-lg">
+                <div>This is a tooltip <bossy-tooltip config="exp4ConfigTop">positioned</bossy-tooltip> on the top</div>
+                <br>
+                <br>
+                <div>This is a tooltip <bossy-tooltip config="exp4ConfigLeft">positioned</bossy-tooltip> on the left</div>
+                <br>
+                <br>
+                <div>This is a tooltip <bossy-tooltip config="exp4ConfigRight">positioned</bossy-tooltip> on the right</div>
+                <br>
+                <br>
+                <div>This is a tooltip <bossy-tooltip config="exp4ConfigBottom">positioned</bossy-tooltip> on the bottom</div>
+            </div>
+        </div>
+    </div>
+
     <!-- type -->
-    <tr>
-      <td>
-        <p>
-          Creating a controller to pass the options into the tooltip:<br>
-          <pre>
-            <code class="language-javascript">
-app.controller('appCtrl', function($scope) {
-$scope.directiveData = {
-text: <xmp>"<div style=\"font-size: 15px;\"><img src=\"http:/
-/i.imgur.com/2yY7WNF.jpg\"><b>This is bold text within
-the tooltip</b><span>that is normal text in the tooltip
-</span></div>"</xmp>
-};
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>Code</h4>
+            <p>Pass the options into the tooltip:</p>
+<pre>
 // Set type to download
-$scope.directiveOptions = {
-type: "downnload",
-icon: "ion-ios-download-outline"
-persist: true
+$scope.exp5Config = {
+    text: "<b>This is bold text within the tooltip</b><span>that is normal text in the tooltip</span>",
+    type: "downnload",
+    icon: "ion-ios-download-outline",
+    persist: true
 };
-            </code>
-          </pre>
-          The HTML that calls the Tooltip:<br>
-          <pre>
-            <code class="language-html">
-              <xmp>
-<!-- HTML -->
-<div>This is a <bossy-tooltip data="directiveData"
-options="directiveOptions">HTML</bossy-tooltip>
-type of tooltip</div>
+</pre>
+            <br/>
+            <p>The HTML that calls the Tooltip:</p>
+<pre>
+<xmp>
 <!-- downlod -->
-<div>This is a <bossy-tooltip data="directiveData"
-options="directiveOptions"> download</bossy-tooltip>
-type of tooltip</div>
-              </xmp>
-            </code>
-          </pre>
-        </p>
-      </td>
-      <td class="tooltip-styles">
-        <div>This is a <bossy-tooltip data="directiveData10" options="directiveOptions10">HTML</bossy-tooltip> type of tooltip</div>
-        <br>
-        <br>
-        <br>
-        <div>This is a <bossy-tooltip data="directiveData11" options="directiveOptions11">download</bossy-tooltip> type of tooltip</div>
-        <button ng-click="progressBar()" style="font-size: 15px">Progress</button>
-        <button ng-click="progressReset()" style="font-size: 15px">Reset</button>
-      </td>
-    </tr>
-    <!-- transclude -->
-    <tr>
-      <td>
-        <p>
-          Creating a controller to pass the options into the tooltip:<br>
-          <pre>
-            <code class="language-javascript">
-app.controller('appCtrl', function($scope) {
-$scope.directiveData = {
-text: "This is default text in the tooltip"
-};
-$scope.directiveOptions = {
-transclude: true
-};
-            </code>
-          </pre>
-          The HTML that calls the Tooltip:<br>
-          <pre>
-            <code class="language-html">
-              <xmp>
-<div>This is a <bossy-tooltip data="directiveData14"
-options="directiveOptions14"><div class="tooltip-
-content"><div style="font-size: 15px;"><img src=
-"http://i.imgur.com/2yY7WNF.jpg"><b>This is bold text
-within the tooltip</b><span>that is normal text in
-the tooltip</span></div></div>tooltip</bossy-tooltip>
-using transclude</div>
-              </xmp>
-            </code>
-          </pre>
-        </p>
-      </td>
-      <td class="tooltip-styles">
-        <div>This is a <bossy-tooltip data="directiveData14" options="directiveOptions14"><div class="tooltip-content"><div style="font-size: 15px;"><img src="http://i.imgur.com/2yY7WNF.jpg"><b>This is bold text within the tooltip</b><span>that is normal text in the tooltip</span></div></div>tooltip</bossy-tooltip> using transclude</div>
-      </td>
-    </tr>
-    <!-- persist -->
-    <tr>
-      <td>
-        <p>
-          Creating a controller to pass the options into the tooltip:<br>
-          <pre>
-            <code class="language-javascript">
-app.controller('appCtrl', function($scope) {
-$scope.directiveData = {
-text: "This is default text in the tooltip"
-};
-// Set persist to true
-$scope.directiveOptions = {
-persist: true
-};
-// Set persist to false
-$scope.directiveOptions = {
-persist: false
-};
-            </code>
-          </pre>
-          The HTML that calls the Tooltip:<br>
-          <pre>
-            <code class="language-html">
-              <xmp>
-<div>This is a <bossy-tooltip data="directiveData"
-options="directiveOptions">tooltip</bossy-tooltip>
-you can make persist</div>
-              </xmp>
-            </code>
-          </pre>
-        </p>
-      </td>
-      <td class="tooltip-styles">
-        <div>This is a <bossy-tooltip data="directiveData12" options="directiveOptions12">tooltip</bossy-tooltip> you can make persist</div>
-        <button ng-click="togglePersist()" style="font-size: 15px">Persist</button>
-      </td>
-    </tr>
-    <!-- icon -->
-    <tr>
-      <td>
-        <p>
-          Creating a controller to pass the options into the tooltip:<br>
-          <pre>
-            <code class="language-javascript">
-app.controller('appCtrl', function($scope) {
-$scope.directiveData = {
-text: "This is default text in the tooltip"
-};
-// Set iconFloat to left
-$scope.directiveOptions = {
-icon: "ion-scissors",
-iconFloat: "left"
-};
-// Set iconFloat to right
-$scope.directiveOptions = {
-icon: "ion-scissors",
-iconFloat: "right"
-};
-            </code>
-          </pre>
-          The HTML that calls the Tooltip:<br>
-          <pre>
-            <code class="language-html">
-              <xmp>
-<div>This is a <bossy-tooltip data="directiveData"
-options="directiveOptions">tooltip</bossy-tooltip>
-with a icon</div>
-              </xmp>
-            </code>
-          </pre>
-        </p>
-      </td>
-      <td class="tooltip-styles">
-        <div>This is a <bossy-tooltip data="directiveData13" options="directiveOptions13">tooltip</bossy-tooltip> with a icon on the left</div>
-        <br>
-        <br>
-        <br>
-        <div>This is a <bossy-tooltip data="directiveData15" options="directiveOptions15">tooltip</bossy-tooltip> with a icon on the right</div>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<br>
+<div>This is a <bossy-tooltip config="exp5Config"> download</bossy-tooltip> type of tooltip</div>
+</xmp>
+</pre>
+            <h4>Results</h4>
+            <div class="well well-lg">
+                <div>This is a <bossy-tooltip config="exp5Config">download</bossy-tooltip> type of tooltip</div>
+            </div>
+        </div>
+    </div>
 
-<!-- listing the documentation -->
-<ul class="list-group">
-  <li><h2>Options Bossy UI Tooltip currently supports:</h2>
-    <ul>
-      <li><h3>directiveData choices:</h3>
-        <ul>
-          <li><b>text:</b></li>
-          <li style="list-style-type:none">This property is just a raw string of text or can be a string of html markup. If it is a raw string it will be used as the tooltip text. If it is the markup, the markup will be displayed within the tooltip.
-            <ul>
-             <li style="list-style-type:none">If you don’t want to pass the markup as a string for the “text:” property, you can place the HTML markup within the < bossy-tooltip > tags as long as the markup you are providing is wrapped within < div class=”tooltip-content” > tags. If one decides to provide HTML markup this way, you must set the “transclude” property in the directiveOptions to “True.”</li>
 
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><h3>directiveOptions choices:</h3>
-        <ul>
-          <li><b>align:</b></li>
-          <li style="list-style-type:none">This property is used display the tooltip anchor either on the “left” or the “right”. if align is not set, the anchor is defaulted to the middle. Only works when position is set to default (top).</li>
-          <li><b>color:</b></li>
-          <li style="list-style-type:none">This property changes the background color of the tooltip. It is defaulted to black. The possible colors are as follows: “green,” “orange,” “red,” and “blue.” This can be set dynamically after the tool tip is compiled. You can also pass in a color via a custom class.</li>
-          <li><b>position:</b></li>
-          <li style="list-style-type:none">This property is used set the relative positioning of the tooltip. The default setting will display the tooltip above the anchor markup. This can also be set to “bottom”, “left”, or “right”.</li>
-          <li><b>type:</b></li>
-          <li style="list-style-type:none">This property is used to define a more specialized tooltip such as “download” which sets up a download progress that can be adjusted by changing the value of options.progress.</li>
-          <li><b>transclude:</b></li>
-          <li style="list-style-type:none">(the name of this option conflicts with the angular keyword, so the name is a placeholder.) Set this property to true to allow HTML markup to be placed within the < bossy-tooltip ></xmp> tags.</li>
-          <li><b>persist:</b></li>
-          <li style="list-style-type:none">This property forces the tooltip to display without the user hovering over the anchor text. This will allow the developer to show the tooltip programmatically. This can be set dynamically after the tool tip is compiled.</li>
-          <li><b>progress:</b></li>
-          <li style="list-style-type:none">This property is used to communicate download progress if you are using the download tooltip. This can be set dynamically after the tool tip is compiled.</li>
-          <li><b>icon:</b></li>
-          <li style="list-style-type:none">This property allows the developer to insert an ionicon into the tool tip.<a href="http://ionicons.com/"> ionicon page</a></li>
-          <li><b>iconFloat:</b></li>
-          <li style="list-style-type:none">This property allows the developer to float the icon left or right.</li>
-        </ul>
-      </li>
-    </li>
-</ul>
+
+</div>
+
+
+
+
+
+
+
+
+
+    <!--&lt;!&ndash; transclude &ndash;&gt;-->
+    <!--<tr>-->
+      <!--<td>-->
+        <!--<p>-->
+          <!--Creating a controller to pass the options into the tooltip:<br>-->
+          <!--<pre>-->
+            <!--<code class="language-javascript">-->
+<!--app.controller('appCtrl', function($scope) {-->
+<!--$scope.directiveData = {-->
+<!--text: "This is default text in the tooltip"-->
+<!--};-->
+<!--$scope.directiveOptions = {-->
+<!--transclude: true-->
+<!--};-->
+            <!--</code>-->
+          <!--</pre>-->
+          <!--The HTML that calls the Tooltip:<br>-->
+          <!--<pre>-->
+            <!--<code class="language-html">-->
+              <!--<xmp>-->
+<!--<div>This is a <bossy-tooltip data="directiveData14"-->
+<!--options="directiveOptions14"><div class="tooltip--->
+<!--content"><div style="font-size: 15px;"><img src=-->
+<!--"http://i.imgur.com/2yY7WNF.jpg"><b>This is bold text-->
+<!--within the tooltip</b><span>that is normal text in-->
+<!--the tooltip</span></div></div>tooltip</bossy-tooltip>-->
+<!--using transclude</div>-->
+              <!--</xmp>-->
+            <!--</code>-->
+          <!--</pre>-->
+        <!--</p>-->
+      <!--</td>-->
+      <!--<td class="tooltip-styles">-->
+        <!--<div>This is a <bossy-tooltip data="directiveData14" options="directiveOptions14"><div class="tooltip-content"><div style="font-size: 15px;"><img src="http://i.imgur.com/2yY7WNF.jpg"><b>This is bold text within the tooltip</b><span>that is normal text in the tooltip</span></div></div>tooltip</bossy-tooltip> using transclude</div>-->
+      <!--</td>-->
+    <!--</tr>-->
+    <!--&lt;!&ndash; persist &ndash;&gt;-->
+    <!--<tr>-->
+      <!--<td>-->
+        <!--<p>-->
+          <!--Creating a controller to pass the options into the tooltip:<br>-->
+          <!--<pre>-->
+            <!--<code class="language-javascript">-->
+<!--app.controller('appCtrl', function($scope) {-->
+<!--$scope.directiveData = {-->
+<!--text: "This is default text in the tooltip"-->
+<!--};-->
+<!--// Set persist to true-->
+<!--$scope.directiveOptions = {-->
+<!--persist: true-->
+<!--};-->
+<!--// Set persist to false-->
+<!--$scope.directiveOptions = {-->
+<!--persist: false-->
+<!--};-->
+            <!--</code>-->
+          <!--</pre>-->
+          <!--The HTML that calls the Tooltip:<br>-->
+          <!--<pre>-->
+            <!--<code class="language-html">-->
+              <!--<xmp>-->
+<!--<div>This is a <bossy-tooltip data="directiveData"-->
+<!--options="directiveOptions">tooltip</bossy-tooltip>-->
+<!--you can make persist</div>-->
+              <!--</xmp>-->
+            <!--</code>-->
+          <!--</pre>-->
+        <!--</p>-->
+      <!--</td>-->
+      <!--<td class="tooltip-styles">-->
+        <!--<div>This is a <bossy-tooltip data="directiveData12" options="directiveOptions12">tooltip</bossy-tooltip> you can make persist</div>-->
+        <!--<button ng-click="togglePersist()" style="font-size: 15px">Persist</button>-->
+      <!--</td>-->
+    <!--</tr>-->
+    <!--&lt;!&ndash; icon &ndash;&gt;-->
+    <!--<tr>-->
+      <!--<td>-->
+        <!--<p>-->
+          <!--Creating a controller to pass the options into the tooltip:<br>-->
+          <!--<pre>-->
+            <!--<code class="language-javascript">-->
+<!--app.controller('appCtrl', function($scope) {-->
+<!--$scope.directiveData = {-->
+<!--text: "This is default text in the tooltip"-->
+<!--};-->
+<!--// Set iconFloat to left-->
+<!--$scope.directiveOptions = {-->
+<!--icon: "ion-scissors",-->
+<!--iconFloat: "left"-->
+<!--};-->
+<!--// Set iconFloat to right-->
+<!--$scope.directiveOptions = {-->
+<!--icon: "ion-scissors",-->
+<!--iconFloat: "right"-->
+<!--};-->
+            <!--</code>-->
+          <!--</pre>-->
+          <!--The HTML that calls the Tooltip:<br>-->
+          <!--<pre>-->
+            <!--<code class="language-html">-->
+              <!--<xmp>-->
+<!--<div>This is a <bossy-tooltip data="directiveData"-->
+<!--options="directiveOptions">tooltip</bossy-tooltip>-->
+<!--with a icon</div>-->
+              <!--</xmp>-->
+            <!--</code>-->
+          <!--</pre>-->
+        <!--</p>-->
+      <!--</td>-->
+      <!--<td class="tooltip-styles">-->
+        <!--<div>This is a <bossy-tooltip data="directiveData13" options="directiveOptions13">tooltip</bossy-tooltip> with a icon on the left</div>-->
+        <!--<br>-->
+        <!--<br>-->
+        <!--<br>-->
+        <!--<div>This is a <bossy-tooltip data="directiveData15" options="directiveOptions15">tooltip</bossy-tooltip> with a icon on the right</div>-->
+      <!--</td>-->
+    <!--</tr>-->
+  <!--</tbody>-->
+<!--</table>-->
+<!--<br>-->
+

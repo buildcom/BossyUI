@@ -1,0 +1,198 @@
+<div ng-controller="NavigationCtrl">
+    <h2>Navigation Directive</h2>
+
+    <p>BossyUI's Navigation directive is designed to make it easy to put a navigation bar on your webpage.<br>
+        Our menus have an identification system which allows you to pre-select a defaul menu to be open on page startup.<br>
+        By hiding extraneous submenus from view as you click, we take the clutter out of deep menu navigation.<br></p>
+    <hr>
+    <h3>Usage</h3>
+
+    <p>Creating the navigation menu is as easy as creating any standard html tag:</p>
+    <pre>&lt;bossy-navigation config="myConfigObj"&gt;&lt;/bossy-navigation&gt;</pre>
+    <hr>
+    <h3>Options</h3>
+    <ul class="list-unstyled">
+        <li>
+            <code>config</code> - Object that specifies navbar configuration. One of the following are required to
+            build a navigation bar:
+        </li>
+        <li>
+            <code>config.menuObj</code> - Object that specifies menu data/layout, as per the following example.
+            <br/>
+
+            <p>
+                <em>Note: User need not specify an id for each menu, as our directive will generate unique menu
+                    id's if this attribute is <a href="#tiger">unspecified</a>.
+                </em>
+            </p>
+<pre>
+{
+    activeMenuId: 'menu1', //activeMenuId allows you to use a reference to a submenu to pre-select which menu you would like to be open.
+    navigation: [
+        {
+            title: 'Menu1',
+            id: 'menu1',
+            subMenus: [
+                {
+                    title: 'Nested1',
+                    id: 'nested1',
+                    subMenus: [
+                        {
+                            title: 'Nested2',
+                            url: 'nested2.com'
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            title: 'Menu2',
+            url: 'menu2.com'
+        }
+    ]
+}
+</pre>
+        </li>
+        <li>
+            <code>config.menuUrl</code> - URL of API endpoint containing a menuObj, configured as the example above.
+            <br/>
+            This flexibility in design allows you to either specify a menu object in-line, or clean it up by putting it in a .json file, or even to get the object from a remote source via url.
+        </li>
+    </ul>
+    <hr>
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Examples</h3>
+            <br/>
+            <p>
+                1. The following example uses a menu object which has user-defined menu ids. Note that we can simply change the activeMenuId to change which menu item we want to be open.
+            </p>
+            <br/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+<pre>
+pfMenuConfig = { menuObj: portfolioMenu };
+
+portfolioMenu = {
+    "activeMenuId": "<input ng-model="menu1Config.menuObj.activeMenuId">",
+    "navigation": [
+        {
+            "title": "Home",
+            "url": "http://www.bossyui.io/"
+        },
+        {
+            "title": "Resumes",
+            "menuId": "resumes",
+            "subMenus":
+            [
+                {
+                    "title": "Technical",
+                    "url": "https://www.linkedin.com/in/eddie-bracho-00b8ab84"
+                },
+                {
+                    "title": "General",
+                    "url": "https://www.linkedin.com/in/eddie-bracho-00b8ab84"
+                }
+            ]
+        },
+        {
+            "title": "Projects",
+            "menuId": "projects",
+            "subMenus":
+            [
+                {
+                    "title": "Python",
+                    "menuId": "python",
+                    "subMenus":
+                    [
+                        {
+                            "title": "Artificial Neural Network",
+                            "url": "https://github.com/ebracho/ANN"
+                        },
+                        {
+                            "title": "Boolean Expression Interpreter",
+                            "url": "https://github.com/ebracho/Boolean_Expression_Interpreter"
+                        },
+                        {
+                            "title": "Tetris Clone",
+                            "url": "https://github.com/ebracho/Tetris"
+                        },
+                        {
+                            "title": "Irc Bot",
+                            "url": "https://github.com/ebracho/kazbot"
+                        }
+                    ]
+                },
+                {
+                    "title": "Javascript",
+                    "menuId": "javascript",
+                    "subMenus":
+                    [
+                        {
+                            "title": "Navigation",
+                            "url": "https://github.com/ebracho/BossyUI/tree/NAVIGATION-170"
+                        },
+                        {
+                            "title": "Autocomplete",
+                            "url": "https://github.com/ebracho/BossyUI/tree/AUTOCOMPLETE-163"
+                        }
+                    ]
+                },
+                {
+                    "title": "C++",
+                    "menuId": "c++",
+                    "subMenus":
+                    [
+                        {
+                            "title": "Matrix Library",
+                            "url": "ebracho.com/projects/c++/matrix_library"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Github",
+            "url": "http://github.com/ebracho"
+        }
+    ]
+};
+</pre>
+        </div>
+        <div class="col-sm-6">
+            <pre>&ltnavigation config="pfMenuConfig"&gt&lt/navigation&gt</pre>
+            <hr/>
+            <bossy-navigation config="menu1Config"></bossy-navigation>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <br/>
+            <p id="tiger">
+                2. In this example, we take a very large menu and show how our navigation bar cleans up its navigation by restricting the amount of screen real-estate that the menu occupies.
+            </p>
+            <br/>
+            <p>
+                With the standard <a href="http://www.tigerdirect.com" target="_blank">Tiger Direct</a> menu, the screen is very quickly cluttered with the various submenus which belong to the navigation bar.
+            </p>
+            <p><a href="/templates/js/tigerdirect.json">tiger-direct.json</a></p>
+            <br/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+        <pre>
+tdMenuConfig = {
+    menuUrl: 'tiger-direct.json',
+}
+</pre>
+        </div>
+        <div class="col-sm-6">
+            <pre>&ltbossy-navigation config="tdMenuConfig"&gt&lt/bossy-navigation&gt</pre>
+            <hr/>
+            <bossy-navigation config="menu2Config"></bossy-navigation>
+        </div>
+    </div>
+</div>

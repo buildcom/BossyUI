@@ -1,0 +1,55 @@
+<div ng-controller="AutocompleteCtrl">
+    <h2>Autocomplete Directive</h2>
+    <p>Bossy-autocomplete creates input element that matches an input string to strings in a provided dictionary.</p>
+    <hr>
+    <h3>Usage</h3>
+    <pre><code>&ltbossy-autocomplete config="myConfigObj"&gt&lt/bossy-autocomplete&gt</code></pre>
+    <hr>
+    <h3>Options</h3>
+    <ul class="list-unstyled">
+        <li><code>config</code> - Object that specifies autocomplete configuration.</li>
+        <li><code>config.dict</code> - Array of strings to be recognized.</li>
+        <li><code>config.maxCorrections</code> - Maximum number of edits to be applied when matching input.  Defaults to 0.</li>
+        <li><code>config.maxSuggestions</code> - Maximum number of suggestions offered for input. Defaults to 5.</li>
+    </ul>
+    <hr>
+    <h3>Behavior</h3>
+    <p>An input string will be matched with dictionary strings if:</p>
+    <ul class="list-styled">
+        <li>A string in the dictionary starts with the input string.</li>
+        <li>The input string can be corrected to match a string in the dictionary within a specified number of edits.</li>
+    </ul>
+    <p>Suggested matches are displayed below the input element and can be clicked to be applied to the input element.</p>
+    <hr>
+    <h3>Examples</h3>
+    <ul class="list-unstyled">
+        <li>
+            <p>1. 50 States (no correction)</p>
+            <br/>
+            <pre>
+    myConfigObj = {
+        dict: ['Alabama', 'Alaska', 'Wyoming']
+    }
+            </pre>
+            <div class="well well-lg">
+                <bossy-autocomplete config="ex1Config"></bossy-autocomplete>
+            </div>
+        </li>
+        <li>
+            <p>2. 50 States (with correction)</p>
+            <br/>
+            <pre>
+    myConfigObj = {
+        dict: ['Alabama', 'Alaska', 'Wyoming'],
+        maxCorrections: 3,
+        maxSuggestions: 8
+    }
+            </pre>
+            <div class="well well-lg">
+                <bossy-autocomplete config="ex2Config"></bossy-autocomplete>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
