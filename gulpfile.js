@@ -29,6 +29,7 @@ gulp.task('site', 'Runs BossyUI Site', function(callback) {
 		'build-js',
         'watch',
 		'site-serve',
+		'copy-images',
 		callback);
 });
 
@@ -38,6 +39,7 @@ gulp.task('site-install', 'Installs BossyUI Site', function(callback) {
 		'site-libs',
 		'build-sass',
 		'build-js',
+		'copy-images',
 		callback);
 });
 
@@ -60,6 +62,12 @@ gulp.task('build-js', 'Runs build for all lib Javascript', function() {
 		.pipe(uglify({ mangle: false }))
 		.pipe(sourcemaps.write('../maps'))
 		.pipe(gulp.dest(config.paths.js.dist));
+});
+
+gulp.task('copy-images', 'Copy images for release', function() {
+	return gulp
+		.src('src/images/**')
+		.pipe(gulp.dest('dist/images'));
 });
 
 gulp.task('copy-templates', 'Copy templates for release', function() {
