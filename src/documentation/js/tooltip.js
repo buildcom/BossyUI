@@ -56,10 +56,11 @@ function TooltipCtrl ($scope) {
 	};
 
 	$scope.exp5Config = {
-		text: "<b>This is bold text within the tooltip</b><span> that is normal text in the tooltip</span>",
-		type: "downnload",
+		text: "<b>Download File</b>",
+		type: "download",
+		color: "green",
 		icon: "ion-ios-download-outline",
-		persist: true
+		progress: '40'
 	};
 }
 
