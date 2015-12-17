@@ -20,28 +20,28 @@ function Tooltip () {
 		controller: TooltipController,
 		transclude: true,
 		link: function (scope, elem, attr) {
-			
+
 			// If the user decides to pass html content through the markup
 			if (scope.config.transclude === true) {
 				var tooltipHtml = elem.find('div');
 				var index = 0;
-				
+
 				while (tooltipHtml.length && !tooltipHtml.hasClass('tooltip-content')) {
 					tooltipHtml = tooltipHtml.find('div');
 					index++;
 				}
-				
+
 				if (tooltipHtml.length) {
 					scope.config.text = tooltipHtml.html();
 					tooltipHtml[index].remove();
 				}
-				
+
 				// Throw error if tool tip content is empty
 				if (!scope.config.text) {
 					console.error('You must include content for tool tip.');
 				}
 			}
-			
+
 		},
 		template: '<span class="bossy-tooltip">' +
 		'<span class="link">' +
@@ -60,11 +60,11 @@ function Tooltip () {
 Tooltip.$inject = [];
 
 function TooltipController ($scope) {
-	
+
 	$scope.setAlignment = function (alignment) {
 		// Anchor Alignment
 		var alignmentClass = '';
-		
+
 		if (alignment) {
 			if (alignment.toLowerCase() === 'left') {
 				alignmentClass = 'bossy-tooltip-align-left';
@@ -73,26 +73,26 @@ function TooltipController ($scope) {
 				alignmentClass = 'bossy-tooltip-align-right';
 			}
 		}
-		
+
 		return alignmentClass;
 	};
-	
+
 	$scope.setActive = function (persist) {
 		// Force tooltip to persist without hovering
 		var activeClass = '';
-		
+
 		if (persist) {
 			activeClass = 'active';
 		}
-		
+
 		return activeClass;
 	};
-	
+
 	$scope.setPositioning = function (position) {
 		// tooltipPosition handles the position of the whole tooltip,
 		// above, below, right, or left of the element requiring a tooltip
 		var positionClass = '';
-		
+
 		if (position) {
 			if (position.toLowerCase() === 'left') {
 				positionClass = 'bossy-tooltip-pos-left';
@@ -104,27 +104,27 @@ function TooltipController ($scope) {
 				positionClass = 'bossy-tooltip-pos-bottom';
 			}
 		}
-		
+
 		return positionClass;
 	};
-	
+
 	$scope.setContentType = function (type) {
 		// Content type
 		var contentType = '';
-		
+
 		if (type) {
 			if (type.toLowerCase() === 'download') {
 				contentType = 'download';
 			}
 		}
-		
+
 		return contentType;
 	};
-	
+
 	$scope.setIconFloat = function (direction) {
 		// Float icon to left or right
 		var iconDirection = '';
-		
+
 		if (direction) {
 			if (direction.toLowerCase() === 'left') {
 				iconDirection = 'icon-left';
@@ -133,17 +133,17 @@ function TooltipController ($scope) {
 				iconDirection = 'icon-right';
 			}
 		}
-		
+
 		return iconDirection;
 	};
-	
+
 	function initialize () {
-		
+
 		// Throw an error if text is not given
 		if (!$scope.config.text && $scope.config.transclude !== true) {
 			console.error('You must include content for tool tip.');
 		}
-		
+
 		// Fail safe in case config are not given
 		if (!$scope.config) {
 			$scope.config = {
@@ -159,7 +159,7 @@ function TooltipController ($scope) {
 			};
 		}
 	}
-	
+
 	initialize();
 }
 
