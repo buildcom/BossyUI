@@ -38,7 +38,7 @@ describe('Tooltip Directive:', function() {
   it('toolTip tooltip text should be "Tooltip Text"', function(){
     scope.config = {text: 'Tooltip Text'};
     scope.$digest();
-
+    
     var iscope = element.isolateScope();
     expect(iscope.config.text).toEqual('Tooltip Text');
   });
@@ -71,7 +71,7 @@ describe('Tooltip Directive:', function() {
 		iconFloat: 'right'
     };
     scope.$digest();
-
+  
     var iscope = element.isolateScope();
     expect(iscope.config).toEqual(scope.config);
     expect(iscope.config.text).toEqual(scope.config.text);
@@ -194,7 +194,7 @@ describe('Tooltip Directive:', function() {
     divElement = element.find("div");
     expect(divElement.hasClass("bossy-tooltip-pos-bottom")).toBeTruthy();
   });
-
+  
   // Persist
   it('toolTip should be be visible via "active" class when persist is true', function(){
     scope.config = {text: 'Tooltip Text', persist: true};
@@ -203,7 +203,7 @@ describe('Tooltip Directive:', function() {
     var divElement = element.find("div");
     expect(divElement.hasClass("active")).toBeTruthy();
   });
-
+  
   // Transclude
   it('toolTip transclude, html content between ', function(){
     element = angular.element('<bossy-tooltip config="config">Anchor<div class="tooltip-content"><b>transclude tooltip text</b></div></bossy-tooltip>');
@@ -214,7 +214,7 @@ describe('Tooltip Directive:', function() {
     var divElement = element.find("b");
     expect(divElement.text()).toEqual('transclude tooltip text');
   });
-
+  
   // Type - Download
   it('toolTip type: download, should apply download class', function(){
     scope.config = {text: 'Tooltip Text', type: 'download'};
@@ -223,7 +223,7 @@ describe('Tooltip Directive:', function() {
     var divElement = element.find("div");
     expect(divElement.hasClass("download")).toBeTruthy();
   });
-
+  
   it('toolTip type: download, should apply "progress-bar" class', function(){
     scope.config = {text: 'Tooltip Text', type: 'download'};
     scope.$digest();
@@ -231,7 +231,7 @@ describe('Tooltip Directive:', function() {
     var divElement = element.find("div").find("div");
     expect(divElement.hasClass("progress-bar")).toBeTruthy();
   });
-
+  
   it('toolTip type: download, should apply "progress" percent styling to progress bar element', function(){
     scope.config = {text: 'Tooltip Text', type: 'download', progress: '10'};
     scope.$digest();
@@ -243,14 +243,14 @@ describe('Tooltip Directive:', function() {
     divElement = angular.element(divElement[0]);
     expect(divElement.css('width')).toEqual('10%');
   });
-
+  
   it('toolTip type: download, should be case insensitive', function(){
     scope.config = {text: 'Tooltip Text', type: 'DOWNload'};
     scope.$digest();
 
     var divElement = element.find("div");
     expect(divElement.hasClass("download")).toBeTruthy();
-
+    
     scope.config = {type: 'DOWNLOAD'};
     scope.$digest();
 
@@ -276,7 +276,7 @@ describe('Tooltip Directive:', function() {
     var iElement = element.find("i");
     expect(iElement.hasClass("icon-left")).toBeTruthy();
   });
-
+  
   it('toolTip iconFloat: right, should apply icon float right position to i ionicon element', function(){
     scope.config = {text: 'Tooltip Text', icon: 'scissor-icon', iconFloat: 'right'};
     scope.$digest();
@@ -284,7 +284,7 @@ describe('Tooltip Directive:', function() {
     var iElement = element.find("i");
     expect(iElement.hasClass("icon-right")).toBeTruthy();
   });
-
+  
   it('toolTip iconFloat option should be case insensitive', function(){
     scope.config = {text: 'Tooltip Text', icon: 'scissor-icon', iconFloat: 'RIGHT'};
     scope.$digest();
