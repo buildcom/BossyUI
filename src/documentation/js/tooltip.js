@@ -60,7 +60,7 @@ function TooltipCtrl ($scope) {
 		type: "download",
 		color: "green",
 		icon: "ion-ios-download-outline",
-		persist: true
+		progress: '40'
 	};
 }
 
