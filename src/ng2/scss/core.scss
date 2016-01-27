@@ -1,0 +1,27 @@
+// Bossy UI Core Variable
+$colorMain: #000000;
+$type-fontSize-H1: ;
+$type-fontSize-H2: ;
+$type-fontSize-H3: ;
+$type-fontSize-H4: ;
+$type-fontSize-H5: ;
+
+body {
+	color: $colorMain;
+}
+
+H1 {
+	font-size: $type-fontSize-H1;
+}
+H2 {
+	font-size: $type-fontSize-H2;
+}
+H3 {
+	font-size: $type-fontSize-H3;
+}
+H4 {
+	font-size: $type-fontSize-H4;
+}
+H5 {
+	font-size: $type-fontSize-H5;
+}
