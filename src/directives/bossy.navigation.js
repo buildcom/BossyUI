@@ -58,15 +58,14 @@ function Navigation($q, $compile, $data) {
 
 Navigation.$inject = ['$q', '$compile', '$data'];
 
+var nextId = 0;
+function getUniqueId() {
+    return '__' + nextId++;
+}
+
 // Assigns each subMenu an id if it doesn't already have one.
 // Also maps id to submenu object in menuIdMap
 function assignMenuIds(menus, menuIdMap, parentMenu) {
-
-	var nextId = 0;
-	function getUniqueId() {
-		return '__' + nextId++;
-	}
-
 	angular.forEach(menus, function(menu) {
 		if (!angular.isUndefined(parentMenu)) {
 			menu.parentId = parentMenu.id;
