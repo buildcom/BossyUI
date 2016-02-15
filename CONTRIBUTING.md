@@ -47,7 +47,6 @@ With the Node.js installer you will also get the NPM CLI (Node Package Manager C
 ### 3. Bower & Gulp.js & nodemon
 
 Install Bower, Gulp.js, and nodemon globally on your machine.
-(If you encounter any difficulties try sudo or run the terminal as administrator for windows)
 ```bash
 $ npm install -g bower gulp nodemon
 ```
@@ -55,7 +54,6 @@ $ npm install -g bower gulp nodemon
 ### 4. Project Node modules
 
 Install project Node module and Bower dependencies.
-(If you encounter any difficulties try sudo or run as administrator for windows)
 ```bash
 $ npm install
 $ cd site/
