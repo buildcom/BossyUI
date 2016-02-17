@@ -44,9 +44,10 @@ If your terminal returns a version number then you are good to go. If it does no
 
 With the Node.js installer you will also get the NPM CLI (Node Package Manager Command Line Interface) which your computer will use to download packages from the NPM registry.
 
-### 3. Bower & Gulp.js & nodemon
+### 3. Bower, Gulp.js & nodemon
 
-Install Bower, Gulp.js, and nodemon globally on your machine.
+Install Bower, Gulp.js and nodemon globally on your machine.
+
 ```bash
 $ npm install -g bower gulp nodemon
 ```
@@ -54,11 +55,10 @@ $ npm install -g bower gulp nodemon
 ### 4. Project Node modules
 
 Install project Node module and Bower dependencies.
+
 ```bash
 $ npm install
-$ cd site/
-$ bower install
-$ cd ../
+$ cd site && bower install && cd ..
 ```
 
 ### 5. Sandbox
