@@ -1,5 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/buildcom/BossyUI/badges/gpa.svg)](https://codeclimate.com/github/buildcom/BossyUI)
-[![Code Ship](https://codeship.com/projects/3ee700d0-0bb0-0132-82a9-6695a14f90f5/status?branch=master)](https://codeship.com/projects/32049)
+[![Code Climate](https://codeclimate.com/github/buildcom/BossyUI/badges/gpa.svg)](https://codeclimate.com/github/buildcom/BossyUI)[![Code Ship](https://codeship.com/projects/3ee700d0-0bb0-0132-82a9-6695a14f90f5/status?branch=master)](https://codeship.com/projects/32049)
 =======
 <p align="center">
 <img title="Bossy UI" alt="bossyui" src='bossy_logo.png?raw=true' />
