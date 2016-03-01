@@ -2,25 +2,31 @@ import {Component,, OnInit} from 'angular2/core';
 
 @Component({
 	selector: 'bossy-input',
+	inputs: ['config'],
 	templateUrl: 'bossy-input-default.html'
 })
 
 @Component({
 	selector: 'bossy-input-prefix',
+	inputs: ['config'],
 	templateUrl: 'bossy-input-prefix.html'
 })
 
 @Component({
 	selector: 'bossy-input-postfix',
+	inputs: ['config'],
 	templateUrl: 'bossy-input-postfix.html'
 })
 
 @Component({
 	selector: 'bossy-input-counter',
+	inputs: ['config'],
 	templateUrl: 'bossy-input-counter.html'
 })
 
-export class BossyInput{
+export class BossyInput implements OnInit{
+	public config: BossyInputConfig;
+
 	valueChange(val) {
 		if(currentLength >= max){
 			value = value.substring(0, max - 1);
@@ -43,7 +49,7 @@ export class BossyInput{
 		}
 		// Throw an error if text is not given
 		if (!this.config.text) {
-			console.error('You must include content for tool tip.');
+			console.error('You must include content for input.');
 		}
 	}
 }
