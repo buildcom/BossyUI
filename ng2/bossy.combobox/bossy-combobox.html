@@ -1,0 +1,26 @@
+<h1>
+    {{inFocus}}
+</h1>
+<div class="combo-box" ng-class="{\'open\': inFocus}" ng-blur="inFocus = false">
+    <label for="combo-input" class="input-label">
+        {{title}}
+    </label>
+    <input id="combo-input" type="text" ng-keypress="changed($event)" placeholder="{{placeholder}}" ng-focus="inFocus = true" ng-model="inputField">
+    <div class="inputs">
+        <label class="pill" ng-repeat="item in selectedItems | orderBy: sortFunction" ng-click="deleteSelection(item)">
+            {{item}}
+            <span class="close">
+                &times;
+            </span>
+        </label>
+    </div>
+    <div class="list" ng-show="inFocus">
+    <ul>
+        <li ng-repeat="item in list | orderBy: sortFunction">
+            <a href="#!" title="{{item}}" ng-click="addSelection(item)">
+                {{item}}
+            </a>
+        </li>
+        </ul>
+    </div>
+</div>
