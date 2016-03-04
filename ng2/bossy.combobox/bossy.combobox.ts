@@ -54,11 +54,10 @@ export class BossyCombobox implements OnInit {
         // Fail safe in case config are not given
         if (!this.config) {
             this.config = <BossyComboboxConfig>{
-                'selectedItems': []
-                /*
-                *
-                *
-                */
+                'list': '[listItem1,listItem2,listItem3]',
+                'title': 'Title',
+                'placeholder': 'filter list',
+                'sort': 'false'
             };
         }
         this.list=this.config.list;
