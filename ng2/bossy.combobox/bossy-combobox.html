@@ -1,20 +1,20 @@
-<div class="combo-box" ng-class="{\'open\': inFocus}" ng-blur="inFocus = false">
+<div class="combo-box" [ngClass]="{\'open\': inFocus}" (blur)="inFocus = false">
     <label for="combo-input" class="input-label">
         {{title}}
     </label>
-    <input id="combo-input" type="text" ng-keypress="changed($event)" placeholder="{{placeholder}}" ng-focus="inFocus = true" ng-model="inputField">
+    <input id="combo-input" type="text" (keypress)="changed($event)" placeholder="{{placeholder}}" (focus)="inFocus = true" [(model)]="inputField">
     <div class="inputs">
-        <label class="pill" ng-repeat="item in selectedItems | orderBy: sortFunction" ng-click="deleteSelection(item)">
+        <label class="pill" *ngFor="item in selectedItems | orderBy: sortFunction" (click)="deleteSelection(item)">
             {{item}}
             <span class="close">
                 &times;
             </span>
         </label>
     </div>
-    <div class="list" ng-show="inFocus">
+    <div class="list" *ngIf="inFocus">
     <ul>
-        <li ng-repeat="item in list | orderBy: sortFunction">
-            <a href="#!" title="{{item}}" ng-click="addSelection(item)">
+        <li *ngFor="item in list | orderBy: sortFunction">
+            <a href="#!" title="{{item}}" (click)="addSelection(item)">
                 {{item}}
             </a>
         </li>
