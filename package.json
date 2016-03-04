@@ -6,7 +6,7 @@
 	"scripts": {
 		"test": "mocha",
 		"start": "node site/server.js",
-		"install": "gulp site-install"
+		"postinstall": "gulp site-install"
 	},
 	"repository": {
 		"type": "git",
@@ -20,7 +20,8 @@
 	"bugs": {
 		"url": "https://github.com/buildcom/BossyUI/issues"
 	},
-	"dependencies": {},
+	"dependencies": {
+	},
 	"devDependencies": {
 		"bower": "~1.3.8",
 		"bump": "^0.2.5",
