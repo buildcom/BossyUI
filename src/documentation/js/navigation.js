@@ -2,81 +2,81 @@ function NavigationCtrl ($scope) {
 	$scope.menu1Config = {};
 	$scope.menu1Config.menuObj = {
 
-		"activeMenuId": "python",
-		"navigation": [
+		'activeMenuId': 'python',
+		'navigation': [
 			{
-				"title": "Home",
-				"url": "http://www.bossyui.io/"
+				'title': 'Home',
+				'url': 'http://www.bossyui.io/'
 			},
 			{
-				"title": "Resumes",
-				"menuId": "resumes",
-				"subMenus": [
+				'title': 'Resumes',
+				'menuId': 'resumes',
+				'subMenus': [
 					{
-						"title": "Technical",
-						"url": "https://www.linkedin.com/in/eddie-bracho-00b8ab84"
+						'title': 'Technical',
+						'url': 'https://www.linkedin.com/in/eddie-bracho-00b8ab84'
 					},
 					{
-						"title": "General",
-						"url": "https://www.linkedin.com/in/eddie-bracho-00b8ab84"
+						'title': 'General',
+						'url': 'https://www.linkedin.com/in/eddie-bracho-00b8ab84'
 					}
 				]
 			},
 			{
-				"title": "Projects",
-				"menuId": "projects",
-				"subMenus": [
+				'title': 'Projects',
+				'menuId': 'projects',
+				'subMenus': [
 					{
-						"title": "Python",
-						"menuId": "python",
-						"subMenus": [
+						'title': 'Python',
+						'menuId': 'python',
+						'subMenus': [
 							{
-								"title": "Artificial Neural Network",
-								"url": "https://github.com/ebracho/ANN"
+								'title': 'Artificial Neural Network',
+								'url': 'https://github.com/ebracho/ANN'
 							},
 							{
-								"title": "Boolean Expression Interpreter",
-								"url": "https://github.com/ebracho/Boolean_Expression_Interpreter"
+								'title': 'Boolean Expression Interpreter',
+								'url': 'https://github.com/ebracho/Boolean_Expression_Interpreter'
 							},
 							{
-								"title": "Tetris Clone",
-								"url": "https://github.com/ebracho/Tetris"
+								'title': 'Tetris Clone',
+								'url': 'https://github.com/ebracho/Tetris'
 							},
 							{
-								"title": "Irc Bot",
-								"url": "https://github.com/ebracho/kazbot"
+								'title': 'Irc Bot',
+								'url': 'https://github.com/ebracho/kazbot'
 							}
 						]
 					},
 					{
-						"title": "Javascript",
-						"menuId": "javascript",
-						"subMenus": [
+						'title': 'Javascript',
+						'menuId': 'javascript',
+						'subMenus': [
 							{
-								"title": "Navigation",
-								"url": "https://github.com/ebracho/BossyUI/tree/NAVIGATION-170"
+								'title': 'Navigation',
+								'url': 'https://github.com/ebracho/BossyUI/tree/NAVIGATION-170'
 							},
 							{
-								"title": "Autocomplete",
-								"url": "https://github.com/ebracho/BossyUI/tree/AUTOCOMPLETE-163"
+								'title': 'Autocomplete',
+								'url': 'https://github.com/ebracho/BossyUI/tree/AUTOCOMPLETE-163'
 							}
 						]
 					},
 					{
-						"title": "C++",
-						"menuId": "c++",
-						"subMenus": [
+						'title': 'C++',
+						'menuId': 'c++',
+						'subMenus': [
 							{
-								"title": "Matrix Library",
-								"url": "ebracho.com/projects/c++/matrix_library"
+								'title': 'Matrix Library',
+								'url': 'ebracho.com/projects/c++/matrix_library'
 							}
 						]
 					}
 				]
 			},
 			{
-				"title": "Github",
-				"url": "http://github.com/ebracho"
+				'title': 'Github',
+				'url': 'http://github.com/ebracho'
 			}
 		]
 	};
