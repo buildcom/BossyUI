@@ -1,0 +1,59 @@
+.bossy-treeview {
+  li {
+    list-style-type: none;
+  }
+}
+
+
+.bossy-treeview-content-type-{
+  position: absolute;
+  top: 3px;
+  right: -5px;
+  padding: 3px;
+  transform: translateX(110%);
+  border-radius: 3px;
+  font-size: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff
+}
+.bossy-treeview-content-type-.gif {background-color: #f5791e;}
+.bossy-treeview-content-type-.svg {background-color: #925b2a;}
+.bossy-treeview-content-type-.html {background-color: #3182a4;}
+.bossy-treeview-content-type-.css {background-color: #7fac57;}
+.bossy-treeview-content-type-.js {background-color: #e0612f;}
+.bossy-treeview-content-type-.png {background-color: #21b7a0;}
+.bossy-treeview-content-type-.jpg {background-color: #d63e49;}
+
+.bossy-treeview-fileIcon{
+  padding: 0 0 0 20px;
+}
+
+
+
+.bossy-treeview-nodeIcon{
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  padding: 0 0 0 20px;
+}
+
+.bossy-treeview-collapsed{
+  /*background-image: url(../../images/folder.png);*/
+  background-image: url(/dist/images/collapsed.png);
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+}
+
+
+.bossy-treeview-expanded{
+  /*background-image: url(../../images/folder-red.png);*/
+  background-image: url(/dist/images/expanded-red.png);
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  color: #FA5732;
+}
+
+.bossy-treeview-selected{
+  /*color: #FA5732;*/
+  /*background-color: #99FF99;*/
+}
