@@ -50,4 +50,21 @@ export class BossyGraph implements OnInit{
 
   return graphMarkup.join("");
   }
+
+  ngOnInit(){
+    // Fail safe in case config are not given
+    if (!this.config) {
+      this.config = {
+        'max': 0,
+        'height': 200,
+        'width': 200,
+        'xLabel': undefined,
+        'yLabel': undefined,
+      };
+    }
+    // Throw an error if text is not given
+    if (!this.config.text) {
+      console.error('You must include content for graph.');
+    }
+  }
 }
