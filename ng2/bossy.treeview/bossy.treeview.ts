@@ -1,5 +1,10 @@
 import {Component} from 'angular2/core';
 
-@Component({})
+@Component({
+    selector: 'bossy-treeview',
+    templateUrl: 'bossy-treeview.html',
+    inputs: ['config'],
+    styleUrls: ['_bossy-treeview.css']
+})
 
-export  class BossyTreeview{}
+export  class BossyTreeview {}
