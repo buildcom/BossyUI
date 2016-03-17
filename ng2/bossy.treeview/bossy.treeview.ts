@@ -1,5 +1,9 @@
 import {Component, OnInit} from 'angular2/core';
 
+export interface BossyTreeviewConfig {
+
+}
+
 @Component({
     selector: 'bossy-treeview',
     templateUrl: 'bossy-treeview.html',
@@ -7,4 +11,6 @@ import {Component, OnInit} from 'angular2/core';
     styleUrls: ['_bossy-treeview.css']
 })
 
-export  class BossyTreeview implements OnInit {}
+export  class BossyTreeview implements OnInit {
+    public config: BossyTreeviewConfig;
+}
