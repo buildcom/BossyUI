@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 
 @Component({
     selector: 'bossy-treeview',
@@ -7,4 +7,4 @@ import {Component} from 'angular2/core';
     styleUrls: ['_bossy-treeview.css']
 })
 
-export  class BossyTreeview {}
+export  class BossyTreeview implements OnInit {}
