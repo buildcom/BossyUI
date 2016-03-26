@@ -1,24 +1,28 @@
-import {Component, OnInit} from 'angular2/core';
+import {BrowserDomAdapter, Component, OnInit} from 'angular2/core';
 
 @Component({
   selector: 'bossy-graph-line',
   inputs['config'],
-  templateUrl: 'bossy-graph-line.html'
+  templateUrl: 'bossy-graph-line.html',
+  providers: [BrowserDomAdapter]
 })
 
 @Component({
   selector: 'bossy-graph-dot',
   inputs['config'],
-  templateUrl: 'bossy-graph-dot.html'
+  templateUrl: 'bossy-graph-dot.html',
+  providers: [BrowserDomAdapter]
 })
 
 @Component({
   selector: 'bossy-graph-bar',
   inputs['config'],
-  templateUrl: 'bossy-graph-bar.html'
+  templateUrl: 'bossy-graph-bar.html',
+  providers: [BrowserDomAdapter]
 })
 
 export class BossyGraph implements OnInit{
+  private _dom: BrowserDomAdapter;
   public config: BossyGraphConfig;
 
   buildBarSVG(width, height, data){
@@ -62,6 +66,10 @@ export class BossyGraph implements OnInit{
         'yLabel': undefined,
       };
     }
+    var barSVGTag = buildBarSVG(this.config.width, this.config.height, this.data)
+    var element = this._dom.query('bossy-graph-bar');
+    element.append(barSVGTag);
+
     // Throw an error if text is not given
     if (!this.config.text) {
       console.error('You must include content for graph.');
