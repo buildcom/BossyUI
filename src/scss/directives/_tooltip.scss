@@ -92,7 +92,7 @@ $dark-tooltip:  #333;
 			&.bossy-tooltip-pos-right {
 				bottom: 0;
 				left: 0;
-				margin-left: 110%;
+				margin-left: 120%;
 				margin-bottom: -10px;
 			&:before {
 				top: 50%;
@@ -104,7 +104,7 @@ $dark-tooltip:  #333;
 				left: auto;
 				margin-left: 0;
 				right: 0;
-				margin-right: 110%;
+				margin-right: 120%;
 				&:before {
 					right: -7px;
 					left: auto;
@@ -130,7 +130,7 @@ $dark-tooltip:  #333;
 				width: 0%;
 				top: 0;
 				left: 0;
-				z-index: -1;
+				z-index: 1;
 			}
 			.icon {
 				position: absolute;
