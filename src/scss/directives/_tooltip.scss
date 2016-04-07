@@ -97,7 +97,7 @@ $dark-tooltip:  #333;
 			&:before {
 				top: 50%;
 				left: 7px;
-				margin-top: -7px;
+				margin-top: -7.5px;
 			}
 			}
 			&.bossy-tooltip-pos-left {
@@ -116,7 +116,7 @@ $dark-tooltip:  #333;
 				margin-bottom: -45px;
 				&:before {
 					top: calc(-15px/2);
-					left: 50%;
+					left: 53%;
 					margin-left: -15px;
 				}
 			}
@@ -171,7 +171,7 @@ $dark-tooltip:  #333;
 			height: 15px;
 			width: 15px;
 			top: calc(100% - 10px);
-			left: 50%;
+			left: 53%;
 			margin-left: -15px;
 			display: block;
 			content: "";
