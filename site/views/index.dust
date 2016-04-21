@@ -1,24 +1,21 @@
 {>"partials/layout"/}
 {<content}
 <main class="jumbotron home-hero">
-    <div class="container">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <h2 class="panel-title">Opinionated Angular Directives</h2>
-                <p>
-                    Created with LOVE by Build.com Open Source Consortium - fostering a collaboration between CSU Chico students and Chico, CA software companies on open source projects.
-                </p>
-                <p>
-                    An opinionated set of AngularJS directives used to build rich and interactive web sites.
-                </p>
-                <p><strong>Sponsored by Build.com</strong></p>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h2 class="panel-title">Opinionated Angular Directives</h2>
+				<p>BossyUI is more than a collection of directives.</p>
+				<p>Based on Angular 2, CSS3, and HTML5, it's the culmination of tremendous efforts between students and working developers, sharing real-world experiences in creating something of which we are extremely proud.</p>
+				<p>We’re very excited to share our front-end components to help streamline your project. Sponsored by Build.com and CSU, Chico, BossyUI fosters a connection between students and open source development.</p>
+				<p><strong>Sponsored by Build.com</strong></p>
+			</div>
+		</div>
+	</div>
 </main>
 <div class="container-layout">
-    <div class="footer">
-        &copy; 2015 By BossyUI
-    </div>
+	<div class="footer">
+		&copy; 2015-2016 By BossyUI
+	</div>
 </div>
 {/content}
