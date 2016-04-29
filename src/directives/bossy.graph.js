@@ -72,6 +72,10 @@ function Chart ($compile) {
 	    $scope.data = $scope.config.data || [];
         $scope.config = angular.extend({}, config, $scope.config);
 
+        if($scope.config.width > 500)
+            $scope.config.width = 500;
+        if($scope.config.height > 550)
+            $scope.config.height = 550;
         $scope.type = $scope.config.type || 'bar';
         $scope.template = templates[$scope.type];
     }
