@@ -53,7 +53,7 @@ $ ls
 
 This will give you the list of all the browsers it ran on, open the latest one which was created. It might look like this
 
-![List of Browsers](/BossyUI/list_of_browsers.png "It shows the list of different browsers the test ran on")
+![List of Browsers](https://github.com/priteshjagani/BossyUI/blob/master/screenshots/list_of_browsers.png "It shows the list of different browsers the test ran on")
 
 
 ```bash
