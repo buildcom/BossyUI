@@ -1,0 +1,79 @@
+<style>
+    .bossy-menu-wrapper {
+        float: left;
+        position: relative;
+    }
+    
+    .bossy-menu {
+        padding: 24px 48px;
+        border: 1px solid black;
+        cursor: pointer
+    }
+
+    .bossy-menu-top {
+        font-weight: bold;
+        font-size: 24px;
+        position: relative;
+    }
+
+    .bossy-menu-has-sub {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0 10px 10px;
+        border-color: transparent transparent black transparent;
+    }
+    
+    .bossy-menu-open {
+        color: white;
+        background: black;
+    }
+    
+    .bossy-menu-sub {
+        position: relative;
+        text-align: center;
+        font-size: 16px;
+        border: 1px solid black;
+        padding: 12px;
+        cursor: pointer;
+    }
+    
+    .bossy-menu-sub-wrapper {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background: white;
+    }
+    
+    .bossy-menu-active {
+        background: blue;
+        color: white;
+    }
+    
+    .bossy-menu-breadcrumb {
+        text-align: center;
+        font-size: 12px;
+        cursor: pointer;
+        font-style: italic;
+    }
+
+</style>
+
+<div class="bossy-menu-wrapper">
+    <div class="bossy-menu bossy-menu-top" [ngClass]="{'bossy-menu-open': isOpen, 'bossy-menu-active': isActive}">
+        <div *ngIf="config.subMenus" class="bossy-menu-has-sub"></div>
+        <div [ngClass]="{'bossy-menu-breadcrumb': index}" *ngFor="#breadcrumb of openPath #index = index" (click)="onClickBreadcrumb(breadcrumb)">
+            <span *ngIf="index">/</span>
+            {{breadcrumb.title}}
+        </div>
+    </div>
+    <div class="bossy-menu-sub-wrapper" *ngIf="isOpen">
+        <div class="bossy-menu-sub" *ngFor="#subMenu of openPath[openPath.length - 1].subMenus" (click)="onClickSub(subMenu)">
+            {{subMenu.title}}
+            <div *ngIf="subMenu.subMenus" class="bossy-menu-has-sub"></div>
+        </div>
+    </div>
+</div>
