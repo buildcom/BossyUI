@@ -4,6 +4,9 @@
   "description": "BossyUI website",
   "main": "server.js",
   "repository": {},
+  "engines": {
+    "node": "4.4.4"
+  },
   "scripts": {
     "typings": "typings",
     "concurrently": "concurrently",
