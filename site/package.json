@@ -11,7 +11,7 @@
     "gulp": "gulp",
     "nodemon": "nodemon",
     "start": "node server.js",
-    "postinstall": "typings install",
+    "sandbox-install": "typings install",
     "bossy-watch": "onchange '../dist/**' -- npm install bossyui",
     "bossy-templates": "onchange '../src/templates/*.html' -- gulp copy-templates --gulpfile ../gulpfile.js",
     "bossy-styles": "onchange '../src/styles/*.css' -- gulp copy-styles --gulpfile ../gulpfile.js",
