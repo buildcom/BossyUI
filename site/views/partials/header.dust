@@ -14,9 +14,9 @@
         </div>
         <div class="navbar-collapse collapse" ng-class="{'show-nav': view.showNav}" ng-click="toggleNav()">
             <div class="btn-toolbar pull-right" role="toolbar" >
-                <div class="btn-group" role="group">
-                    <a class="btn btn-link navbar-btn" href="/documentation">Documentation</a>
-                </div>
+                {!<div class="btn-group" role="group">!}
+                    {!<a class="btn btn-link navbar-btn" href="/documentation">Documentation</a>!}
+                {!</div>!}
                 <div class="btn-group" role="group">
                     <a type="button" class="btn btn-link navbar-btn" href="/sandbox">Sandbox</a>
                 </div>
