@@ -42,7 +42,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     this.selected = new Date();
                 }
                 BossyCalendar.prototype.ngOnInit = function () {
-                    console.log('calendar', this.config);
+                    console.log('calendar test', this.config);
                     this.updateDateMap();
                 };
                 BossyCalendar.prototype.previousMonth = function () {

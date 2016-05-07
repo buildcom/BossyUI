@@ -1,75 +1,60 @@
 {
-	"name": "bossyui",
-	"version": "0.0.1",
-	"description": "An opinionated set of AngularJS directives used to build rich and interactive web sites.",
-	"main": "dist/bossy.js",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/buildcom/BossyUI.git"
-	},
-	"keywords": [
-		"bossy",
-		"bossyui",
-		"angular2"
-	],
-	"author": "BossyUI",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/buildcom/BossyUI/issues"
-	},
-	"files": [
-		"dist/**"
-	],
-	"typings": "bossy.d.ts",
-	"dependencies": {
-		"angular2": "2.0.0-beta.15",
-		"systemjs": "0.19.26",
-		"es6-shim": "^0.35.0",
-		"reflect-metadata": "0.1.2",
-		"rxjs": "5.0.0-beta.2",
-		"zone.js": "0.6.10"
-	},
-	"devDependencies": {
-		"bower": "~1.3.8",
-		"bump": "^0.2.5",
-		"chai": "^1.9.1",
-		"concurrently": "^2.0.0",
-		"consolidate": "^0.13.1",
-		"dustjs-linkedin": "^2.7.2",
-		"express": "^4.13.3",
-		"express-livereload": "0.0.24",
-		"glob": "^5.0.14",
-		"gulp": "^3.9.1",
-		"gulp-autoprefixer": "^2.3.0",
-		"gulp-bump": "^0.3.0",
-		"gulp-concat": "~2.3.4",
-		"gulp-help": "^1.3.1",
-		"gulp-install": "^0.2.0",
-		"gulp-jsdoc-to-markdown": "^1.1.0",
-		"gulp-jshint": "^1.8.4",
-		"gulp-livereload": "^1.2.0",
-		"gulp-load-plugins": "^0.10.0",
-		"gulp-nodemon": "^1.0.5",
-		"gulp-rename": "^1.2.2",
-		"gulp-sass": "^2.1.0",
-		"gulp-shell": "^0.2.11",
-		"gulp-sourcemaps": "^1.1.5",
-		"gulp-uglify": "~1.2.0",
-		"gulp-util": "^3.0.4",
-		"jasmine": "^2.4.1",
-		"jsdoc-parse": "^1.2.1",
-		"karma": "^0.13.21",
-		"karma-chrome-launcher": "^0.1.4",
-		"karma-cli": "0.0.4",
-		"karma-coverage": "*",
-		"karma-jasmine": "^0.1.5",
-		"karma-ng-html2js-preprocessor": "^0.1.0",
-		"lazypipe": "^0.2.3",
-		"minimist": "^1.1.1",
-		"mocha": "^1.21.4",
-		"run-sequence": "^1.0.2",
-		"lite-server": "^2.1.0",
-		"typescript": "^1.8.10",
-		"typings":"^0.7.12"
-	}
+  "name": "bossyui",
+  "version": "0.0.1",
+  "description": "An opinionated set of AngularJS directives used to build rich and interactive web sites.",
+  "main": "dist/bossy.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/buildcom/BossyUI.git"
+  },
+  "keywords": [
+    "bossy",
+    "bossyui",
+    "angular2"
+  ],
+  "author": "BossyUI",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/buildcom/BossyUI/issues"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "typings": "bossy.d.ts",
+  "engines": {
+    "node": "4.4.4"
+  },
+  "scripts": {
+    "typings": "typings",
+    "concurrently": "concurrently",
+    "onchange": "onchange",
+    "gulp": "gulp",
+    "start": "node site/server.js",
+    "sandbox-install": "npm run typings install; npm run gulp site-install",
+    "sandbox": "concurrently \"npm run bossy-templates\" \"npm run bossy-styles\" \"tsc -w\" \"npm start\"",
+    "bossy-templates": "onchange '../src/templates/*.html' -- gulp copy-templates --gulpfile ../gulpfile.js",
+    "bossy-styles": "onchange '../src/styles/*.css' -- gulp copy-styles --gulpfile ../gulpfile.js"
+  },
+  "dependencies": {
+    "angular2": "2.0.0-beta.15",
+    "systemjs": "0.19.26",
+    "es6-shim": "^0.35.0",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "zone.js": "0.6.10"
+  },
+  "devDependencies": {
+    "concurrently": "^2.0.0",
+    "consolidate": "^0.14.1",
+    "dustjs-linkedin": "^2.7.2",
+    "express": "^4.13.3",
+    "express-livereload": "0.0.24",
+    "glob": "^7.0.3",
+    "gulp": "^3.9.1",
+    "gulp-help": "^1.6.1",
+    "onchange": "^2.4.0",
+    "run-sequence": "^1.1.5",
+    "typescript": "^1.8.10",
+    "typings": "^0.7.12"
+  }
 }

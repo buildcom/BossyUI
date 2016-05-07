@@ -40,7 +40,7 @@ export class BossyCalendar {
 	}
 
 	ngOnInit() {
-		console.log('calendar', this.config);
+		console.log('calendar test', this.config);
 
 		this.updateDateMap();
 	}
