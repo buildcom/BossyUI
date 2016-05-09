@@ -1,22 +1,9 @@
 # Project
 node_modules
-bower_components
-npm-debug.log
+site/node_modules
 
 # Demo/Docs Site
 _site/
 
 # Editor
 .idea/
-
-# System
-.DS_Store
-
-# Compass
-src/css
-.sass-cache
-
-dist/docs
-*.map
-
-site/lib

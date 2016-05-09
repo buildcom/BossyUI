@@ -1,0 +1,27 @@
+<div class="bossy-calendar">
+    <div class="bossy-calendar-view">
+        <table>
+            <thead>
+            <tr class="bossy-calendar-heading">
+                <td (click)="previousMonth()" title="Previous month" class="bossy-calendar-month-selector">
+                    <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-chevron-left-128.png" title="Previous Month" width="25"/>
+                </td>
+                <td colspan="5" class="bossy-calendar-month">{{display | date:"MMMM y"}}</td>
+                <td (click)="nextMonth()" title="Next month" class="bossy-calendar-month-selector">
+                    <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-chevron-right-128.png" title="Next Month" width="25">
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="bossy-calendar-week-days">
+                <td *ngFor="#day of days" title="{{day}}">{{day.slice(0, 2)}}</td>
+            </tr>
+            <tr *ngFor="#week of dateMap" class="bossy-calendar-week-days">
+                <td *ngFor="#date of week" class="bossy-calendar-week-day" [class.bossy-calendar-not-current]="!date.inMonth" [class.selected]="date.selected" (click)="selectDate(date)">
+                    {{date.day}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

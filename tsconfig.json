@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "system",
+    "target": "es5",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "noImplicitAny": false,
+    "declaration": true,
+    "noLib": false,
+    "moduleResolution": "node",
+    "outDir": "dist"
+  },
+  "exclude": [
+    "dist",
+    "site",
+    "node_modules",
+    "ng2",
+    "typings/main",
+    "typings/main.d.ts"
+  ]
+}
