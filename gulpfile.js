@@ -1,4 +1,5 @@
-var gulp = require('gulp-help')(require('gulp'));
+var gulp = require('gulp-help')(require('gulp')),
+	sequence = require('run-sequence');
 
 
 gulp.task('copy-images', 'Copy images for release', function() {
@@ -17,4 +18,12 @@ gulp.task('copy-styles', 'Copy styles for release', function() {
 	return gulp
 		.src('src/styles/**')
 		.pipe(gulp.dest('dist/styles'));
+});
+
+gulp.task('site-install', 'Installs BossyUI Site', function(callback) {
+	sequence(
+		'copy-styles',
+		'copy-templates',
+		'copy-images',
+		callback);
 });

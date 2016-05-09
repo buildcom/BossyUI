@@ -10,10 +10,13 @@
     "declaration": true,
     "noLib": false,
     "moduleResolution": "node",
-    "rootDir": ".",
-    "outDir": "../dist"
+    "outDir": "dist"
   },
   "exclude": [
+    "dist",
+    "site",
+    "node_modules",
+    "ng2",
     "typings/main",
     "typings/main.d.ts"
   ]
