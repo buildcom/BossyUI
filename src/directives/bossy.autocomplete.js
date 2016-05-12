@@ -1,4 +1,5 @@
 /**
+
  * @param {param} config
  * @param {Array} [config.dict=["apples", "oranges", "bananas"]] - Array of items for autocomplete.
  * @param {Number} [config.maxCorrections=0] - Maximum corrections.
@@ -36,8 +37,8 @@ function Autocomplete (BKTree, utility) {
 			};
 		},
 		template: '<div>' +
-		'  <input ng-model="query" ng-change="updateSuggestions(query)">' +
-		'  <div ng-repeat="sug in suggestions" ng-click="chooseSuggestion(sug)">{{sug}}</div>' +
+		'  <input [(ngModel)]="query" ng-change="updateSuggestions(query)">' +
+		'  <div *ngFor="#sug in suggestions" ng(click)="chooseSuggestion($sug)">{{sug}}</div>' +
 		'</div>'
 	};
 }
