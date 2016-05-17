@@ -53,8 +53,15 @@ $ ls
 
 This will give you the list of all the browsers it ran on, open the latest one which was created. It might look like this
 
-![List of Browsers](https://github.com/priteshjagani/BossyUI/blob/master/screenshots/list_of_browsers.png "It shows the list of different browsers the test ran on")
+```bash
+$ cd test/coverage/
+$ ls
+Chrome 45.0.2454 (Linux 0.0.0)       Chromium 45.0.2454 (Ubuntu 0.0.0)  lcov.info
+Chrome 49.0.2623 (Mac OS X 10.11.1)  coverage.json
+Chrome 50.0.2661 (Mac OS X 10.11.1)  lcov-report
+```
 
+to view the results for a particular browser, change to that directory and view the index.html:
 
 ```bash
 $ cd (browser's name)
