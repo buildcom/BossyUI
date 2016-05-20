@@ -34,6 +34,13 @@ describe('bossyAutocomplete tests', function() {
                 expect(mat[2].length).toEqual(5);
             });	
 
+			it('Border testing on createMatrix function', function() {
+                var i, mat = utility.createMatrix(3,5);
+                expect(mat[0].length).not.toBe(6);
+				expect(mat[1].length).not.toBe(6);
+				expect(mat[2].length).not.toBe(6);
+            });	
+
         });
 
         describe('filterStartsWith tests', function() {
@@ -58,6 +65,12 @@ describe('bossyAutocomplete tests', function() {
                 var words = ['bOat', 'BoAr', 'BOnd', 'bar'];
                 var matches = utility.filterStartsWith(words, 'bo', true);
                 expect(matches).toEqual(['bOat', 'BoAr', 'BOnd']);
+            });
+
+			it('Matches case sensitive words', function() {
+                var words = ['mat', 'MAT'];
+                var matches = utility.filterStartsWith(words, 'mat', false);
+                expect(matches).toEqual(['mat']);
             });
 
         });
@@ -90,6 +103,11 @@ describe('bossyAutocomplete tests', function() {
         it('Tree with 1 tolerance matches words 1 correction from query', function() {
             var tree = new BKTree(['cat', 'rat', 'bat', 'dog', 'frog']);
             expect(tree.query('mat', 1)).toEqual(['cat', 'rat', 'bat']);
+        });
+
+		it('Tree with 0 tolerance returns 2 similar words with different case', function() {
+            var tree = new BKTree(['mat', 'MAT']);
+            expect(tree.query('mat', 0)).toEqual(['mat', 'MAT']);
         });
 
     });
