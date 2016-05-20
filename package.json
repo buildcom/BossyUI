@@ -30,8 +30,9 @@
     "onchange": "onchange",
     "gulp": "gulp",
     "start": "node site/server.js",
-    "sandbox-install": "npm run typings install; npm run gulp site-install",
-    "sandbox": "concurrently \"npm run bossy-templates\" \"npm run bossy-styles\" \"tsc -w\" \"npm start\"",
+    "install": "tsc; tsc -p ./site; npm run gulp site-install",
+    "sandbox-install": "npm run typings install; npm run install",
+    "sandbox": "concurrently \"npm run bossy-templates\" \"npm run bossy-styles\" \"tsc -w\" \"tsc -w -p ./site\" \"npm start\"",
     "bossy-templates": "onchange '../src/templates/*.html' -- gulp copy-templates --gulpfile ../gulpfile.js",
     "bossy-styles": "onchange '../src/styles/*.css' -- gulp copy-styles --gulpfile ../gulpfile.js"
   },
