@@ -1,2 +1,6 @@
 import {BossyCalendar} from './components/calendar';
-export {BossyCalendar};
+import {BossyTooltip} from './components/tooltip';
+export {
+    BossyCalendar,
+    BossyTooltip
+};
