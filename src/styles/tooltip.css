@@ -1,0 +1,238 @@
+/* Colors */
+.green {
+	background-color: #408900 !important;
+}
+
+.green:before {
+	background-color: #408900 !important;
+}
+
+.blue {
+	background-color: #0f88d4 !important;
+}
+
+.blue:before {
+	background-color: #0f88d4 !important;
+}
+
+.orange {
+	background-color: #ff9600 !important;
+}
+
+.orange:before {
+	background-color: #ff9600 !important;
+}
+
+.red {
+	background-color: #9e2712 !important;
+}
+
+.red:before {
+	background-color: #9e2712 !important;
+}
+
+.orange {
+	background-color: #ff9600 !important;
+}
+
+.orange:before {
+	background-color: #ff9600 !important;
+}
+
+/* Tooltip */
+.bossy-tooltip + * {
+	margin-top: 50px;
+}
+
+.bossy-tooltip span.link {
+	position: relative;
+	color: #59a715;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.bossy-tooltip span.link:hover .bossy-tooltip-container {
+	opacity: 1;
+	transform: scale(1) translateY(0);
+}
+
+.bossy-tooltip .bossy-tooltip-container {
+	position: absolute;
+	background-color: #333;
+	width: 300px;
+	bottom: 130%;
+	left: 50%;
+	margin-left: calc(-300px/2);
+	padding: 10px;
+	display: inline-block;
+	text-align: center;
+	font-size: 80%;
+	font-weight: bold;
+	color: #fff;
+	cursor: default;
+	opacity: 0;
+	transform: scale(0) translateY(-20px);
+	transition: all 0.3s ease-in-out;
+	pointer-events: none;
+	white-space: normal;
+}
+
+.bossy-tooltip .bossy-tooltip-container.active {
+	opacity: 1;
+	transform: scale(1) translateY(0);
+}
+
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-align-left {
+	left: 5%;
+	margin: 0;
+}
+
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-align-left:before {
+	left: 10%;
+}
+
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-align-right {
+	right: 5%;
+	left: auto;
+	margin: 0;
+}
+
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-align-right:before {
+	right: 10%;
+	left: auto;
+}
+
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-left.bossy-tooltip-pos-left,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-left.bossy-tooltip-pos-right,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-right.bossy-tooltip-pos-left,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-right.bossy-tooltip-pos-right,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-bottom.bossy-tooltip-pos-left,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-bottom.bossy-tooltip-pos-right {
+	bottom: 0;
+	left: 0;
+	margin-left: 110%;
+	margin-bottom: -18px;
+}
+
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-left.bossy-tooltip-pos-left:before,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-left.bossy-tooltip-pos-right:before,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-right.bossy-tooltip-pos-left:before,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-right.bossy-tooltip-pos-right:before,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-bottom.bossy-tooltip-pos-left:before,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-bottom.bossy-tooltip-pos-right:before {
+	top: 50%;
+	left: 7px;
+	margin-top: -7px;
+}
+
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-left.bossy-tooltip-pos-left,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-right.bossy-tooltip-pos-left,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-bottom.bossy-tooltip-pos-left {
+	left: auto;
+	margin-left: 0;
+	right: 0;
+	margin-right: 110%;
+}
+
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-left.bossy-tooltip-pos-left:before,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-right.bossy-tooltip-pos-left:before,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-bottom.bossy-tooltip-pos-left:before {
+	right: -7px;
+	left: auto;
+	margin-left: -15px;
+}
+
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-left.bossy-tooltip-pos-bottom,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-right.bossy-tooltip-pos-bottom,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-bottom.bossy-tooltip-pos-bottom {
+	bottom: 0 !important;
+	margin-bottom: -65%;
+}
+
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-left.bossy-tooltip-pos-bottom:before,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-right.bossy-tooltip-pos-bottom:before,
+.bossy-tooltip .bossy-tooltip-container.bossy-tooltip-pos-bottom.bossy-tooltip-pos-bottom:before {
+	top: calc(-15px/2);
+	left: 50%;
+	margin-left: -15px;
+}
+
+.bossy-tooltip .bossy-tooltip-container.download {
+	padding: 10px;
+}
+
+.bossy-tooltip .bossy-tooltip-container.download .progress-bar {
+	position: absolute;
+	background-color: #294c0a;
+	height: 100%;
+	width: 0%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.bossy-tooltip .bossy-tooltip-container.download .icon {
+	position: absolute;
+	background-color: #294c0a;
+	height: 100%;
+	min-height: 100%;
+	width: 50px;
+	top: 0;
+	right: 0;
+	float: right;
+	font-size: 25px;
+}
+
+.bossy-tooltip .bossy-tooltip-container.download .icon:before {
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	left: 0;
+	margin-top: -12.5px;
+	text-align: center;
+}
+
+.bossy-tooltip .bossy-tooltip-container.download span {
+	width: 90%;
+	display: block;
+	float: left;
+	color: #fff;
+	text-align: left;
+	line-height: 16px;
+}
+
+.bossy-tooltip .bossy-tooltip-container.download span span {
+	display: block;
+	font-size: 70%;
+	font-weight: lighter;
+}
+
+.bossy-tooltip .bossy-tooltip-container:before {
+	position: absolute;
+	background-color: #333;
+	height: 15px;
+	width: 15px;
+	top: calc(100% - 10px);
+	left: 50%;
+	margin-left: -15px;
+	display: block;
+	content: "";
+	transform: rotate(45deg);
+}
+
+.bossy-tooltip .bossy-tooltip-container .icon {
+	font-size: 30px;
+}
+
+.bossy-tooltip .bossy-tooltip-container .icon.icon-left {
+	float: left;
+}
+
+.bossy-tooltip .bossy-tooltip-container .icon.icon-right {
+	float: right;
+}
+
+.bossy-tooltip .bossy-tooltip-container .icon.icon-right + span {
+	margin-left: 0;
+	padding-left: 0;
+}

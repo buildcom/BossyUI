@@ -1,0 +1,10 @@
+<span class="bossy-tooltip">
+	<span class="link">
+		<ng-content></ng-content>
+		<div class="bossy-tooltip-container {{config.color.toLowerCase()}} {{setActive(config.persist)}} {{setAlignment(config.align)}} {{setContentType(config.type)}} {{setPositioning(config.position)}}">
+			<span [innerHTML]="config.text"></span>
+			<i *ngIf="config.icon" class="icon ionicon {{config.icon.toLowerCase()}} {{setIconFloat(config.iconFloat)}}"></i>
+			<div *ngIf="config.type.toLowerCase() === 'download'" class="progress-bar" style="width: {{config.progress}}%"></div>
+		</div>
+	</span>
+</span>
