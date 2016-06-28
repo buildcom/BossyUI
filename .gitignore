@@ -12,3 +12,6 @@ _site/
 dist
 **/*.js
 **/*.js.map
+
+!karma.conf.js
+!karma-test-shim.js
