@@ -25,6 +25,7 @@
     "node": "4.4.4"
   },
   "scripts": {
+    "test": "karma start",
     "typings": "typings",
     "concurrently": "concurrently",
     "onchange": "onchange",
@@ -48,6 +49,7 @@
     "concurrently": "^2.0.0",
     "consolidate": "^0.14.1",
     "dustjs-linkedin": "^2.7.2",
+    "es6-module-loader": "^0.16.6",
     "express": "^4.13.3",
     "express-livereload": "0.0.24",
     "glob": "^7.0.3",
@@ -56,6 +58,16 @@
     "onchange": "^2.4.0",
     "run-sequence": "^1.1.5",
     "typescript": "^1.8.10",
-    "typings": "^0.7.12"
+    "typings": "^0.7.12",
+    "del": "^1.2.0",
+    "jasmine": "^2.3.2",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.9",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6",
+    "karma-jasmine-html-reporter": "^0.1.8",
+    "systemjs": "^0.16.11",
+    "traceur": "0.0.91",
+    "tsd": "^0.6.3"
   }
 }
