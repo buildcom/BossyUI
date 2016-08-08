@@ -1,0 +1,20 @@
+<ul class="bossy-treeview" *ngIf="contents.nodes">
+    <li *ngFor="node in contents.nodes" >
+        <span *ngIf="node.node">
+		    <div class="bossy-treeview-nodeIcon bossy-treeview-collapsed"
+                 (click)="nodeClicked($event, $index)"
+                 [ngClass]="showChildren($index) ? \'bossy-treeview-expanded\' : \'collapsed\'">
+		        {{node.node.value}}
+		    </div>
+		<bossy-treeview *ngIf="showChildren($index)" data="node.node"></bossy-treeview>
+		</span>
+        <span *ngIf="node.item">
+            <div class="bossy-treeview-fileIcon" (click)="itemClicked($event, $index)">
+                {{node.item.value}}
+                <div class="bossy-treeview-content-type-{{node.item.type}}">
+                    <span *ngIf="node.item.type"> {{node.item.type}} </span>
+                </div>
+            </div>
+		</span>
+    </li>
+</ul>
