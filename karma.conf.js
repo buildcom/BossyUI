@@ -25,7 +25,7 @@ module.exports = function (config) {
 		// proxied base paths
 		proxies: {
 			//required for component assets fetched by Angular's compiler
-			"/src/": "/base/src/"
+			'/src/': '/base/src/'
 		},
 
 		reporters: ['progress'],
@@ -35,5 +35,5 @@ module.exports = function (config) {
 		autoWatch: true,
 		browsers: ['Chrome'],
 		singleRun: false
-	})
-}
+	});
+};

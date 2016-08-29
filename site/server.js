@@ -20,6 +20,7 @@ app.use('/dist', express.static('dist', { extensions: ['js'] }));
 app.use('/bootstrap', express.static('site/bootstrap'));
 app.use('/app', express.static('site/js'));
 app.use('/css', express.static('site/css'));
+app.use('/fonts', express.static('site/fonts'));
 app.use('/images', express.static('site/images'));
 
 app.get('/', function (req, res) {

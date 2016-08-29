@@ -1,4 +1,4 @@
-{>"partials/layout"/}
+{>"layout"/}
 {<content}
     <main class="container-fluid no-padding">
         <div class="well well-sm no-margin">
