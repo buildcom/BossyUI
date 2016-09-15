@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "system",
+    "module": "commonjs",
     "target": "es5",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
@@ -15,6 +15,7 @@
   "exclude": [
     "dist",
     "site",
+    "test",
     "node_modules",
     "ng2",
     "typings/main",

@@ -1,4 +1,4 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit} from '@angular/core';
 
 
 export class BossyCalendarOptions {
@@ -9,11 +9,11 @@ export class BossyCalendarOptions {
 	}
 }
 
-declare var __moduleName: string;
+declare const module: any;
 
 @Component({
+	moduleId: module.id,
 	selector: 'bossy-calendar',
-	moduleId: __moduleName,
 	templateUrl: '../templates/calendar.html',
 	styleUrls: ['../styles/calendar.css'],
 	inputs: [
@@ -21,7 +21,6 @@ declare var __moduleName: string;
 	]
 })
 export class BossyCalendar {
-	public config: any;
 	dateMap: Array<any> = [];
 	days: Array<string> = [
 		'Sunday',
@@ -32,12 +31,12 @@ export class BossyCalendar {
 		'Friday',
 		'Saturday'
 	];
+	public config: any;
 	public options: BossyCalendarOptions = new BossyCalendarOptions();
 	public display: Date = new Date();
 	public selected: Date = new Date();
 
-	constructor() {
-	}
+	constructor() {}
 
 	ngOnInit() {
 		console.log('calendar test', this.config);
@@ -123,3 +122,7 @@ export class BossyCalendar {
 		this.dateMap = month;
 	}
 }
+
+var test = {
+	foo: 'bar'
+};

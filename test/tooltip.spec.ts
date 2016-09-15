@@ -1,4 +1,4 @@
-import {BossyTooltip} from '../components/tooltip';
+import {BossyTooltip} from '../src/components/tooltip';
 
 describe('the tooltip component', () => {
     it('should have a function setActive that is active when persisting', () => {
