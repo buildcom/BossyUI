@@ -26,10 +26,6 @@ Question: Where will the widget files go?
 Answer: The src/directives folder with the name bossy.widgetname.js. The angular
 module also will be named bossy.widgetname.
 
-Question: Where will the test files go?
-
-Answer: test/directive/bossy.widgetname.spec.js (make sure to follow this name convention)
-
 Task: Create an issue and resolve the issue using a pull request.
 
 Announcement: The front end developers from the CDES department will be available for 
@@ -43,12 +39,6 @@ Notes from 4pm 9/18/2014 at Chico Start:
 Question: How do you bring in data to the widget?
 
 Answer: There will be an angular factory providing that in an array format.
-
-Question: What unit testing will we be using?
-
-Answer: Jasmine will be the unit testing tool of choice for the angular widgets.
-
-Conclusion: Unit testing will be a requirement on your widget.
 
 Question: What will BossyUI use for base styles?
 
