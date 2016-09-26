@@ -39,8 +39,6 @@ export class BossyCalendar {
 	constructor() {}
 
 	ngOnInit() {
-		console.log('calendar test', this.config);
-
 		this.updateDateMap();
 	}
 
@@ -122,7 +120,3 @@ export class BossyCalendar {
 		this.dateMap = month;
 	}
 }
-
-var test = {
-	foo: 'bar'
-};

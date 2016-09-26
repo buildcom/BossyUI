@@ -1,41 +1,16 @@
 import { Component } from '@angular/core';
 
-declare var System: any;
-declare var Components: Array<Component>;
-
-// interface Component {
-//     fullName: string,
-//     shortName: string,
-//     path: string
-// }
+declare const Components: Array<any>;
+declare const module: any;
 
 @Component({
+    moduleId: module.id,
     selector: 'sandbox-app',
-    template: `
-        <div class="row">
-            <div class="col-fixed-200">
-                <ul class="left-menu">
-                    <li class="left-menu-item" *ngFor="let component of components">{{component.shortName}}</li>
-                </ul>
-            </div>
-            <div class="col-offset-200">
-                <div class="row">
-                    <bossy-calendar [config]="config"></bossy-calendar>
-                </div>
-            </div>
-        </div>
-    `
+    templateUrl: './app.component.html'
 })
 export class AppComponent {
     config: any = {};
-    components: Array<Component>;
-
-    constructor() {
-        this.components = Components;
-
-        // console.log('components', this.components);
-        // this.loadComponents();
-    }
+    components: Array<any> = Components;
 
     loadComponents() {
 

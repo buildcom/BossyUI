@@ -14,10 +14,10 @@
             </thead>
             <tbody>
             <tr class="bossy-calendar-week-days">
-                <td *ngFor="#day of days" title="{{day}}">{{day.slice(0, 2)}}</td>
+                <td *ngFor="let day of days" title="{{day}}">{{day.slice(0, 2)}}</td>
             </tr>
-            <tr *ngFor="#week of dateMap" class="bossy-calendar-week-days">
-                <td *ngFor="#date of week" class="bossy-calendar-week-day" [class.bossy-calendar-not-current]="!date.inMonth" [class.selected]="date.selected" (click)="selectDate(date)">
+            <tr *ngFor="let week of dateMap" class="bossy-calendar-week-days">
+                <td *ngFor="let date of week" class="bossy-calendar-week-day" [class.bossy-calendar-not-current]="!date.inMonth" [class.selected]="date.selected" (click)="selectDate(date)">
                     {{date.day}}
                 </td>
             </tr>
