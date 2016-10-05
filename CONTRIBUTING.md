@@ -89,7 +89,6 @@ Before you go to Github and submit your pull request be sure to run:
 
 ```bash
 $ gulp jshint
-$ gulp run-tests
 ```
 
 As long as those tasks do not present you with any errors you are ready to submit your pull request.
