@@ -7,7 +7,7 @@
     "experimentalDecorators": true,
     "removeComments": true,
     "noImplicitAny": false,
-    "declaration": true,
+    "declaration": false,
     "noLib": false,
     "moduleResolution": "node",
     "rootDir": "../"
