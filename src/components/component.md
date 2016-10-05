@@ -12,7 +12,7 @@ declare const module: any;
         'config'
     ]
 })
-export class BossyCalendar {
+export class Bossy[NAME] {
     // code here
 
 }
