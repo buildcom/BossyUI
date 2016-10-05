@@ -1,4 +1,4 @@
-import {BossyCalendar} from '../components/calendar';
+import {BossyCalendar} from '../src/components/calendar';
 
 describe('the tooltip component', () => {
 	it('should have a function setActive that is active when persisting', () => {

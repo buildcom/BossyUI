@@ -1,11 +1,11 @@
-var dust = require('dustjs-linkedin');
-var cons = require('consolidate');
-var path = require('path');
-var glob = require('glob');
-var fs = require('fs');
-var livereload = require('express-livereload');
-var express = require('express');
-var app = express();
+const dust = require('dustjs-linkedin');
+const cons = require('consolidate');
+const path = require('path');
+const glob = require('glob');
+const fs = require('fs');
+const livereload = require('express-livereload');
+const express = require('express');
+const app = express();
 
 livereload(app, config={
     watchDir: process.cwd() + '/dist'
@@ -18,25 +18,22 @@ app.set('view engine', 'dust');
 app.use('/node_modules', express.static('node_modules', { extensions: ['js'] }));
 app.use('/dist', express.static('dist', { extensions: ['js'] }));
 app.use('/bootstrap', express.static('site/bootstrap'));
-app.use('/app', express.static('site/js'));
+app.use('/app', express.static('site/app'));
+app.use('/templates', express.static('site/templates'));
 app.use('/css', express.static('site/css'));
 app.use('/images', express.static('site/images'));
 
 app.get('/', function (req, res) {
-    res.render('index');
-});
-
-app.get('/sandbox', function (req, res) {
-	res.render('sandbox', {
+	res.render('index', {
 		components: getComponents(),
 		isDevel: process.env.NODE_ENV != 'production'
 	});
 });
 
-var server = app.listen(process.env.PORT || 3000, function () {
-    var port = server.address().port;
+const server = app.listen(process.env.PORT || 3000, function () {
+    const port = server.address().port;
 
-	var asciiLogo = '' +
+	const asciiLogo = '' +
 		'╔╗ ┌─┐┌─┐┌─┐┬ ┬╦ ╦╦\n' +
 		'╠╩╗│ │└─┐└─┐└┬┘║ ║║\n' +
 		'╚═╝└─┘└─┘└─┘ ┴ ╚═╝╩\n';
@@ -45,12 +42,13 @@ var server = app.listen(process.env.PORT || 3000, function () {
 });
 
 function getComponents() {
-	var components = [];
+	const components = [];
 
 	glob.sync('dist/components/**/*.js').forEach(function(file) {
-		var name = path.basename(file).split('.')[0],
-		shortName = `${name.charAt(0).toUpperCase()}${name.slice(1)}`,
-		fullName = `Bossy${shortName}`;
+		const name = path.basename(file).split('.')[0],
+			shortName = `${name.charAt(0).toUpperCase()}${name.slice(1)}`,
+			fullName = `Bossy${shortName}`;
+
 		components.push({fullName: fullName, shortName: shortName, path: file});
 	});
 

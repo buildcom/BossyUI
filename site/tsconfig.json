@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "module": "system",
+    "module": "commonjs",
     "target": "es5",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": true,
     "noImplicitAny": false,
-    "declaration": true,
+    "declaration": false,
     "noLib": false,
     "moduleResolution": "node",
     "rootDir": "../"

@@ -1,22 +1,21 @@
 <!doctype html>
-<html lang="en" ng-app="BossyUIApp">
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no"/>
     <title>BossyUI</title>
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/site.css"/>
 </head>
 <body>
 {>"partials/header"/}
 {+content}{/content}
-<script src="node_modules/es6-shim/es6-shim.min.js"></script>
-<script src="node_modules/systemjs/dist/system-polyfills.js"></script>
-<script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
-<script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+{>"partials/footer"/}
+<script src="node_modules/core-js/client/shim.min.js"></script>
+<script src="node_modules/zone.js/dist/zone.js"></script>
+<script src="node_modules/reflect-metadata/Reflect.js"></script>
 <script src="node_modules/systemjs/dist/system.src.js"></script>
-<script src="node_modules/rxjs/bundles/Rx.js"></script>
-<script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+<script src="app/systemjs.config.js"></script>
 {+scripts}
 {/scripts}
 {LRScript|s}
