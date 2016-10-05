@@ -1,26 +1,5 @@
-<div class="navbar navbar-default navbar-fixed-top header nav">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".test-nav"
-                    ng-click="toggleNav()">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="/">
-                <span class="mdl-layout-title nav-logo"></span>
-                <span class="mdl-layout-title nav-logo-word"></span>
-            </a>
-        </div>
-        <div class="navbar-collapse collapse" ng-class="{'show-nav': view.showNav}" ng-click="toggleNav()">
-            <div class="btn-toolbar pull-right" role="toolbar" >
-                <div class="btn-group" role="group">
-                    <a type="button" class="btn btn-link navbar-btn" href="/sandbox">Sandbox</a>
-                </div>
-                <div class="btn-group" role="group">
-                    <a type="button" class="btn btn-link navbar-btn ion-social-github btn-ion" href="https://github.com/buildcom/BossyUI"></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<nav class="navbar navbar-light navbar-fixed-top bg-gray header-nav">
+    <a class="navbar-brand" href="#">
+        <img src="/images/logo.png" alt="">
+    </a>
+</nav>

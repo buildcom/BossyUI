@@ -19,15 +19,12 @@ app.use('/node_modules', express.static('node_modules', { extensions: ['js'] }))
 app.use('/dist', express.static('dist', { extensions: ['js'] }));
 app.use('/bootstrap', express.static('site/bootstrap'));
 app.use('/app', express.static('site/app'));
+app.use('/templates', express.static('site/templates'));
 app.use('/css', express.static('site/css'));
 app.use('/images', express.static('site/images'));
 
 app.get('/', function (req, res) {
-    res.render('index');
-});
-
-app.get('/sandbox', function (req, res) {
-	res.render('sandbox', {
+	res.render('index', {
 		components: getComponents(),
 		isDevel: process.env.NODE_ENV != 'production'
 	});

@@ -6,7 +6,7 @@ declare const module: any;
 @Component({
     moduleId: module.id,
     selector: 'sandbox-app',
-    templateUrl: './app.component.html'
+    templateUrl: '../templates/app.component.html'
 })
 export class AppComponent {
     config: any = {};
