@@ -32,8 +32,7 @@
     "gulp": "gulp",
     "jsdoc": "jsdoc ./dist/**.js -c jsdoc.json",
     "start": "node site/server.js",
-    "install": "tsc; tsc -p ./site; npm run gulp site-install",
-    "sandbox-install": "npm run typings install; npm run install",
+    "install": "npm run install; npm run typings install; tsc; tsc -p ./site; npm run gulp site-install",
     "sandbox": "concurrently \"npm run bossy-templates\" \"npm run bossy-styles\" \"tsc -w\" \"tsc -w -p ./site\" \"npm start\"",
     "bossy-templates": "onchange 'src/templates/*.html' -- gulp copy-templates",
     "bossy-styles": "onchange 'src/styles/*.css' -- gulp copy-styles"

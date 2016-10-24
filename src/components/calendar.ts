@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 
 
-export class BossyCalendarOptions {
-	date: Date;
+declare const module: any;
+
+export class BossyCalendarConfig {
+	public date: Date;
 
 	constructor() {
 		this.date = new Date();
 	}
 }
-
-declare const module: any;
 
 @Component({
 	moduleId: module.id,
@@ -32,7 +32,7 @@ export class BossyCalendar {
 		'Saturday'
 	];
 	public config: any;
-	public options: BossyCalendarOptions = new BossyCalendarOptions();
+	public options: BossyCalendarConfig = new BossyCalendarConfig();
 	public display: Date = new Date();
 	public selected: Date = new Date();
 
@@ -118,5 +118,6 @@ export class BossyCalendar {
 		first.reverse();
 
 		this.dateMap = month;
+
 	}
 }
