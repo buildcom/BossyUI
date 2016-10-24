@@ -1,6 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BossyCalendar, BossyCalendarConfig }  from './components/calendar';
+import { BossyCalendar }  from './components/calendar';
 
 @NgModule({
     imports: [
