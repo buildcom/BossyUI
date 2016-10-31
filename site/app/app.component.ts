@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {BossyCalendarConfig} from "../../dist/components/calendar";
+
 
 declare const Components: Array<any>;
 declare const module: any;
@@ -6,27 +8,17 @@ declare const module: any;
 @Component({
     moduleId: module.id,
     selector: 'sandbox-app',
-    templateUrl: '../templates/app.component.html'
+    templateUrl: '../templates/app.component.html',
+    outputs: ['calendarConfig']
 })
 export class AppComponent {
-    config: any = {};
     components: Array<any> = Components;
 
-    loadComponents() {
+    calendarConfig: BossyCalendarConfig;
 
-        // this.config = {foo: 'bar'};
-        //
-        // this.components.forEach(component => {
-        //     System.import(component.path)
-        //         .then(componentModule => {
-        //             this.dynamicComponentLoader.loadIntoLocation(componentModule[component.fullName], this.elementRef, 'content')
-        //                 .then(component => {
-        //                     //component.instance.inputProperty = this.config.Calendar;
-        //                     //component.instance.inputValue = this.config.Calendar;
-        //                     component.instance.config = this.config;
-        //                 });
-        //         });
-        // });
+    ngOnInit() {
+        this.calendarConfig = new BossyCalendarConfig();
+
     }
 }
 
