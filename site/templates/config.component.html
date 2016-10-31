@@ -1,4 +1,6 @@
-<div>
-    <h1>{{ sandboxConfig.label }}</h1>
-</div>
-
+<form [formGroup]="configForm" novalidate>
+    <div *ngFor="let key of configKeys;" class="form-group">
+        <label attr.for="{{ key }}">{{ key }}</label>
+        <input class="form-control" id="{{ key }}" type="text" formControlName="{{ key }}">
+    </div>
+</form>

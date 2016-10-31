@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl } from "@angular/forms";
 
 declare const module: any;
 
@@ -6,16 +7,22 @@ declare const module: any;
     moduleId: module.id,
     selector: 'sandbox-config',
     templateUrl: '../templates/config.component.html',
-    inputs: ['sandboxConfig']
+    inputs: ['config']
 })
 export class ConfigComponent {
-    sandboxConfig;
-
+    config: any;
+    configKeys: Array<string>;
+    configForm: FormGroup;
+    configFormControls: any = {};
 
     ngOnInit() {
-        console.log('config', this.sandboxConfig);
-        //Object.keys(this.calendarConfig)
+        this.configKeys = Object.keys(this.config);
 
+        this.configKeys.forEach((key) => {
+            this.configFormControls[key] = new FormControl(this.config[key].toString());
+        });
+
+        this.configForm = new FormGroup(this.configFormControls);
     }
 }
 

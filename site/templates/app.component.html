@@ -1,13 +1,15 @@
-<div class="col-sm-3 col-md-2 bg-faded sidebar">
+<div class="col-sm-2 col-md-2 bg-faded sidebar">
     <div>
         <ul class="nav nav-sidebar">
             <li><a href="#">Calendar</a></li>
         </ul>
     </div>
 </div>
-<div class="col-sm-9 col-md-10 main">
-    <bossy-calendar></bossy-calendar>
-    <sandbox-config [sandboxConfig]="calendarConfig"></sandbox-config>
+<div class="col-sm-3 col-md-3 main">
+    <sandbox-config [config]="calendarConfig"></sandbox-config>
+</div>
+<div class="col-sm-7 col-md-7 main">
+    <bossy-calendar [config]="calendarConfig"></bossy-calendar>
 </div>
 
 

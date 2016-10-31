@@ -4,10 +4,10 @@ import {Component, OnInit} from '@angular/core';
 declare const module: any;
 
 export class BossyCalendarConfig {
-	public date: Date;
+	defaultDate: Date;
 
 	constructor() {
-		this.date = new Date();
+		this.defaultDate = new Date();
 	}
 }
 
@@ -32,7 +32,7 @@ export class BossyCalendar {
 		'Saturday'
 	];
 	public config: any;
-	public options: BossyCalendarConfig = new BossyCalendarConfig();
+	public options: BossyCalendarConfig;
 	public display: Date = new Date();
 	public selected: Date = new Date();
 

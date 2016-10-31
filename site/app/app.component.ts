@@ -14,19 +14,10 @@ declare const module: any;
 export class AppComponent {
     components: Array<any> = Components;
 
-    calendarConfig: any = {
-        label: 'this is a test label'
-    };
+    calendarConfig: BossyCalendarConfig;
 
     ngOnInit() {
-
-        //this.calendarConfig = new BossyCalendarConfig();
-
-
-
-        console.log('ng2!', this.calendarConfig.label);
-
-        // Object.keys(BossyCalendarConfig);
+        this.calendarConfig = new BossyCalendarConfig();
 
     }
 }
