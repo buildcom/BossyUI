@@ -1,28 +1,37 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl } from "@angular/forms";
+import { Component, Input, OnChanges } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 
 declare const module: any;
 
 @Component({
     moduleId: module.id,
     selector: 'sandbox-config',
-    templateUrl: '../templates/config.component.html',
-    inputs: ['config']
+    templateUrl: '../templates/config.component.html'
 })
 export class ConfigComponent {
-    config: any;
+    @Input() config: any;
     configKeys: Array<string>;
     configForm: FormGroup;
-    configFormControls: any = {};
+
+    constructor(
+        private formBuilder: FormBuilder
+    ) {
+        this.configChange = this.configChange.bind(this);
+    }
 
     ngOnInit() {
         this.configKeys = Object.keys(this.config);
+        this.configForm = this.formBuilder.group(this.config);
 
-        this.configKeys.forEach((key) => {
-            this.configFormControls[key] = new FormControl(this.config[key].toString());
+        this.configForm.valueChanges.subscribe(this.configChange);
+    }
+
+    configChange(newConfig) {
+        Object.keys(newConfig).forEach((key) => {
+            if (this.config[key] !== newConfig[key]) {
+                this.config[key] = newConfig[key];
+            }
         });
-
-        this.configForm = new FormGroup(this.configFormControls);
     }
 }
 
