@@ -24,7 +24,7 @@
     "node": "4.4.4"
   },
   "scripts": {
-    "test": "karma start",
+    "test": "tsc;karma start",
     "tsc": "tsc",
     "concurrently": "concurrently",
     "onchange": "onchange",

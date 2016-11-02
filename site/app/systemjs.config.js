@@ -31,6 +31,9 @@
 			},
 			rxjs: {
 				defaultExtension: 'js'
+			},
+			'dist': {
+				defaultExtension: 'js'
 			}
 		}
 	});
