@@ -30,7 +30,7 @@ declare var __moduleName: string;
 
 @Component({
 	selector: 'bossy-slider',
-	moduleId: __moduleName,
+	moduleId: module.id,
 	templateUrl: '../templates/slider.html',
 	inputs: ['config'],
 })

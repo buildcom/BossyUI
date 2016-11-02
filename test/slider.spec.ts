@@ -1,4 +1,4 @@
-import {BossySlider} from '../components/slider';
+import {BossySlider} from '../src/components/slider';
 let slider: BossySlider;
 describe('the slider component', () => {
 	beforeEach(() => {
