@@ -1,4 +1,5 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
@@ -10,14 +11,6 @@
     "declaration": true,
     "noLib": false,
     "moduleResolution": "node",
-    "outDir": "dist"
-  },
-  "exclude": [
-    "dist",
-    "site",
-    "node_modules",
-    "ng2",
-    "typings/main",
-    "typings/main.d.ts"
-  ]
+    "outDir": "../dist"
+  }
 }
