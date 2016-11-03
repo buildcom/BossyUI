@@ -24,16 +24,18 @@
     "node": "4.4.4"
   },
   "scripts": {
-    "test": "tsc;karma start",
+    "test": "tsc -p ./src;tsc -p ./test;karma start",
     "tsc": "tsc",
     "concurrently": "concurrently",
     "onchange": "onchange",
     "gulp": "gulp",
     "jsdoc": "jsdoc ./dist/**.js -c jsdoc.json",
     "start": "node site/server.js",
-    "install": "npm run types;tsc; tsc -p ./site; npm run gulp site-install",
+    "install": "npm run types;tsc -p ./src; tsc -p ./site; npm run gulp site-install",
     "types": "npm install @types/jasmine; npm install @types/core-js; npm install @types/node",
-    "sandbox": "concurrently \"npm run bossy-templates\" \"npm run bossy-styles\" \"tsc -w\" \"tsc -w -p ./site\" \"npm start\"",
+    "watch-src": "tsc -w -p ./src",
+    "watch-site": "tsc -w -p ./site",
+    "sandbox": "concurrently \"npm run watch-site\" \"npm run watch-src\" \"npm run bossy-templates\" \"npm run bossy-styles\" \"npm start\"",
     "bossy-templates": "onchange 'src/templates/*.html' -- gulp copy-templates",
     "bossy-styles": "onchange 'src/styles/*.css' -- gulp copy-styles"
   },

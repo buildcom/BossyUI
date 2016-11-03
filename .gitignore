@@ -10,5 +10,6 @@ dist
 **/*.js.map
 
 !site/app/systemjs.config.js
+!site/server.js
 !karma.conf.js
 !karma-test-shim.js

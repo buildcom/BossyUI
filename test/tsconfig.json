@@ -8,8 +8,9 @@
     "experimentalDecorators": true,
     "removeComments": true,
     "noImplicitAny": false,
-    "declaration": false,
+    "declaration": true,
     "noLib": false,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "outDir": "../dist"
   }
 }
