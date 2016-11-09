@@ -1,15 +1,9 @@
 import {Component, OnInit} from '@angular/core';
+import {BossyCalendarConfig} from '../../config/calendar.config';
 
 
 declare const module: any;
 
-export class BossyCalendarConfig {
-	defaultDate: Date;
-
-	constructor() {
-		this.defaultDate = new Date();
-	}
-}
 
 @Component({
 	moduleId: module.id,

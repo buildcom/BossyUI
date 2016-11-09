@@ -1,3 +1,7 @@
-/**
- * Created by daniel on 11/8/16.
- */
+export class BossyCalendarConfig {
+    defaultDate: Date;
+
+    constructor() {
+        this.defaultDate = new Date();
+    }
+}
