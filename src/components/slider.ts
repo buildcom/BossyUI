@@ -14,17 +14,8 @@
  * <bossy-slider max="20" min="-5" orientation="vertical"></bossy-slider>*/
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 import {Component, OnInit} from '@angular/core';
+import {BossySliderConfig} from '../../config/slider.config'
 
-export interface  BossySliderConfig {
-	max: number;
-	min: number;
-	width: any;
-	barFillColor: any;
-	barEmptyColor: any;
-	buttonColor: any;
-	step: any;
-	orientation: any;
-}
 
 declare var __moduleName: string;
 
