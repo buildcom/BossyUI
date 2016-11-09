@@ -1,0 +1,56 @@
+<form [formGroup]="bossyForm" ngSubmit="onSubmit()">
+    <div *ngFor="let key of configKeys; let i=index" [ngSwitch]="configItems[i].type" class="form-group">
+        <label for="{{ configItems[i].id }}">{{ configItems[i].label }}</label>
+        <bossy-text type="text"
+                    name="{{ configItems[i].name }}"
+                    class="{{ configItems[i].styles.class }}"
+                    id="{{ configItems[i].id }}"
+                    placeholder="{{ configItems[i].placeholder }}"
+                    *ngSwitchCase="'bossy-text'"
+                    formControlName="{{ key }}"
+                    [config]="{{ configItems[i].itemConfig }}"
+                    rows="{{ configItems[i].styles.rows }}"
+                    columns="{{ configItems[i].styles.columns }}">
+        </bossy-text>
+        <bossy-textarea type="textarea"
+                    name="{{ configItems[i].name }}"
+                    class="{{ configItems[i].styles.class }}"
+                    id="{{ configItems[i].id }}"
+                    placeholder="{{ configItems[i].placeholder }}"
+                    *ngSwitchCase="'bossy-text'"
+                    formControlName="{{ key }}"
+                    [config]="{{ configItems[i].itemConfig }}"
+                    rows="{{ configItems[i].styles.rows }}"
+                    columns="{{ configItems[i].styles.columns }}">
+        </bossy-textarea>
+        <bossy-button type="button"
+                      name="{{ configItems[i].name }}"
+                      class="{{ configItems[i].styles.class }}"
+                      id="{{ configItems[i].id }}"
+                      placeholder="{{ configItems[i].placeholder }}"
+                      *ngSwitchCase="'bossy-button'"
+                      value="{{ configItems[i].label }}"
+                      formControlName="{{ key }}"
+                      [config]="{{ configItems[i].itemConfig }}"
+                      rows="{{ configItems[i].styles.rows }}"
+                      columns="{{ configItems[i].styles.columns }}">
+        </bossy-button>
+        <bossy-submit type="submit"
+                      name="{{ configItems[i].name }}"
+                      class="{{ configItems[i].styles.class }}"
+                      id="{{ configItems[i].id }}"
+                      placeholder="{{ configItems[i].placeholder }}"
+                      *ngSwitchCase="'submit'"
+                      [disabled]="!bossyForm.valid"
+                      formControlName="{{ key }}"
+                      [config]="{{ configItems[i].itemConfig }}"
+                      rows="{{ configItems[i].styles.rows }}"
+                      columns="{{ configItems[i].styles.columns }}">
+        </bossy-submit>
+
+        <!--    ETC -->
+
+    </div>
+
+</form>
+
