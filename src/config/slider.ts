@@ -1,3 +1,4 @@
+
 export interface  BossySliderConfig {
     max: number;
     min: number;

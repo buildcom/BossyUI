@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BossyCalendarConfig} from '../../config/calendar.config';
+import {BossyCalendarConfig} from '../config/calendar';
 
 
 declare const module: any;
