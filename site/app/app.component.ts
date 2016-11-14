@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {BossyCalendarConfig} from "../../dist/components/calendar";
+import {BossyCalendarConfig} from "../../dist/config/calendar";
 
 
 declare const Components: Array<any>;
