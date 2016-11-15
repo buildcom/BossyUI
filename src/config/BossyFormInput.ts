@@ -1,12 +1,12 @@
 export class BossyFormInputConfig{
-    controlType: string;
+    type: string;
     id: string;
     required: boolean;
     label: string;
 
 
-    constructor(controlType: string) {
-        this.controlType = controlType;
+    constructor(type: string) {
+        this.type = type;
         this.id = '';
         this.required = false;
         this.label = '';
