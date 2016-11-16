@@ -64,9 +64,9 @@ module.exports = function(config) {
 			{ pattern: appBase + '**/*.css', included: false, watched: true },
 
 			// Paths for debugging with source maps in dev tools
-			{ pattern: appSrcBase + '**/*.ts', included: false, watched: false },
+			{ pattern: appSrcBase + '**/*.ts', included: false, watched: true },
 			{ pattern: appBase + '**/*.js.map', included: false, watched: false },
-			{ pattern: testSrcBase + '**/*.ts', included: false, watched: false },
+			{ pattern: testSrcBase + '**/*.ts', included: false, watched: true },
 			{ pattern: testBase + '**/*.js.map', included: false, watched: false }
 		],
 
@@ -86,6 +86,6 @@ module.exports = function(config) {
 		logLevel: config.LOG_INFO,
 		autoWatch: true,
 		browsers: ['Chrome'],
-		singleRun: true
+		singleRun: true,
 	})
 }
