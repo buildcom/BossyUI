@@ -4,9 +4,9 @@ declare const module: any;
 
 @Component({
     moduleId: module.id,
-    selector: 'bossy-formlabel',
-    templateUrl: '../templates/formlabel.html',
-    styleUrls: ['../styles/formlabel.css'],
+    selector: 'bossy-form-label',
+    templateUrl: '../templates/form-label.html',
+    styleUrls: ['../styles/form-label.css'],
     inputs: [
         'config'
     ]
