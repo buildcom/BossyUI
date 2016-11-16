@@ -7,4 +7,5 @@ describe('the tooltip component', () => {
         expect(tooltip.setActive(true)).toEqual('active');
     })
 });
+
 */
