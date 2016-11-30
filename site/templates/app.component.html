@@ -2,7 +2,7 @@
     <div>
         <ul class="nav nav-sidebar">
             <li><a href="#">Calendar</a></li>
-            <li><a href="#">Text Area</a></li>
+            <li><a href="#">Text box</a></li>
         </ul>
     </div>
 </div>
@@ -12,7 +12,8 @@
 <div class="col-sm-7 col-md-7 main">
     <bossy-calendar [config]="calendarConfig"></bossy-calendar>
 </div>
-<div class="col-sm-4 col-md-4 col-lg-4 main">
+<div class="col-sm-7 col-md-7 main">
+	<sandbox-config [config]="formInputConfig"></sandbox-config>
 	<bossy-form-input [config]="formInputConfig"></bossy-form-input>
 </div>
 

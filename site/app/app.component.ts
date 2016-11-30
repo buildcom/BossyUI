@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {BossyCalendarConfig} from "../../dist/config/calendar";
-import {BossyFormInputConfig} from "../../dist/components/form-input";
+import {BossyFormInputConfig} from "../../dist/config/BossyFormInput";
 
 declare const Components: Array<any>;
 declare const module: any;
@@ -15,11 +15,11 @@ export class AppComponent {
     components: Array<any> = Components;
 
     calendarConfig: BossyCalendarConfig;
-	formInputConfig : BossyFormInputConfig;
+	formInputConfig: BossyFormInputConfig;
 	
     ngOnInit() {
         this.calendarConfig = new BossyCalendarConfig();
-        this.formInputConfig = new BossyFormInputConfig();
+        this.formInputConfig = new BossyFormInputConfig("text");
     }
 }
 
