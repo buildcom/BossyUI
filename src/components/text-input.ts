@@ -4,14 +4,14 @@ declare const module: any;
 
 @Component({
     moduleId: module.id,
-    selector: 'bossy-textinput',
-    templateUrl: '../templates/textinput.html',
-    styleUrls: ['../styles/textinput.css'],
+    selector: 'bossy-text-input',
+    templateUrl: '../templates/text-input.html',
+    styleUrls: ['../styles/text-input.css'],
     inputs: [
         'config'
     ]
 })
-export class Bossytextinput {
+export class BossyTextInput {
     // code here
 
 }
