@@ -1,3 +1,4 @@
+
 export class BossyCalendarConfig {
     defaultDate: Date;
 
