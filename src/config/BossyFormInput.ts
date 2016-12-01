@@ -3,7 +3,6 @@ export class BossyFormInputConfig{
     id: string;
     required: boolean;
     label: string;
-	config: {};
 
     constructor(type: string) {
         this.type = type;

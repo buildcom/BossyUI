@@ -13,7 +13,7 @@ declare const module: any;
 export class BossyForm {
     configKeys: Array<string>;
     configForm: FormGroup;
-    public config: any;
+    @Input() config: any;
 
     constructor(private formBuilder: FormBuilder){
         this.configChange = this.configChange.bind(this);
