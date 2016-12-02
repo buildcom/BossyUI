@@ -4,11 +4,10 @@ export class BossyFormInputConfig{
     required: boolean;
     label: string;
 
-
     constructor(type: string) {
         this.type = type;
         this.id = '';
         this.required = false;
-        this.label = '';
+        this.label = '';        
     }
 }
