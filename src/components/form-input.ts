@@ -10,17 +10,11 @@ declare const module: any;
     styleUrls: ['../styles/form-input.css'],
 })
 export class BossyFormInput {
-	@Input() config = new BossyFormInputConfig("text");
-    constructor(){																																										
-       if(this.config.type === "text")
-       {
-			this.output();
-       }
+	@Input('config') config: any;
+    constructor() {
     }
     ngOnInit() {
-       
     }
-    output()
-    {
+    output() {
     }
 };
