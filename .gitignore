@@ -13,3 +13,6 @@ dist
 !site/server.js
 !karma.conf.js
 !karma-test-shim.js
+
+# Vim swap files
+.swp
