@@ -22,5 +22,3 @@ export class AppComponent {
         this.formInputConfig = new BossyFormInputConfig("text");
     }
 }
-
-

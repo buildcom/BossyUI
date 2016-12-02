@@ -1,6 +1,9 @@
 <div [ngSwitch]="config.type" class = "bossy-form-input">
 	<div *ngSwitchCase ="'text'">
-		<input type = "text"/>
+		<input type = "text" />
+	</div>
+	<div *ngSwitchCase="'number'">
+		<input type = "number" />
 	</div>
 	<div *ngSwitchDefault></div>
 </div>
