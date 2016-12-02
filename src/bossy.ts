@@ -1,16 +1,19 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BossyCalendar }  from './components/calendar';
+import { BossyFormInput } from './components/form-input';
 
 @NgModule({
     imports: [
         BrowserModule
     ],
     declarations: [
-        BossyCalendar
+        BossyCalendar,
+        BossyFormInput
     ],
     exports: [
-        BossyCalendar
+        BossyCalendar,
+        BossyFormInput
     ]
 })
 export class BossyModule {
