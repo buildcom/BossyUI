@@ -1,7 +1,8 @@
-<div class="bossy-form-input">
-   bossy-form-input for text:
-  <input type={{this.config.type}} />
-  {{this.config.type}}
+<div [ngSwitch]="config.type" class = "bossy-form-input">
+	<div *ngSwitchCase ="'text'">
+		<input type = "text"/>
+	</div>
+	<div *ngSwitchDefault></div>
 </div>
   
 
