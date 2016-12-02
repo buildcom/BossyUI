@@ -1,4 +1,5 @@
 export class BossyFormInputConfig{
+    name: string;
     type: string;
     id: string;
     required: boolean;

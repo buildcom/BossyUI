@@ -1,3 +1,6 @@
-/**
- * Created by dustin on 12/2/16.
- */
+import { BossyFormInputConfig } from '../config/BossyFormInput';
+
+export class BossyFormConfig {
+    elements: Array<BossyFormInputConfig>;
+    //etc...
+}
