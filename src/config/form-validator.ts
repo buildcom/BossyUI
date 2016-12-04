@@ -1,8 +1,6 @@
 import { FormControl } from '@angular/forms';
 
 export class BossyFormValidator{
-	//npm install --save validate.js
-	private validate = require("node_modules/validate.js/validate.js");
 	private controlName: string;
 	private constraints: {};
 
@@ -17,23 +15,13 @@ export class BossyFormValidator{
 		};
 	}
 	validateElement = (control: FormControl) => {
-		let validate = this.validate({[this.controlName]:`${control}`}, this.constraints);
-		if (validate === undefined){
+		let validate = require("node_modules/validate.js/validate.js");
+		let validation = validate({[this.controlName]:control}, this.constraints);
+		if (validation === undefined){
 			return null;
 		}
 		else{
-			return {valid: false};
+			return {errorMessage: validation};
 		}
 	};
 }
-
-/*
-Example
-	let validateText = new BossyFormValidator('someTextKey', {min:2, max:10})
-	let validateEmail = new BossyFormValidator('someEmailKey',{email: true})
-
-	formBuilder.group({
-		someTextKey: [null, validateText.validateElement],
-		someEmailKey: [null, validateEmail.validateElement]
-	})
- */
