@@ -1,6 +1,9 @@
-import { BossyFormInputConfig } from '../config/BossyFormInput';
+import { BossyFormInputConfig } from '../config/form-input';
 
 export class BossyFormConfig {
     elements: Array<BossyFormInputConfig>;
-    //etc...
+
+    constructor(elements: Array<BossyFormInputConfig>){
+        this.elements = elements;
+    }
 }

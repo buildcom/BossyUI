@@ -1,5 +1,8 @@
 <form [formGroup]="bossyForm" ngSubmit="onSubmit()">
-    <div *ngFor="let i=index" class="form-group">
-        <bossy-form-input [config]="config.elements[i]" formControlName="{{ config.elements[i].name }}"></bossy-form-input>
+    <div *ngFor="let element of config.elements" class="form-group, {{ element.cssClass }}">
+        <bossy-form-input
+                [config]="element"
+                formControlName="{{ element.name }}">
+        </bossy-form-input>
     </div>
 </form>

@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import {BossyFormInputConfig} from '../config/BossyFormInput';
+import {BossyFormInputConfig} from '../config/form-input';
 
 declare const module: any;
 
@@ -10,11 +10,14 @@ declare const module: any;
     styleUrls: ['../styles/form-input.css'],
 })
 export class BossyFormInput {
-	@Input('config') config: any;
+	@Input('config') config: BossyFormInputConfig;
+
     constructor() {
     }
+
     ngOnInit() {
     }
+
     output() {
     }
 };

@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { FormGroup, FormArray, FormControl, FormBuilder } from '@angular/forms';
-import { BossyFormConfig } from '../config/form'
+import { BossyFormConfig } from '../config/form';
 
 declare const module: any;
 
@@ -8,7 +8,7 @@ declare const module: any;
     moduleId: module.id,
     selector: 'bossy-form',
     templateUrl: '../templates/form.html',
-    styleUrls: ['../styles/form.css']
+    styleUrls: ['../styles/form.css'],
 })
 
 export class BossyForm {
@@ -16,12 +16,11 @@ export class BossyForm {
     @Input() config: BossyFormConfig;
 
     constructor(private formBuilder: FormBuilder) {
+        //create form control group
+        this.bossyForm = this.formBuilder.group(this.config.elements);
     }
 
     ngOnInit() {
-        //create form control group
-        this.bossyForm = this.formBuilder.group(this.config.elements);
-        //todo: add validators
     }
 
      onSubmit() {
