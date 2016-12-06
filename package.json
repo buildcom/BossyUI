@@ -75,7 +75,7 @@
     "karma": "^0.13.9",
     "karma-chrome-launcher": "^0.2.0",
     "karma-jasmine": "^0.3.6",
-    "karma-jasmine-html-reporter": "^0.1.8",
+    "karma-jasmine-html-reporter": "github:nocomm/karma-jasmine-html-reporter",
     "onchange": "^2.4.0",
     "run-sequence": "^1.1.5",
     "systemjs": "^0.16.11",

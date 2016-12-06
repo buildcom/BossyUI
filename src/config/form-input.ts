@@ -7,7 +7,6 @@ export class BossyFormInputConfig{
     label: string;
     rows: number;
     cols: number;
-    name: string;
     placeholder: string;
 
     constructor(name: string, type: string, cssClass: string, id: string, required: boolean, label: string) {
@@ -19,7 +18,6 @@ export class BossyFormInputConfig{
         this.label = label;
         this.rows = 1;
         this.cols = 75;
-        this.name = '';
         this.placeholder = '';
     }
 }
