@@ -2,18 +2,24 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BossyCalendar }  from './components/calendar';
 import { BossyFormInput } from './components/form-input';
+import { BossyForm } from './components/form';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
-        BrowserModule
+        BrowserModule,
+        ReactiveFormsModule,
+        FormsModule
     ],
     declarations: [
         BossyCalendar,
-        BossyFormInput
+        BossyFormInput,
+        BossyForm
     ],
     exports: [
         BossyCalendar,
-        BossyFormInput
+        BossyFormInput,
+        BossyForm
     ]
 })
 export class BossyModule {

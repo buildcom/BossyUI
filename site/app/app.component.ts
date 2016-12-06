@@ -12,13 +12,19 @@ declare const module: any;
     outputs: ['calendarConfig','formInputConfig']
 })
 export class AppComponent {
-    components: Array<any> = Components;
 
     calendarConfig: BossyCalendarConfig;
-	formInputConfig: BossyFormInputConfig;
+	formConfig: Array<BossyFormInputConfig>;
 	
     ngOnInit() {
         this.calendarConfig = new BossyCalendarConfig();
-        this.formInputConfig = new BossyFormInputConfig("text");
+
+        this.formConfig = [
+            new BossyFormInputConfig("text"),
+            new BossyFormInputConfig("text"),
+            new BossyFormInputConfig("text"),
+            new BossyFormInputConfig("text"),
+            new BossyFormInputConfig("text")
+        ];
     }
 }

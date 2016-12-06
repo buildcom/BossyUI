@@ -1,5 +1,6 @@
 export class BossyFormInputConfig{
     type: string;
+    value: string;
     id: string;
     required: boolean;
     label: string;
@@ -10,6 +11,7 @@ export class BossyFormInputConfig{
 
     constructor(type: string) {
         this.type = type;
+        this.value = '';
         this.id = '';
         this.required = false;
         this.label = '';
