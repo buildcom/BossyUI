@@ -1,24 +1,24 @@
 import { Component } from '@angular/core';
 import {BossyCalendarConfig} from "../../dist/config/calendar";
-import {BossyFormInputConfig} from "../../dist/config/BossyFormInput";
+import {BossyFormConfig} from "../../dist/config/form";
+import {BossyFormInputConfig} from "../../dist/config/form-input";
 
-declare const Components: Array<any>;
+declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
 
 @Component({
     moduleId: module.id,
     selector: 'sandbox-app',
     templateUrl: '../templates/app.component.html',
-    outputs: ['calendarConfig','formInputConfig']
+    outputs: ['calendarConfig','formConfig']
 })
 export class AppComponent {
-    components: Array<any> = Components;
-
+    components: Array<BossyFormInputConfig> = Components;
     calendarConfig: BossyCalendarConfig;
-	formInputConfig: BossyFormInputConfig;
+	formConfig: BossyFormConfig;
 	
     ngOnInit() {
         this.calendarConfig = new BossyCalendarConfig();
-        this.formInputConfig = new BossyFormInputConfig("text");
+        this.formConfig = new BossyFormConfig(this.components);
     }
 }

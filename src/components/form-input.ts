@@ -10,11 +10,14 @@ declare const module: any;
     styleUrls: ['../styles/form-input.css'],
 })
 export class BossyFormInput {
-	@Input('config') config: any;
+	@Input('config') config: BossyFormInputConfig;
+
     constructor() {
     }
+
     ngOnInit() {
     }
+
     output() {
     }
 };
