@@ -1,9 +1,15 @@
-<div [ngSwitch]="config.type" class = "bossy-form-input">
+<div [ngSwitch]="config.type" class = "{{bossy-form-input}}">
 	<div *ngSwitchCase ="'text'">
-		<input type = "text" />
+        <input type = "{{text}}" name="{{config.name}}" placeholder="{{config.placeholder}}" />
 	</div>
 	<div *ngSwitchCase="'number'">
-		<input type = "number" />
+        <input type = "{{number}}" name="{{config.name}}" placeholder="{{config.placeholder}}" />
+	</div>
+	<div *ngSwitchCase="'textarea'">
+        <textarea name="{{config.name}}" placeholder="{{config.placeholder}}" rows="{{config.rows}}" cols="{{config.cols}}"> </textarea>
+	</div>
+	<div *ngSwitchCase="'email'">
+        <input type = "{{email}}">
 	</div>
 	<div *ngSwitchDefault></div>
 </div>
