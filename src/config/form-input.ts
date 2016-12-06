@@ -17,9 +17,6 @@ export class BossyFormInputConfig{
         this.id = id;
         this.required = required;
         this.label = label;
-        this.id = '';
-        this.required = false;
-        this.label = '';
         this.rows = 1;
         this.cols = 75;
         this.name = '';
