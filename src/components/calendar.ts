@@ -1,20 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {BossyCalendarConfig} from '../config/calendar';
 
 
 declare const module: any;
-
 
 @Component({
 	moduleId: module.id,
 	selector: 'bossy-calendar',
 	templateUrl: '../templates/calendar.html',
 	styleUrls: ['../styles/calendar.css'],
-	inputs: [
-		'config'
-	]
 })
 export class BossyCalendar {
+	@Input() config: BossyCalendarConfig;
 	dateMap: Array<any> = [];
 	days: Array<string> = [
 		'Sunday',
@@ -25,7 +22,6 @@ export class BossyCalendar {
 		'Friday',
 		'Saturday'
 	];
-	public config: any;
 	public options: BossyCalendarConfig;
 	public display: Date = new Date();
 	public selected: Date = new Date();
@@ -67,18 +63,18 @@ export class BossyCalendar {
 	}
 
 	updateDateMap() {
-		var month = [];
-		var week = [];
+		var month: Array<any> = [];
+		var week: Array<any> = [];
 		var startDate = new Date(this.display.getFullYear(), this.display.getMonth(), 1);
 		var endDate = new Date(this.display.getFullYear(), this.display.getMonth() + 1, 0);
 		var endDatePrevious = new Date(this.display.getFullYear(), this.display.getMonth(), 0);
 		var day = 1;
-		var weekDay;
 		var endDay = Number.parseInt(endDate.toDateString().split(' ')[2]);
 		var endDayPrevious = Number.parseInt(endDatePrevious.toDateString().split(' ')[2]);
 
 		while (day <= endDay) {
-			weekDay = ((day - 1) + startDate.getDay()) % 7;
+			const weekDay = ((day - 1) + startDate.getDay()) % 7;
+			const weekDayValue = new Date(this.display.getFullYear(), this.display.getMonth(), day).toDateString();
 
 			if (weekDay === 0) {
 				month.push(week);
@@ -88,9 +84,9 @@ export class BossyCalendar {
 			week[weekDay] = {
 				day: day,
 				inMonth: true,
-				value: new Date(this.display.getFullYear(), this.display.getMonth(), day).toDateString()
+				value: weekDayValue,
+				selected: (weekDayValue === this.selected.toDateString())
 			};
-			week[weekDay].selected = (week[weekDay].value === this.selected.toDateString());
 			day++;
 		}
 
@@ -112,6 +108,5 @@ export class BossyCalendar {
 		first.reverse();
 
 		this.dateMap = month;
-
 	}
 }
