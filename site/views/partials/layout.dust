@@ -11,6 +11,7 @@
 {>"partials/header"/}
 {+content}{/content}
 {>"partials/footer"/}
+<script src="node_modules/ace-builds/src/ace.js" type="text/javascript" charset="utf-8"></script>
 <script src="node_modules/core-js/client/shim.min.js"></script>
 <script src="node_modules/zone.js/dist/zone.js"></script>
 <script src="node_modules/reflect-metadata/Reflect.js"></script>
