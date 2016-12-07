@@ -15,7 +15,7 @@ export class BossyFormInputValidator {
 	@Input() elementName: string;
 
 	ngOnInit(){
-		if (this.elementName !== undefined){
+		if (this.elementName !== undefined && this.formGroup !== undefined){
 			let valid = new BossyFormInputValidatorConfig(this.elementName, this.validators);
 			this.formGroup.controls[this.elementName].setValidators(valid.validateElement);
 		}
