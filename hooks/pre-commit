@@ -1,0 +1,16 @@
+#!/bin/sh
+
+lint_pass=true
+
+echo "\nRunning TSLint:\n"
+
+npm --silent run lint
+
+if [ $? -eq 0 ]; then
+    echo "Successfully Lint'd"
+else
+    echo "Lint errors found (see above), please fix and try again.\n"
+    exit $?
+fi
+
+exit 0

@@ -1,5 +1,5 @@
-import {Component, Input, OnChanges} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {Component, Input} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {BossyFormConfig} from '../config/form';
 
 
@@ -21,7 +21,6 @@ export class BossyForm {
 
 	ngOnInit() {
 		const elements = {};
-		// this.bossyForm = this.formBuilder.group({});
 
 		this.config.elements.forEach((element) => {
 			const { name, value } = element;
@@ -32,6 +31,6 @@ export class BossyForm {
 	}
 
 	onSubmit() {
-		//TODO: return form data
+		// TODO: return form data
 	}
 }

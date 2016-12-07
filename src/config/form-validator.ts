@@ -1,15 +1,15 @@
-import { FormControl } from '@angular/forms';
+import {FormControl} from '@angular/forms';
 
-export class BossyFormValidator{
+export class BossyFormValidator {
 	private controlName: string;
 	private constraint: Constraint;
 
-	constructor(controlName:string,
-	            validate?:{minLength?:number, maxLength?:number, email?:boolean}){
+	constructor(controlName: string, validate?: {minLength?: number, maxLength?: number, email?: boolean}
+	) {
 		this.controlName = controlName;
 		this.constraint = {
-			[controlName] : {
-				length : {}
+			[controlName]:  {
+				length:  {}
 			}
 		};
 
@@ -17,24 +17,25 @@ export class BossyFormValidator{
 		this.constraint[controlName].length.minimum = validate.minLength;
 		this.constraint[controlName].email = validate.email;
 	}
+
 	validateElement = (control: FormControl) => {
-		let validate = require("node_modules/validate.js/validate.js");
-		let validation = validate({[this.controlName]:control}, this.constraint);
-		if (validation === undefined){
+		let validate = require('node_modules/validate.js/validate.js');
+		let validation = validate({[this.controlName]:  control}, this.constraint);
+		if (validation === undefined) {
 			return null;
 		}
-		else{
-			return {errorMessage: validation};
+		else {
+			return {errorMessage:  validation};
 		}
-	};
+	}
 }
 
-interface Constraint{
-	[controlName:string] : {
-		length:{
-			maximum?:number;
-			minimum?:number;
+interface Constraint {
+	[controlName: string]: {
+		length: {
+			maximum?: number;
+			minimum?: number;
 		}
 		email?: boolean;
-	}
+	};
 }
