@@ -11,4 +11,3 @@ else
     echo "Lint errors found (see above), please fix and try again.\n"
     exit $?
 fi
-
