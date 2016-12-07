@@ -1,6 +1,6 @@
 import { FormControl } from '@angular/forms';
 
-export class BossyFormValidator{
+export class BossyFormInputValidatorConfig{
 	private controlName: string;
 	private constraint: Constraint;
 
