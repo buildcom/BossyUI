@@ -10,7 +10,7 @@ body {
 .header-nav {
     border-bottom: 2px solid #a9a9a9;
     /*padding: 5px 20px 0 20px;*/
-    /*background-color: #ffffff;*/
+    background-color: #ffffff;
 }
 
 .header-nav-link {
@@ -24,6 +24,7 @@ body {
     /*width: 50px;*/
     /*height: 48px;*/
 }
+
 .header-nav-logo-word {
     /*display: inline-block;*/
     /*background: url('/images/logo-word.png') no-repeat;*/
@@ -40,11 +41,21 @@ body {
 
 @media (min-width: 768px) {
     .sidebar {
-        display: inline-block;
+        display: block;
+        padding-top: 25px;
+        padding-bottom: 40px;
         border-right: 1px solid #a9a9a9;
     }
 }
 
 .main {
+    padding-top: 20px;
+}
 
+.main h2 {
+    margin-bottom: 15px;
+}
+
+.main h5 {
+    margin-bottom: 15px;
 }
