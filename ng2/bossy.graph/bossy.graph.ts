@@ -26,18 +26,18 @@ export class BossyGraph implements OnInit{
   public config: BossyGraphConfig;
 
   buildBarSVG(width, height, data){
-  var graphMarkup = []
+  let graphMarkup = [];
   graphMarkup.push('<svg style="width:',
                     width,
                     'px; height:',
                     height,
                     'px;">');
 
-  var dataSetLength = data.length;
+  let dataSetLength = data.length;
   data.forEach(function(bar, index) {
-    var x = index * (width / dataSetLength);
-    var y = height - bar;
-    var w = width / dataSetLength;
+    let x = index * (width / dataSetLength);
+    let y = height - bar;
+    let w = width / dataSetLength;
 
     graphMarkup.push('<rect x="',
                       x,
@@ -66,8 +66,8 @@ export class BossyGraph implements OnInit{
         'yLabel': undefined,
       };
     }
-    var barSVGTag = buildBarSVG(this.config.width, this.config.height, this.data)
-    var element = this._dom.query('bossy-graph-bar');
+    let barSVGTag = buildBarSVG(this.config.width, this.config.height, this.data);
+    let element = this._dom.query('bossy-graph-bar');
     element.append(barSVGTag);
 
     // Throw an error if text is not given

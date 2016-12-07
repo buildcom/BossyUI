@@ -29,7 +29,7 @@ export class BossyCombobox implements OnInit {
 
     // Remove item from the list of selected items and place it back in the dropbox
     deleteSelection = function(item) {
-        var index = this.selectedItems.indexOf(item);
+        let index = this.selectedItems.indexOf(item);
         this.selectedItems.splice(index, 1);
     };
 
