@@ -1,6 +1,4 @@
-#!/bin/sh
-
-lint_pass=true
+#!/bin/bash
 
 echo "\nRunning TSLint:\n"
 
