@@ -1,13 +1,13 @@
 #!/bin/bash
 
-echo "\nRunning TSLint:\n"
+printf "\nRunning TSLint:\n\n"
 
 npm --silent run lint
 
 if [ $? -eq 0 ]; then
-    echo "Successfully Lint'd"
+    printf "Successfully Lint'd\n"
     exit 0
 else
-    echo "Lint errors found (see above), please fix and try again.\n"
-    exit $?
+    printf "Lint errors found (see above), please fix and try again.\n\n"
+    exit 1
 fi

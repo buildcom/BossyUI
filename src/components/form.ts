@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {BossyFormConfig} from '../config/form';
 
 
-declare const module:any;
+declare const module: any;
 
 @Component({
 	moduleId: module.id,
