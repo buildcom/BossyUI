@@ -8,9 +8,9 @@ npm --silent run lint
 
 if [ $? -eq 0 ]; then
     echo "Successfully Lint'd"
+    exit 0
 else
     echo "Lint errors found (see above), please fix and try again.\n"
     exit $?
 fi
 
-exit 0
