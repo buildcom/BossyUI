@@ -17,7 +17,7 @@ import {Component, OnInit} from '@angular/core';
 import {BossySliderConfig} from '../config/slider';
 
 
-declare var __moduleName: string;
+declare const module: any;
 
 @Component({
 	selector: 'bossy-slider',
@@ -67,7 +67,7 @@ export class BossySlider implements OnInit {
 	 * This creates the initial graphic of the slider and ensures it is in the correct order
 	 * CC = 4 */
 	makeBar() {
-		//button should show up in the middle now or close to if uneven
+		// button should show up in the middle now or close to if uneven
 		this.value = Math.floor(((this.max + this.min) / 2));
 		for (let current = this.min; current <= this.max; current++) {
 			if (current < this.value) {
@@ -77,7 +77,7 @@ export class BossySlider implements OnInit {
 				this.emptyWidth++;
 			}
 		}
-		//this.ngModel = this.value;
+
 		return;
 	};
 
@@ -92,7 +92,6 @@ export class BossySlider implements OnInit {
 			this.value = this.value + 1;
 			this.fillWidth++;
 			this.emptyWidth--;
-			//this.ngModel = this.value;
 		}
 		return;
 	};
@@ -120,7 +119,6 @@ export class BossySlider implements OnInit {
 			this.value = this.value - 1;
 			this.fillWidth--;
 			this.emptyWidth++;
-			//this.ngModel = this.value;
 		}
 		return;
 	};
@@ -148,12 +146,12 @@ export class BossySlider implements OnInit {
 			rightArrowKey = 39,
 			upArrowKey = 38,
 			downArrowKey = 40;
-		//If arrow key(Left or Down) is pressed then call the decrease() function to decrease the value.
+		// If arrow key(Left or Down) is pressed then call the decrease() function to decrease the value.
 		if (pressed === leftArrowKey || pressed === downArrowKey) {
 			this.butDecrease();
 
 		}
-		//same as above but for Up or Right to increase the value.
+		// same as above but for Up or Right to increase the value.
 		if (pressed === rightArrowKey || pressed === upArrowKey) {
 			this.butIncrease();
 
@@ -167,7 +165,7 @@ export class BossySlider implements OnInit {
 	 * This function is to allow the value to be changed when clicking on the bar
 	 * CC = 1*/
 	greyClick() {
-		//When click on the empty bar the bar will increase
+		// When click on the empty bar the bar will increase
 		this.butIncrease();
 
 		return;
@@ -179,7 +177,7 @@ export class BossySlider implements OnInit {
 	 * This function is to allow the value to be changed when clicking on the bar
 	 * CC = 1*/
 	barClick() {
-		//When click on the Filled up color side the bar will decrease
+		// When click on the Filled up color side the bar will decrease
 		this.butDecrease();
 
 		return;
@@ -193,19 +191,19 @@ export class BossySlider implements OnInit {
 	 * CC = 9*/
 	drag(event) {
 
-		//grab the mouse location
+		// grab the mouse location
 		const x = event.clientX;
 		const y = event.clientY;
-		//check if the mouse is being held down
+		// check if the mouse is being held down
 		if (this.isMouseDown) {
-			//check the orientation
+			// check the orientation
 			if (this.orientation) {
-				//if this is the first time you clicked down get ready to move it
+				// if this is the first time you clicked down get ready to move it
 				if (this.yCord === 0) {
 					this.yCord = y;
 				}
 				else {
-					//change the location of the slider after enough movement
+					// change the location of the slider after enough movement
 					this.newYCord = y;
 					while ((this.newYCord - this.yCord) > this.barPiece / 2) {
 						this.yCord += this.barPiece;
@@ -218,12 +216,12 @@ export class BossySlider implements OnInit {
 				}
 			}
 			else {
-				//if this is the first time you clicked down get ready to move it
+				// if this is the first time you clicked down get ready to move it
 				if (this.xCord === 0) {
 					this.xCord = x;
 				}
 				else {
-					//change the location of the slider after enough movement
+					// change the location of the slider after enough movement
 					this.newXCord = x;
 					while ((this.newXCord - this.xCord) > this.barPiece / 2) {
 						this.xCord += this.barPiece;

@@ -1,8 +1,7 @@
-
 export class BossyCalendarConfig {
-    defaultDate: Date;
+	defaultDate: Date;
 
-    constructor() {
-        this.defaultDate = new Date();
-    }
+	constructor() {
+		this.defaultDate = new Date();
+	}
 }
