@@ -1,11 +1,11 @@
 import { FormControl } from '@angular/forms';
 import { BossyFormValidatorConfig } from './form-validator';
 
-export class BossyFormInputValidator{
+export class BossyFormInputValidator {
 	private controlName: string;
 	private constraint: Constraint;
 
-	constructor(controlName: string, validate?: BossyFormValidatorConfig){
+	constructor(controlName: string, validate?: BossyFormValidatorConfig) {
 		this.controlName = controlName;
 		this.constraint = { [controlName]: {} };
 		this.constraint[controlName].presence = validate.presence;
@@ -16,11 +16,11 @@ export class BossyFormInputValidator{
 		this.constraint[controlName].length.tooShort = validate.tooShort;
 		this.constraint[controlName].length.is = validate.is;
 		this.constraint[controlName].length.wrongLength = validate.wrongLength;
-		if (validate.email !== undefined){
+		if (validate.email !== undefined) {
 			this.constraint[controlName].email = {};
 			this.constraint[controlName].email.message = validate.emailMessage;
 		}
-		if (validate.regexp !== undefined){
+		if (validate.regexp !== undefined) {
 			this.constraint[controlName].format = {};
 			this.constraint[controlName].format.pattern = validate.regexp;
 			this.constraint[controlName].format.flag = validate.regexpFlag;
@@ -31,17 +31,17 @@ export class BossyFormInputValidator{
 	validateElement = (control: FormControl) => {
 		let validate = require('node_modules/validate.js/validate.js');
 		let test = validate({[this.controlName]: control.value}, this.constraint);
-		if (test === undefined){
+		if (test === undefined) {
 			return null;
 		}
-		else{
+		else {
 			return {errorMessage: test};
 		}
-	};
+	}
 }
 
-interface Constraint{
-	[controlName:string] : {
+interface Constraint {
+	[controlName: string]: {
 		length?: {
 			maximum?: number,
 			tooLong?: string,
@@ -71,5 +71,5 @@ interface Constraint{
 			odd?: boolean,
 			even?: boolean
 		}
-	}
+	};
 }

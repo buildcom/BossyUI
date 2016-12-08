@@ -1,4 +1,4 @@
-export class BossyFormValidatorsConfig{
+export class BossyFormValidatorConfig {
 	constructor(
 		public minimum?: number,
 		public tooShort?: string,
@@ -12,5 +12,5 @@ export class BossyFormValidatorsConfig{
 		public regexp?: string,
 		public regexpFlag?: string,
 		public regexpMessage?: string
-	){}
+	) {}
 }

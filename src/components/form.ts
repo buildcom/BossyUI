@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {BossyFormConfig} from '../config/form';
-import {BossyFormInputValidator} from "../config/form-input-validator";
+import {BossyFormInputValidator} from '../config/form-input-validator';
 
 
 declare const module: any;

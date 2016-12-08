@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {BossyCalendarConfig} from '../../dist/config/calendar';
 import {BossyFormInputConfig} from '../../dist/config/form-input';
 import {BossyFormConfig} from '../../dist/config/form';
-import {BossyFormValidatorsConfig} from "../../dist/config/form-validators";
+import {BossyFormValidatorsConfig} from '../../dist/config/form-validators';
 
 declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
