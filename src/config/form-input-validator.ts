@@ -1,11 +1,11 @@
 import { FormControl } from '@angular/forms';
-import { BossyFormValidatorsConfig } from './validators';
+import { BossyFormValidatorConfig } from './form-validator';
 
-export class BossyFormInputValidatorConfig{
+export class BossyFormInputValidator{
 	private controlName: string;
 	private constraint: Constraint;
 
-	constructor(controlName: string, validate?: BossyFormValidatorsConfig){
+	constructor(controlName: string, validate?: BossyFormValidatorConfig){
 		this.controlName = controlName;
 		this.constraint = { [controlName]: {} };
 		this.constraint[controlName].presence = validate.presence;
@@ -26,17 +26,7 @@ export class BossyFormInputValidatorConfig{
 			this.constraint[controlName].format.flag = validate.regexpFlag;
 			this.constraint[controlName].format.message = validate.regexpMessage;
 		}
-		this.constraint[controlName].numericality = {};
-		this.constraint[controlName].numericality.onlyInteger = validate.onlyInteger;
-		this.constraint[controlName].numericality.strict = validate.strict;
-		this.constraint[controlName].numericality.greaterThan = validate.greaterThan;
-		this.constraint[controlName].numericality.greaterThanOrEqualTo = validate.greaterThanOrEqualTo;
-		this.constraint[controlName].numericality.equalTo = validate.equalTo;
-		this.constraint[controlName].numericality.lessThanOrEqualTo = validate.lessThanOrEqualTo;
-		this.constraint[controlName].numericality.lessThan = validate.lessThan;
-		this.constraint[controlName].numericality.divisibleBy = validate.divisibleBy;
-		this.constraint[controlName].numericality.odd = validate.odd;
-		this.constraint[controlName].numericality.even = validate.even;
+
 	}
 	validateElement = (control: FormControl) => {
 		let validate = require('node_modules/validate.js/validate.js');

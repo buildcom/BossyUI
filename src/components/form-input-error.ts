@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {FormGroup} from '@angular/forms';
 
 declare const module: any;
 
@@ -9,6 +10,6 @@ declare const module: any;
 	styleUrls: ['../styles/form-input-error.css']
 })
 export class BossyFormInputError {
-	@Input() controlName;
-	@Input() formGroup;
+	@Input() controlName: string;
+	@Input() formGroup: FormGroup;
 }

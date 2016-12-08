@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {BossyCalendarConfig} from '../../dist/config/calendar';
 import {BossyFormInputConfig} from '../../dist/config/form-input';
 import {BossyFormConfig} from '../../dist/config/form';
+import {BossyFormValidatorsConfig} from "../../dist/config/form-validators";
 
 declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
@@ -23,8 +24,12 @@ export class AppComponent {
 		this.calendarConfig = new BossyCalendarConfig();
 		this.formInputConfig = new BossyFormInputConfig('formInput', 'text');
 		this.formConfig = new BossyFormConfig([
-			new BossyFormInputConfig('textInput', 'text', 'test value for text'),
-			new BossyFormInputConfig('textareaInput', 'textarea', 'test value for textarea')
+			new BossyFormInputConfig('textInput', 'text', 'test value for text',
+				new BossyFormValidatorsConfig(1, 'is very short test', 10, 'is long test')),
+			new BossyFormInputConfig('textareaInput', 'textarea', 'test value for textarea',
+				new BossyFormValidatorsConfig()),
+			new BossyFormInputConfig('emailInput', 'email', 'test value for email',
+				new BossyFormValidatorsConfig(null, null, null, null, null, null, true, true))
 		]);
 	}
 }

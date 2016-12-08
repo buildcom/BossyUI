@@ -4,6 +4,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {BossyCalendar}  from './components/calendar';
 import {BossyFormInput} from './components/form-input';
 import {BossyForm} from './components/form';
+import {BossyFormInputError} from './components/form-input-error';
 
 @NgModule({
 	imports: [
@@ -13,7 +14,8 @@ import {BossyForm} from './components/form';
 	declarations: [
 		BossyCalendar,
 		BossyFormInput,
-		BossyForm
+		BossyForm,
+		BossyFormInputError
 	],
 	exports: [
 		BossyCalendar,
