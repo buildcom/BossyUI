@@ -5,7 +5,7 @@ export class BossyFormInputValidator {
 	private controlName: string;
 	private constraint: Constraint;
 
-	constructor(controlName: string, validate?: BossyFormValidatorConfig) {
+	constructor(controlName: string, validate: BossyFormValidatorConfig) {
 		this.controlName = controlName;
 		this.constraint = { [controlName]: {} };
 		this.constraint[controlName].presence = validate.presence;
@@ -26,7 +26,6 @@ export class BossyFormInputValidator {
 			this.constraint[controlName].format.flag = validate.regexpFlag;
 			this.constraint[controlName].format.message = validate.regexpMessage;
 		}
-
 	}
 	validateElement = (control: FormControl) => {
 		let validate = require('node_modules/validate.js/validate.js');
@@ -42,6 +41,7 @@ export class BossyFormInputValidator {
 
 interface Constraint {
 	[controlName: string]: {
+		presence?: boolean,
 		length?: {
 			maximum?: number,
 			tooLong?: string,
@@ -57,19 +57,6 @@ interface Constraint {
 			pattern?: string,
 			flag?: string,
 			message?: string,
-		}
-		presence?: boolean,
-		numericality?: {
-			onlyInteger?: boolean,
-			strict?: boolean,
-			greaterThan?: number,
-			greaterThanOrEqualTo?: number,
-			equalTo?: number,
-			lessThanOrEqualTo?: number,
-			lessThan?: number,
-			divisibleBy?: number,
-			odd?: boolean,
-			even?: boolean
 		}
 	};
 }

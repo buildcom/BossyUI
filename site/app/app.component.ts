@@ -25,10 +25,9 @@ export class AppComponent {
 		this.formInputConfig = new BossyFormInputConfig('formInput', 'text');
 		this.formConfig = new BossyFormConfig([
 			new BossyFormInputConfig('textInput', 'text', 'test value for text',
-				new BossyFormValidatorsConfig(1, 'is very short test', 10, 'is long test')),
-			new BossyFormInputConfig('textareaInput', 'textarea', 'test value for textarea',
-				new BossyFormValidatorsConfig()),
-			new BossyFormInputConfig('emailInput', 'email', 'test value for email',
+				new BossyFormValidatorsConfig(1, 'short test', 10, 'long test')),
+			new BossyFormInputConfig('textareaInput', 'textarea', 'test value for textarea'),
+			new BossyFormInputConfig('emailInput', 'email', null,
 				new BossyFormValidatorsConfig(null, null, null, null, null, null, true, true))
 		]);
 	}
