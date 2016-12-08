@@ -1,7 +1,11 @@
 import {Component} from '@angular/core';
+import {ConfigService} from './config.service';
 import {BossyCalendarConfig} from '../../dist/config/calendar';
+import {BossyCalendar} from '../../dist/components/calendar';
 import {BossyFormInputConfig} from '../../dist/config/form-input';
+import {BossyFormInput} from '../../dist/components/form-input';
 import {BossyFormConfig} from '../../dist/config/form';
+import {BossyForm} from '../../dist/components/form';
 
 declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
@@ -10,21 +14,30 @@ declare const module: any;
 	moduleId: module.id,
 	selector: 'sandbox-app',
 	templateUrl: '../templates/app.component.html',
-	outputs: ['calendarConfig', 'formInputConfig', 'formConfig']
+	providers: [ConfigService]
 })
 export class AppComponent {
 	components: Array<any> = Components;
+	bossyCalendar = BossyCalendar;
+	bossyForm = BossyForm;
+	bossyFormInput = BossyFormInput;
 
-	calendarConfig: BossyCalendarConfig;
-	formInputConfig: BossyFormInputConfig;
-	formConfig:  BossyFormConfig;
+	constructor(
+		private configService: ConfigService
+	) {}
 
 	ngOnInit() {
-		this.calendarConfig = new BossyCalendarConfig();
-		this.formInputConfig = new BossyFormInputConfig('formInput', 'text');
-		this.formConfig = new BossyFormConfig([
+		const calendarConfig = new BossyCalendarConfig();
+		const formConfig = new BossyFormConfig([
 			new BossyFormInputConfig('textInput', 'text', 'test value for text'),
 			new BossyFormInputConfig('textareaInput', 'textarea', 'test value for textarea')
 		]);
+		const formInputConfig = new BossyFormInputConfig('formInput', 'text');
+
+		this.configService.setConfig('calendarConfig', calendarConfig);
+		this.configService.setConfig('formConfig', formConfig);
+		this.configService.setConfig('formInputConfig', formInputConfig);
 	}
 }
+
+
