@@ -1,19 +1,31 @@
-<div class="col-sm-2 col-md-2 bg-faded sidebar">
-    <div>
-        <ul class="nav nav-sidebar">
-            <li><a href="#">Calendar</a></li>
-            <li><a href="#">Text box</a></li>
-        </ul>
+<div class="col-sm-12">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Calendar</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row component-main">
+        <sandbox-config [configName]="'calendarConfig'" [component]="bossyCalendar"></sandbox-config>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Form</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row component-main">
+        <sandbox-config [configName]="'formConfig'" [component]="bossyForm"></sandbox-config>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Form Input</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row component-main">
+        <sandbox-config [configName]="'formInputConfig'" [component]="bossyFormInput"></sandbox-config>
     </div>
 </div>
-<div class="col-sm-3 col-md-3 main">
-    <sandbox-config [config]="calendarConfig"></sandbox-config>
-</div>
-<div class="col-sm-7 col-md-7 main">
-    <bossy-calendar [config]="calendarConfig"></bossy-calendar>
-</div>
-<div class="col-sm-7 col-md-7 main">
-	<bossy-form-input [config]="formConfig"></bossy-form-input>
-</div>
-
-

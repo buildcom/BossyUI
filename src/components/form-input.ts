@@ -1,23 +1,31 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
 import {BossyFormInputConfig} from '../config/form-input';
 
 declare const module: any;
 
 @Component({
-    moduleId: module.id,
-    selector: 'bossy-form-input',
-    templateUrl: '../templates/form-input.html',
-    styleUrls: ['../styles/form-input.css'],
+	moduleId: module.id,
+	selector: 'bossy-form-input',
+	templateUrl: '../templates/form-input.html',
+	styleUrls: ['../styles/form-input.css'],
 })
 export class BossyFormInput {
-	@Input('config') config: BossyFormInputConfig;
+	@Input() config: BossyFormInputConfig;
 
-    constructor() {
-    }
+	constructor() {
+	}
 
-    ngOnInit() {
-    }
+	ngOnInit() {
+		const {name, value, formGroup} = this.config;
 
-    output() {
-    }
-};
+		if (formGroup) {
+			console.log('formgroup', name);
+
+			formGroup.addControl(name, new FormControl(value));
+		}
+	}
+
+	output() {
+	}
+}

@@ -4,13 +4,13 @@
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    padding-top: 72px;
+    padding-top: 51px;
 }
 
 .header-nav {
     border-bottom: 2px solid #a9a9a9;
     /*padding: 5px 20px 0 20px;*/
-    /*background-color: #ffffff;*/
+    background-color: #ffffff;
 }
 
 .header-nav-link {
@@ -24,6 +24,7 @@ body {
     /*width: 50px;*/
     /*height: 48px;*/
 }
+
 .header-nav-logo-word {
     /*display: inline-block;*/
     /*background: url('/images/logo-word.png') no-repeat;*/
@@ -34,17 +35,70 @@ body {
     align-items: center;
 }
 
+.navbar-brand {
+    padding: 2px 15px;
+}
+
 .sidebar {
     display: none;
 }
 
 @media (min-width: 768px) {
     .sidebar {
-        display: inline-block;
+        display: block;
+        padding-top: 25px;
+        padding-bottom: 40px;
         border-right: 1px solid #a9a9a9;
     }
 }
 
 .main {
+    padding-top: 20px;
+}
 
+.main h2 {
+    margin-bottom: 15px;
+}
+
+.main h5 {
+    margin-bottom: 15px;
+}
+
+.editor {
+    /*display: inline-block;*/
+    position: absolute; /* Added */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+}
+
+.component-main {
+    margin-bottom: 50px;
+}
+
+/*.component-left {*/
+    /*padding-right: 15px;*/
+/*}*/
+
+.component-left h4 {
+    display: inline;
+}
+
+.component-left .btn-group {
+    padding-bottom: 10px;
+}
+
+.component-right {
+    margin-bottom: 20px;
+}
+
+.component-right h4 {
+    display: inline;
+}
+
+.component-col {
+    margin-bottom: 20px;
 }

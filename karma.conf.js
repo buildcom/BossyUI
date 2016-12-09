@@ -13,7 +13,8 @@ module.exports = function(config) {
 		frameworks: ['jasmine'],
 		plugins: [
 			require('karma-jasmine'),
-			require('karma-chrome-launcher')
+			require('karma-chrome-launcher'),
+			require('karma-jasmine-html-reporter')
 		],
 
 		customLaunchers: {
@@ -79,13 +80,13 @@ module.exports = function(config) {
 		exclude: [],
 		preprocessors: {},
 		// disabled HtmlReporter; suddenly crashing w/ strange socket error
-		reporters: ['progress'],
+		reporters: ['progress', 'kjhtml'],
 
 		port: 9876,
 		colors: true,
 		logLevel: config.LOG_INFO,
 		autoWatch: true,
 		browsers: ['Chrome'],
-		singleRun: true,
+		singleRun: false, //allow background testing with kjhtml
 	})
 }

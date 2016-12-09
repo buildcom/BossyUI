@@ -1,38 +1,57 @@
-import { Component, Input, OnChanges } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
+import {Component, Input, OnChanges} from '@angular/core';
+import {ConfigService} from './config.service';
 
 declare const module: any;
+declare const ace: any;
 
 @Component({
-    moduleId: module.id,
-    selector: 'sandbox-config',
-    templateUrl: '../templates/config.component.html'
+	moduleId: module.id,
+	selector: 'sandbox-config',
+	templateUrl: '../templates/config.component.html'
 })
 export class ConfigComponent {
-    @Input() config: any;
-    configKeys: Array<string>;
-    configForm: FormGroup;
+	@Input() configName: string;
+	@Input() component: Component;
+	componentData: any;
+	editor: any;
+	editorId: string;
+	editorValue: string;
+	error: string;
 
-    constructor(
-        private formBuilder: FormBuilder
-    ) {
-        this.configChange = this.configChange.bind(this);
-    }
+	constructor(private configService: ConfigService) {}
 
-    ngOnInit() {
-        this.configKeys = Object.keys(this.config);
-        this.configForm = this.formBuilder.group(this.config);
+	ngOnInit() {
+		const config = this.configService[this.configName].getValue();
+		this.editorValue = `var config = ${JSON.stringify(config, null, '\t')};`;
+		this.editorId = `editor${this.configName}`;
 
-        this.configForm.valueChanges.subscribe(this.configChange);
-    }
+		this.configService[this.configName].subscribe((config) => {
+			this.componentData = {
+				component: this.component,
+				config
+			};
+		});
+	}
 
-    configChange(newConfig) {
-        Object.keys(newConfig).forEach((key) => {
-            if (this.config[key] !== newConfig[key]) {
-                this.config[key] = newConfig[key];
-            }
-        });
-    }
+	ngAfterViewInit() {
+		this.editor = ace.edit(this.editorId);
+
+		this.editor.setTheme('ace/theme/monokai');
+		this.editor.getSession().setMode('ace/mode/javascript');
+	}
+
+	updateConfig() {
+		const value = this.editor.getValue().replace(/^var config = /, '').replace(/;/g, '');
+
+		this.error = null;
+
+		try {
+			this.configService.setConfig(this.configName, JSON.parse(value));
+		} catch (error) {
+			this.error = error;
+		}
+	}
 }
+
 
 

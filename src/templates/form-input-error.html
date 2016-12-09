@@ -1,0 +1,5 @@
+<div *ngIf="formGroup.controls[controlName].hasError('errorMessage')">
+	<div *ngFor="let error of formGroup.controls[controlName].errors['errorMessage'][controlName]">
+		{{error}}
+	</div>
+</div>
