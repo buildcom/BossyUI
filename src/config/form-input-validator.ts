@@ -7,10 +7,16 @@ export class BossyFormInputValidator {
 
 	constructor(controlName: string, validate: BossyFormInputValidatorConfig) {
 		this.controlName = controlName;
-		this.constraint = { [controlName]: validate};
+		this.constraint = { [controlName]: validate };
 	}
 	validateElement = (control: FormControl) => {
 		let validate = require('node_modules/validate.js/validate.js');
+
+		// console.log(control.root);
+		// this.constraint = {equalTo : { textInput, equalityStuff }};
+		//validate({[this.controlName]: control.value, [equalTo]: control.root.get(), {equalityStuff})
+		//^^^^^goal                                                 ^^problem
+
 		let test = validate({[this.controlName]: control.value}, this.constraint);
 		if (test === undefined) {
 			return null;
