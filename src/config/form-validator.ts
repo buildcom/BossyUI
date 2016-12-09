@@ -39,36 +39,36 @@ export class BossyFormInputValidatorConfig {
 			within?: {},
 			message?: boolean
 		},
-	    public numericality?: {
+		public numericality?: {
 			notValid?: string,
-		    notInteger?: string,
-		    notGreaterThan?: string,
-		    notGreaterThanOrEqualTo?: string,
-		    notEqualTo?: string,
-		    notLessThan?: string,
-		    notLessThanOrEqualTo?: string,
-		    notDivisibleBy?: string,
-		    notOdd?: string,
-		    notEven?: string,
-		    onlyInteger?: boolean,
-		    strict?: boolean,
-		    greaterThan?: number,
-		    greaterThanOrEqualTo?: number,
-		    equalTo?: number,
-		    lessThanOrEqualTo?: number,
-		    lessThan?: number,
-		    divisibleBy?: number,
-		    odd?: boolean,
-		    even?: boolean
-	    },
+			notInteger?: string,
+			notGreaterThan?: string,
+			notGreaterThanOrEqualTo?: string,
+			notEqualTo?: string,
+			notLessThan?: string,
+			notLessThanOrEqualTo?: string,
+			notDivisibleBy?: string,
+			notOdd?: string,
+			notEven?: string,
+			onlyInteger?: boolean,
+			strict?: boolean,
+			greaterThan?: number,
+			greaterThanOrEqualTo?: number,
+			equalTo?: number,
+			lessThanOrEqualTo?: number,
+			lessThan?: number,
+			divisibleBy?: number,
+			odd?: boolean,
+			even?: boolean
+		},
 		public presence?: {
 			allowEmpty?: boolean,
 			message?: string
 		},
-	    public url?: {
+		public url?: {
 			message?: string,
-		    schemes?: string,
-		    allowLocal?: boolean
-	    }
+			schemes?: string,
+			allowLocal?: boolean
+		}
 	) {}
 }
