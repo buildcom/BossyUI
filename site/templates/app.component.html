@@ -1,49 +1,31 @@
-<!-- <div class="sidebar col-sm-2 col-md-2 bg-faded">
-    <div>
-        <ul class="nav nav-sidebar">
-            <li><a href="#">Calendar</a></li>
-            <li><a href="#">Text box</a></li>
-        </ul>
-    </div>
-</div> -->
-<div class="main col-sm-12">
+<div class="col-sm-12">
     <div class="row">
-        <h2>Calendar</h2>
-        <hr>
-        <div class="col-sm-6">
-            <h5>config properties</h5>
-            <sandbox-config [config]="calendarConfig"></sandbox-config>
+        <div class="col-sm-12">
+            <h2>Calendar</h2>
+            <hr>
         </div>
-        <div class="col-sm-6">
-            <h5>component</h5>
-            <bossy-calendar [config]="calendarConfig"></bossy-calendar>
-        </div>
+    </div>
+    <div class="row component-main">
+        <sandbox-config [configName]="'calendarConfig'" [component]="bossyCalendar"></sandbox-config>
     </div>
 
     <div class="row">
-        <h2>Form Input</h2>
-        <hr>
-        <div class="col-sm-6">
-            <h5>config properties</h5>
-            <sandbox-config [config]="formInputConfig"></sandbox-config>
+        <div class="col-sm-12">
+            <h2>Form</h2>
+            <hr>
         </div>
-        <div class="col-sm-6">
-            <h5>component</h5>
-            <bossy-form-input [config]="formInputConfig"></bossy-form-input>
-        </div>
+    </div>
+    <div class="row component-main">
+        <sandbox-config [configName]="'formConfig'" [component]="bossyForm"></sandbox-config>
     </div>
 
     <div class="row">
-        <h2>Form</h2>
-        <hr>
-        <div class="col-sm-6">
-            <h5>config properties</h5>
-           <!-- <sandbox-config [config]="formConfig"></sandbox-config> -->
+        <div class="col-sm-12">
+            <h2>Form Input</h2>
+            <hr>
         </div>
-        <div class="col-sm-6">
-            <h5>component</h5>
-            <bossy-form [config]="formConfig"></bossy-form>
-        </div>
+    </div>
+    <div class="row component-main">
+        <sandbox-config [configName]="'formInputConfig'" [component]="bossyFormInput"></sandbox-config>
     </div>
 </div>
-
