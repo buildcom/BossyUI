@@ -21,24 +21,13 @@ export class BossyFormInputValidatorConfig {
 			tooEarly?: string,
 			tooLate?: string
 		},
-		public equality?: {
-			attribute?: string,
-			message?: string,
-			comparator?: any
-		},
-		public exclusion?: {
-			within?: {},
-			message?: string,
-		},
+		public exclusion?: any,
 		public format?: {
 			pattern?: string,
 			flags?: string,
 			message?: string
 		},
-		public inclusion?: {
-			within?: {},
-			message?: boolean
-		},
+		public inclusion?: any,
 		public numericality?: {
 			notValid?: string,
 			notInteger?: string,
