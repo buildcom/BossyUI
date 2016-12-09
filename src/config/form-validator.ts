@@ -11,7 +11,8 @@ export class BossyFormInputValidatorConfig {
 			maximum?: number,
 			tooLong?: string,
 			is?: number,
-			wrongLength?: string
+			wrongLength?: string,
+			message?: string
 		},
 		public datetime?: {
 			earliest?: Date,
@@ -56,7 +57,7 @@ export class BossyFormInputValidatorConfig {
 		},
 		public url?: {
 			message?: string,
-			schemes?: string,
+			schemes?: any,
 			allowLocal?: boolean
 		}
 	) {}
