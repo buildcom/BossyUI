@@ -1,31 +1,13 @@
 import { FormControl } from '@angular/forms';
-import { BossyFormValidatorConfig } from './form-validator';
+import {BossyFormInputValidatorConfig} from './form-validator';
 
 export class BossyFormInputValidator {
 	private controlName: string;
-	private constraint: Constraint;
+	private constraint: BossyFormInputValidatorConfig;
 
-	constructor(controlName: string, validate: BossyFormValidatorConfig) {
+	constructor(controlName: string, validate: BossyFormInputValidatorConfig) {
 		this.controlName = controlName;
-		this.constraint = { [controlName]: {} };
-		this.constraint[controlName].presence = validate.presence;
-		this.constraint[controlName].length = {};
-		this.constraint[controlName].length.maximum = validate.maximum;
-		this.constraint[controlName].length.tooLong = validate.tooLong;
-		this.constraint[controlName].length.minimum = validate.minimum;
-		this.constraint[controlName].length.tooShort = validate.tooShort;
-		this.constraint[controlName].length.is = validate.is;
-		this.constraint[controlName].length.wrongLength = validate.wrongLength;
-		if (validate.email !== undefined) {
-			this.constraint[controlName].email = {};
-			this.constraint[controlName].email.message = validate.emailMessage;
-		}
-		if (validate.regexp !== undefined) {
-			this.constraint[controlName].format = {};
-			this.constraint[controlName].format.pattern = validate.regexp;
-			this.constraint[controlName].format.flag = validate.regexpFlag;
-			this.constraint[controlName].format.message = validate.regexpMessage;
-		}
+		this.constraint = { [controlName]: validate};
 	}
 	validateElement = (control: FormControl) => {
 		let validate = require('node_modules/validate.js/validate.js');
@@ -37,26 +19,4 @@ export class BossyFormInputValidator {
 			return {errorMessage: test};
 		}
 	}
-}
-
-interface Constraint {
-	[controlName: string]: {
-		presence?: boolean,
-		length?: {
-			maximum?: number,
-			tooLong?: string,
-			minimum?: number,
-			tooShort?: string,
-			is?: number,
-			wrongLength?: string,
-		}
-		email?: {
-			message?: string,
-		}
-		format?: {
-			pattern?: string,
-			flag?: string,
-			message?: string,
-		}
-	};
 }

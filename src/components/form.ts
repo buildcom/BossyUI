@@ -25,10 +25,10 @@ export class BossyForm {
 
 		this.config.elements.forEach((element) => {
 			const { name, value } = element;
-			if (element.validate !== undefined) {
+			if (element.validatejs !== undefined) {
 				elements[name] = [
 					value,
-					new BossyFormInputValidator(element.name, element.validate).validateElement
+					new BossyFormInputValidator(element.name, element.validatejs).validateElement
 				];
 			}
 			else {
