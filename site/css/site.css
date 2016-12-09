@@ -4,7 +4,7 @@
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    padding-top: 72px;
+    padding-top: 51px;
 }
 
 .header-nav {
@@ -35,6 +35,10 @@ body {
     align-items: center;
 }
 
+.navbar-brand {
+    padding: 2px 15px;
+}
+
 .sidebar {
     display: none;
 }
@@ -58,4 +62,43 @@ body {
 
 .main h5 {
     margin-bottom: 15px;
+}
+
+.editor {
+    /*display: inline-block;*/
+    position: absolute; /* Added */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+}
+
+.component-main {
+    margin-bottom: 50px;
+}
+
+/*.component-left {*/
+    /*padding-right: 15px;*/
+/*}*/
+
+.component-left h4 {
+    display: inline;
+}
+
+.component-left .btn-group {
+    padding-bottom: 10px;
+}
+
+.component-right {
+    margin-bottom: 20px;
+}
+
+.component-right h4 {
+    display: inline;
+}
+
+.component-col {
+    margin-bottom: 20px;
 }

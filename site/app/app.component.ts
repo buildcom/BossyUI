@@ -1,8 +1,12 @@
 import {Component} from '@angular/core';
+import {ConfigService} from './config.service';
 import {BossyCalendarConfig} from '../../dist/config/calendar';
+import {BossyCalendar} from '../../dist/components/calendar';
 import {BossyFormInputConfig} from '../../dist/config/form-input';
+import {BossyFormInput} from '../../dist/components/form-input';
 import {BossyFormConfig} from '../../dist/config/form';
-import {BossyFormValidatorsConfig} from '../../dist/config/form-validators';
+import {BossyForm} from '../../dist/components/form';
+
 
 declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
@@ -11,24 +15,30 @@ declare const module: any;
 	moduleId: module.id,
 	selector: 'sandbox-app',
 	templateUrl: '../templates/app.component.html',
-	outputs: ['calendarConfig', 'formInputConfig', 'formConfig']
+	providers: [ConfigService]
 })
 export class AppComponent {
 	components: Array<any> = Components;
+	bossyCalendar = BossyCalendar;
+	bossyForm = BossyForm;
+	bossyFormInput = BossyFormInput;
 
-	calendarConfig: BossyCalendarConfig;
-	formInputConfig: BossyFormInputConfig;
-	formConfig:  BossyFormConfig;
+	constructor(
+		private configService: ConfigService
+	) {}
 
 	ngOnInit() {
-		this.calendarConfig = new BossyCalendarConfig();
-		this.formInputConfig = new BossyFormInputConfig('formInput', 'text');
-		this.formConfig = new BossyFormConfig([
-			new BossyFormInputConfig('textInput', 'text', 'test value for text',
-				new BossyFormValidatorsConfig(1, 'short test', 10, 'long test')),
-			new BossyFormInputConfig('textareaInput', 'textarea', 'test value for textarea'),
-			new BossyFormInputConfig('emailInput', 'email', null,
-				new BossyFormValidatorsConfig(null, null, null, null, null, null, true, true))
+		const calendarConfig = new BossyCalendarConfig();
+		const formConfig = new BossyFormConfig([
+			new BossyFormInputConfig('textInput', 'text', 'test value for text'),
+			new BossyFormInputConfig('textareaInput', 'textarea', 'test value for textarea')
 		]);
+		const formInputConfig = new BossyFormInputConfig('formInput', 'text');
+
+		this.configService.setConfig('calendarConfig', calendarConfig);
+		this.configService.setConfig('formConfig', formConfig);
+		this.configService.setConfig('formInputConfig', formInputConfig);
 	}
 }
+
+
