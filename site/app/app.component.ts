@@ -34,7 +34,7 @@ export class AppComponent {
 		const formConfig = new BossyFormConfig([
 			new BossyFormInputConfig('textInput', 'text', 'test value for text', undefined,
 				new BossyFormLabelConfig('text label test', true)),
-			new BossyFormInputConfig('textareaInput', 'textarea', 'test value for textarea'),
+			new BossyFormInputConfig('textareaInput', 'textarea', 'test value for textarea', undefined , undefined, '', '', 'a label', 5, 10),
 			new BossyFormInputConfig('emailInput', 'email', 'test value for email',
 				new BossyFormInputValidatorConfig({message: 'bossy email test not valid'}, {minimum: 3, maximum: 15}))
 		]);
