@@ -12,4 +12,5 @@ declare const module: any;
 export class BossyFormInputError {
 	@Input() controlName: string;
 	@Input() formGroup: FormGroup;
+	@Input() errorCssClass: string;
 }

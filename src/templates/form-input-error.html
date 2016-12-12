@@ -1,5 +1,5 @@
 <div *ngIf="formGroup.controls[controlName].hasError(controlName)">
-    <div *ngFor="let error of formGroup.controls[controlName].errors[controlName]">
+    <div *ngFor="let error of formGroup.controls[controlName].errors[controlName]" [class]="errorCssClass">
         {{ error }}
     </div>
 </div>

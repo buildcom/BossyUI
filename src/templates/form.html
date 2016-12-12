@@ -15,6 +15,6 @@
                 <input type="text" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}"/>
             </div>
         </div>
-        <bossy-form-input-error [formGroup]="bossyForm" [controlName]="element.name"></bossy-form-input-error>
+        <bossy-form-input-error [formGroup]="bossyForm" [controlName]="element.name" [errorCssClass]="element.errorCssClass"></bossy-form-input-error>
     </div>
 </form>
