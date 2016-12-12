@@ -11,6 +11,7 @@ export class BossyFormInputConfig {
 		public label?: BossyFormLabelConfig,
 		public id?: string,
 		public cssClass?: string,
+		public errorCssClass?: string,
 		public rows?: number,
 		public cols?: number,
 		public placeholder?: string,
