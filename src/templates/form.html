@@ -5,11 +5,17 @@
             <div *ngSwitchCase="'number'">
                 <input type="number" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}"/>
             </div>
+            <div *ngSwitchCase="'password'">
+                <input type="password" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}"/>
+            </div>
             <div *ngSwitchCase="'textarea'">
                 <textarea name="{{ element.name }}" placeholder="{{ element.placeholder }}" rows="{{ element.rows }}" cols="{{ element.cols }}" formControlName="{{ element.name }}"></textarea>
             </div>
             <div *ngSwitchCase="'email'">
                 <input type="email" formControlName="{{ element.name }}">
+            </div>
+            <div *ngSwitchCase="'date'">
+                <input type="date" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}">
             </div>
             <div *ngSwitchDefault>
                 <input type="text" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}"/>
