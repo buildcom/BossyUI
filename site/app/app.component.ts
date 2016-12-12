@@ -6,7 +6,7 @@ import {BossyFormInputConfig} from '../../dist/config/form-input';
 import {BossyFormInput} from '../../dist/components/form-input';
 import {BossyFormConfig} from '../../dist/config/form';
 import {BossyForm} from '../../dist/components/form';
-import {BossyFormInputValidatorConfig} from '../../dist/config/form-validator';
+import {BossyFormInputValidatorConfig} from '../../dist/config/form-input-validator';
 
 
 declare const Components: Array<BossyFormInputConfig>;

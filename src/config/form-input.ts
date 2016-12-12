@@ -1,5 +1,5 @@
 import {FormGroup} from '@angular/forms';
-import {BossyFormInputValidatorConfig} from './form-validator';
+import {BossyFormInputValidatorConfig} from './form-input-validator';
 
 export class BossyFormInputConfig {
 	constructor(

@@ -33,7 +33,7 @@
     "jsdoc": "jsdoc ./dist/**.js -c jsdoc.json",
     "start": "node site/server.js",
     "install": "npm run types;tsc -p ./src; tsc -p ./site; npm run gulp site-install; npm run setup-hooks",
-    "types": "npm install @types/jasmine; npm install @types/core-js; npm install @types/node",
+    "types": "npm install @types/jasmine; npm install @types/core-js; npm install @types/node; npm install @types/validate.js",
     "watch-src": "tsc -w -p ./src",
     "watch-site": "tsc -w -p ./site",
     "sandbox": "concurrently \"npm run watch-site\" \"npm run watch-src\" \"npm run bossy-templates\" \"npm run bossy-styles\" \"npm start\"",
