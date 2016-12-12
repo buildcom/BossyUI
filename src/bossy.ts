@@ -5,6 +5,7 @@ import {BossyCalendar}  from './components/calendar';
 import {BossyFormInput} from './components/form-input';
 import {BossyForm} from './components/form';
 import {BossyFormLabel} from './components/form-label';
+import {BossyFormInputError} from './components/form-input-error';
 
 @NgModule({
 	imports: [
@@ -15,7 +16,8 @@ import {BossyFormLabel} from './components/form-label';
 		BossyCalendar,
 		BossyFormInput,
 		BossyForm,
-		BossyFormLabel
+		BossyFormLabel,
+		BossyFormInputError
 	],
 	exports: [
 		BossyCalendar,

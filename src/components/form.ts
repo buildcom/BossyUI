@@ -1,6 +1,7 @@
 import {Component, Input, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {BossyFormConfig} from '../config/form';
+import {BossyFormInputValidator} from '../components/form-input-validator';
 
 
 declare const module: any;
@@ -24,7 +25,15 @@ export class BossyForm {
 
 		this.config.elements.forEach((element) => {
 			const { name, value } = element;
-			elements[name] = [value];
+			if (element.validatejs !== undefined) {
+				elements[name] = [
+					value,
+					new BossyFormInputValidator(element.name, element.validatejs).validateElement
+				];
+			}
+			else {
+				elements[name] = value;
+			}
 		});
 
 		this.bossyForm = this.formBuilder.group(elements);

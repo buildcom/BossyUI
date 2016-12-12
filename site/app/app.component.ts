@@ -6,6 +6,8 @@ import {BossyFormInputConfig} from '../../dist/config/form-input';
 import {BossyFormInput} from '../../dist/components/form-input';
 import {BossyFormConfig} from '../../dist/config/form';
 import {BossyForm} from '../../dist/components/form';
+import {BossyFormInputValidatorConfig} from '../../dist/config/form-input-validator';
+
 
 declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
@@ -30,7 +32,9 @@ export class AppComponent {
 		const calendarConfig = new BossyCalendarConfig();
 		const formConfig = new BossyFormConfig([
 			new BossyFormInputConfig('textInput', 'text', 'test value for text'),
-			new BossyFormInputConfig('textareaInput', 'textarea', 'test value for textarea')
+			new BossyFormInputConfig('textareaInput', 'textarea', 'test value for textarea'),
+			new BossyFormInputConfig('emailInput', 'email', 'test value for email',
+				new BossyFormInputValidatorConfig({message: 'bossy email test not valid'}, {minimum: 3, maximum: 15}))
 		]);
 		const formInputConfig = new BossyFormInputConfig('formInput', 'text');
 
