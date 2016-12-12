@@ -1,10 +1,12 @@
-import { BossyFormConfig } from '../src/components/BossyForm';
+import { BossyFormConfig } from '../config/form';
+import { BossyFormInputConfig } from '../config/form-input';
 
 
-let cfg: BossyFormConfig;
+let cfg: BossyFormConfig = new BossyFormConfig([]);
+
 describe('The Config Component', () => {
 	beforeEach(() => {
-		cfg = new BossyFormConfig();
+		cfg = new BossyFormConfig([]);
 	});
 	it('Should instantiate.', () =>{
 		expect(cfg).toBeTruthy();
