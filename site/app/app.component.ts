@@ -7,6 +7,7 @@ import {BossyFormInput} from '../../dist/components/form-input';
 import {BossyFormConfig} from '../../dist/config/form';
 import {BossyForm} from '../../dist/components/form';
 import {BossyFormInputValidatorConfig} from '../../dist/config/form-input-validator';
+import {BossyFormLabelConfig} from '../../dist/config/form-label';
 
 
 declare const Components: Array<BossyFormInputConfig>;
@@ -31,7 +32,8 @@ export class AppComponent {
 	ngOnInit() {
 		const calendarConfig = new BossyCalendarConfig();
 		const formConfig = new BossyFormConfig([
-			new BossyFormInputConfig('textInput', 'text', 'test value for text'),
+			new BossyFormInputConfig('textInput', 'text', 'test value for text', undefined,
+				new BossyFormLabelConfig('text label test', true)),
 			new BossyFormInputConfig('textareaInput', 'textarea', 'test value for textarea'),
 			new BossyFormInputConfig('emailInput', 'email', 'test value for email',
 				new BossyFormInputValidatorConfig({message: 'bossy email test not valid'}, {minimum: 3, maximum: 15}))
