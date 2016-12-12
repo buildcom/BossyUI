@@ -1,5 +1,5 @@
-<div class="bossy-form-label">
-    <label for="test">Test</label>
-
+<div *ngIf="config?.text">
+	<label [ngClass]="{'bossy-inline-label': config?.inline}" [class]="config?.cssClass" >
+		{{config.text}}
+	</label>
 </div>
-
