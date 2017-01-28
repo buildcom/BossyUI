@@ -1,23 +1,15 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
-    "module": "system",
+    "module": "commonjs",
     "target": "es5",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": true,
     "noImplicitAny": false,
-    "declaration": true,
+    "declaration": false,
     "noLib": false,
-    "moduleResolution": "node",
-    "rootDir": "../"
-  },
-  "exclude": [
-    "dist",
-    "src",
-    "node_modules",
-    "ng2",
-    "typings/main",
-    "typings/main.d.ts"
-  ]
+    "moduleResolution": "node"
+  }
 }

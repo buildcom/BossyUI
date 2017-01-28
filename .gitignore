@@ -1,9 +1,5 @@
 # Project
 node_modules
-site/node_modules
-
-# Demo/Docs Site
-_site/
 
 # Editor
 .idea/
@@ -13,5 +9,10 @@ dist
 **/*.js
 **/*.js.map
 
+!site/app/systemjs.config.js
+!site/server.js
 !karma.conf.js
 !karma-test-shim.js
+
+# Vim swap files
+.swp

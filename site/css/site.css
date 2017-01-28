@@ -1,9 +1,14 @@
-/* page */
+/*
+ * Base structure
+ */
 
+/* Move down content because we have a fixed navbar that is 50px tall */
 main {
 	margin: 60px 0 0 0;
 }
 
+.header-nav {
+    border-bottom: 2px solid #a9a9a9;
 /* global */
 a, a:visited {
 	color: #75afd3;
@@ -12,10 +17,17 @@ a, a:visited {
 .show {
 	display: inline-block;
 }
-.uppercase {
+.header-nav-logo {
+    /*display: inline-block;*/
+    /*background: url('/images/logo.png') no-repeat;*/
+    /*padding-bottom: 47px;*/
+    /*width: 50px;*/
 	text-transform: uppercase;
 }
-.no-padding {
+    /*!*padding-bottom: 48px;*!*/
+    /*margin-left: 10px;*/
+    /*width: 300px;*/
+    height: 40px;
 	padding: 0;
 }
 .no-margin {
@@ -27,10 +39,15 @@ a, a:visited {
 	height: 100%;
 }
 .col-offset-200 {
+        display: block;
+        padding-top: 25px;
+        padding-bottom: 40px;
 	padding-left: 215px;
+    }
 }
 
-/* left menu */
+.main {
+    padding-top: 20px;
 
 .left-menu {
 	/*position: absolute;*/
@@ -39,7 +56,7 @@ a, a:visited {
 	height: 100%;
 	padding: 0;
 }
-.left-menu-title {
+.main h5 {
 	background: rgb(0, 118, 168);
 	overflow: hidden;
 	font-size: 16px;
@@ -75,6 +92,8 @@ a, a:visited {
 	text-transform: uppercase;
 }
 
+/*.component-left {*/
+    /*padding-right: 15px;*/
 /* navigation */
 
 .navigation {
@@ -94,7 +113,7 @@ a, a:visited {
 	color: #4bc47d;
 }
 
-/* home page */
+.component-right h4 {
 
 
 /* sandbox */
@@ -111,7 +130,7 @@ a, a:visited {
 
 /* footer */
 
-.footer {
+.component-col {
 	background-color: rgb(0, 118, 168);
 	height: 80px;
 	padding: 30px;
