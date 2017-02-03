@@ -1,9 +1,9 @@
 ## tl;dr;
 To get up and developing;
 * We use the fork & pull Git model, fork a local copy.
-* Install Git, Node, Gulp, Bower
-* Run `npm install -g bower gulp nodemon` to install Bower, Gulp.js and nodemon globally.
+* Install Git, Node
 * Run `npm install` to install all NPM packages.
+* Run `npm run sandbox` to start up sandbox.
 
 Contributing Guide
 ==================
@@ -44,29 +44,18 @@ If your terminal returns a version number then you are good to go. If it does no
 
 With the Node.js installer you will also get the NPM CLI (Node Package Manager Command Line Interface) which your computer will use to download packages from the NPM registry.
 
-### 3. Bower, Gulp.js & nodemon
+### 3. Install modules
 
-Install Bower, Gulp.js and nodemon globally on your machine.
-
-```bash
-$ npm install -g bower gulp nodemon
+```
+$ npm i
 ```
 
-### 4. Project Node modules
-
-Install project Node module and Bower dependencies.
-
-```bash
-$ npm install
-$ cd site && bower install && cd ..
-```
-
-### 5. Sandbox
+### 4. Sandbox
 
 You can view your directives in a runtime environment as you develop.  The sandbox environment will allow you to test runtime markup and options.  The sandbox is a page on the BossyUI website, to run the website locally:
 
 ```bash
-$ gulp site
+$ npm run sandbox
 ```
 
 You can then see changes you are making to directives as you develop them at [http://localhost:3000/sandbox](http://localhost:3000/sandbox).
@@ -82,16 +71,6 @@ Your working branch should be named with both the Directive/Widget name and the 
 "GRAPH-1234"
 
 When committing code, you will need to prefix your comments with the branch name.  Pull request will be rejected if these rules are not met.
-
-## Before You Pull Request
-
-Before you go to Github and submit your pull request be sure to run:
-
-```bash
-$ gulp jshint
-```
-
-As long as those tasks do not present you with any errors you are ready to submit your pull request.
 
 ## Finding Bugs?
 
@@ -116,11 +95,11 @@ Tauseef Jamadar <tmjam.ahmed@gmail.com>
 
 Tuhin Shukla <tuhintshukla@gmail.com>
 
+Taber Fitzgerald <tabersays@gmail.com>
+
 Erik Mellum
 
 CSU Chico CS Students:
-
-Taber Fitzgerald
 
 Alen Maragoul
 
