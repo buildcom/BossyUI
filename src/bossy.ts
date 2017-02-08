@@ -6,6 +6,7 @@ import {BossyFormInput} from './components/form-input';
 import {BossyForm} from './components/form';
 import {BossyFormLabel} from './components/form-label';
 import {BossyFormInputError} from './components/form-input-error';
+import {LukeShortExampleComponent} from './components/luke-short-name-example';
 
 @NgModule({
 	imports: [
@@ -17,12 +18,14 @@ import {BossyFormInputError} from './components/form-input-error';
 		BossyFormInput,
 		BossyForm,
 		BossyFormLabel,
-		BossyFormInputError
+		BossyFormInputError,
+		LukeShortExampleComponent
 	],
 	exports: [
 		BossyCalendar,
 		BossyFormInput,
-		BossyForm
+		BossyForm,
+		LukeShortExampleComponent
 	]
 })
 export class BossyModule {
