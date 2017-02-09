@@ -9,30 +9,30 @@ import {BossyFormInputError} from './components/form-input-error';
 import {LukeShortExampleComponent} from './components/luke-short-name-example';
 
 @NgModule({
-	imports: [
-		BrowserModule,
-		ReactiveFormsModule
-	],
-	declarations: [
-		BossyCalendar,
-		BossyFormInput,
-		BossyForm,
-		BossyFormLabel,
-		BossyFormInputError,
-		LukeShortExampleComponent
-	],
-	exports: [
-		BossyCalendar,
-		BossyFormInput,
-		BossyForm,
-		LukeShortExampleComponent
-	]
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule
+  ],
+  declarations: [
+    BossyCalendar,
+    BossyFormInput,
+    BossyForm,
+    BossyFormLabel,
+    BossyFormInputError,
+    LukeShortExampleComponent
+  ],
+  exports: [
+    BossyCalendar,
+    BossyFormInput,
+    BossyForm,
+    LukeShortExampleComponent
+  ]
 })
 export class BossyModule {
-	static forRoot() {
-		return {
-			ngModule: BossyModule,
-			providers: []
-		};
-	}
+  static forRoot() {
+    return {
+      ngModule: BossyModule,
+      providers: []
+    };
+  }
 }
