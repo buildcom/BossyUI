@@ -32,14 +32,16 @@
     "gulp": "gulp",
     "jsdoc": "jsdoc ./dist/**.js -c jsdoc.json",
     "start": "node site/server.js",
-    "install": "tsc -p ./src; tsc -p ./site; npm run gulp site-install; npm run setup-hooks",
     "watch-src": "tsc -w -p ./src",
     "watch-site": "tsc -w -p ./site",
+    "compile-src": "tsc -p ./src",
+    "compile-site": "tsc -p ./site",
     "sandbox": "concurrently \"npm run watch-site\" \"npm run watch-src\" \"npm run bossy-templates\" \"npm run bossy-styles\" \"npm start\"",
     "bossy-templates": "onchange 'src/templates/*.html' -- gulp copy-templates",
     "bossy-styles": "onchange 'src/styles/*.css' -- gulp copy-styles",
     "lint": "tslint --config tslint.json --format stylish ./site/app/*.ts ./src/**/*.ts",
-    "setup-hooks": "mkdir -p .git/hooks ; ln -sf $PWD/hooks/* $PWD/.git/hooks/"
+    "setup-hooks": "mkdir -p .git/hooks ; ln -sf $PWD/hooks/* $PWD/.git/hooks/",
+    "install": "npm run compile-src; npm run compile-site; npm run gulp site-install; npm run setup-hooks"
   },
   "dependencies": {
     "@angular/common": "2.0.0",
