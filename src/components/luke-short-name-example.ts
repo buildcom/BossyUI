@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-	selector: 'Luke-Short',
+	selector: 'luke-short',
 	template:
 	`
   <div class ="superSpecialClass">
