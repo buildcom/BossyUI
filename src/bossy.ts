@@ -6,6 +6,7 @@ import {BossyFormInput} from './components/form-input';
 import {BossyForm} from './components/form';
 import {BossyFormLabel} from './components/form-label';
 import {BossyFormInputError} from './components/form-input-error';
+import {LukeCramerName} from './components/luke-cramer-name';
 
 @NgModule({
 	imports: [
@@ -17,12 +18,14 @@ import {BossyFormInputError} from './components/form-input-error';
 		BossyFormInput,
 		BossyForm,
 		BossyFormLabel,
-		BossyFormInputError
+		BossyFormInputError,
+		LukeCramerName
 	],
 	exports: [
 		BossyCalendar,
 		BossyFormInput,
-		BossyForm
+		BossyForm,
+		LukeCramerName
 	]
 })
 export class BossyModule {
