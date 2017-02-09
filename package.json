@@ -38,7 +38,7 @@
     "bossy-styles": "onchange 'src/styles/*.css' -- gulp copy-styles",
     "lint": "tslint --config tslint.json --format stylish ./site/app/*.ts ./src/**/*.ts",
     "setup-hooks": "cp -R ./hooks/* ./.git/hooks/",
-    "install": "npm run compile-src; npm run compile-site; npm run gulp site-install; npm run setup-hooks"
+    "install": "concurrently \"npm run compile-src\" \"npm run compile-site\" \"npm run gulp site-install\" \"npm run setup-hooks\""
   },
   "dependencies": {
     "@angular/common": "2.0.0",
