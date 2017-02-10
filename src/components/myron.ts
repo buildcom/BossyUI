@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 		`
 		<h3>{{name}}</h3>
 		`
-});
+})
 
 export class ExampleComponent {
 	name = 'Myron';
