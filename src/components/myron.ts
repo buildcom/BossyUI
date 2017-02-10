@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 		`
 })
 
-export class ExampleComponent {
-	name = 'Myron';
+export class MyronKantExampleComponent {
+	name = 'Myron Kant';
 }
