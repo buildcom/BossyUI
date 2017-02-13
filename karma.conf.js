@@ -87,6 +87,6 @@ module.exports = function(config) {
 		logLevel: config.LOG_INFO,
 		autoWatch: true,
 		browsers: ['Chrome'],
-		singleRun: false, //allow background testing with kjhtml
+		singleRun: true
 	})
-}
+};
