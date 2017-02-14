@@ -7,32 +7,39 @@ import {BossyForm} from './components/form';
 import {BossyFormLabel} from './components/form-label';
 import {BossyFormInputError} from './components/form-input-error';
 import {TammiName} from './components/tammi-name'
+import {MyronKantExampleComponent} from './components/myron';
+import {LukeShortExampleComponent} from './components/luke-short-name-example';
 
 @NgModule({
-	imports: [
-		BrowserModule,
-		ReactiveFormsModule
-	],
-	declarations: [
-		BossyCalendar,
-		BossyFormInput,
-		BossyForm,
-		BossyFormLabel,
-		BossyFormInputError,
-		TammiName
-	],
-	exports: [
-		BossyCalendar,
-		BossyFormInput,
-		BossyForm,
-		TammiName
-	]
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule
+  ],
+  declarations: [
+    BossyCalendar,
+    BossyFormInput,
+    BossyForm,
+    BossyFormLabel,
+    BossyFormInputError,
+		MyronKantExampleComponent,
+    LukeShortExampleComponent,
+		TammiFleetExampleComponent
+  ],
+  exports: [
+    BossyCalendar,
+    BossyFormInput,
+    BossyForm,
+		MyronKantExampleComponent,
+    LukeShortExampleComponent,
+		TammiFleetExampleComponent
+  ]
+
 })
 export class BossyModule {
-	static forRoot() {
-		return {
-			ngModule: BossyModule,
-			providers: []
-		};
-	}
+  static forRoot() {
+    return {
+      ngModule: BossyModule,
+      providers: []
+    };
+  }
 }

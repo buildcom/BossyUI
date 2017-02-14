@@ -10,6 +10,6 @@ import { Component } from '@angular/core';
     `
 })
 
-export class TammiName {
+export class TammiFleetComponent {
 
 }
