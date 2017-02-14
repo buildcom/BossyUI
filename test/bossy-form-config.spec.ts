@@ -1,8 +1,6 @@
-import { BossyFormConfig } from '../config/form';
-import { BossyFormInputConfig } from '../config/form-input';
+import { BossyFormConfig } from '../src/config/form';
 
-
-let cfg: BossyFormConfig = new BossyFormConfig([]);
+let cfg: BossyFormConfig;
 
 describe('The Config Component', () => {
 	beforeEach(() => {
