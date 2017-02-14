@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
 	selector: 'tammi-name',
-	template: `
+	template:
+	`
     <div>
       <h2>Tammi Fleet</h2>
     </div>
