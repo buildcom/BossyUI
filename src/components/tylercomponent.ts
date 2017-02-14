@@ -4,13 +4,11 @@ import { Component } from '@angular/core';
 	selector: 'tylercomp',
 	template: `
     <div>
-    <h1>Hello my name is {{ name }}</h1>
-    <h2>What's up?</h2>
-    <input value="">
+    <h3>{{ name }}</h3>
     </div>
     `
 })
 
 export class TylerComponent {
-	name = 'Tyler';
+	name = 'Tyler Chaney';
 }
