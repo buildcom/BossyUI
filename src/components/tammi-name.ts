@@ -5,11 +5,11 @@ import { Component } from '@angular/core';
 	template:
 	`
     <div>
-      <h2>Tammi Fleet</h2>
+      <h3>Tammi Fleet</h3>
     </div>
     `
 })
 
-export class TammiFleetComponent {
+export class TammiFleetExampleComponent {
 
 }
