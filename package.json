@@ -36,7 +36,7 @@
     "sandbox": "concurrently \"npm run watch-site\" \"npm run watch-src\" \"npm run bossy-templates\" \"npm run bossy-styles\" \"npm start\"",
     "bossy-templates": "onchange 'src/templates/*.html' -- gulp copy-templates",
     "bossy-styles": "onchange 'src/styles/*.css' -- gulp copy-styles",
-    "lint": "tslint --config tslint.json --format stylish ./site/app/*.ts ./src/**/*.ts ./src/*.ts",
+    "lint": "tslint --config tslint.json --format stylish ./site/app/*.ts ./src/**/*.ts ./src/*.ts ./test/*.ts ./test/**/*.ts",
     "setup-hooks": "cp -R ./hooks/* ./.git/hooks",
     "install": "concurrently \"npm run compile-src\" \"npm run compile-site\" \"npm run gulp site-install\" \"npm run setup-hooks\""
   },
