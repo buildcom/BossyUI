@@ -6,6 +6,7 @@ import {BossyFormInput} from './components/form-input';
 import {BossyForm} from './components/form';
 import {BossyFormLabel} from './components/form-label';
 import {BossyFormInputError} from './components/form-input-error';
+import {TammiFleetExampleComponent} from './components/tammi-name';
 import {MyronKantExampleComponent} from './components/myron';
 import {LukeShortExampleComponent} from './components/luke-short-name-example';
 import {TylerComponent} from './components/tylercomponent'
@@ -23,7 +24,9 @@ import {TylerComponent} from './components/tylercomponent'
     BossyFormInputError,
 		MyronKantExampleComponent,
     LukeShortExampleComponent,
+		TammiFleetExampleComponent
 		TylerComponent
+
   ],
   exports: [
     BossyCalendar,
@@ -31,6 +34,7 @@ import {TylerComponent} from './components/tylercomponent'
     BossyForm,
 		MyronKantExampleComponent,
     LukeShortExampleComponent,
+		TammiFleetExampleComponent
 		TylerComponent
   ]
 
