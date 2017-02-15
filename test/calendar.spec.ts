@@ -1,6 +1,6 @@
 import {BossyCalendar} from '../src/components/calendar';
 
-let cal : BossyCalendar;
+let cal: BossyCalendar;
 
 describe('the calendar component', () => {
 	it('should display a date', () => {
@@ -10,16 +10,16 @@ describe('the calendar component', () => {
 		calendar.selectMonth(5);
 		expect(calendar.display).toEqual(date);
 	});
-}),
+});
 
 describe('BossyCalendars month', () => {
-	beforeEach(()=> {
+	beforeEach(() => {
 		cal = new BossyCalendar();
 		cal.ngOnInit();
 	});
 	it('should display january after december (nextMonth())', () => {
 		let year = new Date().getFullYear();
-		cal.display  = new Date(year, 11, 25);
+		cal.display = new Date(year, 11, 25);
 		cal.nextMonth();
 		expect(cal.display.getMonth()).toEqual(0);
 	});
