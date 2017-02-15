@@ -9,41 +9,41 @@ import {BossyFormInputError} from './components/form-input-error';
 import {TammiFleetExampleComponent} from './components/tammi-name';
 import {MyronKantExampleComponent} from './components/myron';
 import {LukeShortExampleComponent} from './components/luke-short-name-example';
-import {TylerComponent} from './components/tylercomponent'
+import {TylerComponent} from './components/tylercomponent';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule
-  ],
-  declarations: [
-    BossyCalendar,
-    BossyFormInput,
-    BossyForm,
-    BossyFormLabel,
-    BossyFormInputError,
+	imports: [
+		BrowserModule,
+		ReactiveFormsModule
+	],
+	declarations: [
+		BossyCalendar,
+		BossyFormInput,
+		BossyForm,
+		BossyFormLabel,
+		BossyFormInputError,
 		MyronKantExampleComponent,
-    LukeShortExampleComponent,
-		TammiFleetExampleComponent
+		LukeShortExampleComponent,
+		TammiFleetExampleComponent,
 		TylerComponent
 
-  ],
-  exports: [
-    BossyCalendar,
-    BossyFormInput,
-    BossyForm,
+	],
+	exports: [
+		BossyCalendar,
+		BossyFormInput,
+		BossyForm,
 		MyronKantExampleComponent,
-    LukeShortExampleComponent,
-		TammiFleetExampleComponent
+		LukeShortExampleComponent,
+		TammiFleetExampleComponent,
 		TylerComponent
-  ]
+	]
 
 })
 export class BossyModule {
-  static forRoot() {
-    return {
-      ngModule: BossyModule,
-      providers: []
-    };
-  }
+	static forRoot() {
+		return {
+			ngModule: BossyModule,
+			providers: []
+		};
+	}
 }
