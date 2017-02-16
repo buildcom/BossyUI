@@ -1,20 +1,20 @@
 <div class="col-sm-6 component-col">
-    <div class="component-left">
-        <h4>Component Config</h4>
-        <div class="btn-group pull-right padding-bottom">
-            <button type="button" class="btn btn-default" (click)="updateConfig()">
-                Update <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-            </button>
-        </div>
-    </div>
-    <div *ngIf="error" class="alert alert-danger" style="margin-top: 30px;" role="alert">{{ error }}</div>
-    <div attr.id="{{ editorId }}" class="editor">{{ editorValue }}</div>
+	<div class="component-left">
+		<h4>Component Config</h4>
+		<div class="btn-group pull-right padding-bottom">
+			<button type="button" class="btn btn-default" (click)="updateConfig()">
+				Update <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+			</button>
+		</div>
+	</div>
+	<div *ngIf="error" class="alert alert-danger" style="margin-top: 30px;" role="alert">{{ error }}</div>
+	<div attr.id="{{ editorId }}" class="editor">{{ editorValue }}</div>
 </div>
 <div class="col-sm-6 component-col">
-    <div class="component-right">
-        <h4>Component Output</h4>
-    </div>
-    <dynamic-component [componentData]="componentData"></dynamic-component>
+	<div class="component-right">
+		<h4>Component Output</h4>
+	</div>
+	<dynamic-component [componentData]="componentData"></dynamic-component>
 </div>
 
 
