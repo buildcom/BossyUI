@@ -9,6 +9,7 @@ import {BossyFormInputError} from './components/form-input-error';
 import {TammiFleetExampleComponent} from './components/tammi-name';
 import {MyronKantExampleComponent} from './components/myron';
 import {LukeShortExampleComponent} from './components/luke-short-name-example';
+import {SamMillerExampleComponent} from './components/sam-miller-name-example';
 import {TylerComponent} from './components/tylercomponent';
 
 @NgModule({
@@ -25,6 +26,7 @@ import {TylerComponent} from './components/tylercomponent';
 		MyronKantExampleComponent,
 		LukeShortExampleComponent,
 		TammiFleetExampleComponent,
+		SamMillerExampleComponent,
 		TylerComponent
 
 	],
@@ -35,6 +37,7 @@ import {TylerComponent} from './components/tylercomponent';
 		MyronKantExampleComponent,
 		LukeShortExampleComponent,
 		TammiFleetExampleComponent,
+		SamMillerExampleComponent,
 		TylerComponent
 	]
 
