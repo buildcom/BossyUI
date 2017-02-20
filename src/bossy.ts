@@ -9,6 +9,7 @@ import {BossyFormInputError} from './components/form-input-error';
 import {TammiFleetExampleComponent} from './components/tammi-name';
 import {MyronKantExampleComponent} from './components/myron';
 import {LukeShortExampleComponent} from './components/luke-short-name-example';
+import {SamMillerComponent} from './components/sam-miller-name-example';
 import {TylerComponent} from './components/tylercomponent';
 
 @NgModule({
