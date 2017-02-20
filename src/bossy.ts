@@ -26,6 +26,7 @@ import {TylerComponent} from './components/tylercomponent';
 		MyronKantExampleComponent,
 		LukeShortExampleComponent,
 		TammiFleetExampleComponent,
+		SamMillerComponent,
 		TylerComponent
 
 	],
@@ -36,6 +37,7 @@ import {TylerComponent} from './components/tylercomponent';
 		MyronKantExampleComponent,
 		LukeShortExampleComponent,
 		TammiFleetExampleComponent,
+		SamMillerComponent,
 		TylerComponent
 	]
 
