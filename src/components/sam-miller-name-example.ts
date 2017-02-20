@@ -4,6 +4,4 @@ import {Component} from '@angular/core';
 	selector: 'sam-miller',
 	template: `<h1>Sam Miller</h1>`
 })
-export class SamMillerComponent {
-	isLoggedIn: boolean = false;
-}
+export class SamMillerComponent { name = 'Sam Miller'; }
