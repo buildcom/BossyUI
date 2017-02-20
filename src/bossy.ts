@@ -6,7 +6,7 @@ import {BossyFormInput} from './components/form-input';
 import {BossyForm} from './components/form';
 import {BossyFormLabel} from './components/form-label';
 import {BossyFormInputError} from './components/form-input-error';
-import {MyronKantExampleComponent} from './components/myron';
+import {MyronExampleComponent} from './components/myron-component';
 import {LukeShortExampleComponent} from './components/luke-short-name-example';
 
 @NgModule({
@@ -20,14 +20,14 @@ import {LukeShortExampleComponent} from './components/luke-short-name-example';
     BossyForm,
     BossyFormLabel,
     BossyFormInputError,
-		MyronKantExampleComponent,
+		MyronExampleComponent,
     LukeShortExampleComponent
   ],
   exports: [
     BossyCalendar,
     BossyFormInput,
     BossyForm,
-		MyronKantExampleComponent,
+		MyronExampleComponent,
     LukeShortExampleComponent
   ]
 
