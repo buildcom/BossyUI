@@ -2,11 +2,12 @@ import {Component, Input, ViewContainerRef, ViewChild, ReflectiveInjector, Compo
 import {BossyCalendar} from '../../dist/components/calendar';
 import {BossyForm} from '../../dist/components/form';
 import {BossyFormInput} from '../../dist/components/form-input';
+import {LukeShortExampleComponent} from '../../dist/components/luke-short-name-example'
 
 
 @Component({
 	selector: 'dynamic-component',
-	entryComponents: [BossyCalendar, BossyForm, BossyFormInput], // Reference to the components must be here in order to dynamically create them
+	entryComponents: [BossyCalendar, BossyForm, BossyFormInput, LukeShortExampleComponent], // Reference to the components must be here in order to dynamically create them
 	template: `<div #dynamicComponentContainer></div>`,
 })
 export class DynamicComponent {
@@ -36,4 +37,3 @@ export class DynamicComponent {
 
 	constructor(private resolver: ComponentFactoryResolver) {}
 }
-
