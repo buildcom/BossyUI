@@ -2,7 +2,7 @@ import {Component, Input, ViewContainerRef, ViewChild, ReflectiveInjector, Compo
 import {BossyCalendar} from '../../dist/components/calendar';
 import {BossyForm} from '../../dist/components/form';
 import {BossyFormInput} from '../../dist/components/form-input';
-import {LukeShortExampleComponent} from '../../dist/components/luke-short-name-example'
+import {LukeShortExampleComponent} from '../../dist/components/luke-short-name-example';
 
 
 @Component({

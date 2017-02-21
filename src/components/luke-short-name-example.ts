@@ -27,7 +27,7 @@ export class InterestObject {
 		</div>
   </div>
   `,
-	styles:[`
+	styles: [`
 		.interest li:hover{
 			-webkit-filter: opacity(30%);
 			border-style: dotted;
@@ -39,32 +39,32 @@ export class InterestObject {
 export class LukeShortExampleComponent {
 	@Input() config: LukeShortExampleComponentConfig;
 	clickedName: boolean = false;
-	nameFromConfig: string = "";
-	colorFromConfig: string ="";
+	nameFromConfig: string = '';
+	colorFromConfig: string = '';
 	arrOfInterests: Array<InterestObject> = [];
 
-	ngOnInit(){
-		//Get name from config
+	ngOnInit() {
+		// Get name from config
 		this.nameFromConfig = this.config.name;
 
-		//Get interests from config
+		// Get interests from config
 		this.config.interests.forEach((interest) => {
 			this.arrOfInterests.push(new InterestObject(false, false, interest));
 		});
 
-		//Get color from config
+		// Get color from config
 		this.colorFromConfig = this.config.color;
 	};
 
 
-	//Toggle functions for mouse hover and mouse clicks
-	clkNamFxn(){
+	// Toggle functions for mouse hover and mouse clicks
+	clkNamFxn() {
 		this.clickedName = !this.clickedName;
 	}
-	clkElemFxn(elIndx: number){
+	clkElemFxn(elIndx: number) {
 		this.arrOfInterests[elIndx].elementClicked = !this.arrOfInterests[elIndx].elementClicked;
 	}
-	hovElemFxn(elIndx: number){
+	hovElemFxn(elIndx: number) {
 		this.arrOfInterests[elIndx].elementHovered = !this.arrOfInterests[elIndx].elementHovered;
 	}
 }

@@ -53,13 +53,13 @@ describe('the slider component', () => {
 		expect(slider.isMouseDown).toBeFalsy();
 	});
 	it('should not decrease past it\'s minimum value', () => {
-		for(let i = 0; i < 10000; i++) {
+		for (let i = 0; i < 10000; i++) {
 			slider.decrease();
 		}
 		expect(slider.value >= slider.min).toBeTruthy();
 	});
 	it('should not increase past it\'s maximum value', () => {
-		for(let i = 0; i < 10000; i++) {
+		for (let i = 0; i < 10000; i++) {
 			slider.increase();
 		}
 		expect(slider.value >= slider.min).toBeTruthy();
