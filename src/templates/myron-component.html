@@ -1,0 +1,15 @@
+<div>
+  <h1>{{title}}</h1>
+  <h1 class="nameButton" (click)="nameEvent()">{{name}}</h1>
+  <div *ngIf="nameClicked">
+    <h4>Interests</h4>
+    <ul *ngFor="let interest of interests; let i = index;" (click)="changeColor(i)" class="interests">
+      <li *ngIf="interest.clicked" [style.background-color]="getColor()">
+        <span class="info">{{interest.id}} </span> {{interest.name}}
+      </li>
+      <li *ngIf="!interest.clicked" style="background-color: #ccd9ff">
+        <span class="info">{{interest.id}} </span> {{interest.name}}
+      </li>
+    </ul>
+  </div>
+</div>

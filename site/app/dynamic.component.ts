@@ -3,11 +3,12 @@ import {BossyCalendar} from '../../dist/components/calendar';
 import {BossyForm} from '../../dist/components/form';
 import {BossyFormInput} from '../../dist/components/form-input';
 import {LukeShortExampleComponent} from '../../dist/components/luke-short-name-example';
+import {MyronExampleComponent} from '../../dist/components/myron-component';
 
 
 @Component({
 	selector: 'dynamic-component',
-	entryComponents: [BossyCalendar, BossyForm, BossyFormInput, LukeShortExampleComponent], // Reference to the components must be here in order to dynamically create them
+	entryComponents: [BossyCalendar, BossyForm, BossyFormInput, LukeShortExampleComponent, MyronExampleComponent], // Reference to the components must be here in order to dynamically create them
 	template: `<div #dynamicComponentContainer></div>`,
 })
 export class DynamicComponent {

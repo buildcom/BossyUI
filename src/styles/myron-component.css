@@ -1,0 +1,43 @@
+.interests {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+}
+
+.interests li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 2.4em;
+  border-radius: 4px;
+}
+
+.interests li:hover {
+  //background-color: #AAA !important;
+  -webkit-filter: drop-shadow(8px 8px 10px green);
+  filter: drop-shadow(8px 8px 10px red);
+}
+
+.interests .text {
+  position: relative;
+  top: -3px;
+}
+
+.interests .info {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 2.6em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
