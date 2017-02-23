@@ -10,7 +10,8 @@ import {BossyFormInputValidatorConfig} from '../../dist/config/form-input-valida
 import {BossyFormLabelConfig} from '../../dist/config/form-label';
 import {MyronExampleComponentConfig} from '../../dist/config/myron-config';
 import {MyronExampleComponent} from '../../dist/components/myron-component';
-
+import {LukeShortExampleComponent} from '../../dist/components/luke-short-name-example';
+import {LukeShortExampleComponentConfig} from '../../dist/config/luke-short-name-example-config';
 
 declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
@@ -27,6 +28,7 @@ export class AppComponent {
 	bossyForm = BossyForm;
 	bossyFormInput = BossyFormInput;
 	myronExampleComponent = MyronExampleComponent;
+	lukeShortExampleComponent = LukeShortExampleComponent;
 
 	constructor(
 		private configService: ConfigService
@@ -43,10 +45,12 @@ export class AppComponent {
 		]);
 		const formInputConfig = new BossyFormInputConfig('formInput', 'text');
 		const myronExampleComponentConfig = new MyronExampleComponentConfig('Myron Kant', ['Reading', 'Left 4 Dead 2', 'Triathlon'], 'lightgreen');
+		const lukeShortExampleComponentConfig = new LukeShortExampleComponentConfig('Luke Short', ['Yoga', 'pr0gramming', 'Mountain Biking', 'Star Wars'], 'BurlyWood');
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('formInputConfig', formInputConfig);
 		this.configService.setConfig('myronExampleComponentConfig', myronExampleComponentConfig);
+		this.configService.setConfig('lukeShortExampleComponentConfig', lukeShortExampleComponentConfig);
 	}
 }

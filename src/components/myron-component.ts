@@ -20,7 +20,7 @@ export class MyronExampleComponent {
 	ngOnInit() {
 		this.name = this.config.name,
 		this.config.interests.forEach((name, i) => {
-			this.interests.push({ id: (i + 1), name, clicked: false })
+			this.interests.push({ id: (i + 1), name, clicked: false });
 		});
 		this.color = this.config.color;
 	}

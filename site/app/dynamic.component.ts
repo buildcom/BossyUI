@@ -2,12 +2,20 @@ import {Component, Input, ViewContainerRef, ViewChild, ReflectiveInjector, Compo
 import {BossyCalendar} from '../../dist/components/calendar';
 import {BossyForm} from '../../dist/components/form';
 import {BossyFormInput} from '../../dist/components/form-input';
+<<<<<<< HEAD
 import {MyronExampleComponent} from '../../dist/components/myron-component';
+=======
+import {LukeShortExampleComponent} from '../../dist/components/luke-short-name-example';
+>>>>>>> e4a80178db23fd749da9744d8a3f4f2e19cf7273
 
 
 @Component({
 	selector: 'dynamic-component',
+<<<<<<< HEAD
 	entryComponents: [BossyCalendar, BossyForm, BossyFormInput, MyronExampleComponent], // Reference to the components must be here in order to dynamically create them
+=======
+	entryComponents: [BossyCalendar, BossyForm, BossyFormInput, LukeShortExampleComponent], // Reference to the components must be here in order to dynamically create them
+>>>>>>> e4a80178db23fd749da9744d8a3f4f2e19cf7273
 	template: `<div #dynamicComponentContainer></div>`,
 })
 export class DynamicComponent {
