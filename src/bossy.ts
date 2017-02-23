@@ -6,8 +6,8 @@ import {BossyFormInput} from './components/form-input';
 import {BossyForm} from './components/form';
 import {BossyFormLabel} from './components/form-label';
 import {BossyFormInputError} from './components/form-input-error';
-import {TammiFleetExampleComponent} from './components/tammi-name';
 import {MyronExampleComponent} from './components/myron-component';
+import {TammiFleetExampleComponent} from './components/tammi-name';
 import {LukeShortExampleComponent} from './components/luke-short-name-example';
 import {SamMillerExampleComponent} from './components/sam-miller-name-example';
 import {TylerComponent} from './components/tylercomponent';
@@ -28,7 +28,6 @@ import {TylerComponent} from './components/tylercomponent';
 		TammiFleetExampleComponent,
 		SamMillerExampleComponent,
 		TylerComponent
-
 	],
 	exports: [
 		BossyCalendar,
