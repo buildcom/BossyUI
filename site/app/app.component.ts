@@ -9,7 +9,7 @@ import {BossyForm} from '../../dist/components/form';
 import {BossyFormInputValidatorConfig} from '../../dist/config/form-input-validator';
 import {BossyFormLabelConfig} from '../../dist/config/form-label';
 import {MyronExampleComponentConfig} from '../../dist/config/myron-config';
-import {MyronExampleComponent} from '../../dist/components/myron';
+import {MyronExampleComponent} from '../../dist/components/myron-component';
 
 
 declare const Components: Array<BossyFormInputConfig>;
@@ -42,7 +42,7 @@ export class AppComponent {
 				new BossyFormInputValidatorConfig({message: 'bossy email test not valid'}, {minimum: 3, maximum: 15}))
 		]);
 		const formInputConfig = new BossyFormInputConfig('formInput', 'text');
-		const myronExampleComponentConfig = new MyronExampleComponentConfig();
+		const myronExampleComponentConfig = new MyronExampleComponentConfig('Myron Kant', ['Reading', 'Left 4 Dead 2', 'Triathlon'], 'lightgreen');
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);

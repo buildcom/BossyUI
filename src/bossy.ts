@@ -7,36 +7,33 @@ import {BossyForm} from './components/form';
 import {BossyFormLabel} from './components/form-label';
 import {BossyFormInputError} from './components/form-input-error';
 import {MyronExampleComponent} from './components/myron-component';
-import {LukeShortExampleComponent} from './components/luke-short-name-example';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule
-  ],
-  declarations: [
-    BossyCalendar,
-    BossyFormInput,
-    BossyForm,
-    BossyFormLabel,
-    BossyFormInputError,
+	imports: [
+		BrowserModule,
+		ReactiveFormsModule
+	],
+	declarations: [
+		BossyCalendar,
+		BossyFormInput,
+		BossyForm,
+		BossyFormLabel,
+		BossyFormInputError,
 		MyronExampleComponent,
-    LukeShortExampleComponent
-  ],
-  exports: [
-    BossyCalendar,
-    BossyFormInput,
-    BossyForm,
+	],
+	exports: [
+		BossyCalendar,
+		BossyFormInput,
+		BossyForm,
 		MyronExampleComponent,
-    LukeShortExampleComponent
-  ]
+	]
 
 })
 export class BossyModule {
-  static forRoot() {
-    return {
-      ngModule: BossyModule,
-      providers: []
-    };
-  }
+	static forRoot() {
+		return {
+			ngModule: BossyModule,
+			providers: []
+		};
+	}
 }
