@@ -30,6 +30,9 @@ app.get('/', function (req, res) {
 		isDevel: process.env.NODE_ENV != 'production'
 	});
 });
+app.get('/contributors', function(req, res){
+	res.render('contributors');
+});
 
 const server = app.listen(process.env.PORT || 3000, function () {
     const port = server.address().port;

@@ -1,6 +1,8 @@
-<div class="navigation text-center">
+<div class="text-center">
 	<div class="row">
-		<img class="bossy-logo" src="images/white_logo.svg" alt="BossyUi Logo">
+		<a href="/">
+			<img class="bossy-logo" src="images/white_logo.svg" alt="BossyUi Logo">
+		</a>
 	</div>
 	<div class="row">
 		<a href="/sandbox">
@@ -9,7 +11,7 @@
 		</a>
 	</div>
 	<div class="row">
-		<a href="/sandbox">
+		<a href="/contributors">
 			<i class="icon ion-ios-people"></i>
 			<div class="nav-title">Contributors</div>
 		</a>
