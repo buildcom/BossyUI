@@ -1,4 +1,5 @@
-<form [formGroup]="bossyForm" novalidate>
+
+<form [formGroup]="bossyForm" novalidate [ngClass]="{'form-inline': formInlinedFromConfig}">
     <div *ngFor="let element of config.elements" class="form-group">
         <bossy-form-label [config]="element.label"></bossy-form-label>
         <div [ngSwitch]="element.type">
