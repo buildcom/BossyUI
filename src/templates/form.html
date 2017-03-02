@@ -6,20 +6,25 @@
             <div *ngSwitchCase="'number'">
                 <input type="number" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}"/>
             </div>
-            <div *ngSwitchCase="'password'">
-                <input type="password" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}"/>
+            <div *ngSwitchCase="'password'" [ngClass]="{'form-group': true, 'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
+                <input type="password" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}"
+															[ngClass]="{'form-control': true, 'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}"/>
             </div>
-            <div *ngSwitchCase="'textarea'">
-                <textarea name="{{ element.name }}" placeholder="{{ element.placeholder }}" rows="{{ element.rows }}" cols="{{ element.cols }}" formControlName="{{ element.name }}"></textarea>
+            <div *ngSwitchCase="'textarea'" [ngClass]="{'form-group': true, 'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
+                <textarea name="{{ element.name }}" placeholder="{{ element.placeholder }}" rows="{{ element.rows }}" cols="{{ element.cols }}" formControlName="{{ element.name }}"
+																[ngClass]="{'form-control': true, 'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}"></textarea>
             </div>
-            <div *ngSwitchCase="'email'">
-                <input type="email" formControlName="{{ element.name }}">
+            <div *ngSwitchCase="'email'" [ngClass]="{'form-group': true, 'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
+                <input type="email" formControlName="{{ element.name }}"
+															[ngClass]="{'form-control': true, 'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}">
             </div>
-            <div *ngSwitchCase="'date'">
-                <input type="date" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}">
+            <div *ngSwitchCase="'date'" [ngClass]="{'form-group': true, 'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
+                <input type="date" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}"
+															[ngClass]="{'form-control': true, 'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}">
             </div>
-            <div *ngSwitchDefault>
-                <input type="text" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}"/>
+            <div *ngSwitchDefault [ngClass]="{'form-group': true, 'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
+                <input type="text" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}"
+														[ngClass]="{'form-control': true, 'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}"/>
             </div>
         </div>
         <bossy-form-input-error [formGroup]="bossyForm" [controlName]="element.name" [errorCssClass]="element.errorCssClass"></bossy-form-input-error>
