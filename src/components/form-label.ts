@@ -12,4 +12,6 @@ declare const module: any;
 })
 export class BossyFormLabel {
 	@Input() config: BossyFormLabelConfig;
+	isInline: boolean = false;
+
 }
