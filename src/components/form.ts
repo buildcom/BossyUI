@@ -15,7 +15,7 @@ declare const module: any;
 export class BossyForm {
 	@Input() config: BossyFormConfig;
 	bossyForm: FormGroup;
-	formInlinedFromConfig: boolean = false;
+	isFormInlinedFromConfig: boolean = false;
 
 	constructor(
 		private formBuilder: FormBuilder
@@ -24,7 +24,7 @@ export class BossyForm {
 	ngOnInit() {
 		const elements = {};
 
-		this.formInlinedFromConfig = this.config.formInlined;
+		this.isFormInlinedFromConfig = this.config.isFormInlined;
 
 		this.config.elements.forEach((element) => {
 			const { name, value } = element;
