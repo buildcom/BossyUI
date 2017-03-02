@@ -13,5 +13,7 @@ declare const module: any;
 export class BossyFormLabel {
 	@Input() config: BossyFormLabelConfig;
 	isInline: boolean = false;
-
+	hasSuccess: boolean = false;
+	hasWarning: boolean = false;
+	hasDanger: boolean = false;
 }
