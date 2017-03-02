@@ -15,6 +15,9 @@ export class BossyFormInputConfig {
 		public rows?: number,
 		public cols?: number,
 		public placeholder?: string,
-		public formGroup?: FormGroup
+		public formGroup?: FormGroup,
+		public hasSuccess?: boolean,
+		public hasWarning?: boolean,
+		public hasDanger?: boolean
 	) {}
 }
