@@ -1,5 +1,6 @@
 <div *ngIf="config?.text">
-	<label [ngClass]="{'bossy-inline-label': config?.inline}" [class]="config?.cssClass" >
+	<label for=config.name [ngClass]="{'bossy-inline-label': config?.inline}" [class]="config?.cssClass">
 		{{config.text}}
+		<span *ngIf="config?.tag" class="label label-default" [ngClass]="config?.tagtype">{{config.tag}}</span>
 	</label>
 </div>
