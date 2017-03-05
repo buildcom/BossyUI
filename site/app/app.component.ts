@@ -33,13 +33,16 @@ export class AppComponent {
 
 	ngOnInit() {
 		const calendarConfig = new BossyCalendarConfig();
-		const formConfig = new BossyFormConfig([
-			new BossyFormInputConfig('textInput', 'text', 'test value for text', undefined,
+		const formConfig = new BossyFormConfig(
+			[
+				new BossyFormInputConfig('textInput', 'text', 'test value for text', undefined,
 				new BossyFormLabelConfig('text label test', true)),
-			new BossyFormInputConfig('textareaInput', 'textarea', 'test value for textarea', undefined , undefined, '', '', 'a label', 5, 10),
-			new BossyFormInputConfig('emailInput', 'email', 'test value for email',
+				new BossyFormInputConfig('textareaInput', 'textarea', 'test value for textarea', undefined , undefined, '', '', 'a label', 5, 10),
+				new BossyFormInputConfig('emailInput', 'email', 'test value for email',
 				new BossyFormInputValidatorConfig({message: 'bossy email test not valid'}, {minimum: 3, maximum: 15}))
-		]);
+			],
+			false
+		);
 		const formInputConfig = new BossyFormInputConfig('formInput', 'text');
 		const lukeShortExampleComponentConfig = new LukeShortExampleComponentConfig('Luke Short', ['Yoga', 'pr0gramming', 'Mountain Biking', 'Star Wars'], 'BurlyWood');
 
