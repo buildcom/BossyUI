@@ -1,7 +1,6 @@
 {>"partials/layout"/}
 {<content}
 <div class="container-fluid">
-
 	<div class="col-lg-9 offset-xl-1">
 		<sandbox-app></sandbox-app>
 	</div>
