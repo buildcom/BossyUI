@@ -1,31 +1,31 @@
 <form [formGroup]="bossyForm" novalidate [ngClass]="{'form-inline': isFormInlinedFromConfig}">
-    <div *ngFor="let element of config.elements" class="form-group">
-        <bossy-form-label [config]="element.label"></bossy-form-label>
-        <div [ngSwitch]="element.type">
-            <div *ngSwitchCase="'number'" [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
-                <input type="number" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}"/>
-            </div>
-            <div *ngSwitchCase="'password'" [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
-                <input type="password" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"
-                       [ngClass]="{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}"/>
-            </div>
-            <div *ngSwitchCase="'textarea'" [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
-                <textarea name="{{ element.name }}" placeholder="{{ element.placeholder }}" rows="{{ element.rows }}" cols="{{ element.cols }}" formControlName="{{ element.name }}" class="form-control"
-                          [ngClass]="{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}"></textarea>
-            </div>
-            <div *ngSwitchCase="'email'" [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
-                <input type="email" formControlName="{{ element.name }}" class="form-control"
-                       [ngClass]="{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}">
-                <bossy-form-input-error [formGroup]="bossyForm" [controlName]="element.name" [errorCssClass]="element.errorCssClass"></bossy-form-input-error>
-            </div>
-            <div *ngSwitchCase="'date'" [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
-                <input type="date" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"
-                       [ngClass]="{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}">
-            </div>
-            <div *ngSwitchDefault [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
-                <input type="text" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"
-                       [ngClass]="{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}"/>
-            </div>
-        </div>
-    </div>
+	<div *ngFor="let element of config.elements" class="form-group">
+		<bossy-form-label [config]="element.label"></bossy-form-label>
+		<div [ngSwitch]="element.type">
+			<div *ngSwitchCase="'number'" [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
+				<input type="number" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}"/>
+			</div>
+			<div *ngSwitchCase="'password'" [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
+				<input type="password" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"
+						[ngClass]="{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}"/>
+			</div>
+			<div *ngSwitchCase="'textarea'" [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
+				<textarea name="{{ element.name }}" placeholder="{{ element.placeholder }}" rows="{{ element.rows }}" cols="{{ element.cols }}" formControlName="{{ element.name }}" class="form-control"
+						[ngClass]="{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}"><\textarea>
+			</div>
+			<div *ngSwitchCase="'email'" [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
+				<input type="email" formControlName="{{ element.name }}" class="form-control"
+						[ngClass]="{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}">
+				<bossy-form-input-error [formGroup]="bossyForm" [controlName]="element.name" [errorCssClass]="element.errorCssClass"></bossy-form-input-error>
+			</div>
+			<div *ngSwitchCase="'date'" [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
+				<input type="date" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"
+						[ngClass]="{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}">
+			</div>
+			<div *ngSwitchDefault [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
+				<input type="text" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"
+						[ngClass]="{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}"/>
+			</div>
+		</div>
+	</div>
 </form>
