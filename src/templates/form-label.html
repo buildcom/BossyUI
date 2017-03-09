@@ -1,5 +1,6 @@
-<div *ngIf="config?.text" [ngClass]="{'has-success': config?.hasSuccess, 'has-warning': config?.hasWarning, 'has-danger': config?.hasDanger}">
-	<label [ngClass]="{'form-control-label': config?.inline, 'form-control-label': true}">
+<div *ngIf="config?.text">
+	<label [ngClass]="{'form-control-label': config?.inline, 'form-control-label': true, 'has-success': config?.hasSuccess, 'has-warning': config?.hasWarning, 'has-danger': config?.hasDanger}">
 		{{config.text}}
+		<span *ngIf="config?.badgeText" class="badge badge-default" [ngClass]="config?.badgeType">{{config.badgeText}}</span>
 	</label>
 </div>

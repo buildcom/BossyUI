@@ -2,8 +2,11 @@ export class BossyFormLabelConfig {
 	constructor(
 		public text?: string,
 		public inline?: boolean,
+		public cssClass?: string,
 		public hasSuccess?: boolean,
 		public hasWarning?: boolean,
-		public hasDanger?: boolean
+		public hasDanger?: boolean,
+		public badgeText?: string,
+		public badgeType?: string,
 	) {}
 }
