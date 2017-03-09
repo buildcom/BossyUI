@@ -12,6 +12,9 @@ declare const module: any;
 })
 export class BossyFormInput {
 	@Input() config: BossyFormInputConfig;
+	hasSuccess: boolean = false;
+	hasWarning: boolean = false;
+	hasDanger: boolean = false;
 
 	constructor() {
 	}

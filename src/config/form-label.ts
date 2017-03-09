@@ -3,7 +3,7 @@ export class BossyFormLabelConfig {
 		public text?: string,
 		public inline?: boolean,
 		public cssClass?: string,
-		public tag?: string,
-		public tagtype?: string,
+		public badgetext?: string,
+		public badgetype?: string,
 	) {}
 }
