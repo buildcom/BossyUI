@@ -11,6 +11,7 @@ import {MyronKantExampleComponent} from './components/myron';
 import {LukeShortExampleComponent} from './components/luke-short-name-example';
 import {SamMillerExampleComponent} from './components/sam-miller-name-example';
 import {TylerComponent} from './components/tylercomponent';
+import {BossyRadio} from './components/radio';
 
 @NgModule({
 	imports: [
@@ -27,7 +28,8 @@ import {TylerComponent} from './components/tylercomponent';
 		LukeShortExampleComponent,
 		TammiFleetExampleComponent,
 		SamMillerExampleComponent,
-		TylerComponent
+		TylerComponent,
+		BossyRadio
 
 	],
 	exports: [
@@ -38,7 +40,8 @@ import {TylerComponent} from './components/tylercomponent';
 		LukeShortExampleComponent,
 		TammiFleetExampleComponent,
 		SamMillerExampleComponent,
-		TylerComponent
+		TylerComponent,
+		BossyRadio
 	]
 
 })

@@ -10,6 +10,8 @@ import {BossyFormInputValidatorConfig} from '../../dist/config/form-input-valida
 import {BossyFormLabelConfig} from '../../dist/config/form-label';
 import {LukeShortExampleComponent} from '../../dist/components/luke-short-name-example';
 import {LukeShortExampleComponentConfig} from '../../dist/config/luke-short-name-example-config';
+import {BossyRadio} from '../../dist/components/radio';
+import {BossyRadioConfig} from '../../dist/config/radio';
 
 
 declare const Components: Array<BossyFormInputConfig>;
@@ -27,6 +29,7 @@ export class AppComponent {
 	bossyForm = BossyForm;
 	bossyFormInput = BossyFormInput;
 	lukeShortExampleComponent = LukeShortExampleComponent;
+	bossyRadio = BossyRadio;
 
 	constructor(
 		private configService: ConfigService
@@ -45,10 +48,12 @@ export class AppComponent {
 		);
 		const formInputConfig = new BossyFormInputConfig('formInput', 'text');
 		const lukeShortExampleComponentConfig = new LukeShortExampleComponentConfig('Luke Short', ['Yoga', 'pr0gramming', 'Mountain Biking', 'Star Wars'], 'BurlyWood');
+		const bossyRadioConfig = new BossyRadioConfig(['lions', 'tigers', 'bears'], false);
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('formInputConfig', formInputConfig);
 		this.configService.setConfig('lukeShortExampleComponentConfig', lukeShortExampleComponentConfig);
+		this.configService.setConfig('bossyRadioConfig', bossyRadioConfig);
 	}
 }
