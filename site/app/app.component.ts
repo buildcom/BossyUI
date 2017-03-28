@@ -46,7 +46,7 @@ export class AppComponent {
 			],
 		);
 		const formInputConfig = new BossyFormInputConfig('formInput', 'text');
-		const bossyDropdownConfig = new BossyDropdownConfig( 'Dropdown Menu', 'button',
+		const dropdownConfig = new BossyDropdownConfig( 'Dropdown Menu', 'button',
 		[
 			new BossyDropdownMenuItemConfig('Link', 'Item 1'),
 			new BossyDropdownMenuItemConfig('divider'),
@@ -57,6 +57,6 @@ export class AppComponent {
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('formInputConfig', formInputConfig);
-		this.configService.setConfig('dropdown', bossyDropdownConfig);
+		this.configService.setConfig('dropdownConfig', dropdownConfig);
 	}
 }
