@@ -1,4 +1,4 @@
-export class BossyFormInputValidatorConfig {
+export class BossyInputValidatorConfig {
 	constructor(
 		public email?: {
 			PATTERN?: string,
