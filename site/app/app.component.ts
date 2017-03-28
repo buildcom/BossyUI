@@ -8,9 +8,10 @@ import {BossyFormConfig} from '../../dist/config/form';
 import {BossyForm} from '../../dist/components/form';
 import {BossyFormInputValidatorConfig} from '../../dist/config/form-input-validator';
 import {BossyFormLabelConfig} from '../../dist/config/form-label';
-import {LukeShortExampleComponent} from '../../dist/components/luke-short-name-example';
-import {LukeShortExampleComponentConfig} from '../../dist/config/luke-short-name-example-config';
-
+import {BossyDropdown} from '../../dist/components/dropdown';
+import {BossyDropdownConfig} from '../../dist/config/dropdown';
+import {BossyDropdownMenuItem} from '../../dist/components/dropdown-menu';
+import {BossyDropdownMenuItemConfig} from '../../dist/config/dropdown-menu';
 
 declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
@@ -26,7 +27,8 @@ export class AppComponent {
 	bossyCalendar = BossyCalendar;
 	bossyForm = BossyForm;
 	bossyFormInput = BossyFormInput;
-	lukeShortExampleComponent = LukeShortExampleComponent;
+	bossyDropdown = BossyDropdown;
+	bossyDropdownMenuItem = BossyDropdownMenuItem;
 
 	constructor(
 		private configService: ConfigService
@@ -44,11 +46,17 @@ export class AppComponent {
 			],
 		);
 		const formInputConfig = new BossyFormInputConfig('formInput', 'text');
-		const lukeShortExampleComponentConfig = new LukeShortExampleComponentConfig('Luke Short', ['Yoga', 'pr0gramming', 'Mountain Biking', 'Star Wars'], 'BurlyWood');
+		const bossyDropdownConfig = new BossyDropdownConfig( 'Dropdown Menu', 'button',
+		[
+			new BossyDropdownMenuItemConfig('Link', 'Item 1'),
+			new BossyDropdownMenuItemConfig('divider'),
+			new BossyDropdownMenuItemConfig('Link', 'Item 2')
+		],
+		);
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('formInputConfig', formInputConfig);
-		this.configService.setConfig('lukeShortExampleComponentConfig', lukeShortExampleComponentConfig);
+		this.configService.setConfig('dropdown', bossyDropdownConfig);
 	}
 }

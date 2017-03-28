@@ -6,11 +6,8 @@ import {BossyFormInput} from './components/form-input';
 import {BossyForm} from './components/form';
 import {BossyFormLabel} from './components/form-label';
 import {BossyFormInputError} from './components/form-input-error';
-import {TammiFleetExampleComponent} from './components/tammi-name';
-import {MyronKantExampleComponent} from './components/myron';
-import {LukeShortExampleComponent} from './components/luke-short-name-example';
-import {SamMillerExampleComponent} from './components/sam-miller-name-example';
-import {TylerComponent} from './components/tylercomponent';
+import {BossyDropdown} from './components/dropdown';
+import {BossyDropdownMenuItem} from './components/dropdown-menu';
 
 @NgModule({
 	imports: [
@@ -23,22 +20,16 @@ import {TylerComponent} from './components/tylercomponent';
 		BossyForm,
 		BossyFormLabel,
 		BossyFormInputError,
-		MyronKantExampleComponent,
-		LukeShortExampleComponent,
-		TammiFleetExampleComponent,
-		SamMillerExampleComponent,
-		TylerComponent
+		BossyDropdown,
+		BossyDropdownMenuItem
 
 	],
 	exports: [
 		BossyCalendar,
 		BossyFormInput,
 		BossyForm,
-		MyronKantExampleComponent,
-		LukeShortExampleComponent,
-		TammiFleetExampleComponent,
-		SamMillerExampleComponent,
-		TylerComponent
+		BossyDropdown,
+		BossyDropdownMenuItem
 	]
 
 })

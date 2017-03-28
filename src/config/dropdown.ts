@@ -8,6 +8,6 @@ export class BossyDropdownConfig {
 		public split?: boolean,
 		public size?: string,
 		public dropup?: boolean,
-		public rightAligned?: boolean,
+		public rightAlignedMenu?: boolean,
 		) {}
 }
