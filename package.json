@@ -40,6 +40,9 @@
     "setup-hooks": "cp -R ./hooks/* ./.git/hooks",
     "install": "concurrently \"npm run compile-src\" \"npm run compile-site\" \"npm run gulp site-install\" \"npm run setup-hooks\""
   },
+  "engines": {
+    "node": "6.10.x"
+  },
   "dependencies": {
     "@angular/common": "2.0.0",
     "@angular/compiler": "2.0.0",
