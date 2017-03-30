@@ -1,6 +1,6 @@
-<div *ngIf="config?.text">
-	<label for=config.name [ngClass]="{'bossy-inline-label': config?.inline}" [class]="config?.cssClass">
+<div *ngIf="config?.text" [ngClass]="{'has-success': config?.hasSuccess, 'has-warning': config?.hasWarning, 'has-danger': config?.hasDanger}">
+	<label [ngClass]="{'form-control-label': config?.inline, 'form-control-label': true}">
 		{{config.text}}
-		<span *ngIf="config?.tag" class="label label-default" [ngClass]="config?.tagtype">{{config.tag}}</span>
+		<span *ngIf="config?.badgetext" class="badge badge-default" [ngClass]="config?.badgetype">{{config.badgetext}}</span>
 	</label>
 </div>
