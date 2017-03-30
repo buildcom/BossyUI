@@ -34,7 +34,6 @@ export class AppComponent {
 
 	ngOnInit() {
 		const calendarConfig = new BossyCalendarConfig();
-
 		const formConfig = new BossyFormConfig(
 			[
 				new BossyFormInputConfig('textInput', 'text', 'test value for text', undefined,
