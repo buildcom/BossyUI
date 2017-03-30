@@ -5,6 +5,8 @@ import {BossyFormConfig} from '../config/form';
 
 @Component({
 	selector: 'bossy-radio',
+  templateUrl: '../templates/radio.html'
+/*
 	template: `
 	<div *ngFor="let element of items; let i = index" [ngClass]="{'form-check': true, ' form-check-inline': isInline}">
 	  <label class="form-check-label">
@@ -12,9 +14,7 @@ import {BossyFormConfig} from '../config/form';
 	  </label>
 	</div>
 	`
-/*
 	browser/something things that '..' is part of the url, rather than following relative path
-  templateUrl: '../templates/radio.html'
 */
 })
 export class BossyRadio {
