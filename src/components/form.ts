@@ -14,7 +14,6 @@ declare const module: any;
 })
 export class BossyForm {
 	@Input() config: BossyFormConfig;
-	bossyForm: FormGroup;
 	isFormInlinedFromConfig: boolean = false;
 
 	constructor(

@@ -11,7 +11,7 @@ declare const module: any;
 
 export class BossyDropdownMenuItem {
 	@Input() config: BossyDropdownMenuItemConfig;
-	type: string = 'Button';
+	type: string = 'button';
 	name: string = 'missingName';
 	href: string = '#';
 	disabled: boolean = false;
