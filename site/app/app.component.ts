@@ -47,16 +47,18 @@ export class AppComponent {
 		);
 		const formInputConfig = new BossyFormInputConfig('formInput', 'text');
 		const dropdownConfig = new BossyDropdownConfig( 'Dropdown Menu', 'button',
-		[
-			new BossyDropdownMenuItemConfig('Link', 'Item 1'),
-			new BossyDropdownMenuItemConfig('divider'),
-			new BossyDropdownMenuItemConfig('Link', 'Item 2')
-		],
+			[
+				new BossyDropdownMenuItemConfig('button', 'Item 1', '#', false),
+				new BossyDropdownMenuItemConfig('button', 'filler2'),
+				new BossyDropdownMenuItemConfig('button', 'Item 2')
+			],
 		);
+		const dropdownMenuItemConfig = new BossyDropdownMenuItemConfig('button', 'Item 3', '#', false);
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('formInputConfig', formInputConfig);
 		this.configService.setConfig('dropdownConfig', dropdownConfig);
+		this.configService.setConfig('dropdownMenuItemConfig', dropdownMenuItemConfig);
 	}
 }
