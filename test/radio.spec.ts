@@ -1,13 +1,11 @@
-describe('BossyRadio component', () => {
-	let comp: BossyRadio;
+import {BossyRadio} from '..src/components/radio';
+let radio: BossyRadio;
+fdescribe('the radio component', () => {
 	beforeEach(() => {
-		const BossyRadio = new Radio();
+		radio = new BossyRadio();
+		radio.ngOnInit();
 	});
-	it('should fail', () => {
+	it('sanity check', () => {
 		expect(true).toEqual(false);
-	});
-	it('something', () => {
-		fixture.detectChanges();
-		expect(el.innerText).toEqual('Logout');
 	});
 });
