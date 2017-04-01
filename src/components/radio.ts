@@ -18,6 +18,7 @@ export class BossyRadio {
 	}
 
 	ngOnInit() {
+
 		this.config.items.forEach((element) => {
 			this.items.push(element);
 		});
