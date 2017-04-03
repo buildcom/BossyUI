@@ -74,7 +74,7 @@ module.exports = function(config) {
 		// Proxied base paths for loading assets
 		proxies: {
 			// required for component assets fetched by Angular's compiler
-			"/app/": appAssets
+			"/base/dist/src": '/base/dist/'
 		},
 
 		exclude: [],
