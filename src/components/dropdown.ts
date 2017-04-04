@@ -16,14 +16,12 @@ export class BossyDropdown {
 	dropup: boolean = false;
 	rightAlignedMenu: boolean = false;
 
-	ddShow(event){
+	ddShow(event) {
 		const ddClass = event.target.parentElement;
-		if (ddClass.className === 'dropdown')
-		{
+		if (ddClass.className === 'dropdown') {
 			ddClass.className = 'dropdown show';
 			event.target.setAttribute('aria-expanded', 'true');
-		} else
-		{
+		} else {
 			ddClass.className = 'dropdown';
 			event.target.setAttribute('aria-expanded', 'false');
 		}
