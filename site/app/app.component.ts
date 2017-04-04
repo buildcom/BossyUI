@@ -7,6 +7,7 @@ import {BossyInput} from '../../dist/components/input';
 import {BossyFormConfig} from '../../dist/config/form';
 import {BossyForm} from '../../dist/components/form';
 import {BossyInputValidatorConfig} from '../../dist/config/input-validator';
+import {BossyInputValidator} from '../../dist/components/input-validator';
 import {BossyFormLabelConfig} from '../../dist/config/form-label';
 import {LukeShortExampleComponent} from '../../dist/components/luke-short-name-example';
 import {LukeShortExampleComponentConfig} from '../../dist/config/luke-short-name-example-config';
@@ -37,18 +38,18 @@ export class AppComponent {
 		const formConfig = new BossyFormConfig(
 			[
 				new BossyInputConfig('textInput', 'text', 'test value for text', undefined,
-				// new BossyFormLabelConfig('text label test', true, false, false, false), undefined, undefined, undefined, undefined, undefined, undefined, undefined, false, false, false),
-				// new BossyInputConfig('textareaInput', 'textarea', 'test value for textarea', undefined, undefined, '', '', 'a label', 5, 10, undefined, undefined, false, false, false),
+				new BossyFormLabelConfig('text label test', true, undefined, undefined, undefined), undefined, undefined, undefined, undefined, undefined, undefined, undefined, false, false, false),
+				new BossyInputConfig('textareaInput', 'textarea', 'test value for textarea', undefined, undefined, '', '', 'a label', 5, 10, undefined, undefined, false, false, false),
 				new BossyInputConfig('emailInput', 'email', 'test value for email',
 				new BossyInputValidatorConfig({message: 'bossy email test not valid'}, {minimum: 3, maximum: 15}), undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, false, false, false)
-			],
+				],
 		);
-		const InputConfig = new BossyInputConfig('input', 'text');
+		const inputConfig = new BossyInputConfig('input', 'text');
 		const lukeShortExampleComponentConfig = new LukeShortExampleComponentConfig('Luke Short', ['Yoga', 'pr0gramming', 'Mountain Biking', 'Star Wars'], 'BurlyWood');
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
-		this.configService.setConfig('InputConfig', InputConfig);
+		this.configService.setConfig('inputConfig', inputConfig);
 		this.configService.setConfig('lukeShortExampleComponentConfig', lukeShortExampleComponentConfig);
 	}
 }
