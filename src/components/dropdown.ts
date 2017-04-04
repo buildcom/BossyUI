@@ -15,4 +15,17 @@ export class BossyDropdown {
 	split: boolean = false;
 	dropup: boolean = false;
 	rightAlignedMenu: boolean = false;
+
+	ddShow(event){
+		const ddClass = event.target.parentElement;
+		if (ddClass.className === 'dropdown')
+		{
+			ddClass.className = 'dropdown show';
+			event.target.setAttribute('aria-expanded', 'true');
+		} else
+		{
+			ddClass.className = 'dropdown';
+			event.target.setAttribute('aria-expanded', 'false');
+		}
+	}
 }
