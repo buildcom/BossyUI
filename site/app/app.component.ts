@@ -57,5 +57,7 @@ export class AppComponent {
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('formInputConfig', formInputConfig);
+		this.configService.setConfig('dropdownConfig', dropdownConfig);
+
 	}
 }
