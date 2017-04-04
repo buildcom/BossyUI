@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "tslint": "tslint",
-    "test": "tsc -p ./src;tsc -p ./test;karma start",
+    "test": "npm run compile && karma start",
     "tsc": "tsc",
     "concurrently": "concurrently",
     "onchange": "onchange",
@@ -31,14 +31,21 @@
     "start": "node site/server.js",
     "watch-src": "tsc -w -p ./src",
     "watch-site": "tsc -w -p ./site",
+    "watch-test": "tsc -w -p ./test",
     "compile-src": "tsc -p ./src",
     "compile-site": "tsc -p ./site",
+    "compile-test": "tsc -p ./test",
     "sandbox": "concurrently \"npm run watch-site\" \"npm run watch-src\" \"npm run bossy-templates\" \"npm run bossy-styles\" \"npm start\"",
     "bossy-templates": "onchange 'src/templates/*.html' -- gulp copy-templates",
     "bossy-styles": "onchange 'src/styles/*.css' -- gulp copy-styles",
     "lint": "tslint --config tslint.json --format stylish ./site/app/*.ts ./src/**/*.ts ./src/*.ts ./test/*.ts ./test/**/*.ts",
     "setup-hooks": "cp -R ./hooks/* ./.git/hooks",
-    "install": "concurrently \"npm run compile-src\" \"npm run compile-site\" \"npm run gulp site-install\" \"npm run setup-hooks\""
+    "compile": "concurrently \"npm run compile-src\" \"npm run compile-test\" \"npm run compile-site\"",
+    "watch": "concurrently \"npm run watch-src\" \"npm run watch-test\" \"npm run watch-site\"",
+    "install": "concurrently \"npm run compile\" \"npm run gulp site-install\" \"npm run setup-hooks\""
+  },
+  "engines": {
+    "node": "6.10.x"
   },
   "engines": {
     "node": "6.10.x"
