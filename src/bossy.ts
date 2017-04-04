@@ -2,10 +2,10 @@ import {NgModule}      from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {ReactiveFormsModule} from '@angular/forms';
 import {BossyCalendar}  from './components/calendar';
-import {BossyFormInput} from './components/form-input';
+import {BossyInput} from './components/input';
 import {BossyForm} from './components/form';
 import {BossyFormLabel} from './components/form-label';
-import {BossyFormInputError} from './components/form-input-error';
+import {BossyInputError} from './components/input-error';
 import {TammiFleetExampleComponent} from './components/tammi-name';
 import {MyronKantExampleComponent} from './components/myron';
 import {LukeShortExampleComponent} from './components/luke-short-name-example';
@@ -19,10 +19,10 @@ import {TylerComponent} from './components/tylercomponent';
 	],
 	declarations: [
 		BossyCalendar,
-		BossyFormInput,
+		BossyInput,
 		BossyForm,
 		BossyFormLabel,
-		BossyFormInputError,
+		BossyInputError,
 		MyronKantExampleComponent,
 		LukeShortExampleComponent,
 		TammiFleetExampleComponent,
@@ -32,7 +32,7 @@ import {TylerComponent} from './components/tylercomponent';
 	],
 	exports: [
 		BossyCalendar,
-		BossyFormInput,
+		BossyInput,
 		BossyForm,
 		MyronKantExampleComponent,
 		LukeShortExampleComponent,
