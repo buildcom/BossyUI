@@ -9,7 +9,7 @@ export class BossyInputValidator {
 
 	constructor(
 		private controlName: string,
-		private validateConstraints: BossyFormInputValidatorConfig) {
+		private validateConstraints: BossyInputValidatorConfig) {
 	}
 
 	validateElement = (control: FormControl) => {
