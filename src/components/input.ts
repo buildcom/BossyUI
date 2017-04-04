@@ -13,13 +13,8 @@ declare const module: any;
 			'config'
 		]
 })
-<<<<<<< HEAD:src/components/form-input.ts
-export class BossyFormInput {
-	@Input() config: BossyFormInputConfig;
-=======
 export class BossyInput {
 	@Input() config: BossyInputConfig;
->>>>>>> master:src/components/input.ts
 	hasSuccess: boolean = false;
 	hasWarning: boolean = false;
 	hasDanger: boolean = false;
