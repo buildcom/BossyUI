@@ -15,4 +15,10 @@ export class BossyDropdownMenuItem {
 	name: string = 'missingName';
 	href: string = '#';
 	disabled: boolean = false;
+
+	ddDisabled() {
+		if(this.config.disabled) {
+			return 'disabled';
+		}
+	}
 }

@@ -18,7 +18,8 @@ export class BossyDropdown {
 
 	ddShow(event) {
 		const ddClass = event.target.parentElement;
-		if (ddClass.className === 'dropdown') {
+		// Checks for 'show' so that we can add btn-group/dropup later
+		if (!ddClass.classList.contains('show')) {
 			ddClass.className = 'dropdown show';
 			event.target.setAttribute('aria-expanded', 'true');
 		} else {

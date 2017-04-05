@@ -1,6 +1,6 @@
 <div [ngSwitch]="config.type">
 	<div *ngSwitchCase="'button'">
-		<button class="dropdown-item" type="button">{{config.name}}</button>
+		<button class="dropdown-item {{ddDisabled()}}" type="button">{{config.name}}</button>
 	</div>
 	<div *ngSwitchCase="'divider'">
 		<div  class="dropdown-divider"></div>
@@ -9,5 +9,5 @@
 		<h6 class="dropdown-header">{{config.name}}</h6>
 	</div>
 	<div *ngSwitchDefault>
-		<a class="dropdown-item" href="{{config.href}}">{{config.name}}</a>
+		<a class="dropdown-item {{ddDisabled()}}" href="{{config.href}}">{{config.name}}</a>
 </div>
