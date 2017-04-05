@@ -1,15 +1,15 @@
 import { FormControl } from '@angular/forms';
-import { BossyFormInputValidatorConfig } from '../config/form-input-validator';
+import { BossyInputValidatorConfig } from '../config/input-validator';
 
 
 declare const require;
 const validate = require('../../node_modules/validate.js/validate');
 
-export class BossyFormInputValidator {
+export class BossyInputValidator {
 
 	constructor(
 		private controlName: string,
-		private validateConstraints: BossyFormInputValidatorConfig) {
+		private validateConstraints: BossyInputValidatorConfig) {
 	}
 
 	validateElement = (control: FormControl) => {

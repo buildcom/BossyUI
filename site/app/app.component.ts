@@ -2,17 +2,17 @@ import {Component} from '@angular/core';
 import {ConfigService} from './config.service';
 import {BossyCalendarConfig} from '../../dist/config/calendar';
 import {BossyCalendar} from '../../dist/components/calendar';
-import {BossyFormInputConfig} from '../../dist/config/form-input';
-import {BossyFormInput} from '../../dist/components/form-input';
+import {BossyInputConfig} from '../../dist/config/input';
+import {BossyInput} from '../../dist/components/input';
 import {BossyFormConfig} from '../../dist/config/form';
 import {BossyForm} from '../../dist/components/form';
-import {BossyFormInputValidatorConfig} from '../../dist/config/form-input-validator';
+import {BossyInputValidatorConfig} from '../../dist/config/input-validator';
 import {BossyFormLabelConfig} from '../../dist/config/form-label';
 import {LukeShortExampleComponent} from '../../dist/components/luke-short-name-example';
 import {LukeShortExampleComponentConfig} from '../../dist/config/luke-short-name-example-config';
 
 
-declare const Components: Array<BossyFormInputConfig>;
+declare const Components: Array<BossyInputConfig>;
 declare const module: any;
 
 @Component({
@@ -25,7 +25,7 @@ export class AppComponent {
 	components: Array<any> = Components;
 	bossyCalendar = BossyCalendar;
 	bossyForm = BossyForm;
-	bossyFormInput = BossyFormInput;
+	bossyInput = BossyInput;
 	lukeShortExampleComponent = LukeShortExampleComponent;
 
 	constructor(
@@ -36,19 +36,19 @@ export class AppComponent {
 		const calendarConfig = new BossyCalendarConfig();
 		const formConfig = new BossyFormConfig(
 			[
-				new BossyFormInputConfig('textInput', 'text', 'test value for text', undefined,
+				new BossyInputConfig('textInput', 'text', 'test value for text', undefined,
 					new BossyFormLabelConfig('text label test', true, false, false, false), undefined, undefined, undefined, undefined, undefined, undefined, undefined, false, false, false),
-				new BossyFormInputConfig('textareaInput', 'textarea', 'test value for textarea', undefined, undefined, '', '', 'a label', 5, 10, undefined, undefined, false, false, false),
-				new BossyFormInputConfig('emailInput', 'email', 'test value for email',
-					new BossyFormInputValidatorConfig({message: 'bossy email test not valid'}, {minimum: 3, maximum: 15}), undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, false, false, false)
+				new BossyInputConfig('textareaInput', 'textarea', 'test value for textarea', undefined, undefined, '', '', 'a label', 5, 10, undefined, undefined, false, false, false),
+				new BossyInputConfig('emailInput', 'email', 'test value for email',
+					new BossyInputValidatorConfig({message: 'bossy email test not valid'}, {minimum: 3, maximum: 15}), undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, false, false, false)
 			],
 		);
-		const formInputConfig = new BossyFormInputConfig('formInput', 'text');
+		const InputConfig = new BossyInputConfig('Input', 'text');
 		const lukeShortExampleComponentConfig = new LukeShortExampleComponentConfig('Luke Short', ['Yoga', 'pr0gramming', 'Mountain Biking', 'Star Wars'], 'BurlyWood');
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
-		this.configService.setConfig('formInputConfig', formInputConfig);
+		this.configService.setConfig('InputConfig', InputConfig);
 		this.configService.setConfig('lukeShortExampleComponentConfig', lukeShortExampleComponentConfig);
 	}
 }
