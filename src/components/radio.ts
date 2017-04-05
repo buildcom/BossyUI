@@ -22,6 +22,8 @@ export class BossyRadio {
 			this.items.push(element);
 		});
 
-		this.isInline = this.config.isInline;
+		if(this.config.isInline != null) {
+		  this.isInline = this.config.isInline;
+		}
 	}
 }
