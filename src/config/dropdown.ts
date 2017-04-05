@@ -9,5 +9,6 @@ export class BossyDropdownConfig {
 		public size?: string,
 		public dropup?: boolean,
 		public rightAlignedMenu?: boolean,
+		public color?: string,
 		) {}
 }

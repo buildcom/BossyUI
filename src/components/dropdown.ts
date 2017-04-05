@@ -27,4 +27,11 @@ export class BossyDropdown {
 			event.target.setAttribute('aria-expanded', 'false');
 		}
 	}
+
+	color() {
+		if (this.config.color === undefined) {
+			return 'secondary';
+		}
+		return this.config.color;
+	}
 }

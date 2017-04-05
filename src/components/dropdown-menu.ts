@@ -17,7 +17,7 @@ export class BossyDropdownMenuItem {
 	disabled: boolean = false;
 
 	ddDisabled() {
-		if(this.config.disabled) {
+		if (this.config.disabled) {
 			return 'disabled';
 		}
 	}
