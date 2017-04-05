@@ -18,12 +18,13 @@ export class BossyRadio {
 	}
 
 	ngOnInit() {
+
 		this.config.items.forEach((element) => {
 			this.items.push(element);
 		});
 
-		if(this.config.isInline != null) {
-		  this.isInline = this.config.isInline;
+		if (this.config.isInline != null) {
+			this.isInline = this.config.isInline;
 		}
 	}
 }

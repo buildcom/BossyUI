@@ -1,5 +1,4 @@
 import { async } from '@angular/core/testing';
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By }              from '@angular/platform-browser';
 import { DebugElement }    from '@angular/core';
@@ -15,10 +14,10 @@ let superConfig: BossyRadioConfig;
 
 describe('Testbed to check textContent of <label>s', () => {
 	beforeEach(async(() => {
-  TestBed.configureTestingModule({
-    declarations: [BossyRadio],
-  })
-  .compileComponents();//compile template and css
+		TestBed.configureTestingModule({
+			declarations: [BossyRadio],
+		})
+		.compileComponents(); // compile template and css
 }));
 	beforeEach(() => {
 		fixture = TestBed.createComponent(BossyRadio);
@@ -27,7 +26,7 @@ describe('Testbed to check textContent of <label>s', () => {
 		superConfig = new BossyRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], true);
 		rad.config = superConfig;
 		rad.ngOnInit();
-    fixture.detectChanges();
+		fixture.detectChanges();
 	});
 
 	it('first item of 3', () => {
@@ -55,10 +54,10 @@ describe('Testbed to check textContent of <label>s', () => {
 
 describe('Proper classes are assigned to HTML elements', () => {
 	beforeEach(async(() => {
-  TestBed.configureTestingModule({
-    declarations: [BossyRadio],
-  })
-  .compileComponents();
+		TestBed.configureTestingModule({
+			declarations: [BossyRadio],
+		})
+		.compileComponents();
 }));
 	beforeEach(() => {
 		fixture = TestBed.createComponent(BossyRadio);
@@ -70,7 +69,7 @@ describe('Proper classes are assigned to HTML elements', () => {
 		superConfig = new BossyRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II']);
 		rad.config = superConfig;
 		rad.ngOnInit();
-    fixture.detectChanges();
+		fixture.detectChanges();
 		de = fixture.debugElement.query(By.css('div'));
 		expect(de.classes['form-check-inline']).toEqual(false);
 	});
@@ -78,7 +77,7 @@ describe('Proper classes are assigned to HTML elements', () => {
 		superConfig = new BossyRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], false);
 		rad.config = superConfig;
 		rad.ngOnInit();
-    fixture.detectChanges();
+		fixture.detectChanges();
 		de = fixture.debugElement.query(By.css('div'));
 		expect(de.classes['form-check-inline']).toEqual(false);
 	});
@@ -86,7 +85,7 @@ describe('Proper classes are assigned to HTML elements', () => {
 		superConfig = new BossyRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], true);
 		rad.config = superConfig;
 		rad.ngOnInit();
-    fixture.detectChanges();
+		fixture.detectChanges();
 		de = fixture.debugElement.query(By.css('div'));
 		el = de.nativeElement;
 		expect(de.classes['form-check-inline']).toEqual(true);
@@ -99,25 +98,25 @@ describe('Inline tests for the  radio component', () => {
 		rad = new BossyRadio();
 	});
 
-  it('should not be inlined by default', () => {
-    rad.config = {items: ['one', 'two', 'three', 'four']};
+	it('should not be inlined by default', () => {
+		rad.config = {items: ['one', 'two', 'three', 'four']};
 		rad.ngOnInit();
 		const inlineVar = rad.isInline;
 
 		expect(inlineVar).toEqual(false);
-  });
-  it('if config says inlined=true, be inlined', () => {
-    rad.config = {items: ['one', 'two', 'three', 'four'], isInline: true};
+	});
+	it('if config says inlined=true, be inlined', () => {
+		rad.config = {items: ['one', 'two', 'three', 'four'], isInline: true};
 		rad.ngOnInit();
 		const inlineVar = rad.isInline;
 
 		expect(inlineVar).toEqual(true);
-  });
-  it('if config says inlined=false, do not be inlined', () => {
-    rad.config = {items: ['one', 'two', 'three', 'four'], isInline: false};
+	});
+	it('if config says inlined=false, do not be inlined', () => {
+		rad.config = {items: ['one', 'two', 'three', 'four'], isInline: false};
 		rad.ngOnInit();
 		const inlineVar = rad.isInline;
 
 		expect(inlineVar).toEqual(false);
-  });
+	});
 });
