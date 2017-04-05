@@ -15,6 +15,8 @@ export class BossyDropdown {
 	split: boolean = false;
 	dropup: boolean = false;
 	rightAlignedMenu: boolean = false;
+	color: string = 'secondary';
+	size: string = undefined;
 
 	ddShow(event) {
 		const ddClass = event.target.parentElement;
@@ -28,10 +30,19 @@ export class BossyDropdown {
 		}
 	}
 
-	color() {
-		if (this.config.color === undefined) {
-			return 'secondary';
+	ngOnInit() {
+		if (this.config.color !== undefined) {
+			this.color = this.config.color;
 		}
-		return this.config.color;
+		if (this.config.size === 'large') {
+			this.size = 'btn-lg';
+		}
+		else if (this.config.size === 'small') {
+			this.size = 'btn-sm';
+		}
+
+		if (this.config.rightAlignedMenu !== undefined) {
+			this.rightAlignedMenu = this.config.rightAlignedMenu;
+		}
+		}
 	}
-}
