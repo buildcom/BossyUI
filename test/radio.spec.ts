@@ -50,10 +50,10 @@ fdescribe('Radio Component', () => {
 		fixture = TestBed.createComponent(BossyRadio);
 		radio = fixture.componentInstance;
 		bossyRadioConfig = TestBed.get(BossyRadioConfig);
-		de = fixture.debugElement.query(By.css('label'));
+		de = fixture.debugElement.query(By.css('.form-check-input'));
 		el = de.nativeElement;
 	});
 	it('banana check', () => {
-		expect("bananas").toEqual("bananas");
+		expect('bananas').toEqual('bananas');
 	});
 });
