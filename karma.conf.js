@@ -3,7 +3,6 @@ module.exports = function(config) {
 
 	var appBase    = 'dist/';       // transpiled app JS and map files
 	var appSrcBase = 'dist/';       // app source TS files
-	var appAssets  = 'base/src/'; // component assets fetched by Angular's compiler
 
 	var testBase    = 'dist/';       // transpiled test JS and map files
 	var testSrcBase = 'dist/';       // test source TS files
@@ -74,7 +73,7 @@ module.exports = function(config) {
 		// Proxied base paths for loading assets
 		proxies: {
 			// required for component assets fetched by Angular's compiler
-			"/app/": appAssets
+			"/base/dist/src": '/base/dist/'
 		},
 
 		exclude: [],
