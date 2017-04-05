@@ -52,7 +52,7 @@ export class AppComponent {
 				new BossyDropdownMenuItemConfig('button', 'Item 2'),
 				new BossyDropdownMenuItemConfig('button', 'Item 3')
 			],
-		undefined, undefined, undefined, undefined, 'primary' );
+		false, 'large', undefined, false, 'primary');
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);

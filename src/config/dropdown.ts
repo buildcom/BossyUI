@@ -5,10 +5,10 @@ export class BossyDropdownConfig {
 		public name: string,
 		public type: string,
 		public items: Array<BossyDropdownMenuItemConfig>,
-		public split?: boolean,
+		public isSplit?: boolean,
 		public size?: string,
-		public dropup?: boolean,
-		public rightAlignedMenu?: boolean,
-		public color?: string,
+		public isDropup?: boolean,
+		public isRightAligned?: boolean,
+		public variant?: string,
 		) {}
 }

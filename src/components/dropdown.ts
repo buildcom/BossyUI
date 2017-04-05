@@ -12,10 +12,10 @@ declare const module: any;
 export class BossyDropdown {
 	@Input() config: BossyDropdownConfig;
 	type: string = 'Button';
-	split: boolean = false;
-	dropup: boolean = false;
-	rightAlignedMenu: boolean = false;
-	color: string = 'secondary';
+	isSplit: boolean = false;
+	isDropup: boolean = false;
+	isRightAligned: boolean = false;
+	variant: string = 'secondary';
 	size: string = undefined;
 
 	ddShow(event) {
@@ -31,8 +31,8 @@ export class BossyDropdown {
 	}
 
 	ngOnInit() {
-		if (this.config.color !== undefined) {
-			this.color = this.config.color;
+		if (this.config.variant !== undefined) {
+			this.variant = this.config.variant;
 		}
 		if (this.config.size === 'large') {
 			this.size = 'btn-lg';
@@ -41,8 +41,8 @@ export class BossyDropdown {
 			this.size = 'btn-sm';
 		}
 
-		if (this.config.rightAlignedMenu !== undefined) {
-			this.rightAlignedMenu = this.config.rightAlignedMenu;
+		if (this.config.isRightAligned !== undefined) {
+			this.isRightAligned = this.config.isRightAligned;
 		}
 		}
 	}
