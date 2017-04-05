@@ -1,4 +1,4 @@
-<div class="btn-group" (click)="ddShow($event)">
+<div class="btn-group" (click)="showMenuOnClick($event)">
 	<button *ngIf="!config?.isSplit" class="btn btn-{{variant}} {{size}} dropdown-toggle" id='dropdownMenuButton' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		{{config.name}}
 	</button>

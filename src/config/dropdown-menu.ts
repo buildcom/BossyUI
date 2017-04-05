@@ -3,6 +3,6 @@ export class BossyDropdownMenuItemConfig {
 		public type: string, // Use class instead of type for name?
 		public name?: string,
 		public href?: string,
-		public disabled?: boolean,
+		public isDisabled?: boolean,
 		) {}
 }

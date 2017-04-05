@@ -18,14 +18,14 @@ export class BossyDropdown {
 	variant: string = 'secondary';
 	size: string = undefined;
 
-	ddShow(event) {
-		const ddClass = event.target.parentElement;
+	showMenuOnClick(event) {
+		const element = event.target.parentElement;
 		// Checks for 'show' so that we can add btn-group/dropup later
-		if (!ddClass.classList.contains('show')) {
-			ddClass.classList.add('show');
+		if (!element.classList.contains('show')) {
+			element.classList.add('show');
 			event.target.setAttribute('aria-expanded', 'true');
 		} else {
-			ddClass.classList.remove('show');
+			element.classList.remove('show');
 			event.target.setAttribute('aria-expanded', 'false');
 		}
 	}
@@ -44,5 +44,5 @@ export class BossyDropdown {
 		if (this.config.isRightAligned !== undefined) {
 			this.isRightAligned = this.config.isRightAligned;
 		}
-		}
 	}
+}
