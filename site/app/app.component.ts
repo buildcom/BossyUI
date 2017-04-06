@@ -44,11 +44,13 @@ export class AppComponent {
 			],
 		);
 		const InputConfig = new BossyInputConfig('Input', 'text');
+		const bossyTextAreaConfig = new BossyInputConfig('textareaInput', 'textarea', undefined, undefined, undefined, '', '', 'a label', 10, 50, undefined, undefined, undefined, undefined, undefined);
 		const lukeShortExampleComponentConfig = new LukeShortExampleComponentConfig('Luke Short', ['Yoga', 'pr0gramming', 'Mountain Biking', 'Star Wars'], 'BurlyWood');
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('InputConfig', InputConfig);
+		this.configService.setConfig('bossyTextAreaConfig', bossyTextAreaConfig);
 		this.configService.setConfig('lukeShortExampleComponentConfig', lukeShortExampleComponentConfig);
 	}
 }
