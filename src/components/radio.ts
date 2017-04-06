@@ -13,6 +13,7 @@ export class BossyRadio {
 	@Input() config: BossyRadioConfig;
 	items: Array<string> = [];
 	isInline: boolean = false;
+	labelId: string = '';
 
 	constructor() {
 	}
@@ -26,5 +27,7 @@ export class BossyRadio {
 		if (this.config.isInline != null) {
 			this.isInline = this.config.isInline;
 		}
+
+		this.labelId = this.config.labelId;
 	}
 }

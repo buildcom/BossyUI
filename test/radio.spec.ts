@@ -23,29 +23,29 @@ describe('Unit tests for BossyRadio component: ', () => {
 		beforeEach(() => {
 			fixture = TestBed.createComponent(BossyRadio);
 			rad = fixture.componentInstance;
-			superConfig = new BossyRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], true);
+			superConfig = new BossyRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], true, 'myRadio');
 			rad.config = superConfig;
 			rad.ngOnInit();
 			fixture.detectChanges();
 		});
 
 		it('first item of 3', () => {
-			de = fixture.debugElement.query(By.css('#radioLabel0'));
+			de = fixture.debugElement.query(By.css('#myRadio0'));
 			el = de.nativeElement;
 			expect(el.textContent).toContain('Star Wars');
 		});
 		it('second item of 3', () => {
-			de = fixture.debugElement.query(By.css('#radioLabel1'));
+			de = fixture.debugElement.query(By.css('#myRadio1'));
 			el = de.nativeElement;
 			expect(el.textContent).toContain('Lord of the Rings');
 		});
 		it('third item of 3', () => {
-			de = fixture.debugElement.query(By.css('#radioLabel2'));
+			de = fixture.debugElement.query(By.css('#myRadio2'));
 			el = de.nativeElement;
 			expect(el.textContent).toContain('Starcraft II');
 		});
 		it('fourth item of 3 should not exist', () => {
-			de = fixture.debugElement.query(By.css('#radioLabel3'));
+			de = fixture.debugElement.query(By.css('#myRadio3'));
 			el = de.nativeElement;
 			expect(el.textContent).toContain('');
 		});
