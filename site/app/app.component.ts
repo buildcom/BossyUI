@@ -8,9 +8,12 @@ import {BossyFormConfig} from '../../dist/config/form';
 import {BossyForm} from '../../dist/components/form';
 import {BossyInputValidatorConfig} from '../../dist/config/input-validator';
 import {BossyFormLabelConfig} from '../../dist/config/form-label';
-import {LukeShortExampleComponent} from '../../dist/components/luke-short-name-example';
-import {LukeShortExampleComponentConfig} from '../../dist/config/luke-short-name-example-config';
-
+import {BossyRadio} from '../../dist/components/radio';
+import {BossyRadioConfig} from '../../dist/config/radio';
+import {BossyDropdown} from '../../dist/components/dropdown';
+import {BossyDropdownConfig} from '../../dist/config/dropdown';
+import {BossyDropdownMenuItem} from '../../dist/components/dropdown-menu';
+import {BossyDropdownMenuItemConfig} from '../../dist/config/dropdown-menu';
 
 declare const Components: Array<BossyInputConfig>;
 declare const module: any;
@@ -25,8 +28,10 @@ export class AppComponent {
 	components: Array<any> = Components;
 	bossyCalendar = BossyCalendar;
 	bossyForm = BossyForm;
+	bossyRadio = BossyRadio;
+	bossyDropdown = BossyDropdown;
+	bossyDropdownMenuItem = BossyDropdownMenuItem;
 	bossyInput = BossyInput;
-	lukeShortExampleComponent = LukeShortExampleComponent;
 
 	constructor(
 		private configService: ConfigService
@@ -43,14 +48,28 @@ export class AppComponent {
 					new BossyInputValidatorConfig({message: 'bossy email test not valid'}, {minimum: 3, maximum: 15}), undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, false, false, false)
 			],
 		);
+		const bossyRadioConfig = new BossyRadioConfig(['lions', 'tigers', 'bears'], false, 'uniqueId');
+
+		this.configService.setConfig('calendarConfig', calendarConfig);
+		this.configService.setConfig('formConfig', formConfig);
+		this.configService.setConfig('bossyRadioConfig', bossyRadioConfig);
+
 		const InputConfig = new BossyInputConfig('Input', 'text');
-		const bossyTextAreaConfig = new BossyInputConfig('textareaInput', 'textarea', undefined, undefined, undefined, '', '', 'a label', 10, 50, undefined, undefined, undefined, undefined, undefined);
-		const lukeShortExampleComponentConfig = new LukeShortExampleComponentConfig('Luke Short', ['Yoga', 'pr0gramming', 'Mountain Biking', 'Star Wars'], 'BurlyWood');
+		const dropdownConfig = new BossyDropdownConfig( 'Dropdown Menu', 'button',
+			[
+				new BossyDropdownMenuItemConfig('button', 'Item 1', '#', false),
+				new BossyDropdownMenuItemConfig('button', 'Item 2'),
+				new BossyDropdownMenuItemConfig('button', 'Item 3')
+			],
+		false, 'large', undefined, false, 'primary');
+    const bossyTextAreaConfig = new BossyInputConfig('textareaInput', 'textarea', undefined, undefined, undefined, '', '', 'a label', 10, 50, undefined, undefined, undefined, undefined, undefined);
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('InputConfig', InputConfig);
-		this.configService.setConfig('bossyTextAreaConfig', bossyTextAreaConfig);
 		this.configService.setConfig('lukeShortExampleComponentConfig', lukeShortExampleComponentConfig);
+		this.configService.setConfig('dropdownConfig', dropdownConfig);
+    this.configService.setConfig('bossyTextAreaConfig', bossyTextAreaConfig);
+
 	}
 }
