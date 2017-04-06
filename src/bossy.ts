@@ -5,6 +5,7 @@ import {BossyCalendar}  from './components/calendar';
 import {BossyInput} from './components/input';
 import {BossyForm} from './components/form';
 import {BossyFormLabel} from './components/form-label';
+import {BossyRadio} from './components/radio';
 import {BossyDropdown} from './components/dropdown';
 import {BossyDropdownMenuItem} from './components/dropdown-menu';
 import {BossyInputError} from './components/input-error';
@@ -19,6 +20,7 @@ import {BossyInputError} from './components/input-error';
 		BossyInput,
 		BossyForm,
 		BossyFormLabel,
+		BossyRadio,
 		BossyDropdown,
 		BossyDropdownMenuItem,
 		BossyInputError
@@ -28,6 +30,7 @@ import {BossyInputError} from './components/input-error';
 		BossyCalendar,
 		BossyInput,
 		BossyForm,
+		BossyRadio,
 		BossyDropdown,
 		BossyDropdownMenuItem
 	]

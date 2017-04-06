@@ -8,6 +8,8 @@ import {BossyFormConfig} from '../../dist/config/form';
 import {BossyForm} from '../../dist/components/form';
 import {BossyInputValidatorConfig} from '../../dist/config/input-validator';
 import {BossyFormLabelConfig} from '../../dist/config/form-label';
+import {BossyRadio} from '../../dist/components/radio';
+import {BossyRadioConfig} from '../../dist/config/radio';
 import {BossyDropdown} from '../../dist/components/dropdown';
 import {BossyDropdownConfig} from '../../dist/config/dropdown';
 import {BossyDropdownMenuItem} from '../../dist/components/dropdown-menu';
@@ -26,6 +28,7 @@ export class AppComponent {
 	components: Array<any> = Components;
 	bossyCalendar = BossyCalendar;
 	bossyForm = BossyForm;
+	bossyRadio = BossyRadio;
 	bossyDropdown = BossyDropdown;
 	bossyDropdownMenuItem = BossyDropdownMenuItem;
 	bossyInput = BossyInput;
@@ -45,6 +48,12 @@ export class AppComponent {
 					new BossyInputValidatorConfig({message: 'bossy email test not valid'}, {minimum: 3, maximum: 15}), undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, false, false, false)
 			],
 		);
+		const bossyRadioConfig = new BossyRadioConfig(['lions', 'tigers', 'bears'], false, 'uniqueId');
+
+		this.configService.setConfig('calendarConfig', calendarConfig);
+		this.configService.setConfig('formConfig', formConfig);
+		this.configService.setConfig('bossyRadioConfig', bossyRadioConfig);
+
 		const InputConfig = new BossyInputConfig('Input', 'text');
 		const dropdownConfig = new BossyDropdownConfig( 'Dropdown Menu', 'button',
 			[
