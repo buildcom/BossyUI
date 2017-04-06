@@ -62,10 +62,14 @@ export class AppComponent {
 				new BossyDropdownMenuItemConfig('button', 'Item 3')
 			],
 		false, 'large', undefined, false, 'primary');
+    const bossyTextAreaConfig = new BossyInputConfig('textareaInput', 'textarea', undefined, undefined, undefined, '', '', 'a label', 10, 50, undefined, undefined, undefined, undefined, undefined);
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('InputConfig', InputConfig);
+		this.configService.setConfig('lukeShortExampleComponentConfig', lukeShortExampleComponentConfig);
 		this.configService.setConfig('dropdownConfig', dropdownConfig);
+    this.configService.setConfig('bossyTextAreaConfig', bossyTextAreaConfig);
+
 	}
 }
