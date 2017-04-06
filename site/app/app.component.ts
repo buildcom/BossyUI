@@ -8,9 +8,10 @@ import {BossyFormConfig} from '../../dist/config/form';
 import {BossyForm} from '../../dist/components/form';
 import {BossyInputValidatorConfig} from '../../dist/config/input-validator';
 import {BossyFormLabelConfig} from '../../dist/config/form-label';
-import {LukeShortExampleComponent} from '../../dist/components/luke-short-name-example';
-import {LukeShortExampleComponentConfig} from '../../dist/config/luke-short-name-example-config';
-
+import {BossyDropdown} from '../../dist/components/dropdown';
+import {BossyDropdownConfig} from '../../dist/config/dropdown';
+import {BossyDropdownMenuItem} from '../../dist/components/dropdown-menu';
+import {BossyDropdownMenuItemConfig} from '../../dist/config/dropdown-menu';
 
 declare const Components: Array<BossyInputConfig>;
 declare const module: any;
@@ -25,8 +26,9 @@ export class AppComponent {
 	components: Array<any> = Components;
 	bossyCalendar = BossyCalendar;
 	bossyForm = BossyForm;
+	bossyDropdown = BossyDropdown;
+	bossyDropdownMenuItem = BossyDropdownMenuItem;
 	bossyInput = BossyInput;
-	lukeShortExampleComponent = LukeShortExampleComponent;
 
 	constructor(
 		private configService: ConfigService
@@ -44,11 +46,17 @@ export class AppComponent {
 			],
 		);
 		const InputConfig = new BossyInputConfig('Input', 'text');
-		const lukeShortExampleComponentConfig = new LukeShortExampleComponentConfig('Luke Short', ['Yoga', 'pr0gramming', 'Mountain Biking', 'Star Wars'], 'BurlyWood');
+		const dropdownConfig = new BossyDropdownConfig( 'Dropdown Menu', 'button',
+			[
+				new BossyDropdownMenuItemConfig('button', 'Item 1', '#', false),
+				new BossyDropdownMenuItemConfig('button', 'Item 2'),
+				new BossyDropdownMenuItemConfig('button', 'Item 3')
+			],
+		false, 'large', undefined, false, 'primary');
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('InputConfig', InputConfig);
-		this.configService.setConfig('lukeShortExampleComponentConfig', lukeShortExampleComponentConfig);
+		this.configService.setConfig('dropdownConfig', dropdownConfig);
 	}
 }

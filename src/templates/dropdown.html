@@ -1,0 +1,14 @@
+<div class="btn-group" (click)="showMenuOnClick($event)">
+	<button *ngIf="!config?.isSplit" class="btn btn-{{variant}} {{size}} dropdown-toggle" id='dropdownMenuButton' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		{{config.name}}
+	</button>
+	<button *ngIf="config?.isSplit" class="btn btn-{{variant}} {{size}}"  type="button">
+		{{config.name}}
+	</button>
+	<button *ngIf="config?.isSplit" type="button" class="btn btn-{{variant}} {{size}} dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+	<div class="dropdown-menu" [ngClass]="{'dropdown-menu-right': isRightAligned}" aria-labelledby="dropdownMenuButton">
+		<bossy-dropdown-menu *ngFor="let item of config.items" [config]="item"></bossy-dropdown-menu>
+	</div>
+</div>
