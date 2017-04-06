@@ -1,6 +1,6 @@
 export class BossyDropdownMenuItemConfig {
 	constructor(
-		public type: string, // Use class instead of type for name?
+		public type: string,
 		public name?: string,
 		public href?: string,
 		public isDisabled?: boolean,
