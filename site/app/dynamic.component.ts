@@ -1,14 +1,14 @@
 import {Component, Input, ViewContainerRef, ViewChild, ReflectiveInjector, ComponentFactoryResolver} from '@angular/core';
 import {BossyCalendar} from '../../dist/components/calendar';
 import {BossyForm} from '../../dist/components/form';
-import {BossyFormInput} from '../../dist/components/form-input';
 import {BossyDropdown} from '../../dist/components/dropdown';
 import {BossyDropdownMenuItem} from '../../dist/components/dropdown-menu';
+import {BossyInput} from '../../dist/components/input';
 
 
 @Component({
 	selector: 'dynamic-component',
-	entryComponents: [BossyCalendar, BossyForm, BossyFormInput, BossyDropdown, BossyDropdownMenuItem], // Reference to the components must be here in order to dynamically create them
+	entryComponents: [BossyCalendar, BossyForm, BossyInput, BossyDropdown, BossyDropdownMenuItem], // Reference to the components must be here in order to dynamically create them
 	template: `<div #dynamicComponentContainer></div>`,
 })
 export class DynamicComponent {

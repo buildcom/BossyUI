@@ -2,12 +2,12 @@ import {NgModule}      from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {ReactiveFormsModule} from '@angular/forms';
 import {BossyCalendar}  from './components/calendar';
-import {BossyFormInput} from './components/form-input';
+import {BossyInput} from './components/input';
 import {BossyForm} from './components/form';
 import {BossyFormLabel} from './components/form-label';
-import {BossyFormInputError} from './components/form-input-error';
 import {BossyDropdown} from './components/dropdown';
 import {BossyDropdownMenuItem} from './components/dropdown-menu';
+import {BossyInputError} from './components/input-error';
 
 @NgModule({
 	imports: [
@@ -16,17 +16,17 @@ import {BossyDropdownMenuItem} from './components/dropdown-menu';
 	],
 	declarations: [
 		BossyCalendar,
-		BossyFormInput,
+		BossyInput,
 		BossyForm,
 		BossyFormLabel,
-		BossyFormInputError,
 		BossyDropdown,
-		BossyDropdownMenuItem
+		BossyDropdownMenuItem,
+		BossyInputError
 
 	],
 	exports: [
 		BossyCalendar,
-		BossyFormInput,
+		BossyInput,
 		BossyForm,
 		BossyDropdown,
 		BossyDropdownMenuItem

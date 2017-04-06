@@ -1,8 +1,8 @@
-import {BossyFormInputConfig} from '../config/form-input';
+import {BossyInputConfig} from '../config/input';
 
 export class BossyFormConfig {
 	constructor(
-		public elements: Array<BossyFormInputConfig>,
+		public elements: Array<BossyInputConfig>,
 		public isFormInlined?: boolean
 		) {}
 }
