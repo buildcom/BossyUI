@@ -44,7 +44,7 @@ export class AppComponent {
 			],
 		);
 		const formInputConfig = new BossyFormInputConfig('formInput', 'text');
-		const bossyRadioConfig = new BossyRadioConfig(['lions', 'tigers', 'bears'], false);
+		const bossyRadioConfig = new BossyRadioConfig(['lions', 'tigers', 'bears'], false, 'uniqueId');
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
