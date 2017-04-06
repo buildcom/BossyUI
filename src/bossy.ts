@@ -2,14 +2,13 @@ import {NgModule}      from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {ReactiveFormsModule} from '@angular/forms';
 import {BossyCalendar}  from './components/calendar';
-import {BossyFormInput} from './components/form-input';
+import {BossyInput} from './components/input';
 import {BossyForm} from './components/form';
 import {BossyFormLabel} from './components/form-label';
-import {BossyFormInputError} from './components/form-input-error';
-import {TammiFleetExampleComponent} from './components/tammi-name';
-import {SamMillerExampleComponent} from './components/sam-miller-name-example';
-import {TylerComponent} from './components/tylercomponent';
 import {BossyRadio} from './components/radio';
+import {BossyDropdown} from './components/dropdown';
+import {BossyDropdownMenuItem} from './components/dropdown-menu';
+import {BossyInputError} from './components/input-error';
 
 @NgModule({
 	imports: [
@@ -18,24 +17,22 @@ import {BossyRadio} from './components/radio';
 	],
 	declarations: [
 		BossyCalendar,
-		BossyFormInput,
+		BossyInput,
 		BossyForm,
 		BossyFormLabel,
-		BossyFormInputError,
-		TammiFleetExampleComponent,
-		SamMillerExampleComponent,
-		TylerComponent,
-		BossyRadio
+		BossyRadio,
+		BossyDropdown,
+		BossyDropdownMenuItem,
+		BossyInputError
 
 	],
 	exports: [
 		BossyCalendar,
-		BossyFormInput,
+		BossyInput,
 		BossyForm,
-		TammiFleetExampleComponent,
-		SamMillerExampleComponent,
-		TylerComponent,
-		BossyRadio
+		BossyRadio,
+		BossyDropdown,
+		BossyDropdownMenuItem
 	]
 
 })
