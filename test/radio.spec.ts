@@ -12,7 +12,7 @@ let de:      DebugElement;
 let el:      HTMLElement;
 let superConfig: BossyRadioConfig;
 
-describe('Unit tests for BossyRadio component', () => {
+describe('Unit tests for BossyRadio component: ', () => {
 	describe('Testbed to check textContent of <label>s', () => {
 		beforeEach(async(() => {
 			TestBed.configureTestingModule({
@@ -87,7 +87,6 @@ describe('Unit tests for BossyRadio component', () => {
 			rad.ngOnInit();
 			fixture.detectChanges();
 			de = fixture.debugElement.query(By.css('div'));
-			el = de.nativeElement;
 			expect(de.classes['form-check-inline']).toEqual(true);
 		});
 	});
