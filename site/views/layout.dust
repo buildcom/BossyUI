@@ -4,17 +4,17 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title>BossyUI</title>
-		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="/css/site.css"/>
 		<link rel="stylesheet" href="/css/ionicons.min.css" />
 	</head>
 	<body>
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-2">
+				<div class="col-xs-2 navigation text-center" >
 					{>"partials/_navigation"/}
 				</div>
-				<div class="cos-xs-10">
+				<div class="col-xs-10">
 					{+content/}
 				</div>
 			</div>

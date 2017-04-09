@@ -31,6 +31,12 @@ app.get('/', function (req, res) {
 	});
 });
 
+app.get('/contributors', function(req, res){
+	res.render('contributors', {
+		coreTeam: require('./data/core_team')
+	});
+});
+
 const server = app.listen(process.env.PORT || 3000, function () {
     const port = server.address().port;
 

@@ -2,33 +2,11 @@
  * Base structure
  */
 
-/* Move down content because we have a fixed navbar that is *px tall */
-body {
-	padding-top: 100px;
-}
-
-.header-nav {
 /* global */
 a, a:visited {
 	color: #75afd3;
 }
 
-.header-nav-link {
-	align-items: center;
-}
-.header-nav-logo {
-	/*display: inline-block;*/
-	/*background: url('/images/logo.png') no-repeat;*/
-	/*padding-bottom: 47px;*/
-	/*width: 50px;*/
-	/*height: 48px;*/
-}
-	/*!*padding-bottom: 48px;*!*/
-	/*margin-left: 10px;*/
-	/*width: 300px;*/
-	height: 40px;
-	align-items: center;
-}
 .navbar-brand {
 	padding: 0px 15px;
 }
@@ -46,7 +24,6 @@ a, a:visited {
 	/*width: 200px;*/
 	border-right: 1px solid #a9a9a9;
 }
-}
 .main {
 	padding-top: 20px;
 }
@@ -58,10 +35,7 @@ a, a:visited {
 	text-transform: uppercase;
 }
 
-.editor {
-	/*display: inline-block;*/
 /* navigation */
-
 .navigation {
 	background-color: #111416;
 	padding-top: 3em;
@@ -99,8 +73,29 @@ a, a:visited {
 	margin: 20px;
 }
 
-/* footer */
-
 .component-col {
 	margin-bottom: 20px;
+}
+
+.dark {
+	background-color: #011524;
+	color: white;
+}
+.highlight {
+	background: #75afd3;
+	color: white;
+}
+
+.profile-picture {
+	border-radius: 60px;
+}
+
+.bio {
+	height: 6em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.core-team {
+	margin-top: 1em;
 }
