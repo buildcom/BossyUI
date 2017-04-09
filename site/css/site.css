@@ -7,17 +7,57 @@ a, a:visited {
 	color: #75afd3;
 }
 
+.core-team-header {
+	background-color: #75afd3;
+	color: white;
+}
+
+.contributors-title {
+	background-color: #011524;
+	color: white;
+}
+
+.student-contributors {
+	background-color: #011524;
+	color: white;
+	text-align: center;
+	padding-bottom: 2em;
+}
+
+.student-contributors .student {
+	color: #75afd3;
+}
+
+.student-contributors .high-light {
+	color: #4bc47d;
+}
+
 .navbar-brand {
+    /*display: inline-block;*/
+    /*background: url('/images/logo.png') no-repeat;*/
+    /*padding-bottom: 47px;*/
+    /*width: 50px;*/
+	text-transform: uppercase;
+}
+    /*!*padding-bottom: 48px;*!*/
+    /*margin-left: 10px;*/
+    /*width: 300px;*/
+    height: 40px;
 	padding: 0px 15px;
 }
 .col-fixed-200 {
 	width: 200px;
 }
 .col-offset-200 {
+        display: block;
+        padding-top: 25px;
+        padding-bottom: 40px;
 	padding-left: 215px;
 }
 
-/* left menu */
+.main {
+    padding-top: 20px;
+}
 
 .left-menu {
 	/*position: absolute;*/
@@ -35,6 +75,8 @@ a, a:visited {
 	text-transform: uppercase;
 }
 
+/*.component-left {*/
+    /*padding-right: 15px;*/
 /* navigation */
 .navigation {
 	background-color: #111416;

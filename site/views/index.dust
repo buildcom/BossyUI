@@ -1,36 +1,14 @@
 {>"layout"/}
 {<content}
-<div class="container-fluid">
 	<div class="row">
-		<div class="panel panel-default panel-callout">
-			<div class="panel-body">
-				<h1>Crafting Building Blocks for the Web</h1>
-				<p class="sub-heading">Bossy UI is an open-source Angualr based and directive driven component system.</p>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<main>
-			<div class="panel panel-default">
-		<sandbox-app></sandbox-app>
-					<h1>Creating<em>Modular Components</em>for the web</h1>
-					<h2 class="panel-title">Opinionated Angular Directives</h2>
-					<p>BossyUI is more than a collection of directives.</p>
-					<p>Based on Angular 2, CSS3, and HTML5, it's the culmination of tremendous efforts between students and working developers, sharing real-world experiences in creating something of which we are extremely proud.</p>
-					<p>We’re very excited to share our front-end components to help streamline your project. Sponsored by Build.com and CSU, Chico, BossyUI fosters a connection between students and open source development.</p>
-					<p><strong>Sponsored by Build.com</strong></p>
+	<h1>BossyUI</h1>
+	<p>
+		Based on Angular 2, CSS3, and HTML5, it's the culmination of tremendous effors between students and working developers, sharing a real-world experience in creating something of which we're extremely proud. Through open source contributions, students gain experience working in teams, learn to speak proficiently through industry language, and position themselves for their future careers in development.
+	</p>
+	<p>
+		We're very excited to share our front-end components to help streamline your project. Sponsored by Build.com, techCONNECT, and CSU, Chico, BossyUI fosters a connection between students and open source development.
+	</p>
 				</div>
-			</div>
-		</main>
-	</div>
-	<div class="row"></div>
-
-</div>
-<div class="container-layout">
-	<div class="footer">
-		&copy; 2015-2016 By BossyUI
-	</div>
-</div>
 {/content}
 {<scripts}
     <script>
