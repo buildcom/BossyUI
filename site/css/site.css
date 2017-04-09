@@ -1,30 +1,39 @@
-/* page */
+/*
+ * Base structure
+ */
 
-main {
-	margin: 60px 0 0 0;
+/* Move down content because we have a fixed navbar that is *px tall */
+body {
+	padding-top: 100px;
 }
 
+.header-nav {
 /* global */
 a, a:visited {
 	color: #75afd3;
 }
 
-.show {
-	display: inline-block;
+.header-nav-link {
+	align-items: center;
 }
-.uppercase {
-	text-transform: uppercase;
+.header-nav-logo {
+	/*display: inline-block;*/
+	/*background: url('/images/logo.png') no-repeat;*/
+	/*padding-bottom: 47px;*/
+	/*width: 50px;*/
+	/*height: 48px;*/
 }
-.no-padding {
-	padding: 0;
+	/*!*padding-bottom: 48px;*!*/
+	/*margin-left: 10px;*/
+	/*width: 300px;*/
+	height: 40px;
+	align-items: center;
 }
-.no-margin {
-	margin: 0;
+.navbar-brand {
+	padding: 0px 15px;
 }
 .col-fixed-200 {
 	width: 200px;
-	position: fixed;
-	height: 100%;
 }
 .col-offset-200 {
 	padding-left: 215px;
@@ -36,45 +45,21 @@ a, a:visited {
 	/*position: absolute;*/
 	/*width: 200px;*/
 	border-right: 1px solid #a9a9a9;
-	height: 100%;
-	padding: 0;
 }
-.left-menu-title {
-	background: rgb(0, 118, 168);
-	overflow: hidden;
-	font-size: 16px;
-	font-weight: 600;
-	margin: 0;
-	padding: 0 16px 0 30px;
-	height: 50px;
-	line-height: 50px;
-	color: #ffffff;
-	text-transform: uppercase;
 }
-.left-menu-item {
-	display: block;
-	border: none;
-	padding: 0 16px 0 30px;
-	outline-color: #bdbdbd;
-	overflow: hidden;
-	font-size: 14px;
-	font-weight: 500;
-	text-decoration: none;
-	cursor: pointer;
-	height: 48px;
-	line-height: 48px;
+.main {
+	padding-top: 20px;
 }
-.left-menu-item:hover {
-	background-color: #eee;
+.main h2 {
+	margin-bottom: 15px;
 }
-.left-menu-item.active {
-	background-color: #eee;
-	font-weight: bold;
-	border-top: 1px solid #a9a9a9;
-	border-bottom: 1px solid #a9a9a9;
+.main h5 {
+	margin-bottom: 15px;
 	text-transform: uppercase;
 }
 
+.editor {
+	/*display: inline-block;*/
 /* navigation */
 
 .navigation {
@@ -94,16 +79,21 @@ a, a:visited {
 	color: #4bc47d;
 }
 
-/* home page */
+/*.component-left {*/
+	/*padding-right: 15px;*/
+/*}*/
 
 
-/* sandbox */
-
-.ace_editor {
-	min-height: 300px;
+.component-left .btn-group {
+	padding-bottom: 10px;
 }
-.sandbox-output {
-	min-height: 650px;
+
+.component-right {
+	margin-bottom: 20px;
+}
+.component-right h4 {
+	display: inline;
+		font-size: 1.4rem;
 }
 .doc-view {
 	margin: 20px;
@@ -111,9 +101,6 @@ a, a:visited {
 
 /* footer */
 
-.footer {
-	background-color: rgb(0, 118, 168);
-	height: 80px;
-	padding: 30px;
-	color: #ffffff;
+.component-col {
+	margin-bottom: 20px;
 }

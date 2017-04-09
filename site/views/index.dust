@@ -1,6 +1,6 @@
 {>"layout"/}
 {<content}
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
 		<div class="panel panel-default panel-callout">
 			<div class="panel-body">
@@ -12,7 +12,7 @@
 	<div class="row">
 		<main>
 			<div class="panel panel-default">
-				<div class="panel-body">
+		<sandbox-app></sandbox-app>
 					<h1>Creating<em>Modular Components</em>for the web</h1>
 					<h2 class="panel-title">Opinionated Angular Directives</h2>
 					<p>BossyUI is more than a collection of directives.</p>
@@ -32,3 +32,11 @@
 	</div>
 </div>
 {/content}
+{<scripts}
+    <script>
+		{#components}
+		var Components = {components|s|js};
+		{/components}
+        System.import('app').then(null, console.error.bind(console));
+    </script>
+{/scripts}

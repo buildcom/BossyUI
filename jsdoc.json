@@ -1,0 +1,8 @@
+{
+  "opts": {
+    "template": "templates/haruki",
+    "encoding": "utf8",
+    "destination": "console",
+    "recurse": false
+  }
+}
