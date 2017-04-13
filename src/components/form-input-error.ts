@@ -5,11 +5,11 @@ declare const module: any;
 
 @Component({
 	moduleId: module.id,
-	selector: 'bossy-input-error',
-	templateUrl: '../templates/input-error.html',
-	styleUrls: ['../styles/input-error.css']
+	selector: 'bossy-form-input-error',
+	templateUrl: '../templates/form-input-error.html',
+	styleUrls: ['../styles/form-input-error.css']
 })
-export class BossyInputError {
+export class BossyFormInputError {
 	@Input() controlName: string;
 	@Input() formGroup: FormGroup;
 	@Input() errorCssClass: string;
