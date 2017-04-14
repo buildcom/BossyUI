@@ -14,6 +14,9 @@ import {BossyDropdown} from '../../dist/components/dropdown';
 import {BossyDropdownConfig} from '../../dist/config/dropdown';
 import {BossyDropdownMenuItem} from '../../dist/components/dropdown-menu';
 import {BossyDropdownMenuItemConfig} from '../../dist/config/dropdown-menu';
+import {BossyFormSelectMenu} from '../../dist/components/form-selectmenu';
+import {BossyFormSelectMenuConfig} from '../../dist/config/form-selectmenu';
+import {MenuItem} from '../../dist/config/form-selectmenu';
 
 declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
@@ -32,6 +35,7 @@ export class AppComponent {
 	bossyDropdown = BossyDropdown;
 	bossyDropdownMenuItem = BossyDropdownMenuItem;
 	bossyFormInput = BossyFormInput;
+	bossyFormSelectMenu = BossyFormSelectMenu;
 
 	constructor(
 		private configService: ConfigService
@@ -49,11 +53,6 @@ export class AppComponent {
 			],
 		);
 		const bossyRadioConfig = new BossyRadioConfig(['lions', 'tigers', 'bears'], false, 'uniqueId');
-
-		this.configService.setConfig('calendarConfig', calendarConfig);
-		this.configService.setConfig('formConfig', formConfig);
-		this.configService.setConfig('bossyRadioConfig', bossyRadioConfig);
-
 		const FormInputConfig = new BossyFormInputConfig('Input', 'text');
 		const dropdownConfig = new BossyDropdownConfig( 'Dropdown Menu', 'button',
 			[
@@ -62,10 +61,21 @@ export class AppComponent {
 				new BossyDropdownMenuItemConfig('button', 'Item 3')
 			],
 		false, 'large', undefined, false, 'primary');
+		const selectMenuConfig = new BossyFormSelectMenuConfig( 'Vegetables',
+			[
+				{value : 'carrot'},
+				{value : 'celery', isDisabled : true},
+				{value : 'potato'}
+			],
+		);
 
+		this.configService.setConfig('calendarConfig', calendarConfig);
+		this.configService.setConfig('formConfig', formConfig);
+		this.configService.setConfig('bossyRadioConfig', bossyRadioConfig);
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('FormInputConfig', FormInputConfig);
 		this.configService.setConfig('dropdownConfig', dropdownConfig);
+		this.configService.setConfig('selectMenuConfig', selectMenuConfig);
 	}
 }
