@@ -48,7 +48,7 @@ export class AppComponent {
 					new BossyFormInputValidatorConfig({message: 'bossy email test not valid'}, {minimum: 3, maximum: 15}), undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, false, false, false)
 			],
 		);
-		const bossyFormRadioConfig = new BossyFormRadioConfig(['lions', 'tigers', 'bears'], false, 'uniqueId');
+		const bossyFormRadioConfig = new BossyFormRadioConfig(['lions', 'tigers', 'bears'], false, 'uniqueId', [false, false, true]);
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);

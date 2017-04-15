@@ -104,6 +104,13 @@ describe('Unit tests for Radio component: ', () => {
 
 			expect(inlineVar).toEqual(false);
 		});
+		it('should not be inlined by default', () => {
+			rad.config = {items: ['one', 'two', 'three', 'four']};
+			rad.ngOnInit();
+			const inlineVar = rad.isInline;
+
+			expect(inlineVar).toEqual(false);
+		});
 		it('if config says inlined=true, be inlined', () => {
 			rad.config = {items: ['one', 'two', 'three', 'four'], isInline: true};
 			rad.ngOnInit();
