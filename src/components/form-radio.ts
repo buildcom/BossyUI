@@ -1,16 +1,16 @@
 import {Component, Input, SimpleChanges} from '@angular/core';
-import {BossyRadioConfig} from '../config/radio';
+import {BossyFormRadioConfig} from '../config/form-radio';
 import {BossyFormConfig} from '../config/form';
 
 declare const module: any;
 
 @Component({
 	moduleId: module.id,
-	selector: 'bossy-radio',
-	templateUrl: '../templates/radio.html'
+	selector: 'bossy-form-radio',
+	templateUrl: '../templates/form-radio.html'
 })
-export class BossyRadio {
-	@Input() config: BossyRadioConfig;
+export class BossyFormRadio {
+	@Input() config: BossyFormRadioConfig;
 	items: Array<string> = [];
 	isInline: boolean = false;
 	labelId: string = '';
