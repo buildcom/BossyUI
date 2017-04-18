@@ -33,19 +33,38 @@ export class AppComponent {
 	bossyDropdownMenuItem = BossyDropdownMenuItem;
 	bossyFormInput = BossyFormInput;
 
-	constructor(
-		private configService: ConfigService
-	) {}
+	constructor(private configService: ConfigService) {
+	}
 
 	ngOnInit() {
 		const calendarConfig = new BossyCalendarConfig();
+		const formInput1 = {
+				name: 'textInput',
+				type: 'text',
+				value: 'test value for text',
+				label: new BossyFormLabelConfig('text label test', true, false, false, false)
+			},
+			formInput2 = {
+				name: 'textareaInput',
+				type: 'textarea',
+				value: 'test value for textarea',
+				rows: 5,
+				cols: 10
+			},
+			formInput3 = {
+				name: 'emailInput',
+				type: 'email',
+				value: 'test value for email',
+				validatejs: new BossyFormInputValidatorConfig({message: 'bossy email test not valid'}, {
+					minimum: 3,
+					maximum: 15
+				}),
+			};
 		const formConfig = new BossyFormConfig(
 			[
-				new BossyFormInputConfig('textInput', 'text', 'test value for text', undefined,
-					new BossyFormLabelConfig('text label test', true, false, false, false), undefined, undefined, undefined, undefined, undefined, undefined, undefined, false, false, false),
-				new BossyFormInputConfig('textareaInput', 'textarea', 'test value for textarea', undefined, undefined, '', '', 'a label', 5, 10, undefined, undefined, false, false, false),
-				new BossyFormInputConfig('emailInput', 'email', 'test value for email',
-					new BossyFormInputValidatorConfig({message: 'bossy email test not valid'}, {minimum: 3, maximum: 15}), undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, false, false, false)
+				new BossyFormInputConfig(formInput1),
+				new BossyFormInputConfig(formInput2),
+				new BossyFormInputConfig(formInput3)
 			],
 		);
 		const bossyRadioConfig = new BossyRadioConfig(['lions', 'tigers', 'bears'], false, 'uniqueId');
@@ -54,14 +73,14 @@ export class AppComponent {
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('bossyRadioConfig', bossyRadioConfig);
 
-		const FormInputConfig = new BossyFormInputConfig('Input', 'text');
-		const dropdownConfig = new BossyDropdownConfig( 'Dropdown Menu', 'button',
+		const FormInputConfig = new BossyFormInputConfig({name: 'Input', type: 'text'});
+		const dropdownConfig = new BossyDropdownConfig('Dropdown Menu', 'button',
 			[
 				new BossyDropdownMenuItemConfig('button', 'Item 1', '#', false),
 				new BossyDropdownMenuItemConfig('button', 'Item 2'),
 				new BossyDropdownMenuItemConfig('button', 'Item 3')
 			],
-		false, 'large', undefined, false, 'primary');
+			false, 'large', undefined, false, 'primary');
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
