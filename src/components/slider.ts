@@ -11,7 +11,8 @@
  * step             defaults to red
  * orientation      defaults to horizontal
  * ex.
- * <bossy-slider max="20" min="-5" orientation="vertical"></bossy-slider>*/
+ * <bossy-slider max="20" min="-5" orientation="vertical"></bossy-slider>
+ * Adds some tests code*/
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 import {Component, OnInit} from '@angular/core';
 import {BossySliderConfig} from '../config/slider';
