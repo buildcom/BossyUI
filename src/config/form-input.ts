@@ -1,6 +1,7 @@
 import {FormGroup} from '@angular/forms';
 import {BossyFormInputValidatorConfig} from './form-input-validator';
 import {BossyFormLabelConfig} from './form-label';
+import {BossyFormSelectMenuConfig} from './form-selectmenu';
 
 export class BossyFormInputConfig {
 	constructor(
@@ -18,6 +19,7 @@ export class BossyFormInputConfig {
 		public formGroup?: FormGroup,
 		public hasSuccess?: boolean,
 		public hasWarning?: boolean,
-		public hasDanger?: boolean
+		public hasDanger?: boolean,
+		public selectmenu?: BossyFormSelectMenuConfig
 	) {}
 }
