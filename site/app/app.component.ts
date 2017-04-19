@@ -59,6 +59,10 @@ export class AppComponent {
 					minimum: 3,
 					maximum: 15
 				}),
+			},
+			formInput4 = {
+				name: 'Input',
+				type: 'text'
 			};
 		const formConfig = new BossyFormConfig(
 			[
@@ -73,7 +77,7 @@ export class AppComponent {
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('bossyRadioConfig', bossyRadioConfig);
 
-		const FormInputConfig = new BossyFormInputConfig({name: 'Input', type: 'text'});
+		const formInputConfig = new BossyFormInputConfig(formInput4);
 		const dropdownConfig = new BossyDropdownConfig('Dropdown Menu', 'button',
 			[
 				new BossyDropdownMenuItemConfig('button', 'Item 1', '#', false),
@@ -84,7 +88,7 @@ export class AppComponent {
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
-		this.configService.setConfig('FormInputConfig', FormInputConfig);
+		this.configService.setConfig('FormInputConfig', formInputConfig);
 		this.configService.setConfig('dropdownConfig', dropdownConfig);
 	}
 }
