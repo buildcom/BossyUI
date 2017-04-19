@@ -14,6 +14,8 @@ import {BossyDropdown} from '../../dist/components/dropdown';
 import {BossyDropdownConfig} from '../../dist/config/dropdown';
 import {BossyDropdownMenuItem} from '../../dist/components/dropdown-menu';
 import {BossyDropdownMenuItemConfig} from '../../dist/config/dropdown-menu';
+import {BossyFormTextarea} from '../../dist/components/bossy-form-textarea';
+import {BossyFormTextareaConfig} from '../../dist/config/bossy-form-textarea';
 
 declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
@@ -32,6 +34,7 @@ export class AppComponent {
 	bossyDropdown = BossyDropdown;
 	bossyDropdownMenuItem = BossyDropdownMenuItem;
 	bossyFormInput = BossyFormInput;
+	bossyFormTextarea = BossyFormTextarea;
 
 	constructor(private configService: ConfigService) {
 	}
@@ -63,6 +66,13 @@ export class AppComponent {
 			formInput4 = {
 				name: 'Input',
 				type: 'text'
+			},
+			textareaInput1 = {
+				name: 'textareaInput',
+				type: 'textarea',
+				label: 'Comments',
+				rows: 5,
+				placeholder: 'Put your comment here'
 			};
 		const formConfig = new BossyFormConfig(
 			[
@@ -86,9 +96,12 @@ export class AppComponent {
 			],
 			false, 'large', undefined, false, 'primary');
 
+		const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
+
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('FormInputConfig', formInputConfig);
 		this.configService.setConfig('dropdownConfig', dropdownConfig);
+		this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
 	}
 }
