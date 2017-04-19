@@ -2,6 +2,8 @@
 	<div *ngFor="let element of config.elements" class="form-group">
 		<bossy-form-label [config]="element.label"></bossy-form-label>
 		<div [ngSwitch]="element.type">
+
+<!--
 			<div *ngSwitchCase="'number'" [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
 				<input type="number" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"
 						[ngClass]="{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}"/>
@@ -27,6 +29,16 @@
 				<input type="text" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"
 						[ngClass]="{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}"/>
 			</div>
+-->
+			<div *ngSwitchCase="'radio'" [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
+				<div *ngFor="let porcupine of element.radio.items; let i = index" [ngClass]="{'form-check': true, ' form-check-inline': isInline}">
+				  <label class="form-check-label" id="{{element.radio.labelId}}{{i}}">
+				    <input class="form-check-input" type="radio" name="radio" id="radioElement{{i}}" value="radioOption{{i}}" [disabled]=isDisabled[i]>  {{porcupine}}
+				  </label>
+				</div>
+
+			</div>
+
 		</div>
 	</div>
 </form>

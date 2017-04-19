@@ -15,8 +15,8 @@ import {BossyDropdownConfig} from '../../dist/config/dropdown';
 import {BossyDropdownMenuItem} from '../../dist/components/dropdown-menu';
 import {BossyDropdownMenuItemConfig} from '../../dist/config/dropdown-menu';
 
-import {BossyFormInputConfig2} from '../../dist/config/form-input2';
-import {BossyFormInput2} from '../../dist/components/form-input2';
+//import {BossyFormInputConfig2} from '../../dist/config/form-input2';
+//import {BossyFormInput2} from '../../dist/components/form-input2';
 
 declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
@@ -44,14 +44,14 @@ export class AppComponent {
 		const calendarConfig = new BossyCalendarConfig();
 		const formConfig = new BossyFormConfig(
 			[
-				new BossyFormInputConfig2('radio', 'idForRadio1',
-					new BossyFormRadioConfig(['lions', 'tigers', 'bears', 'porcupines'], false, 'uniqueId', [false, false, true, false])),
+	//			new BossyFormInputConfig2('radio', 'idForRadio1',
+	//				new BossyFormRadioConfig(['lions', 'tigers', 'bears', 'porcupines'], false, 'uniqueId', [false, false, true, false])),
 				new BossyFormInputConfig('textInput', 'text', 'test value for text', undefined,
 					new BossyFormLabelConfig('text label test', true, false, false, false), undefined, undefined, undefined, undefined, undefined, undefined, undefined, false, false, false),
 				new BossyFormInputConfig('textareaInput', 'textarea', 'test value for textarea', undefined, undefined, '', '', 'a label', 5, 10, undefined, undefined, false, false, false),
 				new BossyFormInputConfig('emailInput', 'email', 'test value for email',
 					new BossyFormInputValidatorConfig({message: 'bossy email test not valid'}, {minimum: 3, maximum: 15}), undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, false, false, false),
-				new BossyFormInputConfig('radioInput', 'radio', undefined,
+				new BossyFormInputConfig('radioButton', 'radio', undefined,
 					undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, false, false, false,
 					new BossyFormRadioConfig(['lions', 'tigers', 'bears', 'porcupines'], false, 'uniqueId', [false, false, true, false]))
 			],
