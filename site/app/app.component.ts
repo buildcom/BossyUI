@@ -90,7 +90,7 @@ export class AppComponent {
 		);
 		const formInputConfig = new BossyFormInputConfig(formInput4);
 		const bossyRadioConfig = new BossyRadioConfig(['lions', 'tigers', 'bears'], false, 'uniqueId');
-		const dropdownConfig = new BossyDropdownConfig( 'Dropdown Menu', 'button',
+		const dropdownConfig = new BossyDropdownConfig('Dropdown Menu', 'button',
 			[
 				new BossyDropdownMenuItemConfig('button', 'Item 1', '#', false),
 				new BossyDropdownMenuItemConfig('button', 'Item 2'),
