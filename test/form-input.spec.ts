@@ -12,8 +12,12 @@ let de:      DebugElement;
 let el:      HTMLElement;
 let formInpConfig: BossyFormInputConfig;
 
+const formInput4 = {
+	name: 'Input',
+	type: 'text'
+};
 
-describe('Unit tests for BossyFormInput Component: ', () => {
+fdescribe('Unit tests for BossyFormInput Component: ', () => {
 	describe('Testbed to check textContent of <label>s', () => {
 		beforeEach(async(() => {
 			TestBed.configureTestingModule({
@@ -26,7 +30,7 @@ describe('Unit tests for BossyFormInput Component: ', () => {
 		beforeEach(() => {
 			fixture = TestBed.createComponent(BossyFormInput);
 			inp = fixture.componentInstance;
-			formInpConfig = new BossyFormInputConfig('emailInput');
+			formInpConfig = new BossyFormInputConfig(formInput4);
 			inp.config = formInpConfig;
 			inp.ngOnInit();
 			fixture.detectChanges();
