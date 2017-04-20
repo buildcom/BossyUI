@@ -23,8 +23,6 @@ export class BossyFormTextarea {
 		const {name, value, formGroup} = this.config;
 
 		if (formGroup) {
-			console.log('formgroup', name);
-
 			formGroup.addControl(name, new FormControl(value));
 		}
 	}
