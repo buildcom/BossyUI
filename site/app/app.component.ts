@@ -16,7 +16,6 @@ import {BossyDropdownMenuItem} from '../../dist/components/dropdown-menu';
 import {BossyDropdownMenuItemConfig} from '../../dist/config/dropdown-menu';
 import {BossyFormSelectMenu} from '../../dist/components/form-selectmenu';
 import {BossyFormSelectMenuConfig} from '../../dist/config/form-selectmenu';
-import {MenuItem} from '../../dist/config/form-selectmenu';
 
 declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
