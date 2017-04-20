@@ -37,7 +37,7 @@ export class AppComponent {
 	bossyDropdownMenuItem = BossyDropdownMenuItem;
 	bossyFormInput = BossyFormInput;
 	bossyFormSelectMenu = BossyFormSelectMenu;
-  bossyFormTextarea = BossyFormTextarea;
+  	bossyFormTextarea = BossyFormTextarea;
 
 	constructor(private configService: ConfigService) {
 	}
@@ -81,7 +81,7 @@ export class AppComponent {
 						{value : 'potato'}
 					],
 				})},
-     textareaInput1 = {
+     			textareaInput1 = {
 				name: 'textareaInput',
 				type: 'textarea',
 				label: 'Comments',
@@ -115,7 +115,7 @@ export class AppComponent {
 				{value : 'Oregon'}
 			]}
 		);
-    const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
+   		const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
@@ -123,6 +123,6 @@ export class AppComponent {
 		this.configService.setConfig('bossyRadioConfig', bossyRadioConfig);
 		this.configService.setConfig('dropdownConfig', dropdownConfig);
 		this.configService.setConfig('selectMenuConfig', selectMenuConfig);
-    this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
+    		this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
 	}
 }
