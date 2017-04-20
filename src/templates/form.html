@@ -25,7 +25,6 @@
 			</div>
 			<div *ngSwitchCase="'radio'">
 				<div *ngFor="let radioItem of element.radio.items; let i = index" [ngClass]="{'form-check': true, ' form-check-inline': element.radio.isInline}">
-					<h1>Sample element</h1>
 				  <label class="form-check-label" id="{{element.radio.labelId}}{{i}}">
 				    <input class="form-check-input" type="radio" name="radio" id="radioElement{{i}}" value="radioOption{{i}}" [disabled]=element.radio.isDisabled[i]>  {{radioItem}}
 				  </label>

@@ -10,6 +10,7 @@ let rad:     BossyFormRadio;
 let fixture: ComponentFixture<BossyFormRadio>;
 let de:      DebugElement;
 let el:      HTMLElement;
+let iel:     HTMLInputElement;
 let superConfig: BossyFormRadioConfig;
 
 describe('Unit tests for Radio component: ', () => {
@@ -19,7 +20,7 @@ describe('Unit tests for Radio component: ', () => {
 				declarations: [BossyFormRadio],
 			})
 			.compileComponents(); // compile template and css
-	}));
+		}));
 		beforeEach(() => {
 			fixture = TestBed.createComponent(BossyFormRadio);
 			rad = fixture.componentInstance;
@@ -58,11 +59,10 @@ describe('Unit tests for Radio component: ', () => {
 				declarations: [BossyFormRadio],
 			})
 			.compileComponents();
-	}));
+		}));
 		beforeEach(() => {
 			fixture = TestBed.createComponent(BossyFormRadio);
 			rad = fixture.componentInstance;
-
 		});
 
 		it('form-check-inline should not be applied to <div> by default', () => {
@@ -92,7 +92,7 @@ describe('Unit tests for Radio component: ', () => {
 	});
 
 
-	describe('Inline tests for the  radio component', () => {
+	describe('Inline tests for the radio component', () => {
 		beforeEach(() => {
 			rad = new BossyFormRadio();
 		});
@@ -124,6 +124,104 @@ describe('Unit tests for Radio component: ', () => {
 			const inlineVar = rad.isInline;
 
 			expect(inlineVar).toEqual(false);
+		});
+	});
+
+
+	describe('Tests for disabled element functionality of radio component', () => {
+		beforeEach(async(() => {
+			TestBed.configureTestingModule({
+				declarations: [BossyFormRadio],
+			})
+			.compileComponents(); // compile template and css
+		}));
+		beforeEach(() => {
+			fixture = TestBed.createComponent(BossyFormRadio);
+			rad = fixture.componentInstance;
+		});
+
+		describe('first item of 3 disabled', () => {
+			beforeEach(() => {
+				superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], true, 'myRadio', [true, false, false]);
+				rad.config = superConfig;
+				rad.ngOnInit();
+				fixture.detectChanges();
+			});
+			it('first item of 3', () => {
+				de = fixture.debugElement.query(By.css('#radioElement0'));
+				expect(de.nativeElement.getAttribute('disabled')).toBeDefined;
+			});
+			it('second item of 3', () => {
+				de = fixture.debugElement.query(By.css('#radioElement1'));
+				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
+			});
+			it('third item of 3', () => {
+				de = fixture.debugElement.query(By.css('#radioElement2'));
+				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
+			});
+		});
+
+		describe('second and third item of 3 disabled', () => {
+			beforeEach(() => {
+				superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], true, 'myRadio', [true, false, false]);
+				rad.config = superConfig;
+				rad.ngOnInit();
+				fixture.detectChanges();
+			});
+			it('first item of 3', () => {
+				de = fixture.debugElement.query(By.css('#radioElement0'));
+				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
+			});
+			it('second item of 3', () => {
+				de = fixture.debugElement.query(By.css('#radioElement1'));
+				expect(de.nativeElement.getAttribute('disabled')).toBeDefined;
+			});
+			it('third item of 3', () => {
+				de = fixture.debugElement.query(By.css('#radioElement2'));
+				expect(de.nativeElement.getAttribute('disabled')).toBeDefined;
+			});
+		});
+
+		describe('No inputs disabled when all array elements set to false', () => {
+			beforeEach(() => {
+				superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], true, 'myRadio', [false, false, false]);
+				rad.config = superConfig;
+				rad.ngOnInit();
+				fixture.detectChanges();
+			});
+			it('first item of 3', () => {
+				de = fixture.debugElement.query(By.css('#radioElement0'));
+				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
+			});
+			it('second item of 3', () => {
+				de = fixture.debugElement.query(By.css('#radioElement1'));
+				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
+			});
+			it('third item of 3', () => {
+				de = fixture.debugElement.query(By.css('#radioElement2'));
+				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
+			});
+		});
+
+		describe('No inputs disabled when isDisabled array is not included within config', () => {
+			beforeEach(() => {
+				superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], true, 'myRadio');
+				rad.config = superConfig;
+				rad.ngOnInit();
+				fixture.detectChanges();
+			});
+			it('first item of 3', () => {
+				de = fixture.debugElement.query(By.css('#radioElement0'));
+				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
+			});
+			it('second item of 3', () => {
+				de = fixture.debugElement.query(By.css('#radioElement1'));
+				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
+			});
+			it('third item of 3', () => {
+				de = fixture.debugElement.query(By.css('#radioElement2'));
+				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
+			});
 		});
 	});
 });
