@@ -27,7 +27,7 @@ import {BossyFormTextarea} from './components/bossy-form-textarea';
 		BossyDropdownMenuItem,
 		BossyFormInputError,
 		BossyFormSelectMenu,
-    BossyFormTextarea
+    		BossyFormTextarea
 	],
 	exports: [
 		BossyCalendar,
@@ -37,7 +37,7 @@ import {BossyFormTextarea} from './components/bossy-form-textarea';
 		BossyDropdown,
 		BossyDropdownMenuItem,
 		BossyFormSelectMenu,
-    BossyFormTextarea
+    		BossyFormTextarea
 	]
 
 })
