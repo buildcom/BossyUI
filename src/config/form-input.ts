@@ -19,6 +19,7 @@ export interface BossyFormInputInterface {
 	hasSuccess?: boolean;
 	hasWarning?: boolean;
 	hasDanger?: boolean;
+	selectmenu?: BossyFormSelectMenuConfig;
 }
 
 export class BossyFormInputConfig {
