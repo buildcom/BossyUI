@@ -71,15 +71,16 @@ export class AppComponent {
 			formInput5 = {
 				name: 'selectmenu',
 				type: 'selectmenu',
-				selectmenu: new BossyFormSelectMenuConfig( 'Vegetables',
+				selectmenu: new BossyFormSelectMenuConfig({title: 'Vegetables',
+					items:
 					[
 						{value : 'carrot'},
 						{value : 'celery', isDisabled : true},
 						{value : 'potato'}
 					],
-				)
+				})
 			};
-			
+
 		const formConfig = new BossyFormConfig(
 			[
 				new BossyFormInputConfig(formInput1),
@@ -88,7 +89,6 @@ export class AppComponent {
 				new BossyFormInputConfig(formInput5)
 			],
 		);
-
 		const formInputConfig = new BossyFormInputConfig(formInput4);
 		const bossyRadioConfig = new BossyRadioConfig(['lions', 'tigers', 'bears'], false, 'uniqueId');
 		const dropdownConfig = new BossyDropdownConfig( 'Dropdown Menu', 'button',
@@ -99,12 +99,13 @@ export class AppComponent {
 			],
 			false, 'large', undefined, false, 'primary');
 
-		const selectMenuConfig = new BossyFormSelectMenuConfig( 'Vegetables',
+		const selectMenuConfig = new BossyFormSelectMenuConfig( {title: 'State',
+			items:
 			[
-				{value : 'carrot'},
-				{value : 'celery', isDisabled : true},
-				{value : 'potato'}
-			],
+				{value : 'California'},
+				{value : 'Nevada', isDisabled : true},
+				{value : 'Oregon'}
+			]}
 		);
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
