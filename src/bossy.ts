@@ -9,6 +9,7 @@ import {BossyRadio} from './components/radio';
 import {BossyDropdown} from './components/dropdown';
 import {BossyDropdownMenuItem} from './components/dropdown-menu';
 import {BossyFormInputError} from './components/form-input-error';
+import {BossyFormSelectMenu} from './components/form-selectmenu';
 import {BossyFormTextarea} from './components/bossy-form-textarea';
 
 @NgModule({
@@ -25,8 +26,8 @@ import {BossyFormTextarea} from './components/bossy-form-textarea';
 		BossyDropdown,
 		BossyDropdownMenuItem,
 		BossyFormInputError,
-		BossyFormTextarea
-
+		BossyFormSelectMenu,
+    BossyFormTextarea
 	],
 	exports: [
 		BossyCalendar,
@@ -35,7 +36,8 @@ import {BossyFormTextarea} from './components/bossy-form-textarea';
 		BossyRadio,
 		BossyDropdown,
 		BossyDropdownMenuItem,
-		BossyFormTextarea
+		BossyFormSelectMenu,
+    BossyFormTextarea
 	]
 
 })

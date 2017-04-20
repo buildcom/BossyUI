@@ -14,6 +14,8 @@ import {BossyDropdown} from '../../dist/components/dropdown';
 import {BossyDropdownConfig} from '../../dist/config/dropdown';
 import {BossyDropdownMenuItem} from '../../dist/components/dropdown-menu';
 import {BossyDropdownMenuItemConfig} from '../../dist/config/dropdown-menu';
+import {BossyFormSelectMenu} from '../../dist/components/form-selectmenu';
+import {BossyFormSelectMenuConfig} from '../../dist/config/form-selectmenu';
 import {BossyFormTextarea} from '../../dist/components/bossy-form-textarea';
 import {BossyFormTextareaConfig} from '../../dist/config/bossy-form-textarea';
 
@@ -34,7 +36,8 @@ export class AppComponent {
 	bossyDropdown = BossyDropdown;
 	bossyDropdownMenuItem = BossyDropdownMenuItem;
 	bossyFormInput = BossyFormInput;
-	bossyFormTextarea = BossyFormTextarea;
+	bossyFormSelectMenu = BossyFormSelectMenu;
+  bossyFormTextarea = BossyFormTextarea;
 
 	constructor(private configService: ConfigService) {
 	}
@@ -67,27 +70,35 @@ export class AppComponent {
 				name: 'Input',
 				type: 'text'
 			},
-			textareaInput1 = {
+			formInput5 = {
+				name: 'selectmenu',
+				type: 'selectmenu',
+				selectmenu: new BossyFormSelectMenuConfig({title: 'Vegetables',
+					items:
+					[
+						{value : 'carrot'},
+						{value : 'celery', isDisabled : true},
+						{value : 'potato'}
+					],
+				})},
+     textareaInput1 = {
 				name: 'textareaInput',
 				type: 'textarea',
 				label: 'Comments',
 				rows: 5,
 				placeholder: 'Put your comment here'
 			};
+
 		const formConfig = new BossyFormConfig(
 			[
 				new BossyFormInputConfig(formInput1),
 				new BossyFormInputConfig(formInput2),
-				new BossyFormInputConfig(formInput3)
+				new BossyFormInputConfig(formInput3),
+				new BossyFormInputConfig(formInput5)
 			],
 		);
-		const bossyRadioConfig = new BossyRadioConfig(['lions', 'tigers', 'bears'], false, 'uniqueId');
-
-		this.configService.setConfig('calendarConfig', calendarConfig);
-		this.configService.setConfig('formConfig', formConfig);
-		this.configService.setConfig('bossyRadioConfig', bossyRadioConfig);
-
 		const formInputConfig = new BossyFormInputConfig(formInput4);
+		const bossyRadioConfig = new BossyRadioConfig(['lions', 'tigers', 'bears'], false, 'uniqueId');
 		const dropdownConfig = new BossyDropdownConfig('Dropdown Menu', 'button',
 			[
 				new BossyDropdownMenuItemConfig('button', 'Item 1', '#', false),
@@ -96,12 +107,22 @@ export class AppComponent {
 			],
 			false, 'large', undefined, false, 'primary');
 
-		const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
+		const selectMenuConfig = new BossyFormSelectMenuConfig( {title: 'State',
+			items:
+			[
+				{value : 'California'},
+				{value : 'Nevada', isDisabled : true},
+				{value : 'Oregon'}
+			]}
+		);
+    const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('FormInputConfig', formInputConfig);
+		this.configService.setConfig('bossyRadioConfig', bossyRadioConfig);
 		this.configService.setConfig('dropdownConfig', dropdownConfig);
-		this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
+		this.configService.setConfig('selectMenuConfig', selectMenuConfig);
+    this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
 	}
 }
