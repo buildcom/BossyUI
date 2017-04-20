@@ -13,7 +13,7 @@ let el:      HTMLElement;
 let superConfig: BossyFormRadioConfig;
 
 describe('Unit tests for Radio component: ', () => {
-	fdescribe('Testbed to check textContent of <label>s', () => {
+	describe('Testbed to check textContent of <label>s', () => {
 		beforeEach(async(() => {
 			TestBed.configureTestingModule({
 				declarations: [BossyFormRadio],

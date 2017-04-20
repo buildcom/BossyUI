@@ -25,7 +25,7 @@ export class BossyFormRadio {
 			this.items.push(element);
 		});
 
-		if (this.config.isDisabled.length > 0) {
+		if (typeof this.config.isDisabled !== 'undefined') {
 			if (this.config.isDisabled.length > this.config.items.length) {
 				console.log('Invalid array length for disabled radio elements!');
 			}
