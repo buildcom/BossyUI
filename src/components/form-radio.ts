@@ -33,7 +33,7 @@ export class BossyFormRadio {
 			this.isInline = this.config.isInline;
 		}
 
-		if (typeof this.config.isDisabled == 'undefined') {
+		if (typeof this.config.isDisabled === 'undefined') {
 			return;
 		}
 		if (this.config.isDisabled.length > this.config.items.length) {
