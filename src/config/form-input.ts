@@ -19,6 +19,7 @@ export interface BossyFormInputInterface {
 	hasSuccess?: boolean;
 	hasWarning?: boolean;
 	hasDanger?: boolean;
+	selectmenu?: BossyFormSelectMenuConfig;
 }
 
 export class BossyFormInputConfig {
@@ -37,7 +38,7 @@ export class BossyFormInputConfig {
 	public hasSuccess: boolean;
 	public hasWarning: boolean;
 	public hasDanger: boolean;
-	public selectmenu: BossyFormSelectMenuConfig
+	public selectmenu: BossyFormSelectMenuConfig;
 	constructor(options: BossyFormInputInterface) {
 		Object.assign(this, options);
 	}
