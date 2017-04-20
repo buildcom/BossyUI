@@ -19,6 +19,7 @@ export interface BossyFormInputInterface {
 	hasSuccess?: boolean;
 	hasWarning?: boolean;
 	hasDanger?: boolean;
+	radio?: BossyFormRadioConfig;
 }
 
 export class BossyFormInputConfig {
@@ -37,6 +38,7 @@ export class BossyFormInputConfig {
 	public hasSuccess: boolean;
 	public hasWarning: boolean;
 	public hasDanger: boolean;
+	public radio: BossyFormRadioConfig;
 	constructor(options: BossyFormInputInterface) {
 		Object.assign(this, options);
 	}

@@ -67,8 +67,9 @@ export class AppComponent {
 			formInput5 = {
 				name: 'radio',
 				type: 'radioButton',
-				radio: new BossyFormRadioConfig(['lions', 'tigers', 'bears', 'porcupines'], false, 'uniqueId', [false, false, true, false])
+				radio: new BossyFormRadioConfig(['lions', 'tigers', 'bears'], false, 'uniqueId', [false, false, true])
 			};
+
 		const formConfig = new BossyFormConfig(
 			[
 				new BossyFormInputConfig(formInput1),
@@ -81,12 +82,7 @@ export class AppComponent {
 
 		// Radio component independent of form
 		const bossyFormRadioConfig = new BossyFormRadioConfig(['lions', 'tigers', 'bears'], false, 'uniqueId', [false, false, true]);
-
-		this.configService.setConfig('calendarConfig', calendarConfig);
-		this.configService.setConfig('formConfig', formConfig);
-		this.configService.setConfig('bossyFormRadioConfig', bossyFormRadioConfig);
-
-		const formInputConfig = new BossyFormInputConfig(formInput4);
+		const formInputConfig = new BossyFormInputConfig(formInput5);
 		const dropdownConfig = new BossyDropdownConfig('Dropdown Menu', 'button',
 			[
 				new BossyDropdownMenuItemConfig('button', 'Item 1', '#', false),
@@ -98,6 +94,7 @@ export class AppComponent {
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('FormInputConfig', formInputConfig);
+		this.configService.setConfig('bossyFormRadioConfig', bossyFormRadioConfig);
 		this.configService.setConfig('dropdownConfig', dropdownConfig);
 	}
 }
