@@ -12,9 +12,9 @@ declare const module: any;
 export class BossyFormRadio {
 	@Input() config: BossyFormRadioConfig;
 	items: Array<string> = [];
-	isDisabled: Array<boolean> = [];
-	isInline: boolean = false;
 	labelId: string = '';
+	isInline: boolean = false;
+	isDisabled: Array<boolean> = [];
 
 	constructor() {
 	}
@@ -25,25 +25,23 @@ export class BossyFormRadio {
 			this.items.push(element);
 		});
 
-		if (typeof this.config.isDisabled !== 'undefined') {
-			if (this.config.isDisabled.length > this.config.items.length) {
-				console.log('Invalid array length for disabled radio elements!');
-			}
-			else {
-				this.config.isDisabled.forEach((element) => {
-					this.isDisabled.push(element);
-				});
-			}
+		if (this.config.labelId != null) {
+			this.labelId = this.config.labelId;
 		}
 
 		if (this.config.isInline != null) {
 			this.isInline = this.config.isInline;
 		}
-		if (this.config.labelId != null) {
-			this.labelId = this.config.labelId;
+
+		if (typeof this.config.isDisabled == 'undefined') {
+			return;
 		}
-
-
-
+		if (this.config.isDisabled.length > this.config.items.length) {
+			return;
+		}
+		this.config.isDisabled.forEach((element) => {
+			this.isDisabled.push(element);
+		});
 	}
+
 }

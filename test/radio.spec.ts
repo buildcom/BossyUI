@@ -24,7 +24,7 @@ describe('Unit tests for Radio component: ', () => {
 		beforeEach(() => {
 			fixture = TestBed.createComponent(BossyFormRadio);
 			rad = fixture.componentInstance;
-			superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], true, 'myRadio');
+			superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], 'myRadio', true);
 			rad.config = superConfig;
 			rad.ngOnInit();
 			fixture.detectChanges();
@@ -74,7 +74,7 @@ describe('Unit tests for Radio component: ', () => {
 			expect(de.classes['form-check-inline']).toEqual(false);
 		});
 		it('form-check-inline not applied to <div> when isInlined == false', () => {
-			superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], false);
+			superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], 'myRadio', false);
 			rad.config = superConfig;
 			rad.ngOnInit();
 			fixture.detectChanges();
@@ -82,7 +82,7 @@ describe('Unit tests for Radio component: ', () => {
 			expect(de.classes['form-check-inline']).toEqual(false);
 		});
 		it('form-check-inline class applied when isInlined == true', () => {
-			superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], true);
+			superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], 'myRadio', true);
 			rad.config = superConfig;
 			rad.ngOnInit();
 			fixture.detectChanges();
@@ -112,14 +112,14 @@ describe('Unit tests for Radio component: ', () => {
 			expect(inlineVar).toEqual(false);
 		});
 		it('if config says inlined=true, be inlined', () => {
-			rad.config = {items: ['one', 'two', 'three', 'four'], isInline: true};
+			rad.config = {items: ['one', 'two', 'three', 'four'], labelId: 'myRadio', isInline: true};
 			rad.ngOnInit();
 			const inlineVar = rad.isInline;
 
 			expect(inlineVar).toEqual(true);
 		});
 		it('if config says inlined=false, do not be inlined', () => {
-			rad.config = {items: ['one', 'two', 'three', 'four'], isInline: false};
+			rad.config = {items: ['one', 'two', 'three', 'four'], labelId: 'myRadio', isInline: false};
 			rad.ngOnInit();
 			const inlineVar = rad.isInline;
 
@@ -142,7 +142,7 @@ describe('Unit tests for Radio component: ', () => {
 
 		describe('first item of 3 disabled', () => {
 			beforeEach(() => {
-				superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], true, 'myRadio', [true, false, false]);
+				superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], 'myRadio', true, [true, false, false]);
 				rad.config = superConfig;
 				rad.ngOnInit();
 				fixture.detectChanges();
@@ -163,7 +163,7 @@ describe('Unit tests for Radio component: ', () => {
 
 		describe('second and third item of 3 disabled', () => {
 			beforeEach(() => {
-				superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], true, 'myRadio', [true, false, false]);
+				superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], 'myRadio', true, [true, false, false]);
 				rad.config = superConfig;
 				rad.ngOnInit();
 				fixture.detectChanges();
@@ -184,7 +184,7 @@ describe('Unit tests for Radio component: ', () => {
 
 		describe('No inputs disabled when all array elements set to false', () => {
 			beforeEach(() => {
-				superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], true, 'myRadio', [false, false, false]);
+				superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], 'myRadio', true, [false, false, false]);
 				rad.config = superConfig;
 				rad.ngOnInit();
 				fixture.detectChanges();
@@ -205,7 +205,7 @@ describe('Unit tests for Radio component: ', () => {
 
 		describe('No inputs disabled when isDisabled array is not included within config', () => {
 			beforeEach(() => {
-				superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], true, 'myRadio');
+				superConfig = new BossyFormRadioConfig(['Star Wars', 'Lord of the Rings', 'Starcraft II'], 'myRadio', true);
 				rad.config = superConfig;
 				rad.ngOnInit();
 				fixture.detectChanges();

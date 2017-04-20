@@ -67,7 +67,7 @@ export class AppComponent {
 			formInput5 = {
 				name: 'radio',
 				type: 'radio',
-				radio: new BossyFormRadioConfig(['lions', 'tigers', 'bears'], false, 'uniqueId', [false, false, true])
+				radio: new BossyFormRadioConfig(['lions', 'tigers', 'bears'], 'uniqueId', false, [false, false, true])
 			};
 
 		const formConfig = new BossyFormConfig(
@@ -81,7 +81,7 @@ export class AppComponent {
 		);
 
 		// Radio component independent of form
-		const bossyFormRadioConfig = new BossyFormRadioConfig(['lions', 'tigers', 'bears'], false, 'uniqueId', [false, false, true]);
+		const bossyFormRadioConfig = new BossyFormRadioConfig(['lions', 'tigers', 'bears'], 'uniqueId', false, [false, false, true]);
 		const formInputConfig = new BossyFormInputConfig(formInput4);
 		const dropdownConfig = new BossyDropdownConfig('Dropdown Menu', 'button',
 			[
