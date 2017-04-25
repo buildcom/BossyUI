@@ -23,6 +23,9 @@
 				<input type="date" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"
 						[ngClass]="{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}">
 			</div>
+			<div *ngSwitchCase="'selectmenu'">
+				<bossy-form-input type="selectmenu" [config]="element"></bossy-form-input>
+			</div>
 			<div *ngSwitchDefault [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
 				<input type="text" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"
 						[ngClass]="{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}"/>

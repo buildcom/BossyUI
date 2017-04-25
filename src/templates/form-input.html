@@ -8,6 +8,9 @@
     <div *ngSwitchCase="'email'">
         <input type="email">
     </div>
+    <div *ngSwitchCase="'selectmenu'">
+        <bossy-form-selectmenu  [config]="config.selectmenu"></bossy-form-selectmenu>
+    </div>
     <div *ngSwitchDefault>
         <input type="text" name="{{ config.name }}" placeholder="{{ config.placeholder }}"/>
     </div>
