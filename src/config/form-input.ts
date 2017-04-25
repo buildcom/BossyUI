@@ -6,7 +6,6 @@ import {BossyFormSelectMenuConfig} from './form-selectmenu';
 export interface BossyFormInputInterface {
 	name: string;
 	type: string;
-	labelId?: string;
 	value?: string;
 	validatejs?: BossyFormInputValidatorConfig;
 	label?: BossyFormLabelConfig;
@@ -26,7 +25,6 @@ export interface BossyFormInputInterface {
 export class BossyFormInputConfig {
 	public name: string;
 	public type: string;
-	public labelId: string;
 	public value: string;
 	public validatejs: BossyFormInputValidatorConfig;
 	public label: BossyFormLabelConfig;
