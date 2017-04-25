@@ -42,50 +42,51 @@ export class AppComponent {
 	ngOnInit() {
 		const calendarConfig = new BossyCalendarConfig();
 		const formInput1 = {
-				name: 'textInput',
-				type: 'text',
-				value: 'test value for text',
-				label: new BossyFormLabelConfig('text label test', true, false, false, false)
-			},
-			formInput2 = {
-				name: 'textareaInput',
-				type: 'textarea',
-				value: 'test value for textarea',
-				rows: 5,
-				cols: 10
-			},
-			formInput3 = {
-				name: 'emailInput',
-				type: 'email',
-				value: 'test value for email',
-				validatejs: new BossyFormInputValidatorConfig({message: 'bossy email test not valid'}, {
-					minimum: 3,
-					maximum: 15
-				}),
-			},
-			formInput4 = {
-				name: 'Input',
-				type: 'text'
-				},
-				formInput5 = {
-                	name: 'selectmenu',
-                	type: 'selectmenu',
-                	selectmenu: new BossyFormSelectMenuConfig({title: 'Vegetables',
-                	items:
-                	[
-                		{value : 'carrot'},
-                		{value : 'celery', isDisabled : true},
-                		{value : 'potato'}
-                	],
-                })
-			};
+			name: 'textInput',
+			type: 'text',
+			value: 'test value for text',
+			label: new BossyFormLabelConfig('text label test', true, false, false, false)
+		},
+		formInput2 = {
+			name: 'textareaInput',
+			type: 'textarea',
+			value: 'test value for textarea',
+			rows: 5,
+			cols: 10
+		},
+		formInput3 = {
+			name: 'emailInput',
+			type: 'email',
+			value: 'test value for email',
+			validatejs: new BossyFormInputValidatorConfig({message: 'bossy email test not valid'}, {
+				minimum: 3,
+				maximum: 15
+			}),
+		},
+		formInput4 = {
+			name: 'Input',
+			type: 'text'
+		},
+		formInput5 = {
+			name: 'selectmenu',
+			type: 'selectmenu',
+			selectmenu: new BossyFormSelectMenuConfig({
+				title: 'Vegetables',
+				items:
+				[
+					{value : 'carrot'},
+					{value : 'celery', isDisabled : true},
+					{value : 'potato'}
+				],
+			})
+		};
 
 		const formConfig = new BossyFormConfig(
 			[
 				new BossyFormInputConfig(formInput1),
 				new BossyFormInputConfig(formInput2),
 				new BossyFormInputConfig(formInput3),
-                new BossyFormInputConfig(formInput5)
+				new BossyFormInputConfig(formInput5)
 			],
 		);
 		const formInputConfig = new BossyFormInputConfig(formInput4);
