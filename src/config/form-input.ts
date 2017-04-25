@@ -39,6 +39,7 @@ export class BossyFormInputConfig {
 	public hasWarning: boolean;
 	public hasDanger: boolean;
 	public selectmenu: BossyFormSelectMenuConfig;
+
 	constructor(options: BossyFormInputInterface) {
 		Object.assign(this, options);
 	}
