@@ -12,13 +12,35 @@ let de:      DebugElement;
 let el:      HTMLElement;
 let formInpConfig: BossyFormInputConfig;
 
-const formInput4 = {
-	name: 'Input',
-	type: 'text'
+const formInput1 = {
+	name: 'CrazyInput',
+	type: 'WildText',
+	value: 'RandomValue',
+	label: 'SuperLabel'
 };
 
-fdescribe('Unit tests for BossyFormInput Component: ', () => {
-	describe('Testbed to check textContent of <label>s', () => {
+const formInput2 = {
+	name: 'CrazyName',
+	type: 'WildType',
+	value: 'SomeValue',
+	rows: 3,
+	columns: 4
+};
+
+const formInput3 = {
+	name: 'Name3',
+	type: 'Type3',
+	value: 'Value3'
+};
+
+const formInput4 = {
+	name: 'Name4',
+	type: 'Type4'
+};
+
+
+describe('Unit tests for BossyFormInput Component: ', () => {
+	describe('Testbed to check text values of attributes', () => {
 		beforeEach(async(() => {
 			TestBed.configureTestingModule({
 				declarations: [BossyFormInput],
@@ -30,22 +52,66 @@ fdescribe('Unit tests for BossyFormInput Component: ', () => {
 		beforeEach(() => {
 			fixture = TestBed.createComponent(BossyFormInput);
 			inp = fixture.componentInstance;
-			formInpConfig = new BossyFormInputConfig(formInput4);
+			formInpConfig = new BossyFormInputConfig(formInput1);
 			inp.config = formInpConfig;
 			inp.ngOnInit();
 			fixture.detectChanges();
 		});
 
-		it('first item of 3', () => {
-			de = fixture.debugElement.query(By.css('#Random'));
-			el = de.nativeElement;
-			expect(el.textContent).toContain('Superman');
+
+		it('should test if formInput1 has correct name', () => {
+			expect(formInput1.name).toEqual('CrazyInput');
+		});
+		it('should test if formInput1 has correct type', () => {
+			expect(formInput1.type).toEqual('WildText');
+		});
+		it('should test if formInput1 has correct value', () => {
+			expect(formInput1.value).toEqual('RandomValue');
+		});
+		it('should test if formInput1 has correct label', () => {
+			expect(formInput1.label).toEqual('SuperLabel');
+		});
+
+
+
+		it('should test if formInput2 has correct name', () => {
+			expect(formInput2.name).toEqual('CrazyName');
+		});
+		it('should test if formInput2 has correct type', () => {
+            expect(formInput2.type).toEqual('WildType');
+		});
+		it('should test if formInput2 has correct value', () => {
+			expect(formInput2.value).toEqual('SomeValue');
+		})
+		it('should test if formInput2 has correct number of rows', () => {
+			expect(formInput2.rows).toEqual(3);
+		});
+		it('should test if formInput2 has correct number of columns', () => {
+			expect(formInput2.columns).toEqual(4);
+		});
+
+
+
+		it('should test if formInput3 has correct name', () => {
+			expect(formInput3.name).toEqual('Name3');
+		});
+		it('should test if formInput3 has correct type', () => {
+        	expect(formInput3.type).toEqual('Type3');
+        });
+		it('should test if formInput3 has correct name', () => {
+			expect(formInput3.value).toEqual('Value3');
+		});
+
+
+
+		it('should test if formInput4 has correct name', () => {
+			expect(formInput4.name).toEqual('Name4');
+		});
+		it('should test if formInput4 has correct type', () => {
+			expect(formInput4.type).toEqual('Type4');
 		});
 
 	});
-
-
-
 
 
 
