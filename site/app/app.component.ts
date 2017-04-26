@@ -14,6 +14,8 @@ import {BossyDropdown} from '../../dist/components/dropdown';
 import {BossyDropdownConfig} from '../../dist/config/dropdown';
 import {BossyDropdownMenuItem} from '../../dist/components/dropdown-menu';
 import {BossyDropdownMenuItemConfig} from '../../dist/config/dropdown-menu';
+import {BossyFormSelectMenu} from '../../dist/components/form-selectmenu';
+import {BossyFormSelectMenuConfig} from '../../dist/config/form-selectmenu';
 
 declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
@@ -32,6 +34,7 @@ export class AppComponent {
 	bossyDropdown = BossyDropdown;
 	bossyDropdownMenuItem = BossyDropdownMenuItem;
 	bossyFormInput = BossyFormInput;
+	bossyFormSelectMenu = BossyFormSelectMenu;
 
 	constructor(private configService: ConfigService) {
 	}
@@ -65,17 +68,30 @@ export class AppComponent {
 				type: 'text'
 			},
 			formInput5 = {
+				name: 'selectmenu',
+				type: 'selectmenu',
+				selectmenu: new BossyFormSelectMenuConfig({title: 'Vegetables',
+					items:
+					[
+						{value : 'carrot'},
+						{value : 'celery', isDisabled : true},
+						{value : 'potato'}
+					]
+				})
+			};
+			formInput6 = {
 				name: 'radio',
 				type: 'radio',
 				radio: new BossyFormRadioConfig({
 						label: 'What is the likelihood that Myron and Luke are getting a divorce?',
 						items: [
-							{value: 'definitely'},
-							{value: 'considering but not sure'},
+							{value: 'Definitely'},
+							{value: 'Considering but not sure'},
 							{value: 'Let\'s wait and see where we are in 6 months', isDisabled: true}
 						]
 				})
 			};
+
 
 		const formConfig = new BossyFormConfig(
 			[
@@ -83,13 +99,14 @@ export class AppComponent {
 				new BossyFormInputConfig(formInput2),
 				new BossyFormInputConfig(formInput3),
 				new BossyFormInputConfig(formInput4),
-				new BossyFormInputConfig(formInput5)
+				new BossyFormInputConfig(formInput5),
+				new BossyFormInputConfig(formInput6)
 			],
 		);
 
 		// Radio component independent of form
 		const bossyFormRadioConfig = new BossyFormRadioConfig({
-			label: 'What is the best movie ever?',
+			title: 'What is the best movie ever?',
 			items: [
 				{value: 'The Neon Demon', isDisabled: true},
 				{value: 'Star Wars Episode VI: Return of the Jedi', isDisabled: false},
@@ -106,10 +123,20 @@ export class AppComponent {
 			],
 			false, 'large', undefined, false, 'primary');
 
+		const selectMenuConfig = new BossyFormSelectMenuConfig( {title: 'State',
+			items:
+			[
+				{value : 'California'},
+				{value : 'Nevada', isDisabled : true},
+				{value : 'Oregon'}
+			]}
+		);
+
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('FormInputConfig', formInputConfig);
 		this.configService.setConfig('bossyFormRadioConfig', bossyFormRadioConfig);
 		this.configService.setConfig('dropdownConfig', dropdownConfig);
+		this.configService.setConfig('selectMenuConfig', selectMenuConfig);
 	}
 }
