@@ -83,16 +83,15 @@ export class AppComponent {
 				name: 'radio',
 				type: 'radio',
 				radio: new BossyFormRadioConfig({
-						title: 'What is the likelihood that Myron and Luke are getting a divorce?',
-						componentId: 'Marital Issues',
-						items: [
-							{value: 'Definitely'},
-							{value: 'Considering but not sure'},
-							{value: 'Let\'s wait and see where we are in 6 months', isDisabled: true}
-						]
+					title: 'What is the likelihood that Myron and Luke are getting a divorce?',
+					componentId: 'Marital Issues',
+					items: [
+						{value: 'Definitely'},
+						{value: 'Considering but not sure'},
+						{value: 'Let\'s wait and see where we are in 6 months', isDisabled: true}
+					]
 				})
 			};
-
 
 		const formConfig = new BossyFormConfig(
 			[
@@ -104,10 +103,6 @@ export class AppComponent {
 			],
 		);
 
-		this.configService.setConfig('calendarConfig', calendarConfig);
-		this.configService.setConfig('formConfig', formConfig);
-		this.configService.setConfig('bossyFormRadioConfig', bossyFormRadioConfig);
-
 		// Radio component independent of form
 		const bossyFormRadioConfig = new BossyFormRadioConfig({
 			title: 'What is the best movie ever?',
@@ -117,8 +112,8 @@ export class AppComponent {
 				{value: 'Star Wars Episode VI: Return of the Jedi', isDisabled: false},
 				{value: 'Silence of the Lambs', isDisabled: true},
 				{value: 'Twilight', isDisabled: true}
-			]
-		});
+			]}
+		);
 		const formInputConfig = new BossyFormInputConfig(formInput4);
 		const dropdownConfig = new BossyDropdownConfig('Dropdown Menu', 'button',
 			[

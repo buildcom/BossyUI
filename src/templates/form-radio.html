@@ -1,5 +1,5 @@
+<h6 *ngIf="title !== undefined">{{title}}</h6>
 <div *ngFor="let element of items; let i = index" [ngClass]="{'form-check': true, ' form-check-inline': isInline}" id="{{componentId}}">
-	<h6 *ngIf="element.title !== undefined">{{element.title}}</h6>
   <label class="form-check-label" id="label{{i}}">
     <input class="form-check-input" type="radio" name="radio" id="radioInput{{i}}" value="radioOption{{i}}" [disabled]=element.isDisabled>  {{element.value}}
   </label>

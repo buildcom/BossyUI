@@ -6,9 +6,9 @@ export class RadioElement {
 
 // Interface allows selective use of optional radio parameters
 export interface BossyFormRadioInterface {
-	items:    Array<RadioElement>;
-	componentId:  string;
-	title?:    string;
+	items: Array<RadioElement>;
+	componentId: string;
+	title?: string;
 	isInline?: boolean;
 }
 
