@@ -1,5 +1,6 @@
 import {Component, Input, SimpleChanges} from '@angular/core';
 import {BossyFormRadioConfig} from '../config/form-radio';
+import {RadioElement} from '../config/form-radio';
 import {BossyFormConfig} from '../config/form';
 
 declare const module: any;
@@ -11,10 +12,9 @@ declare const module: any;
 })
 export class BossyFormRadio {
 	@Input() config: BossyFormRadioConfig;
-	items: Array<string> = [];
-	labelId: string = '';
+	items: Array<RadioElement> = [];
+	radioId: string = '';
 	isInline: boolean = false;
-	isDisabled: Array<boolean> = [];
 
 	constructor() {
 	}
@@ -25,23 +25,11 @@ export class BossyFormRadio {
 			this.items.push(element);
 		});
 
-		if (this.config.labelId != null) {
-			this.labelId = this.config.labelId;
-		}
+		this.radioId = this.config.radioId;
 
-		if (this.config.isInline != null) {
+		// if (typeof this.config.isInline === undefined) {
+		if (this.config.isInline !== undefined) {
 			this.isInline = this.config.isInline;
 		}
-
-		if (typeof this.config.isDisabled == 'undefined') {
-			return;
-		}
-		if (this.config.isDisabled.length > this.config.items.length) {
-			return;
-		}
-		this.config.isDisabled.forEach((element) => {
-			this.isDisabled.push(element);
-		});
 	}
-
 }
