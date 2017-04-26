@@ -7,7 +7,7 @@ export class RadioElement {
 // Interface allows selective use of optional radio parameters
 export interface BossyFormRadioInterface {
 	items:    Array<RadioElement>;
-	radioId:  string;
+	componentId:  string;
 	title?:    string;
 	isInline?: boolean;
 }
@@ -15,8 +15,8 @@ export interface BossyFormRadioInterface {
 // Config for radio component
 export class BossyFormRadioConfig {
 		public items: Array<RadioElement>;
-		public radioId: string;
-		public label?: string;
+		public componentId: string;
+		public title?: string;
 		public isInline?: boolean;
 
 	constructor(options: BossyFormRadioInterface) {

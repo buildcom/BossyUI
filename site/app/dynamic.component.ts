@@ -9,11 +9,7 @@ import {BossyFormSelectMenu} from '../../dist/components/form-selectmenu';
 
 @Component({
 	selector: 'dynamic-component',
-<<<<<<< HEAD
-	entryComponents: [BossyCalendar, BossyForm, BossyFormInput, BossyFormRadio, BossyDropdown, BossyDropdownMenuItem], // Reference to the components must be here in order to dynamically create them
-=======
-	entryComponents: [BossyCalendar, BossyForm, BossyFormInput, BossyRadio, BossyDropdown, BossyDropdownMenuItem, BossyFormSelectMenu], // Reference to the components must be here in order to dynamically create them
->>>>>>> 8d58118189f838f1d9b1fa37e43019654c8578dd
+	entryComponents: [BossyCalendar, BossyForm, BossyFormInput, BossyFormRadio, BossyDropdown, BossyDropdownMenuItem, BossyFormSelectMenu], // Reference to the components must be here in order to dynamically create them
 	template: `<div #dynamicComponentContainer></div>`,
 })
 export class DynamicComponent {

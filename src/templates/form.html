@@ -23,17 +23,16 @@
 				<input type="date" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"
 						[ngClass]="{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}">
 			</div>
-<<<<<<< HEAD
 			<div *ngSwitchCase="'radio'">
-				<div *ngFor="let radioItem of element.radio.items; let i = index" [ngClass]="{'form-check': true, ' form-check-inline': element.radio.isInline}">
-				  <label class="form-check-label" id="{{element.radio.labelId}}{{i}}">
-				    <input class="form-check-input" type="radio" name="radio" id="radioElement{{i}}" value="radioOption{{i}}" [disabled]=element.radio.isDisabled[i]>  {{radioItem}}
+				<h6 *ngIf="element.radio.title !== undefined">{{element.radio.title}}</h6>
+				<div *ngFor="let radioItem of element.radio.items; let i = index" [ngClass]="{'form-check': true, ' form-check-inline': element.isInline}" id="{{radioItem.componentId}}">
+				  <label class="form-check-label" id="label{{i}}">
+				    <input class="form-check-input" type="radio" name="radio" id="radioElement{{i}}" value="radioOption{{i}}" [disabled]=radioItem.isDisabled>  {{radioItem.value}}
 				  </label>
 				</div>
-=======
+			</div>
 			<div *ngSwitchCase="'selectmenu'">
 				<bossy-form-input type="selectmenu" [config]="element"></bossy-form-input>
->>>>>>> 8d58118189f838f1d9b1fa37e43019654c8578dd
 			</div>
 			<div *ngSwitchDefault [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
 				<input type="text" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"

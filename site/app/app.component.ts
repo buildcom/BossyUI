@@ -78,12 +78,13 @@ export class AppComponent {
 						{value : 'potato'}
 					]
 				})
-			};
+			},
 			formInput6 = {
 				name: 'radio',
 				type: 'radio',
 				radio: new BossyFormRadioConfig({
-						label: 'What is the likelihood that Myron and Luke are getting a divorce?',
+						title: 'What is the likelihood that Myron and Luke are getting a divorce?',
+						componentId: 'Marital Issues',
 						items: [
 							{value: 'Definitely'},
 							{value: 'Considering but not sure'},
@@ -98,15 +99,19 @@ export class AppComponent {
 				new BossyFormInputConfig(formInput1),
 				new BossyFormInputConfig(formInput2),
 				new BossyFormInputConfig(formInput3),
-				new BossyFormInputConfig(formInput4),
 				new BossyFormInputConfig(formInput5),
 				new BossyFormInputConfig(formInput6)
 			],
 		);
 
+		this.configService.setConfig('calendarConfig', calendarConfig);
+		this.configService.setConfig('formConfig', formConfig);
+		this.configService.setConfig('bossyFormRadioConfig', bossyFormRadioConfig);
+
 		// Radio component independent of form
 		const bossyFormRadioConfig = new BossyFormRadioConfig({
 			title: 'What is the best movie ever?',
+			componentId: 'Pick Star Wars',
 			items: [
 				{value: 'The Neon Demon', isDisabled: true},
 				{value: 'Star Wars Episode VI: Return of the Jedi', isDisabled: false},
