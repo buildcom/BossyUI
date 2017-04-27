@@ -14,7 +14,6 @@ export class BossyFormRadio {
 	@Input() config: BossyFormRadioConfig;
 	items: Array<RadioElement> = [];
 	componentId: string = '';
-	title: string = '';
 	isInline: boolean = false;
 
 	constructor() {
@@ -26,8 +25,6 @@ export class BossyFormRadio {
 		});
 
 		this.componentId = this.config.componentId;
-
-		this.title = this.config.title;
 
 		if (this.config.isInline !== undefined) {
 			this.isInline = this.config.isInline;
