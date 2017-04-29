@@ -28,4 +28,18 @@
 			</div>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="row dark student-contributors">
+				<div class="col-xs-12">
+					<h2>A BIG Thanks to Our <em>Student Contributors</em></h2>
+				</div>
+				{#studentContributors}
+					<div class="col-xs-4">
+						<span class="student-name">{name}</span>
+					</div>
+				{/studentContributors}
+			</div>
+		</div>
+	</div>
 {/content}

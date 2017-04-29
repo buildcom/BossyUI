@@ -30,13 +30,11 @@ app.get('/', function (req, res) {
 		isDevel: process.env.NODE_ENV != 'production'
 	});
 });
-app.get('/contributors', function(req, res){
-	res.render('contributors');
-});
 
 app.get('/contributors', function(req, res){
 	res.render('contributors', {
-		coreTeam: require('./data/core_team')
+		coreTeam: require('./data/core_team'),
+		studentContributors: require('./data/student_contributors')
 	});
 });
 

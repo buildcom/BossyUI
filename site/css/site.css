@@ -141,3 +141,11 @@ a, a:visited {
 .core-team {
 	margin-top: 1em;
 }
+
+.student-contributors em {
+	color: #4bc47d;
+}
+
+.student-contributors .student-name {
+	color: #75afd3;
+}
