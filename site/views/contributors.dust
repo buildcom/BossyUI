@@ -33,6 +33,7 @@
 			<div class="row dark student-contributors">
 				<div class="col-xs-12">
 					<h2>A BIG Thanks to Our <em>Student Contributors</em></h2>
+					<h3>The Ones Who Write the Code</h3>
 				</div>
 				{#studentContributors}
 					<div class="col-xs-4">
