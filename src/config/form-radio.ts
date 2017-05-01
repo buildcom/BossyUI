@@ -8,7 +8,6 @@ export class RadioElement {
 export interface BossyFormRadioInterface {
 	items: Array<RadioElement>;
 	componentId: string;
-	title?: string;
 	isInline?: boolean;
 }
 
@@ -16,7 +15,6 @@ export interface BossyFormRadioInterface {
 export class BossyFormRadioConfig {
 		public items: Array<RadioElement>;
 		public componentId: string;
-		public title?: string;
 		public isInline?: boolean;
 
 	constructor(options: BossyFormRadioInterface) {

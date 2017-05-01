@@ -63,6 +63,7 @@ export class AppComponent {
 					maximum: 15
 				}),
 			},
+			// Thing that seems to serve no apparent purpose other than to indicate that it is possible to create this.
 			formInput4 = {
 				name: 'Input',
 				type: 'text'
@@ -83,10 +84,9 @@ export class AppComponent {
 				name: 'radio',
 				type: 'radio',
 				radio: new BossyFormRadioConfig({
-					title: 'What is the likelihood that Myron and Luke are getting a divorce?',
 					componentId: 'Marital Issues',
 					items: [
-						{value: 'Definitely'},
+						{value: 'Definitely divorcing'},
 						{value: 'Considering but not sure'},
 						{value: 'Let\'s wait and see where we are in 6 months', isDisabled: true}
 					]
@@ -105,7 +105,6 @@ export class AppComponent {
 
 		// Radio component independent of form
 		const bossyFormRadioConfig = new BossyFormRadioConfig({
-			title: 'What is the best movie ever?',
 			componentId: 'Pick Star Wars',
 			items: [
 				{value: 'The Neon Demon', isDisabled: true},

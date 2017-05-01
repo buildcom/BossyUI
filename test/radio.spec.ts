@@ -253,7 +253,7 @@ describe('Unit tests for Radio component: ', () => {
 				rad.ngOnInit();
 				fixture.detectChanges();
 			});
-			it('first item of 3', () => {
+			it('first item of 3', () => {// id = movies
 				de = fixture.debugElement.query(By.css('#label0'));
 				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
 			});
