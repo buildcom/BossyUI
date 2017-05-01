@@ -26,7 +26,6 @@ describe('Unit tests for Radio component: ', () => {
 			fixture = TestBed.createComponent(BossyFormRadio);
 			rad = fixture.componentInstance;
 			superConfig = new BossyFormRadioConfig({
-				title: 'Test Title',
 				componentId: 'testTitle',
 				items: [
 					{value: 'Option 1', isDisabled: true},
@@ -75,7 +74,6 @@ describe('Unit tests for Radio component: ', () => {
 
 		it('form-check-inline should not be applied to <div> by default', () => {
 			superConfig = new BossyFormRadioConfig({
-				title: 'Test Title',
 				componentId: 'testTitle',
 				items: [
 					{value: 'Option 1', isDisabled: true},
@@ -91,7 +89,6 @@ describe('Unit tests for Radio component: ', () => {
 		});
 		it('form-check-inline not applied to <div> when isInlined == false', () => {
 			superConfig = new BossyFormRadioConfig({
-				title: 'Test Title',
 				componentId: 'testTitle',
 				items: [
 					{value: 'Option 1', isDisabled: true},
@@ -108,7 +105,6 @@ describe('Unit tests for Radio component: ', () => {
 		});
 		it('form-check-inline class applied when isInlined == true', () => {
 			superConfig = new BossyFormRadioConfig({
-				title: 'Test Title',
 				componentId: 'testTitle',
 				items: [
 					{value: 'Option 1', isDisabled: true},
@@ -210,7 +206,6 @@ describe('Unit tests for Radio component: ', () => {
 		describe('first item of 3 disabled', () => {
 			beforeEach(() => {
 				superConfig = new BossyFormRadioConfig({
-					title: 'Test Title',
 					componentId: 'testTitle',
 					items: [
 						{value: 'Option 1', isDisabled: true},
@@ -240,7 +235,6 @@ describe('Unit tests for Radio component: ', () => {
 		describe('second and third item of 3 disabled', () => {
 			beforeEach(() => {
 				superConfig = new BossyFormRadioConfig({
-					title: 'Test Title',
 					componentId: 'testTitle',
 					items: [
 						{value: 'Option 1', isDisabled: false},
@@ -270,7 +264,6 @@ describe('Unit tests for Radio component: ', () => {
 		describe('No inputs disabled when all array elements set to false', () => {
 			beforeEach(() => {
 				superConfig = new BossyFormRadioConfig({
-					title: 'Test Title',
 					componentId: 'testTitle',
 					items: [
 						{value: 'Option 1', isDisabled: false},
@@ -300,7 +293,6 @@ describe('Unit tests for Radio component: ', () => {
 		describe('No inputs disabled when isDisabled array is not included within config', () => {
 			beforeEach(() => {
 				superConfig = new BossyFormRadioConfig({
-					title: 'Test Title',
 					componentId: 'testTitle',
 					items: [
 						{value: 'Option 1'},
