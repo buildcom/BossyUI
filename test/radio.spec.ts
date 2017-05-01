@@ -15,7 +15,7 @@ let iel:     HTMLInputElement;
 let superConfig: BossyFormRadioConfig;
 
 describe('Unit tests for Radio component: ', () => {
-	describe('Testbed to check textContent of <label>s', () => {
+	fdescribe('Testbed to check textContent of <label>s', () => {
 		beforeEach(async(() => {
 			TestBed.configureTestingModule({
 				declarations: [BossyFormRadio],
@@ -39,22 +39,22 @@ describe('Unit tests for Radio component: ', () => {
 		});
 
 		it('first item of 3', () => {
-			de = fixture.debugElement.query(By.css('#label0'));
+			de = fixture.debugElement.query(By.css('#testTitle_label0'));
 			el = de.nativeElement;
 			expect(el.textContent).toContain('Option 1');
 		});
 		it('second item of 3', () => {
-			de = fixture.debugElement.query(By.css('#label1'));
+			de = fixture.debugElement.query(By.css('#testTitle_label'));
 			el = de.nativeElement;
 			expect(el.textContent).toContain('Option 2');
 		});
 		it('third item of 3', () => {
-			de = fixture.debugElement.query(By.css('#label2'));
+			de = fixture.debugElement.query(By.css('#testTitle_label2'));
 			el = de.nativeElement;
 			expect(el.textContent).toContain('Option 3');
 		});
 		it('fourth item of 3 should not exist', () => {
-			de = fixture.debugElement.query(By.css('#label3'));
+			de = fixture.debugElement.query(By.css('#testTitle_label3'));
 			el = de.nativeElement;
 			expect(el.textContent).toContain('');
 		});
