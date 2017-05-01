@@ -98,7 +98,6 @@ export class AppComponent {
 				new BossyFormInputConfig(formInput1),
 				new BossyFormInputConfig(formInput2),
 				new BossyFormInputConfig(formInput3),
-				new BossyFormInputConfig(forminput4),
 				new BossyFormInputConfig(formInput5),
 				new BossyFormInputConfig(formInput6)
 			],
