@@ -15,7 +15,7 @@ let iel:     HTMLInputElement;
 let superConfig: BossyFormRadioConfig;
 
 describe('Unit tests for Radio component: ', () => {
-	fdescribe('Testbed to check textContent of <label>s', () => {
+	describe('Testbed to check textContent of <label>s', () => {
 		beforeEach(async(() => {
 			TestBed.configureTestingModule({
 				declarations: [BossyFormRadio],
@@ -44,7 +44,7 @@ describe('Unit tests for Radio component: ', () => {
 			expect(el.textContent).toContain('Option 1');
 		});
 		it('second item of 3', () => {
-			de = fixture.debugElement.query(By.css('#testTitle_label'));
+			de = fixture.debugElement.query(By.css('#testTitle_label1'));
 			el = de.nativeElement;
 			expect(el.textContent).toContain('Option 2');
 		});
@@ -219,15 +219,15 @@ describe('Unit tests for Radio component: ', () => {
 				fixture.detectChanges();
 			});
 			it('first item of 3', () => {
-				de = fixture.debugElement.query(By.css('#label0'));
+				de = fixture.debugElement.query(By.css('#testTitle_label0'));
 				expect(de.nativeElement.getAttribute('disabled')).toBeDefined;
 			});
 			it('second item of 3', () => {
-				de = fixture.debugElement.query(By.css('#label1'));
+				de = fixture.debugElement.query(By.css('#testTitle_label1'));
 				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
 			});
 			it('third item of 3', () => {
-				de = fixture.debugElement.query(By.css('#label2'));
+				de = fixture.debugElement.query(By.css('#testTitle_label2'));
 				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
 			});
 		});
@@ -248,15 +248,15 @@ describe('Unit tests for Radio component: ', () => {
 				fixture.detectChanges();
 			});
 			it('first item of 3', () => {// id = movies
-				de = fixture.debugElement.query(By.css('#label0'));
+				de = fixture.debugElement.query(By.css('#testTitle_label0'));
 				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
 			});
 			it('second item of 3', () => {
-				de = fixture.debugElement.query(By.css('#label1'));
+				de = fixture.debugElement.query(By.css('#testTitle_label1'));
 				expect(de.nativeElement.getAttribute('disabled')).toBeDefined;
 			});
 			it('third item of 3', () => {
-				de = fixture.debugElement.query(By.css('#label2'));
+				de = fixture.debugElement.query(By.css('#testTitle_label2'));
 				expect(de.nativeElement.getAttribute('disabled')).toBeDefined;
 			});
 		});
@@ -277,15 +277,15 @@ describe('Unit tests for Radio component: ', () => {
 				fixture.detectChanges();
 			});
 			it('first item of 3', () => {
-				de = fixture.debugElement.query(By.css('#label0'));
+				de = fixture.debugElement.query(By.css('#testTitle_label0'));
 				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
 			});
 			it('second item of 3', () => {
-				de = fixture.debugElement.query(By.css('#label1'));
+				de = fixture.debugElement.query(By.css('#testTitle_label1'));
 				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
 			});
 			it('third item of 3', () => {
-				de = fixture.debugElement.query(By.css('#label2'));
+				de = fixture.debugElement.query(By.css('#testTitle_label2'));
 				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
 			});
 		});
@@ -306,15 +306,15 @@ describe('Unit tests for Radio component: ', () => {
 				fixture.detectChanges();
 			});
 			it('first item of 3', () => {
-				de = fixture.debugElement.query(By.css('#label0'));
+				de = fixture.debugElement.query(By.css('#testTitle_label0'));
 				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
 			});
 			it('second item of 3', () => {
-				de = fixture.debugElement.query(By.css('#label1'));
+				de = fixture.debugElement.query(By.css('#testTitle_label1'));
 				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
 			});
 			it('third item of 3', () => {
-				de = fixture.debugElement.query(By.css('#label2'));
+				de = fixture.debugElement.query(By.css('#testTitle_label2'));
 				expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined;
 			});
 		});

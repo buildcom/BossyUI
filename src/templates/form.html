@@ -24,9 +24,9 @@
 						[ngClass]="{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}">
 			</div>
 			<div *ngSwitchCase="'radio'">
-				<div *ngFor="let radioItem of element.radio.items; let i = index" [ngClass]="{'form-check': true, ' form-check-inline': element.isInline}" id="{{radioItem.componentId}}">
-				  <label class="form-check-label" id="{{radioItem.componentId}}_label{{i}}">
-				    <input class="form-check-input" type="radio" name="radio" id="{{radioItem.componentId}}_input{{i}}" value="radioOption{{i}}" [disabled]=radioItem.isDisabled>  {{radioItem.value}}
+				<div *ngFor="let radioItem of element.radio.items; let i = index" [ngClass]="{'form-check': true, ' form-check-inline': element.isInline}" id="{{element.radio.componentId}}">
+				  <label class="form-check-label" id="{{element.radio.componentId}}_label{{i}}">
+				    <input class="form-check-input" type="radio" name="radio" id="{{element.radio.componentId}}_input{{i}}" value="radioOption{{i}}" [disabled]=radioItem.isDisabled>  {{radioItem.value}}
 				  </label>
 				</div>
 			</div>
