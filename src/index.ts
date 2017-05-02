@@ -12,11 +12,9 @@ import {BossyFormInputError} from './components/form-input-error';
 import {BossyFormSelectMenu} from './components/form-selectmenu';
 import {BossyFormTextarea} from './components/bossy-form-textarea';
 
-//export {BossyCalendarModule} from './calendar/calendar-module';
 export {BossyCalendar} from './components/calendar';
 export {BossyCalendarConfig} from './config/calendar';
 
-//export {BossyFormModule} from './form/form-module';
 export {BossyForm} from './components/form';
 export {BossyFormConfig} from './config/form';
 export {BossyFormInput}  from './components/form-input';

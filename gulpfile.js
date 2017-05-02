@@ -21,17 +21,6 @@ gulp.task('copy-styles', 'Copy styles for release', function() {
 		.pipe(gulp.dest('sandbox/styles'));
 });
 
-// gulp.task('build-doc', function () {;
-// 	gulp.src([
-// 		'./dist/components/**/*.js',
-// 		'./dist/directives/**/*.js'
-// 	], {read: false})
-// 		.pipe(shell([
-// 			//'echo <%= file.path.replace(file.cwd + "/dist/", file.cwd + "/dist/jsdoc/") %>'
-// 			'node node_modules/jsdoc/jsdoc.js <%= file.path %> -c jsdoc.json > <%= file.path.replace(file.cwd + "/dist/", file.cwd + "/dist/jsdoc/") %>'
-// 		]));
-// });
-
 gulp.task('site-install', 'Installs BossyUI Site', function(callback) {
 	sequence(
 		'copy-styles',
