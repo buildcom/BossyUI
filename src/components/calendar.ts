@@ -1,14 +1,13 @@
 import {Component, Input} from '@angular/core';
 import {BossyCalendarConfig} from '../config/calendar';
 
-
 declare const module: any;
 
 @Component({
 	moduleId: module.id,
 	selector: 'bossy-calendar',
 	templateUrl: '../templates/calendar.html',
-	styleUrls: ['../styles/calendar.css'],
+	styleUrls: ['../styles/calendar.css']
 })
 export class BossyCalendar {
 	@Input() config: BossyCalendarConfig;
@@ -40,13 +39,13 @@ export class BossyCalendar {
 		this.selectMonth(this.display.getMonth() + 1);
 	}
 
-	selectMonth(month) {
+	selectMonth(month: number) {
 		let year = this.display.getFullYear();
 		this.display = new Date(year, month, 1);
 		this.updateDateMap();
 	}
 
-	selectDate(date) {
+	selectDate(date: any) {
 		if (!date.inMonth) {
 			if (date.day > 7) {
 				this.selected = new Date(this.display.getFullYear(), this.display.getMonth() - 1, date.day);
@@ -69,8 +68,8 @@ export class BossyCalendar {
 		let endDate = new Date(this.display.getFullYear(), this.display.getMonth() + 1, 0);
 		let endDatePrevious = new Date(this.display.getFullYear(), this.display.getMonth(), 0);
 		let day = 1;
-		let endDay = Number.parseInt(endDate.toDateString().split(' ')[2]);
-		let endDayPrevious = Number.parseInt(endDatePrevious.toDateString().split(' ')[2]);
+		let endDay = parseInt(endDate.toDateString().split(' ')[2]);
+		let endDayPrevious = parseInt(endDatePrevious.toDateString().split(' ')[2]);
 
 		while (day <= endDay) {
 			const weekDay = ((day - 1) + startDate.getDay()) % 7;

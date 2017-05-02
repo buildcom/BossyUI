@@ -140,7 +140,7 @@ export class BossySlider implements OnInit {
 	/*keyBind($event)
 	 * This function is to bind the decrease and increase function with the arrow keys
 	 * CC = 5*/
-	keyBind(ev) {
+	keyBind(ev: any) {
 		const pressed = ev.which,
 			leftArrowKey = 37,
 			rightArrowKey = 39,
@@ -189,7 +189,7 @@ export class BossySlider implements OnInit {
 	 * This function allows the button to drag by finding its location then checks it against its original location
 	 * and if it is distance is greater than the size of a barpiece update the graphic and value
 	 * CC = 9*/
-	drag(event) {
+	drag(event: any) {
 
 		// grab the mouse location
 		const x = event.clientX;

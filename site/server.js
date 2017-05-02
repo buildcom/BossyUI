@@ -8,7 +8,7 @@ const express = require('express');
 const app = express();
 
 livereload(app, config={
-    watchDir: process.cwd() + '/dist'
+    watchDir: process.cwd() + '/sandbox'
 });
 app.engine('dust', cons.dust);
 
@@ -16,7 +16,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'dust');
 
 app.use('/node_modules', express.static('node_modules', { extensions: ['js'] }));
-app.use('/dist', express.static('dist', { extensions: ['js'] }));
+app.use('/sandbox', express.static('sandbox', { extensions: ['js'] }));
 app.use('/bootstrap', express.static('site/bootstrap'));
 app.use('/app', express.static('site/app'));
 app.use('/templates', express.static('site/templates'));
@@ -44,7 +44,7 @@ const server = app.listen(process.env.PORT || 3000, function () {
 function getComponents() {
 	const components = [];
 
-	glob.sync('dist/components/**/*.js').forEach(function(file) {
+	glob.sync('sandbox/components/**/*.js').forEach(function(file) {
 		const name = path.basename(file).split('.')[0],
 			shortName = `${name.charAt(0).toUpperCase()}${name.slice(1)}`,
 			fullName = `Bossy${shortName}`;

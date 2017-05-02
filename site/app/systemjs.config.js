@@ -32,7 +32,7 @@
 			rxjs: {
 				defaultExtension: 'js'
 			},
-			'dist': {
+			'sandbox': {
 				defaultExtension: 'js'
 			}
 		}

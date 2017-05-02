@@ -12,6 +12,8 @@ export class BossyFormSelectMenuConfig {
 		public title: string;
 		public items: [MenuItem];
 		constructor(options: BossyFormSelectMenuInterface) {
-			Object.assign(this, options);
+			Object.keys(options).forEach((key: string) => {
+				this[key] = options[key];
+			});
 		}
 }

@@ -11,6 +11,29 @@ import {BossyDropdownMenuItem} from './components/dropdown-menu';
 import {BossyFormInputError} from './components/form-input-error';
 import {BossyFormSelectMenu} from './components/form-selectmenu';
 
+//export {BossyCalendarModule} from './calendar/calendar-module';
+export {BossyCalendar} from './components/calendar';
+export {BossyCalendarConfig} from './config/calendar';
+
+//export {BossyFormModule} from './form/form-module';
+export {BossyForm} from './components/form';
+export {BossyFormConfig} from './config/form';
+export {BossyFormInput}  from './components/form-input';
+export {BossyFormInputConfig} from './config/form-input';
+export {BossyFormLabel}  from './components/form-label';
+export {BossyFormLabelConfig} from './config/form-label';
+export {BossyFormSelectMenu}  from './components/form-selectmenu';
+export {BossyFormSelectMenuConfig} from './config/form-selectmenu';
+export {BossyFormInputError}  from './components/form-input-error';
+
+export {BossyRadio} from './components/radio';
+export {BossyRadioConfig} from './config/radio';
+export {BossyDropdown} from './components/dropdown';
+export {BossyDropdownConfig} from './config/dropdown';
+
+export {BossyDropdownMenuItem} from './components/dropdown-menu'
+export {BossyDropdownMenuItemConfig} from './config/dropdown-menu';
+
 @NgModule({
 	imports: [
 		BrowserModule,
@@ -36,7 +59,6 @@ import {BossyFormSelectMenu} from './components/form-selectmenu';
 		BossyDropdownMenuItem,
 		BossyFormSelectMenu
 	]
-
 })
 export class BossyModule {
 	static forRoot() {
