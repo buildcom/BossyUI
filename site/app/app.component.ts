@@ -15,6 +15,8 @@ import {BossyDropdownMenuItem} from '../../sandbox/components/dropdown-menu';
 import {BossyDropdownMenuItemConfig} from '../../sandbox/config/dropdown-menu';
 import {BossyFormSelectMenu} from '../../sandbox/components/form-selectmenu';
 import {BossyFormSelectMenuConfig} from '../../sandbox/config/form-selectmenu';
+import {BossyFormTextarea} from '../../sandbox/components/bossy-form-textarea';
+import {BossyFormTextareaConfig} from '../../sandbox/config/bossy-form-textarea';
 
 declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
@@ -34,6 +36,7 @@ export class AppComponent {
 	bossyDropdownMenuItem = BossyDropdownMenuItem;
 	bossyFormInput = BossyFormInput;
 	bossyFormSelectMenu = BossyFormSelectMenu;
+  	bossyFormTextarea = BossyFormTextarea;
 
 	constructor(private configService: ConfigService) {
 	}
@@ -72,7 +75,13 @@ export class AppComponent {
 						{value : 'celery', isDisabled : true},
 						{value : 'potato'}
 					],
-				})
+				})},
+     			textareaInput1 = {
+				name: 'textareaInput',
+				type: 'textarea',
+				label: 'Comments',
+				rows: 5,
+				placeholder: 'Put your comment here'
 			};
 
 		const formConfig = new BossyFormConfig(
@@ -101,6 +110,7 @@ export class AppComponent {
 				{value : 'Oregon'}
 			]}
 		);
+   		const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
@@ -108,5 +118,6 @@ export class AppComponent {
 		this.configService.setConfig('bossyRadioConfig', bossyRadioConfig);
 		this.configService.setConfig('dropdownConfig', dropdownConfig);
 		this.configService.setConfig('selectMenuConfig', selectMenuConfig);
+		this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
 	}
 }

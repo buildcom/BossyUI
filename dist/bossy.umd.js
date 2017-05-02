@@ -432,6 +432,43 @@ exports.BossyFormSelectMenu = __decorate([
 ], exports.BossyFormSelectMenu);
 var _a$8;
 
+var BossyFormTextareaConfig = (function () {
+    function BossyFormTextareaConfig(options) {
+        Object.assign(this, options);
+    }
+    return BossyFormTextareaConfig;
+}());
+
+var BossyFormTextarea = (function () {
+    function BossyFormTextarea() {
+        this.hasSuccess = false;
+        this.hasWarning = false;
+        this.hasDanger = false;
+    }
+    BossyFormTextarea.prototype.ngOnInit = function () {
+        var _a = this.config, name = _a.name, value = _a.value, formGroup = _a.formGroup;
+        if (formGroup) {
+            formGroup.addControl(name, new _angular_forms.FormControl(value));
+        }
+    };
+    BossyFormTextarea.prototype.output = function () {
+    };
+    return BossyFormTextarea;
+}());
+__decorate([
+    _angular_core.Input(),
+    __metadata("design:type", typeof (_a$9 = typeof BossyFormTextareaConfig !== "undefined" && BossyFormTextareaConfig) === "function" && _a$9 || Object)
+], BossyFormTextarea.prototype, "config", void 0);
+BossyFormTextarea = __decorate([
+    _angular_core.Component({
+        selector: 'bossy-form-textarea',
+        template: "<div [ngSwitch]=\"config.type\" class=\"{{ bossy-form-textarea }}\">\n  <div class=\"form-group\">\n    <label for=\"comment\"> {{ config.label }}</label>\n    <textarea class=\"form-control\" name=\"{{ config.name }}\" placeholder=\"{{ config.placeholder }}\" rows=\"{{ config.rows }}\" cols=\"{{ config.cols }}\"></textarea>\n  </div>\n</div>\n",
+        styles: [".bossy-form-textarea {\n\tvalue: 'bossy-form-textarea';\n}\n"],
+    }),
+    __metadata("design:paramtypes", [])
+], BossyFormTextarea);
+var _a$9;
+
 exports.BossyModule = BossyModule_1 = (function () {
     function BossyModule() {
     }
@@ -458,7 +495,8 @@ exports.BossyModule = BossyModule_1 = __decorate([
             exports.BossyDropdown,
             exports.BossyDropdownMenuItem,
             exports.BossyFormInputError,
-            exports.BossyFormSelectMenu
+            exports.BossyFormSelectMenu,
+            BossyFormTextarea
         ],
         exports: [
             exports.BossyCalendar,
@@ -467,7 +505,8 @@ exports.BossyModule = BossyModule_1 = __decorate([
             exports.BossyRadio,
             exports.BossyDropdown,
             exports.BossyDropdownMenuItem,
-            exports.BossyFormSelectMenu
+            exports.BossyFormSelectMenu,
+            BossyFormTextarea
         ]
     })
 ], exports.BossyModule);
