@@ -2,7 +2,7 @@
   "name": "bossyui",
   "version": "0.0.1",
   "description": "An opinionated set of AngularJS directives used to build rich and interactive web sites.",
-  "main": "bossy.umd.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/buildcom/BossyUI.git"
