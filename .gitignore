@@ -24,3 +24,5 @@ site/**/*.metadata.json
 .swp
 
 /dist/
+
+npm-debug.log.*
