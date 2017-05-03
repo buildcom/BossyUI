@@ -11,7 +11,7 @@
     "declaration": true,
     "noLib": false,
     "moduleResolution": "node",
-    "outDir": "sandbox"
+    "outDir": "dist"
   },
   "files": [
     "src/index.ts"

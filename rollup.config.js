@@ -3,7 +3,7 @@ import typescript from 'rollup-plugin-typescript';
 
 export default {
     entry: './index.js',
-    dest: 'dist/bossy.umd.js',
+    dest: 'bossy.umd.js',
     format: 'umd',
     external: [
         '@angular/core',

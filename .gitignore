@@ -23,5 +23,4 @@ site/**/*.metadata.json
 # Vim swap files
 .swp
 
-/sandbox/
-!/dist/
+/dist/

@@ -1,12 +1,12 @@
 import {Component, Input, ViewContainerRef, ViewChild, ReflectiveInjector, ComponentFactoryResolver} from '@angular/core';
-import {BossyCalendar} from '../../sandbox/components/calendar';
-import {BossyForm} from '../../sandbox/components/form';
-import {BossyRadio} from '../../sandbox/components/radio';
-import {BossyDropdown} from '../../sandbox/components/dropdown';
-import {BossyDropdownMenuItem} from '../../sandbox/components/dropdown-menu';
-import {BossyFormInput} from '../../sandbox/components/form-input';
-import {BossyFormSelectMenu} from '../../sandbox/components/form-selectmenu';
-import {BossyFormTextarea} from '../../sandbox/components/bossy-form-textarea';
+import {BossyCalendar} from '../../dist/components/calendar';
+import {BossyForm} from '../../dist/components/form';
+import {BossyRadio} from '../../dist/components/radio';
+import {BossyDropdown} from '../../dist/components/dropdown';
+import {BossyDropdownMenuItem} from '../../dist/components/dropdown-menu';
+import {BossyFormInput} from '../../dist/components/form-input';
+import {BossyFormSelectMenu} from '../../dist/components/form-selectmenu';
+import {BossyFormTextarea} from '../../dist/components/bossy-form-textarea';
 
 @Component({
 	selector: 'dynamic-component',

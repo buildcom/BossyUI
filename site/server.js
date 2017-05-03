@@ -16,7 +16,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'dust');
 
 app.use('/node_modules', express.static('node_modules', { extensions: ['js'] }));
-app.use('/sandbox', express.static('sandbox', { extensions: ['js'] }));
+app.use('/dist', express.static('dist', { extensions: ['js'] }));
 app.use('/bootstrap', express.static('site/bootstrap'));
 app.use('/app', express.static('site/app'));
 app.use('/templates', express.static('site/templates'));

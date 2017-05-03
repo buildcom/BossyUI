@@ -1,24 +1,24 @@
 import {Component} from '@angular/core';
 import {ConfigService} from './config.service';
-import {BossyCalendarConfig} from '../../sandbox/config/calendar';
-import {BossyCalendar} from '../../sandbox/components/calendar';
-import {BossyFormInputConfig} from '../../sandbox/config/form-input';
-import {BossyFormInput} from '../../sandbox/components/form-input';
-import {BossyFormConfig} from '../../sandbox/config/form';
-import {BossyForm} from '../../sandbox/components/form';
-import {BossyFormLabelConfig} from '../../sandbox/config/form-label';
-import {BossyRadio} from '../../sandbox/components/radio';
-import {BossyRadioConfig} from '../../sandbox/config/radio';
-import {BossyDropdown} from '../../sandbox/components/dropdown';
-import {BossyDropdownConfig} from '../../sandbox/config/dropdown';
-import {BossyDropdownMenuItem} from '../../sandbox/components/dropdown-menu';
-import {BossyDropdownMenuItemConfig} from '../../sandbox/config/dropdown-menu';
-import {BossyFormSelectMenu} from '../../sandbox/components/form-selectmenu';
-import {BossyFormSelectMenuConfig} from '../../sandbox/config/form-selectmenu';
-import {BossyFormTextarea} from '../../sandbox/components/bossy-form-textarea';
-import {BossyFormTextareaConfig} from '../../sandbox/config/bossy-form-textarea';
+import {BossyCalendarConfig} from '../../dist/config/calendar';
+import {BossyCalendar} from '../../dist/components/calendar';
+import {BossyFormInputConfig} from '../../dist/config/form-input';
+import {BossyFormInput} from '../../dist/components/form-input';
+import {BossyFormConfig} from '../../dist/config/form';
+import {BossyForm} from '../../dist/components/form';
+import {BossyFormLabelConfig} from '../../dist/config/form-label';
+import {BossyRadio} from '../../dist/components/radio';
+import {BossyRadioConfig} from '../../dist/config/radio';
+import {BossyDropdown} from '../../dist/components/dropdown';
+import {BossyDropdownConfig} from '../../dist/config/dropdown';
+import {BossyDropdownMenuItem} from '../../dist/components/dropdown-menu';
+import {BossyDropdownMenuItemConfig} from '../../dist/config/dropdown-menu';
+import {BossyFormSelectMenu} from '../../dist/components/form-selectmenu';
+import {BossyFormSelectMenuConfig} from '../../dist/config/form-selectmenu';
+import {BossyFormTextarea} from '../../dist/components/bossy-form-textarea';
+import {BossyFormTextareaConfig} from '../../dist/config/bossy-form-textarea';
 
-declare const Components: Array<BossyFormInputConfig>;
+//declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
 
 @Component({
@@ -28,7 +28,7 @@ declare const module: any;
 	providers: [ConfigService]
 })
 export class AppComponent {
-	components: Array<any> = Components;
+	//components: Array<any> = Components;
 	bossyCalendar = BossyCalendar;
 	bossyForm = BossyForm;
 	bossyRadio = BossyRadio;

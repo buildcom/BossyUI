@@ -3,7 +3,7 @@ import angular from 'rollup-plugin-angular';
 
 export default {
     entry: './index.js',
-    dest: 'dist/bossy.umd.min.js',
+    dest: 'bossy.umd.min.js',
     format: 'umd',
     external: [
         '@angular/core',
