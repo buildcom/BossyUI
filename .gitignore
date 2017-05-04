@@ -5,9 +5,15 @@ node_modules
 .idea/
 
 # Distribution
-dist
-**/*.js
-**/*.js.map
+src/**/*.js
+src/**/*.js.map
+src/**/*.d.ts
+src/**/*.metadata.json
+
+site/**/*.js
+site/**/*.js.map
+site/**/*.d.ts
+site/**/*.metadata.json
 
 !site/app/systemjs.config.js
 !site/server.js
@@ -16,3 +22,7 @@ dist
 
 # Vim swap files
 .swp
+
+/dist/
+
+npm-debug.log.*

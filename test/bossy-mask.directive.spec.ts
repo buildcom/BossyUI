@@ -1,4 +1,4 @@
-import {BossyMaskDirective} from '../src/components/bossy-mask.directive';
+import {BossyMaskDirective} from '../src/directives/bossy-mask.directive';
 import {Component, OnInit, ElementRef} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {DebugElement}    from '@angular/core';

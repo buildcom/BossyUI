@@ -12,6 +12,27 @@ import {BossyFormInputError} from './components/form-input-error';
 import {BossyFormSelectMenu} from './components/form-selectmenu';
 import {BossyFormTextarea} from './components/bossy-form-textarea';
 
+export {BossyCalendar} from './components/calendar';
+export {BossyCalendarConfig} from './config/calendar';
+
+export {BossyForm} from './components/form';
+export {BossyFormConfig} from './config/form';
+export {BossyFormInput}  from './components/form-input';
+export {BossyFormInputConfig} from './config/form-input';
+export {BossyFormLabel}  from './components/form-label';
+export {BossyFormLabelConfig} from './config/form-label';
+export {BossyFormSelectMenu}  from './components/form-selectmenu';
+export {BossyFormSelectMenuConfig} from './config/form-selectmenu';
+export {BossyFormInputError}  from './components/form-input-error';
+
+export {BossyFormRadio} from './components/form-radio';
+export {BossyFormRadioConfig} from './config/form-radio';
+export {BossyDropdown} from './components/dropdown';
+export {BossyDropdownConfig} from './config/dropdown';
+
+export {BossyDropdownMenuItem} from './components/dropdown-menu'
+export {BossyDropdownMenuItemConfig} from './config/dropdown-menu';
+
 @NgModule({
 	imports: [
 		BrowserModule,
@@ -39,7 +60,6 @@ import {BossyFormTextarea} from './components/bossy-form-textarea';
 		BossyFormSelectMenu,
     		BossyFormTextarea
 	]
-
 })
 export class BossyModule {
 	static forRoot() {

@@ -6,7 +6,6 @@ import {BossyFormInputConfig} from '../../dist/config/form-input';
 import {BossyFormInput} from '../../dist/components/form-input';
 import {BossyFormConfig} from '../../dist/config/form';
 import {BossyForm} from '../../dist/components/form';
-import {BossyFormInputValidatorConfig} from '../../dist/config/form-input-validator';
 import {BossyFormLabelConfig} from '../../dist/config/form-label';
 import {BossyFormRadio} from '../../dist/components/form-radio';
 import {BossyFormRadioConfig} from '../../dist/config/form-radio';
@@ -19,7 +18,7 @@ import {BossyFormSelectMenuConfig} from '../../dist/config/form-selectmenu';
 import {BossyFormTextarea} from '../../dist/components/bossy-form-textarea';
 import {BossyFormTextareaConfig} from '../../dist/config/bossy-form-textarea';
 
-declare const Components: Array<BossyFormInputConfig>;
+//declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
 
 @Component({
@@ -29,7 +28,7 @@ declare const module: any;
 	providers: [ConfigService]
 })
 export class AppComponent {
-	components: Array<any> = Components;
+	//components: Array<any> = Components;
 	bossyCalendar = BossyCalendar;
 	bossyForm = BossyForm;
 	bossyFormRadio = BossyFormRadio;
@@ -60,11 +59,7 @@ export class AppComponent {
 			formInput3 = {
 				name: 'emailInput',
 				type: 'email',
-				value: 'test value for email',
-				validatejs: new BossyFormInputValidatorConfig({message: 'bossy email test not valid'}, {
-					minimum: 3,
-					maximum: 15
-				}),
+				value: 'test value for email'
 			},
 			// Thing that seems to serve no apparent purpose other than to indicate that it is possible to create this.
 			formInput4 = {
@@ -86,7 +81,7 @@ export class AppComponent {
 			formInput6 = {
 				name: 'radio',
 				type: 'radio',
-				label: new BossyFormLabelConfig('Test label for radio button')
+				label: new BossyFormLabelConfig('Test label for radio button'),
 				radio: new BossyFormRadioConfig({
 					componentId: 'myRadio',
 					items: [
@@ -149,6 +144,6 @@ export class AppComponent {
 		this.configService.setConfig('bossyFormRadioConfig', bossyFormRadioConfig);
 		this.configService.setConfig('dropdownConfig', dropdownConfig);
 		this.configService.setConfig('selectMenuConfig', selectMenuConfig);
-    		this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
+		this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
 	}
 }

@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl} from '@angular/forms';
 import {BossyFormInputConfig} from '../config/form-input';
 
 declare const module: any;

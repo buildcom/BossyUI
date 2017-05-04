@@ -18,7 +18,7 @@ export class BossyDropdown {
 	variant: string = 'secondary';
 	size: string = undefined;
 
-	showMenuOnClick(event) {
+	showMenuOnClick(event: any) {
 		const element = event.target.parentElement;
 		// Checks for 'show' so that we can add btn-group/dropup later
 		if (!element.classList.contains('show')) {
