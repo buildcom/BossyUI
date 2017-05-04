@@ -16,6 +16,8 @@ import {BossyDropdownMenuItem} from '../../dist/components/dropdown-menu';
 import {BossyDropdownMenuItemConfig} from '../../dist/config/dropdown-menu';
 import {BossyFormSelectMenu} from '../../dist/components/form-selectmenu';
 import {BossyFormSelectMenuConfig} from '../../dist/config/form-selectmenu';
+import {BossyFormTextarea} from '../../dist/components/bossy-form-textarea';
+import {BossyFormTextareaConfig} from '../../dist/config/bossy-form-textarea';
 
 declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
@@ -35,6 +37,7 @@ export class AppComponent {
 	bossyDropdownMenuItem = BossyDropdownMenuItem;
 	bossyFormInput = BossyFormInput;
 	bossyFormSelectMenu = BossyFormSelectMenu;
+  	bossyFormTextarea = BossyFormTextarea;
 
 	constructor(private configService: ConfigService) {
 	}
@@ -83,14 +86,22 @@ export class AppComponent {
 			formInput6 = {
 				name: 'radio',
 				type: 'radio',
+				label: new BossyFormLabelConfig('Test label for radio button')
 				radio: new BossyFormRadioConfig({
-					componentId: 'Marital Issues',
+					componentId: 'myRadio',
 					items: [
-						{value: 'Definitely divorcing'},
-						{value: 'Considering but not sure'},
-						{value: 'Let\'s wait and see where we are in 6 months', isDisabled: true}
+						{value: 'Option 1'},
+						{value: 'Option 2'},
+						{value: 'Option 3', isDisabled: true}
 					]
 				})
+			},
+     	textareaInput1 = {
+				name: 'textareaInput',
+				type: 'textarea',
+				label: 'Comments',
+				rows: 5,
+				placeholder: 'Put your comment here'
 			};
 
 		const formConfig = new BossyFormConfig(
@@ -130,6 +141,7 @@ export class AppComponent {
 				{value : 'Oregon'}
 			]}
 		);
+   		const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
@@ -137,5 +149,6 @@ export class AppComponent {
 		this.configService.setConfig('bossyFormRadioConfig', bossyFormRadioConfig);
 		this.configService.setConfig('dropdownConfig', dropdownConfig);
 		this.configService.setConfig('selectMenuConfig', selectMenuConfig);
+    		this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
 	}
 }

@@ -1,0 +1,6 @@
+<div [ngSwitch]="config.type" class="{{ bossy-form-textarea }}">
+  <div class="form-group">
+    <label for="comment"> {{ config.label }}</label>
+    <textarea class="form-control" name="{{ config.name }}" placeholder="{{ config.placeholder }}" rows="{{ config.rows }}" cols="{{ config.cols }}"></textarea>
+  </div>
+</div>
