@@ -8,8 +8,8 @@ import {BossyFormConfig} from '../../dist/config/form';
 import {BossyForm} from '../../dist/components/form';
 import {BossyFormInputValidatorConfig} from '../../dist/config/form-input-validator';
 import {BossyFormLabelConfig} from '../../dist/config/form-label';
-import {BossyRadio} from '../../dist/components/radio';
-import {BossyRadioConfig} from '../../dist/config/radio';
+import {BossyFormRadio} from '../../dist/components/form-radio';
+import {BossyFormRadioConfig} from '../../dist/config/form-radio';
 import {BossyDropdown} from '../../dist/components/dropdown';
 import {BossyDropdownConfig} from '../../dist/config/dropdown';
 import {BossyDropdownMenuItem} from '../../dist/components/dropdown-menu';
@@ -32,7 +32,7 @@ export class AppComponent {
 	components: Array<any> = Components;
 	bossyCalendar = BossyCalendar;
 	bossyForm = BossyForm;
-	bossyRadio = BossyRadio;
+	bossyFormRadio = BossyFormRadio;
 	bossyDropdown = BossyDropdown;
 	bossyDropdownMenuItem = BossyDropdownMenuItem;
 	bossyFormInput = BossyFormInput;
@@ -66,6 +66,7 @@ export class AppComponent {
 					maximum: 15
 				}),
 			},
+			// Thing that seems to serve no apparent purpose other than to indicate that it is possible to create this.
 			formInput4 = {
 				name: 'Input',
 				type: 'text'
@@ -79,9 +80,23 @@ export class AppComponent {
 						{value : 'carrot'},
 						{value : 'celery', isDisabled : true},
 						{value : 'potato'}
-					],
-				})},
-     			textareaInput1 = {
+					]
+				})
+			},
+			formInput6 = {
+				name: 'radio',
+				type: 'radio',
+				label: new BossyFormLabelConfig('Test label for radio button')
+				radio: new BossyFormRadioConfig({
+					componentId: 'myRadio',
+					items: [
+						{value: 'Option 1'},
+						{value: 'Option 2'},
+						{value: 'Option 3', isDisabled: true}
+					]
+				})
+			},
+     	textareaInput1 = {
 				name: 'textareaInput',
 				type: 'textarea',
 				label: 'Comments',
@@ -94,11 +109,22 @@ export class AppComponent {
 				new BossyFormInputConfig(formInput1),
 				new BossyFormInputConfig(formInput2),
 				new BossyFormInputConfig(formInput3),
-				new BossyFormInputConfig(formInput5)
+				new BossyFormInputConfig(formInput5),
+				new BossyFormInputConfig(formInput6)
 			],
 		);
+
+		// Radio component independent of form
+		const bossyFormRadioConfig = new BossyFormRadioConfig({
+			componentId: 'Pick Star Wars',
+			items: [
+				{value: 'The Neon Demon', isDisabled: true},
+				{value: 'Star Wars Episode VI: Return of the Jedi', isDisabled: false},
+				{value: 'Silence of the Lambs', isDisabled: true},
+				{value: 'Twilight', isDisabled: true}
+			]}
+		);
 		const formInputConfig = new BossyFormInputConfig(formInput4);
-		const bossyRadioConfig = new BossyRadioConfig(['lions', 'tigers', 'bears'], false, 'uniqueId');
 		const dropdownConfig = new BossyDropdownConfig('Dropdown Menu', 'button',
 			[
 				new BossyDropdownMenuItemConfig('button', 'Item 1', '#', false),
@@ -120,7 +146,7 @@ export class AppComponent {
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);
 		this.configService.setConfig('FormInputConfig', formInputConfig);
-		this.configService.setConfig('bossyRadioConfig', bossyRadioConfig);
+		this.configService.setConfig('bossyFormRadioConfig', bossyFormRadioConfig);
 		this.configService.setConfig('dropdownConfig', dropdownConfig);
 		this.configService.setConfig('selectMenuConfig', selectMenuConfig);
     		this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
