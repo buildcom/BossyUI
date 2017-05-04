@@ -1,6 +1,7 @@
 import {FormGroup} from '@angular/forms';
-import {BossyFormLabelConfig} from '../config/form-label';
-import {BossyFormSelectMenuConfig} from '../config/form-selectmenu';
+import {BossyFormLabelConfig} from './form-label';
+import {BossyFormRadioConfig} from './form-radio';
+import {BossyFormSelectMenuConfig} from './form-selectmenu';
 
 export interface BossyFormInputInterface {
 	name: string;
@@ -17,6 +18,7 @@ export interface BossyFormInputInterface {
 	hasSuccess?: boolean;
 	hasWarning?: boolean;
 	hasDanger?: boolean;
+	radio?: BossyFormRadioConfig;
 	selectmenu?: BossyFormSelectMenuConfig;
 }
 
@@ -35,6 +37,7 @@ export class BossyFormInputConfig {
 	public hasSuccess: boolean;
 	public hasWarning: boolean;
 	public hasDanger: boolean;
+	public radio: BossyFormRadioConfig;
 	public selectmenu: BossyFormSelectMenuConfig;
 	constructor(options: BossyFormInputInterface) {
 		Object.keys(options).forEach((key: string) => {
