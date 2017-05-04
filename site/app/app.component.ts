@@ -81,7 +81,7 @@ export class AppComponent {
 			formInput6 = {
 				name: 'radio',
 				type: 'radio',
-				label: new BossyFormLabelConfig('Test label for radio button')
+				label: new BossyFormLabelConfig('Test label for radio button'),
 				radio: new BossyFormRadioConfig({
 					componentId: 'myRadio',
 					items: [

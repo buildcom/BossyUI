@@ -163,7 +163,7 @@ __decorate([
 exports.BossyForm = __decorate([
     _angular_core.Component({
         selector: 'bossy-form',
-        template: "<form [formGroup]=\"bossyForm\" novalidate [ngClass]=\"{'form-inline': isFormInlinedFromConfig}\">\n\t<div *ngFor=\"let element of config.elements\" class=\"form-group\">\n\t\t<bossy-form-label [config]=\"element.label\"></bossy-form-label>\n\t\t<div [ngSwitch]=\"element.type\">\n\t\t\t<div *ngSwitchCase=\"'number'\" [ngClass]=\"{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}\">\n\t\t\t\t<input type=\"number\" name=\"{{ element.name }}\" placeholder=\"{{ element.placeholder }}\" formControlName=\"{{ element.name }}\" class=\"form-control\"\n\t\t\t\t\t\t[ngClass]=\"{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}\"/>\n\t\t\t</div>\n\t\t\t<div *ngSwitchCase=\"'password'\" [ngClass]=\"{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}\">\n\t\t\t\t<input type=\"password\" name=\"{{ element.name }}\" placeholder=\"{{ element.placeholder }}\" formControlName=\"{{ element.name }}\" class=\"form-control\"\n\t\t\t\t\t\t[ngClass]=\"{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}\"/>\n\t\t\t</div>\n\t\t\t<div *ngSwitchCase=\"'textarea'\" [ngClass]=\"{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}\">\n\t\t\t\t<textarea name=\"{{ element.name }}\" placeholder=\"{{ element.placeholder }}\" rows=\"{{ element.rows }}\" cols=\"{{ element.cols }}\" formControlName=\"{{ element.name }}\" class=\"form-control\"\n\t\t\t\t\t\t[ngClass]=\"{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}\"></textarea>\n\t\t\t</div>\n\t\t\t<div *ngSwitchCase=\"'email'\" [ngClass]=\"{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}\">\n\t\t\t\t<input type=\"email\" formControlName=\"{{ element.name }}\" class=\"form-control\"\n\t\t\t\t\t\t[ngClass]=\"{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}\">\n\t\t\t\t<bossy-form-input-error [formGroup]=\"bossyForm\" [controlName]=\"element.name\" [errorCssClass]=\"element.errorCssClass\"></bossy-form-input-error>\n\t\t\t</div>\n\t\t\t<div *ngSwitchCase=\"'date'\" [ngClass]=\"{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}\">\n\t\t\t\t<input type=\"date\" placeholder=\"{{ element.placeholder }}\" formControlName=\"{{ element.name }}\" class=\"form-control\"\n\t\t\t\t\t\t[ngClass]=\"{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}\">\n\t\t\t</div>\n\t\t\t<div *ngSwitchCase=\"'selectmenu'\">\n\t\t\t\t<bossy-form-input type=\"selectmenu\" [config]=\"element\"></bossy-form-input>\n\t\t\t</div>\n\t\t\t<div *ngSwitchDefault [ngClass]=\"{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}\">\n\t\t\t\t<input type=\"text\" name=\"{{ element.name }}\" placeholder=\"{{ element.placeholder }}\" formControlName=\"{{ element.name }}\" class=\"form-control\"\n\t\t\t\t\t\t[ngClass]=\"{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}\"/>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</form>\n",
+        template: "<form [formGroup]=\"bossyForm\" novalidate [ngClass]=\"{'form-inline': isFormInlinedFromConfig}\">\n\t<div *ngFor=\"let element of config.elements\" class=\"form-group\">\n\t\t<bossy-form-label [config]=\"element.label\"></bossy-form-label>\n\t\t<div [ngSwitch]=\"element.type\">\n\t\t\t<div *ngSwitchCase=\"'number'\" [ngClass]=\"{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}\">\n\t\t\t\t<input type=\"number\" name=\"{{ element.name }}\" placeholder=\"{{ element.placeholder }}\" formControlName=\"{{ element.name }}\" class=\"form-control\"\n\t\t\t\t\t\t[ngClass]=\"{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}\"/>\n\t\t\t</div>\n\t\t\t<div *ngSwitchCase=\"'password'\" [ngClass]=\"{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}\">\n\t\t\t\t<input type=\"password\" name=\"{{ element.name }}\" placeholder=\"{{ element.placeholder }}\" formControlName=\"{{ element.name }}\" class=\"form-control\"\n\t\t\t\t\t\t[ngClass]=\"{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}\"/>\n\t\t\t</div>\n\t\t\t<div *ngSwitchCase=\"'textarea'\" [ngClass]=\"{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}\">\n\t\t\t\t<textarea name=\"{{ element.name }}\" placeholder=\"{{ element.placeholder }}\" rows=\"{{ element.rows }}\" cols=\"{{ element.cols }}\" formControlName=\"{{ element.name }}\" class=\"form-control\"\n\t\t\t\t\t\t[ngClass]=\"{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}\"></textarea>\n\t\t\t</div>\n\t\t\t<div *ngSwitchCase=\"'email'\" [ngClass]=\"{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}\">\n\t\t\t\t<input type=\"email\" formControlName=\"{{ element.name }}\" class=\"form-control\"\n\t\t\t\t\t\t[ngClass]=\"{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}\">\n\t\t\t\t<bossy-form-input-error [formGroup]=\"bossyForm\" [controlName]=\"element.name\" [errorCssClass]=\"element.errorCssClass\"></bossy-form-input-error>\n\t\t\t</div>\n\t\t\t<div *ngSwitchCase=\"'date'\" [ngClass]=\"{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}\">\n\t\t\t\t<input type=\"date\" placeholder=\"{{ element.placeholder }}\" formControlName=\"{{ element.name }}\" class=\"form-control\"\n\t\t\t\t\t\t[ngClass]=\"{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}\">\n\t\t\t</div>\n\t\t\t<div *ngSwitchCase=\"'radio'\">\n\t\t\t\t<div *ngFor=\"let radioItem of element.radio.items; let i = index\" [ngClass]=\"{'form-check': true, ' form-check-inline': element.isInline}\" id=\"{{element.radio.componentId}}\">\n\t\t\t\t  <label class=\"form-check-label\" id=\"{{element.radio.componentId}}_label{{i}}\">\n\t\t\t\t    <input class=\"form-check-input\" type=\"radio\" name=\"radio\" id=\"{{element.radio.componentId}}_input{{i}}\" value=\"radioOption{{i}}\" [disabled]=radioItem.isDisabled>  {{radioItem.value}}\n\t\t\t\t  </label>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div *ngSwitchCase=\"'selectmenu'\">\n\t\t\t\t<bossy-form-input type=\"selectmenu\" [config]=\"element\"></bossy-form-input>\n\t\t\t</div>\n\t\t\t<div *ngSwitchDefault [ngClass]=\"{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}\">\n\t\t\t\t<input type=\"text\" name=\"{{ element.name }}\" placeholder=\"{{ element.placeholder }}\" formControlName=\"{{ element.name }}\" class=\"form-control\"\n\t\t\t\t\t\t[ngClass]=\"{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}\"/>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</form>\n",
         styles: [""]
     })
 ], exports.BossyForm);
@@ -188,33 +188,33 @@ exports.BossyFormLabel = __decorate([
     })
 ], exports.BossyFormLabel);
 
-exports.BossyRadio = (function () {
-    function BossyRadio() {
+exports.BossyFormRadio = (function () {
+    function BossyFormRadio() {
         this.items = [];
+        this.componentId = '';
         this.isInline = false;
-        this.labelId = '';
     }
-    BossyRadio.prototype.ngOnInit = function () {
+    BossyFormRadio.prototype.ngOnInit = function () {
         var _this = this;
         this.config.items.forEach(function (element) {
             _this.items.push(element);
         });
-        if (this.config.isInline != null) {
+        this.componentId = this.config.componentId;
+        if (this.config.isInline !== undefined) {
             this.isInline = this.config.isInline;
         }
-        this.labelId = this.config.labelId;
     };
-    return BossyRadio;
+    return BossyFormRadio;
 }());
 __decorate([
     _angular_core.Input()
-], exports.BossyRadio.prototype, "config");
-exports.BossyRadio = __decorate([
+], exports.BossyFormRadio.prototype, "config");
+exports.BossyFormRadio = __decorate([
     _angular_core.Component({
-        selector: 'bossy-radio',
-        template: "<div *ngFor=\"let element of items; let i = index\" [ngClass]=\"{'form-check': true, ' form-check-inline': isInline}\">\n  <label class=\"form-check-label\" id=\"{{labelId}}{{i}}\">\n    <input class=\"form-check-input\" type=\"radio\" name=\"radio\" id=\"radioElement{{i}}\" value=\"radioOption{{i}}\">  {{element}}\n  </label>\n</div>\n"
+        selector: 'bossy-form-radio',
+        template: "<div *ngFor=\"let element of items; let i = index\" [ngClass]=\"{'form-check': true, ' form-check-inline': isInline}\" id=\"{{this.componentId}}\">\n  <label class=\"form-check-label\" id=\"{{this.componentId}}_label{{i}}\">\n    <input class=\"form-check-input\" type=\"radio\" name=\"radio\" id=\"{{this.componentId}}_input{{i}}\" value=\"radioOption{{i}}\" [disabled]=element.isDisabled>  {{element.value}}\n  </label>\n</div>\n"
     })
-], exports.BossyRadio);
+], exports.BossyFormRadio);
 
 exports.BossyDropdown = (function () {
     function BossyDropdown() {
@@ -397,13 +397,13 @@ var BossyFormSelectMenuConfig = (function () {
     return BossyFormSelectMenuConfig;
 }());
 
-var BossyRadioConfig = (function () {
-    function BossyRadioConfig(items, isInline, labelId) {
-        this.items = items;
-        this.isInline = isInline;
-        this.labelId = labelId;
+// Define object for each radio element
+// Config for radio component
+var BossyFormRadioConfig = (function () {
+    function BossyFormRadioConfig(options) {
+        Object.assign(this, options);
     }
-    return BossyRadioConfig;
+    return BossyFormRadioConfig;
 }());
 
 var BossyDropdownConfig = (function () {
@@ -452,7 +452,7 @@ exports.BossyModule = BossyModule_1 = __decorate([
             exports.BossyFormInput,
             exports.BossyForm,
             exports.BossyFormLabel,
-            exports.BossyRadio,
+            exports.BossyFormRadio,
             exports.BossyDropdown,
             exports.BossyDropdownMenuItem,
             exports.BossyFormInputError,
@@ -463,7 +463,7 @@ exports.BossyModule = BossyModule_1 = __decorate([
             exports.BossyCalendar,
             exports.BossyFormInput,
             exports.BossyForm,
-            exports.BossyRadio,
+            exports.BossyFormRadio,
             exports.BossyDropdown,
             exports.BossyDropdownMenuItem,
             exports.BossyFormSelectMenu,
@@ -478,7 +478,7 @@ exports.BossyFormConfig = BossyFormConfig;
 exports.BossyFormInputConfig = BossyFormInputConfig;
 exports.BossyFormLabelConfig = BossyFormLabelConfig;
 exports.BossyFormSelectMenuConfig = BossyFormSelectMenuConfig;
-exports.BossyRadioConfig = BossyRadioConfig;
+exports.BossyFormRadioConfig = BossyFormRadioConfig;
 exports.BossyDropdownConfig = BossyDropdownConfig;
 exports.BossyDropdownMenuItemConfig = BossyDropdownMenuItemConfig;
 

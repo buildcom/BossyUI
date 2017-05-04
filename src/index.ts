@@ -25,8 +25,8 @@ export {BossyFormSelectMenu}  from './components/form-selectmenu';
 export {BossyFormSelectMenuConfig} from './config/form-selectmenu';
 export {BossyFormInputError}  from './components/form-input-error';
 
-export {BossyRadio} from './components/radio';
-export {BossyRadioConfig} from './config/radio';
+export {BossyFormRadio} from './components/form-radio';
+export {BossyFormRadioConfig} from './config/form-radio';
 export {BossyDropdown} from './components/dropdown';
 export {BossyDropdownConfig} from './config/dropdown';
 
