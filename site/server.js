@@ -21,12 +21,20 @@ app.use('/bootstrap', express.static('site/bootstrap'));
 app.use('/app', express.static('site/app'));
 app.use('/templates', express.static('site/templates'));
 app.use('/css', express.static('site/css'));
+app.use('/fonts', express.static('site/fonts'));
 app.use('/images', express.static('site/images'));
 
 app.get('/', function (req, res) {
 	res.render('index', {
 		components: getComponents(),
 		isDevel: process.env.NODE_ENV != 'production'
+	});
+});
+
+app.get('/contributors', function(req, res){
+	res.render('contributors', {
+		coreTeam: require('./data/core_team'),
+		studentContributors: require('./data/student_contributors')
 	});
 });
 

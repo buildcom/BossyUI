@@ -2,91 +2,103 @@
  * Base structure
  */
 
-/* Move down content because we have a fixed navbar that is *px tall */
-body {
-	padding-top: 100px;
+/* global */
+a, a:visited {
+	color: #75afd3;
 }
 
-.header-nav {
-	border-bottom: 2px solid #a9a9a9;
-	padding: 3px 16px 3px 16px;
-	background-color: #ffffff;
+.core-team-header {
+	background-color: #75afd3;
+	color: white;
 }
 
-.header-nav-link {
-	align-items: center;
+.contributors-title {
+	background-color: #011524;
+	color: white;
 }
 
-.header-nav-logo {
-	/*display: inline-block;*/
-	/*background: url('/images/logo.png') no-repeat;*/
-	/*padding-bottom: 47px;*/
-	/*width: 50px;*/
-	/*height: 48px;*/
+.student-contributors {
+	background-color: #011524;
+	color: white;
+	text-align: center;
+	padding-bottom: 2em;
 }
 
-.header-nav-logo-word {
-	/*display: inline-block;*/
-	/*background: url('/images/logo-word.png') no-repeat;*/
-	/*!*padding-bottom: 48px;*!*/
-	/*margin-left: 10px;*/
-	/*width: 300px;*/
-	height: 40px;
-	align-items: center;
+.student-contributors .student {
+	color: #75afd3;
+}
+
+.student-contributors .high-light {
+	color: #4bc47d;
 }
 
 .navbar-brand {
+    /*display: inline-block;*/
+    /*background: url('/images/logo.png') no-repeat;*/
+    /*padding-bottom: 47px;*/
+    /*width: 50px;*/
+	text-transform: uppercase;
+}
+    /*!*padding-bottom: 48px;*!*/
+    /*margin-left: 10px;*/
+    /*width: 300px;*/
+    height: 40px;
 	padding: 0px 15px;
 }
-
-.sidebar {
-	display: none;
+.col-fixed-200 {
+	width: 200px;
 }
-
-@media (min-width: 768px) {
-	.sidebar {
-		display: block;
-		padding-top: 25px;
-		padding-bottom: 40px;
-		border-right: 1px solid #a9a9a9;
-	}
+.col-offset-200 {
+        display: block;
+        padding-top: 25px;
+        padding-bottom: 40px;
+	padding-left: 215px;
 }
 
 .main {
-	padding-top: 20px;
+    padding-top: 20px;
 }
 
+.left-menu {
+	/*position: absolute;*/
+	/*width: 200px;*/
+	border-right: 1px solid #a9a9a9;
+}
+.main {
+	padding-top: 20px;
+}
 .main h2 {
 	margin-bottom: 15px;
 }
-
 .main h5 {
 	margin-bottom: 15px;
+	text-transform: uppercase;
 }
 
-.editor {
-	/*display: inline-block;*/
-	position: absolute; /* Added */
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 300px;
+/*.component-left {*/
+    /*padding-right: 15px;*/
+/* navigation */
+.navigation {
+	background-color: #111416;
+	padding-top: 3em;
 }
-
-.component-main {
-	margin-bottom: 50px;
+.navigation .icon {
+	font-size: 5em;
+}
+.navigation .bossy-logo {
+	width: 6em;
+}
+.navigation a.external .icon {
+	color: #4bc47d;
+}
+.navigation .tagline {
+	color: #4bc47d;
 }
 
 /*.component-left {*/
 	/*padding-right: 15px;*/
 /*}*/
 
-.component-left h4 {
-	display: inline;
-		font-size: 1.4rem;
-}
 
 .component-left .btn-group {
 	padding-bottom: 10px;
@@ -95,12 +107,45 @@ body {
 .component-right {
 	margin-bottom: 20px;
 }
-
 .component-right h4 {
 	display: inline;
 		font-size: 1.4rem;
 }
+.doc-view {
+	margin: 20px;
+}
 
 .component-col {
 	margin-bottom: 20px;
+}
+
+.dark {
+	background-color: #011524;
+	color: white;
+}
+.highlight {
+	background: #75afd3;
+	color: white;
+}
+
+.profile-picture {
+	border-radius: 60px;
+}
+
+.bio {
+	height: 6em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.core-team {
+	margin-top: 1em;
+}
+
+.student-contributors em {
+	color: #4bc47d;
+}
+
+.student-contributors .student-name {
+	color: #75afd3;
 }

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>BossyUI</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="/css/site.css"/>
+		<link rel="stylesheet" href="/css/ionicons.min.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-2 navigation text-center" >
+					{>"partials/_navigation"/}
+				</div>
+				<div class="col-xs-10">
+					{+content/}
+				</div>
+			<div class="row footer">
+				<div class="col-xs-12">&copy; 2015-2017 By BossyUI</div>
+			</div>
+		</div>
+		<script src="node_modules/es6-shim/es6-shim.min.js"></script>
+		<script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+		<script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+		<script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+		<script src="node_modules/systemjs/dist/system.src.js"></script>
+		<script src="node_modules/rxjs/bundles/Rx.js"></script>
+		<script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
+		{+scripts/}
+		{LRScript|s}
+	</body>
+</html>
