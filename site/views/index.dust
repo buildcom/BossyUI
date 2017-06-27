@@ -17,6 +17,5 @@
 		{#components}
 		var Components = {components|s|js};
 		{/components}
-        // System.import('app').then(null, console.error.bind(console));
     </script>
 {/scripts}
