@@ -25,16 +25,20 @@ app.use('/fonts', express.static('site/fonts'));
 app.use('/images', express.static('site/images'));
 
 app.get('/', function (req, res) {
-	res.render('index', {
-		components: getComponents(),
-		isDevel: process.env.NODE_ENV != 'production'
-	});
+	res.render('index');
 });
 
 app.get('/contributors', function(req, res){
 	res.render('contributors', {
 		coreTeam: require('./data/core_team'),
 		studentContributors: require('./data/student_contributors')
+	});
+});
+
+app.get('/sandbox', function (req, res) {
+	res.render('sandbox', {
+		components: getComponents(),
+		isDevel: process.env.NODE_ENV != 'production'
 	});
 });
 

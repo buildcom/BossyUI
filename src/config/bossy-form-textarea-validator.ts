@@ -122,7 +122,7 @@ export class BossyFormTextareaValidatorConfig {
 		schemes?: any,
 		allowLocal?: boolean
 	};
-	
+
 	constructor(options: BossyFormTextareaValidatorInterface) {
 		Object.assign(this, options);
 	}

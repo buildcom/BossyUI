@@ -11,5 +11,6 @@
     "declaration": false,
     "noLib": false,
     "moduleResolution": "node"
-  }
+  },
+  "exclude": ["lib"]
 }

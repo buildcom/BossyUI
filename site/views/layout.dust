@@ -17,17 +17,17 @@
 				<div class="col-xs-10">
 					{+content/}
 				</div>
+			</div>
 			<div class="row footer">
 				<div class="col-xs-12">&copy; 2015-2017 By BossyUI</div>
 			</div>
 		</div>
-		<script src="node_modules/es6-shim/es6-shim.min.js"></script>
-		<script src="node_modules/systemjs/dist/system-polyfills.js"></script>
-		<script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
-		<script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+		<script src="node_modules/ace-builds/src/ace.js" type="text/javascript" charset="utf-8"></script>
+		<script src="node_modules/core-js/client/shim.min.js"></script>
+		<script src="node_modules/zone.js/dist/zone.js"></script>
+		<script src="node_modules/reflect-metadata/Reflect.js"></script>
 		<script src="node_modules/systemjs/dist/system.src.js"></script>
-		<script src="node_modules/rxjs/bundles/Rx.js"></script>
-		<script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+		<script src="app/systemjs.config.js"></script>
 
 		{+scripts/}
 		{LRScript|s}

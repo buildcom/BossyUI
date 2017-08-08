@@ -18,7 +18,7 @@ import {BossyFormSelectMenuConfig} from '../../dist/config/form-selectmenu';
 import {BossyFormTextarea} from '../../dist/components/bossy-form-textarea';
 import {BossyFormTextareaConfig} from '../../dist/config/bossy-form-textarea';
 
-//declare const Components: Array<BossyFormInputConfig>;
+// declare const Components: Array<BossyFormInputConfig>;
 declare const module: any;
 
 @Component({
@@ -28,7 +28,7 @@ declare const module: any;
 	providers: [ConfigService]
 })
 export class AppComponent {
-	//components: Array<any> = Components;
+	// components: Array<any> = Components;
 	bossyCalendar = BossyCalendar;
 	bossyForm = BossyForm;
 	bossyFormRadio = BossyFormRadio;
@@ -36,7 +36,7 @@ export class AppComponent {
 	bossyDropdownMenuItem = BossyDropdownMenuItem;
 	bossyFormInput = BossyFormInput;
 	bossyFormSelectMenu = BossyFormSelectMenu;
-  	bossyFormTextarea = BossyFormTextarea;
+	bossyFormTextarea = BossyFormTextarea;
 
 	constructor(private configService: ConfigService) {
 	}
@@ -69,13 +69,14 @@ export class AppComponent {
 			formInput5 = {
 				name: 'selectmenu',
 				type: 'selectmenu',
-				selectmenu: new BossyFormSelectMenuConfig({title: 'Vegetables',
+				selectmenu: new BossyFormSelectMenuConfig({
+					title: 'Vegetables',
 					items:
-					[
-						{value : 'carrot'},
-						{value : 'celery', isDisabled : true},
-						{value : 'potato'}
-					]
+						[
+							{value: 'carrot'},
+							{value: 'celery', isDisabled: true},
+							{value: 'potato'}
+						]
 				})
 			},
 			formInput6 = {
@@ -91,7 +92,7 @@ export class AppComponent {
 					]
 				})
 			},
-     	textareaInput1 = {
+			textareaInput1 = {
 				name: 'textareaInput',
 				type: 'textarea',
 				label: 'Comments',
@@ -111,13 +112,14 @@ export class AppComponent {
 
 		// Radio component independent of form
 		const bossyFormRadioConfig = new BossyFormRadioConfig({
-			componentId: 'Pick Star Wars',
-			items: [
-				{value: 'The Neon Demon', isDisabled: true},
-				{value: 'Star Wars Episode VI: Return of the Jedi', isDisabled: false},
-				{value: 'Silence of the Lambs', isDisabled: true},
-				{value: 'Twilight', isDisabled: true}
-			]}
+				componentId: 'Pick Star Wars',
+				items: [
+					{value: 'The Neon Demon', isDisabled: true},
+					{value: 'Star Wars Episode VI: Return of the Jedi', isDisabled: false},
+					{value: 'Silence of the Lambs', isDisabled: true},
+					{value: 'Twilight', isDisabled: true}
+				]
+			}
 		);
 		const formInputConfig = new BossyFormInputConfig(formInput4);
 		const dropdownConfig = new BossyDropdownConfig('Dropdown Menu', 'button',
@@ -128,15 +130,17 @@ export class AppComponent {
 			],
 			false, 'large', undefined, false, 'primary');
 
-		const selectMenuConfig = new BossyFormSelectMenuConfig( {title: 'State',
-			items:
-			[
-				{value : 'California'},
-				{value : 'Nevada', isDisabled : true},
-				{value : 'Oregon'}
-			]}
+		const selectMenuConfig = new BossyFormSelectMenuConfig({
+				title: 'State',
+				items:
+					[
+						{value: 'California'},
+						{value: 'Nevada', isDisabled: true},
+						{value: 'Oregon'}
+					]
+			}
 		);
-   		const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
+		const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
 
 		this.configService.setConfig('calendarConfig', calendarConfig);
 		this.configService.setConfig('formConfig', formConfig);

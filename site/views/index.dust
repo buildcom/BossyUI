@@ -12,10 +12,3 @@
 		</div>
 	</div>
 {/content}
-{<scripts}
-    <script>
-		{#components}
-		var Components = {components|s|js};
-		{/components}
-    </script>
-{/scripts}

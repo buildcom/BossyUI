@@ -1,7 +1,7 @@
-import {NgModule}      from '@angular/core';
+import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {ReactiveFormsModule} from '@angular/forms';
-import {BossyCalendar}  from './components/calendar';
+import {BossyCalendar} from './components/calendar';
 import {BossyFormInput} from './components/form-input';
 import {BossyForm} from './components/form';
 import {BossyFormLabel} from './components/form-label';
@@ -17,13 +17,13 @@ export {BossyCalendarConfig} from './config/calendar';
 
 export {BossyForm} from './components/form';
 export {BossyFormConfig} from './config/form';
-export {BossyFormInput}  from './components/form-input';
+export {BossyFormInput} from './components/form-input';
 export {BossyFormInputConfig} from './config/form-input';
-export {BossyFormLabel}  from './components/form-label';
+export {BossyFormLabel} from './components/form-label';
 export {BossyFormLabelConfig} from './config/form-label';
-export {BossyFormSelectMenu}  from './components/form-selectmenu';
+export {BossyFormSelectMenu} from './components/form-selectmenu';
 export {BossyFormSelectMenuConfig} from './config/form-selectmenu';
-export {BossyFormInputError}  from './components/form-input-error';
+export {BossyFormInputError} from './components/form-input-error';
 
 export {BossyFormRadio} from './components/form-radio';
 export {BossyFormRadioConfig} from './config/form-radio';
@@ -48,7 +48,7 @@ export {BossyDropdownMenuItemConfig} from './config/dropdown-menu';
 		BossyDropdownMenuItem,
 		BossyFormInputError,
 		BossyFormSelectMenu,
-    		BossyFormTextarea
+		BossyFormTextarea
 	],
 	exports: [
 		BossyCalendar,
@@ -58,7 +58,7 @@ export {BossyDropdownMenuItemConfig} from './config/dropdown-menu';
 		BossyDropdown,
 		BossyDropdownMenuItem,
 		BossyFormSelectMenu,
-    		BossyFormTextarea
+		BossyFormTextarea
 	]
 })
 export class BossyModule {
