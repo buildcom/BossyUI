@@ -58,7 +58,7 @@
     "tslint": "tslint",
     "lint": "tslint --config tslint.json --format stylish ./site/app/*.ts ./src/**/*.ts ./src/*.ts ./test/*.ts ./test/**/*.ts",
     "********************** TEST **********************": "",
-    "test": "npm run compile && karma start",
+    "test": "npm run compile && gulp copy-templates && gulp copy-styles && karma start",
     "********************** ROLLUP **********************": "",
     "rollup": "rollup -c rollup.config.js",
     "rollup:min": "rollup -c rollup-min.config.js",
@@ -117,7 +117,7 @@
     "zone.js": "^0.8.4"
   },
   "engines": {
-    "node": ">=6.2.x",
-    "npm": ">=3.8.x"
+    "node": ">=6.x.x",
+    "npm": ">=3.x.x"
   }
 }
