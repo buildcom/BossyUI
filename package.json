@@ -115,5 +115,9 @@
     "tslint": "^4.4.2",
     "typescript": "^2.0.3",
     "zone.js": "^0.8.4"
+  },
+  "engines": {
+    "node": ">=6.2.x",
+    "npm": ">=3.8.x"
   }
 }
