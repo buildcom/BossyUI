@@ -117,7 +117,7 @@
     "zone.js": "^0.8.4"
   },
   "engines": {
-    "node": ">=6.x.x",
-    "npm": ">=3.x.x"
+    "node": "=6.x.x",
+    "npm": "=5.x.x"
   }
 }
