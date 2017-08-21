@@ -20,4 +20,6 @@ Interested in contributing? Checkout our [contributing guide](/CONTRIBUTING.md).
 
 ## Demo Page
 
+test
+
 [Examples](http://www.bossyui.io) of bossy directives
