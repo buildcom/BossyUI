@@ -29,6 +29,7 @@
     "gulp": "gulp",
     "jsdoc": "jsdoc ./dist/**.js -c jsdoc.json",
     "start": "node site/server.js",
+    "heroku-postbuild": "npm run clear:dist && npm run compile:src && npm run compile:site && gulp copy-templates && gulp copy-styles",
     "watch:src": "tsc -w -p tsconfig-sandbox.json",
     "watch:site": "tsc -w -p ./site/tsconfig.json",
     "watch:test": "tsc -w -p ./test/tsconfig.json",
