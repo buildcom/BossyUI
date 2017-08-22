@@ -38,7 +38,6 @@ a, a:visited {
     /*padding-bottom: 47px;*/
     /*width: 50px;*/
 	text-transform: uppercase;
-}
     /*!*padding-bottom: 48px;*!*/
     /*margin-left: 10px;*/
     /*width: 300px;*/
@@ -148,4 +147,8 @@ a, a:visited {
 
 .student-contributors .student-name {
 	color: #75afd3;
+}
+
+.editor {
+	height: 150px;
 }
