@@ -1,5 +1,7 @@
 [![Code Climate](https://codeclimate.com/github/buildcom/BossyUI/badges/gpa.svg)](https://codeclimate.com/github/buildcom/BossyUI)[ ![Codeship Status for buildcom/BossyUI](https://codeship.com/projects/3ee700d0-0bb0-0132-82a9-6695a14f90f5/status?branch=master)](https://codeship.com/projects/32049)
 =======
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/buildcom/BossyUI.svg)](https://greenkeeper.io/)
 <p align="center">
 <img title="Bossy UI" alt="bossyui" src='bossy_logo.png?raw=true' />
 </p>
