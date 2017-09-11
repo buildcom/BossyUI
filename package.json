@@ -80,7 +80,7 @@
     "@angular/router": "^4.1.0",
     "@types/core-js": "0.9.35",
     "@types/jasmine": "^2.5.41",
-    "@types/node": "7.0.5",
+    "@types/node": "8.0.27",
     "@types/validate.js": "0.0.2",
     "ace-builds": "^1.2.6",
     "bootstrap": "^4.0.0-alpha.6",
