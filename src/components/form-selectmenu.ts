@@ -11,4 +11,5 @@ declare const module: any;
 
 export class BossyFormSelectMenu {
 	@Input() config: BossyFormSelectMenuConfig;
+	constructor() {}
 }
