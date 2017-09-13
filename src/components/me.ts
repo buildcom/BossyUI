@@ -14,7 +14,7 @@ export class Me {
 	constructor() {
 
 	}
-	click() {
+	onNameClick() {
 		this.showHobbies = !this.showHobbies;
 	}
 }
