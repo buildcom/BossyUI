@@ -1,1 +1,0 @@
-FAQ under construction
