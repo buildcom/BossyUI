@@ -1,9 +1,9 @@
-import {BossySlider} from './slider';
+import {BossySliderComponent} from './slider';
 
-let slider: BossySlider;
+let slider: BossySliderComponent;
 describe('the slider component', () => {
   beforeEach(() => {
-    slider = new BossySlider();
+    slider = new BossySliderComponent();
     slider.ngOnInit();
   });
   it('should increase it\'s value when the increase function is called', () => {

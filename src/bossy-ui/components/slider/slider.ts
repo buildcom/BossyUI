@@ -16,12 +16,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BossySliderConfig} from '../../config/slider';
 
-
-declare const module: any;
-
 @Component({
   selector: 'bossy-slider',
-  moduleId: module.id,
   templateUrl: './slider.html'
 })
 

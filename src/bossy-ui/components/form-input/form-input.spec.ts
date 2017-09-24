@@ -1,6 +1,6 @@
-import {BossyFormInput} from './form-input';
+import {BossyFormInputComponent} from './form-input';
 
-const formInput = new BossyFormInput();
+const formInput = new BossyFormInputComponent();
 
 describe('the form input component', () => {
   it('should set default hasSuccess to false', () => {

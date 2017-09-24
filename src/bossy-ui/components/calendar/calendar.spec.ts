@@ -1,10 +1,10 @@
-import {BossyCalendar} from './calendar';
+import {BossyCalendarComponent} from './calendar';
 
-let cal: BossyCalendar;
+let cal: BossyCalendarComponent;
 
 describe('the calendar component', () => {
   it('should display a date', () => {
-    const calendar = new BossyCalendar();
+    const calendar = new BossyCalendarComponent();
     const year = new Date().getFullYear();
     const date = new Date(year, 5, 1);
     calendar.selectMonth(5);
@@ -14,7 +14,7 @@ describe('the calendar component', () => {
 
 describe('BossyCalendars month', () => {
   beforeEach(() => {
-    cal = new BossyCalendar();
+    cal = new BossyCalendarComponent();
     cal.ngOnInit();
   });
   it('should display january after december (nextMonth())', () => {

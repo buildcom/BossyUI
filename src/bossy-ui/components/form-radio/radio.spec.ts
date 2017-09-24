@@ -3,12 +3,12 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
 
-import {BossyFormRadio} from './form-radio';
+import {BossyFormRadioComponent} from './form-radio';
 import {BossyFormRadioConfig} from '../../config/form-radio';
 import {RadioElement} from '../../config/form-radio';
 
-let rad: BossyFormRadio;
-let fixture: ComponentFixture<BossyFormRadio>;
+let rad: BossyFormRadioComponent;
+let fixture: ComponentFixture<BossyFormRadioComponent>;
 let de: DebugElement;
 let el: HTMLElement;
 let superConfig: BossyFormRadioConfig;
@@ -17,12 +17,12 @@ describe('Unit tests for Radio component: ', () => {
   describe('Testbed to check textContent of <label>s', () => {
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        declarations: [BossyFormRadio],
+        declarations: [BossyFormRadioComponent],
       })
         .compileComponents(); // compile template and css
     }));
     beforeEach(() => {
-      fixture = TestBed.createComponent(BossyFormRadio);
+      fixture = TestBed.createComponent(BossyFormRadioComponent);
       rad = fixture.componentInstance;
       superConfig = new BossyFormRadioConfig({
         componentId: 'testTitle',
@@ -62,12 +62,12 @@ describe('Unit tests for Radio component: ', () => {
   describe('Proper classes are assigned to HTML elements', () => {
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        declarations: [BossyFormRadio],
+        declarations: [BossyFormRadioComponent],
       })
         .compileComponents();
     }));
     beforeEach(() => {
-      fixture = TestBed.createComponent(BossyFormRadio);
+      fixture = TestBed.createComponent(BossyFormRadioComponent);
       rad = fixture.componentInstance;
     });
 
@@ -122,7 +122,7 @@ describe('Unit tests for Radio component: ', () => {
 
   describe('Inline tests for the radio component', () => {
     beforeEach(() => {
-      rad = new BossyFormRadio();
+      rad = new BossyFormRadioComponent();
     });
 
     it('should not be inlined by default', () => {
@@ -193,12 +193,12 @@ describe('Unit tests for Radio component: ', () => {
   describe('Tests for disabled element functionality of radio component', () => {
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        declarations: [BossyFormRadio],
+        declarations: [BossyFormRadioComponent],
       })
         .compileComponents(); // compile template and css
     }));
     beforeEach(() => {
-      fixture = TestBed.createComponent(BossyFormRadio);
+      fixture = TestBed.createComponent(BossyFormRadioComponent);
       rad = fixture.componentInstance;
     });
 
@@ -218,16 +218,17 @@ describe('Unit tests for Radio component: ', () => {
         fixture.detectChanges();
       });
       it('first item of 3', () => {
-        de = fixture.debugElement.query(By.css('#testTitle_label0'));
-        expect(de.nativeElement.getAttribute('disabled')).toBeDefined();
+        de = fixture.debugElement.query(By.css('#testTitle_input0'));
+        console.log(de.nativeElement);
+        expect(de.nativeElement.getAttribute('disabled')).toEqual('');
       });
       it('second item of 3', () => {
-        de = fixture.debugElement.query(By.css('#testTitle_label1'));
-        expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined();
+        de = fixture.debugElement.query(By.css('#testTitle_input1'));
+        expect(de.nativeElement.getAttribute('disabled')).toBeNull();
       });
       it('third item of 3', () => {
-        de = fixture.debugElement.query(By.css('#testTitle_label2'));
-        expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined();
+        de = fixture.debugElement.query(By.css('#testTitle_input2'));
+        expect(de.nativeElement.getAttribute('disabled')).toBeNull();
       });
     });
 
@@ -247,16 +248,16 @@ describe('Unit tests for Radio component: ', () => {
         fixture.detectChanges();
       });
       it('first item of 3', () => {// id = movies
-        de = fixture.debugElement.query(By.css('#testTitle_label0'));
-        expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined();
+        de = fixture.debugElement.query(By.css('#testTitle_input0'));
+        expect(de.nativeElement.getAttribute('disabled')).toBeNull();
       });
       it('second item of 3', () => {
-        de = fixture.debugElement.query(By.css('#testTitle_label1'));
-        expect(de.nativeElement.getAttribute('disabled')).toBeDefined();
+        de = fixture.debugElement.query(By.css('#testTitle_input1'));
+        expect(de.nativeElement.getAttribute('disabled')).toEqual('');
       });
       it('third item of 3', () => {
-        de = fixture.debugElement.query(By.css('#testTitle_label2'));
-        expect(de.nativeElement.getAttribute('disabled')).toBeDefined();
+        de = fixture.debugElement.query(By.css('#testTitle_input2'));
+        expect(de.nativeElement.getAttribute('disabled')).toEqual('');
       });
     });
 
@@ -276,16 +277,16 @@ describe('Unit tests for Radio component: ', () => {
         fixture.detectChanges();
       });
       it('first item of 3', () => {
-        de = fixture.debugElement.query(By.css('#testTitle_label0'));
-        expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined();
+        de = fixture.debugElement.query(By.css('#testTitle_input0'));
+        expect(de.nativeElement.getAttribute('disabled')).toBeNull();
       });
       it('second item of 3', () => {
-        de = fixture.debugElement.query(By.css('#testTitle_label1'));
-        expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined();
+        de = fixture.debugElement.query(By.css('#testTitle_input1'));
+        expect(de.nativeElement.getAttribute('disabled')).toBeNull();
       });
       it('third item of 3', () => {
-        de = fixture.debugElement.query(By.css('#testTitle_label2'));
-        expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined();
+        de = fixture.debugElement.query(By.css('#testTitle_input2'));
+        expect(de.nativeElement.getAttribute('disabled')).toBeNull();
       });
     });
 
@@ -305,16 +306,16 @@ describe('Unit tests for Radio component: ', () => {
         fixture.detectChanges();
       });
       it('first item of 3', () => {
-        de = fixture.debugElement.query(By.css('#testTitle_label0'));
-        expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined();
+        de = fixture.debugElement.query(By.css('#testTitle_input0'));
+        expect(de.nativeElement.getAttribute('disabled')).toBeNull();
       });
       it('second item of 3', () => {
-        de = fixture.debugElement.query(By.css('#testTitle_label1'));
-        expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined();
+        de = fixture.debugElement.query(By.css('#testTitle_input1'));
+        expect(de.nativeElement.getAttribute('disabled')).toBeNull();
       });
       it('third item of 3', () => {
-        de = fixture.debugElement.query(By.css('#testTitle_label2'));
-        expect(de.nativeElement.getAttribute('disabled')).not.toBeDefined();
+        de = fixture.debugElement.query(By.css('#testTitle_input2'));
+        expect(de.nativeElement.getAttribute('disabled')).toBeNull();
       });
     });
   });

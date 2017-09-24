@@ -2,10 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {BossyFormInputConfig} from '../../config/form-input';
 
-declare const module: any;
-
 @Component({
-  moduleId: module.id,
   selector: 'bossy-form-input',
   templateUrl: './form-input.html',
   styleUrls: ['./form-input.css'],

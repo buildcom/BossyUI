@@ -2,11 +2,7 @@ import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {BossyFormConfig} from '../../config/form';
 
-
-declare const module: any;
-
 @Component({
-  moduleId: module.id,
   selector: 'bossy-form',
   templateUrl: './form.html',
   styleUrls: ['./form.css'],

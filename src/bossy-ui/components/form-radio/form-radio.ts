@@ -3,10 +3,7 @@ import {BossyFormRadioConfig} from '../../config/form-radio';
 import {RadioElement} from '../../config/form-radio';
 import {BossyFormConfig} from '../../config/form';
 
-declare const module: any;
-
 @Component({
-  moduleId: module.id,
   selector: 'bossy-form-radio',
   templateUrl: './form-radio.html'
 })

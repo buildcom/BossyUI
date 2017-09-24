@@ -1,10 +1,7 @@
 import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import {BossyDropdownConfig} from '../../config/dropdown';
 
-declare const module: any;
-
 @Component({
-  moduleId: module.id,
   selector: 'bossy-dropdown',
   templateUrl: './dropdown.html',
 })

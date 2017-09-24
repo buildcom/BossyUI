@@ -1,11 +1,9 @@
 import {AfterViewInit, Component, Input, OnChanges, OnInit} from '@angular/core';
 import {ConfigService} from '../config.service';
 
-declare const module: any;
 declare const ace: any;
 
 @Component({
-  moduleId: module.id,
   selector: 'app-config',
   templateUrl: './config.component.html',
   styles: [`

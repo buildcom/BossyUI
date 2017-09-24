@@ -1,10 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BossyCalendarConfig} from '../../config/calendar';
 
-declare const module: any;
-
 @Component({
-  moduleId: module.id,
   selector: 'bossy-calendar',
   templateUrl: './calendar.html',
   styleUrls: ['./calendar.css']
