@@ -1,0 +1,39 @@
+<div class="row dark">
+  <div class="col-xs-12">
+    <h1>Who We Are</h1>
+    <h2>Developers-Designers-Marketers</h2>
+  </div>
+</div>
+<div class="row highlight">
+  <div class="col-md-6">
+    <img src="http://lorempixel.com/600/200/people" alt="The Core Team" class="img-responsive">
+  </div>
+  <div class="col-md-6">
+    <h2>Meet Our Core Team</h2>
+    <p>We're a group of individuals committed to helping new generations of developers</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="row core-team">
+      <div *ngFor="let member of teamMembers" class="col-md-4 profile">
+        <img width="120" height="120" [src]="member.profilePicture" alt="{{member.name}}" class="profile-picture img-responsive center-block">
+        <h3>{{member.name}}</h3>
+        <p class="bio">{{member.bio}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="row dark student-contributors">
+      <div class="col-xs-12">
+        <h2>A BIG Thanks to Our <em>Student Contributors</em></h2>
+        <h3>The Ones Who Write the Code</h3>
+      </div>
+      <div *ngFor="let contributor of studentContributors" class="col-xs-4">
+        <span class="student-name">{{contributor.name}}</span>
+      </div>
+    </div>
+  </div>
+</div>

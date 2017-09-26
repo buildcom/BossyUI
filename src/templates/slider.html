@@ -1,5 +1,0 @@
-<div onselectstart="return false;" ondragstart="return false;" (mouseleave)="up()"(mousemove)="drag($event)">
-	<div (mousemove)="drag($event)" (mouseup)="up()" (click)="barClick()"style="cursor:pointer;display:inline-block;width:{{barPiece * fillWidth}}px;height:5px;background-color:darkgrey;margin-bottom:4px"></div>
-	<div (mousemove)="drag($event)" (mousedown)="down()" (mouseup)="up()" orientation="horizontal" style="cursor:ew-resize;display:inline-block;width:{{butSize}}px;height:{{butSize}}px;background-color:black;border-radius:50%;"></div>
-	<div (mousemove)="drag($event)" (mouseup)="up()" (click)="greyClick()"style="cursor:pointer;display:inline-block;width:{{barPiece * emptWidth}}px;height:5px;background-color:lightgrey;margin-bottom:4px"></div>
-</div>

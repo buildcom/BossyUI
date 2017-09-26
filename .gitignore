@@ -1,28 +1,43 @@
-# Project
-node_modules
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Editor
-.idea/
+# compiled output
+/dist
+/tmp
+/out-tsc
 
-# Distribution
-src/**/*.js
-src/**/*.js.map
-src/**/*.d.ts
-src/**/*.metadata.json
+# dependencies
+/node_modules
 
-site/**/*.js
-site/**/*.js.map
-site/**/*.d.ts
-site/**/*.metadata.json
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
-!site/app/systemjs.config.js
-!site/server.js
-!karma.conf.js
-!karma-test-shim.js
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
-# Vim swap files
-.swp
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+testem.log
+/typings
+yarn-error.log
 
-/dist/
+# e2e
+/e2e/*.js
+/e2e/*.map
 
-npm-debug.log.*
+# System Files
+.DS_Store
+Thumbs.db
