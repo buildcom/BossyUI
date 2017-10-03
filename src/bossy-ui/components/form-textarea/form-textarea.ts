@@ -9,9 +9,7 @@ import {BossyFormTextareaConfig} from '../../config/bossy-form-textarea';
 })
 export class BossyFormTextareaComponent implements OnInit {
   @Input() config: BossyFormTextareaConfig;
-  hasSuccess = false;
-  hasWarning = false;
-  hasDanger = false;
+  hasValidation = {hasSuccess: false, hasDanger: false, hasWarning: false};
 
   constructor() {
   }
