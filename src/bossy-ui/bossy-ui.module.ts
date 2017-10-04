@@ -13,6 +13,7 @@ import {BossyFormSelectMenuComponent} from './components/form-selectmenu/form-se
 import {BossyFormTextareaComponent} from './components/form-textarea/form-textarea';
 import {BossySliderComponent} from './components/slider/slider';
 import {BossyMaskDirective} from './directives/bossy-mask.directive';
+import {BossyFormElementComponent} from './components/form-element/form-element'
 
 export {BossyCalendarComponent} from './components/calendar/calendar';
 export {BossyCalendarConfig} from './config/calendar';
@@ -35,6 +36,8 @@ export {BossyDropdownConfig} from './config/dropdown';
 export {BossyDropdownMenuItemComponent} from './components/dropdown-menu/dropdown-menu';
 export {BossyDropdownMenuItemConfig} from './config/dropdown-menu';
 
+export {BossyFormElementComponent} from './components/form-element/form-element'
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ export {BossyDropdownMenuItemConfig} from './config/dropdown-menu';
     BossyFormSelectMenuComponent,
     BossyFormTextareaComponent,
     BossySliderComponent,
-    BossyMaskDirective
+    BossyMaskDirective,
+    BossyFormElementComponent,
   ],
   exports: [
     BossyCalendarComponent,
@@ -62,7 +66,8 @@ export {BossyDropdownMenuItemConfig} from './config/dropdown-menu';
     BossyDropdownComponent,
     BossyDropdownMenuItemComponent,
     BossyFormSelectMenuComponent,
-    BossyFormTextareaComponent
+    BossyFormTextareaComponent,
+    BossyFormElementComponent,
   ]
 })
 export class BossyModule {
