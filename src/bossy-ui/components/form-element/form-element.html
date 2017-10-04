@@ -10,7 +10,7 @@
 </select>
 <div [ngSwitch]="this.type" class="bossy-element-switch">
 	<div *ngSwitchCase="'calendar'">
-    <bossy-calendar></bossy-calendar>
+    <bossy-calendar [config]="'BossyCalendarConfig'"></bossy-calendar>
 	</div>
 	<div *ngSwitchCase="'dropdown'">
 		<bossy-dropdown [config]="'BossyDropdownConfig'"></bossy-dropdown>
