@@ -6,7 +6,7 @@
 	<option value="radio">Radio</option>
 	<option value="selectmenu">Selectmenu</option>
 	<option value="textarea">Textarea</option>
-	<option value="slider">Slider</option>
+	<!-- <option value="slider">Slider</option> -->
 </select>
 <div [ngSwitch]="this.type" class="bossy-element-switch">
 	<div *ngSwitchCase="'calendar'">
@@ -22,10 +22,10 @@
     <bossy-form-radio [config]="'BossyFormRadioConfig'"></bossy-form-radio>
 	</div>
 	<div *ngSwitchCase="'selectmenu'">
-		<bossy-form-selectmenu [config]="BossyFormSelectMenuConfig"></bossy-form-selectmenu>
+		<bossy-form-selectmenu [config]="'BossyFormSelectMenuConfig'"></bossy-form-selectmenu>
 	</div>
 	<div *ngSwitchCase="'textarea'">
-		<bossy-form-selectmenu [config]="BossyFormTextareaConfig"></bossy-form-selectmenu>
+		<bossy-form-textarea [config]="'BossyFormTextareaConfig'"></bossy-form-textarea>
 	</div>
   <!-- <div *ngSwitchCase="'slider'">
     <bossy-slider></bossy-slider>
