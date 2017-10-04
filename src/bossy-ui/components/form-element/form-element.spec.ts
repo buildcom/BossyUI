@@ -1,6 +1,6 @@
 import {BossyFormElementComponent} from './form-element';
 
-const formInput = new BossyFormElementConfig();
+const formInput = new BossyFormElementComponent();
 
 describe('the form input component', () => {
   it('should set default hasSuccess to false', () => {
