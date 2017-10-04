@@ -1,14 +1,14 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {BossyFormInputConfig} from '../../config/form-input';
+import {BossyFormElementConfig} from '../../config/form-element';
 
 @Component({
-  selector: 'bossy-form-input',
-  templateUrl: './form-input.html',
-  styleUrls: ['./form-input.css'],
+  selector: 'bossy-form-element',
+  templateUrl: './form-element.html',
+  styleUrls: ['./form-element.css'],
 })
-export class BossyFormInputComponent implements OnInit {
-  @Input() config: BossyFormInputConfig;
+export class BossyFormElementComponent implements OnInit {
+  @Input() config: BossyFormElementConfig;
   hasSuccess = false;
   hasWarning = false;
   hasDanger = false;
