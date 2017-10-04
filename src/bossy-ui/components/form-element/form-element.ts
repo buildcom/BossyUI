@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {BossyFormElementEnum} from './form-element.enum'
 
 @Component({
   selector: 'bossy-form-element',
