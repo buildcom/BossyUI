@@ -1,5 +1,0 @@
-<div *ngFor="let element of items; let i = index" [ngClass]="{'form-check': true, ' form-check-inline': isInline}" id="{{this.componentId}}">
-  <label class="form-check-label" id="{{this.componentId}}_label{{i}}">
-    <input class="form-check-input" type="radio" name="radio" id="{{this.componentId}}_input{{i}}" value="radioOption{{i}}" [disabled]=element.isDisabled>  {{element.value}}
-  </label>
-</div>

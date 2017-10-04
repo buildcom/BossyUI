@@ -1,0 +1,155 @@
+/* You can add global styles to this file, and also import other style files */
+/*
+ * Base structure
+ */
+
+/* global */
+a, a:visited {
+  color: #75afd3;
+}
+
+.core-team-header {
+  background-color: #75afd3;
+  color: white;
+}
+
+.contributors-title {
+  background-color: #011524;
+  color: white;
+}
+
+.student-contributors {
+  background-color: #011524;
+  color: white;
+  text-align: center;
+  padding-bottom: 2em;
+}
+
+.student-contributors .student {
+  color: #75afd3;
+}
+
+.student-contributors .high-light {
+  color: #4bc47d;
+}
+
+.navbar-brand {
+  /*display: inline-block;*/
+  /*background: url('/images/logo.png') no-repeat;*/
+  /*padding-bottom: 47px;*/
+  /*width: 50px;*/
+  text-transform: uppercase;
+  /*!*padding-bottom: 48px;*!*/
+  /*margin-left: 10px;*/
+  /*width: 300px;*/
+  height: 40px;
+  padding: 0px 15px;
+}
+.col-fixed-200 {
+  width: 200px;
+}
+.col-offset-200 {
+  display: block;
+  padding-top: 25px;
+  padding-bottom: 40px;
+  padding-left: 215px;
+}
+
+.main {
+  padding-top: 20px;
+}
+
+.left-menu {
+  /*position: absolute;*/
+  /*width: 200px;*/
+  border-right: 1px solid #a9a9a9;
+}
+.main {
+  padding-top: 20px;
+}
+.main h2 {
+  margin-bottom: 15px;
+}
+.main h5 {
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+/*.component-left {*/
+/*padding-right: 15px;*/
+/* navigation */
+.navigation {
+  background-color: #111416;
+  padding-top: 3em;
+}
+.navigation .icon {
+  font-size: 5em;
+}
+.navigation .bossy-logo {
+  width: 6em;
+}
+.navigation a.external .icon {
+  color: #4bc47d;
+}
+.navigation .tagline {
+  color: #4bc47d;
+}
+
+/*.component-left {*/
+/*padding-right: 15px;*/
+/*}*/
+
+
+.component-left .btn-group {
+  padding-bottom: 10px;
+}
+
+.component-right {
+  margin-bottom: 20px;
+}
+.component-right h4 {
+  display: inline;
+  font-size: 1.4rem;
+}
+.doc-view {
+  margin: 20px;
+}
+
+.component-col {
+  margin-bottom: 20px;
+}
+
+.dark {
+  background-color: #011524;
+  color: white;
+}
+.highlight {
+  background: #75afd3;
+  color: white;
+}
+
+.profile-picture {
+  border-radius: 60px;
+}
+
+.bio {
+  height: 6em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.core-team {
+  margin-top: 1em;
+}
+
+.student-contributors em {
+  color: #4bc47d;
+}
+
+.student-contributors .student-name {
+  color: #75afd3;
+}
+
+.editor {
+  height: 150px;
+}
