@@ -11,7 +11,7 @@ import {BossyFormComponent} from '../../bossy-ui/components/form/form';
 import {BossyFormRadioComponent} from '../../bossy-ui/components/form-radio/form-radio';
 import {BossyDropdownComponent} from '../../bossy-ui/components/dropdown/dropdown';
 import {BossyDropdownMenuItemComponent} from '../../bossy-ui/components/dropdown-menu/dropdown-menu';
-import {BossyFormInputComponent} from '../../bossy-ui/components/form-input/form-input';
+import {BossyFormElementComponent} from '../../bossy-ui/components/form-element/form-element';
 import {BossyFormSelectMenuComponent} from '../../bossy-ui/components/form-selectmenu/form-selectmenu';
 import {BossyFormTextareaComponent} from '../../bossy-ui/components/form-textarea/form-textarea';
 
@@ -20,7 +20,7 @@ import {BossyFormTextareaComponent} from '../../bossy-ui/components/form-textare
   // Reference to the components must be here in order to dynamically create them
   entryComponents: [BossyCalendarComponent,
     BossyFormComponent,
-    BossyFormInputComponent,
+    BossyFormElementComponent,
     BossyFormRadioComponent,
     BossyDropdownComponent,
     BossyDropdownMenuItemComponent,
@@ -39,7 +39,6 @@ export class DynamicComponent {
     if (!data) {
       return;
     }
-
     const injector = ReflectiveInjector.fromResolvedProviders([], this.dynamicComponentContainer.parentInjector);
     const factory = this.resolver.resolveComponentFactory(data.component);
     const component = factory.create(injector);
