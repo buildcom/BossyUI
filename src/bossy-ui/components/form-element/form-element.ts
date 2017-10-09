@@ -5,22 +5,20 @@ import {Component, OnInit} from '@angular/core';
   templateUrl: './form-element.html',
   styleUrls: ['./form-element.css']
 })
-export class BossyFormElementComponent {
+export class BossyFormElementComponent implements OnInit {
   // TODO: Make BossyFormElementConfig
   // https://github.com/buildcom/BossyUI/issues/528
   // @Input() config: BossyFormElementConfig;
 
-  type:string = 'element';
+  type = 'element';
 
   constructor() {
   }
 
   ngOnInit() {
-
   }
 
   changeType(value) {
-    // console.log(value);
     this.type = value;
   }
 }
