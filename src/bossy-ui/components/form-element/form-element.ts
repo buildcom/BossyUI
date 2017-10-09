@@ -10,7 +10,7 @@ export class BossyFormElementComponent {
   // https://github.com/buildcom/BossyUI/issues/528
   // @Input() config: BossyFormElementConfig;
 
-  type = "element";
+  type:string = 'element';
 
   constructor() {
   }
