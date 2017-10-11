@@ -4,7 +4,8 @@ import {BossyFormPreset} from './mock-form';
 
 @Injectable()
 export class FormService{
+    /*
     getFormConfig(): BossyFormConfig{
         return BossyFormPreset;
-    } //stub
+    } //stub */
 }
