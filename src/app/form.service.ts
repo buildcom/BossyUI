@@ -1,7 +1,10 @@
 import {Injectable} from '@angular/core';
 import {BossyFormConfig} from '../bossy-ui/config/form';
+import {BossyFormPreset} from './mock-form';
 
 @Injectable()
 export class FormService{
-    getFormConfig(): void{} //stub
+    getFormConfig(): BossyFormConfig{
+        return BossyFormPreset;
+    } //stub
 }
