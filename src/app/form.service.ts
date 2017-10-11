@@ -3,7 +3,7 @@ import {BossyFormConfig} from '../bossy-ui/config/form';
 import {BossyFormPreset} from './mock-form';
 
 @Injectable()
-export class FormService{
+export class FormService {
     /*
     getFormConfig(): BossyFormConfig{
         return BossyFormPreset;
