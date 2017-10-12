@@ -1,0 +1,31 @@
+<select (change)="changeType($event.target.value)">
+	<option value="element" selected>Element</option>
+	<option value="calendar">Calendar</option>
+	<option value="dropdown">Dropdown</option>
+	<option value="input">Input</option>
+	<option value="radio">Radio</option>
+</select>
+<div [ngSwitch]="this.type" class="bossy-element-switch">
+	<div *ngSwitchCase="'calendar'">
+    <bossy-calendar></bossy-calendar>
+	</div>
+	<div *ngSwitchCase="'dropdown'">
+		<bossy-dropdown></bossy-dropdown>
+		<!-- <app-config [configName]="'dropdownConfig'" [component]="bossyDropdown"></app-config> -->
+	</div>
+	<div *ngSwitchCase="'input'">
+    <bossy-form-input></bossy-form-input>
+	</div>
+  <div *ngSwitchCase="'radio'">
+    <bossy-form-radio></bossy-form-radio>
+	</div>
+  <div *ngSwitchCase="'selectmenu'">
+		<bossy-form-selectmenu></bossy-form-selectmenu>
+	</div>
+  <!-- <div *ngSwitchCase="'slider'">
+    <bossy-slider></bossy-slider>
+  </div> -->
+	<div *ngSwitchDefault>
+	 	Please select an element
+	</div>
+</div>
