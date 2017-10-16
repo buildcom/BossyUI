@@ -6,8 +6,8 @@ export class FormService{
     ISSPLIT = false;
     ISDROPUP = false;
     ISRIGHTALIGNED = false;
-    VARIANT = 'Secondary'
-    NAME = 'MissingName'
+    VARIANT = 'Secondary';
+    NAME = 'MissingName';
     HREF = '#';
     HASVALIDATION = true;
 }
