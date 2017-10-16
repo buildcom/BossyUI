@@ -3,7 +3,7 @@ import {BossyFormLabelConfig} from './form-label';
 import {BossyFormRadioConfig} from './form-radio';
 import {BossyFormSelectMenuConfig} from './form-selectmenu';
 
-export interface BossyFormInputInterface {
+export interface BossyFormElementInterface {
   name: string;
   type: string;
   value?: string;
@@ -22,7 +22,7 @@ export interface BossyFormInputInterface {
   selectmenu?: BossyFormSelectMenuConfig;
 }
 
-export class BossyFormInputConfig {
+export class BossyFormElementConfig {
   public name: string;
   public type: string;
   public value: string;
@@ -40,7 +40,7 @@ export class BossyFormInputConfig {
   public radio: BossyFormRadioConfig;
   public selectmenu: BossyFormSelectMenuConfig;
 
-  constructor(options: BossyFormInputInterface) {
+  constructor(options: BossyFormElementInterface) {
     Object.keys(options).forEach((key: string) => {
       this[key] = options[key];
     });
