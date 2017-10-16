@@ -48,7 +48,7 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",
-    "typescript": "~2.5.3"
+    "typescript": "^2.3.4"
   },
   "engines": {
     "node": "^6.0.0",
