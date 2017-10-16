@@ -9,9 +9,7 @@ import {BossyFormInputConfig} from '../../config/form-input';
 })
 export class BossyFormInputComponent implements OnInit {
   @Input() config: BossyFormInputConfig;
-  hasSuccess = false;
-  hasWarning = false;
-  hasDanger = false;
+  hasValidation = {hasSuccess: false, hasDanger: false, hasWarning: false};
 
   constructor() {
   }

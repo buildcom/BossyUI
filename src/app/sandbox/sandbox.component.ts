@@ -45,7 +45,7 @@ export class SandboxComponent implements OnInit {
         name: 'textInput',
         type: 'text',
         value: 'test value for text',
-        label: new BossyFormLabelConfig('text label test', true, false, false, false)
+        label: new BossyFormLabelConfig('text label test', true, false)
       },
       formInput2 = {
         name: 'textareaInput',

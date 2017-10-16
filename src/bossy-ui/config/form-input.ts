@@ -15,9 +15,7 @@ export interface BossyFormInputInterface {
   cols?: number;
   placeholder?: string;
   formGroup?: FormGroup;
-  hasSuccess?: boolean;
-  hasWarning?: boolean;
-  hasDanger?: boolean;
+  hasValidation?: boolean;
   radio?: BossyFormRadioConfig;
   selectmenu?: BossyFormSelectMenuConfig;
 }
@@ -34,9 +32,7 @@ export class BossyFormInputConfig {
   public cols: number;
   public placeholder: string;
   public formGroup: FormGroup;
-  public hasSuccess: boolean;
-  public hasWarning: boolean;
-  public hasDanger: boolean;
+  public hasValidation?: boolean;
   public radio: BossyFormRadioConfig;
   public selectmenu: BossyFormSelectMenuConfig;
 
