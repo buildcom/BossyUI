@@ -17,7 +17,7 @@
 			<div *ngSwitchCase="'email'" [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
 				<input type="email" formControlName="{{ element.name }}" class="form-control"
 						[ngClass]="{'form-control-success': element.hasSuccess, 'form-control-warning': element.hasWarning, 'form-control-danger': element.hasDanger}">
-				<bossy-form-input-error [formGroup]="bossyForm" [controlName]="element.name" [errorCssClass]="element.errorCssClass"></bossy-form-input-error>
+				<bossy-form-element-error [formGroup]="bossyForm" [controlName]="element.name" [errorCssClass]="element.errorCssClass"></bossy-form-element-error>
 			</div>
 			<div *ngSwitchCase="'date'" [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
 				<input type="date" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"
@@ -31,7 +31,7 @@
 				</div>
 			</div>
 			<div *ngSwitchCase="'selectmenu'">
-				<bossy-form-input type="selectmenu" [config]="element"></bossy-form-input>
+				<bossy-form-element type="selectmenu" [config]="element"></bossy-form-element>
 			</div>
 			<div *ngSwitchDefault [ngClass]="{'has-success': element.hasSuccess, 'has-warning': element.hasWarning, 'has-danger': element.hasDanger}">
 				<input type="text" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"
