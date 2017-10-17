@@ -10,7 +10,5 @@ import {BossyFormLabelConfig} from '../../config/form-label';
 export class BossyFormLabelComponent {
   @Input() config: BossyFormLabelConfig;
   isInline = false;
-  hasSuccess = false;
-  hasWarning = false;
-  hasDanger = false;
+  hasValidation = "None";
 }
