@@ -9,15 +9,13 @@ import {BossyFormElementConfig} from '../../config/form-element';
 })
 export class BossyFormElementComponent implements OnInit {
   @Input() config: BossyFormElementConfig;
-  hasValidation = "None";
+  hasValidation = 'None';
 
   constructor() {
   }
 
   ngOnInit() {
     const {name, value, formGroup} = this.config;
-
-    const hasValidation = "None";
 
     if (formGroup) {
       console.log('formgroup', name);
