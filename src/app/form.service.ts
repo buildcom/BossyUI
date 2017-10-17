@@ -11,7 +11,7 @@ export class FormConfigService {
     NAME = 'MissingName';
     HREF = '#';
     HASVALIDATION = true;
-    DANGER = 'Danger'
+    DANGER = 'Danger';
     WARNING = 'Warning';
     ERROR = 'Error';
     ISINLINE = false;
