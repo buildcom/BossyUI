@@ -8,7 +8,10 @@ declare const ace: any;
   templateUrl: './config.component.html',
   styles: [`
     .editor {
-      height: 200px;
+      height: 250px;
+    }
+    .pad-bottom {
+      padding-bottom: 10px;
     }
   `]
 })

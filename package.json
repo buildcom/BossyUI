@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "server": "node server.js",
-    "sandbox": "ng serve"
+    "sandbox": "ng serve",
+    "prepublish": "webpack --config ./webpack.build.config.js"
   },
   "private": true,
   "dependencies": {
@@ -35,8 +36,12 @@
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
+    "angular2-template-loader": "^0.6.2",
+    "awesome-typescript-loader": "^3.2.3",
     "codelyzer": "~3.1.1",
     "express": "^4.15.4",
+    "file-loader": "^1.1.4",
+    "html-loader": "^0.5.1",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",
@@ -46,9 +51,11 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
+    "raw-loader": "^0.5.1",
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",
-    "typescript": "~2.3.3"
+    "typescript": "~2.3.3",
+    "webpack": "^3.6.0"
   },
   "engines": {
     "node": "^6.0.0",
