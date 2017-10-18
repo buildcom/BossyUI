@@ -5,7 +5,7 @@ import {DebugElement} from '@angular/core';
 
 import {BossyFormTextareaComponent} from './form-textarea';
 import {BossyFormTextareaConfig} from '../../config/bossy-form-textarea';
- 
+
 let textArea: BossyFormTextareaComponent;
 let fixture: ComponentFixture<BossyFormTextareaComponent>;
 let de: DebugElement;
