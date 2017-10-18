@@ -1,18 +1,11 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class FormConfigService {
-    TYPE: string = undefined;
-    ISSPLIT = false;
-    ISDROPUP = false;
-    ISRIGHTALIGNED = false;
-    VARIANT = 'Secondary';
-    SIZE: string = undefined;
-    NAME = 'MissingName';
+export class FormConstantService {
+    VARIANT = 'secondary';
+    NAME = 'missingname';
     HREF = '#';
-    HASVALIDATION = true;
-    DANGER = 'Danger';
-    WARNING = 'Warning';
-    ERROR = 'Error';
-    ISINLINE = false;
+    DANGER = 'danger';
+    WARNING = 'warning';
+    ERROR = 'error';
 }
