@@ -14,13 +14,13 @@ let tael: HTMLTextAreaElement;
 let superConfig: BossyFormTextareaConfig;
 
 describe('Unit tests for textArea component: ', () => {
-  describe('Testbed to check proper assignment of config values to template', () => {
-    describe('the text area component', () => {
+  describe('the text area component', () => {
       const textIsolatedArea = new BossyFormTextareaComponent();
       it('should set default hasValidation to None', () => {
           expect(textIsolatedArea.hasValidation).toEqual('None');
       });
-    });
+  });
+  describe('Testbed to check proper assignment of config values to template', () => {
     beforeEach(async(() => {
       TestBed.configureTestingModule({
         declarations: [BossyFormTextareaComponent],
