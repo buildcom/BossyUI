@@ -2,6 +2,7 @@ import {FormGroup} from '@angular/forms';
 import {BossyFormLabelConfig} from './form-label';
 import {BossyFormRadioConfig} from './form-radio';
 import {BossyFormSelectMenuConfig} from './form-selectmenu';
+import {BossyFormTextareaConfig} from './bossy-form-textarea';
 
 export interface BossyFormElementInterface {
   name: string;
@@ -18,6 +19,7 @@ export interface BossyFormElementInterface {
   hasValidation?: string;
   radio?: BossyFormRadioConfig;
   selectmenu?: BossyFormSelectMenuConfig;
+  textarea?: BossyFormTextareaConfig;
 }
 
 export class BossyFormElementConfig {
@@ -35,6 +37,7 @@ export class BossyFormElementConfig {
   public hasValidation?: string;
   public radio: BossyFormRadioConfig;
   public selectmenu: BossyFormSelectMenuConfig;
+  public textarea: BossyFormTextareaConfig;
 
   constructor(options: BossyFormElementInterface) {
     Object.keys(options).forEach((key: string) => {

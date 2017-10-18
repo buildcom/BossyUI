@@ -92,7 +92,6 @@ export class SandboxComponent implements OnInit {
       },
       textareaInput1 = {
         name: 'textareaInput',
-        type: 'textarea',
         label: 'Comments',
         rows: 5,
         placeholder: 'Put your comment here'
