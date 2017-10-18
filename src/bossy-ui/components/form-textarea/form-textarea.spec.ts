@@ -13,15 +13,14 @@ let el: HTMLElement;
 let tael: HTMLTextAreaElement;
 let superConfig: BossyFormTextareaConfig;
 
-
 describe('Unit tests for textArea component: ', () => {
-  describe('the text area component', () => {
-    const textIsolatedArea = new BossyFormTextareaComponent();
-    it('should set default hasValidation to None', () => {
-        expect(textIsolatedArea.hasValidation).toEqual('None');
-    });
-  });
   describe('Testbed to check proper assignment of config values to template', () => {
+    describe('the text area component', () => {
+      const textIsolatedArea = new BossyFormTextareaComponent();
+      it('should set default hasValidation to None', () => {
+          expect(textIsolatedArea.hasValidation).toEqual('None');
+      });
+    });
     beforeEach(async(() => {
       TestBed.configureTestingModule({
         declarations: [BossyFormTextareaComponent],
@@ -38,7 +37,6 @@ describe('Unit tests for textArea component: ', () => {
         cols: 2,
         placeholder: 'Put your comment here'
       });
-      });
       textArea.config = superConfig;
       textArea.ngOnInit();
       fixture.detectChanges();
@@ -47,26 +45,27 @@ describe('Unit tests for textArea component: ', () => {
     it('Label', () => {
       de = fixture.debugElement.query(By.css('label'));
       el = de.nativeElement;
-      expect(el.textContent).toContain('Comments');
+      expect(el.innerHTML).toContain('Comments');
     });
     it('Name', () => {
-      de = fixture.debugElement.query(By.css('#form-control'));
+      de = fixture.debugElement.query(By.css('textarea'));
       tael = de.nativeElement;
       expect(tael.name).toEqual('testName');
     });
     it('Placeholder', () => {
-      de = fixture.debugElement.query(By.css('#form-control'));
+      de = fixture.debugElement.query(By.css('textarea'));
       tael = de.nativeElement;
       expect(tael.placeholder).toEqual('Put your comment here');
     });
     it('Rows', () => {
-      de = fixture.debugElement.query(By.css('#form-control'));
+      de = fixture.debugElement.query(By.css('textarea'));
       tael = de.nativeElement;
       expect(tael.rows).toEqual(5);
     });
     it('Cols', () => {
-      de = fixture.debugElement.query(By.css('#form-control'));
+      de = fixture.debugElement.query(By.css('textarea'));
       tael = de.nativeElement;
       expect(tael.cols).toEqual(2);
     });
+  });
 });
