@@ -3,7 +3,7 @@
         <input type="number" name="{{ config.name }}" placeholder="{{ config.placeholder }}"/>
     </div>
     <div *ngSwitchCase="'textarea'">
-        <textarea name="{{ config.name }}" placeholder="{{ config.placeholder }}" rows="{{ config.rows }}" cols="{{ config.cols }}"></textarea>
+        <bossy-form-textarea [config]="config.textarea"></bossy-form-textarea>
     </div>
     <div *ngSwitchCase="'email'">
         <input type="email">
