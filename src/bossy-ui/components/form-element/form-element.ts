@@ -9,7 +9,7 @@ import {BossyFormElementConfig} from '../../config/form-element';
 })
 export class BossyFormElementComponent implements OnInit {
   @Input() config: BossyFormElementConfig;
-  hasValidation = 'None';
+  hasValidation = 'none';
 
   constructor() {
   }
