@@ -44,12 +44,14 @@ export class SandboxComponent implements OnInit {
     const formInput1 = {
         name: 'textInput',
         type: 'text',
+        hasValidation: 'none',
         value: 'test value for text',
-        label: new BossyFormLabelConfig('text label test', true, 'None')
+        label: new BossyFormLabelConfig('text label test', true)
       },
       formInput2 = {
         name: 'textareaInput',
         type: 'textarea',
+        hasValidation: 'none',
         value: 'test value for textarea',
         rows: 5,
         cols: 10
@@ -57,12 +59,14 @@ export class SandboxComponent implements OnInit {
       formInput3 = {
         name: 'emailInput',
         type: 'email',
+        hasValidation: 'none',
         value: 'test value for email'
       },
       // Thing that seems to serve no apparent purpose other than to indicate that it is possible to create this.
       formInput4 = {
         name: 'Input',
-        type: 'text'
+        type: 'text',
+        hasValidation: 'none'
       },
       formInput5 = {
         name: 'selectmenu',
@@ -92,6 +96,8 @@ export class SandboxComponent implements OnInit {
       },
       textareaInput1 = {
         name: 'textareaInput',
+        hasValidation: 'none',
+        type: 'textarea',
         label: 'Comments',
         rows: 5,
         placeholder: 'Put your comment here'
