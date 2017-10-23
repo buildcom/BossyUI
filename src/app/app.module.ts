@@ -18,8 +18,7 @@ import {BossyFormElementComponent} from '../bossy-ui/components/form-element/for
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'sandbox', component: SandboxComponent },
-  { path: 'contributing', component: ContributingComponent },
-  { path: 'element', component: BossyFormElementComponent }
+  { path: 'contributing', component: ContributingComponent }
 ];
 
 @NgModule({
