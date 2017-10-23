@@ -2,15 +2,24 @@
     <div *ngSwitchCase="'number'">
         <input type="number" name="{{ config.name }}" placeholder="{{ config.placeholder }}"/>
     </div>
+		<div *ngSwitchCase="'dropdown'">
+			<bossy-dropdown [config]="'BossyDropdownConfig'"></bossy-dropdown>
+		</div>
     <div *ngSwitchCase="'textarea'">
         <bossy-form-textarea [config]="config.textarea"></bossy-form-textarea>
     </div>
     <div *ngSwitchCase="'email'">
         <input type="email">
     </div>
+		<div *ngSwitchCase="'radio'">
+	    <bossy-form-radio [config]="'BossyFormRadioConfig'"></bossy-form-radio>
+		</div>
     <div *ngSwitchCase="'selectmenu'">
         <bossy-form-selectmenu  [config]="config.selectmenu"></bossy-form-selectmenu>
     </div>
+		<div *ngSwitchCase="'textarea'">
+			<bossy-form-textarea [config]="'BossyFormTextareaConfig'"></bossy-form-textarea>
+		</div>
     <div *ngSwitchDefault>
         <input type="text" name="{{ config.name }}" placeholder="{{ config.placeholder }}"/>
     </div>
