@@ -52,7 +52,7 @@ export {BossyDropdownMenuItemConfig} from './config/dropdown-menu';
     BossyFormSelectMenuComponent,
     BossyFormTextareaComponent,
     BossySliderComponent,
-    BossyMaskDirective
+    BossyMaskDirective,
   ],
   exports: [
     BossyCalendarComponent,
@@ -62,7 +62,8 @@ export {BossyDropdownMenuItemConfig} from './config/dropdown-menu';
     BossyDropdownComponent,
     BossyDropdownMenuItemComponent,
     BossyFormSelectMenuComponent,
-    BossyFormTextareaComponent
+    BossyFormTextareaComponent,
+    BossyFormElementErrorComponent,
   ]
 })
 export class BossyModule {
