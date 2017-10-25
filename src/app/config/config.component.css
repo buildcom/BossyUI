@@ -1,0 +1,16 @@
+.component-output {
+  align: center;
+}
+
+.btn-group {
+  float:right;
+  padding:bottom;
+}
+
+.editor {
+  position: relative;
+  font-size: 14px;
+  min-height: 200px;
+  width:100%;
+  overflow:auto;
+}

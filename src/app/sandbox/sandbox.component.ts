@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ConfigService} from '../config.service';
 import {BossyCalendarConfig} from '../../bossy-ui/config/calendar';
 import {BossyCalendarComponent} from '../../bossy-ui/components/calendar/calendar';
-import {BossyFormInputConfig} from '../../bossy-ui/config/form-input';
-import {BossyFormInputComponent} from '../../bossy-ui/components/form-input/form-input';
+import {BossyFormElementConfig} from '../../bossy-ui/config/form-element';
+import {BossyFormElementComponent} from '../../bossy-ui/components/form-element/form-element';
 import {BossyFormConfig} from '../../bossy-ui/config/form';
 import {BossyFormComponent} from '../../bossy-ui/components/form/form';
 import {BossyFormLabelConfig} from '../../bossy-ui/config/form-label';
@@ -32,7 +32,7 @@ export class SandboxComponent implements OnInit {
   bossyFormRadio = BossyFormRadioComponent;
   bossyDropdown = BossyDropdownComponent;
   bossyDropdownMenuItem = BossyDropdownMenuItemComponent;
-  bossyFormInput = BossyFormInputComponent;
+  bossyFormElement = BossyFormElementComponent;
   bossyFormSelectMenu = BossyFormSelectMenuComponent;
   bossyFormTextarea = BossyFormTextareaComponent;
 
@@ -45,7 +45,7 @@ export class SandboxComponent implements OnInit {
         name: 'textInput',
         type: 'text',
         value: 'test value for text',
-        label: new BossyFormLabelConfig('text label test', true, false, false, false)
+        label: new BossyFormLabelConfig('text label test', true, 'none')
       },
       formInput2 = {
         name: 'textareaInput',
@@ -92,7 +92,6 @@ export class SandboxComponent implements OnInit {
       },
       textareaInput1 = {
         name: 'textareaInput',
-        type: 'textarea',
         label: 'Comments',
         rows: 5,
         placeholder: 'Put your comment here'
@@ -100,11 +99,11 @@ export class SandboxComponent implements OnInit {
 
     const formConfig = new BossyFormConfig(
       [
-        new BossyFormInputConfig(formInput1),
-        new BossyFormInputConfig(formInput2),
-        new BossyFormInputConfig(formInput3),
-        new BossyFormInputConfig(formInput5),
-        new BossyFormInputConfig(formInput6)
+        new BossyFormElementConfig(formInput1),
+        new BossyFormElementConfig(formInput2),
+        new BossyFormElementConfig(formInput3),
+        new BossyFormElementConfig(formInput5),
+        new BossyFormElementConfig(formInput6)
       ],
     );
 
@@ -119,7 +118,7 @@ export class SandboxComponent implements OnInit {
         ]
       }
     );
-    const formInputConfig = new BossyFormInputConfig(formInput4);
+    const formElementConfig = new BossyFormElementConfig(formInput4);
     const dropdownConfig = new BossyDropdownConfig('Dropdown Menu', 'button',
       [
         new BossyDropdownMenuItemConfig('button', 'Item 1', '#', false),
@@ -142,7 +141,7 @@ export class SandboxComponent implements OnInit {
 
     this.configService.setConfig('calendarConfig', calendarConfig);
     this.configService.setConfig('formConfig', formConfig);
-    this.configService.setConfig('FormInputConfig', formInputConfig);
+    this.configService.setConfig('formElementConfig', formElementConfig);
     this.configService.setConfig('bossyFormRadioConfig', bossyFormRadioConfig);
     this.configService.setConfig('dropdownConfig', dropdownConfig);
     this.configService.setConfig('selectMenuConfig', selectMenuConfig);
