@@ -18,7 +18,7 @@ export class BossyFormComponent implements OnInit {
   ngOnInit() {
     const elements: any = {};
 
-    const hasValidation = 'None';
+    const hasValidation = 'none';
 
     this.isFormInlinedFromConfig = this.config.isFormInlined;
 
