@@ -154,7 +154,4 @@ export class SandboxComponent implements OnInit {
   }
 
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> a49ae6e8180c825072d9b923ab9aaebb39f60bc7
