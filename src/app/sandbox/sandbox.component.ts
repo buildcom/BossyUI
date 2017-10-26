@@ -65,7 +65,7 @@ export class SandboxComponent implements OnInit {
       // Thing that seems to serve no apparent purpose other than to indicate that it is possible to create this.
       formInput4 = {
         name: 'Input',
-        type: 'text',
+        type: 'text'
       },
       formInput5 = {
         name: 'selectmenu',
