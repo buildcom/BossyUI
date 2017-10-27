@@ -10,7 +10,6 @@ import {BossyFormElementConfig} from '../../config/form-element';
 export class BossyFormElementComponent implements OnInit {
   @Input() config: BossyFormElementConfig;
   status = 'none';
-
   constructor() {
   }
 
