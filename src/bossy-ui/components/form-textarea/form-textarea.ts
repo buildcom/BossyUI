@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BossyFormTextareaConfig} from '../../config/bossy-form-textarea';
+import {BossyFormTextareaValidatorInterface} from '../../validators/bossy-form-textarea';
 
 @Component({
   selector: 'bossy-form-textarea',
@@ -9,7 +10,10 @@ import {BossyFormTextareaConfig} from '../../config/bossy-form-textarea';
 })
 export class BossyFormTextareaComponent implements OnInit {
   @Input() config: BossyFormTextareaConfig;
-  hasValidation = 'none';
+  // hasValidation = 'none';
+  // validationModel = [
+  //
+  // ]
 
   constructor() {
   }
@@ -18,7 +22,10 @@ export class BossyFormTextareaComponent implements OnInit {
     const {name, value, formGroup} = this.config;
 
     if (formGroup) {
-      formGroup.addControl(name, new FormControl(value));
+      formGroup.addControl(name, new FormControl(value, [
+        Validators.required
+      ]
+    ));
     }
   }
 
