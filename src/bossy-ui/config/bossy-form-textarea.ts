@@ -1,5 +1,5 @@
 import {FormGroup} from '@angular/forms';
-import {BossyFormTextareaValidatorConfig} from './bossy-form-textarea-validator';
+import {BossyFormTextareaValidatorConfig} from '../validators/bossy-form-textarea';
 
 export interface BossyFormTextareaInterface {
   name: string;
@@ -13,6 +13,7 @@ export interface BossyFormTextareaInterface {
   cols?: number;
   placeholder?: string;
   formGroup?: FormGroup;
+  hasvalidation?: string;
 }
 
 export class BossyFormTextareaConfig {
@@ -27,7 +28,8 @@ export class BossyFormTextareaConfig {
   public cols?: number;
   public placeholder?: string;
   public formGroup?: FormGroup;
-
+  public hasvalidation?: string;
+  
   constructor(options: BossyFormTextareaInterface) {
     Object.assign(this, options);
   }

@@ -15,7 +15,7 @@
 						[ngClass]="{'form-control-success': element.hasValidation == 'success', 'form-control-warning': element.hasValidation == 'warning', 'form-control-danger': element.hasValidation == 'danger'}"></textarea>
 			</div>
 			<div *ngSwitchCase="'email'" [ngClass]="{'has-success': element.hasValidation == 'success', 'has-warning': element.hasValidation == 'warning', 'has-danger': element.hasValidation == 'danger'}">
-				<input type="email" formControlName="{{ element.name }}" class="form-control"
+				<input type="email" formControlName="{{ element.name }}" required class="form-control" minlength = 8 email
 						[ngClass]="{'form-control-success': element.hasValidation == 'success', 'form-control-warning': element.hasValidation == 'warning', 'form-control-danger': element.hasValidation == 'danger'}">
 				<bossy-form-element-error [formGroup]="bossyForm" [controlName]="element.name" [errorCssClass]="element.errorCssClass"></bossy-form-element-error>
 			</div>

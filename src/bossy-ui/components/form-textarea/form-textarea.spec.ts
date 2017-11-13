@@ -16,8 +16,8 @@ let superConfig: BossyFormTextareaConfig;
 describe('Unit tests for textArea component: ', () => {
   describe('the text area component', () => {
       const textIsolatedArea = new BossyFormTextareaComponent();
-      it('should set default hasValidation to None', () => {
-          expect(textIsolatedArea.hasValidation).toEqual('none');
+     it('should set default hasValidation to None', () => {
+        expect(textIsolatedArea.hasValidation).toEqual('none');
       });
   });
   describe('Testbed to check proper assignment of config values to template', () => {

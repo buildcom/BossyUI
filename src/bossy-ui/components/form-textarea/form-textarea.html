@@ -1,9 +1,21 @@
 <div class="bossy-form-textarea">
   <div class="form-group">
     <label for="comment"> {{ config.label }}</label>
+<<<<<<< HEAD
     <textarea #textarea class="form-control" name="{{ config.name }}" placeholder="{{ config.placeholder }}" rows="{{ config.rows }}" cols="{{ config.cols }}" (change)="onChange(textarea.value)"></textarea>
     <!-- <div [hidden]="this.controls.value.valid" class="alert alert-danger">
       Textarea is not valid
     </div> -->
+=======
+    <textarea class="form-control"
+              name="{{ config.name }}"
+              placeholder="{{ config.placeholder }}"
+              rows="{{ config.rows }}"
+              cols="{{ config.cols }}"
+              ></textarea>
+    <div [hidden]= "this.valid" class="alert alert-danger" >
+      Textarea is not valid
+    </div>
+>>>>>>> b265198cd6002bb54444b4e9f47f1598851d9d9a
   </div>
 </div>
