@@ -4,77 +4,45 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, './dist')));
 
+// get hydrates the values on the form elements
 app.get('/api/test', (req, res) => {
-  const config = {
-    elements: [
-      {
-        name: 'textInput',
-        type: 'text',
-        value: 'test value for text',
-        label: {
-          text: 'text label test',
-          inline: true,
-          'hasValidation': 'none'
-        }
-      },
-      {
-        name: 'textareaInput',
-        type: 'textarea',
-        value: 'test value for textarea',
-        rows: 5,
-        cols: 10
-      },
-      {
-        name: 'emailInput',
-        type: 'email',
-        value: 'test value for email'
-      },
-      {
-        name: 'selectmenu',
-        type: 'selectmenu',
-        selectmenu: {
-          title: 'Vegetables',
-          items: [
-            {
-              value: 'carrot'
-            },
-            {
-              value: 'celery',
-              isDisabled: true
-            },
-            {
-              value: 'potato'
-            }
-          ]
-        }
-      },
-      {
-        name: 'radio',
-        type: 'radio',
-        label: {
-          text: 'Test label for radio button'
-        },
-        radio: {
-          componentId: 'myRadio',
-          items: [
-            {
-              value: 'Option 1'
-            },
-            {
-              value: 'Option 2'
-            },
-            {
-              value: 'Option 3',
-              isDisabled: true
-            }
-          ]
+  const data = {
+    textInput: {
+      value: 'This is my input'
+    },
+    textareaInput: {
+      value: `
+          This is a very long area
+          that folds like this
+          and stuff
+      `
+    },
+    emailInput: {
+      value: 'test@test.com'
+    }
+  };
+  res.json(data);
+});
+// Test for post validates an input called emailInput to be a valid input
+app.post('api/test', (req, res) => {
+  const {emailInput} = req.body;
+  // ensures that email has an @ sign
+  if (emailInput && emailInput.match(/(.)*@(.)*/)) {
+    // valid email
+    res.json({});
+  } else {
+    // not valid sould display error
+    res.json({
+      errors: {
+        emailInput: {
+          isValid: false,
+          message: 'email should have an @ symbol'
         }
       }
-    ]
-  };
-  res.json(config);
+    });
+  }
 });
-app.post('api/test', (req, res) => {});
+
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, './dist/index.html'));
 });
