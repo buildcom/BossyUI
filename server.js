@@ -35,7 +35,6 @@ app.post('api/test', (req, res) => {
     res.json({
       errors: {
         emailInput: {
-          isValid: false,
           message: 'email should have an @ symbol'
         }
       }
