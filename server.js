@@ -1,6 +1,11 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json({
+  type: ['application/json', 'json', 'application/csp-report']
+}));
 
 app.use(express.static(path.join(__dirname, './dist')));
 
@@ -24,7 +29,8 @@ app.get('/api/test', (req, res) => {
   res.json(data);
 });
 // Test for post validates an input called emailInput to be a valid input
-app.post('api/test', (req, res) => {
+app.post('/api/test', (req, res) => {
+  console.log(req.body);
   const {emailInput} = req.body;
   // ensures that email has an @ sign
   if (emailInput && emailInput.match(/(.)*@(.)*/)) {
