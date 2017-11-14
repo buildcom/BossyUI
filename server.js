@@ -4,7 +4,7 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, './dist')));
 
-app.get('/api/test', (res, req) => {
+app.get('/api/test', (req, res) => {
   const config = {
     elements: [
       {
