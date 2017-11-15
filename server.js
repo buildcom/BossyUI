@@ -30,7 +30,6 @@ app.get('/api/test', (req, res) => {
 });
 // Test for post validates an input called emailInput to be a valid input
 app.post('/api/test', (req, res) => {
-  console.log(req.body);
   const {emailInput} = req.body;
   // ensures that email has an @ sign
   if (emailInput && emailInput.match(/(.)*@(.)*/)) {
