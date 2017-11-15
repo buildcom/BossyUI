@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "npm run build -- --prod && npm run server",
+    "start": "npm run build && npm run server",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -51,6 +51,25 @@
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",
     "typescript": "^2.3.4"
+  },
+  "greenkeeper": {
+    "ignore": [
+      "@angular/animations",
+      "@angular/common",
+      "@angular/compiler",
+      "@angular/core",
+      "@angular/forms",
+      "@angular/http",
+      "@angular/platform-browser",
+      "@angular/platform-browser-dynamic",
+      "@angular/router",
+      "core-js",
+      "rxjs",
+      "zone.js",
+      "@angular/compiler-cli",
+      "@angular/language-service",
+      "typescript"
+    ]
   },
   "engines": {
     "node": "^6.0.0",
