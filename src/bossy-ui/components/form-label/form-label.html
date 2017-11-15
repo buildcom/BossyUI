@@ -1,4 +1,5 @@
-<div *ngIf="config?.text" [ngClass]="{'has-success': config?.hasValidation == 'success', 'has-warning': config?.hasValidation == 'warning', 'has-danger': config?.hasValidation == 'danger'}">
+<div *ngIf="config?.text" [ngClass]="{'has-success': config?.status == 'success', 'has-warning': config?.status == 'warning', 'has-danger': config?.status == 'danger'}">
+
 	<label [ngClass]="{'form-control-label': config?.inline}">
 		{{config.text}}
 	</label>
