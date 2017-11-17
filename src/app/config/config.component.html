@@ -1,16 +1,14 @@
 <div class="row">
-	<div class="col-lg-6 component-col">
-			<div class="row pad-bottom">
-        <h4 class="col-9">Component Config</h4>
-        <button type="button" class="btn btn-secondary col" (click)="updateConfig()">Update</button>
-      </div>
-		<div *ngIf="error" class="alert alert-danger" style="margin-top: 30px;" role="alert">{{ error }}</div>
-		<div attr.id="{{ editorId }}" class="editor">{{ editorValue }}</div>
-	</div>
-	<div class="col-lg-6 component-col">
-		<div class="component-right">
+		<div class="component-config">
+			<h4>Component Config</h4>
+			<div *ngIf="error" class="alert alert-danger" style="margin-top: 30px;" role="alert">{{ error }}</div>
+			<div attr.id="{{ editorId }}" class="editor">{{ editorValue }}</div>
+			<div class="btn-group">
+				<button type="button" class="btn btn-secondary" (click)="updateConfig()">Update</button>
+			</div>
+		</div>
+		<div class="component-output">
 			<h4>Component Output</h4>
 		</div>
 		<app-dynamic-component [componentData]="componentData"></app-dynamic-component>
-	</div>
 </div>

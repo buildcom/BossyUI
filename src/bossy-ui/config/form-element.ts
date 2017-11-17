@@ -2,10 +2,12 @@ import {FormGroup} from '@angular/forms';
 import {BossyFormLabelConfig} from './form-label';
 import {BossyFormRadioConfig} from './form-radio';
 import {BossyFormSelectMenuConfig} from './form-selectmenu';
+import {BossyFormTextareaConfig} from './bossy-form-textarea';
 
-export interface BossyFormInputInterface {
+export interface BossyFormElementInterface {
   name: string;
   type: string;
+  status?: string;
   value?: string;
   label?: BossyFormLabelConfig;
   id?: string;
@@ -15,14 +17,12 @@ export interface BossyFormInputInterface {
   cols?: number;
   placeholder?: string;
   formGroup?: FormGroup;
-  hasSuccess?: boolean;
-  hasWarning?: boolean;
-  hasDanger?: boolean;
   radio?: BossyFormRadioConfig;
   selectmenu?: BossyFormSelectMenuConfig;
+  textarea?: BossyFormTextareaConfig;
 }
 
-export class BossyFormInputConfig {
+export class BossyFormElementConfig {
   public name: string;
   public type: string;
   public value: string;
@@ -34,13 +34,12 @@ export class BossyFormInputConfig {
   public cols: number;
   public placeholder: string;
   public formGroup: FormGroup;
-  public hasSuccess: boolean;
-  public hasWarning: boolean;
-  public hasDanger: boolean;
+  public status: string;
   public radio: BossyFormRadioConfig;
   public selectmenu: BossyFormSelectMenuConfig;
+  public textarea: BossyFormTextareaConfig;
 
-  constructor(options: BossyFormInputInterface) {
+  constructor(options: BossyFormElementInterface) {
     Object.keys(options).forEach((key: string) => {
       this[key] = options[key];
     });

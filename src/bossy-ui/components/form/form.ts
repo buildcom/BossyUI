@@ -19,7 +19,6 @@ export class BossyFormComponent implements OnInit {
     const elements: any = {};
 
     this.isFormInlinedFromConfig = this.config.isFormInlined;
-
     this.config.elements.forEach((element) => {
       const {name, value} = element;
       elements[name] = value;

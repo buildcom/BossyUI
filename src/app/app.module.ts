@@ -13,6 +13,7 @@ import {ConfigService} from './config.service';
 import { RouterModule, Routes } from '@angular/router';
 import { ContributingComponent } from './contributing/contributing.component';
 import { HomeComponent } from './home/home.component';
+import {BossyFormElementComponent} from '../bossy-ui/components/form-element/form-element';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
