@@ -7,6 +7,7 @@ import {BossyFormTextareaConfig} from './bossy-form-textarea';
 export interface BossyFormElementInterface {
   name: string;
   type: string;
+  status?: string;
   value?: string;
   label?: BossyFormLabelConfig;
   id?: string;
@@ -16,7 +17,6 @@ export interface BossyFormElementInterface {
   cols?: number;
   placeholder?: string;
   formGroup?: FormGroup;
-  hasValidation?: string;
   radio?: BossyFormRadioConfig;
   selectmenu?: BossyFormSelectMenuConfig;
   textarea?: BossyFormTextareaConfig;
@@ -34,7 +34,7 @@ export class BossyFormElementConfig {
   public cols: number;
   public placeholder: string;
   public formGroup: FormGroup;
-  public hasValidation?: string;
+  public status: string;
   public radio: BossyFormRadioConfig;
   public selectmenu: BossyFormSelectMenuConfig;
   public textarea: BossyFormTextareaConfig;

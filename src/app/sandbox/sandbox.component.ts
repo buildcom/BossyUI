@@ -44,12 +44,14 @@ export class SandboxComponent implements OnInit {
     const formInput1 = {
         name: 'textInput',
         type: 'text',
+        status: 'none',
         value: 'test value for text',
-        label: new BossyFormLabelConfig('text label test', true, 'none')
+        label: new BossyFormLabelConfig('text label test', true)
       },
       formInput2 = {
         name: 'textareaInput',
         type: 'textarea',
+        status: 'none',
         value: 'test value for textarea',
         rows: 5,
         cols: 10
@@ -57,6 +59,7 @@ export class SandboxComponent implements OnInit {
       formInput3 = {
         name: 'emailInput',
         type: 'email',
+        status: 'none',
         value: 'test value for email'
       },
       // Thing that seems to serve no apparent purpose other than to indicate that it is possible to create this.
@@ -92,6 +95,8 @@ export class SandboxComponent implements OnInit {
       },
       textareaInput1 = {
         name: 'textareaInput',
+        status: 'none',
+        type: 'textarea',
         label: 'Comments',
         rows: 5,
         placeholder: 'Put your comment here'
@@ -149,3 +154,4 @@ export class SandboxComponent implements OnInit {
   }
 
 }
+

@@ -2,26 +2,26 @@
 	<div *ngFor="let element of config.elements" class="form-group">
 		<bossy-form-label [config]="element.label"></bossy-form-label>
 		<div [ngSwitch]="element.type">
-			<div *ngSwitchCase="'number'" [ngClass]="{'has-success': element.hasValidation == 'success', 'has-warning': element.hasValidation == 'warning', 'has-danger': element.hasValidation == 'danger'}">
+			<div *ngSwitchCase="'number'" [ngClass]="{'has-success': element.status == 'success', 'has-warning': element.status == 'warning', 'has-danger': element.status == 'danger'}">
 				<input type="number" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"
-						[ngClass]="{'form-control-success': element.hasValidation == 'success', 'form-control-warning': element.hasValidation == 'warning', 'form-control-danger': element.hasValidation == 'danger'}"/>
+						[ngClass]="{'form-control-success': element.status == 'success', 'form-control-warning': element.status == 'warning', 'form-control-danger': element.status == 'danger'}"/>
 			</div>
-			<div *ngSwitchCase="'password'" [ngClass]="{'has-success': element.hasValidation == 'success', 'has-warning': element.hasValidation == 'warning', 'has-danger': element.hasValidation == 'danger'}">
+			<div *ngSwitchCase="'password'" [ngClass]="{'has-success': element.status == 'success', 'has-warning': element.status == 'warning', 'has-danger': element.status == 'danger'}">
 				<input type="password" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"
-						[ngClass]="{'form-control-success': element.hasValidation == 'success', 'form-control-warning': element.hasValidation == 'warning', 'form-control-danger': element.hasValidation == 'danger'}"/>
+						[ngClass]="{'form-control-success': element.status == 'success', 'form-control-warning': element.status == 'warning', 'form-control-danger': element.status == 'danger'}"/>
 			</div>
-			<div *ngSwitchCase="'textarea'" [ngClass]="{'has-success': element.hasValidation == 'success', 'has-warning': element.hasValidation == 'warning', 'has-danger': element.hasValidation == 'danger'}">
+			<div *ngSwitchCase="'textarea'" [ngClass]="{'has-success': element.status == 'success', 'has-warning': element.status == 'warning', 'has-danger': element.status == 'danger'}">
 				<textarea name="{{ element.name }}" placeholder="{{ element.placeholder }}" rows="{{ element.rows }}" cols="{{ element.cols }}" formControlName="{{ element.name }}" class="form-control"
-						[ngClass]="{'form-control-success': element.hasValidation == 'success', 'form-control-warning': element.hasValidation == 'warning', 'form-control-danger': element.hasValidation == 'danger'}"></textarea>
+						[ngClass]="{'form-control-success': element.status == 'success', 'form-control-warning': element.status == 'warning', 'form-control-danger': element.status == 'danger'}"></textarea>
 			</div>
-			<div *ngSwitchCase="'email'" [ngClass]="{'has-success': element.hasValidation == 'success', 'has-warning': element.hasValidation == 'warning', 'has-danger': element.hasValidation == 'danger'}">
-				<input type="email" formControlName="{{ element.name }}" required class="form-control" minlength = 8 email
-						[ngClass]="{'form-control-success': element.hasValidation == 'success', 'form-control-warning': element.hasValidation == 'warning', 'form-control-danger': element.hasValidation == 'danger'}">
+			<div *ngSwitchCase="'email'" [ngClass]="{'has-success': element.status == 'success', 'has-warning': element.status == 'warning', 'has-danger': element.status == 'danger'}">
+				<input type="email" formControlName="{{ element.name }}" class="form-control"
+						[ngClass]="{'form-control-success': element.status == 'success', 'form-control-warning': element.status == 'warning', 'form-control-danger': element.status == 'danger'}">
 				<bossy-form-element-error [formGroup]="bossyForm" [controlName]="element.name" [errorCssClass]="element.errorCssClass"></bossy-form-element-error>
 			</div>
-			<div *ngSwitchCase="'date'" [ngClass]="{'has-success': element.hasValidation == 'success', 'has-warning': element.hasValidation == 'warning', 'has-danger': element.hasValidation == 'danger'}">
+			<div *ngSwitchCase="'date'" [ngClass]="{'has-success': element.status == 'success', 'has-warning': element.status == 'warning', 'has-danger': element.status == 'danger'}">
 				<input type="date" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"
-						[ngClass]="{'form-control-success': element.hasValidation == 'success', 'form-control-warning': element.hasValidation == 'warning', 'form-control-danger': element.hasValidation == 'danger'}">
+						[ngClass]="{'form-control-success': element.status == 'success', 'form-control-warning': element.status == 'warning', 'form-control-danger': element.status == 'danger'}">
 			</div>
 			<div *ngSwitchCase="'radio'">
 				<div *ngFor="let radioItem of element.radio.items; let i = index" [ngClass]="{'form-check': true, ' form-check-inline': element.isInline}" id="{{element.radio.componentId}}">
@@ -33,9 +33,9 @@
 			<div *ngSwitchCase="'selectmenu'">
 				<bossy-form-element type="selectmenu" [config]="element"></bossy-form-element>
 			</div>
-			<div *ngSwitchDefault [ngClass]="{'has-success': element.hasValidation == 'success', 'has-warning': element.hasValidation == 'warning', 'has-danger': element.hasValidation == 'danger'}">
+			<div *ngSwitchDefault [ngClass]="{'has-success': element.status == 'success', 'has-warning': element.status == 'warning', 'has-danger': element.status == 'danger'}">
 				<input type="text" name="{{ element.name }}" placeholder="{{ element.placeholder }}" formControlName="{{ element.name }}" class="form-control"
-						[ngClass]="{'form-control-success': element.hasValidation == 'success', 'form-control-warning': element.hasValidation == 'warning', 'form-control-danger': element.hasValidation == 'danger'}"/>
+						[ngClass]="{'form-control-success': element.status == 'success', 'form-control-warning': element.status == 'warning', 'form-control-danger': element.status == 'danger'}"/>
 			</div>
 		</div>
 	</div>

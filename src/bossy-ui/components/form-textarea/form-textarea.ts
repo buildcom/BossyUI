@@ -10,9 +10,10 @@ import {BossyFormTextareaValidatorInterface} from '../../validators/bossy-form-t
 })
 export class BossyFormTextareaComponent implements OnInit {
   @Input() config: BossyFormTextareaConfig;
-  // hasValidation = 'none';
+
   value = '';
   form = new FormGroup({})
+  status = 'none';
 
   constructor() {
   }
