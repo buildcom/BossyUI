@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {BossyFormConfig} from '../../config/form';
 
 @Component({
@@ -24,7 +24,9 @@ export class BossyFormComponent implements OnInit {
       elements[name] = value;
     });
 
-    this.bossyForm = this.formBuilder.group(elements);
+    this.bossyForm = this.formBuilder.group(elements,{
+      value: ['',Validators.required]
+    });
   }
 
   onSubmit() {

@@ -28,11 +28,12 @@ export class BossyFormTextareaComponent implements OnInit {
         // validators: Validators.required
       // Validators.require()
     // }));
-    Validators.minLength(1);
-    const type = 'minlength';
-    const type_value = 1;
-    Validators[type](type_value);
-    Validators['required'](null);
+
+    // Validators.minLength(1);
+    // const type = 'minlength';
+    // const type_value = 1;
+    // Validators[type](type_value);
+    // Validators['required'];
     // {minlength: {1}}
     // {email : {{required,null}, {minlength,1}, {type,string}}}
 
