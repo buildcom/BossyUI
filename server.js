@@ -7,7 +7,11 @@ app.use(bodyParser.json({
   type: ['application/json', 'json', 'application/csp-report']
 }));
 
-app.use(express.static(path.join(__dirname, './dist')));
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 // get hydrates the values on the form elements
 app.get('/api/test', (req, res) => {
@@ -46,6 +50,8 @@ app.post('/api/test', (req, res) => {
     });
   }
 });
+
+app.use(express.static(path.join(__dirname, './dist')));
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, './dist/index.html'));
