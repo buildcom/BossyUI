@@ -17,7 +17,7 @@ import {BossyFormSelectMenuComponent} from '../../bossy-ui/components/form-selec
 import {BossyFormSelectMenuConfig} from '../../bossy-ui/config/form-selectmenu';
 import {BossyFormTextareaComponent} from '../../bossy-ui/components/form-textarea/form-textarea';
 import {BossyFormTextareaConfig} from '../../bossy-ui/config/bossy-form-textarea';
-
+import {Validators} from '@angular/forms'
 
 @Component({
   selector: 'app-sandbox',
@@ -40,13 +40,17 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(Validators.required);
     const calendarConfig = new BossyCalendarConfig();
     const formInput1 = {
         name: 'textInput',
         type: 'text',
         status: 'none',
         value: 'test value for text',
-        label: new BossyFormLabelConfig('text label test', true)
+        label: new BossyFormLabelConfig('text label test', true),
+        validators : [
+          {type: 'required'},
+        ]
       },
       formInput2 = {
         name: 'textareaInput',
@@ -154,4 +158,3 @@ export class SandboxComponent implements OnInit {
   }
 
 }
-

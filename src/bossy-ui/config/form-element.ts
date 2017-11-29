@@ -20,6 +20,7 @@ export interface BossyFormElementInterface {
   radio?: BossyFormRadioConfig;
   selectmenu?: BossyFormSelectMenuConfig;
   textarea?: BossyFormTextareaConfig;
+  validators?: Array<any>;
 }
 
 export class BossyFormElementConfig {
@@ -38,6 +39,7 @@ export class BossyFormElementConfig {
   public radio: BossyFormRadioConfig;
   public selectmenu: BossyFormSelectMenuConfig;
   public textarea: BossyFormTextareaConfig;
+  public validators: Array<any>;
 
   constructor(options: BossyFormElementInterface) {
     Object.keys(options).forEach((key: string) => {

@@ -12,7 +12,6 @@ export class BossyFormTextareaComponent implements OnInit {
   @Input() config: BossyFormTextareaConfig;
 
   value = '';
-  form = new FormGroup({})
   status = 'none';
 
   constructor() {
@@ -20,6 +19,10 @@ export class BossyFormTextareaComponent implements OnInit {
 
   ngOnInit() {
     const {name, value, formGroup} = this.config;
+
+    this.config.validators = [
+      Validators.required,
+    ];
 
     // value = element
     // validators = list of validators for the element
@@ -44,12 +47,6 @@ export class BossyFormTextareaComponent implements OnInit {
     //       {type: required},
     //       {type:'minlength',value: }
     //      ]
-  }
-
-  onChange(value:string) {
-      this.value = value;
-      console.log("Value is: %s", this.value)
-      this.form.patchValue({value : this.value})
   }
 
   output() {

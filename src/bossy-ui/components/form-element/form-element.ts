@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 import {BossyFormElementConfig} from '../../config/form-element';
 
 @Component({
@@ -21,6 +21,10 @@ export class BossyFormElementComponent implements OnInit {
 
       formGroup.addControl(name, new FormControl(value));
     }
+
+    this.config.validators = [
+      Validators.required,
+    ];
   }
 
   output() {

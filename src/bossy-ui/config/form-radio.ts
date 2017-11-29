@@ -9,6 +9,8 @@ export interface BossyFormRadioInterface {
   items: Array<RadioElement>;
   componentId: string;
   isInline?: boolean;
+  validators?: Array<any>;
+
 }
 
 // Config for radio component
@@ -16,6 +18,7 @@ export class BossyFormRadioConfig {
   public items: Array<RadioElement>;
   public componentId: string;
   public isInline?: boolean;
+  public validators?: Array<any>;
 
   constructor(options: BossyFormRadioInterface) {
     Object.assign(this, options);
