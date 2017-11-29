@@ -13,25 +13,12 @@ export class BossyFormComponent implements OnInit {
 
   bossyForm: FormGroup;
 
-  textInput: string;
-  textareaInput: string;
-  emailInput: string;
-
   isFormInlinedFromConfig = false;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient) {
   }
 
   ngOnInit() {
-   
-  this.http.get('http://localhost:3000/api/test').subscribe(data => {
-    this.textInput = data['textInput'];
-    this.textareaInput = data['textareaInput'];
-    this.emailInput = data['emailInput'];
-    console.log(data);
-  });
-
-  //Need to hydrate form config with get data
 
     const elements: any = {};
 
@@ -42,6 +29,14 @@ export class BossyFormComponent implements OnInit {
     });
 
     this.bossyForm = this.formBuilder.group(elements);
+
+    this.http.get('http://localhost:3000/api/test').subscribe(data => {
+      this.bossyForm.controls.textInput.setValue(data['textInput']);
+      this.bossyForm.controls.textareaInput.setValue(data['textareaInput']);
+      this.bossyForm.controls.emailInput.setValue(data['emailInput']);
+      console.log(this.bossyForm);
+    });
+
   }
 
   onSubmit() {
