@@ -30,12 +30,13 @@ export class BossyFormComponent implements OnInit {
 
     this.bossyForm = this.formBuilder.group(elements);
 
-    this.http.get('http://localhost:3000/api/test').subscribe(data => {
-      this.bossyForm.controls.textInput.setValue(data['textInput']);
-      this.bossyForm.controls.textareaInput.setValue(data['textareaInput']);
-      this.bossyForm.controls.emailInput.setValue(data['emailInput']);
-      console.log(this.bossyForm);
-    });
+    if (this.config.getURL !== '') {
+      this.http.get(this.config.getURL).subscribe(data => {
+        this.bossyForm.controls.textInput.setValue(data['textInput'].value);
+        this.bossyForm.controls.textareaInput.setValue(data['textareaInput'].value);
+        this.bossyForm.controls.emailInput.setValue(data['emailInput'].value);
+      });
+    }
 
   }
 
