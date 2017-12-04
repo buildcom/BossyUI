@@ -22,9 +22,6 @@ export class BossyFormElementComponent implements OnInit {
       formGroup.addControl(name, new FormControl(value));
     }
 
-    this.config.validators = [
-      Validators.required,
-    ];
   }
 
   output() {

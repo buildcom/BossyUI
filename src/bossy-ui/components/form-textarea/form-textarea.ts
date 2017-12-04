@@ -20,33 +20,6 @@ export class BossyFormTextareaComponent implements OnInit {
   ngOnInit() {
     const {name, value, formGroup} = this.config;
 
-    this.config.validators = [
-      Validators.required,
-    ];
-
-    // value = element
-    // validators = list of validators for the element
-    // this.form.controls.
-      // this.form.addControl(value, new FormControl(value, {
-        // validators: Validators.required
-      // Validators.require()
-    // }));
-
-    // Validators.minLength(1);
-    // const type = 'minlength';
-    // const type_value = 1;
-    // Validators[type](type_value);
-    // Validators['required'];
-    // {minlength: {1}}
-    // {email : {{required,null}, {minlength,1}, {type,string}}}
-
-    // config.
-    //  elements.
-    //    type: 'email;
-    //      validators: [
-    //       {type: required},
-    //       {type:'minlength',value: }
-    //      ]
   }
 
   output() {
