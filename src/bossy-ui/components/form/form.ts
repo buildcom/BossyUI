@@ -25,9 +25,14 @@ export class BossyFormComponent implements OnInit {
       const bossyValidators = [];
       if (validators && validators[0]) {
         for (let valids in validators) {
-          bossyValidators.push(validators[valids].value == null ?
-            Validators[validators[valids].type] :
-            Validators[validators[valids].type](validators[valids].value));
+          if(Validators[validators[valids].type] != null){
+            if(validators[valids].type == 'required'){
+              bossyValidators.push(Validators[validators[valids].type]) 
+            }
+            else if(Validators[validators[valids].type](validators[valids].value) != null){
+              bossyValidators.push(Validators[validators[valids].type](validators[valids].value))
+            }
+          }
         }
       }
       elements[name] = [value, bossyValidators];
