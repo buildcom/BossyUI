@@ -14,6 +14,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContributingComponent } from './contributing/contributing.component';
 import { HomeComponent } from './home/home.component';
 import {BossyFormElementComponent} from '../bossy-ui/components/form-element/form-element';
+import {HttpClientModule} from '@angular/common/http';
+import {PosterService} from './poster.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,9 +38,10 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     BossyModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
-  providers: [ConfigService],
+  providers: [ConfigService, PosterService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
