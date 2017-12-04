@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators, NgModel} from '@angular/forms';
 import {BossyFormTextareaConfig} from '../../config/bossy-form-textarea';
-import {BossyFormTextareaValidatorInterface} from '../../validators/bossy-form-textarea';
 
 @Component({
   selector: 'bossy-form-textarea',
