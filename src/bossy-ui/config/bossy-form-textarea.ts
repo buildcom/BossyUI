@@ -14,7 +14,6 @@ export interface BossyFormTextareaInterface {
   placeholder?: string;
   formGroup?: FormGroup;
   hasvalidation?: string;
-  validators?: Array<any>;
 }
 
 export class BossyFormTextareaConfig {
@@ -30,7 +29,6 @@ export class BossyFormTextareaConfig {
   public placeholder?: string;
   public formGroup?: FormGroup;
   public hasvalidation?: string;
-  public validators?: Array<any>;
 
   constructor(options: BossyFormTextareaInterface) {
     Object.assign(this, options);
