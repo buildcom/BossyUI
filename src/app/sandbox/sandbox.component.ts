@@ -40,7 +40,6 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(Validators.required);
     const calendarConfig = new BossyCalendarConfig();
     const formInput1 = {
         name: 'textInput',
@@ -50,6 +49,7 @@ export class SandboxComponent implements OnInit {
         label: new BossyFormLabelConfig('text label test', true),
         validators : [
           {type: 'required'},
+          {type: 'minLength', value:8 },
         ]
       },
       formInput2 = {

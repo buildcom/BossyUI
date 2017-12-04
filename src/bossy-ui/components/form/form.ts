@@ -21,15 +21,24 @@ export class BossyFormComponent implements OnInit {
     this.isFormInlinedFromConfig = this.config.isFormInlined;
     this.config.elements.forEach((element) => {
       const {name, value, validators} = element;
-      console.log(validators && validators[0] && validators[0].type);
-      const myValids = validators && validators[0] ? Validators[validators[0].type] : []
-      elements[name] = [value, myValids];
+      // console.log(validators && validators[0] && validators[0].type);
+      if (validators && validators[0]) {
+        const bossyValidators = [];
+        for (let valids in validators) {
+          bossyValidators.push(validators[valids].value == null ?
+            Validators[validators[valids].type] :
+            Validators[validators[valids].type](validators[valids].value));
+        }
+        elements[name] = [value, bossyValidators];
+      }
+      else {
+        elements[name] = [value]
+      }
       // elements[name] = [value, [Validators.required]];
-      console.log(element);
     });
-    console.log(elements)
+    // console.log(elements)
     this.bossyForm = this.formBuilder.group(elements);
-    // console.log(this.bossyForm.controls['textInput'].valid);
+    console.log(this.bossyForm.controls['textInput'].valid);
   }
 
   onSubmit() {
