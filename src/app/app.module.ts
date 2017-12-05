@@ -14,8 +14,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContributingComponent } from './contributing/contributing.component';
 import { HomeComponent } from './home/home.component';
 import {BossyFormElementComponent} from '../bossy-ui/components/form-element/form-element';
+<<<<<<< HEAD
 import {HttpClientModule} from '@angular/common/http';
 import {PosterService} from './poster.service';
+=======
+import { HttpClientModule } from '@angular/common/http';
+>>>>>>> 873a731eaebbc603677fd1dea69f56dd99d01b6b
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },

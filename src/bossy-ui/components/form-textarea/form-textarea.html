@@ -1,7 +1,10 @@
 <div class="bossy-form-textarea">
   <div class="form-group">
     <label for="comment"> {{ config.label }}</label>
-    <textarea [formControl]="textFormControl"  class="form-control" name="{{ config.name }}" placeholder="{{ config.placeholder }}" rows="{{ config.rows }}" cols="{{ config.cols }}"></textarea>
+    <textarea [formControl]="textFormControl" #textarea class="form-control" name="{{ config.name }}" placeholder="{{ config.placeholder }}" rows="{{ config.rows }}" cols="{{ config.cols }}"></textarea>
+    <!-- <div [hidden]="{{ config.validators }}" class="alert alert-danger">
+      Textarea is not valid
+    </div> -->
     <button (click)="posterer();">Post</button>
   </div>
 </div>
