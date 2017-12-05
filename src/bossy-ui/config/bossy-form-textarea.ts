@@ -14,7 +14,7 @@ export interface BossyFormTextareaInterface {
   placeholder?: string;
   formGroup?: FormGroup;
   postingLabel?: string;
-  APIUrl?: string;
+  targetURL?: string;
 }
 
 export class BossyFormTextareaConfig {
@@ -30,7 +30,7 @@ export class BossyFormTextareaConfig {
   public placeholder?: string;
   public formGroup?: FormGroup;
   public postingLabel?: string;
-  public APIUrl?: string;
+  public targetURL?: string;
 
   constructor(options: BossyFormTextareaInterface) {
     Object.assign(this, options);

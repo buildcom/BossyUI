@@ -9,8 +9,8 @@ export class PosterService {
     private http: HttpClient,
     ) { }
 
-    poster (input: any, postURL: string): Observable<any> {
-        return this.http.post(postURL, input);
+    poster (input: any, targetURL: string): Observable<any> {
+        return this.http.post(targetURL, input);
     }
 }
 

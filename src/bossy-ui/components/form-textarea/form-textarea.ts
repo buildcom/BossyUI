@@ -25,11 +25,11 @@ export class BossyFormTextareaComponent implements OnInit {
 
   
   posterer(): void {
-    let input = { emailInput: this.textFormControl.value };
+    let input = { emailInput: {value: this.textFormControl.value }};
     console.log(this.textFormControl.value);
-    console.log(this.config.APIUrl);
+    console.log(this.config.targetURL);
     console.log(JSON.stringify(input));
-    this.posterService.poster({ input } as any, this.config.APIUrl)
+    this.posterService.poster({ input } as any, this.config.targetURL)
       .subscribe( res => {
         console.log(JSON.stringify(res));
       },
