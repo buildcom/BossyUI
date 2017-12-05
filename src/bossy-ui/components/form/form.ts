@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {BossyFormConfig} from '../../config/form';
 
 @Component({
@@ -20,14 +20,29 @@ export class BossyFormComponent implements OnInit {
 
     this.isFormInlinedFromConfig = this.config.isFormInlined;
     this.config.elements.forEach((element) => {
-      const {name, value} = element;
-      elements[name] = value;
+      const {name, value, validators} = element;
+      const bossyValidators = [];
+      if (validators && validators[0]) {
+        for (const valids in validators) {
+          if (Validators[validators[valids].type] != null) {
+            if (validators[valids].type === 'required') {
+              bossyValidators.push(Validators[validators[valids].type]);
+            } else if (Validators[validators[valids].type](validators[valids].value) != null) {
+              bossyValidators.push(Validators[validators[valids].type](validators[valids].value));
+            }
+          }
+        }
+      }
+      elements[name] = [value, bossyValidators];
     });
-
     this.bossyForm = this.formBuilder.group(elements);
   }
 
   onSubmit() {
     // TODO: return form data
+  }
+
+  onChange() {
+    console.log(this.bossyForm.controls['textInput'].valid);
   }
 }

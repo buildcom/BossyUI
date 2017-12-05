@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators, NgModel} from '@angular/forms';
 import {BossyFormTextareaConfig} from '../../config/bossy-form-textarea';
 
 @Component({
@@ -9,6 +9,8 @@ import {BossyFormTextareaConfig} from '../../config/bossy-form-textarea';
 })
 export class BossyFormTextareaComponent implements OnInit {
   @Input() config: BossyFormTextareaConfig;
+
+  value = '';
   status = 'none';
 
   constructor() {
@@ -17,9 +19,6 @@ export class BossyFormTextareaComponent implements OnInit {
   ngOnInit() {
     const {name, value, formGroup} = this.config;
 
-    if (formGroup) {
-      formGroup.addControl(name, new FormControl(value));
-    }
   }
 
   output() {

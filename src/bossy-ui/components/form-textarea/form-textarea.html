@@ -1,6 +1,9 @@
 <div class="bossy-form-textarea">
   <div class="form-group">
     <label for="comment"> {{ config.label }}</label>
-    <textarea class="form-control" name="{{ config.name }}" placeholder="{{ config.placeholder }}" rows="{{ config.rows }}" cols="{{ config.cols }}"></textarea>
+    <textarea #textarea class="form-control" name="{{ config.name }}" placeholder="{{ config.placeholder }}" rows="{{ config.rows }}" cols="{{ config.cols }}"></textarea>
+    <!-- <div [hidden]="{{ config.validators }}" class="alert alert-danger">
+      Textarea is not valid
+    </div> -->
   </div>
 </div>
