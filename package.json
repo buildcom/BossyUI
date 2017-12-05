@@ -9,8 +9,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "server": "node server.js",
-    "sandbox": "ng serve"
+    "server": "./node_modules/typescript/bin/tsc -p ./server/tsconfig.server.json; node server/index.js",
+    "sandbox": "ng serve",
+    "watch:src": "./node_modules/typescript/bin/tsc -w -p ./server/tsconfig.server.json"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +29,7 @@
     "bootstrap": "^4.0.0-beta",
     "core-js": "^2.4.1",
     "rxjs": "^5.4.2",
+    "validate.js": "^0.12.0",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
@@ -36,7 +38,7 @@
     "@angular/language-service": "^4.2.4",
     "@types/jasmine": "~2.8.0",
     "@types/jasminewd2": "~2.0.2",
-    "@types/node": "~8.0.36",
+    "@types/node": "^8.0.54",
     "codelyzer": "~3.2.1",
     "express": "^4.15.4",
     "jasmine-core": "~2.6.2",
