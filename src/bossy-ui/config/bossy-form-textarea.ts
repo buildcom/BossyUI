@@ -11,6 +11,8 @@ export interface BossyFormTextareaInterface {
   cols?: number;
   placeholder?: string;
   formGroup?: FormGroup;
+  postingLabel?: string;
+  targetURL?: string;
   hasvalidation?: string;
 }
 
@@ -25,6 +27,8 @@ export class BossyFormTextareaConfig {
   public cols?: number;
   public placeholder?: string;
   public formGroup?: FormGroup;
+  public postingLabel?: string;
+  public targetURL?: string;
   public hasvalidation?: string;
 
   constructor(options: BossyFormTextareaInterface) {
