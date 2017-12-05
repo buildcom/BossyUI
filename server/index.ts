@@ -16,6 +16,58 @@ app.use((req, res, next) => {
   next();
 });
 
+// get definition
+app.get('/api/addresses/definition', (req, res) => {
+
+  return res.json({
+    definition: {
+      elements: [
+        {
+          name: 'firstName',
+          type: 'text',
+          validators: ['required'],
+        },
+        {
+          name: 'lastName',
+          type: 'text',
+          validators: ['required'],
+        },
+        {
+          name: 'address1',
+          type: 'text',
+          validators: ['required'],
+        },
+        {
+          name: 'address2',
+          type: 'text',
+          validators: [],
+        },
+        {
+          name: 'city',
+          type: 'text',
+          validators: ['required'],
+        },
+        {
+          name: 'state',
+          type: 'text',
+          validators: ['required'],
+        },
+        {
+          name: 'zipCode',
+          type: 'text',
+          validators: ['required'],
+        },
+        {
+          name: 'email',
+          type: 'email',
+          validators: ['required', 'email'],
+        },
+      ]
+    },
+  });
+});
+
+
 // get all
 app.get('/api/addresses', (req, res) => {
   fs.readFile(`${__dirname}/data/addresses.json`, 'utf8', (error, data) => {
