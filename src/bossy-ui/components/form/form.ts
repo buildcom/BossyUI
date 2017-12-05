@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {BossyFormConfig} from '../../config/form';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'bossy-form',
@@ -9,13 +10,16 @@ import {BossyFormConfig} from '../../config/form';
 })
 export class BossyFormComponent implements OnInit {
   @Input() config: BossyFormConfig;
+
   bossyForm: FormGroup;
+
   isFormInlinedFromConfig = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
   }
 
   ngOnInit() {
+
     const elements: any = {};
 
     this.isFormInlinedFromConfig = this.config.isFormInlined;
@@ -36,6 +40,15 @@ export class BossyFormComponent implements OnInit {
       elements[name] = [value, bossyValidators];
     });
     this.bossyForm = this.formBuilder.group(elements);
+
+    if (this.config.getURL !== '') {
+      this.http.get(this.config.getURL).subscribe(data => {
+        Object.keys(data).forEach((key: string) => {
+          this.bossyForm.controls[key].setValue(data[key].value);
+        });
+      });
+    }
+
   }
 
   onSubmit() {
