@@ -24,7 +24,7 @@ export class BossyFormComponent implements OnInit {
   ngOnInit() {
 
     const elements: any = {};
-
+//console.log(this.config);
     this.isFormInlinedFromConfig = this.config.isFormInlined;
     this.config.elements.forEach((element) => {
       const {name, value, validators} = element;
