@@ -115,7 +115,8 @@ export class SandboxComponent implements OnInit {
         new BossyFormElementConfig(formInput6)
       ],
         false,
-        'http://localhost:3000/api/test'
+        'http://localhost:3000/api/addresses',
+        'http://localhost:3000/api/addresses',
     );
 
     // Radio component independent of form

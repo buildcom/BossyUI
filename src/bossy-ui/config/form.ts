@@ -1,8 +1,10 @@
 import {BossyFormElementConfig} from './form-element';
 
 export class BossyFormConfig {
-  constructor(public elements: Array<BossyFormElementConfig>,
+  constructor(public elements?: Array<BossyFormElementConfig>,
               public isFormInlined?: boolean,
-              public getURL?: string) {
-  }
+              public getUrl?: string,
+              public postUrl?: string,
+              public definitionUrl?: string
+  ) {}
 }

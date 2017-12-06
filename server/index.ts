@@ -25,48 +25,46 @@ app.get('/api/addresses/definition', (req, res) => {
         {
           name: 'firstName',
           type: 'text',
-          validators: ['required'],
+          validators: [{type: 'required'}],
         },
         {
           name: 'lastName',
           type: 'text',
-          validators: ['required'],
+          validators: [{type: 'required'}],
         },
         {
           name: 'address1',
           type: 'text',
-          validators: ['required'],
+          validators: [{type: 'required'}],
         },
         {
           name: 'address2',
           type: 'text',
-          validators: [],
         },
         {
           name: 'city',
           type: 'text',
-          validators: ['required'],
+          validators: [{type: 'required'}],
         },
         {
           name: 'state',
           type: 'text',
-          validators: ['required'],
+          validators: [{type: 'required'}],
         },
         {
           name: 'zipCode',
           type: 'text',
-          validators: ['required'],
+          validators: [{type: 'required'}],
         },
         {
           name: 'email',
           type: 'email',
-          validators: ['required', 'email'],
+          validators: [{type: 'required'}, {type: 'email'}],
         },
       ]
     },
   });
 });
-
 
 // get all
 app.get('/api/addresses', (req, res) => {
