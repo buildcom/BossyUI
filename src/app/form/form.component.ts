@@ -10,39 +10,15 @@ import {BossyFormComponent} from '../../bossy-ui/components/form/form';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+  formConfig: BossyFormConfig = new BossyFormConfig();
 
-  bossyForm = BossyFormComponent;
-  config: BossyFormConfig;
-
-  constructor(private configService: ConfigService) { }
-
-  ngOnInit() {
-
-    const formInputTest1 = {
-        name: 'First Name',
-        type: 'text',
-        validators : [
-          {type: 'required'}
-        ]
-      }
-    const formInputTest2 = {
-        name: 'Last Name',
-        type: 'text',
-        validators : [
-          {type: 'required'}
-        ]
-      }
-    
-    this.config = new BossyFormConfig(
-      [
-        new BossyFormElementConfig(formInputTest1),
-        new BossyFormElementConfig(formInputTest2)
-      ],
-        false,
-        'http://localhost:3000/api/addresses',
-        'http://localhost:3000/api/addresses'
-    );
-
+  constructor(
+    private configService: ConfigService) {
   }
 
+  ngOnInit() {
+    this.formConfig.definitionUrl = 'http://localhost:3000/api/addresses/definition';
+    this.formConfig.getUrl = 'http://localhost:3000/api/addresses/2';
+    this.formConfig.postUrl = 'http://localhost:3000/api/addresses';
+  }
 }

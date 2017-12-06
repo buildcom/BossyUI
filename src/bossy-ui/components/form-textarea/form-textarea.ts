@@ -22,7 +22,7 @@ export class BossyFormTextareaComponent implements OnInit {
 
 
   posterer(): void {
-    let input = { emailInput: {value: this.textFormControl.value }};
+    const input = { emailInput: {value: this.textFormControl.value }};
     this.textFormControl.reset();
   }
 

@@ -16,7 +16,7 @@ import { HomeComponent } from './home/home.component';
 import {BossyFormElementComponent} from '../bossy-ui/components/form-element/form-element';
 import {HttpClientModule} from '@angular/common/http';
 import {FormService} from '../bossy-ui/services/form';
-import {FormComponent} from "./form/form.component";
+import {FormComponent} from './form/form.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
