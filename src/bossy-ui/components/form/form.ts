@@ -1,7 +1,8 @@
 import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {BossyFormConfig} from '../../config/form';
-import {FormService} from '../../services/form';
+import {FormService} from "../../services/form";
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'bossy-form',
@@ -9,77 +10,78 @@ import {FormService} from '../../services/form';
   styleUrls: ['./form.css'],
 })
 export class BossyFormComponent implements OnInit {
-  @Input() config: BossyFormConfig = new BossyFormConfig();
+  @Input() config: BossyFormConfig;
 
-  bossyForm: FormGroup = new FormGroup({});
+  bossyForm: FormGroup;
+
   isFormInlinedFromConfig = false;
-  elementErrors = [];
 
   constructor(
     private formBuilder: FormBuilder,
-    private formService: FormService
-  ) {}
+    private formService: FormService) {
+  }
 
   ngOnInit() {
-    if (this.config.definitionUrl && this.config.definitionUrl.length > 0) {
-      this.formService.get(this.config.definitionUrl).subscribe((data) => {
-        this.config = {
-          ...this.config,
-          ...data.definition,
-        };
 
-        if (this.config.elements) {
-          this.createForm(this.config.elements);
+    const elements: any = {};
+//console.log(this.config);
+    this.isFormInlinedFromConfig = this.config.isFormInlined;
+    this.config.elements.forEach((element) => {
+      const {name, value, validators} = element;
+      const bossyValidators = [];
+      if (validators && validators[0]) {
+        for (const valids in validators) {
+          if (Validators[validators[valids].type] != null) {
+            if (validators[valids].type === 'required') {
+              bossyValidators.push(Validators[validators[valids].type]);
+            } else if (Validators[validators[valids].type](validators[valids].value) != null) {
+              bossyValidators.push(Validators[validators[valids].type](validators[valids].value));
+            }
+          }
         }
-      });
-    }
-  }
-
-  createForm(elements) {
-    const controls = {};
-
-    elements.forEach((element) => {
-      const { name, type, validators = [], value } = element;
-      const validation = validators.map((validator) => {
-        if (validator.value) {
-          return Validators[validator.type](validator.value);
-        }
-        return Validators[validator.type];
-      });
-
-      controls[name] = [value, validation];
+      }
+      elements[name] = [value, bossyValidators];
     });
 
-    this.bossyForm = this.formBuilder.group(controls);
-  }
+    this.bossyForm = this.formBuilder.group(elements);
 
-  getFormData() {
-    console.log(this.config);
-
-    if (this.config.getUrl) {
-      this.formService.get(this.config.getUrl).subscribe((results) => {
-        Object.keys(results.data).forEach((field) => {
-          if (this.bossyForm.controls[field]) {
-            this.bossyForm.controls[field].setValue(results.data[field]);
-          }
+    if (this.config.getUrl !== '') {
+      this.formService.get(this.config.getUrl).subscribe(data => {
+        Object.keys(data).forEach((key: string) => {
+          // this.bossyForm.controls[key].setValue(data[key].value);
         });
       });
     }
+
   }
 
-  postFormData() {
-    if (this.config.postUrl) {
-      this.formService.post(this.bossyForm.value, this.config.postUrl).subscribe((results) => {
-        Object.keys(results.data).forEach((field) => {
-          if (this.bossyForm.controls[field]) {
-            this.bossyForm.controls[field].setValue(results.data[field]);
-          }
-        });
-      });
-    }
+  onSubmit() {
+    // TODO: return form data
+
+    this.formService.post(this.bossyForm.value, this.config.postUrl);
+
+    //console.log(this.bossyForm.value)
+  }
+
+
+
+  geter() {
+    this.formService.get(this.config.getUrl).subscribe(
+      res => {
+
+      }
+    );
+  }
+  poster(): void{
+    let data = '';
+    this.formService.post({data} as any, this.config.postUrl).subscribe(
+      res => {
+
+      }
+    )
   }
 
   onChange() {
-    console.log(this.bossyForm.controls['textInput'].valid);
+    // console.log(this.bossyForm.controls['textInput'].valid);
   }
 }

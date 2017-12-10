@@ -17,12 +17,14 @@ import {BossyFormElementComponent} from '../bossy-ui/components/form-element/for
 import {HttpClientModule} from '@angular/common/http';
 import {FormService} from '../bossy-ui/services/form';
 import {FormComponent} from './form/form.component';
+import {FormDemo} from './formDemo/formDemo'
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'sandbox', component: SandboxComponent },
   { path: 'contributing', component: ContributingComponent},
-  { path: 'form', component: FormComponent}
+  { path: 'form', component: FormComponent},
+  { path: 'demo', component: FormDemo}
 ];
 
 @NgModule({
@@ -37,6 +39,7 @@ const appRoutes: Routes = [
     ContributingComponent,
     HomeComponent,
     FormComponent,
+    FormDemo,
   ],
   imports: [
     BrowserModule,
