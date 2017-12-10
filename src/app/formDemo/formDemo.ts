@@ -48,8 +48,8 @@ export class FormDemo implements OnInit {
       new BossyFormElementConfig(formInput1),
     ],
         false,
-        'http://localhost:3000/api/addresses',
-        'http://localhost:3000/api/addresses',
+        'http://localhost:3000/api/test',
+        'http://localhost:3000/api/test',
     );
 
   this.configService.setConfig('formDemoConfig', formDemoConfig);
