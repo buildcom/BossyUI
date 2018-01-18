@@ -69,7 +69,6 @@
       "core-js",
       "rxjs",
       "zone.js",
-      "@angular/cli",
       "@angular/language-service",
       "@types/jasmine",
       "@types/jasminewd2",
