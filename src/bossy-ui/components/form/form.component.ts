@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
 import {BossyFormConfig} from './form.config';
-import {FormService} from '../../services/form';
 
 @Component({
   selector: 'bossy-form',
@@ -17,21 +17,25 @@ export class BossyFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private formService: FormService
+    private http: HttpClient,
   ) {}
 
   ngOnInit() {
     if (this.config.definitionUrl && this.config.definitionUrl.length > 0) {
-      this.formService.get(this.config.definitionUrl).subscribe((data) => {
+      this.http.get(this.config.definitionUrl).subscribe((data) => {
         this.config = {
           ...this.config,
-          ...data.definition,
+          data,
         };
 
         if (this.config.elements) {
           this.createForm(this.config.elements);
         }
       });
+    } else {
+      if (this.config.elements) {
+        this.createForm(this.config.elements);
+      }
     }
   }
 
@@ -54,13 +58,11 @@ export class BossyFormComponent implements OnInit {
   }
 
   getFormData() {
-    console.log(this.config);
-
     if (this.config.getUrl) {
-      this.formService.get(this.config.getUrl).subscribe((results) => {
-        Object.keys(results.data).forEach((field) => {
+      this.http.get(this.config.getUrl).subscribe((results) => {
+        Object.keys(results).forEach((field) => {
           if (this.bossyForm.controls[field]) {
-            this.bossyForm.controls[field].setValue(results.data[field]);
+            this.bossyForm.controls[field].setValue(results[field]);
           }
         });
       });
@@ -69,10 +71,10 @@ export class BossyFormComponent implements OnInit {
 
   postFormData() {
     if (this.config.postUrl) {
-      this.formService.post(this.bossyForm.value, this.config.postUrl).subscribe((results) => {
-        Object.keys(results.data).forEach((field) => {
+      this.http.post(this.bossyForm.value, this.config.postUrl).subscribe((results) => {
+        Object.keys(results).forEach((field) => {
           if (this.bossyForm.controls[field]) {
-            this.bossyForm.controls[field].setValue(results.data[field]);
+            this.bossyForm.controls[field].setValue(results[field]);
           }
         });
       });
