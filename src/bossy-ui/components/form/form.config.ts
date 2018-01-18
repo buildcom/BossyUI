@@ -5,6 +5,7 @@ export class BossyFormConfig {
               public isFormInlined?: boolean,
               public getUrl?: string,
               public postUrl?: string,
-              public definitionUrl?: string
+              public definitionUrl?: string,
+              public data?: any,
   ) {}
 }
