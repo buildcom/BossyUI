@@ -1,9 +1,9 @@
-import {BossyDropdownMenuItemConfig} from './dropdown-menu';
+import {BossyDropdownMenuConfig} from '../dropdown-menu/dropdown-menu.config';
 
 export class BossyDropdownConfig {
   constructor(public name: string,
               public type: string,
-              public items: Array<BossyDropdownMenuItemConfig>,
+              public items: Array<BossyDropdownMenuConfig>,
               public isSplit?: boolean,
               public size?: string,
               public isDropup?: boolean,

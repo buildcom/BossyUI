@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ConfigService} from '../config.service';
-import {BossyFormConfig} from '../../bossy-ui/config/form';
-import {BossyFormElementConfig} from '../../bossy-ui/config/form-element';
-import {BossyFormComponent} from '../../bossy-ui/components/form/form';
+import {BossyFormConfig} from '../../bossy-ui/components/form/form.config';
+import {BossyFormElementConfig} from '../../bossy-ui/components/form-element/form-element.config';
+import {BossyFormComponent} from '../../bossy-ui/components/form/form.component';
 
 @Component({
   selector: 'app-form',

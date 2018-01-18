@@ -1,4 +1,4 @@
-import {BossyFormElementConfig} from './form-element';
+import {BossyFormElementConfig} from '../form-element/form-element.config';
 
 export class BossyFormConfig {
   constructor(public elements?: Array<BossyFormElementConfig>,

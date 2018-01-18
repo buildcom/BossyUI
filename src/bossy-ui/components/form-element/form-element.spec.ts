@@ -1,4 +1,4 @@
-import {BossyFormElementComponent} from './form-element';
+import {BossyFormElementComponent} from './form-element.component';
 
 const formInput = new BossyFormElementComponent();
 

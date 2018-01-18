@@ -1,16 +1,16 @@
-export interface MenuItem {
+export interface BossyFormSelectMenuItemInterface {
   value: string;
   isDisabled?: boolean;
 }
 
 export interface BossyFormSelectMenuInterface {
   title: string;
-  items: [MenuItem];
+  items: [BossyFormSelectMenuItemInterface];
 }
 
 export class BossyFormSelectMenuConfig {
   public title: string;
-  public items: [MenuItem];
+  public items: [BossyFormSelectMenuItemInterface];
 
   constructor(options: BossyFormSelectMenuInterface) {
     Object.keys(options).forEach((key: string) => {

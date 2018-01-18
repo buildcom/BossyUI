@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
-import {BossyFormRadioConfig} from '../../config/form-radio';
-import {RadioElement} from '../../config/form-radio';
-import {BossyFormConfig} from '../../config/form';
+import {BossyFormRadioConfig} from './form-radio.config';
+import {BossyFormRadioElement} from './form-radio.config';
+import {BossyFormConfig} from '../form/form.config';
 
 @Component({
   selector: 'bossy-form-radio',
@@ -9,7 +9,7 @@ import {BossyFormConfig} from '../../config/form';
 })
 export class BossyFormRadioComponent implements OnInit {
   @Input() config: BossyFormRadioConfig;
-  items: Array<RadioElement> = [];
+  items: Array<BossyFormRadioElement> = [];
   componentId = '';
   isInline = false;
 

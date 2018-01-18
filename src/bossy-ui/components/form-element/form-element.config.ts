@@ -1,8 +1,8 @@
 import {FormGroup} from '@angular/forms';
-import {BossyFormLabelConfig} from './form-label';
-import {BossyFormRadioConfig} from './form-radio';
-import {BossyFormSelectMenuConfig} from './form-selectmenu';
-import {BossyFormTextareaConfig} from './bossy-form-textarea';
+import {BossyFormLabelConfig} from '../form-label/form-label.config';
+import {BossyFormRadioConfig} from '../form-radio/form-radio.config';
+import {BossyFormSelectMenuConfig} from '../form-selectmenu/form-selectmenu.config';
+import {BossyFormTextareaConfig} from '../form-textarea/form-textarea.config';
 
 export interface BossyFormElementInterface {
   name: string;

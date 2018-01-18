@@ -3,9 +3,9 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
 
-import {BossyFormRadioComponent} from './form-radio';
-import {BossyFormRadioConfig} from '../../config/form-radio';
-import {RadioElement} from '../../config/form-radio';
+import {BossyFormRadioComponent} from './form-radio.component';
+import {BossyFormRadioConfig} from './form-radio.config';
+import {BossyFormRadioElement} from './form-radio.config';
 
 let rad: BossyFormRadioComponent;
 let fixture: ComponentFixture<BossyFormRadioComponent>;

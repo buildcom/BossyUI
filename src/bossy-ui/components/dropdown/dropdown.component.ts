@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
-import {BossyDropdownConfig} from '../../config/dropdown';
+import {BossyDropdownConfig} from './dropdown.config';
 
 @Component({
   selector: 'bossy-dropdown',

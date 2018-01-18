@@ -3,8 +3,8 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
 
-import {BossyFormTextareaComponent} from './form-textarea';
-import {BossyFormTextareaConfig} from '../../config/bossy-form-textarea';
+import {BossyFormTextareaComponent} from './form-textarea.component';
+import {BossyFormTextareaConfig} from './form-textarea.config';
 
 let textArea: BossyFormTextareaComponent;
 let fixture: ComponentFixture<BossyFormTextareaComponent>;
