@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-import {BossyFormElementConfig} from '../../config/form-element';
+import {BossyFormElementConfig} from './form-element.config';
 
 @Component({
   selector: 'bossy-form-element',

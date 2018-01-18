@@ -11,7 +11,8 @@
     "e2e": "ng e2e",
     "server": "./node_modules/typescript/bin/tsc -p ./server/tsconfig.server.json; node server/index.js",
     "sandbox": "ng serve",
-    "watch:src": "./node_modules/typescript/bin/tsc -w -p ./server/tsconfig.server.json"
+    "watch:server": "./node_modules/typescript/bin/tsc -w -p ./server/tsconfig.server.json",
+    "watch:src": "./node_modules/typescript/bin/tsc -w -p ./src/tsconfig.app.json"
   },
   "private": true,
   "dependencies": {

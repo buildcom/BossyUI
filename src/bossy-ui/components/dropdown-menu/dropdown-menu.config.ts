@@ -1,4 +1,4 @@
-export class BossyDropdownMenuItemConfig {
+export class BossyDropdownMenuConfig {
   constructor(public type: string,
               public name?: string,
               public href?: string,

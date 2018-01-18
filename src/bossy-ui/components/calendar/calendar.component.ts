@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BossyCalendarConfig} from '../../config/calendar';
+import {BossyCalendarConfig} from './calendar.config';
 
 @Component({
   selector: 'bossy-calendar',

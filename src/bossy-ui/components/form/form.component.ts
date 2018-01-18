@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {BossyFormConfig} from '../../config/form';
+import {BossyFormConfig} from './form.config';
 import {FormService} from '../../services/form';
 
 @Component({

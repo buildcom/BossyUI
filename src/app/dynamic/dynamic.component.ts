@@ -6,14 +6,14 @@ import {
   ReflectiveInjector,
   ComponentFactoryResolver
 } from '@angular/core';
-import {BossyCalendarComponent} from '../../bossy-ui/components/calendar/calendar';
-import {BossyFormComponent} from '../../bossy-ui/components/form/form';
-import {BossyFormRadioComponent} from '../../bossy-ui/components/form-radio/form-radio';
-import {BossyDropdownComponent} from '../../bossy-ui/components/dropdown/dropdown';
-import {BossyDropdownMenuItemComponent} from '../../bossy-ui/components/dropdown-menu/dropdown-menu';
-import {BossyFormElementComponent} from '../../bossy-ui/components/form-element/form-element';
-import {BossyFormSelectMenuComponent} from '../../bossy-ui/components/form-selectmenu/form-selectmenu';
-import {BossyFormTextareaComponent} from '../../bossy-ui/components/form-textarea/form-textarea';
+import {BossyCalendarComponent} from '../../bossy-ui/components/calendar/calendar.component';
+import {BossyFormComponent} from '../../bossy-ui/components/form/form.component';
+import {BossyFormRadioComponent} from '../../bossy-ui/components/form-radio/form-radio.component';
+import {BossyDropdownComponent} from '../../bossy-ui/components/dropdown/dropdown.component';
+import {BossyDropdownMenuItemComponent} from '../../bossy-ui/components/dropdown-menu/dropdown-menu.component';
+import {BossyFormElementComponent} from '../../bossy-ui/components/form-element/form-element.component';
+import {BossyFormSelectMenuComponent} from '../../bossy-ui/components/form-selectmenu/form-selectmenu.component';
+import {BossyFormTextareaComponent} from '../../bossy-ui/components/form-textarea/form-textarea.component';
 
 @Component({
   selector: 'app-dynamic-component',

@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {BossyFormLabelConfig} from '../../config/form-label';
+import {BossyFormLabelConfig} from './form-label.config';
 
 @Component({
   selector: 'bossy-form-label',

@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {BossyDropdownMenuItemConfig} from '../../config/dropdown-menu';
+import {BossyDropdownMenuConfig} from './dropdown-menu.config';
 
 @Component({
   selector: 'bossy-dropdown-menu',
@@ -7,7 +7,7 @@ import {BossyDropdownMenuItemConfig} from '../../config/dropdown-menu';
 })
 
 export class BossyDropdownMenuItemComponent {
-  @Input() config: BossyDropdownMenuItemConfig;
+  @Input() config: BossyDropdownMenuConfig;
   type = 'button';
   name = 'missingName';
   href = '#';

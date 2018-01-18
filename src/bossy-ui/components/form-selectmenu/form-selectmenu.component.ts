@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {BossyFormSelectMenuConfig} from '../../config/form-selectmenu';
+import {BossyFormSelectMenuConfig} from './form-selectmenu.config';
 
 @Component({
   selector: 'bossy-form-selectmenu',

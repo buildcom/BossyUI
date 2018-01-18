@@ -1,4 +1,4 @@
-import {BossySliderComponent} from './slider';
+import {BossySliderComponent} from './slider.component';
 
 let slider: BossySliderComponent;
 describe('the slider component', () => {

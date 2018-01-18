@@ -1,4 +1,4 @@
-import {BossyCalendarComponent} from './calendar';
+import {BossyCalendarComponent} from './calendar.component';
 
 let cal: BossyCalendarComponent;
 
