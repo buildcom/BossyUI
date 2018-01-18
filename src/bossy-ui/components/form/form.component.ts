@@ -32,6 +32,10 @@ export class BossyFormComponent implements OnInit {
           this.createForm(this.config.elements);
         }
       });
+    } else {
+        if (this.config.elements) {
+            this.createForm(this.config.elements);
+        }
     }
   }
 
@@ -77,9 +81,5 @@ export class BossyFormComponent implements OnInit {
         });
       });
     }
-  }
-
-  onChange() {
-    console.log(this.bossyForm.controls['textInput'].valid);
   }
 }
