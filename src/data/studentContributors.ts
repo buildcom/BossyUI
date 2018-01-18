@@ -41,5 +41,23 @@ export const students = [
   },
   {
     'name': 'Mary Trujillo'
+  },
+  {
+    'name': 'Oliver Reed'
+  },
+  {
+    'name': 'Aaron Schaffer'
+  },
+  {
+    'name': 'Michael Riewer'
+  },
+  {
+    'name': 'Cory Joseph'
+  },
+  {
+    'name': 'Matthew Samuel'
+  },
+  {
+    'name': 'Nicholas Elliot'
   }
 ];
