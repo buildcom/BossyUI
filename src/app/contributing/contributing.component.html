@@ -1,5 +1,5 @@
 <div class="row dark">
-  <div class="col-xs-12">
+  <div class="col-sm-12">
     <h1>Who We Are</h1>
     <h2>Developers-Designers-Marketers</h2>
   </div>
@@ -14,7 +14,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-sm-12">
     <div class="row core-team">
       <div *ngFor="let member of teamMembers" class="col-md-4 profile">
         <img width="120" height="120" [src]="member.profilePicture" alt="{{member.name}}" class="profile-picture img-responsive center-block">
@@ -25,13 +25,13 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-sm-12">
     <div class="row dark student-contributors">
-      <div class="col-xs-12">
+      <div class="col-sm-12">
         <h2>A BIG Thanks to Our <em>Student Contributors</em></h2>
         <h3>The Ones Who Write the Code</h3>
       </div>
-      <div *ngFor="let contributor of studentContributors" class="col-xs-4">
+      <div *ngFor="let contributor of studentContributors" class="col-sm-4">
         <span class="student-name">{{contributor.name}}</span>
       </div>
     </div>
