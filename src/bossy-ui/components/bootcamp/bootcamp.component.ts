@@ -8,7 +8,6 @@ import {BossyBootcampConfig} from './bootcamp.config';
 
 export class BossyBootcampComponent implements OnInit {
   @Input() config: BossyBootcampConfig;
-  
 
   ngOnInit() {
   }
