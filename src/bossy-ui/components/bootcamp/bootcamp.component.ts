@@ -10,5 +10,6 @@ export class BossyBootcampComponent implements OnInit {
   @Input() config: BossyBootcampConfig;
 
   ngOnInit() {
+    console.log('i\'m here!!')
   }
 }
