@@ -14,6 +14,14 @@ import {BossyFormTextareaComponent} from './components/form-textarea/form-textar
 import {BossySliderComponent} from './components/slider/slider.component';
 import {BossyMaskDirective} from './directives/bossy-mask.directive';
 
+
+import {BossyBootcampComponent} from './components/bootcamp/bootcamp.component';
+import {BossyBootcampConfig} from './components/bootcamp/bootcamp.config';
+
+export {BossyBootcampComponent} from './components/bootcamp/bootcamp.component';
+export {BossyBootcampConfig} from './components/bootcamp/bootcamp.config';
+
+
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
 export {BossyCalendarConfig} from './components/calendar/calendar.config';
 
@@ -35,6 +43,8 @@ export {BossyDropdownConfig} from './components/dropdown/dropdown.config';
 export {BossyDropdownMenuItemComponent} from './components/dropdown-menu/dropdown-menu.component';
 export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.config';
 
+
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -53,6 +63,7 @@ export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.
     BossyFormTextareaComponent,
     BossySliderComponent,
     BossyMaskDirective,
+    BossyBootcampComponent
   ],
   exports: [
     BossyCalendarComponent,
@@ -64,6 +75,7 @@ export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.
     BossyFormSelectMenuComponent,
     BossyFormTextareaComponent,
     BossyFormElementErrorComponent,
+    BossyBootcampComponent,
   ]
 })
 export class BossyModule {
