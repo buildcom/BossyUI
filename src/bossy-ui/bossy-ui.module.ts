@@ -13,6 +13,11 @@ import {BossyFormSelectMenuComponent} from './components/form-selectmenu/form-se
 import {BossyFormTextareaComponent} from './components/form-textarea/form-textarea.component';
 import {BossySliderComponent} from './components/slider/slider.component';
 import {BossyMaskDirective} from './directives/bossy-mask.directive';
+import {BossyBootcampComponent} from './components/bootcamp/bootcamp.component';
+import {BossyBootcampConfig} from './components/bootcamp/bootcamp.config';
+
+export {BossyBootcampComponent} from './components/bootcamp/bootcamp.component';
+export {BossyBootcampConfig} from './components/bootcamp/bootcamp.config';
 
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
 export {BossyCalendarConfig} from './components/calendar/calendar.config';
@@ -53,6 +58,7 @@ export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.
     BossyFormTextareaComponent,
     BossySliderComponent,
     BossyMaskDirective,
+    BossyBootcampComponent
   ],
   exports: [
     BossyCalendarComponent,
@@ -64,6 +70,7 @@ export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.
     BossyFormSelectMenuComponent,
     BossyFormTextareaComponent,
     BossyFormElementErrorComponent,
+    BossyBootcampComponent
   ]
 })
 export class BossyModule {
