@@ -17,6 +17,8 @@ import {BossyFormSelectMenuComponent} from '../../bossy-ui/components/form-selec
 import {BossyFormSelectMenuConfig} from '../../bossy-ui/components/form-selectmenu/form-selectmenu.config';
 import {BossyFormTextareaComponent} from '../../bossy-ui/components/form-textarea/form-textarea.component';
 import {BossyFormTextareaConfig} from '../../bossy-ui/components/form-textarea/form-textarea.config';
+import {BossyPopoverComponent} from '../../bossy-ui/components/popover/popover.component';
+import {BossyPopoverConfig} from '../../bossy-ui/components/popover/popover.config';
 import {Validators} from '@angular/forms';
 
 @Component({
@@ -35,6 +37,7 @@ export class SandboxComponent implements OnInit {
   bossyFormElement = BossyFormElementComponent;
   bossyFormSelectMenu = BossyFormSelectMenuComponent;
   bossyFormTextarea = BossyFormTextareaComponent;
+  BossyPopover = BossyPopoverComponent;
 
   constructor(private configService: ConfigService) {
   }
