@@ -37,7 +37,7 @@ export class SandboxComponent implements OnInit {
   bossyFormElement = BossyFormElementComponent;
   bossyFormSelectMenu = BossyFormSelectMenuComponent;
   bossyFormTextarea = BossyFormTextareaComponent;
-  BossyPopover = BossyPopoverComponent;
+  bossyPopover = BossyPopoverComponent;
 
   constructor(private configService: ConfigService) {
   }
@@ -153,6 +153,7 @@ export class SandboxComponent implements OnInit {
       }
     );
     const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
+    const bossyPopoverConfig = new BossyPopoverConfig('popover', undefined, 'Po wdqwdq wdqwdqwd qwdqwd qwd qwdqd qwdqwd wd wdqwd qwqwd pover Title', 'Popover Bwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqd wdqwdqwdqwdqwd qqwd qwdqwdqwdqwd qd qwdqwdqwd qdqwd qwdqwd qwd qwd qwd qwddy');
 
     this.configService.setConfig('calendarConfig', calendarConfig);
     this.configService.setConfig('formConfig', formConfig);
@@ -161,6 +162,7 @@ export class SandboxComponent implements OnInit {
     this.configService.setConfig('dropdownConfig', dropdownConfig);
     this.configService.setConfig('selectMenuConfig', selectMenuConfig);
     this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
+    this.configService.setConfig('bossyPopoverConfig', bossyPopoverConfig)
   }
 
 }

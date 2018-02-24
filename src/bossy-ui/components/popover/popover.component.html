@@ -1,3 +1,9 @@
-<p>
-  popover works!
-</p>
+
+  <button type="button" (click)="ShowPopoverOnClick($event)" class="btn btn-lg btn-danger" data-toggle="popover" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="Popover title">Click to toggle popover</button>
+
+  <div *ngIf="hide" class="popover fade bs-popover-right show" role="tooltip" id="popover181151" x-placement="right" style="position: absolute; transform: translate3d(529px, 1807px, 0px); top: 100px; left: 100px; will-change: transform;">
+    <div class="arrow" style="top: 34px;"></div>
+      <h3 class="popover-header">{{config.popoverTitle}}</h3>
+    <div class="popover-body">{{config.popoverData}}
+    </div>
+  </div>
