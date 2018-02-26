@@ -10,12 +10,20 @@ import {BossyPopoverConfig} from './popover.config';
 export class BossyPopoverComponent implements OnInit {
   @Input() config: BossyPopoverConfig;
   hide = false;
-  ngOnInit() {  }
+  Top = "0px";
+  Left = "0px";
+  ngOnInit() {
+    this.config.popoverLeft = 0;
+    this.Top = "0px";
+    this.Left = "0px";
+    this.hide = false;
+    }
 
   ShowPopoverOnClick(event: any) {
-
+    this.Top = (event.target.offsetTop - 34) + "px";
+    this.Left = event.target.offsetLeft + event.targest.offsetWidth + "px";
     this.hide = !this.hide;
-    console.log('help');
+
   }
 
 }
