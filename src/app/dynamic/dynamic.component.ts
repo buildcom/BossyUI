@@ -7,6 +7,7 @@ import {
   ComponentFactoryResolver
 } from '@angular/core';
 import {BossyCalendarComponent} from '../../bossy-ui/components/calendar/calendar.component';
+import {BossyAlertComponent} from '../../bossy-ui/components/alert/alert.component';
 import {BossyFormComponent} from '../../bossy-ui/components/form/form.component';
 import {BossyFormRadioComponent} from '../../bossy-ui/components/form-radio/form-radio.component';
 import {BossyDropdownComponent} from '../../bossy-ui/components/dropdown/dropdown.component';
@@ -20,6 +21,7 @@ import {BossyFormTextareaComponent} from '../../bossy-ui/components/form-textare
   // Reference to the components must be here in order to dynamically create them
   entryComponents: [BossyCalendarComponent,
     BossyFormComponent,
+    BossyAlertComponent,
     BossyFormElementComponent,
     BossyFormRadioComponent,
     BossyDropdownComponent,
