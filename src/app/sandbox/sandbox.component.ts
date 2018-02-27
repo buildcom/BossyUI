@@ -43,7 +43,6 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
-
     const alertConfig = new BossyAlertConfig('insertHeader','insertMainText','insertExtraText');
     const calendarConfig = new BossyCalendarConfig();
     const formInput1 = {

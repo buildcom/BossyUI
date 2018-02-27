@@ -16,7 +16,5 @@ export class BossyAlertComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    
   }
 }
