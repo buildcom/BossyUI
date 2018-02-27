@@ -23,7 +23,6 @@ export class BossyPopoverComponent implements OnInit {
     this.Top = (event.target.offsetTop - 34) + "px";
     this.Left = event.target.offsetLeft + event.targest.offsetWidth + "px";
     this.hide = !this.hide;
-
   }
 
 }
