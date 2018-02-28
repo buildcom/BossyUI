@@ -153,7 +153,7 @@ export class SandboxComponent implements OnInit {
       }
     );
     const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
-    const bossyPopoverConfig = new BossyPopoverConfig('popover', undefined, 'Po wdqwdq wdqwdqwd qwdqwd qwd qwdqd qwdqwd wd wdqwd qwqwd pover Title', 'Popover Bwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqd wdqwdqwdqwdqwd qqwd qwdqwdqwdqwd qd qwdqwdqwd qdqwd qwdqwd qwd qwd qwd qwddy');
+    const bossyPopoverConfig = new BossyPopoverConfig('popover', undefined, 'PoverOver Title', 'Popover Description');
 
     this.configService.setConfig('calendarConfig', calendarConfig);
     this.configService.setConfig('formConfig', formConfig);

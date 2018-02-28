@@ -17,6 +17,7 @@ export class BossyPopoverComponent implements OnInit {
   hide = false;
   Top = "0px";
   Left = "0px";
+  
   ngOnInit() {
     this.Top = "0px";
     this.Left = "0px";
