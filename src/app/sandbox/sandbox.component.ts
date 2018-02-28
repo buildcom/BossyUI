@@ -153,7 +153,7 @@ export class SandboxComponent implements OnInit {
       }
     );
     const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
-    const bossyPopoverConfig = new BossyPopoverConfig('popover', undefined, 'PoverOver Title', 'Popover Description');
+    const bossyPopoverConfig = new BossyPopoverConfig('popover', true, 'PoverOver Title', 'Popover Description');
 
     this.configService.setConfig('calendarConfig', calendarConfig);
     this.configService.setConfig('formConfig', formConfig);
@@ -162,7 +162,7 @@ export class SandboxComponent implements OnInit {
     this.configService.setConfig('dropdownConfig', dropdownConfig);
     this.configService.setConfig('selectMenuConfig', selectMenuConfig);
     this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
-    this.configService.setConfig('bossyPopoverConfig', bossyPopoverConfig)
+    this.configService.setConfig('bossyPopoverConfig', bossyPopoverConfig);
   }
 
 }
