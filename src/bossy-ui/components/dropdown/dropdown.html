@@ -1,11 +1,9 @@
 <div [ngClass]="{'dropdown': true, 'show': showMenu}"  (click)="showMenuOnClick()">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
     aria-expanded="ariaExpanded">
-    Dropdown button
+    {{config.name}}
   </button>
   <div [ngClass]="{'dropdown-menu': true, 'show': showMenu}" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item">Action</a>
-    <a class="dropdown-item">Another action</a>
-    <a class="dropdown-item">Something else here</a>
+    <bossy-dropdown-menu *ngFor="let item of config.items" [config]="item"></bossy-dropdown-menu>
   </div>
 </div>
