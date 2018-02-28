@@ -11,8 +11,8 @@ export class BossyAlertComponent implements OnInit {
   @Input() config: BossyAlertConfig;
   dataDismiss = true;
 
-  dismissHandler(){
-      this.dataDismiss= !this.dataDismiss;
+  dismissHandler() {
+      this.dataDismiss = !this.dataDismiss;
   }
 
   ngOnInit() {
