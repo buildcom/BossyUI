@@ -1,14 +1,11 @@
-<div class="btn-group" (click)="showMenuOnClick($event)">
-	<button *ngIf="!config?.isSplit" class="btn btn-{{variant}} {{size}} dropdown-toggle" id='dropdownMenuButton' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		{{config.name}}
-	</button>
-	<button *ngIf="config?.isSplit" class="btn btn-{{variant}} {{size}}"  type="button">
-		{{config.name}}
-	</button>
-	<button *ngIf="config?.isSplit" type="button" class="btn btn-{{variant}} {{size}} dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="sr-only">Toggle Dropdown</span>
+<div [ngClass]="{'dropdown': true, 'show': showMenu}"  (click)="showMenuOnClick()">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+    aria-expanded="ariaExpanded">
+    Dropdown button
   </button>
-	<div class="dropdown-menu" [ngClass]="{'dropdown-menu-right': isRightAligned}" aria-labelledby="dropdownMenuButton">
-		<bossy-dropdown-menu *ngFor="let item of config.items" [config]="item"></bossy-dropdown-menu>
-	</div>
+  <div [ngClass]="{'dropdown-menu': true, 'show': showMenu}" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item">Action</a>
+    <a class="dropdown-item">Another action</a>
+    <a class="dropdown-item">Something else here</a>
+  </div>
 </div>
