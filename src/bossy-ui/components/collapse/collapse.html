@@ -1,0 +1,10 @@
+<p>
+    <button class="btn btn-primary {{ buttonCollapsed }}" (click) = "onEventClick()" type="button" data-toggle="collapse" data-target="#collapseExample" attr.aria-expanded="{{ isShowing }}" aria-controls="collapseExample">
+      {{config.name}}
+    </button>
+  </p>
+  <div class="collapse {{ show }}" id="collapseExample">
+    <div class="card card-body">
+      {{config.data}}
+    </div>
+  </div>

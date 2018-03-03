@@ -17,6 +17,8 @@ import {BossyFormSelectMenuComponent} from '../../bossy-ui/components/form-selec
 import {BossyFormSelectMenuConfig} from '../../bossy-ui/components/form-selectmenu/form-selectmenu.config';
 import {BossyFormTextareaComponent} from '../../bossy-ui/components/form-textarea/form-textarea.component';
 import {BossyFormTextareaConfig} from '../../bossy-ui/components/form-textarea/form-textarea.config';
+import {BossyCollapseConfig} from '../../bossy-ui/components/collapse/collapse.config';
+import {BossyCollapseComponent} from '../../bossy-ui/components/collapse/collapse.component';
 import {Validators} from '@angular/forms';
 
 @Component({
@@ -35,6 +37,7 @@ export class SandboxComponent implements OnInit {
   bossyFormElement = BossyFormElementComponent;
   bossyFormSelectMenu = BossyFormSelectMenuComponent;
   bossyFormTextarea = BossyFormTextareaComponent;
+  bossyCollapse = BossyCollapseComponent;
 
   constructor(private configService: ConfigService) {
   }
@@ -151,6 +154,8 @@ export class SandboxComponent implements OnInit {
     );
     const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
 
+    const bossyCollapseConfig = new BossyCollapseConfig('Button', 'Example');
+
     this.configService.setConfig('calendarConfig', calendarConfig);
     this.configService.setConfig('formConfig', formConfig);
     this.configService.setConfig('formElementConfig', formElementConfig);
@@ -158,6 +163,7 @@ export class SandboxComponent implements OnInit {
     this.configService.setConfig('dropdownConfig', dropdownConfig);
     this.configService.setConfig('selectMenuConfig', selectMenuConfig);
     this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
+    this.configService.setConfig('bossyCollapseConfig', bossyCollapseConfig);
   }
 
 }

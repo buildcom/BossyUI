@@ -11,6 +11,7 @@ import {BossyDropdownMenuItemComponent} from './components/dropdown-menu/dropdow
 import {BossyFormElementErrorComponent} from './components/form-element-error/form-element-error.component';
 import {BossyFormSelectMenuComponent} from './components/form-selectmenu/form-selectmenu.component';
 import {BossyFormTextareaComponent} from './components/form-textarea/form-textarea.component';
+import {BossyCollapseComponent} from './components/collapse/collapse.component';
 import {BossySliderComponent} from './components/slider/slider.component';
 import {BossyMaskDirective} from './directives/bossy-mask.directive';
 
@@ -31,6 +32,8 @@ export {BossyFormRadioComponent} from './components/form-radio/form-radio.compon
 export {BossyFormRadioConfig} from './components/form-radio/form-radio.config';
 export {BossyDropdownComponent} from './components/dropdown/dropdown.component';
 export {BossyDropdownConfig} from './components/dropdown/dropdown.config';
+export {BossyCollapseComponent} from './components/collapse/collapse.component';
+export {BossyCollapseConfig} from './components/collapse/collapse.config';
 
 export {BossyDropdownMenuItemComponent} from './components/dropdown-menu/dropdown-menu.component';
 export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.config';
@@ -53,6 +56,7 @@ export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.
     BossyFormTextareaComponent,
     BossySliderComponent,
     BossyMaskDirective,
+    BossyCollapseComponent,
   ],
   exports: [
     BossyCalendarComponent,
@@ -64,6 +68,7 @@ export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.
     BossyFormSelectMenuComponent,
     BossyFormTextareaComponent,
     BossyFormElementErrorComponent,
+    BossyCollapseComponent,
   ]
 })
 export class BossyModule {
