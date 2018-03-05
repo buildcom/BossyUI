@@ -13,11 +13,15 @@ import {BossyFormSelectMenuComponent} from './components/form-selectmenu/form-se
 import {BossyFormTextareaComponent} from './components/form-textarea/form-textarea.component';
 import {BossySliderComponent} from './components/slider/slider.component';
 import {BossyMaskDirective} from './directives/bossy-mask.directive';
+
 import {BossyPopoverComponent} from './components/popover/popover.component';
+import {BossyAlertComponent} from './components/alert/alert.component';
 
 
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
 export {BossyCalendarConfig} from './components/calendar/calendar.config';
+export {BossyAlertComponent} from './components/alert/alert.component';
+export {BossyAlertConfig} from './components/alert/alert.config';
 
 export {BossyFormComponent} from './components/form/form.component';
 export {BossyFormConfig} from './components/form/form.config';
@@ -48,6 +52,7 @@ export {BossyPopoverConfig} from './components/popover/popover.config';
   ],
   declarations: [
     BossyCalendarComponent,
+    BossyAlertComponent,
     BossyFormElementComponent,
     BossyFormComponent,
     BossyFormLabelComponent,
@@ -63,6 +68,7 @@ export {BossyPopoverConfig} from './components/popover/popover.config';
   ],
   exports: [
     BossyCalendarComponent,
+    BossyAlertComponent,
     BossyFormElementComponent,
     BossyFormComponent,
     BossyFormRadioComponent,

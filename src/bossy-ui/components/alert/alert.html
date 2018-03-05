@@ -1,0 +1,10 @@
+<div class="alert alert-success" role="alert " *ngIf="dataDismiss">
+    <h4 class="alert-heading">{{config.header}}
+        <button type="button" class="close" (click)="dismissHandler()"  aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button> 
+    </h4>
+    <p>{{config.mainInfo}}</p>
+    <hr>
+    <p class="mb-0">{{config.extraInfo}}</p>
+</div>
