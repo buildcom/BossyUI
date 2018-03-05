@@ -65,11 +65,8 @@ export {BossyPopoverConfig} from './components/popover/popover.config';
     BossyFormTextareaComponent,
     BossySliderComponent,
     BossyMaskDirective,
-<<<<<<< HEAD
     BossyCollapseComponent,
-=======
     BossyPopoverComponent,
->>>>>>> f723943f6a7a837e66886745fec90905c8faa899
   ],
   exports: [
     BossyCalendarComponent,
@@ -82,11 +79,8 @@ export {BossyPopoverConfig} from './components/popover/popover.config';
     BossyFormSelectMenuComponent,
     BossyFormTextareaComponent,
     BossyFormElementErrorComponent,
-<<<<<<< HEAD
     BossyCollapseComponent,
-=======
     BossyPopoverComponent,
->>>>>>> f723943f6a7a837e66886745fec90905c8faa899
   ]
 })
 export class BossyModule {
