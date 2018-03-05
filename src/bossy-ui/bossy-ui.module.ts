@@ -14,9 +14,13 @@ import {BossyFormTextareaComponent} from './components/form-textarea/form-textar
 import {BossyCollapseComponent} from './components/collapse/collapse.component';
 import {BossySliderComponent} from './components/slider/slider.component';
 import {BossyMaskDirective} from './directives/bossy-mask.directive';
+import {BossyPopoverComponent} from './components/popover/popover.component';
+import {BossyAlertComponent} from './components/alert/alert.component';
 
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
 export {BossyCalendarConfig} from './components/calendar/calendar.config';
+export {BossyAlertComponent} from './components/alert/alert.component';
+export {BossyAlertConfig} from './components/alert/alert.config';
 
 export {BossyFormComponent} from './components/form/form.component';
 export {BossyFormConfig} from './components/form/form.config';
@@ -38,6 +42,10 @@ export {BossyCollapseConfig} from './components/collapse/collapse.config';
 export {BossyDropdownMenuItemComponent} from './components/dropdown-menu/dropdown-menu.component';
 export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.config';
 
+export {BossyPopoverComponent} from './components/popover/popover.component';
+export {BossyPopoverConfig} from './components/popover/popover.config';
+
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -45,6 +53,7 @@ export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.
   ],
   declarations: [
     BossyCalendarComponent,
+    BossyAlertComponent,
     BossyFormElementComponent,
     BossyFormComponent,
     BossyFormLabelComponent,
@@ -56,10 +65,15 @@ export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.
     BossyFormTextareaComponent,
     BossySliderComponent,
     BossyMaskDirective,
+<<<<<<< HEAD
     BossyCollapseComponent,
+=======
+    BossyPopoverComponent,
+>>>>>>> f723943f6a7a837e66886745fec90905c8faa899
   ],
   exports: [
     BossyCalendarComponent,
+    BossyAlertComponent,
     BossyFormElementComponent,
     BossyFormComponent,
     BossyFormRadioComponent,
@@ -68,7 +82,11 @@ export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.
     BossyFormSelectMenuComponent,
     BossyFormTextareaComponent,
     BossyFormElementErrorComponent,
+<<<<<<< HEAD
     BossyCollapseComponent,
+=======
+    BossyPopoverComponent,
+>>>>>>> f723943f6a7a837e66886745fec90905c8faa899
   ]
 })
 export class BossyModule {

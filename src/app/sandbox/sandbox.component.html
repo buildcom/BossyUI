@@ -2,6 +2,12 @@
   <div class="card no-margin">
     <h1>Sandbox</h1>
   </div>
+  <h2>Alert</h2>
+  <hr>
+  <div class="component-main">
+    <app-config [configName]="'alertConfig'" [component]="bossyAlert"></app-config>
+  </div>
+
   <h2>Calendar</h2>
   <hr>
   <div class="component-main">
@@ -48,5 +54,11 @@
   <hr>
   <div class="component-main">
     <app-config [configName]="'bossyCollapseConfig'" [component]="bossyCollapse"></app-config>
+  </div>
+  
+  <h2>Popover</h2>
+  <hr>
+  <div class="component-main">
+    <app-config [configName]="'bossyPopoverConfig'" [component]="bossyPopover"></app-config>
   </div>
 </main>

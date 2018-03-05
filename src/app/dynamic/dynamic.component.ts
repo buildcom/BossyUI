@@ -7,6 +7,7 @@ import {
   ComponentFactoryResolver
 } from '@angular/core';
 import {BossyCalendarComponent} from '../../bossy-ui/components/calendar/calendar.component';
+import {BossyAlertComponent} from '../../bossy-ui/components/alert/alert.component';
 import {BossyFormComponent} from '../../bossy-ui/components/form/form.component';
 import {BossyFormRadioComponent} from '../../bossy-ui/components/form-radio/form-radio.component';
 import {BossyDropdownComponent} from '../../bossy-ui/components/dropdown/dropdown.component';
@@ -15,19 +16,22 @@ import {BossyFormElementComponent} from '../../bossy-ui/components/form-element/
 import {BossyFormSelectMenuComponent} from '../../bossy-ui/components/form-selectmenu/form-selectmenu.component';
 import {BossyFormTextareaComponent} from '../../bossy-ui/components/form-textarea/form-textarea.component';
 import {BossyCollapseComponent} from '../../bossy-ui/components/collapse/collapse.component';
+import {BossyPopoverComponent} from '../../bossy-ui/components/popover/popover.component';
 
 @Component({
   selector: 'app-dynamic-component',
   // Reference to the components must be here in order to dynamically create them
   entryComponents: [BossyCalendarComponent,
     BossyFormComponent,
+    BossyAlertComponent,
     BossyFormElementComponent,
     BossyFormRadioComponent,
     BossyDropdownComponent,
     BossyDropdownMenuItemComponent,
     BossyFormSelectMenuComponent,
     BossyFormTextareaComponent,
-    BossyCollapseComponent],
+    BossyCollapseComponent,
+    BossyPopoverComponent],
   template: `
     <div #dynamicComponentContainer></div>`,
 })
