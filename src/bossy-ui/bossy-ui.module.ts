@@ -13,10 +13,8 @@ import {BossyFormSelectMenuComponent} from './components/form-selectmenu/form-se
 import {BossyFormTextareaComponent} from './components/form-textarea/form-textarea.component';
 import {BossySliderComponent} from './components/slider/slider.component';
 import {BossyMaskDirective} from './directives/bossy-mask.directive';
-
 import {BossyPopoverComponent} from './components/popover/popover.component';
 import {BossyAlertComponent} from './components/alert/alert.component';
-
 
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
 export {BossyCalendarConfig} from './components/calendar/calendar.config';
