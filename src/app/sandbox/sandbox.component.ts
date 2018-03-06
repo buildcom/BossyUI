@@ -19,7 +19,7 @@ import {BossyFormTextareaComponent} from '../../bossy-ui/components/form-textare
 import {BossyFormTextareaConfig} from '../../bossy-ui/components/form-textarea/form-textarea.config';
 import {Validators} from '@angular/forms';
 import { BossyAlertComponent } from '../../bossy-ui/components/alert/alert.component';
-import { BossyAlertConfig } from '../../bossy-ui/components/alert/alert.config';
+import { BossyAlertConfig, alertType } from '../../bossy-ui/components/alert/alert.config';
 
 @Component({
   selector: 'app-sandbox',
@@ -43,7 +43,7 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
-    const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText');
+    const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, true);
     const calendarConfig = new BossyCalendarConfig();
     const formInput1 = {
         name: 'textInput',
