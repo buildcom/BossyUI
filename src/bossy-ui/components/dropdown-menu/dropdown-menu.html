@@ -1,3 +1,4 @@
-<div>
-	<a class="dropdown-item">{{config.name}}</a>
+<div [ngSwitch]="config.href">
+	<a *ngSwitchCase="" class="dropdown-item">{{config.name}}</a>
+	<a *ngSwitchDefault class="dropdown-item" href="{{config.href}}">{{config.name}}</a>
 </div>

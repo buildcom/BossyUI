@@ -1,5 +1,5 @@
-<div [ngClass]="{'dropdown': true, 'show': showMenu}"  (click)="showMenuOnClick()">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+<div class="{btn-group {{btn_dir}} {{btn_show}}"  (click)="showMenuOnClick()">
+  <button class="btn btn-{{config.btn_type}} {{btn_size}} dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
     aria-expanded="ariaExpanded">
     {{config.name}}
   </button>

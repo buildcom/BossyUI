@@ -136,11 +136,15 @@ export class SandboxComponent implements OnInit {
     );
     const formElementConfig = new BossyFormElementConfig(formInput4);
     const dropdownConfig = new BossyDropdownConfig('Dropdown Menu',
+      'primary',
       [
-        new BossyDropdownMenuConfig('Item 1'),
+        new BossyDropdownMenuConfig('Item 1','#'),
         new BossyDropdownMenuConfig('Item 2'),
         new BossyDropdownMenuConfig('Item 3')
-      ]);
+      ],
+    '',
+    'down'
+  );
 
     const selectMenuConfig = new BossyFormSelectMenuConfig({
         title: 'State',
