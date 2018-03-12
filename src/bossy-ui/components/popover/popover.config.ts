@@ -5,6 +5,7 @@ export class BossyPopoverConfig {
               public name: string,
               public popoverID: string,
               public dismissable: boolean,
+              public placement: string,
               public popoverTitle: string,
               public popoverData: string) {
   }

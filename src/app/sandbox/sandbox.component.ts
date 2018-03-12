@@ -159,7 +159,7 @@ export class SandboxComponent implements OnInit {
       }
     );
     const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
-    const bossyPopoverConfig = new BossyPopoverConfig('popover', 'popover1234', true, 'PoverOver Title', 'Popover Description');
+    const bossyPopoverConfig = new BossyPopoverConfig('popover', 'popover1234', true, 'right', 'PoverOver Title', 'Popover Description');
 
     const bossyCollapseConfig = new BossyCollapseConfig('Button', 'Example');
 
