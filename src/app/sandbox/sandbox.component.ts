@@ -161,7 +161,7 @@ export class SandboxComponent implements OnInit {
     const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
     const bossyPopoverConfig = new BossyPopoverConfig('popover', 'popover1234', true, 'right', 'PoverOver Title', 'Popover Description');
 
-    const bossyCollapseConfig = new BossyCollapseConfig('Button', 'Example');
+    const bossyCollapseConfig = new BossyCollapseConfig('button1', 'Example1', true);
 
     this.configService.setConfig('alertConfig', alertConfig);
     this.configService.setConfig('calendarConfig', calendarConfig);
