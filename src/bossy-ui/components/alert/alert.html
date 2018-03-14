@@ -1,16 +1,18 @@
-<div class="alert alert-{{config.type}}" role="alert" *ngIf="dataDismiss && !config.large">
+<div class="alert alert-{{config.type}}" role="alert" *ngIf="dataDismiss && small">
     {{config.header}}
     <button type="button" class="close" (click)="dismissHandler()"  aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button> 
 </div>
-<div class="alert alert-{{config.type}}" role="alert " *ngIf="dataDismiss && config.large">
+<div class="alert alert-{{config.type}}" role="alert " *ngIf="dataDismiss && (large || medium)">
     <h4 class="alert-heading">{{config.header}}
         <button type="button" class="close" (click)="dismissHandler()"  aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button> 
     </h4>
     <p>{{config.text}}</p>
-    <hr>
-    <p class="mb-0">{{config.subText}}</p>
+    <div *ngIf="large"
+      <hr>
+        <p class="mb-0" >{{config.subText}}</p>
+    </div>
 </div>

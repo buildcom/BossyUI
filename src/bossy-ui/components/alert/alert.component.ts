@@ -10,11 +10,34 @@ import {BossyAlertConfig} from './alert.config';
 export class BossyAlertComponent implements OnInit {
   @Input() config: BossyAlertConfig;
   dataDismiss = true;
+  small = true;
+  medium = false;
+  large = false;
 
-  dismissHandler() {
+  setSize(){
+      if(this.config.size == 'small'){
+        this.small = true;
+        this.medium = false;
+        this.large = false;
+        }
+      else if(this.config.size == 'large'){
+        this.large = true;
+        this.small = false;
+        this.medium = false;
+      }
+      else{
+        this.medium = true;
+        this.small = false;
+        this.large = false;
+      }
+
+  }
+
+  dismissHandler(){
       this.dataDismiss = !this.dataDismiss;
   }
 
   ngOnInit() {
+      this.setSize();
   }
 }
