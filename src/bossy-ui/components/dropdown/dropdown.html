@@ -1,8 +1,26 @@
-<div class="{btn-group {{btn_dir}} {{btn_show}}"  (click)="showMenuOnClick()">
-  <button class="btn btn-{{config.btn_type}} {{btn_size}} dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-    aria-expanded="ariaExpanded">
-    {{config.name}}
-  </button>
+<div class="btn-group {{btn_dir}} {{btn_show}}">
+  <span [ngSwitch]="config.split">
+    <!-- Split Button -->
+    <span class="btn-group {{btn_dir}} {{btn_show}}" *ngSwitchCase="true">
+      <button type="button" class="btn btn-{{config.btn_type}} {{btn_size}}">{{config.name}}</button>
+      <span class="btn-group {{btn_dir}} {{btn_show}}" (click)="showMenuOnClick()">
+        <button type="button" class="btn btn-{{config.btn_type}} {{btn_size}} dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="ariaExpanded">
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+      </span>
+    </span>
+    <!-- Normal Button -->
+    <span *ngSwitchCase="false">
+      <span (click)="showMenuOnClick()">
+        <button class="btn btn-{{config.btn_type}} {{btn_size}} dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="ariaExpanded">
+          {{config.name}}
+        </button>
+      </span>
+    </span>
+  </span>
+  <!-- Menu -->
   <div [ngClass]="{'dropdown-menu': true, 'show': showMenu}" aria-labelledby="dropdownMenuButton">
     <bossy-dropdown-menu *ngFor="let item of config.items" [config]="item"></bossy-dropdown-menu>
   </div>
