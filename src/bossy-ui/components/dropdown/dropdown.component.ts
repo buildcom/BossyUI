@@ -30,6 +30,8 @@ export class BossyDropdownComponent implements OnInit {
       this.btn_size = 'btn-sm';
     } else if ( this.config.btn_size === 'large' ) {
       this.btn_size = 'btn-lg';
+    } else {
+      this.btn_size = '';
     }
 
     if ( this.config.direction === 'up') {
@@ -40,6 +42,8 @@ export class BossyDropdownComponent implements OnInit {
       this.btn_dir = 'dropleft';
     } else if ( this.config.direction === 'right' ) {
       this.btn_dir = 'dropright';
+    } else {
+      this.btn_dir = 'dropdown';
     }
 
   }
