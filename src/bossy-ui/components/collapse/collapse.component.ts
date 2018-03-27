@@ -9,25 +9,28 @@ import { Console } from '@angular/core/src/console';
 
 export class BossyCollapseComponent implements OnInit {
   @Input() config: BossyCollapseConfig;
-  isShowing = false;
-  show = '';
-  buttonCollapsed = 'collapsed';
+  isShowing: Array<boolean> = [];
+  show: Array<string> = [];
+  buttonCollapsed: Array<string> = [];
+  i: number;
 
   ngOnInit() {
-        this.isShowing = false;
-        this.show = '';
-        this.buttonCollapsed = 'collapsed';
+      for (this.i = 0; this.i < this.config.items.length; this.i++) {
+        this.isShowing.push(false);
+        this.show.push('');
+        this.buttonCollapsed.push('collapsed');
+      }
   }
 
-  onEventClick() {
-      if (this.isShowing) {
-        this.show = '';
-        this.isShowing = false;
-        this.buttonCollapsed = 'collapsed';
+  onEventClick(index) {
+      if (this.isShowing[index]) {
+        this.show[index] = '';
+        this.isShowing[index] = false;
+        this.buttonCollapsed[index] = 'collapsed';
       } else {
-        this.show = 'show';
-        this.isShowing = true;
-        this.buttonCollapsed = '';
+        this.show[index] = 'show';
+        this.isShowing[index] = true;
+        this.buttonCollapsed[index] = '';
       }
   }
 }
