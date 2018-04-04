@@ -17,6 +17,10 @@ import {BossyFormSelectMenuComponent} from '../../bossy-ui/components/form-selec
 import {BossyFormSelectMenuConfig} from '../../bossy-ui/components/form-selectmenu/form-selectmenu.config';
 import {BossyFormTextareaComponent} from '../../bossy-ui/components/form-textarea/form-textarea.component';
 import {BossyFormTextareaConfig} from '../../bossy-ui/components/form-textarea/form-textarea.config';
+import {BossyCollapseConfig} from '../../bossy-ui/components/collapse/collapse.config';
+import {BossyCollapseComponent} from '../../bossy-ui/components/collapse/collapse.component';
+import {BossyPopoverComponent} from '../../bossy-ui/components/popover/popover.component';
+import {BossyPopoverConfig} from '../../bossy-ui/components/popover/popover.config';
 import {Validators} from '@angular/forms';
 import { BossyAlertComponent } from '../../bossy-ui/components/alert/alert.component';
 import { BossyAlertConfig, alertType, alertSize } from '../../bossy-ui/components/alert/alert.config';
@@ -38,6 +42,8 @@ export class SandboxComponent implements OnInit {
   bossyFormElement = BossyFormElementComponent;
   bossyFormSelectMenu = BossyFormSelectMenuComponent;
   bossyFormTextarea = BossyFormTextareaComponent;
+  bossyCollapse = BossyCollapseComponent;
+  bossyPopover = BossyPopoverComponent;
 
   constructor(private configService: ConfigService) {
   }
@@ -135,13 +141,12 @@ export class SandboxComponent implements OnInit {
       }
     );
     const formElementConfig = new BossyFormElementConfig(formInput4);
-    const dropdownConfig = new BossyDropdownConfig('Dropdown Menu', 'button',
+    const dropdownConfig = new BossyDropdownConfig('Dropdown Menu',
       [
-        new BossyDropdownMenuConfig('button', 'Item 1', '#', false),
-        new BossyDropdownMenuConfig('button', 'Item 2'),
-        new BossyDropdownMenuConfig('button', 'Item 3')
-      ],
-      false, 'large', undefined, false, 'primary');
+        new BossyDropdownMenuConfig('Item 1'),
+        new BossyDropdownMenuConfig('Item 2'),
+        new BossyDropdownMenuConfig('Item 3')
+      ]);
 
     const selectMenuConfig = new BossyFormSelectMenuConfig({
         title: 'State',
@@ -154,6 +159,9 @@ export class SandboxComponent implements OnInit {
       }
     );
     const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
+    const bossyPopoverConfig = new BossyPopoverConfig('popover', 'popover1234', true, 'right', 'PoverOver Title', 'Popover Description');
+
+    const bossyCollapseConfig = new BossyCollapseConfig('button1', 'Example1', true);
 
     this.configService.setConfig('alertConfig', alertConfig);
     this.configService.setConfig('calendarConfig', calendarConfig);
@@ -163,6 +171,8 @@ export class SandboxComponent implements OnInit {
     this.configService.setConfig('dropdownConfig', dropdownConfig);
     this.configService.setConfig('selectMenuConfig', selectMenuConfig);
     this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
+    this.configService.setConfig('bossyCollapseConfig', bossyCollapseConfig);
+    this.configService.setConfig('bossyPopoverConfig', bossyPopoverConfig);
   }
 
 }
