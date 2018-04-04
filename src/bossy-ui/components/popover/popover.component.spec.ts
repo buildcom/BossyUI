@@ -36,9 +36,17 @@ describe('the popover derp...', () => {
   it('test weather it is active or not.', () => {
     let componentFixture = TestBed.createComponent(BossyPopoverComponent);
     let componentInstance = componentFixture.componentInstance;
-    componentInstance.hide = false;
+    componentInstance.hide = true;
     componentFixture.detectChanges();
     let popoverElement = componentFixture.debugElement.query(e1 => e1.name === 'popover');
     expect(componentFixture.nativeElement).toContain(popoverElement);
+  });
+  it('test weather it is active or not.', () => {
+    let componentFixture = TestBed.createComponent(BossyPopoverComponent);
+    let componentInstance = componentFixture.componentInstance;
+    componentInstance.hide = false;
+    componentFixture.detectChanges();
+    let popoverElement = componentFixture.debugElement.query(e1 => e1.name === 'popover');
+    expect(componentFixture.nativeElement).not.toContain(popoverElement);
   });
 });
