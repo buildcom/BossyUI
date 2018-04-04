@@ -14,11 +14,14 @@ import {BossyFormTextareaComponent} from './components/form-textarea/form-textar
 import {BossySliderComponent} from './components/slider/slider.component';
 import {BossyMaskDirective} from './directives/bossy-mask.directive';
 import { BossyAlertComponent } from './components/alert/alert.component';
+import { BossyModalComponent } from './components/modal/modal.component';
 
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
 export {BossyCalendarConfig} from './components/calendar/calendar.config';
 export {BossyAlertComponent} from './components/alert/alert.component';
 export {BossyAlertConfig} from './components/alert/alert.config';
+export {BossyModalComponent} from './components/modal/modal.component';
+export {BossyModalConfig} from './components/modal/modal.config';
 
 export {BossyFormComponent} from './components/form/form.component';
 export {BossyFormConfig} from './components/form/form.config';
@@ -46,6 +49,7 @@ export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.
   declarations: [
     BossyCalendarComponent,
     BossyAlertComponent,
+    BossyModalComponent,
     BossyFormElementComponent,
     BossyFormComponent,
     BossyFormLabelComponent,
@@ -61,6 +65,7 @@ export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.
   exports: [
     BossyCalendarComponent,
     BossyAlertComponent,
+    BossyModalComponent,
     BossyFormElementComponent,
     BossyFormComponent,
     BossyFormRadioComponent,

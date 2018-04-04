@@ -20,6 +20,8 @@ import {BossyFormTextareaConfig} from '../../bossy-ui/components/form-textarea/f
 import {Validators} from '@angular/forms';
 import { BossyAlertComponent } from '../../bossy-ui/components/alert/alert.component';
 import { BossyAlertConfig, alertType, alertSize } from '../../bossy-ui/components/alert/alert.config';
+import { BossyModalComponent } from '../../bossy-ui/components/modal/modal.component';
+import { BossyModalConfig } from '../../bossy-ui/components/modal/modal.config';
 
 @Component({
   selector: 'app-sandbox',
@@ -29,6 +31,7 @@ import { BossyAlertConfig, alertType, alertSize } from '../../bossy-ui/component
 export class SandboxComponent implements OnInit {
 
 // components: Array<any> = Components;
+  bossyModal = BossyModalComponent;
   bossyAlert = BossyAlertComponent;
   bossyCalendar = BossyCalendarComponent;
   bossyForm = BossyFormComponent;
@@ -43,6 +46,7 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
+    const modalConfig = new BossyModalConfig('launch', 'Title', 'Body', 'Save Changes', 'Close');
     const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, alertSize.small);
     const calendarConfig = new BossyCalendarConfig();
     const formInput1 = {
@@ -155,6 +159,7 @@ export class SandboxComponent implements OnInit {
     );
     const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
 
+    this.configService.setConfig('modalConfig', modalConfig);
     this.configService.setConfig('alertConfig', alertConfig);
     this.configService.setConfig('calendarConfig', calendarConfig);
     this.configService.setConfig('formConfig', formConfig);
