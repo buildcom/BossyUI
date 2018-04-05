@@ -6,8 +6,8 @@
       </button>
     </p>
     
-    <div class="collapse {{show[i]}}" id="collapseExample">
-      <div class="card card-body">
+    <div class="veritcal-menu" id="collapseExample" [@collapseAnimation]="getIsShowing(i)">
+      <div class="card vertical-menu" [@collapseAnimation]="getIsShowing(i)">
         {{item.data}}
       </div>
     </div>
@@ -26,9 +26,11 @@
           </h5>
         </div>
     
-        <div id="collapseOne" class="collapse {{show[i]}}" aria-labelledby="headingOne" data-parent="#accordion">
-          <div class="card-body">
-            {{item.data}}
+        <div >
+          <div id="collapseOne" class="vertical-menu"  aria-labelledby="headingOne" data-parent="#accordion" [@collapseAnimation]="getIsShowing(i)">
+            <div class="vertical-menu" [@collapseAnimation]="getIsShowing(i)">
+              {{item.data}}
+            </div> 
           </div>
         </div>
       </div>
