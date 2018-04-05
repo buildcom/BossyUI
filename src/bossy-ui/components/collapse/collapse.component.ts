@@ -28,8 +28,7 @@ export class BossyCollapseComponent implements OnInit {
     this.config.items.forEach(item => {
       this.areItemsExpanded.push(false);
       this.buttonsCollapsed.push('collapsed');
-    }); 
-      
+    });
   }
 
   isItemExpanded(index): boolean {
