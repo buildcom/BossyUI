@@ -21,36 +21,28 @@ import { trigger, style, transition, animate, keyframes, query, stagger, state }
 
 export class BossyCollapseComponent implements OnInit {
   @Input() config: BossyCollapseConfig;
-  isShowing: Array<boolean> = [];
-  buttonCollapsed: Array<string> = [];
-  i: number;
+  areItemsExpanded: Array<boolean> = [];
+  buttonsCollapsed: Array<string> = [];
 
   ngOnInit() {
-    for (this.i = 0; this.i < this.config.items.length; this.i++) {
-      this.isShowing.push(false);
-      this.buttonCollapsed.push('collapsed');
-    }
+    this.config.items.forEach(item => {
+      this.areItemsExpanded.push(false);
+      this.buttonsCollapsed.push('collapsed');
+    }); 
+      
   }
 
-  getIsShowing(index): boolean {
-    return this.isShowing[index];
-  }
-
-  show(index): string {
-    if (this.isShowing[index]) {
-      return 'collapse show';
-    } else {
-      return 'collapsing';
-    }
+  isItemExpanded(index): boolean {
+    return this.areItemsExpanded[index];
   }
 
   onEventClick(index) {
-    if (this.isShowing[index]) {
-      this.isShowing[index] = false;
-      this.buttonCollapsed[index] = 'collapsed';
+    if (this.areItemsExpanded[index]) {
+      this.areItemsExpanded[index] = false;
+      this.buttonsCollapsed[index] = 'collapsed';
     } else {
-      this.isShowing[index] = true;
-      this.buttonCollapsed[index] = '';
+      this.areItemsExpanded[index] = true;
+      this.buttonsCollapsed[index] = '';
     }
   }
 }

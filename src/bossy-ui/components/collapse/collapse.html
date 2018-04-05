@@ -1,13 +1,13 @@
 <div *ngIf="!config?.isAccordionStyle">
   <div *ngFor="let item of config.items; let i = index">
     <p>
-      <button class="btn btn-primary {{buttonCollapsed[i]}}" (click)="onEventClick(i)" type="button" data-toggle="collapse" data-target="#collapseExample" attr.aria-expanded="{{isShowing[i]}}" aria-controls="collapseExample">
+      <button class="btn btn-primary {{buttonsCollapsed[i]}}" (click)="onEventClick(i)" type="button" data-toggle="collapse" data-target="#collapseExample" attr.aria-expanded="{{isItemExpanded(i)}}" aria-controls="collapseExample">
         {{item.name}}
       </button>
     </p>
     
-    <div class="veritcal-menu" id="collapseExample" [@collapseAnimation]="getIsShowing(i)">
-      <div class="card vertical-menu" [@collapseAnimation]="getIsShowing(i)">
+    <div class="veritcal-menu" id="collapseExample" [@collapseAnimation]="isItemExpanded(i)">
+      <div class="card vertical-menu" [@collapseAnimation]="isItemExpanded(i)">
         {{item.data}}
       </div>
     </div>
@@ -20,15 +20,15 @@
       <div *ngFor="let item of config.items; let i = index">
         <div class="card-header" id="headingOne">
           <h5 class="mb-0">
-            <button class="btn btn-link {{buttonCollapsed[i]}}" (click)="onEventClick(i)" data-toggle="collapse" data-target="#collapseOne" attr.aria-expanded="{{isShowing[i]}}" aria-controls="collapseOne">
+            <button class="btn btn-link {{buttonsCollapsed[i]}}" (click)="onEventClick(i)" data-toggle="collapse" data-target="#collapseOne" attr.aria-expanded="{{isItemExpanded(i)}}" aria-controls="collapseOne">
               {{item.name}}
             </button>
           </h5>
         </div>
     
         <div >
-          <div id="collapseOne" class="vertical-menu"  aria-labelledby="headingOne" data-parent="#accordion" [@collapseAnimation]="getIsShowing(i)">
-            <div class="vertical-menu" [@collapseAnimation]="getIsShowing(i)">
+          <div id="collapseOne" class="vertical-menu"  aria-labelledby="headingOne" data-parent="#accordion" [@collapseAnimation]="isItemExpanded(i)">
+            <div class="vertical-menu" [@collapseAnimation]="isItemExpanded(i)">
               {{item.data}}
             </div> 
           </div>
