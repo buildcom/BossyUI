@@ -24,6 +24,8 @@ import {BossyPopoverConfig} from '../../bossy-ui/components/popover/popover.conf
 import {Validators} from '@angular/forms';
 import { BossyAlertComponent } from '../../bossy-ui/components/alert/alert.component';
 import { BossyAlertConfig, alertType } from '../../bossy-ui/components/alert/alert.config';
+import {BossyPaginationComponent} from '../../bossy-ui/components/pagination/pagination.component';
+import {BossyPaginationConfig} from '../../bossy-ui/components/pagination/pagination.config';
 
 @Component({
   selector: 'app-sandbox',
@@ -44,6 +46,7 @@ export class SandboxComponent implements OnInit {
   bossyFormTextarea = BossyFormTextareaComponent;
   bossyCollapse = BossyCollapseComponent;
   bossyPopover = BossyPopoverComponent;
+  bossyPagination = BossyPaginationComponent;
 
   constructor(private configService: ConfigService) {
   }
@@ -162,6 +165,7 @@ export class SandboxComponent implements OnInit {
     const bossyPopoverConfig = new BossyPopoverConfig('popover', 'popover1234', true, 'right', 'PoverOver Title', 'Popover Description');
 
     const bossyCollapseConfig = new BossyCollapseConfig('button1', 'Example1', true);
+    const bossyPaginationConfig = new BossyPaginationConfig('pagination');
 
     this.configService.setConfig('alertConfig', alertConfig);
     this.configService.setConfig('calendarConfig', calendarConfig);
@@ -173,6 +177,7 @@ export class SandboxComponent implements OnInit {
     this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
     this.configService.setConfig('bossyCollapseConfig', bossyCollapseConfig);
     this.configService.setConfig('bossyPopoverConfig', bossyPopoverConfig);
+    this.configService.setConfig('bossyPaginationConfig', BossyPaginationConfig);
   }
 
 }
