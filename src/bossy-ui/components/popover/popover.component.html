@@ -1,5 +1,5 @@
 
-  <button type="button" id="popover1234" data-toggle="popover" class="btn btn-lg btn-danger" title="" data-original-title="Popover title">Click to toggle popover(ID: popover1234)</button>
+  <button type="button" id="{{config.popoverID}}" data-toggle="popover" class="btn btn-lg btn-danger" title="" data-original-title="Popover title">Click to toggle popover</button>
 
   <div *ngIf="hide" name='popover' class="popover fade bs-popover-right show" role="tooltip"  x-placement="right" [style.top]="popoverTop" [style.left]="popoverLeft" style="position: absolute; will-change: transform;">
     <div class="arrow" [style.transform]='arrowRotate' [style.left]='arrowLeft' [style.top]="arrowTop"></div>
