@@ -3,6 +3,7 @@ export class BossyModalConfig {
                 public title : string,
                 public body : string,
                 public button1 : string,
-                public button2 : string) {
+                public button2 : string,
+                public isCentered : boolean) {
     }
   }

@@ -46,7 +46,7 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
-    const modalConfig = new BossyModalConfig('launch', 'Title', 'Body', 'Save Changes', 'Close');
+    const modalConfig = new BossyModalConfig('launch', 'Title', 'Body', 'Save Changes', 'Close', false);
     const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, alertSize.small);
     const calendarConfig = new BossyCalendarConfig();
     const formInput1 = {
