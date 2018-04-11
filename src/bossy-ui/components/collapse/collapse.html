@@ -1,10 +1,33 @@
-<p>
-    <button class="btn btn-primary {{ buttonCollapsed }}" (click) = "onEventClick()" type="button" data-toggle="collapse" data-target="#collapseExample" attr.aria-expanded="{{ isShowing }}" aria-controls="collapseExample">
+<div *ngIf="!config?.isAccordionStyle">
+  <p>
+    <button class="btn btn-primary {{buttonCollapsed}}" (click)="onEventClick()" type="button" data-toggle="collapse" data-target="#collapseExample" attr.aria-expanded="{{isShowing}}" aria-controls="collapseExample">
       {{config.name}}
     </button>
   </p>
-  <div class="collapse {{ show }}" id="collapseExample">
+
+  <div class="collapse {{show}}" id="collapseExample">
     <div class="card card-body">
       {{config.data}}
     </div>
   </div>
+</div>
+
+<div *ngIf="config?.isAccordionStyle">
+  <div id="accordion">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link {{buttonCollapsed}}" (click)="onEventClick()" data-toggle="collapse" data-target="#collapseOne" attr.aria-expanded="{{isShowing}}" aria-controls="collapseOne">
+            {{config.name}}
+          </button>
+        </h5>
+      </div>
+  
+      <div id="collapseOne" class="collapse {{show}}" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          {{config.data}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -14,7 +14,9 @@ export class BossyCollapseComponent implements OnInit {
   buttonCollapsed = 'collapsed';
 
   ngOnInit() {
-
+        this.isShowing = false;
+        this.show = '';
+        this.buttonCollapsed = 'collapsed';
   }
 
   onEventClick() {
