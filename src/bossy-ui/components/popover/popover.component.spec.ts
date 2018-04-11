@@ -17,18 +17,34 @@ describe('the popover should', () => {
     componentInstance.hide = true;
     componentFixture.detectChanges();
     const popoverElement = componentFixture.debugElement.query(e1 => e1.name === 'popover');
-    expect(componentFixture.nativeElement).toContain(popoverElement);
+    expect(popoverElement).toBeTruthy();
   });
+
   it('not be active', () => {
     const componentFixture = TestBed.createComponent(BossyPopoverComponent);
     const componentInstance = componentFixture.componentInstance;
     componentInstance.hide = false;
     componentFixture.detectChanges();
     const popoverElement = componentFixture.debugElement.query(e1 => e1.name === 'popover');
-    expect(componentFixture.nativeElement).not.toContain(popoverElement);
+    expect(popoverElement).toBeFalsy();
+
   });
 
   it('not be active after dismiss event', () => {
+    const componentFixture = TestBed.createComponent(BossyPopoverComponent);
+    const componentInstance = componentFixture.componentInstance;
+    componentInstance.hide = true;
+    componentInstance.dismissable = true;
+    componentFixture.detectChanges();
+    const buttonClick = componentFixture.debugElement.nativeElement.querySelector('button');
+    buttonClick.click();
+    componentFixture.detectChanges();
+    const popoverElement = componentFixture.debugElement.query(e1 => e1.name === 'popover');
+    expect(popoverElement).toBeFalsy();
+
+  });
+
+  it('be active after dismiss event', () => {
     const componentFixture = TestBed.createComponent(BossyPopoverComponent);
     const componentInstance = componentFixture.componentInstance;
     componentInstance.hide = true;
@@ -36,33 +52,7 @@ describe('the popover should', () => {
     const buttonClick = componentFixture.debugElement.nativeElement.querySelector('button');
     buttonClick.click();
     componentFixture.detectChanges();
-    // console.log("third test");
     const popoverElement = componentFixture.debugElement.query(e1 => e1.name === 'popover');
-    expect(componentFixture.nativeElement).not.toContain(popoverElement);
+    expect(popoverElement).toBeTruthy();
   });
-
-  it('be active after dismiss event', () => {
-    const componentFixture = TestBed.createComponent(BossyPopoverComponent);
-    const componentInstance = componentFixture.componentInstance;
-    componentInstance.hide = true;
-    componentInstance.dismissable = false;
-    componentFixture.detectChanges();
-    // console.log("fourth test");
-    // console.log(componentInstance);
-    const popoverElement = componentFixture.debugElement.query(e1 => e1.name === 'popover');
-    expect(componentFixture.nativeElement).toContain(popoverElement);
-  });
-
-  /*
-  it('ensure dismissing an inactive popover wont active the popover', () => {
-    const componentFixture = TestBed.createComponent(BossyPopoverComponent);
-    const componentInstance = componentFixture.componentInstance;
-    componentInstance.hide = true;
-    componentFixture.detectChanges();
-    //componentInstance.onClick(event);
-    componentFixture.detectChanges();
-    const popoverElement = componentFixture.debugElement.query(e1 => e1.name === 'popover');
-    expect(componentFixture.nativeElement).not.toContain(popoverElement);
-  });
-  */
 });
