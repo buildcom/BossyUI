@@ -23,7 +23,7 @@ import {BossyPopoverComponent} from '../../bossy-ui/components/popover/popover.c
 import {BossyPopoverConfig} from '../../bossy-ui/components/popover/popover.config';
 import {Validators} from '@angular/forms';
 import { BossyAlertComponent } from '../../bossy-ui/components/alert/alert.component';
-import { BossyAlertConfig } from '../../bossy-ui/components/alert/alert.config';
+import { BossyAlertConfig, alertType } from '../../bossy-ui/components/alert/alert.config';
 
 @Component({
   selector: 'app-sandbox',
@@ -49,7 +49,7 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
-    const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText');
+    const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, true);
     const calendarConfig = new BossyCalendarConfig();
     const formInput1 = {
         name: 'textInput',
@@ -159,7 +159,7 @@ export class SandboxComponent implements OnInit {
       }
     );
     const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
-    const bossyPopoverConfig = new BossyPopoverConfig('popover', true, 'PoverOver Title', 'Popover Description');
+    const bossyPopoverConfig = new BossyPopoverConfig('popover', 'popover1234', true, 'right', 'PoverOver Title', 'Popover Description');
 
     const bossyCollapseConfig = new BossyCollapseConfig([
         {name: 'button1' , data: 'example1'}
