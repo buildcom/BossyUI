@@ -16,6 +16,7 @@ import {BossySliderComponent} from './components/slider/slider.component';
 import {BossyMaskDirective} from './directives/bossy-mask.directive';
 import {BossyPopoverComponent} from './components/popover/popover.component';
 import {BossyAlertComponent} from './components/alert/alert.component';
+import {BossyButtonComponent} from './components/button/button.component';
 
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
 export {BossyCalendarConfig} from './components/calendar/calendar.config';
@@ -45,6 +46,9 @@ export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.
 export {BossyPopoverComponent} from './components/popover/popover.component';
 export {BossyPopoverConfig} from './components/popover/popover.config';
 
+export {BossyButtonComponent} from './components/button/button.component';
+export {BossyButtonConfig} from './components/button/button.config';
+
 
 @NgModule({
   imports: [
@@ -67,6 +71,7 @@ export {BossyPopoverConfig} from './components/popover/popover.config';
     BossyMaskDirective,
     BossyCollapseComponent,
     BossyPopoverComponent,
+    BossyButtonComponent
   ],
   exports: [
     BossyCalendarComponent,
@@ -81,6 +86,7 @@ export {BossyPopoverConfig} from './components/popover/popover.config';
     BossyFormElementErrorComponent,
     BossyCollapseComponent,
     BossyPopoverComponent,
+    BossyButtonComponent
   ]
 })
 export class BossyModule {
