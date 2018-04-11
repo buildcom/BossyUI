@@ -1,10 +1,10 @@
-<div class="btn-group {{btn_dir}} {{btn_show}}">
+<div class="btn-group {{btnDir}} {{btnShow}}">
   <span [ngSwitch]="config.split">
     <!-- Split Button -->
-    <span class="btn-group {{btn_dir}} {{btn_show}}" *ngSwitchCase="true">
-      <button type="button" class="btn btn-{{config.btn_type}} {{btn_size}}">{{config.name}}</button>
-      <span class="btn-group {{btn_dir}} {{btn_show}}" (click)="showMenuOnClick()">
-        <button type="button" class="btn btn-{{config.btn_type}} {{btn_size}} dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+    <span class="btn-group {{btnDir}} {{btnShow}}" *ngSwitchCase="true">
+      <button type="button" class="btn btn-{{config.btnType}} {{btnSize}}">{{config.name}}</button>
+      <span class="btn-group {{btnDir}} {{btnShow}}" (click)="showMenuOnClick()">
+        <button type="button" class="btn btn-{{config.btnType}} {{btnSize}} dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="ariaExpanded">
           <span class="sr-only">Toggle Dropdown</span>
         </button>
@@ -13,7 +13,7 @@
     <!-- Normal Button -->
     <span *ngSwitchCase="false">
       <span (click)="showMenuOnClick()">
-        <button class="btn btn-{{config.btn_type}} {{btn_size}} dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+        <button class="btn btn-{{config.btnType}} {{btnSize}} dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="ariaExpanded">
           {{config.name}}
         </button>

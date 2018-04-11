@@ -10,40 +10,40 @@ export class BossyDropdownComponent implements OnInit {
   @Input() config: BossyDropdownConfig;
   showMenu = false;
   ariaExpanded = false;
-  btn_size: string = undefined;
-  btn_dir: string = undefined;
-  btn_show: string = undefined;
+  btnSize: string = undefined;
+  btnDir: string = undefined;
+  btnShow: string = undefined;
 
   showMenuOnClick() {
     this.showMenu = !this.showMenu;
     this.ariaExpanded = !this.ariaExpanded;
 
     if (this.showMenu === true) {
-      this.btn_show = 'show';
+      this.btnShow = 'show';
     } else {
-      this.btn_show = undefined;
+      this.btnShow = undefined;
     }
   }
 
   ngOnInit() {
-    if ( this.config.btn_size === 'small' ) {
-      this.btn_size = 'btn-sm';
-    } else if ( this.config.btn_size === 'large' ) {
-      this.btn_size = 'btn-lg';
+    if ( this.config.btnSize === 'small' ) {
+      this.btnSize = 'btn-sm';
+    } else if ( this.config.btnSize === 'large' ) {
+      this.btnSize = 'btn-lg';
     } else {
-      this.btn_size = '';
+      this.btnSize = '';
     }
 
     if ( this.config.direction === 'up') {
-      this.btn_dir = 'dropup';
+      this.btnDir = 'dropup';
     } else if ( this.config.direction === 'down' ) {
-      this.btn_dir = 'dropdown';
+      this.btnDir = 'dropdown';
     } else if ( this.config.direction === 'left' ) {
-      this.btn_dir = 'dropleft';
+      this.btnDir = 'dropleft';
     } else if ( this.config.direction === 'right' ) {
-      this.btn_dir = 'dropright';
+      this.btnDir = 'dropright';
     } else {
-      this.btn_dir = 'dropdown';
+      this.btnDir = 'dropdown';
     }
 
   }

@@ -2,10 +2,10 @@ import {BossyDropdownMenuConfig} from '../dropdown-menu/dropdown-menu.config';
 
 export class BossyDropdownConfig {
   constructor(public name: string,
-              public btn_type: string,
+              public btnType: string,
               public items: Array<BossyDropdownMenuConfig>,
               public direction: string,
-              public btn_size: string,
+              public btnSize: string,
               public split: boolean) {
   }
 }
