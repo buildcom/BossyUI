@@ -36,7 +36,7 @@ describe('the popover should', () => {
     let buttonClick = componentFixture.debugElement.nativeElement.querySelector('button');
     buttonClick.click();
     componentFixture.detectChanges();
-    console.log("third test");
+    //console.log("third test");
     let popoverElement = componentFixture.debugElement.query(e1 => e1.name === 'popover');
     expect(componentFixture.nativeElement).not.toContain(popoverElement);
   });
@@ -47,14 +47,13 @@ describe('the popover should', () => {
     componentInstance.hide = true;
     componentInstance.dismissable = false;
     componentFixture.detectChanges();
-    console.log("fourth test");
-    console.log(componentInstance);
-    //componentFixture.detectChanges();
+    //console.log("fourth test");
+    //console.log(componentInstance);
     let popoverElement = componentFixture.debugElement.query(e1 => e1.name === 'popover');
     expect(componentFixture.nativeElement).toContain(popoverElement);
   });
 
-/*
+  /*
   it('ensure dismissing an inactive popover wont active the popover', () => {
     let componentFixture = TestBed.createComponent(BossyPopoverComponent);
     let componentInstance = componentFixture.componentInstance;
