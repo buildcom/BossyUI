@@ -22,8 +22,10 @@ export class BossyPopoverComponent implements OnInit {
   arrowTop = '34px';
   arrowLeft = '0px';
   arrowRotate = 'rotate(0deg)';
+  dismissable = false;
 
   ngOnInit() {
+    this.dismissable = Boolean(this.config.isDismissable);
     this.calcSpacing();
     const elements = document.body.querySelectorAll('[id=' + this.config.popoverID + ']');
     this.eventTarget = elements[0];
@@ -43,7 +45,7 @@ export class BossyPopoverComponent implements OnInit {
   */
   @HostListener('document:click', ['$event.target'])
   onClick(event: any) {
-    if (this.eventTarget !== undefined && this.config.dismissable && this.hide) {
+    if (this.eventTarget !== undefined && this.config.isDismissable && this.hide) {
       const popover_ref = this._eref.nativeElement.querySelectorAll('div.popover')[0];
       if (!this.eventTarget.contains(event) && !popover_ref.contains(event)) {
         this.hide = false;

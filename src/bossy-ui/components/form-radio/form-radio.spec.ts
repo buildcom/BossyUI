@@ -219,7 +219,6 @@ describe('Unit tests for Radio component: ', () => {
       });
       it('first item of 3', () => {
         de = fixture.debugElement.query(By.css('#testTitle_input0'));
-        console.log(de.nativeElement);
         expect(de.nativeElement.getAttribute('disabled')).toEqual('');
       });
       it('second item of 3', () => {
