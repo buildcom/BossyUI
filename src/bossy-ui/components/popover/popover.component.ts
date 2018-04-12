@@ -27,13 +27,10 @@ export class BossyPopoverComponent implements OnInit {
   ngOnInit() {
     this.dismissable = Boolean(this.config.isDismissable);
     this.calcSpacing();
-    const elements = document.body.querySelectorAll('[id=' + this.config.popoverID + ']');
+    const elements = this._eref.nativeElement.querySelectorAll('button');
     this.eventTarget = elements[0];
     if (this.eventTarget !== undefined) {
       this.eventTarget.addEventListener('click', this.ShowPopoverOnClick.bind(this));
-      if (this.eventTarget.contains(event)) {
-        this.ShowPopoverOnClick(event);
-      }
     } else {
       console.error('Popover could not resolve element', this.config.popoverID);
     }
