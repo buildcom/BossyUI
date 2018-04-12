@@ -164,8 +164,10 @@ export class SandboxComponent implements OnInit {
     const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
     const bossyPopoverConfig = new BossyPopoverConfig('popover', 'popover1234', true, 'right', 'PoverOver Title', 'Popover Description');
 
-    const bossyCollapseConfig = new BossyCollapseConfig('button1', 'Example1', true);
     const bossyPaginationConfig = new BossyPaginationConfig('pagination');
+    const bossyCollapseConfig = new BossyCollapseConfig([
+        {name: 'button1' , data: 'example1'}
+    ], true);
 
     this.configService.setConfig('alertConfig', alertConfig);
     this.configService.setConfig('calendarConfig', calendarConfig);
@@ -177,7 +179,7 @@ export class SandboxComponent implements OnInit {
     this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
     this.configService.setConfig('bossyCollapseConfig', bossyCollapseConfig);
     this.configService.setConfig('bossyPopoverConfig', bossyPopoverConfig);
-    this.configService.setConfig('bossyPaginationConfig', BossyPaginationConfig);
+    this.configService.setConfig('bossyPaginationConfig', bossyPaginationConfig);
   }
 
 }

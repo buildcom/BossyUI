@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
 import {BossyCalendarComponent} from './components/calendar/calendar.component';
 import {BossyFormElementComponent} from './components/form-element/form-element.component';
@@ -53,7 +54,8 @@ export {BossyPaginationConfig} from './components/pagination/pagination.config';
 @NgModule({
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     BossyCalendarComponent,
@@ -71,7 +73,7 @@ export {BossyPaginationConfig} from './components/pagination/pagination.config';
     BossyMaskDirective,
     BossyCollapseComponent,
     BossyPopoverComponent,
-    BossyPaginationComponent
+    BossyPaginationComponent,
   ],
   exports: [
     BossyCalendarComponent,
