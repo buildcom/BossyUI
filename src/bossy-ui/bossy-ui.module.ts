@@ -13,6 +13,9 @@ import {BossyFormSelectMenuComponent} from './components/form-selectmenu/form-se
 import {BossyFormTextareaComponent} from './components/form-textarea/form-textarea.component';
 import {BossySliderComponent} from './components/slider/slider.component';
 import {BossyMaskDirective} from './directives/bossy-mask.directive';
+
+
+
 import { BossyAlertComponent } from './components/alert/alert.component';
 import { BossyModalComponent } from './components/modal/modal.component';
 
