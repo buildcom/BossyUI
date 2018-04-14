@@ -13,37 +13,37 @@ export class BossyModalComponent implements OnInit {
   show; show2; show3; showPop = false;
   isCentered; isSmall; isMedium; isLarge = false;
   myForm: FormGroup;
-  sizeModal : string;
+  sizeModal: string;
 
   @HostListener('window:keyup' , ['$event'])
-  keyboardInput(event: KeyboardEvent){
-      if(event.keyCode == 27){
+  keyboardInput(event: KeyboardEvent) {
+      if (event.keyCode === 27) {
         this.clickHandler();
       }
   }
 
   @HostListener('document:click' , ['$event'])
-  clickOutside(event: MouseEvent){
-  var element = event.target as HTMLElement;
-  this.clickHandler();
-
+  clickOutside(event: MouseEvent) {
+  const element = event.target as HTMLElement;
+  if (element.classList.contains('modal-backdrop')) {
+    this.clickHandler();
+  }
   }
 
-
-  clickHandler(){
+  clickHandler() {
     this.show = !this.show;
 
   }
 
-  clickHandler2(){
+  clickHandler2() {
     this.show2 = !this.show2;
   }
 
-  clickHandler3(){
+  clickHandler3() {
     this.show3 = !this.show3;
   }
 
-  clickHandlerPopover(){
+  clickHandlerPopover() {
     this.showPop = !this.showPop;
   }
 
@@ -52,15 +52,13 @@ export class BossyModalComponent implements OnInit {
      this.myForm = new FormGroup({
       Recipient: new FormControl('', [<any>Validators.required]),
       Message: new FormControl('', [<any>Validators.required])});
-      if(this.config.size == 'small'){
+      if (this.config.size === 'small') {
         this.isSmall = true;
         this.sizeModal = 'modal-sm';
-        }
-      else if(this.config.size == 'large'){
+        } else if (this.config.size === 'large') {
         this.isLarge = true;
         this.sizeModal = 'modal-lg';
-      }
-      else{
+      } else {
         this.isMedium = true;
         this.sizeModal = '';
       }

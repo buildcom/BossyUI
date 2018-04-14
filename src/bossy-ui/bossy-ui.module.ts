@@ -15,22 +15,6 @@ import {BossyFormTextareaComponent} from './components/form-textarea/form-textar
 import {BossyCollapseComponent} from './components/collapse/collapse.component';
 import {BossySliderComponent} from './components/slider/slider.component';
 import {BossyMaskDirective} from './directives/bossy-mask.directive';
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
-
-import { BossyAlertComponent } from './components/alert/alert.component';
-import { BossyModalComponent } from './components/modal/modal.component';
-=======
-import {BossyPopoverComponent} from './components/popover/popover.component';
-import {BossyAlertComponent} from './components/alert/alert.component';
->>>>>>> 528942fd2474dcab79340508a560721ddb2e9586
-=======
-import { BossyAlertComponent } from './components/alert/alert.component';
-import { BossyModalComponent } from './components/modal/modal.component';
-import {BossyPopoverComponent} from './components/popover/popover.component';
->>>>>>> d91d0a87e0f9966c0e217fa31afc7e9cd06e5a85
 
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
 export {BossyCalendarConfig} from './components/calendar/calendar.config';
