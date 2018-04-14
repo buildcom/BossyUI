@@ -21,7 +21,7 @@ import {Validators} from '@angular/forms';
 import { BossyAlertComponent } from '../../bossy-ui/components/alert/alert.component';
 import { BossyAlertConfig, alertType, alertSize } from '../../bossy-ui/components/alert/alert.config';
 import { BossyModalComponent } from '../../bossy-ui/components/modal/modal.component';
-import { BossyModalConfig } from '../../bossy-ui/components/modal/modal.config';
+import { BossyModalConfig, modalSize } from '../../bossy-ui/components/modal/modal.config';
 
 @Component({
   selector: 'app-sandbox',
@@ -46,7 +46,7 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
-    const modalConfig = new BossyModalConfig('launch', 'Title', 'Body', 'Save Changes', 'Close', false);
+    const modalConfig = new BossyModalConfig('launch', 'Title', 'Body', 'Save Changes', 'Close', false, modalSize.medium);
     const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, alertSize.small);
     const calendarConfig = new BossyCalendarConfig();
     const formInput1 = {

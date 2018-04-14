@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges, HostListener} from '@angular/core';
 import {BossyModalConfig} from './modal.config';
 import {FormControl, FormGroup, Validators, NgModel} from '@angular/forms';
 
@@ -11,11 +11,28 @@ import {FormControl, FormGroup, Validators, NgModel} from '@angular/forms';
 export class BossyModalComponent implements OnInit {
   @Input() config: BossyModalConfig;
   show; show2; show3; showPop = false;
-  isCentered = false;
+  isCentered; isSmall; isMedium; isLarge = false;
   myForm: FormGroup;
+  sizeModal : string;
+
+  @HostListener('window:keyup' , ['$event'])
+  keyboardInput(event: KeyboardEvent){
+      if(event.keyCode == 27){
+        this.clickHandler();
+      }
+  }
+
+  @HostListener('document:click' , ['$event'])
+  clickOutside(event: MouseEvent){
+  var element = event.target as HTMLElement;
+  this.clickHandler();
+
+  }
+
 
   clickHandler(){
     this.show = !this.show;
+
   }
 
   clickHandler2(){
@@ -34,8 +51,18 @@ export class BossyModalComponent implements OnInit {
      this.isCentered = this.config.isCentered;
      this.myForm = new FormGroup({
       Recipient: new FormControl('', [<any>Validators.required]),
-      Message: new FormControl('', [<any>Validators.required])
- 
-  });
+      Message: new FormControl('', [<any>Validators.required])});
+      if(this.config.size == 'small'){
+        this.isSmall = true;
+        this.sizeModal = 'modal-sm';
+        }
+      else if(this.config.size == 'large'){
+        this.isLarge = true;
+        this.sizeModal = 'modal-lg';
+      }
+      else{
+        this.isMedium = true;
+        this.sizeModal = '';
+      }
   }
 }

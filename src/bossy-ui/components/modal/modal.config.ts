@@ -4,6 +4,12 @@ export class BossyModalConfig {
                 public body : string,
                 public button1 : string,
                 public button2 : string,
-                public isCentered : boolean) {
+                public isCentered : boolean,
+                public size : modalSize) {
     }
   }
+  export enum modalSize {
+    large= 'large',
+    medium= 'medium',
+    small= 'small'
+}
