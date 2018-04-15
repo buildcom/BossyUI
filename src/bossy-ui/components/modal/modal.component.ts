@@ -30,7 +30,6 @@ export class BossyModalComponent implements OnInit {
 
   clickHandler() {
     this.show = !this.show;
-  
   }
 
   ngOnInit() {
