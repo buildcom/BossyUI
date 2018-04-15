@@ -1,7 +1,7 @@
 <button type="button" class="btn btn-primary" (click)="clickHandler()" data-toggle="modal" data-target="#myModal">
   {{config.buttonName}}
 </button>
-<div #myDiv class="modal-open" style="padding-right: 15px;" *ngIf="show">
+<div class="modal-open" style="padding-right: 15px;" *ngIf="show">
   <div class="modal fade" [ngClass]="show ? 'show' : ''" tabindex="-1" id="myModal" role="dialog" style="display: block; padding-right: 15px;">
     <div class="modal-dialog {{sizeModal}}" [ngClass]="{'modal-dialog-centered': isCentered}" role="document">
       <div class="modal-content">
@@ -21,6 +21,7 @@
       </div>
     </div>
   </div>
+  <div class="modal-backdrop fade" [ngClass]="show ? 'show' : ''">
+  </div>
 </div>
-<div class="modal-backdrop fade" [ngClass]="show ? 'show' : ''" *ngIf="show">
-</div>
+
