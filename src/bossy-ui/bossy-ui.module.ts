@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
 import {BossyCalendarComponent} from './components/calendar/calendar.component';
 import {BossyFormElementComponent} from './components/form-element/form-element.component';
@@ -11,9 +12,11 @@ import {BossyDropdownMenuItemComponent} from './components/dropdown-menu/dropdow
 import {BossyFormElementErrorComponent} from './components/form-element-error/form-element-error.component';
 import {BossyFormSelectMenuComponent} from './components/form-selectmenu/form-selectmenu.component';
 import {BossyFormTextareaComponent} from './components/form-textarea/form-textarea.component';
+import {BossyCollapseComponent} from './components/collapse/collapse.component';
 import {BossySliderComponent} from './components/slider/slider.component';
 import {BossyMaskDirective} from './directives/bossy-mask.directive';
-import { BossyAlertComponent } from './components/alert/alert.component';
+import {BossyPopoverComponent} from './components/popover/popover.component';
+import {BossyAlertComponent} from './components/alert/alert.component';
 
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
 export {BossyCalendarConfig} from './components/calendar/calendar.config';
@@ -34,14 +37,21 @@ export {BossyFormRadioComponent} from './components/form-radio/form-radio.compon
 export {BossyFormRadioConfig} from './components/form-radio/form-radio.config';
 export {BossyDropdownComponent} from './components/dropdown/dropdown.component';
 export {BossyDropdownConfig} from './components/dropdown/dropdown.config';
+export {BossyCollapseComponent} from './components/collapse/collapse.component';
+export {BossyCollapseConfig} from './components/collapse/collapse.config';
 
 export {BossyDropdownMenuItemComponent} from './components/dropdown-menu/dropdown-menu.component';
 export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.config';
 
+export {BossyPopoverComponent} from './components/popover/popover.component';
+export {BossyPopoverConfig} from './components/popover/popover.config';
+
+
 @NgModule({
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     BossyCalendarComponent,
@@ -57,6 +67,8 @@ export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.
     BossyFormTextareaComponent,
     BossySliderComponent,
     BossyMaskDirective,
+    BossyCollapseComponent,
+    BossyPopoverComponent,
   ],
   exports: [
     BossyCalendarComponent,
@@ -69,6 +81,8 @@ export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.
     BossyFormSelectMenuComponent,
     BossyFormTextareaComponent,
     BossyFormElementErrorComponent,
+    BossyCollapseComponent,
+    BossyPopoverComponent,
   ]
 })
 export class BossyModule {
