@@ -10,9 +10,9 @@ export class BossyDropdownComponent implements OnInit {
   @Input() config: BossyDropdownConfig;
   showMenu = false;
   ariaExpanded = false;
-  btnSize: string = undefined;
-  btnDir: string = undefined;
-  btnShow: string = undefined;
+  btnSize = '';
+  btnDir = '';
+  btnShow = '';
 
   showMenuOnClick() {
     this.showMenu = !this.showMenu;
