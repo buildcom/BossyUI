@@ -23,7 +23,7 @@ import {BossyPopoverComponent} from '../../bossy-ui/components/popover/popover.c
 import {BossyPopoverConfig} from '../../bossy-ui/components/popover/popover.config';
 import {Validators} from '@angular/forms';
 import { BossyAlertComponent } from '../../bossy-ui/components/alert/alert.component';
-import { BossyAlertConfig, alertType } from '../../bossy-ui/components/alert/alert.config';
+import { BossyAlertConfig, alertType, alertSize } from '../../bossy-ui/components/alert/alert.config';
 
 @Component({
   selector: 'app-sandbox',
@@ -49,7 +49,7 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
-    const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, true);
+    const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, alertSize.small);
     const calendarConfig = new BossyCalendarConfig();
     const formInput1 = {
         name: 'textInput',
