@@ -26,6 +26,8 @@ import { BossyAlertComponent } from '../../bossy-ui/components/alert/alert.compo
 import { BossyAlertConfig, alertType, alertSize } from '../../bossy-ui/components/alert/alert.config';
 import { BossyModalComponent } from '../../bossy-ui/components/modal/modal.component';
 import { BossyModalConfig, modalSize } from '../../bossy-ui/components/modal/modal.config';
+import { BossyNavsComponent } from '../../bossy-ui/components/navs/navs.component';
+import { BossyNavsConfig, navsAlignment, navsType } from '../../bossy-ui/components/navs/navs.config';
 
 @Component({
   selector: 'app-sandbox',
@@ -47,11 +49,13 @@ export class SandboxComponent implements OnInit {
   bossyFormTextarea = BossyFormTextareaComponent;
   bossyCollapse = BossyCollapseComponent;
   bossyPopover = BossyPopoverComponent;
+  bossyNavs = BossyNavsComponent;
 
   constructor(private configService: ConfigService) {
   }
 
   ngOnInit() {
+    const navsConfig = new BossyNavsConfig('link1', 'link2', 'link3', 'link4', true, navsAlignment.left, navsType.base);
     const modalConfig = new BossyModalConfig('launch', 'Title', 'Body', 'Save Changes', 'Close', false, modalSize.medium);
     const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, alertSize.small);
     const calendarConfig = new BossyCalendarConfig();
@@ -180,6 +184,7 @@ export class SandboxComponent implements OnInit {
     this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
     this.configService.setConfig('bossyCollapseConfig', bossyCollapseConfig);
     this.configService.setConfig('bossyPopoverConfig', bossyPopoverConfig);
+    this.configService.setConfig('navsConfig', navsConfig);
   }
 
 }

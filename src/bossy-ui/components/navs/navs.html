@@ -1,0 +1,6 @@
+<nav class="nav {{navsType}} {{navsAlignment}}" [ngClass]="{'nav-justified' : isJustified}">
+    <a [ngClass]="{'nav-item' : isJustified}" class="nav-link active" href="#">Active {{config.nav1}}</a>
+    <a [ngClass]="{'nav-item' : isJustified}" class="nav-link" href="#">{{config.nav2}}</a>
+    <a [ngClass]="{'nav-item' : isJustified}" class="nav-link" href="#">{{config.nav3}}</a>
+    <a [ngClass]="{'nav-item' : isJustified}" class="nav-link disabled" href="#">Disabled {{config.nav4}}</a>
+  </nav>
