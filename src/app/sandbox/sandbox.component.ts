@@ -28,6 +28,9 @@ import { BossyModalComponent } from '../../bossy-ui/components/modal/modal.compo
 import { BossyModalConfig, modalSize } from '../../bossy-ui/components/modal/modal.config';
 import { BossyNavsComponent } from '../../bossy-ui/components/navs/navs.component';
 import { BossyNavsConfig, navsAlignment, navsType } from '../../bossy-ui/components/navs/navs.config';
+import { BossyCarouselComponent } from '../../bossy-ui/components/carousel/carousel.component';
+import { BossyCarouselConfig } from '../../bossy-ui/components/carousel/carousel.config';
+
 
 @Component({
   selector: 'app-sandbox',
@@ -50,11 +53,13 @@ export class SandboxComponent implements OnInit {
   bossyCollapse = BossyCollapseComponent;
   bossyPopover = BossyPopoverComponent;
   bossyNavs = BossyNavsComponent;
+  bossyCarousel = BossyCarouselComponent;
 
   constructor(private configService: ConfigService) {
   }
 
   ngOnInit() {
+    const carouselConfig = new BossyCarouselConfig(false, true, false);
     const navsConfig = new BossyNavsConfig('link1', 'link2', 'link3', 'link4', true, navsAlignment.left, navsType.base);
     const modalConfig = new BossyModalConfig('launch', 'Title', 'Body', 'Save Changes', 'Close', false, modalSize.medium);
     const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, alertSize.small);
@@ -185,6 +190,7 @@ export class SandboxComponent implements OnInit {
     this.configService.setConfig('bossyCollapseConfig', bossyCollapseConfig);
     this.configService.setConfig('bossyPopoverConfig', bossyPopoverConfig);
     this.configService.setConfig('navsConfig', navsConfig);
+    this.configService.setConfig('carouselConfig', carouselConfig);
   }
 
 }

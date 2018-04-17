@@ -19,6 +19,7 @@ import {BossyFormTextareaComponent} from '../../bossy-ui/components/form-textare
 import {BossyCollapseComponent} from '../../bossy-ui/components/collapse/collapse.component';
 import {BossyPopoverComponent} from '../../bossy-ui/components/popover/popover.component';
 import {BossyNavsComponent} from '../../bossy-ui/components/navs/navs.component';
+import {BossyCarouselComponent} from '../../bossy-ui/components/carousel/carousel.component';
 
 @Component({
   selector: 'app-dynamic-component',
@@ -35,7 +36,8 @@ import {BossyNavsComponent} from '../../bossy-ui/components/navs/navs.component'
     BossyFormTextareaComponent,
     BossyCollapseComponent,
     BossyPopoverComponent,
-    BossyNavsComponent],
+    BossyNavsComponent,
+    BossyCarouselComponent],
   template: `
     <div #dynamicComponentContainer></div>`,
 })

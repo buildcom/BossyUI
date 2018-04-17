@@ -23,6 +23,8 @@ import {BossyPopoverComponent} from './components/popover/popover.component';
 import {BossyPopoverConfig} from './components/popover/popover.config';
 import {BossyNavsComponent} from './components/navs/navs.component';
 import {BossyNavsConfig} from './components/navs/navs.config';
+import {BossyCarouselComponent} from './components/carousel/carousel.component';
+import {BossyCarouselConfig} from './components/carousel/carousel.config';
 
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
 export {BossyCalendarConfig} from './components/calendar/calendar.config';
@@ -32,6 +34,8 @@ export {BossyModalComponent} from './components/modal/modal.component';
 export {BossyModalConfig} from './components/modal/modal.config';
 export {BossyNavsComponent} from './components/navs/navs.component';
 export {BossyNavsConfig} from './components/navs/navs.config';
+export {BossyCarouselComponent} from './components/carousel/carousel.component';
+export {BossyCarouselConfig} from './components/carousel/carousel.config';
 
 export {BossyFormComponent} from './components/form/form.component';
 export {BossyFormConfig} from './components/form/form.config';
@@ -80,7 +84,8 @@ export {BossyPopoverConfig} from './components/popover/popover.config';
     BossyMaskDirective,
     BossyCollapseComponent,
     BossyPopoverComponent,
-    BossyNavsComponent
+    BossyNavsComponent,
+    BossyCarouselComponent
   ],
   exports: [
     BossyCalendarComponent,
@@ -96,7 +101,8 @@ export {BossyPopoverConfig} from './components/popover/popover.config';
     BossyFormElementErrorComponent,
     BossyCollapseComponent,
     BossyPopoverComponent,
-    BossyNavsComponent
+    BossyNavsComponent,
+    BossyCarouselComponent
   ]
 })
 export class BossyModule {
