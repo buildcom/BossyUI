@@ -59,7 +59,7 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
-    const carouselConfig = new BossyCarouselConfig(false, true, false);
+    const carouselConfig = new BossyCarouselConfig(true, true, false);
     const navsConfig = new BossyNavsConfig('link1', 'link2', 'link3', 'link4', true, navsAlignment.left, navsType.base);
     const modalConfig = new BossyModalConfig('launch', 'Title', 'Body', 'Save Changes', 'Close', false, modalSize.medium);
     const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, alertSize.small);
