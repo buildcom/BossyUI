@@ -13,22 +13,20 @@ export class BossyAlertComponent implements OnInit {
   medium = false;
   large = false;
 
-  setSize(){
-      if(this.config.size == 'small'){
+  setSize() {
+      if (this.config.size === 'small') {
         this.medium = false;
         this.large = false;
-        }
-      else if(this.config.size == 'large'){
+        } else if (this.config.size === 'large') {
         this.large = true;
         this.medium = false;
-      }
-      else{
+      } else {
         this.medium = true;
         this.large = false;
       }
   }
 
-  dismissHandler(){
+  dismissHandler() {
       this.dataDismiss = !this.dataDismiss;
   }
 
