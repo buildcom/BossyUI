@@ -15,7 +15,7 @@ export class BossyNavsComponent implements OnInit {
 
   ngOnInit() {
      this.isJustified = this.config.isJustified;
-      switch(this.config.alignment){
+      switch (this.config.alignment) {
           case 'right': {
             this.navsAlignment = 'justify-content-end';
             break;
@@ -33,7 +33,7 @@ export class BossyNavsComponent implements OnInit {
             break;
           }
       }
-      switch(this.config.type){
+      switch (this.config.type) {
           case 'base': {
               this.navsType = '';
               break;
