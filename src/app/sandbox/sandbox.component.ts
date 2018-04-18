@@ -26,6 +26,7 @@ import { BossyAlertComponent } from '../../bossy-ui/components/alert/alert.compo
 import { BossyAlertConfig, alertType, alertSize } from '../../bossy-ui/components/alert/alert.config';
 import { BossyModalComponent } from '../../bossy-ui/components/modal/modal.component';
 import { BossyModalConfig, modalSize } from '../../bossy-ui/components/modal/modal.config';
+
 import { BossyNavsComponent } from '../../bossy-ui/components/navs/navs.component';
 import { BossyNavsConfig, navsAlignment, navsType } from '../../bossy-ui/components/navs/navs.config';
 import { BossyCarouselComponent } from '../../bossy-ui/components/carousel/carousel.component';
