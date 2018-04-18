@@ -23,7 +23,7 @@ import {BossyPopoverComponent} from '../../bossy-ui/components/popover/popover.c
 import {BossyPopoverConfig} from '../../bossy-ui/components/popover/popover.config';
 import {Validators} from '@angular/forms';
 import { BossyAlertComponent } from '../../bossy-ui/components/alert/alert.component';
-import { BossyAlertConfig, alertType } from '../../bossy-ui/components/alert/alert.config';
+import { BossyAlertConfig, alertType, alertSize } from '../../bossy-ui/components/alert/alert.config';
 
 @Component({
   selector: 'app-sandbox',
@@ -49,7 +49,7 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
-    const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, true);
+    const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, alertSize.small);
     const calendarConfig = new BossyCalendarConfig();
     const formInput1 = {
         name: 'textInput',
@@ -142,11 +142,19 @@ export class SandboxComponent implements OnInit {
     );
     const formElementConfig = new BossyFormElementConfig(formInput4);
     const dropdownConfig = new BossyDropdownConfig('Dropdown Menu',
+      'primary',
       [
-        new BossyDropdownMenuConfig('Item 1'),
-        new BossyDropdownMenuConfig('Item 2'),
-        new BossyDropdownMenuConfig('Item 3')
-      ]);
+        new BossyDropdownMenuConfig('Header', 'header'),
+        new BossyDropdownMenuConfig('Item 1', 'default', undefined, undefined, '#'),
+        new BossyDropdownMenuConfig('Div', 'divider'),
+        new BossyDropdownMenuConfig('Item 2', 'default'),
+        new BossyDropdownMenuConfig('Item 3', 'default', true),
+        new BossyDropdownMenuConfig('Item 4', 'default', undefined, true, '#')
+      ],
+    '',
+    '',
+    true
+  );
 
     const selectMenuConfig = new BossyFormSelectMenuConfig({
         title: 'State',
@@ -161,7 +169,9 @@ export class SandboxComponent implements OnInit {
     const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
     const bossyPopoverConfig = new BossyPopoverConfig('popover', 'popover1234', true, 'right', 'PoverOver Title', 'Popover Description');
 
-    const bossyCollapseConfig = new BossyCollapseConfig('button1', 'Example1', true);
+    const bossyCollapseConfig = new BossyCollapseConfig([
+        {name: 'button1' , data: 'example1'}
+    ], true);
 
     this.configService.setConfig('alertConfig', alertConfig);
     this.configService.setConfig('calendarConfig', calendarConfig);
