@@ -29,6 +29,7 @@ import { BossyModalConfig, modalSize } from '../../bossy-ui/components/modal/mod
 import { BossyNavsComponent } from '../../bossy-ui/components/navs/navs.component';
 import { BossyNavsConfig, navsAlignment, navsType } from '../../bossy-ui/components/navs/navs.config';
 
+
 @Component({
   selector: 'app-sandbox',
   templateUrl: './sandbox.component.html',

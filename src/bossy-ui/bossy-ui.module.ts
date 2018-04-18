@@ -24,6 +24,7 @@ import {BossyPopoverConfig} from './components/popover/popover.config';
 import {BossyNavsComponent} from './components/navs/navs.component';
 import {BossyNavsConfig} from './components/navs/navs.config';
 
+
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
 export {BossyCalendarConfig} from './components/calendar/calendar.config';
 export {BossyAlertComponent} from './components/alert/alert.component';
@@ -32,6 +33,7 @@ export {BossyModalComponent} from './components/modal/modal.component';
 export {BossyModalConfig} from './components/modal/modal.config';
 export {BossyNavsComponent} from './components/navs/navs.component';
 export {BossyNavsConfig} from './components/navs/navs.config';
+
 
 export {BossyFormComponent} from './components/form/form.component';
 export {BossyFormConfig} from './components/form/form.config';
