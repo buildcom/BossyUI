@@ -9,8 +9,7 @@ import {BossyNavsConfig} from './navs.config';
 
 export class BossyNavsComponent implements OnInit {
   @Input() config: BossyNavsConfig;
-  show = false;
-  isJustified; isRight; isVertical; isCenter; isBase = false;
+  isJustified = false;
   navsAlignment; navsType: string;
 
   ngOnInit() {
