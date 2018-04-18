@@ -1,7 +1,7 @@
-import {navItem} from './navs.interface';
+import {NavItem} from './navs.interface';
 
 export class BossyNavsConfig {
-    constructor(public navItems : Array<navItem>,
+    constructor(public navItems: Array<NavItem>,
                 public isJustified: boolean,
                 public alignment: navsAlignment,
                 public type: navsType) {

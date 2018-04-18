@@ -28,7 +28,7 @@ import { BossyModalComponent } from '../../bossy-ui/components/modal/modal.compo
 import { BossyModalConfig, modalSize } from '../../bossy-ui/components/modal/modal.config';
 import { BossyNavsComponent } from '../../bossy-ui/components/navs/navs.component';
 import { BossyNavsConfig, navsAlignment, navsType } from '../../bossy-ui/components/navs/navs.config';
-import {navItem, navsActive} from '../../bossy-ui/components/navs/navs.interface';
+import {NavItem, navsActive} from '../../bossy-ui/components/navs/navs.interface';
 
 
 @Component({
@@ -57,7 +57,7 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
-    const navsItem = [{'name':'link1', 'active': navsActive.active}, {'name':'link2', 'active':navsActive.active}];
+    const navsItem = [{'name': 'link1', 'active': navsActive.active}, {'name': 'link2', 'active': navsActive.active}];
     const navsConfig = new BossyNavsConfig(navsItem, true, navsAlignment.left, navsType.base);
     const modalConfig = new BossyModalConfig('launch', 'Title', 'Body', 'Save Changes', 'Close', false, modalSize.medium);
     const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, alertSize.small);
