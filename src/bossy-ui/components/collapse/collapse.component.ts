@@ -9,11 +9,11 @@ import { trigger, style, transition, animate, keyframes, query, stagger, state }
   selector: 'bossy-collapse',
   templateUrl: './collapse.html',
   animations: [
-    trigger('collapseAnimation', [
-      state('true', style({ height: '*', fontSize: '14px' })),
-      state('false', style({ height: '0px', fontSize: '0px' })),
-      transition('1 => 0', animate('250ms ease-in')),
-      transition('0 => 1', animate('250ms ease-out'))
+    trigger('collapseState', [
+      state('show', style({ height: '*' })),
+      state('hide', style({ height: '0px' })),
+      transition('show => hide', animate('250ms ease-in')),
+      transition('hide => show', animate('250ms ease-in'))
     ])
   ]
 })
@@ -36,12 +36,18 @@ export class BossyCollapseComponent implements OnInit {
   }
 
   onEventClick(index) {
-    if (this.areItemsExpanded[index]) {
-      this.areItemsExpanded[index] = false;
-      this.buttonsCollapsed[index] = 'collapsed';
+    if (this.config.items[index].state === 'show') {
+      this.config.items[index].state = 'hide';
     } else {
-      this.areItemsExpanded[index] = true;
-      this.buttonsCollapsed[index] = '';
+      this.config.items[index].state = 'show';
     }
+  }
+
+  startCollapse(index) {
+    this.config.items[index].className = 'collapsing';
+  }
+
+  doneCollapse(index) {
+    this.config.items[index].className = `collapse ${this.config.items[index].state === 'show' ? 'show' : ''}`;
   }
 }
