@@ -2,13 +2,11 @@ export interface NavItem {
     name: string;
     active: navsActive;
 }
-
 export enum navsActive {
     active = 'active',
     disabled = 'disabled',
     none = 'none'
 }
-
 export class BossyNavsConfig {
     constructor(public navItems: Array<NavItem>,
                 public isJustified: boolean,

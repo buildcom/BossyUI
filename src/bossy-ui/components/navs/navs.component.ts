@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, SimpleChanges, HostListener} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import {BossyNavsConfig} from './navs.config';
 
 @Component({
@@ -9,40 +9,39 @@ import {BossyNavsConfig} from './navs.config';
 
 export class BossyNavsComponent implements OnInit {
   @Input() config: BossyNavsConfig;
-  isJustified = false;
-  navsAlignment; navsType: string;
+  navsAlign: string;
+  myNavsType: string;
 
   ngOnInit() {
-     this.isJustified = this.config.isJustified;
       switch (this.config.alignment) {
           case 'right': {
-            this.navsAlignment = 'justify-content-end';
+            this.navsAlign = 'justify-content-end';
             break;
           }
           case 'left': {
-            this.navsAlignment = '';
+            this.navsAlign = '';
             break;
           }
           case 'center': {
-            this.navsAlignment = 'justify-content-center';
+            this.navsAlign = 'justify-content-center';
             break;
           }
           case 'vertical': {
-            this.navsAlignment = 'flex-column';
+            this.navsAlign = 'flex-column';
             break;
           }
       }
       switch (this.config.type) {
           case 'base': {
-              this.navsType = '';
+              this.myNavsType = '';
               break;
           }
           case 'pills': {
-            this.navsType = 'nav-pills';
+            this.myNavsType = 'nav-pills';
             break;
         }
         case 'tabs': {
-            this.navsType = 'nav-tabs';
+            this.myNavsType = 'nav-tabs';
             break;
         }
       }

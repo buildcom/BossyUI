@@ -1,4 +1,5 @@
-<nav class="nav {{navsType}} {{navsAlignment}}" [ngClass]="{'nav-justified' : isJustified}">
-    <a [ngClass]="{'nav-item' : isJustified}" class="nav-link"
-        [class]="navItem.active" *ngFor="let navItem of config.navItems" href="#">{{navItem.name}}</a>
+<nav class="nav {{myNavsType}} {{navsAlign}}" [ngClass]="{'nav-justified' : config.isJustified}">
+    <a [ngClass]="{'nav-item' : config.isJustified}" class="nav-link"
+        [class]="navItem.active" *ngFor="let navItem of config.navItems" href="#">{{navItem.name}}
+    </a>
 </nav>

@@ -21,7 +21,9 @@
   <h2>Navs</h2>
   <hr>
   <div class="component-main">
-    <app-config [configName]="'navsConfig'" [component]="bossyNavs"></app-config>
+    <app-config [configName]="'navsConfig'">
+      <bossy-navs [config]="configService['navsConfig'].getValue()"></bossy-navs>
+    </app-config>
   </div>
 
   <h2>Calendar</h2>

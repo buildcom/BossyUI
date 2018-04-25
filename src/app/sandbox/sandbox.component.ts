@@ -28,7 +28,7 @@ export class SandboxComponent implements OnInit {
 
   ngOnInit() {
     const navsItem = [{'name': 'link1', 'active': navsActive.active}, {'name': 'link2', 'active': navsActive.active}];
-    const navsConfig = new BossyNavsConfig(navsItem, true, navsAlignment.left, navsType.base);
+    const navsConfig = new BossyNavsConfig(navsItem, true, navsAlignment.left, navsType.pills);
     const modalConfig = new BossyModalConfig('launch', 'Title', 'Body', 'Save Changes', 'Close', false, modalSize.medium);
     const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, alertSize.small);
     const calendarConfig = new BossyCalendarConfig();
