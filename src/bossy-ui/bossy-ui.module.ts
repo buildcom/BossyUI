@@ -23,6 +23,7 @@ import {BossyPopoverComponent} from './components/popover/popover.component';
 import {BossyPopoverConfig} from './components/popover/popover.config';
 import {BossyPaginationComponent} from './components/pagination/pagination.component';
 import {BossyPaginationConfig} from './components/pagination/pagination.config';
+import {BossyPagesComponent} from './components/pagination/pages.component';
 
 
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
@@ -57,6 +58,7 @@ export {BossyPopoverConfig} from './components/popover/popover.config';
 
 export {BossyPaginationComponent} from './components/pagination/pagination.component';
 export {BossyPaginationConfig} from './components/pagination/pagination.config';
+export {BossyPagesComponent} from './components/pagination/pages.component';
 
 
 @NgModule({
@@ -83,6 +85,8 @@ export {BossyPaginationConfig} from './components/pagination/pagination.config';
     BossyCollapseComponent,
     BossyPopoverComponent,
     BossyPaginationComponent,
+    BossyPagesComponent,
+
   ],
   exports: [
     BossyCalendarComponent,
@@ -99,6 +103,7 @@ export {BossyPaginationConfig} from './components/pagination/pagination.config';
     BossyCollapseComponent,
     BossyPopoverComponent,
     BossyPaginationComponent,
+    BossyPagesComponent,
   ]
 })
 export class BossyModule {

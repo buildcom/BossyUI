@@ -146,14 +146,14 @@ export class SandboxComponent implements OnInit {
     const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
     const bossyPopoverConfig = new BossyPopoverConfig('popover', 'popover1234', true, 'right', 'PoverOver Title', 'Popover Description');
 
-    const bossyPaginationConfig = new BossyPaginationConfig('pagination', 'center', '', [
+    const bossyPaginationConfig = new BossyPaginationConfig('pagination', '', '', [
         {value: 'Previous', href: '#', isActive: false, isDisabled: false},
         {value: '1', href: '#', isActive: true, isDisabled: false},
         {value: '2', href: '#', isActive: false, isDisabled: false},
         {value: '3', href: '#', isActive: false, isDisabled: true},
         {value: 'Next', href: '#', isActive: false, isDisabled: false},
     ]);
-       const bossyCollapseConfig = new BossyCollapseConfig([
+    const bossyCollapseConfig = new BossyCollapseConfig([
         {name: 'button1' , data: 'example1'}
     ], true);
 
