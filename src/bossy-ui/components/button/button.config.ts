@@ -1,6 +1,10 @@
 export class BossyButtonConfig {
-  constructor(public type?: string,
-              public name?: string
+  constructor(public name: string,
+              public type: string,
+              public size: string,
+              public outline: boolean,
+              public active: boolean,
+              public block: boolean,
   ) {
   }
 }
