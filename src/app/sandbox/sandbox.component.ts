@@ -24,6 +24,8 @@ import {BossyPopoverConfig} from '../../bossy-ui/components/popover/popover.conf
 import {Validators} from '@angular/forms';
 import { BossyAlertComponent } from '../../bossy-ui/components/alert/alert.component';
 import { BossyAlertConfig, alertType } from '../../bossy-ui/components/alert/alert.config';
+import {BossyButtonComponent} from '../../bossy-ui/components/button/button.component';
+import {BossyButtonConfig} from '../../bossy-ui/components/button/button.config';
 
 @Component({
   selector: 'app-sandbox',
@@ -44,6 +46,7 @@ export class SandboxComponent implements OnInit {
   bossyFormTextarea = BossyFormTextareaComponent;
   bossyCollapse = BossyCollapseComponent;
   bossyPopover = BossyPopoverComponent;
+  bossyButton = BossyButtonComponent;
 
   constructor(private configService: ConfigService) {
   }
@@ -148,6 +151,8 @@ export class SandboxComponent implements OnInit {
         new BossyDropdownMenuConfig('Item 3')
       ]);
 
+    const buttonConfig = new BossyButtonConfig('a');
+
     const selectMenuConfig = new BossyFormSelectMenuConfig({
         title: 'State',
         items:
@@ -173,6 +178,7 @@ export class SandboxComponent implements OnInit {
     this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
     this.configService.setConfig('bossyCollapseConfig', bossyCollapseConfig);
     this.configService.setConfig('bossyPopoverConfig', bossyPopoverConfig);
+    this.configService.setConfig('buttonConfig', buttonConfig);
   }
 
 }

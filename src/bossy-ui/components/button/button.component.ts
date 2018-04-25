@@ -8,6 +8,7 @@ import {BossyButtonConfig} from './button.config';
 
 export class BossyButtonComponent implements OnInit {
   @Input() config: BossyButtonConfig;
+  classTest = 'btn btn-primary';
   ngOnInit() {
   }
 }

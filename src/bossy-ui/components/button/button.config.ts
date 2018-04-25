@@ -1,4 +1,6 @@
 export class BossyButtonConfig {
-  constructor() {
+  constructor(public type?: string,
+              public name?: string
+  ) {
   }
 }
