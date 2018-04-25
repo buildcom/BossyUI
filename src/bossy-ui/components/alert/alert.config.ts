@@ -3,7 +3,7 @@ export class BossyAlertConfig {
               public text: string,
               public subText: string,
               public type: alertType,
-              public large: boolean) {
+              public size: alertSize) {
   }
 }
 export enum alertType {
@@ -15,4 +15,9 @@ export enum alertType {
     info= 'info',
     light= 'light',
     dark= 'dark'
+}
+export enum alertSize {
+    large= 'large',
+    medium= 'medium',
+    small= 'small'
 }

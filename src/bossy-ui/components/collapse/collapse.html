@@ -6,11 +6,16 @@
       </button>
     </p>
     
-    <div class="veritcal-menu" id="collapseExample" [@collapseAnimation]="isItemExpanded(i)">
-      <div class="card vertical-menu" [@collapseAnimation]="isItemExpanded(i)">
-        {{item.data}}
-      </div>
-    </div>
+    <div 
+          id="collapseOne" 
+          [@collapseState]="item.state" 
+          (@collapseState.start)="startCollapse(i)"  
+          (@collapseState.done)="doneCollapse(i)"
+          class="{{item.className}}"  
+          aria-labelledby="headingOne" 
+          data-parent="#accordion" >
+          {{item.data}}
+        </div>
   </div>
 </div>
 
@@ -26,12 +31,15 @@
           </h5>
         </div>
     
-        <div >
-          <div id="collapseOne" class="vertical-menu"  aria-labelledby="headingOne" data-parent="#accordion" [@collapseAnimation]="isItemExpanded(i)">
-            <div class="vertical-menu" [@collapseAnimation]="isItemExpanded(i)">
-              {{item.data}}
-            </div> 
-          </div>
+        <div 
+          id="collapseOne" 
+          [@collapseState]="item.state" 
+          (@collapseState.start)="startCollapse(i)"  
+          (@collapseState.done)="doneCollapse(i)"
+          class="{{item.className}}"  
+          aria-labelledby="headingOne" 
+          data-parent="#accordion" >
+          {{item.data}}
         </div>
       </div>
     </div>
