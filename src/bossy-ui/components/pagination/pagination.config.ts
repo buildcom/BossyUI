@@ -11,5 +11,5 @@ export class BossyPaginationConfig {
       isDisabled: boolean,
     }>,
   ) {}
-  
+
 }

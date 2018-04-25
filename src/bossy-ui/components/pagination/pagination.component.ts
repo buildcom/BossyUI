@@ -18,7 +18,6 @@ export class BossyPaginationComponent implements OnInit {
   alignment = '';
 
   ngOnInit() {
-    /**/ 
     switch (this.config.size) {
       case 'small':
         this.size = 'pagination-sm';
@@ -28,7 +27,6 @@ export class BossyPaginationComponent implements OnInit {
         break;
     }
 
-
     switch (this.config.alignment) {
       case 'center':
         this.alignment = 'justify-content-center';
@@ -37,6 +35,5 @@ export class BossyPaginationComponent implements OnInit {
         this.alignment = 'justify-content-end';
         break;
     }
-    /**/
   }
 }

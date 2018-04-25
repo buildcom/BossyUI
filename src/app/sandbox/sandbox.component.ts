@@ -13,7 +13,6 @@ import {BossyCollapseConfig} from '../../bossy-ui/components/collapse/collapse.c
 import {BossyPopoverConfig} from '../../bossy-ui/components/popover/popover.config';
 import { BossyAlertConfig, alertType, alertSize } from '../../bossy-ui/components/alert/alert.config';
 import { BossyModalConfig, modalSize } from '../../bossy-ui/components/modal/modal.config';
-//import {BossyPaginationComponent} from '../../bossy-ui/components/pagination/pagination.component';
 import {BossyPaginationConfig} from '../../bossy-ui/components/pagination/pagination.config';
 @Component({
   selector: 'app-sandbox',
@@ -146,14 +145,14 @@ export class SandboxComponent implements OnInit {
     const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
     const bossyPopoverConfig = new BossyPopoverConfig('popover', 'popover1234', true, 'right', 'PoverOver Title', 'Popover Description');
 
-    const bossyPaginationConfig = new BossyPaginationConfig('pagination', 'center', '', [
+    const bossyPaginationConfig = new BossyPaginationConfig('pagination', '', '', [
         {value: 'Previous', href: '#', isActive: false, isDisabled: false},
         {value: '1', href: '#', isActive: true, isDisabled: false},
         {value: '2', href: '#', isActive: false, isDisabled: false},
         {value: '3', href: '#', isActive: false, isDisabled: true},
         {value: 'Next', href: '#', isActive: false, isDisabled: false},
     ]);
-       const bossyCollapseConfig = new BossyCollapseConfig([
+    const bossyCollapseConfig = new BossyCollapseConfig([
         {name: 'button1' , data: 'example1'}
     ], true);
 
