@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {ConfigService} from '../config.service';
 import {BossyBreadcrumbConfig} from '../../bossy-ui/components/breadcrumb/breadcrumb.config';
 import {BossyCalendarConfig} from '../../bossy-ui/components/calendar/calendar.config';
@@ -14,6 +14,11 @@ import {BossyCollapseConfig} from '../../bossy-ui/components/collapse/collapse.c
 import {BossyPopoverConfig} from '../../bossy-ui/components/popover/popover.config';
 import { BossyAlertConfig, alertType, alertSize } from '../../bossy-ui/components/alert/alert.config';
 import { BossyModalConfig, modalSize } from '../../bossy-ui/components/modal/modal.config';
+import { BossyNavsComponent } from '../../bossy-ui/components/navs/navs.component';
+import { BossyNavsConfig, navsAlignment, navsType, NavItem, navsActive } from '../../bossy-ui/components/navs/navs.config';
+import { BossyCarouselComponent } from '../../bossy-ui/components/carousel/carousel.component';
+import { BossyCarouselConfig, CarouselImage } from '../../bossy-ui/components/carousel/carousel.config';
+import {BossyPaginationConfig} from '../../bossy-ui/components/pagination/pagination.config';
 
 @Component({
   selector: 'app-sandbox',
@@ -25,6 +30,21 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
+    const carouselItems = [
+      { 'title': 'First',
+        'active': true,
+        'url': 'http://www.dem.ri.gov/programs/water/sustainablewatersheds/images/slideshow/crab3-800x400.jpg' },
+      { 'title': 'Second',
+        'active': false,
+        'url': 'http://jackson-assoc.leapwp.com.au/wp-content/uploads/sites/1199/2016/04/40569158_ml-800x400.jpg' },
+      { 'title': 'Third',
+        'active': false,
+        'url': 'http://pigios-svetaines.eu/projects/glance-uikit/data/uploads/images/slides/slideshow_800x400_2.jpg' }
+    ];
+    const carouselConfig = new BossyCarouselConfig(carouselItems, true, true, false);
+    const navsItem = [{'name': 'nav 1', 'active': navsActive.none}, {'name': 'nav 2', 'active': navsActive.active},
+    {'name': 'nav 3', 'active': navsActive.disabled}];
+    const navsConfig = new BossyNavsConfig(navsItem, true, true, navsAlignment.vertical, navsType.pills);
     const modalConfig = new BossyModalConfig('launch', 'Title', 'Body', 'Save Changes', 'Close', false, modalSize.medium);
     const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, alertSize.small);
     const calendarConfig = new BossyCalendarConfig();
@@ -146,6 +166,13 @@ export class SandboxComponent implements OnInit {
     const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
     const bossyPopoverConfig = new BossyPopoverConfig('popover', 'popover1234', true, 'right', 'PoverOver Title', 'Popover Description');
 
+    const bossyPaginationConfig = new BossyPaginationConfig('pagination', '', '', [
+        {value: 'Previous', href: '#', isActive: false, isDisabled: false},
+        {value: '1', href: '#', isActive: true, isDisabled: false},
+        {value: '2', href: '#', isActive: false, isDisabled: false},
+        {value: '3', href: '#', isActive: false, isDisabled: true},
+        {value: 'Next', href: '#', isActive: false, isDisabled: false},
+    ]);
     const bossyCollapseConfig = new BossyCollapseConfig([
         {name: 'button1' , data: 'example1'}
     ], true);
@@ -167,6 +194,11 @@ export class SandboxComponent implements OnInit {
     this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
     this.configService.setConfig('bossyCollapseConfig', bossyCollapseConfig);
     this.configService.setConfig('bossyPopoverConfig', bossyPopoverConfig);
+    this.configService.setConfig('navsConfig', navsConfig);
+    this.configService.setConfig('carouselConfig', carouselConfig);
+    this.configService.setConfig('bossyPaginationConfig', bossyPaginationConfig);
   }
 
 }
+
+

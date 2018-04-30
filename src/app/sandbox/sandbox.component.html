@@ -18,6 +18,30 @@
     </app-config>
   </div>
 
+  <h2>Navs</h2>
+  <hr>
+  <div class="component-main">
+    <app-config [configName]="'navsConfig'">
+      <bossy-navs [config]="configService['navsConfig'].getValue()">
+        <bossy-nav-tab>This is where your content for the first tab would go
+        </bossy-nav-tab>
+        <bossy-nav-tab>This is where your content for the second tab would go
+        </bossy-nav-tab>
+        <bossy-nav-tab>This is where your content for the third tab would go
+          </bossy-nav-tab>
+          <div class="row mb-3"></div>
+      </bossy-navs>
+    </app-config>
+  </div>
+
+  <h2>Carousel</h2>
+  <hr>
+  <div class="component-main">
+    <app-config [configName]="'carouselConfig'">
+      <bossy-carousel [config]="configService['carouselConfig'].getValue()"></bossy-carousel>
+    </app-config>
+  </div>
+
   <h2>Calendar</h2>
   <hr>
   <div class="component-main">
@@ -97,4 +121,13 @@
       <bossy-popover [config]="configService['bossyPopoverConfig'].getValue()"></bossy-popover>
     </app-config>
   </div>
+
+  <h2>Pagination</h2>
+  <hr>
+  <div class="component-main">
+    <app-config [configName]="'bossyPaginationConfig'">
+      <bossy-pagination [config]="configService['bossyPaginationConfig'].getValue()"></bossy-pagination>
+    </app-config>
+  </div>
+  
 </main>
