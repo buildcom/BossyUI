@@ -82,6 +82,14 @@
     </app-config>
   </div>
 
+  <h2>Breadcrumb</h2>
+  <hr>
+  <div class="component-main">
+    <app-config [configName]="'bossyBreadcrumbConfig'">
+      <bossy-breadcrumb [config]="configService['bossyBreadcrumbConfig'].getValue()"></bossy-breadcrumb>
+    </app-config>
+  </div>
+
   <h2>Popover</h2>
   <hr>
   <div class="component-main">
