@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
 import {BossyCalendarComponent} from './components/calendar/calendar.component';
 import {BossyFormElementComponent} from './components/form-element/form-element.component';
@@ -14,14 +15,21 @@ import {BossyFormTextareaComponent} from './components/form-textarea/form-textar
 import {BossyCollapseComponent} from './components/collapse/collapse.component';
 import {BossySliderComponent} from './components/slider/slider.component';
 import {BossyMaskDirective} from './directives/bossy-mask.directive';
-import {BossyPopoverComponent} from './components/popover/popover.component';
 import {BossyAlertComponent} from './components/alert/alert.component';
+import {BossyAlertConfig} from './components/alert/alert.config';
+import {BossyModalComponent} from './components/modal/modal.component';
+import {BossyModalConfig} from './components/modal/modal.config';
+import {BossyPopoverComponent} from './components/popover/popover.component';
+import {BossyPopoverConfig} from './components/popover/popover.config';
 import {BossyButtonComponent} from './components/button/button.component';
+import {BossyButtonComponent} from './components/button/button.config';
 
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
 export {BossyCalendarConfig} from './components/calendar/calendar.config';
 export {BossyAlertComponent} from './components/alert/alert.component';
 export {BossyAlertConfig} from './components/alert/alert.config';
+export {BossyModalComponent} from './components/modal/modal.component';
+export {BossyModalConfig} from './components/modal/modal.config';
 
 export {BossyFormComponent} from './components/form/form.component';
 export {BossyFormConfig} from './components/form/form.config';
@@ -53,11 +61,13 @@ export {BossyButtonConfig} from './components/button/button.config';
 @NgModule({
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     BossyCalendarComponent,
     BossyAlertComponent,
+    BossyModalComponent,
     BossyFormElementComponent,
     BossyFormComponent,
     BossyFormLabelComponent,
@@ -76,6 +86,7 @@ export {BossyButtonConfig} from './components/button/button.config';
   exports: [
     BossyCalendarComponent,
     BossyAlertComponent,
+    BossyModalComponent,
     BossyFormElementComponent,
     BossyFormComponent,
     BossyFormRadioComponent,

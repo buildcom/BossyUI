@@ -7,7 +7,6 @@ import {NavigationComponent} from './navigation/navigation.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {ConfigComponent} from './config/config.component';
-import {DynamicComponent} from './dynamic/dynamic.component';
 import {BossyModule} from '../bossy-ui/bossy-ui.module';
 import {ConfigService} from './config.service';
 import { RouterModule, Routes } from '@angular/router';
@@ -25,7 +24,6 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    DynamicComponent,
     ConfigComponent,
     AppComponent,
     SandboxComponent,
