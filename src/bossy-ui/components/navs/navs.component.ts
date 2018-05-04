@@ -6,19 +6,18 @@ import {
   ContentChildren,
   AfterContentInit,
   QueryList
-} from "@angular/core";
-import { BossyNavsConfig, NavItem } from "./navs.config";
-import { BossyNavTabComponent } from "./nav-tab.component";
+} from '@angular/core';
+import { BossyNavsConfig, NavItem } from './navs.config';
+import { BossyNavTabComponent } from './nav-tab.component';
 
 @Component({
-  selector: "bossy-navs",
-  templateUrl: "./navs.html",
-  styleUrls: ["./navs.css"]
+  selector: 'bossy-navs',
+  templateUrl: './navs.html',
+  styleUrls: ['./navs.css']
 })
 export class BossyNavsComponent implements OnInit, AfterContentInit {
   @Input() config: BossyNavsConfig;
-  @ContentChildren(BossyNavTabComponent)
-  navTabs: QueryList<BossyNavTabComponent>;
+  @ContentChildren(BossyNavTabComponent) navTabs: QueryList<BossyNavTabComponent>;
   navsAlign: string;
   navsType: string;
   navsItems: Array<NavItem>;
@@ -43,37 +42,37 @@ export class BossyNavsComponent implements OnInit, AfterContentInit {
   ngOnInit() {
     this.navsItems = this.config.navItems;
     this.navsStatus = this.navsItems.map(item => {
-      return item.active === "active";
+      return item.active === 'active';
     });
     switch (this.config.alignment) {
-      case "right": {
-        this.navsAlign = "justify-content-end";
+      case 'right': {
+        this.navsAlign = 'justify-content-end';
         break;
       }
-      case "left": {
-        this.navsAlign = "";
+      case 'left': {
+        this.navsAlign = '';
         break;
       }
-      case "center": {
-        this.navsAlign = "justify-content-center";
+      case 'center': {
+        this.navsAlign = 'justify-content-center';
         break;
       }
-      case "vertical": {
-        this.navsAlign = "flex-column";
+      case 'vertical': {
+        this.navsAlign = 'flex-column';
         break;
       }
     }
     switch (this.config.type) {
-      case "base": {
-        this.navsType = "";
+      case 'base': {
+        this.navsType = '';
         break;
       }
-      case "pills": {
-        this.navsType = "nav-pills";
+      case 'pills': {
+        this.navsType = 'nav-pills';
         break;
       }
-      case "tabs": {
-        this.navsType = "nav-tabs";
+      case 'tabs': {
+        this.navsType = 'nav-tabs';
         break;
       }
     }
