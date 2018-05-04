@@ -1,5 +1,6 @@
-import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges, ContentChildren} from '@angular/core';
 import {BossyNavsConfig, NavItem} from './navs.config';
+import { BossyNavTabComponent } from './nav-tab.component';
 
 @Component({
   selector: 'bossy-navs',
@@ -9,6 +10,7 @@ import {BossyNavsConfig, NavItem} from './navs.config';
 
 export class BossyNavsComponent implements OnInit {
   @Input() config: BossyNavsConfig;
+  @ContentChildren(BossyNavTabComponent) navTabs;
   navsAlign: string;
   navsType: string;
   navsItems: Array<NavItem>;
