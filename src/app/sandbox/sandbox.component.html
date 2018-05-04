@@ -23,11 +23,11 @@
   <div class="component-main">
     <app-config [configName]="'navsConfig'">
       <bossy-navs [config]="configService['navsConfig'].getValue()">
-          <div class="tab-content" id="nav-tabContent"> //trying to access navsStatus which holds true or false value of active for each item in config
-              <bossy-nav-tab>home</bossy-nav-tab>
-              <bossy-nav-tab>profile</bossy-nav-tab>
-              <bossy-nav-tab>settings</bossy-nav-tab>
-            </div>
+        <bossy-nav-tab>home</bossy-nav-tab>
+        <bossy-nav-tab>
+          <a href="">profile</a>
+        </bossy-nav-tab>
+        <bossy-nav-tab>settings</bossy-nav-tab>
       </bossy-navs>
     </app-config>
   </div>

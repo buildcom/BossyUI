@@ -1,10 +1,11 @@
 import { Component } from "@angular/core";
 
 @Component({
-    selector: 'bossy-nav-tab',
-    templateUrl: './nav-tab.html',
+  selector: "bossy-nav-tab",
+  templateUrl: "./nav-tab.html"
 })
-
 export class BossyNavTabComponent {
-    isActive = false;
-};
+  public isActive = false;
+  public id: string;
+  public tabSelect = () => {};
+}

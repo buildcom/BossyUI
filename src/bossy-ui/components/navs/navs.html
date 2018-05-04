@@ -1,4 +1,4 @@
-<div *ngIf="!config.hasContent">
+<!-- <div *ngIf="!config.hasContent">
 <nav class="nav {{navsType}} {{navsAlign}}" [ngClass]="{'nav-justified' : config.isJustified}">
     <a [ngClass]="{'nav-item' : config.isJustified}" class="nav-link"
         [class]="navItem.active" *ngFor="let navItem of config.navItems" href="#">{{navItem.name}}
@@ -16,7 +16,9 @@
   </nav>
 </div>
 <div class="col-9">
-<ng-content>
-</ng-content>
+
 </div>
+</div> -->
+<div class="nav nav-tabs" id="nav-tabContent">
+  <ng-content></ng-content>
 </div>
