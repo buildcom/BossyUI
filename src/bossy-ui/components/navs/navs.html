@@ -1,5 +1,22 @@
-<nav class="nav {{myNavsType}} {{navsAlign}}" [ngClass]="{'nav-justified' : config.isJustified}">
+<div *ngIf="!config.hasContent">
+<nav class="nav {{navsType}} {{navsAlign}}" [ngClass]="{'nav-justified' : config.isJustified}">
     <a [ngClass]="{'nav-item' : config.isJustified}" class="nav-link"
         [class]="navItem.active" *ngFor="let navItem of config.navItems" href="#">{{navItem.name}}
     </a>
 </nav>
+</div>
+<div class="row" *ngIf="config.hasContent">
+<div class="col-9">
+  <nav>
+<div class="nav {{navsType}}" id="nav-tab" role="tablist">
+  <a class="nav-item nav-link" [ngClass]="{'active' : navsStatus[0]}" (click)="click1()" id="nav-home-tab" data-toggle="tab" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+  <a class="nav-item nav-link" [ngClass]="{'active' : navsStatus[1]}" (click)="click2()" id="nav-profile-tab" data-toggle="tab" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+  <a class="nav-item nav-link" [ngClass]="{'active' : navsStatus[2]}" (click)="click3()" id="nav-contact-tab" data-toggle="tab" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+</div>
+  </nav>
+</div>
+<div class="col-9">
+<ng-content>
+</ng-content>
+</div>
+</div>

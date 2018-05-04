@@ -22,7 +22,13 @@
   <hr>
   <div class="component-main">
     <app-config [configName]="'navsConfig'">
-      <bossy-navs [config]="configService['navsConfig'].getValue()"></bossy-navs>
+      <bossy-navs [config]="configService['navsConfig'].getValue()">
+          <div class="tab-content" id="nav-tabContent"> //trying to access navsStatus which holds true or false value of active for each item in config
+              <div class="tab-pane fade" [ngClass]="{'active show' : BossyNavsComponent.navsStatus[0]}" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">home</div>
+              <div class="tab-pane fade" [ngClass]="{'active show' : BossyNavsComponent.navsStatus[1]}" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">profile</div>
+              <div class="tab-pane fade" [ngClass]="{'active show' : BossyNavsComponent.navsStatus[2]}" id="nav-setting" role="tabpanel" aria-labelledby="nav-contact-tab">setting</div>
+            </div>
+      </bossy-navs>
     </app-config>
   </div>
 

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {ConfigService} from '../config.service';
 import {BossyCalendarConfig} from '../../bossy-ui/components/calendar/calendar.config';
 import {BossyFormElementConfig} from '../../bossy-ui/components/form-element/form-element.config';
@@ -27,8 +27,9 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
-    const navsItem = [{'name': 'link1', 'active': navsActive.active}, {'name': 'link2', 'active': navsActive.active}];
-    const navsConfig = new BossyNavsConfig(navsItem, true, navsAlignment.left, navsType.pills);
+    const navsItem = [{'name': 'link1', 'active': navsActive.active}, {'name': 'link2', 'active': navsActive.disabled},
+    {'name': 'link3', 'active': navsActive.disabled}];
+    const navsConfig = new BossyNavsConfig(navsItem, true, true, navsAlignment.left, navsType.tabs);
     const modalConfig = new BossyModalConfig('launch', 'Title', 'Body', 'Save Changes', 'Close', false, modalSize.medium);
     const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, alertSize.small);
     const calendarConfig = new BossyCalendarConfig();

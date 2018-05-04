@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
-import {BossyNavsConfig} from './navs.config';
+import {BossyNavsConfig, NavItem} from './navs.config';
 
 @Component({
   selector: 'bossy-navs',
@@ -10,9 +10,32 @@ import {BossyNavsConfig} from './navs.config';
 export class BossyNavsComponent implements OnInit {
   @Input() config: BossyNavsConfig;
   navsAlign: string;
-  myNavsType: string;
+  navsType: string;
+  navsItems: Array<NavItem>;
+  navsStatus: Array<boolean>;
+
+  click1(){
+    this.navsStatus[0] = true;
+    this.navsStatus[1] = false;
+    this.navsStatus[2] = false;
+  }
+  click2(){
+    this.navsStatus[0] = false;
+    this.navsStatus[1] = true;
+    this.navsStatus[2] = false;
+  }
+  click3(){
+    this.navsStatus[0] = false;
+    this.navsStatus[1] = false;
+    this.navsStatus[2] = true;
+  }
+
 
   ngOnInit() {
+    this.navsItems = this.config.navItems;
+    this.navsStatus = this.navsItems.map((item) => {
+      return item.active === 'active';
+    });
       switch (this.config.alignment) {
           case 'right': {
             this.navsAlign = 'justify-content-end';
@@ -33,15 +56,15 @@ export class BossyNavsComponent implements OnInit {
       }
       switch (this.config.type) {
           case 'base': {
-              this.myNavsType = '';
+              this.navsType = '';
               break;
           }
           case 'pills': {
-            this.myNavsType = 'nav-pills';
+            this.navsType = 'nav-pills';
             break;
         }
         case 'tabs': {
-            this.myNavsType = 'nav-tabs';
+            this.navsType = 'nav-tabs';
             break;
         }
       }

@@ -9,6 +9,7 @@ export enum navsActive {
 }
 export class BossyNavsConfig {
     constructor(public navItems: Array<NavItem>,
+                public hasContent: boolean,
                 public isJustified: boolean,
                 public alignment: navsAlignment,
                 public type: navsType) {
