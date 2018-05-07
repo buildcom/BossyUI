@@ -1,6 +1,38 @@
-<nav class="nav {{navsType}} {{navsAlignment}}" [ngClass]="{'nav-justified' : isJustified}">
-    <a [ngClass]="{'nav-item' : isJustified}" class="nav-link active" href="#">Active {{config.nav1}}</a>
-    <a [ngClass]="{'nav-item' : isJustified}" class="nav-link" href="#">{{config.nav2}}</a>
-    <a [ngClass]="{'nav-item' : isJustified}" class="nav-link" href="#">{{config.nav3}}</a>
-    <a [ngClass]="{'nav-item' : isJustified}" class="nav-link disabled" href="#">Disabled {{config.nav4}}</a>
+<div *ngIf="!config.hasContent">
+<nav class="nav {{navsType}} {{navsAlign}}" [ngClass]="{'nav-justified' : config.isJustified}">
+    <a [ngClass]="{'nav-item' : config.isJustified}" class="nav-link"
+        [class]="navItem.active" *ngFor="let navItem of config.navItems" href="#">{{navItem.name}}
+    </a>
+</nav>
+</div>
+<div *ngIf="config.hasContent && !isVertical">
+  <div class="row">
+    <div class="col-12">
+  <nav>
+    <div class="nav {{navsType}} {{navsAlign}} mb-3" [ngClass]="{'nav-justified' : config.isJustified}" id="nav-tab" role="tablist">
+     <a class="nav-item nav-link" [ngClass]="{'active' : navsStatus[i]}" *ngFor="let navItem of config.navItems; let i = index" 
+      (click)="tabSelect(navItem)" id="{{navItem.name}}-tab" data-toggle="tab" role="tab" aria-selected="navsStatus[i]">{{navItem.name}}</a>
+    </div>
   </nav>
+    </div>
+  </div>
+    <div class="tab-content" id="nav-tabContent">
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+    </div>
+</div>
+<div class="row" *ngIf="config.hasContent && isVertical">
+    <div class="col-3">
+    <nav>
+      <div class="nav {{navsType}} {{navsAlign}} mb-3" [ngClass]="{'nav-justified' : config.isJustified}" aria-orientation="vertical" id="nav-tab" role="tablist">
+       <a class="nav-item nav-link" [ngClass]="{'active' : navsStatus[i]}" *ngFor="let navItem of config.navItems; let i = index" 
+        (click)="tabSelect(navItem)" id="{{navItem.name}}-tab" data-toggle="tab" role="tab" aria-selected="navsStatus[i]">{{navItem.name}}</a>
+      </div>
+    </nav>
+    </div>
+    <div class="col-9">
+      <div class="tab-content" id="nav-tabContent">
+          <ng-container *ngTemplateOutlet="content"></ng-container>
+      </div>
+    </div>
+  </div>
+  <ng-template #content><ng-content></ng-content></ng-template>

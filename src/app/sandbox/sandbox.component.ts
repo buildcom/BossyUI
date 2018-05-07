@@ -1,36 +1,23 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {ConfigService} from '../config.service';
 import {BossyCalendarConfig} from '../../bossy-ui/components/calendar/calendar.config';
-import {BossyCalendarComponent} from '../../bossy-ui/components/calendar/calendar.component';
 import {BossyFormElementConfig} from '../../bossy-ui/components/form-element/form-element.config';
-import {BossyFormElementComponent} from '../../bossy-ui/components/form-element/form-element.component';
 import {BossyFormConfig} from '../../bossy-ui/components/form/form.config';
-import {BossyFormComponent} from '../../bossy-ui/components/form/form.component';
 import {BossyFormLabelConfig} from '../../bossy-ui/components/form-label/form-label.config';
-import {BossyFormRadioComponent} from '../../bossy-ui/components/form-radio/form-radio.component';
 import {BossyFormRadioConfig} from '../../bossy-ui/components/form-radio/form-radio.config';
-import {BossyDropdownComponent} from '../../bossy-ui/components/dropdown/dropdown.component';
 import {BossyDropdownConfig} from '../../bossy-ui/components/dropdown/dropdown.config';
-import {BossyDropdownMenuItemComponent} from '../../bossy-ui/components/dropdown-menu/dropdown-menu.component';
 import {BossyDropdownMenuConfig} from '../../bossy-ui/components/dropdown-menu/dropdown-menu.config';
-import {BossyFormSelectMenuComponent} from '../../bossy-ui/components/form-selectmenu/form-selectmenu.component';
 import {BossyFormSelectMenuConfig} from '../../bossy-ui/components/form-selectmenu/form-selectmenu.config';
-import {BossyFormTextareaComponent} from '../../bossy-ui/components/form-textarea/form-textarea.component';
 import {BossyFormTextareaConfig} from '../../bossy-ui/components/form-textarea/form-textarea.config';
 import {BossyCollapseConfig} from '../../bossy-ui/components/collapse/collapse.config';
-import {BossyCollapseComponent} from '../../bossy-ui/components/collapse/collapse.component';
-import {BossyPopoverComponent} from '../../bossy-ui/components/popover/popover.component';
 import {BossyPopoverConfig} from '../../bossy-ui/components/popover/popover.config';
-import {Validators} from '@angular/forms';
-import { BossyAlertComponent } from '../../bossy-ui/components/alert/alert.component';
 import { BossyAlertConfig, alertType, alertSize } from '../../bossy-ui/components/alert/alert.config';
-import { BossyModalComponent } from '../../bossy-ui/components/modal/modal.component';
 import { BossyModalConfig, modalSize } from '../../bossy-ui/components/modal/modal.config';
 import { BossyNavsComponent } from '../../bossy-ui/components/navs/navs.component';
-import { BossyNavsConfig, navsAlignment, navsType } from '../../bossy-ui/components/navs/navs.config';
+import { BossyNavsConfig, navsAlignment, navsType, NavItem, navsActive } from '../../bossy-ui/components/navs/navs.config';
 import { BossyCarouselComponent } from '../../bossy-ui/components/carousel/carousel.component';
 import { BossyCarouselConfig } from '../../bossy-ui/components/carousel/carousel.config';
-
+import {BossyPaginationConfig} from '../../bossy-ui/components/pagination/pagination.config';
 
 @Component({
   selector: 'app-sandbox',
@@ -38,29 +25,14 @@ import { BossyCarouselConfig } from '../../bossy-ui/components/carousel/carousel
   styleUrls: ['./sandbox.component.css']
 })
 export class SandboxComponent implements OnInit {
-
-// components: Array<any> = Components;
-  bossyModal = BossyModalComponent;
-  bossyAlert = BossyAlertComponent;
-  bossyCalendar = BossyCalendarComponent;
-  bossyForm = BossyFormComponent;
-  bossyFormRadio = BossyFormRadioComponent;
-  bossyDropdown = BossyDropdownComponent;
-  bossyDropdownMenuItem = BossyDropdownMenuItemComponent;
-  bossyFormElement = BossyFormElementComponent;
-  bossyFormSelectMenu = BossyFormSelectMenuComponent;
-  bossyFormTextarea = BossyFormTextareaComponent;
-  bossyCollapse = BossyCollapseComponent;
-  bossyPopover = BossyPopoverComponent;
-  bossyNavs = BossyNavsComponent;
-  bossyCarousel = BossyCarouselComponent;
-
-  constructor(private configService: ConfigService) {
+  constructor(public configService: ConfigService) {
   }
 
   ngOnInit() {
     const carouselConfig = new BossyCarouselConfig(true, true, false);
-    const navsConfig = new BossyNavsConfig('link1', 'link2', 'link3', 'link4', true, navsAlignment.left, navsType.base);
+    const navsItem = [{'name': 'nav 1', 'active': navsActive.none}, {'name': 'nav 2', 'active': navsActive.active},
+    {'name': 'nav 3', 'active': navsActive.disabled}];
+    const navsConfig = new BossyNavsConfig(navsItem, true, true, navsAlignment.vertical, navsType.pills);
     const modalConfig = new BossyModalConfig('launch', 'Title', 'Body', 'Save Changes', 'Close', false, modalSize.medium);
     const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, alertSize.small);
     const calendarConfig = new BossyCalendarConfig();
@@ -155,11 +127,19 @@ export class SandboxComponent implements OnInit {
     );
     const formElementConfig = new BossyFormElementConfig(formInput4);
     const dropdownConfig = new BossyDropdownConfig('Dropdown Menu',
+      'primary',
       [
-        new BossyDropdownMenuConfig('Item 1'),
-        new BossyDropdownMenuConfig('Item 2'),
-        new BossyDropdownMenuConfig('Item 3')
-      ]);
+        new BossyDropdownMenuConfig('Header', 'header'),
+        new BossyDropdownMenuConfig('Item 1', 'default', undefined, undefined, '#'),
+        new BossyDropdownMenuConfig('Div', 'divider'),
+        new BossyDropdownMenuConfig('Item 2', 'default'),
+        new BossyDropdownMenuConfig('Item 3', 'default', true),
+        new BossyDropdownMenuConfig('Item 4', 'default', undefined, true, '#')
+      ],
+    '',
+    '',
+    true
+  );
 
     const selectMenuConfig = new BossyFormSelectMenuConfig({
         title: 'State',
@@ -174,6 +154,13 @@ export class SandboxComponent implements OnInit {
     const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
     const bossyPopoverConfig = new BossyPopoverConfig('popover', 'popover1234', true, 'right', 'PoverOver Title', 'Popover Description');
 
+    const bossyPaginationConfig = new BossyPaginationConfig('pagination', '', '', [
+        {value: 'Previous', href: '#', isActive: false, isDisabled: false},
+        {value: '1', href: '#', isActive: true, isDisabled: false},
+        {value: '2', href: '#', isActive: false, isDisabled: false},
+        {value: '3', href: '#', isActive: false, isDisabled: true},
+        {value: 'Next', href: '#', isActive: false, isDisabled: false},
+    ]);
     const bossyCollapseConfig = new BossyCollapseConfig([
         {name: 'button1' , data: 'example1'}
     ], true);
@@ -191,6 +178,9 @@ export class SandboxComponent implements OnInit {
     this.configService.setConfig('bossyPopoverConfig', bossyPopoverConfig);
     this.configService.setConfig('navsConfig', navsConfig);
     this.configService.setConfig('carouselConfig', carouselConfig);
+    this.configService.setConfig('bossyPaginationConfig', bossyPaginationConfig);
   }
 
 }
+
+

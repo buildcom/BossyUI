@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import {BossyDropdownMenuConfig} from './dropdown-menu.config';
 
 @Component({
@@ -8,5 +8,4 @@ import {BossyDropdownMenuConfig} from './dropdown-menu.config';
 
 export class BossyDropdownMenuItemComponent {
   @Input() config: BossyDropdownMenuConfig;
-  name = 'missingName';
 }

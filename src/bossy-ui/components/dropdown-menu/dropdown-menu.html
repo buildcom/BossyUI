@@ -1,3 +1,14 @@
-<div>
-	<a class="dropdown-item">{{config.name}}</a>
+<div [ngSwitch]="config.type">
+  <div *ngSwitchCase="'header'">
+    <h6 class="dropdown-header">{{config.name}}</h6>
+  </div>
+  <div *ngSwitchCase="'divider'">
+    <div class="dropdown-divider"></div>
+  </div>
+  <div *ngSwitchDefault>
+    <div [ngSwitch]="config.href">
+      <a  [ngClass]="{'dropdown-item': true, 'active': config.isActive, 'disabled': config.isDisabled}" *ngSwitchCase="">{{config.name}}</a>
+      <a  [ngClass]="{'dropdown-item': true, 'active': config.isActive, 'disabled': config.isDisabled}" *ngSwitchDefault href="{{config.href}}">{{config.name}}</a>
+    </div>
+  </div>
 </div>

@@ -1,21 +1,14 @@
-import {AfterViewInit, Component, Input, OnChanges, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {ConfigService} from '../config.service';
 
 declare const ace: any;
 
 @Component({
   selector: 'app-config',
-  templateUrl: './config.component.html',
-  styles: [`
-    .editor {
-      height: 200px;
-    }
-  `]
+  templateUrl: './config.component.html'
 })
 export class ConfigComponent implements OnInit, AfterViewInit {
   @Input() configName: string;
-  @Input() component: Component;
-  componentData: any;
   editor: any;
   editorId: string;
   editorValue: string;
@@ -28,13 +21,6 @@ export class ConfigComponent implements OnInit, AfterViewInit {
     const configObject = this.configService[this.configName].getValue();
     this.editorValue = `var config = ${JSON.stringify(configObject, null, '\t')};`;
     this.editorId = `editor${this.configName}`;
-
-    this.configService[this.configName].subscribe((config) => {
-      this.componentData = {
-        component: this.component,
-        config
-      };
-    });
   }
 
   ngAfterViewInit() {
