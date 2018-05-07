@@ -85,7 +85,9 @@
   <h2>Button</h2>
   <hr>
   <div class="component-main">
-    <app-config [configName]="'buttonConfig'" [component]="bossyButton"></app-config>
+    <app-config [configName]="'buttonConfig'">
+      <bossy-button [config]="configService['selectMenuConfig'].getValue()"></bossy-button>
+    </app-config>
   </div>
 
   <h2>Form Select Menu</h2>
