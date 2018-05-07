@@ -12,11 +12,14 @@ export class BossyCarouselComponent implements OnInit {
   show = false;
   isJustified; hasCaptions; goLeft; goRight = false;
   index = 0;
-  numSlides = 3;
+  numSlides = 0;
   images : Array<CarouselImage>;
 
   clickPrev() {
     this.goLeft = true;
+    this.images.forEach((tab, index) => {
+      tab.active = false;
+    });
     this.images[this.index].active = !this.images[this.index].active;
       if (this.index >= 1) {
           this.index--;
@@ -44,7 +47,7 @@ export class BossyCarouselComponent implements OnInit {
      this.images = this.config.items;
      this.isJustified = true;
      this.hasCaptions = this.config.captions;
-     this.images = this.images;
+     this.numSlides = this.images.length;
   }
 }
 
