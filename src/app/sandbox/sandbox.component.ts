@@ -15,6 +15,8 @@ import { BossyAlertConfig, alertType, alertSize } from '../../bossy-ui/component
 import { BossyModalConfig, modalSize } from '../../bossy-ui/components/modal/modal.config';
 import { BossyNavsComponent } from '../../bossy-ui/components/navs/navs.component';
 import { BossyNavsConfig, navsAlignment, navsType, NavItem, navsActive } from '../../bossy-ui/components/navs/navs.config';
+import { BossyCarouselComponent } from '../../bossy-ui/components/carousel/carousel.component';
+import { BossyCarouselConfig, CarouselImage } from '../../bossy-ui/components/carousel/carousel.config';
 import {BossyPaginationConfig} from '../../bossy-ui/components/pagination/pagination.config';
 
 @Component({
@@ -27,6 +29,18 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
+    const carouselItems = [
+      { 'title': 'First',
+        'active': true,
+        'url': 'http://www.dem.ri.gov/programs/water/sustainablewatersheds/images/slideshow/crab3-800x400.jpg' },
+      { 'title': 'Second',
+        'active': false,
+        'url': 'http://jackson-assoc.leapwp.com.au/wp-content/uploads/sites/1199/2016/04/40569158_ml-800x400.jpg' },
+      { 'title': 'Third',
+        'active': false,
+        'url': 'http://pigios-svetaines.eu/projects/glance-uikit/data/uploads/images/slides/slideshow_800x400_2.jpg' }
+    ];
+    const carouselConfig = new BossyCarouselConfig(carouselItems, true, true, false);
     const navsItem = [{'name': 'nav 1', 'active': navsActive.none}, {'name': 'nav 2', 'active': navsActive.active},
     {'name': 'nav 3', 'active': navsActive.disabled}];
     const navsConfig = new BossyNavsConfig(navsItem, true, true, navsAlignment.vertical, navsType.pills);
@@ -174,6 +188,7 @@ export class SandboxComponent implements OnInit {
     this.configService.setConfig('bossyCollapseConfig', bossyCollapseConfig);
     this.configService.setConfig('bossyPopoverConfig', bossyPopoverConfig);
     this.configService.setConfig('navsConfig', navsConfig);
+    this.configService.setConfig('carouselConfig', carouselConfig);
     this.configService.setConfig('bossyPaginationConfig', bossyPaginationConfig);
   }
 

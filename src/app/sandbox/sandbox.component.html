@@ -34,6 +34,14 @@
     </app-config>
   </div>
 
+  <h2>Carousel</h2>
+  <hr>
+  <div class="component-main">
+    <app-config [configName]="'carouselConfig'">
+      <bossy-carousel [config]="configService['carouselConfig'].getValue()"></bossy-carousel>
+    </app-config>
+  </div>
+
   <h2>Calendar</h2>
   <hr>
   <div class="component-main">

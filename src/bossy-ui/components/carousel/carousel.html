@@ -1,0 +1,24 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators" *ngIf="config.indicator">
+    <li data-target="#carouselExampleIndicators" *ngFor="let image of images" [ngClass]="{'active' : image.active}"></li>
+  </ol>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let image of images" [ngClass]="{'active' : image.active}" [ngClass]="goLeft ? 'carousel-item-left' : ''" [ngClass]="goRight ? 'carousel-item-right' : ''">
+        <img class="d-block w-100" src="{{image.url}}" alt="{{image.title}} slide">
+        <div class="carousel-caption" [ngClass]="config.captions ? 'd-md-block' : 'd-none'">
+          <h5>Slide {{image.title}}</h5>
+          <p>Slide {{image.title}} captions go here</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" role="button" (click)="clickPrev()" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" role="button" (click)="clickNext()" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+  </div>
+</div>
