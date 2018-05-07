@@ -14,7 +14,7 @@ import {BossyPopoverConfig} from '../../bossy-ui/components/popover/popover.conf
 import { BossyAlertConfig, alertType, alertSize } from '../../bossy-ui/components/alert/alert.config';
 import { BossyModalConfig, modalSize } from '../../bossy-ui/components/modal/modal.config';
 import {BossyButtonConfig} from '../../bossy-ui/components/button/button.config';
-
+import {BossyPaginationConfig} from '../../bossy-ui/components/pagination/pagination.config';
 @Component({
   selector: 'app-sandbox',
   templateUrl: './sandbox.component.html',
@@ -148,6 +148,13 @@ export class SandboxComponent implements OnInit {
     const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
     const bossyPopoverConfig = new BossyPopoverConfig('popover', 'popover1234', true, 'right', 'PoverOver Title', 'Popover Description');
 
+    const bossyPaginationConfig = new BossyPaginationConfig('pagination', '', '', [
+        {value: 'Previous', href: '#', isActive: false, isDisabled: false},
+        {value: '1', href: '#', isActive: true, isDisabled: false},
+        {value: '2', href: '#', isActive: false, isDisabled: false},
+        {value: '3', href: '#', isActive: false, isDisabled: true},
+        {value: 'Next', href: '#', isActive: false, isDisabled: false},
+    ]);
     const bossyCollapseConfig = new BossyCollapseConfig([
         {name: 'button1' , data: 'example1'}
     ], true);
@@ -164,6 +171,9 @@ export class SandboxComponent implements OnInit {
     this.configService.setConfig('bossyCollapseConfig', bossyCollapseConfig);
     this.configService.setConfig('bossyPopoverConfig', bossyPopoverConfig);
     this.configService.setConfig('buttonConfig', buttonConfig);
+    this.configService.setConfig('bossyPaginationConfig', bossyPaginationConfig);
   }
 
 }
+
+
