@@ -22,7 +22,7 @@ import {BossyModalConfig} from './components/modal/modal.config';
 import {BossyPopoverComponent} from './components/popover/popover.component';
 import {BossyPopoverConfig} from './components/popover/popover.config';
 import {BossyButtonComponent} from './components/button/button.component';
-import {BossyButtonComponent} from './components/button/button.config';
+import {BossyButtonConfig} from './components/button/button.config';
 import {BossyPaginationComponent} from './components/pagination/pagination.component';
 import {BossyPaginationConfig} from './components/pagination/pagination.config';
 import {BossyPagesComponent} from './components/pagination/pages.component';
