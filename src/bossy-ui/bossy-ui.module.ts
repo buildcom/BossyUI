@@ -35,9 +35,6 @@ import {BossyPaginationConfig} from './components/pagination/pagination.config';
 import {BossyPagesComponent} from './components/pagination/pages.component';
 
 
-
-
-
 export {BossyBreadcrumbComponent} from './components/breadcrumb/breadcrumb.component';
 export {BossyBreadcrumbConfig} from './components/breadcrumb/breadcrumb.config';
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
