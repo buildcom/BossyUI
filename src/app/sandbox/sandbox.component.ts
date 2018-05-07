@@ -13,6 +13,7 @@ import {BossyCollapseConfig} from '../../bossy-ui/components/collapse/collapse.c
 import {BossyPopoverConfig} from '../../bossy-ui/components/popover/popover.config';
 import { BossyAlertConfig, alertType, alertSize } from '../../bossy-ui/components/alert/alert.config';
 import { BossyModalConfig, modalSize } from '../../bossy-ui/components/modal/modal.config';
+import {BossyButtonConfig} from '../../bossy-ui/components/button/button.config';
 import { BossyNavsComponent } from '../../bossy-ui/components/navs/navs.component';
 import { BossyNavsConfig, navsAlignment, navsType, NavItem, navsActive } from '../../bossy-ui/components/navs/navs.config';
 import { BossyCarouselComponent } from '../../bossy-ui/components/carousel/carousel.component';
@@ -152,6 +153,8 @@ export class SandboxComponent implements OnInit {
     true
   );
 
+    const buttonConfig = new BossyButtonConfig('Button', 'primary', '', false, false, false);
+
     const selectMenuConfig = new BossyFormSelectMenuConfig({
         title: 'State',
         items:
@@ -187,11 +190,11 @@ export class SandboxComponent implements OnInit {
     this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
     this.configService.setConfig('bossyCollapseConfig', bossyCollapseConfig);
     this.configService.setConfig('bossyPopoverConfig', bossyPopoverConfig);
+    this.configService.setConfig('buttonConfig', buttonConfig);
     this.configService.setConfig('navsConfig', navsConfig);
     this.configService.setConfig('carouselConfig', carouselConfig);
     this.configService.setConfig('bossyPaginationConfig', bossyPaginationConfig);
   }
-
 }
 
 

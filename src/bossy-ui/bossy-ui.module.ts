@@ -21,6 +21,8 @@ import {BossyModalComponent} from './components/modal/modal.component';
 import {BossyModalConfig} from './components/modal/modal.config';
 import {BossyPopoverComponent} from './components/popover/popover.component';
 import {BossyPopoverConfig} from './components/popover/popover.config';
+import {BossyButtonComponent} from './components/button/button.component';
+import {BossyButtonConfig} from './components/button/button.config';
 import {BossyNavsComponent} from './components/navs/navs.component';
 import {BossyNavsConfig} from './components/navs/navs.config';
 import {BossyNavTabComponent} from './components/navs/nav-tab.component';
@@ -29,8 +31,6 @@ import {BossyCarouselConfig} from './components/carousel/carousel.config';
 import {BossyPaginationComponent} from './components/pagination/pagination.component';
 import {BossyPaginationConfig} from './components/pagination/pagination.config';
 import {BossyPagesComponent} from './components/pagination/pages.component';
-
-
 
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
 export {BossyCalendarConfig} from './components/calendar/calendar.config';
@@ -67,6 +67,9 @@ export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.
 export {BossyPopoverComponent} from './components/popover/popover.component';
 export {BossyPopoverConfig} from './components/popover/popover.config';
 
+export {BossyButtonComponent} from './components/button/button.component';
+export {BossyButtonConfig} from './components/button/button.config';
+
 export {BossyPaginationComponent} from './components/pagination/pagination.component';
 export {BossyPaginationConfig} from './components/pagination/pagination.config';
 export {BossyPagesComponent} from './components/pagination/pages.component';
@@ -95,6 +98,9 @@ export {BossyPagesComponent} from './components/pagination/pages.component';
     BossyMaskDirective,
     BossyCollapseComponent,
     BossyPopoverComponent,
+    BossyButtonComponent,
+    BossyPaginationComponent,
+    BossyPagesComponent,
     BossyNavsComponent,
     BossyNavTabComponent,
     BossyCarouselComponent,
@@ -115,6 +121,7 @@ export {BossyPagesComponent} from './components/pagination/pages.component';
     BossyFormElementErrorComponent,
     BossyCollapseComponent,
     BossyPopoverComponent,
+    BossyButtonComponent,
     BossyNavsComponent,
     BossyNavTabComponent,
     BossyCarouselComponent,
