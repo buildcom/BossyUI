@@ -24,6 +24,9 @@ import {BossyPopoverConfig} from './components/popover/popover.config';
 import {BossyNavsComponent} from './components/navs/navs.component';
 import {BossyNavsConfig} from './components/navs/navs.config';
 import {BossyNavTabComponent} from './components/navs/nav-tab.component';
+import {BossyPaginationComponent} from './components/pagination/pagination.component';
+import {BossyPaginationConfig} from './components/pagination/pagination.config';
+import {BossyPagesComponent} from './components/pagination/pages.component';
 
 
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
@@ -60,6 +63,10 @@ export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.
 export {BossyPopoverComponent} from './components/popover/popover.component';
 export {BossyPopoverConfig} from './components/popover/popover.config';
 
+export {BossyPaginationComponent} from './components/pagination/pagination.component';
+export {BossyPaginationConfig} from './components/pagination/pagination.config';
+export {BossyPagesComponent} from './components/pagination/pages.component';
+
 
 @NgModule({
   imports: [
@@ -85,7 +92,9 @@ export {BossyPopoverConfig} from './components/popover/popover.config';
     BossyCollapseComponent,
     BossyPopoverComponent,
     BossyNavsComponent,
-    BossyNavTabComponent
+    BossyNavTabComponent,
+    BossyPaginationComponent,
+    BossyPagesComponent,
   ],
   exports: [
     BossyCalendarComponent,
@@ -102,7 +111,9 @@ export {BossyPopoverConfig} from './components/popover/popover.config';
     BossyCollapseComponent,
     BossyPopoverComponent,
     BossyNavsComponent,
-    BossyNavTabComponent
+    BossyNavTabComponent,
+    BossyPaginationComponent,
+    BossyPagesComponent,
   ]
 })
 export class BossyModule {
