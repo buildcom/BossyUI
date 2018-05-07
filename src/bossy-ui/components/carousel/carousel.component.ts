@@ -1,6 +1,5 @@
 import {Component, Input, OnInit, SimpleChanges, HostListener} from '@angular/core';
-import {BossyCarouselConfig} from './carousel.config';
-import {Image} from './image.interface';
+import {BossyCarouselConfig, CarouselImage} from './carousel.config';
 
 @Component({
   selector: 'bossy-carousel',
@@ -14,18 +13,7 @@ export class BossyCarouselComponent implements OnInit {
   isJustified; hasCaptions; goLeft; goRight = false;
   index = 0;
   numSlides = 3;
-
-  images: Image[] = [
-    { 'title': 'First',
-      'active': true,
-      'url': 'http://www.dem.ri.gov/programs/water/sustainablewatersheds/images/slideshow/crab3-800x400.jpg' },
-    { 'title': 'Second',
-      'active': false,
-      'url': 'http://jackson-assoc.leapwp.com.au/wp-content/uploads/sites/1199/2016/04/40569158_ml-800x400.jpg' },
-    { 'title': 'Third',
-      'active': false,
-      'url': 'http://pigios-svetaines.eu/projects/glance-uikit/data/uploads/images/slides/slideshow_800x400_2.jpg' }
-  ];
+  images : Array<CarouselImage>;
 
   clickPrev() {
     this.goLeft = true;
@@ -53,6 +41,7 @@ export class BossyCarouselComponent implements OnInit {
   }
 
   ngOnInit() {
+     this.images = this.config.items;
      this.isJustified = true;
      this.hasCaptions = this.config.captions;
      this.images = this.images;
