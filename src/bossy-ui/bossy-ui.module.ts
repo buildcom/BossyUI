@@ -21,6 +21,7 @@ import {BossyModalComponent} from './components/modal/modal.component';
 import {BossyModalConfig} from './components/modal/modal.config';
 import {BossyPopoverComponent} from './components/popover/popover.component';
 import {BossyPopoverConfig} from './components/popover/popover.config';
+
 import {BossyNavsComponent} from './components/navs/navs.component';
 import {BossyNavsConfig} from './components/navs/navs.config';
 import {BossyNavTabComponent} from './components/navs/nav-tab.component';
@@ -29,6 +30,7 @@ import {BossyCarouselConfig} from './components/carousel/carousel.config';
 import {BossyPaginationComponent} from './components/pagination/pagination.component';
 import {BossyPaginationConfig} from './components/pagination/pagination.config';
 import {BossyPagesComponent} from './components/pagination/pages.component';
+
 
 
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
@@ -42,6 +44,7 @@ export {BossyNavsConfig} from './components/navs/navs.config';
 export {BossyNavTabComponent} from './components/navs/nav-tab.component';
 export {BossyCarouselComponent} from './components/carousel/carousel.component';
 export {BossyCarouselConfig} from './components/carousel/carousel.config';
+
 
 export {BossyFormComponent} from './components/form/form.component';
 export {BossyFormConfig} from './components/form/form.config';
