@@ -13,13 +13,8 @@ import {BossyCollapseConfig} from '../../bossy-ui/components/collapse/collapse.c
 import {BossyPopoverConfig} from '../../bossy-ui/components/popover/popover.config';
 import { BossyAlertConfig, alertType, alertSize } from '../../bossy-ui/components/alert/alert.config';
 import { BossyModalConfig, modalSize } from '../../bossy-ui/components/modal/modal.config';
-
 import { BossyNavsComponent } from '../../bossy-ui/components/navs/navs.component';
-<<<<<<< Updated upstream
 import { BossyNavsConfig, navsAlignment, navsType, NavItem, navsActive } from '../../bossy-ui/components/navs/navs.config';
-=======
-import { BossyNavsConfig, navsAlignment, navsType, NavItem, navsActive  } from '../../bossy-ui/components/navs/navs.config';
->>>>>>> Stashed changes
 import { BossyCarouselComponent } from '../../bossy-ui/components/carousel/carousel.component';
 import { BossyCarouselConfig } from '../../bossy-ui/components/carousel/carousel.config';
 import {BossyPaginationConfig} from '../../bossy-ui/components/pagination/pagination.config';
@@ -35,14 +30,12 @@ export class SandboxComponent implements OnInit {
 
   ngOnInit() {
     const carouselConfig = new BossyCarouselConfig(true, true, false);
-<<<<<<< Updated upstream
     const navsItem = [{'name': 'nav 1', 'active': navsActive.none}, {'name': 'nav 2', 'active': navsActive.active},
     {'name': 'nav 3', 'active': navsActive.disabled}];
     const navsConfig = new BossyNavsConfig(navsItem, true, true, navsAlignment.vertical, navsType.pills);
-=======
-    const navsItem = [{'name': 'link1', 'active': navsActive.active}, {'name': 'link2', 'active': navsActive.active}];
-    const navsConfig = new BossyNavsConfig(navsItem, true, navsAlignment.left, navsType.base);
->>>>>>> Stashed changes
+    const navsItem = [{'name': 'nav 1', 'active': navsActive.none}, {'name': 'nav 2', 'active': navsActive.active},
+    {'name': 'nav 3', 'active': navsActive.disabled}];
+    const navsConfig = new BossyNavsConfig(navsItem, true, true, navsAlignment.vertical, navsType.pills);
     const modalConfig = new BossyModalConfig('launch', 'Title', 'Body', 'Save Changes', 'Close', false, modalSize.medium);
     const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, alertSize.small);
     const calendarConfig = new BossyCalendarConfig();
