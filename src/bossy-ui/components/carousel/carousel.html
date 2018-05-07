@@ -6,21 +6,21 @@
   </ol>
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item" [ngClass]="{'active' : images[0].active}">
+      <div class="carousel-item" [ngClass]="{'active' : images[0].active}" [ngClass]="goLeft ? 'carousel-item-left' : ''" [ngClass]="goRight ? 'carousel-item-right' : ''">
         <img class="d-block w-100" src="{{images[0].url}}" alt="{{images[0].title}} slide">
         <div class="carousel-caption" [ngClass]="hasCaptions ? 'd-md-block' : 'd-none'">
           <h5>Slide 1</h5>
           <p>Slide 1 captions go here</p>
         </div>
       </div>
-      <div class="carousel-item" [ngClass]="{'active' : images[1].active}">
+      <div class="carousel-item" [ngClass]="{'active' : images[1].active}" [ngClass]="goLeft ? 'carousel-item-left' : goRight ? 'carousel-item-right' : ''">
         <img class="d-block w-100" src="{{images[1].url}}" alt="{{images[1].title}} slide">
         <div class="carousel-caption" [ngClass]="hasCaptions ? 'd-md-block' : 'd-none'">
           <h5>Slide 2</h5>
           <p>Slide 2 captions go here</p>
         </div>
       </div>
-      <div class="carousel-item" [ngClass]="{'active' : images[2].active}">
+      <div class="carousel-item" [ngClass]="{'active' : images[2].active}" [ngClass]="goLeft ? 'carousel-item-left' : goRight ? 'carousel-item-right' : ''">
         <img class="d-block w-100" src="{{images[2].url}}" alt="{{images[2].title}} slide">
         <div class="carousel-caption" [ngClass]="hasCaptions ? 'd-md-block' : 'd-none'">
           <h5>Slide 3</h5>

@@ -11,7 +11,7 @@ import {Image} from './image.interface';
 export class BossyCarouselComponent implements OnInit {
   @Input() config: BossyCarouselConfig;
   show = false;
-  isJustified; hasCaptions = false;
+  isJustified; hasCaptions; goLeft; goRight = false;
   index = 0;
   numSlides = 3;
 
@@ -28,6 +28,7 @@ export class BossyCarouselComponent implements OnInit {
   ];
 
   clickPrev() {
+    this.goLeft = true;
     this.images[this.index].active = !this.images[this.index].active;
       if (this.index >= 1) {
           this.index--;
@@ -35,10 +36,12 @@ export class BossyCarouselComponent implements OnInit {
         this.index = this.numSlides - 1;
     }
     this.images[this.index].active = !this.images[this.index].active;
+    this.goLeft = false;
 
   }
 
   clickNext() {
+    this.goRight = true;
     this.images[this.index].active = !this.images[this.index].active;
     if (this.index <= this.numSlides - 2) {
         this.index++;
@@ -46,7 +49,7 @@ export class BossyCarouselComponent implements OnInit {
         this.index = 0;
     }
     this.images[this.index].active = !this.images[this.index].active;
-
+    this.goRight = false;
   }
 
   ngOnInit() {

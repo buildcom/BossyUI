@@ -1,0 +1,22 @@
+.carousel {
+    overflow: hidden;
+}
+.carousel-inner {
+    width: 150%;
+    left: -25%;
+}
+.carousel-inner > .item.next, 
+.carousel-inner > .item.active.right {
+    -webkit-transform: translate3d(33%, 0, 0);
+    transform: translate3d(33%, 0, 0);
+}
+.carousel-inner > .item.prev, 
+.carousel-inner > .item.active.left {
+    -webkit-transform: translate3d(-33%, 0, 0);
+    transform: translate3d(-33%, 0, 0);
+}
+.carousel-control.left, 
+.carousel-control.right {
+    background: rgba(255, 255, 255, 0.3);
+    width: 25%;
+}
