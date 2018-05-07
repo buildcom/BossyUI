@@ -10,10 +10,13 @@ import {BossyCarouselConfig, CarouselImage} from './carousel.config';
 export class BossyCarouselComponent implements OnInit {
   @Input() config: BossyCarouselConfig;
   show = false;
-  isJustified; hasCaptions; goLeft; goRight = false;
+  isJustified = false;
+  hasCaptions = false;
+  goLeft = false;
+  goRight = false;
   index = 0;
   numSlides = 0;
-  images : Array<CarouselImage>;
+  images: Array<CarouselImage>;
 
   clickPrev() {
     this.goLeft = true;
