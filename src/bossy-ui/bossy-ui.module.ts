@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
+import {BossyBreadcrumbComponent} from './components/breadcrumb/breadcrumb.component';
+import {BossyBreadcrumbConfig} from './components/breadcrumb/breadcrumb.config';
 import {BossyCalendarComponent} from './components/calendar/calendar.component';
 import {BossyFormElementComponent} from './components/form-element/form-element.component';
 import {BossyFormComponent} from './components/form/form.component';
@@ -32,6 +34,9 @@ import {BossyPaginationComponent} from './components/pagination/pagination.compo
 import {BossyPaginationConfig} from './components/pagination/pagination.config';
 import {BossyPagesComponent} from './components/pagination/pages.component';
 
+
+export {BossyBreadcrumbComponent} from './components/breadcrumb/breadcrumb.component';
+export {BossyBreadcrumbConfig} from './components/breadcrumb/breadcrumb.config';
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
 export {BossyCalendarConfig} from './components/calendar/calendar.config';
 export {BossyAlertComponent} from './components/alert/alert.component';
@@ -82,6 +87,7 @@ export {BossyPagesComponent} from './components/pagination/pages.component';
     BrowserAnimationsModule
   ],
   declarations: [
+    BossyBreadcrumbComponent,
     BossyCalendarComponent,
     BossyAlertComponent,
     BossyModalComponent,
@@ -108,6 +114,7 @@ export {BossyPagesComponent} from './components/pagination/pages.component';
     BossyPagesComponent
   ],
   exports: [
+    BossyBreadcrumbComponent,
     BossyCalendarComponent,
     BossyAlertComponent,
     BossyModalComponent,

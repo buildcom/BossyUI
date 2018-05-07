@@ -1,5 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {ConfigService} from '../config.service';
+import {BossyBreadcrumbConfig} from '../../bossy-ui/components/breadcrumb/breadcrumb.config';
 import {BossyCalendarConfig} from '../../bossy-ui/components/calendar/calendar.config';
 import {BossyFormElementConfig} from '../../bossy-ui/components/form-element/form-element.config';
 import {BossyFormConfig} from '../../bossy-ui/components/form/form.config';
@@ -179,6 +180,12 @@ export class SandboxComponent implements OnInit {
         {name: 'button1' , data: 'example1'}
     ], true);
 
+    const bossyBreadcrumbConfig = new BossyBreadcrumbConfig([
+      {name: 'home', href: 'http://localhost:4200'},
+      {name: 'sandbox', href: '/sandbox'},
+    ]);
+
+    this.configService.setConfig('bossyBreadcrumbConfig', bossyBreadcrumbConfig);
     this.configService.setConfig('modalConfig', modalConfig);
     this.configService.setConfig('alertConfig', alertConfig);
     this.configService.setConfig('calendarConfig', calendarConfig);

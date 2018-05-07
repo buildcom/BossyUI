@@ -1,0 +1,8 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+            <li *ngFor="let item of deactiveItems; let i = index" class="breadcrumb-item">
+                    <a href="{{item.href}}">{{item.name}}</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">{{activeItem.name}}</li>
+    </ol>
+</nav>
