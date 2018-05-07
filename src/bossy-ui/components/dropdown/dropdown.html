@@ -1,5 +1,5 @@
 <div class="btn-group {{btnDir}} {{btnShow}}">
-  <span [ngSwitch]="config.split">
+  <span [ngSwitch]="config.split" id="reference">
     <!-- Split Button -->
     <span class="btn-group {{btnDir}} {{btnShow}}" *ngSwitchCase="true">
       <button type="button" class="btn btn-{{config.btnType}} {{btnSize}}">{{config.name}}</button>
@@ -21,7 +21,7 @@
     </span>
   </span>
   <!-- Menu -->
-  <div [ngClass]="{'dropdown-menu': true, 'show': showMenu}" aria-labelledby="dropdownMenuButton">
+  <div [ngClass]="{'dropdown-menu': true, 'show': showMenu}" aria-labelledby="dropdownMenuButton" id="popper">
     <bossy-dropdown-menu *ngFor="let item of config.items" [config]="item"></bossy-dropdown-menu>
   </div>
 </div>
