@@ -133,7 +133,7 @@ export class SandboxComponent implements OnInit {
     true
   );
 
-    const buttonConfig = new BossyButtonConfig('Button', 'primary', '', false, false, false, false);
+    const buttonConfig = new BossyButtonConfig('Button', 'primary', '', false, false, false);
 
     const selectMenuConfig = new BossyFormSelectMenuConfig({
         title: 'State',
