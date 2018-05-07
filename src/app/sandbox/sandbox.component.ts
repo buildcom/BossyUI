@@ -13,7 +13,6 @@ import {BossyCollapseConfig} from '../../bossy-ui/components/collapse/collapse.c
 import {BossyPopoverConfig} from '../../bossy-ui/components/popover/popover.config';
 import { BossyAlertConfig, alertType, alertSize } from '../../bossy-ui/components/alert/alert.config';
 import { BossyModalConfig, modalSize } from '../../bossy-ui/components/modal/modal.config';
-
 import { BossyNavsComponent } from '../../bossy-ui/components/navs/navs.component';
 import { BossyNavsConfig, navsAlignment, navsType, NavItem, navsActive } from '../../bossy-ui/components/navs/navs.config';
 import { BossyCarouselComponent } from '../../bossy-ui/components/carousel/carousel.component';
