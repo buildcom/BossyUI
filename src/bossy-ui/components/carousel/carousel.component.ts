@@ -20,9 +20,6 @@ export class BossyCarouselComponent implements OnInit {
 
   clickPrev() {
     this.goLeft = true;
-    this.images.forEach((tab, index) => {
-      tab.active = false;
-    });
     this.images[this.index].active = !this.images[this.index].active;
       if (this.index >= 1) {
           this.index--;
@@ -53,4 +50,3 @@ export class BossyCarouselComponent implements OnInit {
      this.numSlides = this.images.length;
   }
 }
-
