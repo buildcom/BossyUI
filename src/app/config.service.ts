@@ -1,14 +1,13 @@
-import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 
 @Injectable()
 export class ConfigService {
-  setConfig(name: string, value: any) {
+  setConfig(name: string, value: any, updateFunction?: any) {
     if (!this[name]) {
       this[name] = new BehaviorSubject({});
     }
-
     this[name].next(value);
   }
 }
