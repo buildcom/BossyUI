@@ -1,5 +1,7 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
-import {ConfigService} from '../config.service';
+import { AfterViewInit, Component, Input, OnInit, ViewChild, ViewChildren, ContentChild } from '@angular/core';
+import { ConfigService } from '../config.service';
+import { BossyModalComponent, BossyNavsComponent } from '../../bossy-ui/bossy-ui.module';
+import { BossyAlertComponent } from '../../bossy-ui/components/alert/alert.component';
 
 declare const ace: any;
 
@@ -9,6 +11,8 @@ declare const ace: any;
 })
 export class ConfigComponent implements OnInit, AfterViewInit {
   @Input() configName: string;
+  @Input() componentType;
+  @ContentChild('example') component;
   editor: any;
   editorId: string;
   editorValue: string;
@@ -25,21 +29,34 @@ export class ConfigComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.editor = ace.edit(this.editorId);
-
+    this.configService[this.configName].subscribe({});
     this.editor.setTheme('ace/theme/monokai');
     this.editor.getSession().setMode('ace/mode/javascript');
+  }
+  updateComponent(component) {
+    if (!component) {
+      return;
+    }
+    if (component.ngOnInit) {
+      component.ngOnInit();
+    }
+    if (component.ngAfterContentInit) {
+      component.ngAfterContentInit();
+    }
+    if (component.ngAfterViewInit) {
+      component.ngAfterViewInit();
+    }
   }
 
   updateConfig() {
     const value = this.editor.getValue().replace(/^var config = /, '').replace(/;/g, '');
-
     this.error = null;
-
     try {
       this.configService.setConfig(this.configName, JSON.parse(value));
     } catch (error) {
       this.error = error;
     }
+    setTimeout(() => this.updateComponent(this.component), 100);
   }
 }
 
