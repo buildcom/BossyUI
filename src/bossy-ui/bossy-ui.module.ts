@@ -29,6 +29,9 @@ import {BossyCarouselConfig} from './components/carousel/carousel.config';
 import {BossyPaginationComponent} from './components/pagination/pagination.component';
 import {BossyPaginationConfig} from './components/pagination/pagination.config';
 import {BossyPagesComponent} from './components/pagination/pages.component';
+import {BossyNavBarComponent} from './components/nav-bar/nav-bar.component';
+import {BossyNavBarConfig} from './components/nav-bar/nav-bar.config';
+import {BossyNavItemComponent} from './components/nav-bar/nav-item.component';
 
 
 
@@ -43,6 +46,9 @@ export {BossyNavsConfig} from './components/navs/navs.config';
 export {BossyNavTabComponent} from './components/navs/nav-tab.component';
 export {BossyCarouselComponent} from './components/carousel/carousel.component';
 export {BossyCarouselConfig} from './components/carousel/carousel.config';
+export {BossyNavBarComponent} from './components/nav-bar/nav-bar.component';
+export {BossyNavBarConfig} from './components/nav-bar/nav-bar.config';
+export {BossyNavItemComponent} from './components/nav-bar/nav-item.component';
 
 export {BossyFormComponent} from './components/form/form.component';
 export {BossyFormConfig} from './components/form/form.config';
@@ -99,7 +105,9 @@ export {BossyPagesComponent} from './components/pagination/pages.component';
     BossyNavTabComponent,
     BossyCarouselComponent,
     BossyPaginationComponent,
-    BossyPagesComponent
+    BossyPagesComponent,
+    BossyNavBarComponent,
+    BossyNavItemComponent
   ],
   exports: [
     BossyCalendarComponent,
@@ -120,6 +128,8 @@ export {BossyPagesComponent} from './components/pagination/pages.component';
     BossyCarouselComponent,
     BossyPaginationComponent,
     BossyPagesComponent,
+    BossyNavBarComponent,
+    BossyNavItemComponent
   ]
 })
 export class BossyModule {
