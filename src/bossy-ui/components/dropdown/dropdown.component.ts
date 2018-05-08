@@ -6,23 +6,16 @@ import { BossyDropdownConfig } from './dropdown.config';
   templateUrl: './dropdown.html',
 })
 
-export class BossyDropdownComponent implements OnInit {
+export class BossyDropdownComponent implements OnInit, AfterViewInit {
   @Input() config: BossyDropdownConfig;
   @ViewChild('popper') popper: ElementRef;
-  @ViewChild('referemce') reference: ElementRef;
+  @ViewChild('referenceObject') reference: ElementRef;
   showMenu = false;
   ariaExpanded = false;
   btnSize = '';
   btnDir = '';
   btnShow = '';
-
-  anotherPopper = new Popper(
-  this.reference,
-  this.popper,
-  {
-    // popper options here
-  }
-);
+  dropdownMenu;
 
   showMenuOnClick() {
     this.showMenu = !this.showMenu;
@@ -55,5 +48,15 @@ export class BossyDropdownComponent implements OnInit {
     } else {
       this.btnDir = 'dropdown';
     }
+  }
+
+  ngAfterViewInit() {
+    this.dropdownMenu = new Popper(
+      this.reference.nativeElement,
+      this.popper.nativeElement,
+      {
+        // popper options here
+      }
+    );
   }
 }
