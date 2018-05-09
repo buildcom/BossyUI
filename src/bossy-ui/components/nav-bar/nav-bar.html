@@ -1,14 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+<div class="border m-3">
+    <nav class="navbar navbar-expand-lg {{navBarAlignment}} {{navBarStyle}} {{navBarColor}}" *ngIf="!isCollapseable">
+        <a class="navbar-brand" href="#">
+            <img src="assets/white_logo.svg" width="30" height="40" class="d-inline-block align-middle" alt="">
+            BossyNavBar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="toggleCollapse()" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="show" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <bossy-nav-item>Home</bossy-nav-item>
-            <bossy-nav-item>Features</bossy-nav-item>
-            <bossy-nav-item>Pricing</bossy-nav-item>
-            <bossy-nav-item>Disabled</bossy-nav-item>
+              <div class="nav-item nav-link" *ngFor="let item of navBarItems" [ngClass]="item.active">
+                <div *ngIf="item.active != 'disabled'">
+                <a href="{{item.name}}">{{item.name}}</a>
+                </div>
+                <div *ngIf="item.active === 'disabled'">{{item.name}}</div>
+              </div>
             </div>
         </div>
       </nav>
+</div>
+<div class="border m-3">
+    <nav class="navbar {{navBarAlignment}} {{navBarStyle}} {{navBarColor}}" *ngIf="isCollapseable">
+        <a class="navbar-brand" href="#">
+            <img src="assets/white_logo.svg" width="30" height="40" class="d-inline-block align-middle" alt="">
+            BossyNavBar</a>
+        <button class="navbar-toggler" [ngClass]="{'collapsed' : !show}" type="button" data-toggle="collapse" (click)="toggleCollapse()" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="show" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" [ngClass]="{'show' : show}" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+              <div class="nav-item nav-link" *ngFor="let item of navBarItems" [ngClass]="item.active">
+                <div *ngIf="item.active != 'disabled'">
+                <a href="{{item.name}}">{{item.name}}</a>
+                </div>
+                <div *ngIf="item.active === 'disabled'">{{item.name}}</div>
+              </div>
+            </div>
+        </div>
+      </nav>
+</div>

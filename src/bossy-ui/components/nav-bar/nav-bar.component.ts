@@ -2,76 +2,51 @@ import {
     Component,
     Input,
     OnInit,
-    SimpleChanges,
-    ContentChildren,
-    AfterContentInit,
-    QueryList
+    SimpleChanges
   } from '@angular/core';
   import { BossyNavBarConfig, NavBarItem, navBarActive } from './nav-bar.config';
-  import { BossyNavItemComponent } from '../nav-bar/nav-item.component';
-  
+
   @Component({
     selector: 'bossy-nav-bar',
     templateUrl: './nav-bar.html',
     styleUrls: ['./nav-bar.css']
   })
-  export class BossyNavBarComponent implements OnInit, AfterContentInit {
+  export class BossyNavBarComponent implements OnInit {
     @Input() config: BossyNavBarConfig;
-    @ContentChildren(BossyNavItemComponent) navBarItemList: QueryList<BossyNavItemComponent>;
-    navBarAlign: string;
-    navBarType: string;
+    navBarAlignment: string;
+    navBarStyle: string;
+    navBarColor: string;
     show: boolean;
-    navBarStatus: Array<boolean>;
+    isCollapseable: boolean;
     navBarItems: Array<NavBarItem>;
-    isVertical: boolean;
-  
+
     toggleCollapse() {
-     this.show= !this.show;
+     this.show = !this.show;
     }
-  
-    ngAfterContentInit() {
-        this.navBarItemList.forEach((tab, index) => {
-            tab.id = this.navBarItems[index].name;
-            tab.isActive = (this.navBarItems[index].active === 'active' ? true : false);
-          });
-    }
-  
+
     ngOnInit() {
       this.show = false;
-      this.isVertical = (this.config.alignment === 'vertical' ? true : false);
+      this.isCollapseable = this.config.isCollapseable;
       this.navBarItems = this.config.navBarItems;
+      this.navBarStyle = 'navbar-' + this.config.style;
+      this.navBarColor = 'bg-' + this.config.color;
         switch (this.config.alignment) {
-            case 'right': {
-              this.navBarAlign = 'justify-content-end';
+            case 'default': {
+              this.navBarAlignment = '';
               break;
             }
-            case 'left': {
-              this.navBarAlign = '';
+            case 'top': {
+              this.navBarAlignment = 'fixed-top';
               break;
             }
-            case 'center': {
-              this.navBarAlign = 'justify-content-center';
+            case 'bottom': {
+              this.navBarAlignment = 'fixed-bottom';
               break;
             }
-            case 'vertical': {
-              this.navBarAlign = 'flex-column';
+            case 'sticky': {
+              this.navBarAlignment = 'sticky-top';
               break;
             }
-        }
-        switch (this.config.type) {
-            case 'base': {
-                this.navBarType = '';
-                break;
-            }
-            case 'pills': {
-              this.navBarType = 'nav-pills';
-              break;
-          }
-          case 'tabs': {
-              this.navBarType = 'nav-tabs';
-              break;
-          }
         }
     }
   }
-  

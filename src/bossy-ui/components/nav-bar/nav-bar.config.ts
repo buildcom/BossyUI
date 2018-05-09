@@ -9,19 +9,29 @@ export enum navBarActive {
 }
 export class BossyNavBarConfig {
     constructor(public navBarItems: Array<NavBarItem>,
-                public isJustified: boolean,
+                public isCollapseable: boolean,
                 public alignment: navBarAlignment,
-                public type: navBarType) {
+                public style: navBarStyle,
+                public color: navBarColor) {
     }
 }
 export enum navBarAlignment {
-    center = 'center',
-    right = 'right',
-    left = 'left',
-    vertical = 'vertical'
+    default = 'default',
+    top = 'top',
+    bottom = 'bottom',
+    sticky = 'sticky'
 }
-export enum navBarType {
-    base = 'base',
-    pills = 'pills',
-    tabs = 'tabs'
+export enum navBarStyle {
+    dark = 'dark',
+    light = 'light'
+}
+export enum navBarColor {
+    primary= 'primary',
+    secondary= 'secondary',
+    success= 'success',
+    danger= 'danger',
+    warning= 'warning',
+    info= 'info',
+    light= 'light',
+    dark= 'dark'
 }

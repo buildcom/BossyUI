@@ -19,7 +19,13 @@ import { BossyCarouselComponent } from '../../bossy-ui/components/carousel/carou
 import { BossyCarouselConfig, CarouselImage } from '../../bossy-ui/components/carousel/carousel.config';
 import {BossyPaginationConfig} from '../../bossy-ui/components/pagination/pagination.config';
 import { BossyNavBarComponent } from '../../bossy-ui/components/nav-bar/nav-bar.component';
-import { BossyNavBarConfig, navBarAlignment, navBarType, NavBarItem, navBarActive } from '../../bossy-ui/components/nav-bar/nav-bar.config';
+import {
+  BossyNavBarConfig,
+  navBarAlignment,
+  navBarStyle,
+  navBarColor,
+  NavBarItem,
+  navBarActive } from '../../bossy-ui/components/nav-bar/nav-bar.config';
 
 @Component({
   selector: 'app-sandbox',
@@ -31,9 +37,9 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
-    const navBarItem = [{'name': 'nav 1', 'active': navBarActive.none}, {'name': 'nav 2', 'active': navBarActive.active},
-    {'name': 'nav 3', 'active': navBarActive.disabled}];
-    const navBarConfig = new BossyNavBarConfig(navBarItem, true, navBarAlignment.vertical, navBarType.pills);
+    const navBarItem = [{'name': 'nav 1', 'active': navBarActive.active}, {'name': 'nav 2', 'active': navBarActive.none},
+    {'name': 'nav 3', 'active': navBarActive.disabled}, {'name': 'nav 4', 'active': navBarActive.disabled}];
+    const navBarConfig = new BossyNavBarConfig(navBarItem, true, navBarAlignment.default, navBarStyle.dark, navBarColor.info);
     const carouselItems = [
       { 'title': 'First',
         'active': true,
