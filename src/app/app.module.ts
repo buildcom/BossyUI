@@ -14,12 +14,14 @@ import { ContributingComponent } from './contributing/contributing.component';
 import { HomeComponent } from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormComponent} from './form/form.component';
+import { DemoComponent } from './demo/demo.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'sandbox', component: SandboxComponent },
   { path: 'contributing', component: ContributingComponent},
-  { path: 'form', component: FormComponent}
+  { path: 'form', component: FormComponent},
+  { path: 'demo', component: DemoComponent}
 ];
 
 @NgModule({
@@ -33,6 +35,7 @@ const appRoutes: Routes = [
     ContributingComponent,
     HomeComponent,
     FormComponent,
+    DemoComponent,
   ],
   imports: [
     BrowserModule,
