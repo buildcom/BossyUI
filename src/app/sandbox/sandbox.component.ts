@@ -1,18 +1,20 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {ConfigService} from '../config.service';
-import {BossyCalendarConfig} from '../../bossy-ui/components/calendar/calendar.config';
-import {BossyFormElementConfig} from '../../bossy-ui/components/form-element/form-element.config';
-import {BossyFormConfig} from '../../bossy-ui/components/form/form.config';
-import {BossyFormLabelConfig} from '../../bossy-ui/components/form-label/form-label.config';
-import {BossyFormRadioConfig} from '../../bossy-ui/components/form-radio/form-radio.config';
-import {BossyDropdownConfig} from '../../bossy-ui/components/dropdown/dropdown.config';
-import {BossyDropdownMenuConfig} from '../../bossy-ui/components/dropdown-menu/dropdown-menu.config';
-import {BossyFormSelectMenuConfig} from '../../bossy-ui/components/form-selectmenu/form-selectmenu.config';
-import {BossyFormTextareaConfig} from '../../bossy-ui/components/form-textarea/form-textarea.config';
-import {BossyCollapseConfig} from '../../bossy-ui/components/collapse/collapse.config';
-import {BossyPopoverConfig} from '../../bossy-ui/components/popover/popover.config';
+import { Component, OnInit, Input } from '@angular/core';
+import { ConfigService } from '../config.service';
+import { BossyBreadcrumbConfig } from '../../bossy-ui/components/breadcrumb/breadcrumb.config';
+import { BossyCalendarConfig } from '../../bossy-ui/components/calendar/calendar.config';
+import { BossyFormElementConfig } from '../../bossy-ui/components/form-element/form-element.config';
+import { BossyFormConfig } from '../../bossy-ui/components/form/form.config';
+import { BossyFormLabelConfig } from '../../bossy-ui/components/form-label/form-label.config';
+import { BossyFormRadioConfig } from '../../bossy-ui/components/form-radio/form-radio.config';
+import { BossyDropdownConfig } from '../../bossy-ui/components/dropdown/dropdown.config';
+import { BossyDropdownMenuConfig } from '../../bossy-ui/components/dropdown-menu/dropdown-menu.config';
+import { BossyFormSelectMenuConfig } from '../../bossy-ui/components/form-selectmenu/form-selectmenu.config';
+import { BossyFormTextareaConfig } from '../../bossy-ui/components/form-textarea/form-textarea.config';
+import { BossyCollapseConfig } from '../../bossy-ui/components/collapse/collapse.config';
+import { BossyPopoverConfig } from '../../bossy-ui/components/popover/popover.config';
 import { BossyAlertConfig, alertType, alertSize } from '../../bossy-ui/components/alert/alert.config';
 import { BossyModalConfig, modalSize } from '../../bossy-ui/components/modal/modal.config';
+import { BossyButtonConfig } from '../../bossy-ui/components/button/button.config';
 import { BossyNavsComponent } from '../../bossy-ui/components/navs/navs.component';
 import { BossyNavsConfig, navsAlignment, navsType, NavItem, navsActive } from '../../bossy-ui/components/navs/navs.config';
 import { BossyCarouselComponent } from '../../bossy-ui/components/carousel/carousel.component';
@@ -41,34 +43,40 @@ export class SandboxComponent implements OnInit {
     {'name': 'nav 3', 'active': navBarActive.disabled}, {'name': 'nav 4', 'active': navBarActive.disabled}];
     const navBarConfig = new BossyNavBarConfig(navBarItem, true, navBarAlignment.default, navBarStyle.dark, navBarColor.info);
     const carouselItems = [
-      { 'title': 'First',
+      {
+        'title': 'First',
         'active': true,
-        'url': 'http://www.dem.ri.gov/programs/water/sustainablewatersheds/images/slideshow/crab3-800x400.jpg' },
-      { 'title': 'Second',
+        'url': 'http://www.dem.ri.gov/programs/water/sustainablewatersheds/images/slideshow/crab3-800x400.jpg'
+      },
+      {
+        'title': 'Second',
         'active': false,
-        'url': 'http://jackson-assoc.leapwp.com.au/wp-content/uploads/sites/1199/2016/04/40569158_ml-800x400.jpg' },
-      { 'title': 'Third',
+        'url': 'http://jackson-assoc.leapwp.com.au/wp-content/uploads/sites/1199/2016/04/40569158_ml-800x400.jpg'
+      },
+      {
+        'title': 'Third',
         'active': false,
-        'url': 'http://pigios-svetaines.eu/projects/glance-uikit/data/uploads/images/slides/slideshow_800x400_2.jpg' }
+        'url': 'http://pigios-svetaines.eu/projects/glance-uikit/data/uploads/images/slides/slideshow_800x400_2.jpg'
+      }
     ];
     const carouselConfig = new BossyCarouselConfig(carouselItems, true, true, false);
-    const navsItem = [{'name': 'nav 1', 'active': navsActive.none}, {'name': 'nav 2', 'active': navsActive.active},
-    {'name': 'nav 3', 'active': navsActive.disabled}];
+    const navsItem = [{ 'name': 'nav 1', 'active': navsActive.none }, { 'name': 'nav 2', 'active': navsActive.active },
+    { 'name': 'nav 3', 'active': navsActive.disabled }];
     const navsConfig = new BossyNavsConfig(navsItem, true, true, navsAlignment.vertical, navsType.pills);
     const modalConfig = new BossyModalConfig('launch', 'Title', 'Body', 'Save Changes', 'Close', false, modalSize.medium);
     const alertConfig = new BossyAlertConfig('insertHeader', 'insertMainText', 'insertExtraText', alertType.danger, alertSize.small);
     const calendarConfig = new BossyCalendarConfig();
     const formInput1 = {
-        name: 'textInput',
-        type: 'text',
-        status: 'none',
-        value: 'test value for text',
-        label: new BossyFormLabelConfig('text label test', true),
-        validators : [
-          {type: 'required'},
-          {type: 'minLength', value: 8 }
-        ]
-      },
+      name: 'textInput',
+      type: 'text',
+      status: 'none',
+      value: 'test value for text',
+      label: new BossyFormLabelConfig('text label test', true),
+      validators: [
+        { type: 'required' },
+        { type: 'minLength', value: 8 }
+      ]
+    },
       formInput2 = {
         name: 'textareaInput',
         type: 'textarea',
@@ -95,9 +103,9 @@ export class SandboxComponent implements OnInit {
           title: 'Vegetables',
           items:
             [
-              {value: 'carrot'},
-              {value: 'celery', isDisabled: true},
-              {value: 'potato'}
+              { value: 'carrot' },
+              { value: 'celery', isDisabled: true },
+              { value: 'potato' }
             ]
         })
       },
@@ -108,9 +116,9 @@ export class SandboxComponent implements OnInit {
         radio: new BossyFormRadioConfig({
           componentId: 'myRadio',
           items: [
-            {value: 'Option 1'},
-            {value: 'Option 2'},
-            {value: 'Option 3', isDisabled: true}
+            { value: 'Option 1' },
+            { value: 'Option 2' },
+            { value: 'Option 3', isDisabled: true }
           ]
         })
       },
@@ -131,21 +139,21 @@ export class SandboxComponent implements OnInit {
         new BossyFormElementConfig(formInput5),
         new BossyFormElementConfig(formInput6)
       ],
-        false,
-        'http://localhost:3000/api/addresses',
-        'http://localhost:3000/api/addresses',
+      false,
+      'http://localhost:3000/api/addresses',
+      'http://localhost:3000/api/addresses',
     );
 
     // Radio component independent of form
     const bossyFormRadioConfig = new BossyFormRadioConfig({
-        componentId: 'Pick Star Wars',
-        items: [
-          {value: 'The Neon Demon', isDisabled: true},
-          {value: 'Star Wars Episode VI: Return of the Jedi', isDisabled: false},
-          {value: 'Silence of the Lambs', isDisabled: true},
-          {value: 'Twilight', isDisabled: true}
-        ]
-      }
+      componentId: 'Pick Star Wars',
+      items: [
+        { value: 'The Neon Demon', isDisabled: true },
+        { value: 'Star Wars Episode VI: Return of the Jedi', isDisabled: false },
+        { value: 'Silence of the Lambs', isDisabled: true },
+        { value: 'Twilight', isDisabled: true }
+      ]
+    }
     );
     const formElementConfig = new BossyFormElementConfig(formInput4);
     const dropdownConfig = new BossyDropdownConfig('Dropdown Menu',
@@ -158,35 +166,43 @@ export class SandboxComponent implements OnInit {
         new BossyDropdownMenuConfig('Item 3', 'default', true),
         new BossyDropdownMenuConfig('Item 4', 'default', undefined, true, '#')
       ],
-    '',
-    '',
-    true
-  );
+      '',
+      '',
+      true
+    );
+
+    const buttonConfig = new BossyButtonConfig('Button', 'primary', '', false, false, false);
 
     const selectMenuConfig = new BossyFormSelectMenuConfig({
-        title: 'State',
-        items:
-          [
-            {value: 'California'},
-            {value: 'Nevada', isDisabled: true},
-            {value: 'Oregon'}
-          ]
-      }
+      title: 'State',
+      items:
+        [
+          { value: 'California' },
+          { value: 'Nevada', isDisabled: true },
+          { value: 'Oregon' }
+        ]
+    }
     );
     const bossyFormTextareaConfig = new BossyFormTextareaConfig(textareaInput1);
     const bossyPopoverConfig = new BossyPopoverConfig('popover', 'popover1234', true, 'right', 'PoverOver Title', 'Popover Description');
 
     const bossyPaginationConfig = new BossyPaginationConfig('pagination', '', '', [
-        {value: 'Previous', href: '#', isActive: false, isDisabled: false},
-        {value: '1', href: '#', isActive: true, isDisabled: false},
-        {value: '2', href: '#', isActive: false, isDisabled: false},
-        {value: '3', href: '#', isActive: false, isDisabled: true},
-        {value: 'Next', href: '#', isActive: false, isDisabled: false},
+      { value: 'Previous', href: '#', isActive: false, isDisabled: false },
+      { value: '1', href: '#', isActive: true, isDisabled: false },
+      { value: '2', href: '#', isActive: false, isDisabled: false },
+      { value: '3', href: '#', isActive: false, isDisabled: true },
+      { value: 'Next', href: '#', isActive: false, isDisabled: false },
     ]);
     const bossyCollapseConfig = new BossyCollapseConfig([
-        {name: 'button1' , data: 'example1'}
+      { name: 'button1', data: 'example1' }
     ], true);
 
+    const bossyBreadcrumbConfig = new BossyBreadcrumbConfig([
+      { name: 'home', href: 'http://localhost:4200' },
+      { name: 'sandbox', href: '/sandbox' },
+    ]);
+
+    this.configService.setConfig('bossyBreadcrumbConfig', bossyBreadcrumbConfig);
     this.configService.setConfig('modalConfig', modalConfig);
     this.configService.setConfig('alertConfig', alertConfig);
     this.configService.setConfig('calendarConfig', calendarConfig);
@@ -198,12 +214,12 @@ export class SandboxComponent implements OnInit {
     this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
     this.configService.setConfig('bossyCollapseConfig', bossyCollapseConfig);
     this.configService.setConfig('bossyPopoverConfig', bossyPopoverConfig);
+    this.configService.setConfig('buttonConfig', buttonConfig);
     this.configService.setConfig('navsConfig', navsConfig);
     this.configService.setConfig('carouselConfig', carouselConfig);
     this.configService.setConfig('bossyPaginationConfig', bossyPaginationConfig);
     this.configService.setConfig('navBarConfig', navBarConfig);
   }
-
 }
 
 

@@ -6,7 +6,7 @@
   <hr>
   <div class="component-main">
     <app-config [configName]="'alertConfig'">
-      <bossy-alert [config]="configService['alertConfig'].getValue()"></bossy-alert>
+      <bossy-alert #example [config]="configService['alertConfig'].getValue()" #example></bossy-alert>
     </app-config>
   </div>
 
@@ -14,7 +14,7 @@
   <hr>
   <div class="component-main">
     <app-config [configName]="'modalConfig'">
-      <bossy-modal [config]="configService['modalConfig'].getValue()"></bossy-modal>
+      <bossy-modal #example [config]="configService['modalConfig'].getValue()"></bossy-modal>
     </app-config>
   </div>
 
@@ -22,14 +22,14 @@
   <hr>
   <div class="component-main">
     <app-config [configName]="'navsConfig'">
-      <bossy-navs [config]="configService['navsConfig'].getValue()">
+      <bossy-navs #example [config]="configService['navsConfig'].getValue()">
         <bossy-nav-tab>This is where your content for the first tab would go
         </bossy-nav-tab>
         <bossy-nav-tab>This is where your content for the second tab would go
         </bossy-nav-tab>
         <bossy-nav-tab>This is where your content for the third tab would go
-          </bossy-nav-tab>
-          <div class="row mb-3"></div>
+        </bossy-nav-tab>
+        <div class="row mb-3"></div>
       </bossy-navs>
     </app-config>
   </div>
@@ -48,7 +48,7 @@
   <hr>
   <div class="component-main">
     <app-config [configName]="'carouselConfig'">
-      <bossy-carousel [config]="configService['carouselConfig'].getValue()"></bossy-carousel>
+      <bossy-carousel #example [config]="configService['carouselConfig'].getValue()"></bossy-carousel>
     </app-config>
   </div>
 
@@ -56,7 +56,7 @@
   <hr>
   <div class="component-main">
     <app-config [configName]="'calendarConfig'">
-      <bossy-calendar [config]="configService['calendarConfig'].getValue()"></bossy-calendar>
+      <bossy-calendar #example [config]="configService['calendarConfig'].getValue()"></bossy-calendar>
     </app-config>
   </div>
 
@@ -64,7 +64,7 @@
   <hr>
   <div class="component-main">
     <app-config [configName]="'formConfig'">
-      <bossy-form [config]="configService['formConfig'].getValue()"></bossy-form>
+      <bossy-form #example [config]="configService['formConfig'].getValue()"></bossy-form>
     </app-config>
   </div>
 
@@ -72,7 +72,7 @@
   <hr>
   <div class="component-main">
     <app-config [configName]="'formElementConfig'">
-      <bossy-form-element [config]="configService['formElementConfig'].getValue()"></bossy-form-element>
+      <bossy-form-element #example [config]="configService['formElementConfig'].getValue()"></bossy-form-element>
     </app-config>
   </div>
 
@@ -80,7 +80,7 @@
   <hr>
   <div class="component-main">
     <app-config [configName]="'bossyFormRadioConfig'">
-      <bossy-form-radio [config]="configService['bossyFormRadioConfig'].getValue()"></bossy-form-radio>
+      <bossy-form-radio #example [config]="configService['bossyFormRadioConfig'].getValue()"></bossy-form-radio>
     </app-config>
   </div>
 
@@ -88,7 +88,15 @@
   <hr>
   <div class="component-main">
     <app-config [configName]="'dropdownConfig'">
-      <bossy-dropdown [config]="configService['dropdownConfig'].getValue()"></bossy-dropdown>
+      <bossy-dropdown #example [config]="configService['dropdownConfig'].getValue()"></bossy-dropdown>
+    </app-config>
+  </div>
+
+  <h2>Button</h2>
+  <hr>
+  <div class="component-main">
+    <app-config [configName]="'buttonConfig'">
+      <bossy-button #example [config]="configService['selectMenuConfig'].getValue()"></bossy-button>
     </app-config>
   </div>
 
@@ -96,7 +104,7 @@
   <hr>
   <div class="component-main">
     <app-config [configName]="'selectMenuConfig'">
-      <bossy-form-selectmenu [config]="configService['selectMenuConfig'].getValue()"></bossy-form-selectmenu>
+      <bossy-form-selectmenu #example [config]="configService['selectMenuConfig'].getValue()"></bossy-form-selectmenu>
     </app-config>
   </div>
 
@@ -104,7 +112,7 @@
   <hr>
   <div class="component-main">
     <app-config [configName]="'bossyFormTextareaConfig'">
-      <bossy-form-textarea [config]="configService['bossyFormTextareaConfig'].getValue()"></bossy-form-textarea>
+      <bossy-form-textarea #example [config]="configService['bossyFormTextareaConfig'].getValue()"></bossy-form-textarea>
     </app-config>
   </div>
 
@@ -112,7 +120,15 @@
   <hr>
   <div class="component-main">
     <app-config [configName]="'bossyCollapseConfig'">
-      <bossy-collapse [config]="configService['bossyCollapseConfig'].getValue()"></bossy-collapse>
+      <bossy-collapse #example [config]="configService['bossyCollapseConfig'].getValue()"></bossy-collapse>
+    </app-config>
+  </div>
+
+  <h2>Breadcrumb</h2>
+  <hr>
+  <div class="component-main">
+    <app-config [configName]="'bossyBreadcrumbConfig'">
+      <bossy-breadcrumb #example [config]="configService['bossyBreadcrumbConfig'].getValue()"></bossy-breadcrumb>
     </app-config>
   </div>
 
@@ -120,7 +136,7 @@
   <hr>
   <div class="component-main">
     <app-config [configName]="'bossyPopoverConfig'">
-      <bossy-popover [config]="configService['bossyPopoverConfig'].getValue()"></bossy-popover>
+      <bossy-popover #example [config]="configService['bossyPopoverConfig'].getValue()"></bossy-popover>
     </app-config>
   </div>
 
@@ -128,8 +144,8 @@
   <hr>
   <div class="component-main">
     <app-config [configName]="'bossyPaginationConfig'">
-      <bossy-pagination [config]="configService['bossyPaginationConfig'].getValue()"></bossy-pagination>
+      <bossy-pagination #example [config]="configService['bossyPaginationConfig'].getValue()"></bossy-pagination>
     </app-config>
   </div>
-  
+
 </main>

@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
+import {BossyBreadcrumbComponent} from './components/breadcrumb/breadcrumb.component';
+import {BossyBreadcrumbConfig} from './components/breadcrumb/breadcrumb.config';
 import {BossyCalendarComponent} from './components/calendar/calendar.component';
 import {BossyFormElementComponent} from './components/form-element/form-element.component';
 import {BossyFormComponent} from './components/form/form.component';
@@ -21,6 +23,8 @@ import {BossyModalComponent} from './components/modal/modal.component';
 import {BossyModalConfig} from './components/modal/modal.config';
 import {BossyPopoverComponent} from './components/popover/popover.component';
 import {BossyPopoverConfig} from './components/popover/popover.config';
+import {BossyButtonComponent} from './components/button/button.component';
+import {BossyButtonConfig} from './components/button/button.config';
 import {BossyNavsComponent} from './components/navs/navs.component';
 import {BossyNavsConfig} from './components/navs/navs.config';
 import {BossyNavTabComponent} from './components/navs/nav-tab.component';
@@ -33,7 +37,8 @@ import {BossyNavBarComponent} from './components/nav-bar/nav-bar.component';
 import {BossyNavBarConfig} from './components/nav-bar/nav-bar.config';
 
 
-
+export {BossyBreadcrumbComponent} from './components/breadcrumb/breadcrumb.component';
+export {BossyBreadcrumbConfig} from './components/breadcrumb/breadcrumb.config';
 export {BossyCalendarComponent} from './components/calendar/calendar.component';
 export {BossyCalendarConfig} from './components/calendar/calendar.config';
 export {BossyAlertComponent} from './components/alert/alert.component';
@@ -71,6 +76,9 @@ export {BossyDropdownMenuConfig} from './components/dropdown-menu/dropdown-menu.
 export {BossyPopoverComponent} from './components/popover/popover.component';
 export {BossyPopoverConfig} from './components/popover/popover.config';
 
+export {BossyButtonComponent} from './components/button/button.component';
+export {BossyButtonConfig} from './components/button/button.config';
+
 export {BossyPaginationComponent} from './components/pagination/pagination.component';
 export {BossyPaginationConfig} from './components/pagination/pagination.config';
 export {BossyPagesComponent} from './components/pagination/pages.component';
@@ -83,6 +91,7 @@ export {BossyPagesComponent} from './components/pagination/pages.component';
     BrowserAnimationsModule
   ],
   declarations: [
+    BossyBreadcrumbComponent,
     BossyCalendarComponent,
     BossyAlertComponent,
     BossyModalComponent,
@@ -99,6 +108,9 @@ export {BossyPagesComponent} from './components/pagination/pages.component';
     BossyMaskDirective,
     BossyCollapseComponent,
     BossyPopoverComponent,
+    BossyButtonComponent,
+    BossyPaginationComponent,
+    BossyPagesComponent,
     BossyNavsComponent,
     BossyNavTabComponent,
     BossyCarouselComponent,
@@ -107,6 +119,7 @@ export {BossyPagesComponent} from './components/pagination/pages.component';
     BossyNavBarComponent
   ],
   exports: [
+    BossyBreadcrumbComponent,
     BossyCalendarComponent,
     BossyAlertComponent,
     BossyModalComponent,
@@ -120,6 +133,7 @@ export {BossyPagesComponent} from './components/pagination/pages.component';
     BossyFormElementErrorComponent,
     BossyCollapseComponent,
     BossyPopoverComponent,
+    BossyButtonComponent,
     BossyNavsComponent,
     BossyNavTabComponent,
     BossyCarouselComponent,
