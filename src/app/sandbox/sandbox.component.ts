@@ -20,6 +20,8 @@ import { BossyNavsConfig, navsAlignment, navsType, NavItem, navsActive } from '.
 import { BossyCarouselComponent } from '../../bossy-ui/components/carousel/carousel.component';
 import { BossyCarouselConfig, CarouselImage } from '../../bossy-ui/components/carousel/carousel.config';
 import { BossyPaginationConfig } from '../../bossy-ui/components/pagination/pagination.config';
+import { BossyScrollspyConfig, ScrollspyItem, scrollspyType } from '../../bossy-ui/components/scrollspy/scrollspy.config';
+import { BossyScrollspyComponent } from '../../bossy-ui/components/scrollspy/scrollspy.component';
 
 @Component({
   selector: 'app-sandbox',
@@ -31,6 +33,24 @@ export class SandboxComponent implements OnInit {
   }
 
   ngOnInit() {
+    const scrollspyItems = [
+      {
+        'id': 'First'
+      },
+      {
+        'id': 'Second'
+      },
+      {
+        'id': 'Third'
+      },
+      {
+        'id': 'Fourth'
+      },
+      {
+        'id': 'Fifth'
+      },
+    ];
+    const scrollspyConfig = new BossyScrollspyConfig(scrollspyItems,scrollspyType.navBar)
     const carouselItems = [
       {
         'title': 'First',
@@ -207,6 +227,8 @@ export class SandboxComponent implements OnInit {
     this.configService.setConfig('navsConfig', navsConfig);
     this.configService.setConfig('carouselConfig', carouselConfig);
     this.configService.setConfig('bossyPaginationConfig', bossyPaginationConfig);
+    this.configService.setConfig('scrollspyConfig', scrollspyConfig);
+
   }
 }
 

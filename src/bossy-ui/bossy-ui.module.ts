@@ -33,6 +33,9 @@ import {BossyCarouselConfig} from './components/carousel/carousel.config';
 import {BossyPaginationComponent} from './components/pagination/pagination.component';
 import {BossyPaginationConfig} from './components/pagination/pagination.config';
 import {BossyPagesComponent} from './components/pagination/pages.component';
+import {BossyScrollspyComponent} from './components/scrollspy/scrollspy.component';
+import {BossyScrollspyItemComponent} from './components/scrollspy/scrollspy-item.component';
+
 
 
 export {BossyBreadcrumbComponent} from './components/breadcrumb/breadcrumb.component';
@@ -78,6 +81,9 @@ export {BossyButtonConfig} from './components/button/button.config';
 export {BossyPaginationComponent} from './components/pagination/pagination.component';
 export {BossyPaginationConfig} from './components/pagination/pagination.config';
 export {BossyPagesComponent} from './components/pagination/pages.component';
+export {BossyScrollspyComponent} from './components/scrollspy/scrollspy.component';
+export {BossyScrollspyItemComponent} from './components/scrollspy/scrollspy-item.component';
+
 
 
 @NgModule({
@@ -111,7 +117,9 @@ export {BossyPagesComponent} from './components/pagination/pages.component';
     BossyNavTabComponent,
     BossyCarouselComponent,
     BossyPaginationComponent,
-    BossyPagesComponent
+    BossyPagesComponent,
+    BossyScrollspyComponent,
+    BossyScrollspyItemComponent,
   ],
   exports: [
     BossyBreadcrumbComponent,
@@ -134,6 +142,8 @@ export {BossyPagesComponent} from './components/pagination/pages.component';
     BossyCarouselComponent,
     BossyPaginationComponent,
     BossyPagesComponent,
+    BossyScrollspyComponent,
+    BossyScrollspyItemComponent
   ]
 })
 export class BossyModule {

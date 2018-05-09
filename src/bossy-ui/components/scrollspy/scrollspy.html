@@ -1,0 +1,12 @@
+<nav id="navbar-example2" class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <ul class="nav nav-pills">
+            <div *ngFor="let item of scrollspyItems; let i = index;">
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'active' : isNavActive[i]}" href="#{{item.id}}">{{item.id}}</a>
+        </div>
+        </ul>
+      </nav>
+      <div data-spy="scroll" scroll (scrollPosition)="scrollChanged($event)" data-scroll-offset="0" data-target="#navbar-example2" data-offset="0" style="overflow: auto; position: relative; height: 300px; margin-top: .5rem;">
+        <ng-content></ng-content>
+    </div>
