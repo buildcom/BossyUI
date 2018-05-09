@@ -38,7 +38,7 @@
   <hr>
   <div class="component-main">
     <app-config [configName]="'navBarConfig'">
-      <bossy-nav-bar [config]="configService['navBarConfig'].getValue()">
+      <bossy-nav-bar #example [config]="configService['navBarConfig'].getValue()">
           <div class="row mb-3"></div>
       </bossy-nav-bar>
     </app-config>
