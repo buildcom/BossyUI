@@ -34,6 +34,16 @@
     </app-config>
   </div>
 
+  <h2>Nav Bar</h2>
+  <hr>
+  <div class="component-main">
+    <app-config [configName]="'navBarConfig'">
+      <bossy-nav-bar #example [config]="configService['navBarConfig'].getValue()">
+          <div class="row mb-3"></div>
+      </bossy-nav-bar>
+    </app-config>
+  </div>
+
   <h2>Carousel</h2>
   <hr>
   <div class="component-main">
