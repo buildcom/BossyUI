@@ -24,18 +24,26 @@ export class BossyButtonComponent implements OnInit {
     // Type
     if ( this.config.type !== '' ) {
       this.type = ' btn-' + this.outline + this.config.type;
+    } else {
+      this.type = '';
     }
     // Size
     if ( this.config.size !== '' ) {
       this.size = ' btn-' + this.config.size;
+    } else {
+      this.size = '';
     }
     // Active
     if ( this.config.active === true) {
       this.active = ' active';
+    } else {
+      this.active = '';
     }
     // Block
     if ( this.config.block === true) {
-      this.active = ' btn-block';
+      this.block = ' btn-block';
+    } else {
+      this.block = '';
     }
   }
 }

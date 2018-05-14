@@ -171,8 +171,25 @@ export class SandboxComponent implements OnInit {
       true
     );
 
-    const buttonConfig = new BossyButtonConfig('Button', 'primary', '', false, false, false);
+    const dropdownConfig2 = new BossyDropdownConfig('Dropdown Menu 2',
+      'success',
+      [
+        new BossyDropdownMenuConfig('Header', 'header'),
+        new BossyDropdownMenuConfig('Something', 'default', undefined, undefined, '#'),
+        new BossyDropdownMenuConfig('Div', 'divider'),
+        new BossyDropdownMenuConfig('Test', 'default'),
+      ],
+      'right',
+      'large',
+      false
+    );
 
+    const buttonConfig = new BossyButtonConfig('Button', 'primary', '', false, false, false);
+    const buttonConfig2 = new BossyButtonConfig('Button 2', 'danger', 'sm', false, false, false);
+    const buttonConfig3 = new BossyButtonConfig('Button 3', 'success', 'lg', true, false, false);
+    const buttonConfig4 = new BossyButtonConfig('Button 4', 'warning', '', false, true, false);
+    const buttonConfig5 = new BossyButtonConfig('Button 5', 'dark', '', false, false, true);
+    const buttonConfig6 = new BossyButtonConfig('Button 4', 'warning', '', false, false, false);
     const selectMenuConfig = new BossyFormSelectMenuConfig({
       title: 'State',
       items:
@@ -210,11 +227,17 @@ export class SandboxComponent implements OnInit {
     this.configService.setConfig('formElementConfig', formElementConfig);
     this.configService.setConfig('bossyFormRadioConfig', bossyFormRadioConfig);
     this.configService.setConfig('dropdownConfig', dropdownConfig);
+    this.configService.setConfig('dropdownConfig2', dropdownConfig2);
     this.configService.setConfig('selectMenuConfig', selectMenuConfig);
     this.configService.setConfig('bossyFormTextareaConfig', bossyFormTextareaConfig);
     this.configService.setConfig('bossyCollapseConfig', bossyCollapseConfig);
     this.configService.setConfig('bossyPopoverConfig', bossyPopoverConfig);
     this.configService.setConfig('buttonConfig', buttonConfig);
+    this.configService.setConfig('buttonConfig2', buttonConfig2);
+    this.configService.setConfig('buttonConfig3', buttonConfig3);
+    this.configService.setConfig('buttonConfig4', buttonConfig4);
+    this.configService.setConfig('buttonConfig5', buttonConfig5);
+    this.configService.setConfig('buttonConfig6', buttonConfig6);
     this.configService.setConfig('navsConfig', navsConfig);
     this.configService.setConfig('carouselConfig', carouselConfig);
     this.configService.setConfig('bossyPaginationConfig', bossyPaginationConfig);
