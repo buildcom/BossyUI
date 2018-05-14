@@ -25,7 +25,7 @@ export class BossyPopoverComponent implements OnInit {
   dismissable = false;
 
   ngOnInit() {
-    this.dismissable = Boolean(this.config.isDismissable);
+    this.dismissable = false;
     this.calcSpacing();
     const elements = this._eref.nativeElement.querySelectorAll('button');
     this.eventTarget = elements[0];
